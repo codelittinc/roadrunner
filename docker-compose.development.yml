@@ -1,0 +1,40 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    container_name: rails-api-base-project-db
+    env_file:
+      - .env
+    ports:
+      - '5432:5432'
+
+  app:
+    container_name: rails-api-base-project-api
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+
+    volumes:
+      - .:/share
+
+    env_file:
+      - .env
+
+    ports:
+      - '3000:3000'
+
+    depends_on:
+      - db
+      - box
+
+    links:
+      - db
+      - box
+
+  box:
+    container_name: rails-api-base-project-bundle-box
+    image: busybox
+    volumes:
+      - /box

@@ -1,0 +1,5 @@
+#MAINTAINER Kaio Magalhaes, Inc.
+
+touch .env
+docker-compose -f docker-compose.development.yml up -d
+docker exec -it rails-api-base-project-api bash
