@@ -2,14 +2,14 @@ version: '2'
 services:
   db:
     image: postgres
-    container_name: rails-api-base-project-db
+    container_name: roadrunner-project-db
     env_file:
       - .env
     ports:
       - '5432:5432'
 
   app:
-    container_name: rails-api-base-project-api
+    container_name: roadrunner-project-api
     tty: true
     stdin_open: true
     build:
@@ -34,7 +34,7 @@ services:
       - box
 
   box:
-    container_name: rails-api-base-project-bundle-box
+    container_name: roadrunner-project-bundle-box
     image: busybox
     volumes:
       - /box

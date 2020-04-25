@@ -2,4 +2,4 @@
 
 touch .env
 docker-compose -f docker-compose.development.yml up -d
-docker exec -it rails-api-base-project-api bash
+docker exec -it roadrunner-project-api bash
