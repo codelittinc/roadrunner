@@ -1,0 +1,13 @@
+require: rubocop-rails
+
+# Enable all rubocop new cops between versions
+AllCops:
+  NewCops: enable
+
+# Ignore comments
+Metrics/LineLength:
+  Max: 80
+  IgnoredPatterns: ['#\s']
+
+Style/Documentation:
+ Enabled: false
