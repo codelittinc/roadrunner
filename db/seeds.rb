@@ -1,3 +1,4 @@
+# users
 User.create(slack: "matias", jira: "5e6648d0219fb10cf9ed9c8d")
 User.create(slack: "vincent", jira: "5c73e558a610e635fa0fad26")
 User.create(slack: "ian.campelo", jira: "5e67dba377d46c0cf93af7f0", github: "iancampelo")
@@ -17,3 +18,13 @@ User.create(slack: "alessandro.alves", jira: "5b167e5dc2fc1b1bc37bb16c", github:
 User.create(slack: "manuel.lajo", jira: "5e6aa4e72a0bb00ce03419be", github: "Manuel-Lajo-Salazar")
 User.create(slack: "mauricio.villaalba", jira: "5e6f922e5ffd840c43a99308", github: "mvillalba2016")
 User.create(slack: "ana.marija", jira: "5ca6158010e4f967c3022b24")
+
+# repositories
+r1 = Repository.new
+s1 = Server.create(link: 'https://roadrunner.codelitt.dev', repository: r1, supports_health_check: true)
+sl1 = SlackRepositoryInfo.create(deploy_channel: 'test-gh', repository: r1)
+
+
+r2 = Repository.new
+s2 = Server.create(link: 'https://rolliapp.com', repository: r2, supports_health_check: false)
+sl2 = SlackRepositoryInfo.create(deploy_channel: 'test-gh', repository: r2)
