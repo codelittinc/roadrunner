@@ -6,11 +6,9 @@ class HealthCheckController < ApplicationController
     servers.each do |server|
       status = get_status(server.link)
 
-      if status == '200'
-        slack_channel = server.repository.slack_repository_info.deploy_channel
-        message = ":fire: the server #{server.link} is down"
-        send_slack_message(slack_channel, message)
-      end
+      slack_channel = server.repository.slack_repository_info.deploy_channel
+      message = ":fire: the server #{server.link} is down"
+      send_slack_message(slack_channel, message)
     end
   end
 
