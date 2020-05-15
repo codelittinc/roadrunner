@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_165321) do
+ActiveRecord::Schema.define(version: 2020_05_15_205058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "repositories", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "servers", force: :cascade do |t|
+    t.string "link"
+    t.boolean "supports_health_check"
+    t.bigint "repository_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["repository_id"], name: "index_servers_on_repository_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "github"
