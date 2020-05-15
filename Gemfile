@@ -35,6 +35,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
   gem 'rubocop-rails', require: false
   gem 'shoulda-matchers'
+  gem 'dotenv-rails', groups: [:development, :test]
 end
 
 group :development do
