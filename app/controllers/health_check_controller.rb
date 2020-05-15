@@ -23,8 +23,10 @@ class HealthCheckController < ApplicationController
   end
 
   def send_slack_message(channel, message)
-    slack_api_key='eyJhbGciOiJIUzI1NiJ9.cm9hZHJ1bm5lcg.2RCJIS5rW7oggjzgCvu1xGrx3e0hBE-3zSraiLUa1eY'
-    slack_api_url='https://prod-slack-api.herokuapp.com/channel-messages'
+    hostname = ENV['HOSTNAME']
+
+    slack_api_key=ENV['SLACK_API_KEY']
+    slack_api_url="#{ENV['SLACK_API_URL']}/channel-messages"
 
     uri = URI(slack_api_url)
     params = {
