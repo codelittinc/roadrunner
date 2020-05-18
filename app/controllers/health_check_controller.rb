@@ -2,25 +2,34 @@ require 'net/http'
 
 class HealthCheckController < ApplicationController
   def index 
-    servers = Server.where(supports_health_check: true)
+    servers = Server.all
+    puts servers.count
     servers.each do |server|
-      status = get_status(server.link)
+      link = server.link
+      link = "#{server.link}/health" if server.supports_health_check
 
-      if status != "200"
+      response = get(link)
+
+      if response.code != "200"
         slack_channel = server.repository.slack_repository_info.deploy_channel
-        message = ":fire: the server #{server.link} is down"
+        message = ":fire: the server #{server.link} is down."
+        
+        if server.supports_health_check
+          message = "#{message} Error: \n #{response.body}"
+        end
+
         send_slack_message(slack_channel, message)
       end
     end
+
     render status: 200
   end
 
   private
 
-  def get_status url
+  def get url
     uri = URI(url)
-    res = Net::HTTP.get_response(uri)
-    res.code
+    Net::HTTP.get_response(uri)
   end
 
   def send_slack_message(channel, message)
