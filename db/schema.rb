@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_231909) do
+ActiveRecord::Schema.define(version: 2020_05_19_010621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2020_05_18_231909) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "project_id"
+    t.string "deploy_type"
+    t.boolean "supports_deploy"
     t.index ["project_id"], name: "index_repositories_on_project_id"
   end
 
@@ -42,6 +44,8 @@ ActiveRecord::Schema.define(version: 2020_05_18_231909) do
     t.bigint "repository_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "dev_channel"
+    t.string "dev_group"
     t.index ["repository_id"], name: "index_slack_repository_infos_on_repository_id"
   end
 

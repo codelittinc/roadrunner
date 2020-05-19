@@ -19,12 +19,16 @@ User.create(slack: "manuel.lajo", jira: "5e6aa4e72a0bb00ce03419be", github: "Man
 User.create(slack: "mauricio.villaalba", jira: "5e6f922e5ffd840c43a99308", github: "mvillalba2016")
 User.create(slack: "ana.marija", jira: "5ca6158010e4f967c3022b24")
 
+# projects
+p1 = Project.create(name: 'Roadrunner')
+p2 = Project.create(name: 'Rolli')
+
 # repositories
-r1 = Repository.new
+r1 = Repository.new(project: p1)
 s1 = Server.create(link: 'https://roadrunner.codelitt.dev', repository: r1, supports_health_check: true)
 sl1 = SlackRepositoryInfo.create(deploy_channel: 'test-gh', repository: r1)
 
 
-r2 = Repository.new
+r2 = Repository.new(project: p2)
 s2 = Server.create(link: 'https://rolliapp.com', repository: r2, supports_health_check: false)
 sl2 = SlackRepositoryInfo.create(deploy_channel: 'test-gh', repository: r2)

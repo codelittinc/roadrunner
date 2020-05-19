@@ -3,7 +3,6 @@ require 'net/http'
 class HealthCheckController < ApplicationController
   def index 
     servers = Server.all
-    puts servers.count
     servers.each do |server|
       link = server.link
       link = "#{server.link}/health" if server.supports_health_check
