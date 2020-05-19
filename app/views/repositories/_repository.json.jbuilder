@@ -1,7 +1,8 @@
-json.projectName repository.project.name
-json.deployChannel repository.slack_repository_info.deploy_channel
-json.devChannel repository.slack_repository_info.dev_channel
+json.name repository.name
 json.devGroup repository.slack_repository_info.dev_group
-json.deployWithTag repository.deploy_with_tag?
+json.channel repository.slack_repository_info.dev_channel
+json.deployChannel repository.slack_repository_info.deploy_channel if repository.slack_repository_info.deploy_channel
+json.owner 'codelittinc'
 json.supportsDeploy repository.supports_deploy?
-json.servers repository.servers.map(&:link)
+json.deployWithTag repository.deploy_with_tag? if repository.deploy_type
+json.servers repository.servers.map(&:alias).reject(&:nil?) if repository.servers.length > 0
