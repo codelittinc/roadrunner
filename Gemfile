@@ -12,6 +12,7 @@ gem 'puma', '~> 4.1'
 # Database
 gem 'pg', '~> 1.2'
 gem 'pg_search'
+gem 'data_migrate', '~> 6.3'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_010621) do
+ActiveRecord::Schema.define(version: 2020_05_19_131858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_05_19_010621) do
     t.bigint "project_id"
     t.string "deploy_type"
     t.boolean "supports_deploy"
+    t.string "name"
     t.index ["project_id"], name: "index_repositories_on_project_id"
   end
 
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_05_19_010621) do
     t.bigint "repository_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "alias"
     t.index ["repository_id"], name: "index_servers_on_repository_id"
   end
 

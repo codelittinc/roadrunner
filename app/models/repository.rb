@@ -6,7 +6,7 @@ class Repository < ApplicationRecord
   TAG_DEPLOY_TYPE = 'tag'
   BRANCH_DEPLOY_TYPE = 'branch'
 
-  validates :deploy_type, presence: true, inclusion: { in: [TAG_DEPLOY_TYPE, BRANCH_DEPLOY_TYPE] }
+  validates :deploy_type, inclusion: { in: [TAG_DEPLOY_TYPE, BRANCH_DEPLOY_TYPE, nil] }
 
   def deploy_with_tag?
     deploy_type == TAG_DEPLOY_TYPE
