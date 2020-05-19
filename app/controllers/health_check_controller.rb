@@ -4,28 +4,33 @@ class HealthCheckController < ApplicationController
   def index 
     servers = Server.all
     puts "Health check starting!"
-    servers.each do |server|
-      link = server.link
-      link = "#{server.link}/health" if server.supports_health_check
+    render json: { status: :ok }, status: :ok
 
-      response = get(link)
+    Thread.new do
+      servers.each do |server|
+        link = server.link
+        link = "#{server.link}/health" if server.supports_health_check
 
-      valid_status_codes = ["401", "200"]
+        response = get(link)
 
-      puts "#{link} #{response.code}"
-      if !valid_status_codes.include?(response.code)
-        slack_channel = server.repository.slack_repository_info.deploy_channel
-        message = ":fire: the server #{server.link} is down."
-        
-        if server.supports_health_check
-          message = "#{message} Error: \n #{response.body}"
+        valid_status_codes = ["401", "200"]
+
+        puts "#{link} #{response.code}"
+        if !valid_status_codes.include?(response.code)
+          slack_channel = server.repository.slack_repository_info.deploy_channel
+          message = ":fire: the server #{server.link} is down."
+          
+          if server.supports_health_check
+            message = "#{message} Error: \n #{response.body}"
+          end
+
+          send_slack_message(slack_channel, message)
         end
-
-        send_slack_message(slack_channel, message)
       end
+
+      Thread.exit
     end
 
-    render json: { status: :ok }, status: :ok
   end
 
   private
