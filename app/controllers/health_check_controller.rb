@@ -3,6 +3,7 @@ require 'net/http'
 class HealthCheckController < ApplicationController
   def index 
     servers = Server.all
+    puts "Health check starting!"
     servers.each do |server|
       link = server.link
       link = "#{server.link}/health" if server.supports_health_check
@@ -11,6 +12,7 @@ class HealthCheckController < ApplicationController
 
       valid_status_codes = ["401", "200"]
 
+      puts "#{link} #{response.code}"
       if !valid_status_codes.include?(response.code)
         slack_channel = server.repository.slack_repository_info.deploy_channel
         message = ":fire: the server #{server.link} is down."
