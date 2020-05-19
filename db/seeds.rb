@@ -67,8 +67,6 @@ if ENV['SEED_CREATE_PROJETS']
       supports_deploy: true,
       deploy_type: Repository::BRANCH_DEPLOY_TYPE,
       servers: [
-        Server.new(link: 'https://dev-team-maker.codelitt.dev', supports_health_check: false, alias: 'dev-team-maker'),
-        Server.new(link: 'https://qa-team-maker.codelitt.dev', supports_health_check: false, alias: 'qa-team-maker'),
         Server.new(link: 'https://team-maker.codelitt.dev', supports_health_check: false, alias: 'prod-team-maker'),
       ],
       slack_repository_info: SlackRepositoryInfo.new(dev_group: '@team-maker-devs', dev_channel: 'team-teammaker-dev', deploy_channel: 'wg-teammaker-deploy')
@@ -80,11 +78,6 @@ if ENV['SEED_CREATE_PROJETS']
       name: 'zonda',
       supports_deploy: true,
       deploy_type: Repository::BRANCH_DEPLOY_TYPE,
-      servers: [
-        Server.new(link: 'https://dev-zonda.herokuapp.com', supports_health_check: false, alias: 'dev-zonda'),
-        Server.new(link: 'https://qa-zonda.herokuapp.com', supports_health_check: false, alias: 'qa-zonda'),
-        Server.new(link: 'https://team-maker.codelitt.dev', supports_health_check: false, alias: 'prod-zonda'),
-      ],
       slack_repository_info: SlackRepositoryInfo.new(dev_group: '@zonda-devs', dev_channel: 'team-zonda-dev', deploy_channel: 'wg-zonda-deploy')
     )
   ])

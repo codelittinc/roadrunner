@@ -9,7 +9,9 @@ class HealthCheckController < ApplicationController
 
       response = get(link)
 
-      if response.code != "200"
+      valid_status_codes = ["401", "200"]
+
+      if !valid_status_codes.include?(response.code)
         slack_channel = server.repository.slack_repository_info.deploy_channel
         message = ":fire: the server #{server.link} is down."
         
@@ -21,7 +23,7 @@ class HealthCheckController < ApplicationController
       end
     end
 
-    render status: 200
+    render json: { status: :ok }, status: :ok
   end
 
   private
