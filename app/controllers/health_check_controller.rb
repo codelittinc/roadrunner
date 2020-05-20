@@ -2,7 +2,7 @@ require 'net/http'
 
 class HealthCheckController < ApplicationController
   def index 
-    servers = Server.all
+    servers = Server.where(active: true)
     puts "Health check starting!"
     render json: { status: :ok }, status: :ok
 
