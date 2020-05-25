@@ -21,7 +21,7 @@ if ENV['SEED_CREATE_USERS']
   User.create(slack: "ana.marija", jira: "5ca6158010e4f967c3022b24")
 end
 
-if ENV['SEED_CREATE_PROJETS']
+if ENV['SEED_CREATE_PROJECTS']
   Project.create!(name: 'Roadrunner', repositories: [
     Repository.new(
       name: 'roadrunner',
@@ -32,12 +32,13 @@ if ENV['SEED_CREATE_PROJETS']
       slack_repository_info: SlackRepositoryInfo.new(dev_group: '@engineers', dev_channel: 'team-automations-dev')
     )
   ])
-  
+
   Project.create!(name: 'Codelitt website', repositories: [
     Repository.new(
       name: 'codelitt-v2',
       supports_deploy: true,
       deploy_type: Repository::TAG_DEPLOY_TYPE,
+      jira_project: 'CW',
       servers: [
         Server.new(link: 'https://codelitt.dev', supports_health_check: false, alias: 'dev-website-codelitt'),
         Server.new(link: 'https://qa.codelitt.dev', supports_health_check: false, alias: 'qa-codelitt-website'),
@@ -89,12 +90,14 @@ if ENV['SEED_CREATE_PROJETS']
     ),
     Repository.new(
       name: 'ay-properties-api',
-      slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev')
+      slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev'),
+      jira_project: 'AYAPI'
     ),
     Repository.new(
       name: 'ay-pia-web',
       supports_deploy: true,
       deploy_type: Repository::BRANCH_DEPLOY_TYPE,
+      jira_project: 'HUB',
       servers: [
         Server.new(link: 'https://dev-ay-pia-web.herokuapp.com', supports_health_check: false, alias: 'dev-ay-pia-web'),
         Server.new(link: 'https://pia-web-prod.azurewebsites.net', supports_health_check: false),
@@ -103,21 +106,20 @@ if ENV['SEED_CREATE_PROJETS']
     ),
     Repository.new(
       name: 'ay-excel-import-api',
-      slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev')
-    ),
-    Repository.new(
-      name: 'ay-excel-import-app',
-      slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev')
+      slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev'),
+      jira_project: 'AYI'
     ),
     Repository.new(
       name: 'ay-property-intelligence',
       supports_deploy: true,
       deploy_type: Repository::BRANCH_DEPLOY_TYPE,
+      jira_project: 'AYPI',
       slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-mobile-devs', dev_channel: 'team-ay-pia-dev', deploy_channel: 'team-ay-pia-deploy')
     ),
     Repository.new(
       name: 'ay-users-api',
-      slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev')
+      slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev'),
+      jira_project: 'AYAPI'
     )
   ])
   
