@@ -3,6 +3,8 @@
 Rails.application.routes.draw do
   get 'user_search', to: 'user_search#index'
   get 'health_check', to: 'health_check#index'
+  post 'flows', to: 'flow#create'
+
   resources :users
   resources :repositories
   resources :jira

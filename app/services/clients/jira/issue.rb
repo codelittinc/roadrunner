@@ -7,6 +7,10 @@ module Clients
         body = Request.get(projects_url, authorization)
         body["issues"];
       end
+
+      def self.build_url key
+        "https://codelitt.atlassian.net/browse/#{key}"
+      end
     end 
   end
 end
