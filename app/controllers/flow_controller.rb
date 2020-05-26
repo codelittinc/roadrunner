@@ -1,6 +1,8 @@
 class FlowController < ApplicationController
   def create
-    FlowExecutor.new(params).execute
+    Thread.new do
+      FlowExecutor.new(params).execute
+    end
 
     render json: {
       status: 200
