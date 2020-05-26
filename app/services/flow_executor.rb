@@ -15,8 +15,9 @@ class FlowExecutor
     classnames.each do |classname|
       classConst = Object.const_get("Flows::#{classname}")
       object = classConst.new(@params)
-      puts "isFlow? #{object.isFlow}"
-      object.run
+      if object.isFlow?
+        object.run
+      end
     end
   end
 end
