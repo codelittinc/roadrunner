@@ -28,7 +28,7 @@ module Flows
       )
     end
 
-    def isFlow
+    def isFlow?
       text = @params[:text]
       return false if text.nil?
 
