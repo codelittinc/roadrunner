@@ -29,7 +29,7 @@ if ENV['SEED_CREATE_PROJECTS']
       servers: [
         Server.new(link: 'https://roadrunner.codelitt.dev', supports_health_check: false, alias: 'prod-roadrunner')
       ],
-      slack_repository_info: SlackRepositoryInfo.new(dev_group: '@engineers', dev_channel: 'team-automations-dev')
+      slack_repository_info: SlackRepositoryInfo.new(dev_group: '@engineers', dev_channel: 'team-automations-dev', deploy_channel: 'team-automations-dev')
     )
   ])
 
