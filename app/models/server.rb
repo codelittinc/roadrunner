@@ -3,4 +3,6 @@ class Server < ApplicationRecord
 
   validates :link, presence: true
   validates :repository, presence: true
+
+  has_one :slack_repository_info, through: :repository
 end
