@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_31_212103) do
+ActiveRecord::Schema.define(version: 2020_06_03_013400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,25 @@ ActiveRecord::Schema.define(version: 2020_05_31_212103) do
     t.string "name"
     t.string "jira_project"
     t.index ["project_id"], name: "index_repositories_on_project_id"
+  end
+
+  create_table "server_incidents", force: :cascade do |t|
+    t.string "message"
+    t.string "type"
+    t.bigint "server_id"
+    t.bigint "server_status_check_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["server_id"], name: "index_server_incidents_on_server_id"
+    t.index ["server_status_check_id"], name: "index_server_incidents_on_server_status_check_id"
+  end
+
+  create_table "server_status_checks", force: :cascade do |t|
+    t.integer "code"
+    t.bigint "server_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["server_id"], name: "index_server_status_checks_on_server_id"
   end
 
   create_table "servers", force: :cascade do |t|

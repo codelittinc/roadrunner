@@ -2,22 +2,15 @@ module Flows
   class GraylogsErrorNotificationFlow < BaseFlow
     def execute
       fields = @params[:event][:fields]
-      message = fields[:Message]
+      incident_message = fields[:Message]
       source = fields[:Source]
 
       server = Server.where("link LIKE ?", "%#{source}%").first
 
       if server
-        slack_channel = server.slack_repository_info.deploy_channel
-        slack_group = server.slack_repository_info.dev_group
-
-        slack_message = ":fire: #{slack_group} :fire: #{server.environment&.upcase} - *#{server.link}* message: \n\n```#{message}```"
-        Clients::Slack::ChannelMessage.new.send(
-          slack_message,
-          slack_channel
-        )
+        ServerIncidentService.new.register_incident!(server, incident_message)
       else
-        slack_message = ":fire: on *#{source}* message: \n\n```#{message}```"
+        slack_message = ":fire: on *#{source}* incident_message: \n\n```#{incident_message}```"
         Clients::Slack::DirectMessage.new.send(
           slack_message,
           'kaiomagalhaes'

@@ -1,0 +1,2 @@
+class ServerStatusCheck < ApplicationRecord
+end
