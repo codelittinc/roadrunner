@@ -1,0 +1,2 @@
+class ServerIncident < ApplicationRecord
+end
