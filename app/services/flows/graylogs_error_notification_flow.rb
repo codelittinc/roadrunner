@@ -5,12 +5,13 @@ module Flows
       message = fields[:Message]
       source = fields[:Source]
 
-      server = Server.where(link: source).first
+      server = Server.where("link LIKE ?", "%#{source}%").first
+
       if server
         slack_channel = server.slack_repository_info.deploy_channel
         slack_group = server.slack_repository_info.dev_group
 
-        slack_message = ":fire: #{slack_group} :fire: on *#{source}* message: \n\n```#{message}```"
+        slack_message = ":fire: #{slack_group} :fire: #{server.environment&.upcase} - *#{server.link}* message: \n\n```#{message}```"
         Clients::Slack::ChannelMessage.new.send(
           slack_message,
           slack_channel
