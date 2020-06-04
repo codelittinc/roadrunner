@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'user_search', to: 'user_search#index'
   get 'health_check', to: 'health_check#index'
   post 'flows', to: 'flow#create'
