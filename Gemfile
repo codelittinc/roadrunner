@@ -14,6 +14,9 @@ gem 'pg', '~> 1.2'
 gem 'pg_search'
 gem 'data_migrate', '~> 6.3'
 
+gem 'rails_admin', '~> 2.0'
+
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
