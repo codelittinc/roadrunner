@@ -9,12 +9,6 @@ module Flows
 
       if server
         ServerIncidentService.new.register_incident!(server, incident_message)
-      else
-        slack_message = ":fire: on *#{source}* incident_message: \n\n```#{incident_message}```"
-        Clients::Slack::DirectMessage.new.send(
-          slack_message,
-          'kaiomagalhaes'
-        )
       end
     end
 
