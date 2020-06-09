@@ -6,16 +6,24 @@ class ServerIncidentService
 
       slack_message = ":fire: #{slack_group} :fire: #{server.environment&.upcase} - *#{server.link}* message: \n\n```#{message}```"
 
+      recurrent = ServerIncident.where(
+        server: server,
+         created_at: (Time.now - 10.minutes)..Time.now,
+        message: message
+      ).any?
+
       ServerIncident.create!(
         server: server,
         message: message,
         server_status_check: server_status_check
       )
 
-      Clients::Slack::ChannelMessage.new.send(
-        slack_message,
-        slack_channel
-      )
+      unless recurrent
+        Clients::Slack::ChannelMessage.new.send(
+          slack_message,
+          slack_channel
+        )
+      end
     end
   end
 end
