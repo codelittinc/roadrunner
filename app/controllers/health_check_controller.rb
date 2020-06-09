@@ -3,7 +3,6 @@ require 'net/http'
 class HealthCheckController < ApplicationController
   def index 
     servers = Server.where(active: true)
-    puts "Health check starting!"
     render json: { status: :ok }, status: :ok
 
     Thread.new do
@@ -12,16 +11,24 @@ class HealthCheckController < ApplicationController
         link = "#{server.link}/health" if server.supports_health_check
 
         response = get(link)
+        code = response.code
+
 
         valid_status_codes = ["401", "200"]
 
-        puts "#{link} #{response.code}"
-        if !valid_status_codes.include?(response.code)
+        status_check = ServerStatusCheck.create!(
+          server: server,
+          code: code
+        )
+
+        if !valid_status_codes.include?(code)
           slack_channel = server.repository.slack_repository_info.deploy_channel
           
           ServerIncidentService.new.register_incident!(
             server,
-             "Roadrunner is trying to reach #{link}, and is receiving:\n\ncode: #{response.code}\nmessage: #{response.body}")
+            "Roadrunner is trying to reach #{link}, and is receiving:\n\ncode: #{response.code}\nmessage: #{response.body}",
+            status_check
+          )
         end
       end
 
