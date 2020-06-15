@@ -26,6 +26,7 @@ class ProjectsStatusController < ApplicationController
       end
 
       {
+        alias: server.repository.alias,
         repository: server.repository.name,
         environment: server.environment,
         server_link: server.link,

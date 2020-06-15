@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_104532) do
+ActiveRecord::Schema.define(version: 2020_06_15_181206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_104532) do
     t.boolean "supports_deploy"
     t.string "name"
     t.string "jira_project"
+    t.string "alias"
     t.index ["project_id"], name: "index_repositories_on_project_id"
   end
 
