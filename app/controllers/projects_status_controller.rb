@@ -10,18 +10,22 @@ class ProjectsStatusController < ApplicationController
         server: server,
         incidents_by_date: server.server_incidents.group_by do |incident|
           incident.created_at.strftime("%F")
+        end,
+        health_checks_by_date: server.server_status_checks.group_by do |status_check|
+          status_check.created_at.strftime("%F")
         end
       }
     end
 
     incidents_report = incidents.map do |incident|
       incidents_by_date = incident[:incidents_by_date]
+      health_checks_by_date = incident[:health_checks_by_date]
       server = incident[:server]
 
       report = days.map do |day|
         {
           date: day,
-          incidents: incidents_by_date[day],
+          incidents: (incidents_by_date[day] || []).map do |incident| format_incident(incident) end + (health_checks_by_date[day] || []).map do |incident| format_health_check(incident) end,
         }
       end
 
@@ -31,11 +35,34 @@ class ProjectsStatusController < ApplicationController
         repository: server.repository.name,
         environment: server.environment,
         server_link: server.link,
-        report: report,
-        server_id: server.id
+        server_id: server.id,
+        report: report
       }
     end
 
     render json: incidents_report
+  end
+
+  def format_incident incident
+    {
+      id: incident.id,
+      message: incident.message,
+      server_id: incident.server.id,
+      type: incident.server_status_check ? 'error' : 'warning',
+      created_at: incident.created_at
+    }
+  end
+
+  def format_health_check health_check
+    {
+      id: health_check.id,
+      message: "Status #{health_check.code}",
+      server_id: health_check.server.id,
+      type: 'info',
+      created_at: health_check.created_at
+    }
+  end
+
+  def format_status_check
   end
 end
