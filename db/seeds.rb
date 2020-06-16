@@ -29,6 +29,7 @@ if ENV['SEED_CREATE_PROJECTS']
       servers: [
         Server.new(link: 'https://roadrunner.codelitt.dev', supports_health_check: false, alias: 'prod-roadrunner')
       ],
+      alias: 'Roadrunner',
       slack_repository_info: SlackRepositoryInfo.new(dev_group: '@engineers', dev_channel: 'team-automations-dev', deploy_channel: 'team-automations-dev')
     )
   ])
@@ -39,6 +40,7 @@ if ENV['SEED_CREATE_PROJECTS']
       supports_deploy: true,
       deploy_type: Repository::TAG_DEPLOY_TYPE,
       jira_project: 'CW',
+      alias: 'Website',
       servers: [
         Server.new(link: 'https://codelitt.dev', supports_health_check: false, alias: 'dev-website-codelitt'),
         Server.new(link: 'https://qa.codelitt.dev', supports_health_check: false, alias: 'qa-codelitt-website'),

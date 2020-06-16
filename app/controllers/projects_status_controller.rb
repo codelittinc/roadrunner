@@ -21,16 +21,18 @@ class ProjectsStatusController < ApplicationController
       report = days.map do |day|
         {
           date: day,
-          incidents: incidents_by_date[day]
+          incidents: incidents_by_date[day],
         }
       end
 
       {
         alias: server.repository.alias,
+        project_name: server.repository.project.name,
         repository: server.repository.name,
         environment: server.environment,
         server_link: server.link,
         report: report,
+        server_id: server.id
       }
     end
 
