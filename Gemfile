@@ -16,6 +16,7 @@ gem 'data_migrate', '~> 6.3'
 
 gem 'rails_admin', '~> 2.0'
 
+gem 'gelf'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'

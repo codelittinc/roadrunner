@@ -3,7 +3,7 @@ class ProjectsStatusController < ApplicationController
     servers = Server.all
     status = []
 
-    days = (3.month.ago.to_date..Date.today).map{ |date| date.strftime("%F") }
+    days = (3.month.ago.to_date..Date.today).map { |date| date.strftime("%F") }
 
     incidents = servers.map do |server|
       {
