@@ -4,7 +4,7 @@ class ServerIncidentService
       slack_channel = server.slack_repository_info.deploy_channel
       slack_group = server.slack_repository_info.dev_group
 
-      slack_message = ":fire: #{slack_group} :fire: #{server.environment&.upcase} - *#{server.link}* message: \n\n```#{message}```"
+      slack_message = ":fire: #{server.environment&.upcase} - *#{server.link}* message: \n\n```#{message}```"
 
       recurrent = ServerIncident.where(
         server: server,
