@@ -3,17 +3,13 @@ class ProjectsStatusController < ApplicationController
     servers = Server.all
     status = []
 
-    days = (3.month.ago.to_date..Date.today).map { |date| date.strftime("%F") }
+    days = (90.days.ago.to_date..Date.today).map { |date| date.strftime("%F") }
 
     incidents = servers.map do |server|
       {
         server: server,
-        incidents_by_date: server.server_incidents.group_by do |incident|
-          incident.created_at.strftime("%F")
-        end,
-        health_checks_by_date: server.server_status_checks.group_by do |status_check|
-          status_check.created_at.strftime("%F")
-        end
+        incidents_by_date: group_by_date(server.server_incidents),
+        health_checks_by_date: group_by_date(server.server_status_checks)
       }
     end
 
@@ -63,6 +59,9 @@ class ProjectsStatusController < ApplicationController
     }
   end
 
-  def format_status_check
+  def group_by_date(items)
+    items.group_by do |incident|
+      incident.created_at.strftime("%F")
+    end
   end
 end
