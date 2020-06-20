@@ -44,7 +44,7 @@ class ProjectsStatusController < ApplicationController
       id: incident.id,
       message: incident.message,
       server_id: incident.server.id,
-      type: incident.server_status_check ? 'error' : 'warning',
+      type: incident.incident_type,
       created_at: incident.created_at
     }
   end

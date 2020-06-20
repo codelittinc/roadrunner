@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'user_search', to: 'user_search#index'
   get 'health_check', to: 'health_check#index'
   get 'projects_status', to: 'projects_status#index'
+  get 'incidents', to: 'incidents#index'
   post 'flows', to: 'flow#create'
 
   resources :users
