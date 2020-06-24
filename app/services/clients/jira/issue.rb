@@ -8,8 +8,14 @@ module Clients
         body["issues"];
       end
 
-      def self.build_url key
-        "https://codelitt.atlassian.net/browse/#{key}"
+      def update_status(issue_key, status_name)
+         url = build_url("/issue/#{issue_key}/transitions?expand=expand.fields")
+         status = Clients::Jira::Status.new.list_by_issue(issue_key, status_name)[0]
+         body = Request.post(url, authorization, {
+          "transition": {
+            "id": status["id"]
+          }
+        })
       end
     end 
   end

@@ -1,10 +1,10 @@
 module Clients
   module Jira
     class Status < JiraBase
-      def list(project_id, name = nil)
-        statuses_url = build_url("/project/#{project_id}/statuses")
+      def list_by_issue(issue_key, name = nil)
+        statuses_url = build_url("/issue/#{issue_key}/transitions?expand=expand.fields")
         body = Request.get(statuses_url, authorization)
-        statuses = body[0]['statuses']
+        statuses = body['transitions']
 
         return statuses unless name
 
