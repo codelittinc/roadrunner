@@ -8,8 +8,11 @@ module Clients
 
         return statuses unless name
 
+        formatted_name = name.downcase
+
         statuses.select do |status|
-          status['name'].downcase == name.downcase
+          status['name'].downcase == formatted_name ||
+          status["to"]["name"].downcase == formatted_name
         end
       end 
     end 

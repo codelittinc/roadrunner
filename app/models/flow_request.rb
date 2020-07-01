@@ -1,0 +1,2 @@
+class FlowRequest < ApplicationRecord
+end
