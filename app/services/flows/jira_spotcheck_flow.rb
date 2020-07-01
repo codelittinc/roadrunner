@@ -13,7 +13,7 @@ module Flows
       end
 
       urls = issues_list.map do |issue|
-        Clients::Jira::Issue.build_url(issue["key"])
+        Clients::Jira::JiraBase.build_url(issue["key"])
       end
 
       message = "Here is your Jira spotcheck:\n"
