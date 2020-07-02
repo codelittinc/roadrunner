@@ -20,8 +20,13 @@ class FlowExecutor
 
       if object.isFlow?
         flow_request.update(flow_name: object.class.name)
-        object.run
-        flow_request.update(executed: true)
+
+        begin
+          object.run
+          flow_request.update(executed: true)
+        rescue Exception => ex
+          flow_request.update(error_message: ex.to_s)
+        end
       end
     end
   end
