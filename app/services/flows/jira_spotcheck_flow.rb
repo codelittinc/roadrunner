@@ -4,6 +4,7 @@ module Flows
       username = @params[:user_name]
 
       project_keys = Repository.all.map(&:jira_project).compact
+
       issues_list = []
       project_keys.map do |key|
         issues = Clients::Jira::Issue.new.list(key, "In Progress")
@@ -13,7 +14,7 @@ module Flows
       end
 
       urls = issues_list.map do |issue|
-        Clients::Jira::JiraBase.build_url(issue["key"])
+        Clients::Jira::JiraBase.new.build_url(issue["key"])
       end
 
       message = "Here is your Jira spotcheck:\n"
