@@ -16,7 +16,8 @@ module Parsers
           state: pull_request[:state],
           owner: pull_request[:head][:repo][:owner][:login],
           username: pull_request[:user][:login],
-          description: pull_request[:body]
+          description: pull_request[:body],
+          merged_at: pull_request[:merged_at]
         }
       end
   
