@@ -35,6 +35,7 @@ gem 'rack-cors'
 gem "octokit", "~> 4.0"
 gem 'state_machines'
 gem 'state_machines-activerecord'
+gem "octokit", "~> 4.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
