@@ -30,4 +30,14 @@ class PullRequest < ApplicationRecord
       transition open: :cancelled
     end
   end
+
+  state_machine :state, initial: :open do
+    event :merge! do
+      transition :open => :merged
+    end
+
+    event :cancel! do
+      transition :open => :cancelled
+    end
+  end
 end

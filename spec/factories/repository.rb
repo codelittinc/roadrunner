@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :repository do
     deploy_type { 'tag' }
-    supports_deploy { true }
+    supports_deploy {true}
 
     before(:create) do |obj|
       obj.project ||= create(:project)
