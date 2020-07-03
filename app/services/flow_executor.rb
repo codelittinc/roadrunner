@@ -25,7 +25,9 @@ class FlowExecutor
           object.run
           flow_request.update(executed: true)
         rescue Exception => ex
-          flow_request.update(error_message: ex.to_s)
+          message = [ex.to_s, ex.backtrace].flatten.join("\n")
+          flow_request.update(error_message: message)
+          raise ex
         end
       end
     end
