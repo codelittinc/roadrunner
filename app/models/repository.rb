@@ -10,6 +10,10 @@ class Repository < ApplicationRecord
 
   validates :deploy_type, inclusion: { in: [TAG_DEPLOY_TYPE, BRANCH_DEPLOY_TYPE, nil] }
 
+  def full_name
+    "codelittinc/#{name}"
+  end
+
   def deploy_with_tag?
     deploy_type == TAG_DEPLOY_TYPE
   end

@@ -19,9 +19,11 @@ module Flows
       response = Clients::Slack::ChannelMessage.new.update(close_pull_request_message, channel, message_ts)
       slack_message = SlackMessage.new(ts: response['ts'], pull_request: pull_request)
       slack_message.save!
+
+      Clients::Github::Branch.new.delete(repository.full_name, pull_request.head)
     end
 
-    #@TODO: check if pull request is already closed
+    # @TODO: check if pull request is already closed
     def isFlow?
       return unless action == 'closed'
 
