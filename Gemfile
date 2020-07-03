@@ -34,6 +34,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
+gem 'state_machines'
+gem 'state_machines-activerecord'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -41,6 +44,7 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'shoulda-matchers'
   gem 'dotenv-rails', groups: [:development, :test]
+  gem 'factory_bot_rails'
 end
 
 group :development do

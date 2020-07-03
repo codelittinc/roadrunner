@@ -9,7 +9,6 @@ module Flows
       user.save unless user.persisted?
       repository.save unless repository.persisted?
 
-
       pull_request = PullRequest.new(
         head: pull_request_data[:head],
         base: pull_request_data[:base],
@@ -17,12 +16,9 @@ module Flows
         title: pull_request_data[:title],
         description: pull_request_data[:description],
         owner: pull_request_data[:owner],
-        state: pull_request_data[:state],
         repository: repository,
-        user: user
+        user: user,
       )
-
-      user.save!
 
       pull_request.save!
     end
