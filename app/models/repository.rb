@@ -3,6 +3,8 @@ class Repository < ApplicationRecord
   has_many :servers
   has_one :slack_repository_info
 
+  has_many :pull_requests
+
   TAG_DEPLOY_TYPE = 'tag'
   BRANCH_DEPLOY_TYPE = 'branch'
 

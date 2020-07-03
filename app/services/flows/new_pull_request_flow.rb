@@ -3,6 +3,13 @@ module Flows
     def execute
       pull_request_data = Parsers::Github::NewPullRequestParser.new(@params).parse
 
+      user = User.find_or_initialize_by(github: pull_request_data[:username])
+      repository = Repository.find_or_initialize_by(name: pull_request_data[:repository_name])
+
+      user.save unless user.persisted?
+      repository.save unless repository.persisted?
+
+
       pull_request = PullRequest.new(
         head: pull_request_data[:head],
         base: pull_request_data[:base],
@@ -10,8 +17,12 @@ module Flows
         title: pull_request_data[:title],
         description: pull_request_data[:description],
         owner: pull_request_data[:owner],
-        state: pull_request_data[:state]
+        state: pull_request_data[:state],
+        repository: repository,
+        user: user
       )
+
+      user.save!
 
       pull_request.save!
     end

@@ -1,4 +1,7 @@
 class PullRequest < ApplicationRecord
+  belongs_to :user
+  belongs_to :repository
+
   validates :head, presence: true
   validates :base, presence: true
 
