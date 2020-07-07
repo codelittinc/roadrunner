@@ -6,7 +6,6 @@ RSpec.describe SlackRepositoryInfo, type: :model do
   end
 
   describe 'validations' do
-    it { should validate_presence_of(:deploy_channel) }
     it { should validate_presence_of(:repository) }
   end
 end

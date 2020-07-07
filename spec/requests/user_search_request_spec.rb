@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "UserSearches", type: :request do
-
   describe "GET /index" do
     context "with a slack name" do
       it "returns an user" do
@@ -10,7 +9,7 @@ RSpec.describe "UserSearches", type: :request do
           slack: term
         })
 
-        get "/user_search/index?term=#{term}"
+        get "/user_search/?term=#{term}"
 
         expect(response_body[:id]).to eq(user.id)
       end
@@ -24,7 +23,7 @@ RSpec.describe "UserSearches", type: :request do
           jira: term
         })
 
-        get "/user_search/index?term=#{term}"
+        get "/user_search/?term=#{term}"
 
         expect(response_body[:id]).to eq(user.id)
       end
@@ -38,7 +37,7 @@ RSpec.describe "UserSearches", type: :request do
           github: term
         })
 
-        get "/user_search/index?term=#{term}"
+        get "/user_search/?term=#{term}"
 
         expect(response_body[:id]).to eq(user.id)
       end

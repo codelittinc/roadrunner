@@ -22,5 +22,4 @@ class Request
     
     response = http.request(request)
   end
-
 end
