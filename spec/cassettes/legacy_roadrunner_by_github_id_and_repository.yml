@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://roadrunner.codelitt.dev/pull-requests/1050/codelitt-v2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '958'
+      Etag:
+      - W/"3be-sOcSYPY/7abMvGcWP1P8RjdZQHw"
+      Date:
+      - Tue, 07 Jul 2020 12:12:49 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"_id":"5f0330914e242f0045b0ab58","branchName":"update/people-culture-leadership-list","baseBranchName":"master","link":"https://github.com/codelittinc/codelitt-v2/pull/1050","ghId":1050,"repositoryName":"codelitt-v2","title":"Update
+        people and culture page''s leadership list","draft":false,"state":"closed","owner":"codelittinc","createdAt":null,"closedAt":1594044612539,"ciState":null,"username":"paulohfev","updatedAt":1594044612539,"id":"5f0330914e242f0045b0ab58","collectionName":"pullRequests","mainSlackMessage":{"_id":"5f0330924e242f0045b0ab59","prId":"5f0330914e242f0045b0ab58","ts":"1594044561.000500","createdAt":1594044562021,"id":"5f0330924e242f0045b0ab59","collectionName":"slackMessages"},"reviews":[{"_id":"5f0330bc4e242f0045b0ab5c","createdAt":1594044604282,"prId":"5f0330914e242f0045b0ab58","state":"approved","username":"kaiomagalhaes","updatedAt":null,"id":"5f0330bc4e242f0045b0ab5c","collectionName":"pullRequestsReviews"}],"changes":[]}'
+  recorded_at: Tue, 07 Jul 2020 12:12:38 GMT
+recorded_with: VCR 6.0.0

@@ -45,6 +45,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'dotenv-rails', groups: [:development, :test]
   gem 'factory_bot_rails'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
