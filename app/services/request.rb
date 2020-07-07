@@ -1,7 +1,7 @@
 require 'net/http'
 
 class Request
-  def self.get(url, authorization)
+  def self.get(url, authorization = nil)
     url = URI.parse(url)
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
