@@ -17,7 +17,7 @@ module Flows
         description: pull_request_data[:description],
         owner: pull_request_data[:owner],
         repository: repository,
-        user: user,
+        user: user
       )
 
       pull_request.save!
