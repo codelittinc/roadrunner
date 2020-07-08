@@ -4,7 +4,7 @@ module Flows
   class SlackJiraStatusUpdateFlow < BaseFlow
     def execute
       issue_key = action[:action_id][/[A-Z]+-\d+$/]
-      status_name = "READY FOR QA"
+      status_name = 'READY FOR QA'
       username = user[:username]
 
       update_status = Clients::Jira::Issue.new.update_status(issue_key, status_name)
@@ -19,8 +19,9 @@ module Flows
 
     def isFlow?
       return if @params[:payload].nil?
+
       actions&.find do |action|
-        action[:action_id].include?("jira-status-update") && action[:value] == "yes"
+        action[:action_id].include?('jira-status-update') && action[:value] == 'yes'
       end
     end
 

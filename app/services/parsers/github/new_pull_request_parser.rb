@@ -4,7 +4,7 @@ module Parsers
       def initialize(json)
         @json = json
       end
-  
+
       def parse
         {
           head: pull_request[:head][:ref],
@@ -20,7 +20,7 @@ module Parsers
           merged_at: pull_request[:merged_at]
         }
       end
-  
+
       def pull_request
         @json[:pull_request]
       end

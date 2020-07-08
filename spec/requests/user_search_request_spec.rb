@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "UserSearches", type: :request do
-  describe "GET /index" do
-    context "with a slack name" do
-      it "returns an user" do
+RSpec.describe 'UserSearches', type: :request do
+  describe 'GET /index' do
+    context 'with a slack name' do
+      it 'returns an user' do
         term = 'batman'
         user = User.create({
-          slack: term
-        })
+                             slack: term
+                           })
 
         get "/user_search/?term=#{term}"
 
@@ -15,13 +15,13 @@ RSpec.describe "UserSearches", type: :request do
       end
     end
 
-    context "with a jira name" do
-      it "returns an user" do
+    context 'with a jira name' do
+      it 'returns an user' do
         term = 'robin'
         user = User.create({
-          slack: 'batman',
-          jira: term
-        })
+                             slack: 'batman',
+                             jira: term
+                           })
 
         get "/user_search/?term=#{term}"
 
@@ -29,13 +29,13 @@ RSpec.describe "UserSearches", type: :request do
       end
     end
 
-    context "with a github name" do
-      it "returns an user" do
+    context 'with a github name' do
+      it 'returns an user' do
         term = 'Mr. Freeze'
         user = User.create({
-          slack: 'batman',
-          github: term
-        })
+                             slack: 'batman',
+                             github: term
+                           })
 
         get "/user_search/?term=#{term}"
 

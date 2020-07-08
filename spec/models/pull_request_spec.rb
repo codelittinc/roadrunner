@@ -12,12 +12,12 @@ RSpec.describe PullRequest, type: :model do
 
   describe 'state machine' do
     it "defaults to 'open'" do
-      pr = FactoryBot.build(:pull_request) 
+      pr = FactoryBot.build(:pull_request)
       expect(pr.state).to eql('open')
     end
 
-    it "saves the default state" do
-      pr = FactoryBot.create(:pull_request) 
+    it 'saves the default state' do
+      pr = FactoryBot.create(:pull_request)
       pr.save!
       expect(PullRequest.last.id).to eql(pr.id)
       expect(PullRequest.last.state).to eql('open')
@@ -25,7 +25,7 @@ RSpec.describe PullRequest, type: :model do
 
     describe 'merge!' do
       it "changes the state to 'merged'" do
-        pr = FactoryBot.create(:pull_request) 
+        pr = FactoryBot.create(:pull_request)
         pr.merge!
         pr.reload
         expect(pr.state).to eql('merged')
@@ -34,7 +34,7 @@ RSpec.describe PullRequest, type: :model do
 
     describe 'cancel!' do
       it "changes the state to 'cancelled'" do
-        pr = FactoryBot.create(:pull_request) 
+        pr = FactoryBot.create(:pull_request)
         pr.cancel!
         pr.reload
         expect(pr.state).to eql('cancelled')

@@ -8,7 +8,7 @@ class ServerIncidentService
 
       recurrent = ServerIncident.where(
         server: server,
-         created_at: (Time.now - 10.minutes)..Time.now,
+        created_at: (Time.now - 10.minutes)..Time.now,
         message: message
       ).any?
 

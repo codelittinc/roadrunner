@@ -12,9 +12,9 @@ module Clients
 
         statuses.select do |status|
           status['name'].downcase == formatted_name ||
-          status["to"]["name"].downcase == formatted_name
+            status['to']['name'].downcase == formatted_name
         end
-      end 
-    end 
+      end
+    end
   end
 end

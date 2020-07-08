@@ -24,7 +24,7 @@ module Flows
     def status_name
       @params[:status_name]
     end
-    
+
     def username
       @params[:username]
     end

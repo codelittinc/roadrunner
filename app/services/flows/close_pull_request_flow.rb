@@ -17,7 +17,7 @@ module Flows
       pull_request_data = Parsers::Github::NewPullRequestParser.new(@params).parse
       pull_requests = PullRequest.where(github_id: pull_request_data[:github_id])
 
-      return pull_requests.any?
+      pull_requests.any?
     end
 
     private

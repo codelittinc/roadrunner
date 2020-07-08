@@ -19,11 +19,11 @@ module Flows
     end
 
     def execute
-      throw Error.new("Implement this method!")
+      throw Error.new('Implement this method!')
     end
 
     def isFlow?
-      throw Error.new("Implement this method!")
+      throw Error.new('Implement this method!')
     end
   end
 end

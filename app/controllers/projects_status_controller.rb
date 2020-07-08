@@ -3,7 +3,7 @@ class ProjectsStatusController < ApplicationController
     servers = Server.all
     status = []
 
-    days = (90.days.ago.to_date..Date.today).map { |date| date.strftime("%F") }
+    days = (90.days.ago.to_date..Date.today).map { |date| date.strftime('%F') }
 
     incidents = servers.map do |server|
       {
@@ -21,7 +21,7 @@ class ProjectsStatusController < ApplicationController
       report = days.map do |day|
         {
           date: day,
-          incidents: (incidents_by_date[day] || []).map do |incident| format_incident(incident) end + (health_checks_by_date[day] || []).map do |incident| format_health_check(incident) end,
+          incidents: (incidents_by_date[day] || []).map { |incident| format_incident(incident) } + (health_checks_by_date[day] || []).map { |incident| format_health_check(incident) }
         }
       end
 
@@ -39,7 +39,7 @@ class ProjectsStatusController < ApplicationController
     render json: incidents_report
   end
 
-  def format_incident incident
+  def format_incident(incident)
     {
       id: incident.id,
       message: incident.message,
@@ -49,7 +49,7 @@ class ProjectsStatusController < ApplicationController
     }
   end
 
-  def format_health_check health_check
+  def format_health_check(health_check)
     {
       id: health_check.id,
       message: "Status #{health_check.code}",
@@ -61,7 +61,7 @@ class ProjectsStatusController < ApplicationController
 
   def group_by_date(items)
     items.group_by do |incident|
-      incident.created_at.strftime("%F")
+      incident.created_at.strftime('%F')
     end
   end
 end

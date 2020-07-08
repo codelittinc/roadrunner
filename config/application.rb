@@ -14,7 +14,7 @@ require 'action_mailbox/engine'
 require 'action_text/engine'
 require 'action_view/railtie'
 require 'action_cable/engine'
-require "sprockets/railtie"
+require 'sprockets/railtie'
 require 'rails/test_unit/railtie'
 
 # Require the gems listed in Gemfile, including any gems
@@ -29,7 +29,7 @@ module RailsApiBaseProject
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Flash
     config.middleware.use Rack::MethodOverride
-    config.middleware.use ActionDispatch::Session::CookieStore, {:key=>"_rails_api_base_project_session"}
+    config.middleware.use ActionDispatch::Session::CookieStore, { key: '_rails_api_base_project_session' }
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

@@ -17,7 +17,7 @@ module Flows
         description: pull_request_data[:description],
         owner: pull_request_data[:owner],
         repository: repository,
-        user: user,
+        user: user
       )
 
       pull_request.save!
@@ -27,7 +27,7 @@ module Flows
       return unless action == 'opened' || action == 'ready_for_review'
 
       pull_request_data = Parsers::Github::NewPullRequestParser.new(@params).parse
-      return !pull_request_data[:draft] && !PullRequest.deployment_branches?(pull_request_data[:base], pull_request_data[:head])
+      !pull_request_data[:draft] && !PullRequest.deployment_branches?(pull_request_data[:base], pull_request_data[:head])
     end
 
     private

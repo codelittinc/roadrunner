@@ -10,22 +10,22 @@ class PullRequest < ApplicationRecord
   validates :state, presence: true
   validates :owner, presence: true
 
-  DEPLOY_DEV_BRANCH_LEGACY = 'dev'
-  DEPLOY_DEV_BRANCH = 'develop'
-  DEPLOY_QA_BRANCH = 'qa'
-  DEPLOY_PROD_BRANCH = 'master'
+  DEPLOY_DEV_BRANCH_LEGACY = 'dev'.freeze
+  DEPLOY_DEV_BRANCH = 'develop'.freeze
+  DEPLOY_QA_BRANCH = 'qa'.freeze
+  DEPLOY_PROD_BRANCH = 'master'.freeze
 
   def self.deployment_branches?(base, head)
-    (base == DEPLOY_QA_BRANCH || base == DEPLOY_PROD_BRANCH) && (head  == DEPLOY_DEV_BRANCH || head == DEPLOY_QA_BRANCH || head == DEPLOY_DEV_BRANCH_LEGACY)
+    (base == DEPLOY_QA_BRANCH || base == DEPLOY_PROD_BRANCH) && (head == DEPLOY_DEV_BRANCH || head == DEPLOY_QA_BRANCH || head == DEPLOY_DEV_BRANCH_LEGACY)
   end
 
   state_machine :state, initial: :open do
     event :merge! do
-      transition :open => :merged
+      transition open: :merged
     end
 
     event :cancel! do
-      transition :open => :cancelled
+      transition open: :cancelled
     end
   end
 end

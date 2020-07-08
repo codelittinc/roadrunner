@@ -8,9 +8,9 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Database
+gem 'data_migrate', '~> 6.3'
 gem 'pg', '~> 1.2'
 gem 'pg_search'
-gem 'data_migrate', '~> 6.3'
 
 gem 'rails_admin', '~> 2.0'
 
@@ -38,11 +38,11 @@ gem 'state_machines-activerecord'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails', groups: %i[development test]
+  gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 4.0.0'
   gem 'rubocop-rails', require: false
   gem 'shoulda-matchers'
-  gem 'dotenv-rails', groups: [:development, :test]
-  gem 'factory_bot_rails'
   gem 'vcr'
   gem 'webmock'
 end

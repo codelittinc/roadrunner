@@ -7,14 +7,12 @@ module Flows
 
       issues_list = []
       project_keys.map do |key|
-        issues = Clients::Jira::Issue.new.list(key, "In Progress")
-        unless issues.empty?
-          issues_list << issues.shuffle[0]
-        end
+        issues = Clients::Jira::Issue.new.list(key, 'In Progress')
+        issues_list << issues.sample unless issues.empty?
       end
 
       urls = issues_list.map do |issue|
-        Clients::Jira::JiraBase.new.build_browser_url(issue["key"])
+        Clients::Jira::JiraBase.new.build_browser_url(issue['key'])
       end
 
       message = "Here is your Jira spotcheck:\n"

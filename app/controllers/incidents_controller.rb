@@ -6,10 +6,10 @@ class IncidentsController < ApplicationController
 
     error_incidents = server.server_incidents.where(created_at: date)
 
-    render json: error_incidents.map { |i| format_incident(i)}
+    render json: error_incidents.map { |i| format_incident(i) }
   end
 
-  def format_incident incident
+  def format_incident(incident)
     {
       id: incident.id,
       message: incident.message,

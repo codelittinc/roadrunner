@@ -5,11 +5,9 @@ module Flows
       incident_message = fields[:Message]
       source = fields[:Source]
 
-      server = Server.where("link LIKE ?", "%#{source}%").first
+      server = Server.where('link LIKE ?', "%#{source}%").first
 
-      if server
-        ServerIncidentService.new.register_incident!(server, incident_message)
-      end
+      ServerIncidentService.new.register_incident!(server, incident_message) if server
     end
 
     def isFlow?

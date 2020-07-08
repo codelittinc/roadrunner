@@ -7,7 +7,7 @@ module Clients
         @url = ENV['SLACK_API_URL']
       end
 
-      def build_params params
+      def build_params(params)
         {
           bot: @bot
         }.merge(params)
@@ -17,10 +17,9 @@ module Clients
         "Bearer #{@key}"
       end
 
-      def build_url path
+      def build_url(path)
         "#{@url}#{path}"
       end
     end
   end
 end
-    

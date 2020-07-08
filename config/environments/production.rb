@@ -73,7 +73,7 @@ Rails.application.configure do
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
-  config.logger = GELF::Logger.new("logs.codelitt.dev", 12201, "WAN", { host: ENV['LOG_HOST'], environment: ENV['LOG_ENV'] })
+  config.logger = GELF::Logger.new('logs.codelitt.dev', 12_201, 'WAN', { host: ENV['LOG_HOST'], environment: ENV['LOG_ENV'] })
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

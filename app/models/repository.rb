@@ -5,8 +5,8 @@ class Repository < ApplicationRecord
 
   has_many :pull_requests
 
-  TAG_DEPLOY_TYPE = 'tag'
-  BRANCH_DEPLOY_TYPE = 'branch'
+  TAG_DEPLOY_TYPE = 'tag'.freeze
+  BRANCH_DEPLOY_TYPE = 'branch'.freeze
 
   validates :deploy_type, inclusion: { in: [TAG_DEPLOY_TYPE, BRANCH_DEPLOY_TYPE, nil] }
 
