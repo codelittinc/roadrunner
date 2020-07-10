@@ -1,8 +1,7 @@
 class FlowController < ApplicationController
   def create
     Thread.new do
-      sanitized_params = request.parameters.merge(JSON.parse(request.body.read).with_indifferent_access)
-      FlowExecutor.new(sanitized_params).execute
+      FlowExecutor.new(params[:flow] || params).execute
     end
 
     render json: {
