@@ -6,8 +6,8 @@ module Clients
 #          "Pull Request title", "Pull Request body")
 #
 #      end
-      def list_commits
-        @client.pull_request_commits("codelittinc/roadrunner-rails", 13)
+      def list_commits(repository, github_id)
+        @client.pull_request_commits(repository, github_id)
       end
     end 
   end

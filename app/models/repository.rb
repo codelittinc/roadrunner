@@ -13,4 +13,8 @@ class Repository < ApplicationRecord
   def deploy_with_tag?
     deploy_type == TAG_DEPLOY_TYPE
   end
+
+  def full_name
+    "codelittinc/#{name}"
+  end
 end

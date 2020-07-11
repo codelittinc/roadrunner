@@ -9,6 +9,17 @@ module Flows
       else
         pull_request.cancel!
       end
+
+      commits = Clients::Github::PullRequest.new.list_commits(pull_request.repository.full_name, pull_request.github_id)
+      commits.each do |commit|
+        Commit.create!(
+          pull_request: pull_request,
+          sha: commit[:sha],
+          author_name: commit[:commit][:author][:name],
+          author_email: commit[:commit][:author][:email],
+          message: commit[:commit][:message],
+        )
+      end
     end
 
     def isFlow?
