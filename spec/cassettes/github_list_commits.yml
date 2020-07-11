@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/codelittinc/roadrunner-rails/pulls/13/commits
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.18.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 11 Jul 2020 01:17:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - GitHub.com
+      Status:
+      - 200 OK
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With, Accept-Encoding
+      Etag:
+      - W/"a048ec9dc22242307db7b89196cba4bb"
+      Last-Modified:
+      - Fri, 10 Jul 2020 18:19:50 GMT
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '53'
+      X-Ratelimit-Reset:
+      - '1594433498'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '791'
+      X-Github-Request-Id:
+      - 1810:2A66:5CF962:81160F:5F091327
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"sha":"95f822bdd339843a980c6eca4366d9f62a2db285","node_id":"MDY6Q29tbWl0MjU4ODI1MzE4Ojk1ZjgyMmJkZDMzOTg0M2E5ODBjNmVjYTQzNjZkOWY2MmEyZGIyODU=","commit":{"author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2020-06-13T17:45:01Z"},"committer":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2020-06-13T17:45:01Z"},"message":"Enable
+        cors","tree":{"sha":"31e3f98513bb170639443b35d263305dc3589ccf","url":"https://api.github.com/repos/codelittinc/roadrunner-rails/git/trees/31e3f98513bb170639443b35d263305dc3589ccf"},"url":"https://api.github.com/repos/codelittinc/roadrunner-rails/git/commits/95f822bdd339843a980c6eca4366d9f62a2db285","comment_count":0,"verification":{"verified":false,"reason":"unsigned","signature":null,"payload":null}},"url":"https://api.github.com/repos/codelittinc/roadrunner-rails/commits/95f822bdd339843a980c6eca4366d9f62a2db285","html_url":"https://github.com/codelittinc/roadrunner-rails/commit/95f822bdd339843a980c6eca4366d9f62a2db285","comments_url":"https://api.github.com/repos/codelittinc/roadrunner-rails/commits/95f822bdd339843a980c6eca4366d9f62a2db285/comments","author":{"login":"victor0402","id":1508248,"node_id":"MDQ6VXNlcjE1MDgyNDg=","avatar_url":"https://avatars0.githubusercontent.com/u/1508248?v=4","gravatar_id":"","url":"https://api.github.com/users/victor0402","html_url":"https://github.com/victor0402","followers_url":"https://api.github.com/users/victor0402/followers","following_url":"https://api.github.com/users/victor0402/following{/other_user}","gists_url":"https://api.github.com/users/victor0402/gists{/gist_id}","starred_url":"https://api.github.com/users/victor0402/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/victor0402/subscriptions","organizations_url":"https://api.github.com/users/victor0402/orgs","repos_url":"https://api.github.com/users/victor0402/repos","events_url":"https://api.github.com/users/victor0402/events{/privacy}","received_events_url":"https://api.github.com/users/victor0402/received_events","type":"User","site_admin":false},"committer":{"login":"victor0402","id":1508248,"node_id":"MDQ6VXNlcjE1MDgyNDg=","avatar_url":"https://avatars0.githubusercontent.com/u/1508248?v=4","gravatar_id":"","url":"https://api.github.com/users/victor0402","html_url":"https://github.com/victor0402","followers_url":"https://api.github.com/users/victor0402/followers","following_url":"https://api.github.com/users/victor0402/following{/other_user}","gists_url":"https://api.github.com/users/victor0402/gists{/gist_id}","starred_url":"https://api.github.com/users/victor0402/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/victor0402/subscriptions","organizations_url":"https://api.github.com/users/victor0402/orgs","repos_url":"https://api.github.com/users/victor0402/repos","events_url":"https://api.github.com/users/victor0402/events{/privacy}","received_events_url":"https://api.github.com/users/victor0402/received_events","type":"User","site_admin":false},"parents":[{"sha":"116c0349bd1dc3f329e2ca8373fed27aada7d8a4","url":"https://api.github.com/repos/codelittinc/roadrunner-rails/commits/116c0349bd1dc3f329e2ca8373fed27aada7d8a4","html_url":"https://github.com/codelittinc/roadrunner-rails/commit/116c0349bd1dc3f329e2ca8373fed27aada7d8a4"}]}]'
+  recorded_at: Sat, 11 Jul 2020 01:17:26 GMT
+recorded_with: VCR 6.0.0
