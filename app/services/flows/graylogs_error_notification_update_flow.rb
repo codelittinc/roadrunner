@@ -1,9 +1,9 @@
 module Flows
   class GraylogsErrorNotificationUpdateFlow < BaseFlow
     def execute
-      text = " - - - reviewd by #{username}"
       slack_message = SlackMessage.where(ts: timestamp).first
       return unless slack_message
+
       base_text = slack_message.text.scan(/(^.*)\n/).first.first.strip.gsub(':fire:', ':fire_engine:').gsub(':droplet:', ':fire_engine:')
       message = "#{base_text} - reviewed by @#{username}"
 
@@ -17,7 +17,7 @@ module Flows
 
     private
 
-    def timestamp 
+    def timestamp
       @params[:ts]
     end
 
