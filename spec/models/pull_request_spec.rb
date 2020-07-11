@@ -10,6 +10,12 @@ RSpec.describe PullRequest, type: :model do
     it { is_expected.to validate_presence_of(:owner) }
   end
 
+  describe 'associations' do
+    it { should belong_to(:user) }
+    it { should belong_to(:repository) }
+    it { should have_many(:commits) }
+  end
+
   describe 'state machine' do
     it "defaults to 'open'" do
       pr = FactoryBot.build(:pull_request)

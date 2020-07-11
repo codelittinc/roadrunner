@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_152350) do
+ActiveRecord::Schema.define(version: 2020_07_11_004858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "commits", force: :cascade do |t|
+    t.string "sha"
+    t.string "message"
+    t.string "author_name"
+    t.string "author_email"
+    t.bigint "pull_request_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pull_request_id"], name: "index_commits_on_pull_request_id"
+  end
 
   create_table "flow_requests", force: :cascade do |t|
     t.string "json"
