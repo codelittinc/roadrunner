@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'projects_status', to: 'projects_status#index'
   get 'incidents', to: 'incidents#index'
   post 'flows', to: 'flow#create'
-  get 'slack_messages/:github_id', to: 'slack#index'
+  get 'slack_messages/:github_id/:repository_name', to: 'slack#index'
 
   resources :users
   resources :repositories
