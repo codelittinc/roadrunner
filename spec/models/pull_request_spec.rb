@@ -14,6 +14,7 @@ RSpec.describe PullRequest, type: :model do
     it { should belong_to(:user) }
     it { should belong_to(:repository) }
     it { should have_many(:commits) }
+    it { should have_one(:slack_message) }
   end
 
   describe 'state machine' do
