@@ -22,4 +22,17 @@ class Request
 
     response = http.request(request)
   end
+
+  def self.patch(url, authorization, body)
+    uri = URI.parse(url)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+
+    request = Net::HTTP::Patch.new(uri.path, { 'Content-Type' => 'application/json' })
+    request.body = body.to_json
+    request['Authorization'] = authorization
+    request['Accept'] = 'application/json'
+
+    response = http.request(request)
+  end
 end

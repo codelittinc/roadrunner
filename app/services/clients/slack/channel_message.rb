@@ -9,6 +9,16 @@ module Clients
                                                                  }))
         JSON.parse(response.body)
       end
+
+      def update(message, channel, ts)
+        url = build_url('/channel-messages')
+        response = Request.patch(url, authorization, build_params({
+                                                                   message: message,
+                                                                   channel: channel,
+                                                                   ts: ts
+                                                                 }))
+        JSON.parse(response.body)
+      end
     end
   end
 end
