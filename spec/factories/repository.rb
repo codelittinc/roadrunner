@@ -7,6 +7,7 @@ FactoryBot.define do
 
     before(:create) do |obj|
       obj.project ||= create(:project)
+      obj.slack_repository_info ||= create(:slack_repository_info, repository: obj)
     end
   end
 end
