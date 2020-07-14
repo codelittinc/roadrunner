@@ -22,6 +22,10 @@ class PullRequest < ApplicationRecord
     (base == DEPLOY_QA_BRANCH || base == DEPLOY_PROD_BRANCH) && (head == DEPLOY_DEV_BRANCH || head == DEPLOY_QA_BRANCH || head == DEPLOY_DEV_BRANCH_LEGACY)
   end
 
+  def github_link
+    "https://github.com/codelittinc/#{repository.name}/pull/#{github_id}"
+  end
+
   state_machine :state, initial: :open do
     event :merge! do
       transition open: :merged
