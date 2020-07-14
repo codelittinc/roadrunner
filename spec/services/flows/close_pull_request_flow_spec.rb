@@ -24,7 +24,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
 
       flow = described_class.new(valid_json)
 
-      expect{flow.execute}.to change { Commit.count }.by(1)
+      expect { flow.execute }.to change { Commit.count }.by(1)
     end
 
     it 'creates a set of commits from the pull request in the database with the right message' do

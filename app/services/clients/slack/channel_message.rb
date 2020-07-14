@@ -3,10 +3,11 @@ module Clients
     class ChannelMessage < BaseSlack
       def send(message, channel)
         url = build_url('/channel-messages')
-        Request.post(url, authorization, build_params({
-                                                        message: message,
-                                                        channel: channel
-                                                      }))
+        response = Request.post(url, authorization, build_params({
+                                                                   message: message,
+                                                                   channel: channel
+                                                                 }))
+        JSON.parse(response.body)
       end
     end
   end
