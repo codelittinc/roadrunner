@@ -3,6 +3,7 @@ class PullRequest < ApplicationRecord
   belongs_to :repository
 
   has_many :commits
+  has_one :slack_message
 
   validates :head, presence: true
   validates :base, presence: true
