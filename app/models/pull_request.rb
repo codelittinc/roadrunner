@@ -2,8 +2,8 @@ class PullRequest < ApplicationRecord
   belongs_to :user
   belongs_to :repository
 
-  has_many :commits
-  has_one :slack_message
+  has_many :commits, dependent: :destroy
+  has_one :slack_message, dependent: :destroy
 
   validates :head, presence: true
   validates :base, presence: true

@@ -21,6 +21,13 @@ module Flows
       )
 
       pull_request.save!
+
+      new_pull_request_message = Messages::Builder.new_pull_request_message(pull_request)
+      channel = repository.slack_repository_info.dev_channel
+
+      response = Clients::Slack::ChannelMessage.new.send(new_pull_request_message, channel)
+      slack_message = SlackMessage.new(ts: response['ts'], pull_request: pull_request)
+      slack_message.save!
     end
 
     def isFlow?
