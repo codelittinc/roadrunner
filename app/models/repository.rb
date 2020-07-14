@@ -14,6 +14,10 @@ class Repository < ApplicationRecord
     "codelittinc/#{name}"
   end
 
+  def github_link
+    "https://github.com/#{full_name}"
+  end
+
   def deploy_with_tag?
     deploy_type == TAG_DEPLOY_TYPE
   end

@@ -4,8 +4,6 @@ class ServerIncidentService
       slack_channel = server.slack_repository_info.deploy_channel
       slack_group = server.slack_repository_info.dev_group
 
-      slack_message = ":fire: #{server.environment&.upcase} - *#{server.link}* message: \n\n```#{message}```"
-
       recurrent = ServerIncident.where(
         server: server,
         created_at: (Time.now - 10.minutes)..Time.now,
@@ -18,11 +16,23 @@ class ServerIncidentService
         server_status_check: server_status_check
       )
 
+      message_max_size = 150
+
+      short_message = message[0..message_max_size]
+      repository = server.repository
+      slack_message = ":fire: <#{repository.github_link}|#{repository.name}> environment :fire:<#{server.link}|#{server.environment&.upcase}>:fire: \n ``` #{short_message}```"
+
       unless recurrent
-        Clients::Slack::ChannelMessage.new.send(
-          slack_message,
-          slack_channel
-        )
+        response = Clients::Slack::ChannelMessage.new.send(slack_message, slack_channel)
+
+        if message.size > message_max_size
+          final_message = "```#{message}````"
+          Clients::Slack::ChannelMessage.new.send(
+            final_message,
+            slack_channel,
+            response['ts']
+          )
+        end
       end
     end
   end
