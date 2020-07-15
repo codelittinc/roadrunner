@@ -20,14 +20,20 @@ class ServerIncidentService
 
       short_message = message[0..message_max_size]
       repository = server.repository
-      slack_message = ":fire: <#{repository.github_link}|#{repository.name}> environment :fire:<#{server.link}|#{server.environment&.upcase}>:fire: \n ``` #{short_message}```"
+      icons = {
+        qa: ':droplet:',
+        prod: ':fire:'
+      }
+
+      icon = server.environment ? icons[server.environment.to_sym] : icons[:prod]
+      main_message = "#{icon} <#{repository.github_link}|#{repository.name}> environment #{icon}<#{server.link}|#{server.environment&.upcase}>#{icon} \n ``` #{short_message}```"
 
       unless recurrent
-        response = Clients::Slack::ChannelMessage.new.send(slack_message, slack_channel)
+        response = Clients::Slack::ChannelMessage.new.send(main_message, slack_channel)
         timestamp = response['ts']
         slack_message = SlackMessage.new
         slack_message.ts = timestamp
-        slack_message.text = message
+        slack_message.text = main_message
         slack_message.save
 
         if message.size > message_max_size
