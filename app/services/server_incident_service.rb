@@ -24,13 +24,16 @@ class ServerIncidentService
 
       unless recurrent
         response = Clients::Slack::ChannelMessage.new.send(slack_message, slack_channel)
+        timestamp = response['ts']
+        SlackMessage.new(ts: timestamp, text: slack_message).save!
+
 
         if message.size > message_max_size
           final_message = "```#{message}````"
           Clients::Slack::ChannelMessage.new.send(
             final_message,
             slack_channel,
-            response['ts']
+            timestamp
           )
         end
       end
