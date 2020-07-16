@@ -14,7 +14,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - token 2e593567d90bd505570de77f516f44ebe4aba218
+      - token 222
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -95,7 +95,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - token 2e593567d90bd505570de77f516f44ebe4aba218
+      - token 222
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:

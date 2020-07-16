@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :repository do
+    name { 'test-gh-notifications' }
     deploy_type { 'tag' }
     supports_deploy { true }
 

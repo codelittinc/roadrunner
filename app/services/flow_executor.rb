@@ -4,13 +4,14 @@ class FlowExecutor
   end
 
   def execute
-    files = Dir['./app/services/flows/**/*'].reject do |file|
+    files = Dir['./app/services/flows/*'].reject do |file|
       file.include?('base_flow')
     end
 
     classnames = files.map do |file|
-      file.match(%r{/([a-z_]+).rb})[1].split('_').map(&:capitalize).join
-    end
+      regex = %r{/([a-z_]+).rb}
+      file.match(regex)[1].split('_').map(&:capitalize).join if file.match?(regex)
+    end.compact
 
     flow_request = FlowRequest.create!(json: @params.to_json)
 
