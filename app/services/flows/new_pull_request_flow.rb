@@ -30,7 +30,7 @@ module Flows
       slack_message.save!
     end
 
-    def isFlow?
+    def flow?
       return unless action == 'opened' || action == 'ready_for_review'
 
       pull_request_data = Parsers::Github::NewPullRequestParser.new(@params).parse

@@ -11,7 +11,7 @@ module Flows
       )
     end
 
-    def isFlow?
+    def flow?
       !issue_key.nil? && !status_name.nil?
     end
 
