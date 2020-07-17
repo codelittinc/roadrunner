@@ -35,7 +35,7 @@ module Flows
     end
 
     # @TODO: check if pull request is already closed
-    def isFlow?
+    def flow?
       return unless action == 'closed'
 
       pull_request_data = Parsers::Github::NewPullRequestParser.new(@params).parse

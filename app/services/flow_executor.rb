@@ -18,7 +18,7 @@ class FlowExecutor
       classConst = Object.const_get("Flows::#{classname}")
       object = classConst.new(@params)
 
-      next unless object.isFlow?
+      next unless object.flow?
 
       flow_request.update(flow_name: object.class.name)
 

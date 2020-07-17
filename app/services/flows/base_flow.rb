@@ -22,7 +22,7 @@ module Flows
       throw Error.new('Implement this method!')
     end
 
-    def isFlow?
+    def flow?
       throw Error.new('Implement this method!')
     end
   end

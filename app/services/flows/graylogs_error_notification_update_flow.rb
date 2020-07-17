@@ -10,7 +10,7 @@ module Flows
       Clients::Slack::ChannelMessage.new.update(message, channel, timestamp)
     end
 
-    def isFlow?
+    def flow?
       action = @params[:action]
       action == 'user-addressing-error'
     end

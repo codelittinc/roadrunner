@@ -10,7 +10,7 @@ module Flows
       ServerIncidentService.new.register_incident!(server, incident_message) if server
     end
 
-    def isFlow?
+    def flow?
       text = @params[:event_definition_title]
       return true unless text.nil?
     end

@@ -5,11 +5,11 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'github_new_pull_request.json'))).with_indifferent_access
   end
 
-  describe '#isFlow?' do
+  describe '#flow?' do
     context 'when it has the opened action' do
       it 'returns true ' do
         flow = described_class.new(valid_json)
-        expect(flow.isFlow?).to be_truthy
+        expect(flow.flow?).to be_truthy
       end
     end
   end

@@ -17,7 +17,7 @@ module Flows
       )
     end
 
-    def isFlow?
+    def flow?
       return if @params[:payload].nil?
 
       actions&.find do |action|
