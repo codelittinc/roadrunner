@@ -4,6 +4,10 @@ module Clients
       def delete(repo, branch)
         @client.delete_branch(repo, branch)
       end
+
+      def commits(repo, branch)
+        @client.list_commits(repo, branch)
+      end
     end
   end
 end

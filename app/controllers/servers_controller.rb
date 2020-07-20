@@ -3,8 +3,7 @@ class ServersController < ApplicationController
   before_action :set_date, only: %i[show]
   before_action :set_server_incidents, only: %i[show]
 
-  def show
-  end
+  def show; end
 
   private
 
@@ -15,9 +14,7 @@ class ServersController < ApplicationController
   def set_server_incidents
     @server_incidents = @server.server_incidents
 
-    if @date
-      @server_incidents = @server_incidents.where(created_at: @date)
-    end
+    @server_incidents = @server_incidents.where(created_at: @date) if @date
   end
 
   def set_date
