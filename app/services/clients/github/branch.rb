@@ -8,6 +8,10 @@ module Clients
       def commits(repo, branch)
         @client.list_commits(repo, branch)
       end
+
+      def compare(repo, head, base)
+        @client.compare(repo, head, base)[:commits]
+      end
     end
   end
 end
