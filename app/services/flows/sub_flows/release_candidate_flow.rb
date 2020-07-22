@@ -37,6 +37,12 @@ module Flows
           Commit.where(created_at: before..after, message: message).first
         end.flatten
 
+        channel = @repository.slack_repository_info.deploy_channel
+        if commits.empty?
+          Clients::Slack::ChannelMessage.new.send("Hey the *QA* environment already has all the latest changes", channel)
+          return
+        end
+
         slack_message = Messages::Builder.branch_compare_message(db_commits, 'slack')
         github_message = Messages::Builder.branch_compare_message(db_commits, 'github')
 
@@ -47,8 +53,6 @@ module Flows
           github_message,
           true
         )
-
-        channel = @repository.slack_repository_info.deploy_channel
 
         Clients::Slack::ChannelMessage.new.send(slack_message, channel)
       end
