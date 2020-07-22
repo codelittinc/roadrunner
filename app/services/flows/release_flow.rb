@@ -1,15 +1,19 @@
 module Flows
   class ReleaseFlow < BaseFlow
+    QA_ENVIRONMENT = 'qa'.freeze
+    PRODUCTION_ENVIRONMENT = 'prod'.freeze
+
     def execute
-      releases = Clients::Github::Release.new.list(repository.full_name)
-      Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, releases, repository).execute
+      current_releases = Clients::Github::Release.new.list(repository.full_name)
+
+      Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository).execute if environment == QA_ENVIRONMENT
     end
 
     def flow?
       return false if text.nil? || text.blank?
       return false unless action == 'update'
       return false unless slack_config
-      return false unless environment == 'qa' || environment == 'prod'
+      return false unless environment == QA_ENVIRONMENT || environment == PRODUCTION_ENVIRONMENT
 
       repository&.deploy_type == Repository::TAG_DEPLOY_TYPE
     end

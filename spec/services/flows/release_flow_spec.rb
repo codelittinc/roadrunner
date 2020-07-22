@@ -8,7 +8,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
   describe '#flow?' do
     context 'with a valid json' do
-      it 'returns true ' do
+      it 'returns true' do
         FactoryBot.create(:repository)
 
         flow = described_class.new(valid_json)
@@ -30,30 +30,55 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
   end
 
   describe '#execute' do
-    xit 'creates a new pre-release tag from a stable version' do
+    context 'with the qa environment' do
+      it 'calls the release candidate subflow' do
+        FactoryBot.create(:repository)
+
+        flow = described_class.new({
+                                     "text": 'update qa',
+                                     "channel_name": 'feed-test-automations'
+                                   })
+
+        expect_any_instance_of(Clients::Github::Release).to receive(:list)
+        expect_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute)
+
+        flow.execute
+      end
+    end
+
+    it 'creates a new pre-release tag from a stable version' do
       VCR.use_cassette('flows#pre-release') do
-        r1 = FactoryBot.create(:repository)
-        r1.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+        repository = FactoryBot.create(:repository)
+        repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-        pr1 = FactoryBot.create(:pull_request, {
-                                  title: 'Add leaseExpirationSized rest of expirations value',
-                                  description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
-                                  repository: r1
-                                })
+        repository = FactoryBot.create(:pull_request, {
+                                         title: 'Add leaseExpirationSized rest of expirations value',
+                                         description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
+                                         repository: repository
+                                       })
 
-        c1 = FactoryBot.create(:commit, {
-                                 sha: '6a65601c32c1915075e800a6779f876442649f55',
-                                 message: 'test 1',
-                                 pull_request: pr1
-                               })
+        FactoryBot.create(:commit, {
+                            sha: '6a65601c32c1915075e800a6779f876442649f55',
+                            message: 'test 1',
+                            pull_request: repository
+                          })
 
-        c2 = FactoryBot.create(:commit, {
-                                 sha: '06f11bf4f0d5485b048004003a8baa3e9094fe8a',
-                                 message: 'test 2',
-                                 pull_request: pr1
-                               })
+        FactoryBot.create(:commit, {
+                            sha: '06f11bf4f0d5485b048004003a8baa3e9094fe8a',
+                            message: 'test 2',
+                            pull_request: repository
+                          })
 
         flow = described_class.new(valid_json)
+
+        expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
+          'codelittinc/test-gh-notifications',
+          'rc.10.v0.0.29',
+          'master',
+          "Available in this release *candidate*:\n",
+          true
+        )
+
         flow.execute
       end
     end
