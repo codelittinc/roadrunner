@@ -5,6 +5,7 @@ module Flows
 
     def execute
       current_releases = Clients::Github::Release.new.list(repository.full_name)
+      Clients::Slack::ChannelMessage.new.send("Release to *#{environment.upcase}* triggered by @#{user_name}", channel_name)
 
       Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository).execute if environment == QA_ENVIRONMENT
       Flows::SubFlows::ReleaseStableFlow.new(channel_name, current_releases, repository).execute if environment == PRODUCTION_ENVIRONMENT
@@ -27,6 +28,10 @@ module Flows
 
     def channel_name
       @channel_name ||= @params[:channel_name]
+    end
+
+    def user_name
+      @user_name ||= @params[:user_name]
     end
 
     def action
