@@ -22,9 +22,10 @@ class ServerIncidentService
       server_status_check: server_status_check
     )
 
+    message_max_size = 150
     short_message = message[0..message_max_size]
     repository = server.repository
-    icon = server.environment ? icons[server.environment.to_sym] : icons[:prod]
+    icon = server.environment ? ICONS[server.environment.to_sym] : ICONS[:prod]
     main_message = "#{icon} <#{repository.github_link}|#{repository.name}> environment #{icon}<#{server.link}|#{server.environment&.upcase}>#{icon} \n ``` #{short_message}```"
 
     register!(main_message, slack_channel, response['ts']) unless recurrent?
