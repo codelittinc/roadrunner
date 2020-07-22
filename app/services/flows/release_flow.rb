@@ -7,6 +7,7 @@ module Flows
       current_releases = Clients::Github::Release.new.list(repository.full_name)
 
       Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository).execute if environment == QA_ENVIRONMENT
+      Flows::SubFlows::ReleaseStableFlow.new(channel_name, current_releases, repository).execute if environment == PRODUCTION_ENVIRONMENT
     end
 
     def flow?
