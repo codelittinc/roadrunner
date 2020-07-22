@@ -6,19 +6,31 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'release_tag.json'))).with_indifferent_access
   end
 
-  describe '#flow' do
+  describe '#flow?' do
     context 'with a valid json' do
-      xit 'returns true ' do
+      it 'returns true ' do
         FactoryBot.create(:repository)
 
         flow = described_class.new(valid_json)
-        expect(flow.flow).to be_truthy
+        expect(flow.flow?).to be_truthy
+      end
+    end
+
+    context 'with a valid json' do
+      it 'where the environment is different from qa or prod returns false' do
+        FactoryBot.create(:repository)
+
+        flow = described_class.new({
+                                     "text": 'update prodd',
+                                     "channel_name": 'feed-test-automations'
+                                   })
+        expect(flow.flow?).to be_falsey
       end
     end
   end
 
   describe '#execute' do
-    it 'creates a new pre-release tag from a stable version' do
+    xit 'creates a new pre-release tag from a stable version' do
       VCR.use_cassette('flows#pre-release') do
         r1 = FactoryBot.create(:repository)
         r1.slack_repository_info.update(deploy_channel: 'feed-test-automations')
