@@ -9,7 +9,7 @@ module Flows
       return false if text.nil? || text.blank?
       return false unless action == 'update'
       return false unless slack_config
-      return false unless environment == 'qa'
+      return false unless environment == 'qa' || environment == 'prod'
 
       repository&.deploy_type == Repository::TAG_DEPLOY_TYPE
     end
