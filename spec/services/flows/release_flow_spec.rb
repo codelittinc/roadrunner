@@ -8,7 +8,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
   describe '#flow?' do
     context 'with a valid json' do
-      it 'returns true ' do
+      it 'returns true' do
         FactoryBot.create(:repository)
 
         flow = described_class.new(valid_json)
@@ -30,6 +30,22 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
   end
 
   describe '#execute' do
+    context 'with the qa environment' do
+      it 'calls the release candidate subflow' do
+        FactoryBot.create(:repository)
+
+        flow = described_class.new({
+                                     "text": 'update qa',
+                                     "channel_name": 'feed-test-automations'
+                                   })
+
+        expect_any_instance_of(Clients::Github::Release).to receive(:list)
+        expect_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute)
+
+        flow.execute
+      end
+    end
+
     xit 'creates a new pre-release tag from a stable version' do
       VCR.use_cassette('flows#pre-release') do
         r1 = FactoryBot.create(:repository)
