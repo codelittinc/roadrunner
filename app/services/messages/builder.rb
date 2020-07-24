@@ -14,7 +14,7 @@ module Messages
     end
 
     def self.branch_compare_message(commits, format)
-      title = "Available in this release *candidate*:\n"
+      title = "Available in this release:\n"
       prs = commits.reject(&:nil?).map(&:pull_request).uniq(&:id)
       points = prs.map do |pull_request|
         base = " - #{pull_request.title}"
