@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :repository do
-    name { 'test-gh-notifications' }
+    name { 'roadrunner-repository-test' }
     deploy_type { 'tag' }
     supports_deploy { true }
 

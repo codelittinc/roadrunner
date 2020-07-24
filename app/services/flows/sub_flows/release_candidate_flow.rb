@@ -13,20 +13,29 @@ module Flows
 
       def execute
         latest_release = @releases.first
-        tag_name = latest_release[:tag_name]
-        is_from_release = !tag_name.match?(/rc/)
-        major, minor, patch = tag_name.scan(RELEASE_REGEX).flatten
+        latest_tag_name = latest_release ? latest_release[:tag_name] : DEFAULT_TAG_NAME
+        is_first_pre_release = @releases.empty?
+
+        creating_from_stable_release = !latest_tag_name&.match?(/rc/)
+
+        major, minor, patch = latest_tag_name.scan(RELEASE_REGEX).flatten
         new_rc_version = 1
 
-        if is_from_release
+        if creating_from_stable_release || is_first_pre_release
           minor = minor.to_i + 1
         else
-          current_release_candidate_version = latest_release[:tag_name].scan(RELEASE_CANDIDATE_VERSION_REGEX).flatten.first.to_i
+          current_release_candidate_version = latest_tag_name.scan(RELEASE_CANDIDATE_VERSION_REGEX).flatten.first.to_i
           new_rc_version = current_release_candidate_version + 1
         end
 
         new_version = "rc.#{new_rc_version}.v#{major}.#{minor}.#{patch}"
-        commits = Clients::Github::Branch.new.compare(@repository.full_name, latest_release[:tag_name], 'master')
+
+        commits = if is_first_pre_release
+                    Clients::Github::Branch.new.commits(@repository.full_name, 'master').reverse
+                  else
+                    Clients::Github::Branch.new.compare(@repository.full_name, latest_tag_name, 'master')
+                  end
+
         db_commits = commits.map do |commit|
           date = commit[:commit][:committer][:date]
           before = date - 5.minutes
@@ -39,7 +48,7 @@ module Flows
 
         channel = @repository.slack_repository_info.deploy_channel
         if commits.empty?
-          Clients::Slack::ChannelMessage.new.send("Hey the *QA* environment already has all the latest changes", channel)
+          Clients::Slack::ChannelMessage.new.send('Hey the *QA* environment already has all the latest changes', channel)
           return
         end
 

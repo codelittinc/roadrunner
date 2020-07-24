@@ -1,0 +1,167 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.18.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - token 2e593567d90bd505570de77f516f44ebe4aba218
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 24 Jul 2020 16:20:52 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4971'
+      X-Ratelimit-Reset:
+      - '1595610152'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"7bb01f9b4a8638f9b2ae87f615941e04"
+      X-Oauth-Scopes:
+      - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
+        admin:repo_hook, delete:packages, delete_repo, gist, notifications, read:packages,
+        repo, user, workflow, write:discussion, write:packages
+      X-Accepted-Oauth-Scopes:
+      - repo
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - 1867:15DA:BAA0A4:10C5E01:5F1B0A64
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/28919949","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/28919949/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/28919949/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v0.2.0","id":28919949,"node_id":"MDc6UmVsZWFzZTI4OTE5OTQ5","tag_name":"rc.1.v0.2.0","target_commitish":"master","name":"rc.1.v0.2.0","draft":false,"author":{"login":"kaiomagalhaes","id":1529246,"node_id":"MDQ6VXNlcjE1MjkyNDY=","avatar_url":"https://avatars1.githubusercontent.com/u/1529246?v=4","gravatar_id":"","url":"https://api.github.com/users/kaiomagalhaes","html_url":"https://github.com/kaiomagalhaes","followers_url":"https://api.github.com/users/kaiomagalhaes/followers","following_url":"https://api.github.com/users/kaiomagalhaes/following{/other_user}","gists_url":"https://api.github.com/users/kaiomagalhaes/gists{/gist_id}","starred_url":"https://api.github.com/users/kaiomagalhaes/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/kaiomagalhaes/subscriptions","organizations_url":"https://api.github.com/users/kaiomagalhaes/orgs","repos_url":"https://api.github.com/users/kaiomagalhaes/repos","events_url":"https://api.github.com/users/kaiomagalhaes/events{/privacy}","received_events_url":"https://api.github.com/users/kaiomagalhaes/received_events","type":"User","site_admin":false},"prerelease":true,"created_at":"2020-07-24T14:51:26Z","published_at":"2020-07-24T16:08:55Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v0.2.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v0.2.0","body":"Available
+        in this release *candidate*:\r\n - Create .env.example [AYAPI-278](https://codelitt.atlassian.net/browse/AYAPI-278)"},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/28912025","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/28912025/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/28912025/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/v0.1.0","id":28912025,"node_id":"MDc6UmVsZWFzZTI4OTEyMDI1","tag_name":"v0.1.0","target_commitish":"master","name":"v0.1.0","draft":false,"author":{"login":"kaiomagalhaes","id":1529246,"node_id":"MDQ6VXNlcjE1MjkyNDY=","avatar_url":"https://avatars1.githubusercontent.com/u/1529246?v=4","gravatar_id":"","url":"https://api.github.com/users/kaiomagalhaes","html_url":"https://github.com/kaiomagalhaes","followers_url":"https://api.github.com/users/kaiomagalhaes/followers","following_url":"https://api.github.com/users/kaiomagalhaes/following{/other_user}","gists_url":"https://api.github.com/users/kaiomagalhaes/gists{/gist_id}","starred_url":"https://api.github.com/users/kaiomagalhaes/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/kaiomagalhaes/subscriptions","organizations_url":"https://api.github.com/users/kaiomagalhaes/orgs","repos_url":"https://api.github.com/users/kaiomagalhaes/repos","events_url":"https://api.github.com/users/kaiomagalhaes/events{/privacy}","received_events_url":"https://api.github.com/users/kaiomagalhaes/received_events","type":"User","site_admin":false},"prerelease":false,"created_at":"2020-07-24T12:07:18Z","published_at":"2020-07-24T12:49:11Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/v0.1.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/v0.1.0","body":"Available
+        in this release *candidate*:\r\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)\r\n
+        - Create .gitignore [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)"},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/28911121","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/28911121/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/28911121/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.2.v0.1.0","id":28911121,"node_id":"MDc6UmVsZWFzZTI4OTExMTIx","tag_name":"rc.2.v0.1.0","target_commitish":"89e6b1bd6e1c531b14b44c71f662395415a0c9df","name":"rc.2.v0.1.0","draft":false,"author":{"login":"kaiomagalhaes","id":1529246,"node_id":"MDQ6VXNlcjE1MjkyNDY=","avatar_url":"https://avatars1.githubusercontent.com/u/1529246?v=4","gravatar_id":"","url":"https://api.github.com/users/kaiomagalhaes","html_url":"https://github.com/kaiomagalhaes","followers_url":"https://api.github.com/users/kaiomagalhaes/followers","following_url":"https://api.github.com/users/kaiomagalhaes/following{/other_user}","gists_url":"https://api.github.com/users/kaiomagalhaes/gists{/gist_id}","starred_url":"https://api.github.com/users/kaiomagalhaes/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/kaiomagalhaes/subscriptions","organizations_url":"https://api.github.com/users/kaiomagalhaes/orgs","repos_url":"https://api.github.com/users/kaiomagalhaes/repos","events_url":"https://api.github.com/users/kaiomagalhaes/events{/privacy}","received_events_url":"https://api.github.com/users/kaiomagalhaes/received_events","type":"User","site_admin":false},"prerelease":true,"created_at":"2020-07-24T12:07:18Z","published_at":"2020-07-24T12:22:54Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.2.v0.1.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.2.v0.1.0","body":"Available
+        in this release *candidate*:\r\n - Create .gitignore [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)\""},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/28909652","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/28909652/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/28909652/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v0.1.0","id":28909652,"node_id":"MDc6UmVsZWFzZTI4OTA5NjUy","tag_name":"rc.1.v0.1.0","target_commitish":"master","name":"rc.1.v0.1.0","draft":false,"author":{"login":"kaiomagalhaes","id":1529246,"node_id":"MDQ6VXNlcjE1MjkyNDY=","avatar_url":"https://avatars1.githubusercontent.com/u/1529246?v=4","gravatar_id":"","url":"https://api.github.com/users/kaiomagalhaes","html_url":"https://github.com/kaiomagalhaes","followers_url":"https://api.github.com/users/kaiomagalhaes/followers","following_url":"https://api.github.com/users/kaiomagalhaes/following{/other_user}","gists_url":"https://api.github.com/users/kaiomagalhaes/gists{/gist_id}","starred_url":"https://api.github.com/users/kaiomagalhaes/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/kaiomagalhaes/subscriptions","organizations_url":"https://api.github.com/users/kaiomagalhaes/orgs","repos_url":"https://api.github.com/users/kaiomagalhaes/repos","events_url":"https://api.github.com/users/kaiomagalhaes/events{/privacy}","received_events_url":"https://api.github.com/users/kaiomagalhaes/received_events","type":"User","site_admin":false},"prerelease":true,"created_at":"2020-07-24T11:26:10Z","published_at":"2020-07-24T11:37:37Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v0.1.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v0.1.0","body":"Available
+        in this release *candidate*:\\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)"}]'
+  recorded_at: Fri, 24 Jul 2020 16:20:45 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/compare/v0.1.0...rc.1.v0.2.0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.18.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - token 2e593567d90bd505570de77f516f44ebe4aba218
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 24 Jul 2020 16:20:52 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4970'
+      X-Ratelimit-Reset:
+      - '1595610152'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"dd1e1e1135a7ec837eaa436594bf0406"
+      Last-Modified:
+      - Fri, 24 Jul 2020 14:51:26 GMT
+      X-Oauth-Scopes:
+      - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
+        admin:repo_hook, delete:packages, delete_repo, gist, notifications, read:packages,
+        repo, user, workflow, write:discussion, write:packages
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - 1868:1CBF:3F15D6:59B310:5F1B0A64
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2NvbXBhcmUvdjAuMS4wLi4ucmMuMS52MC4yLjAiLCJodG1sX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21wYXJlL3YwLjEuMC4uLnJjLjEudjAuMi4wIiwicGVybWFsaW5rX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21wYXJlL2NvZGVsaXR0aW5jOjg5ZTZiMWIuLi5jb2RlbGl0dGluYzozYzBhZGM0IiwiZGlmZl91cmwiOiJodHRwczovL2dpdGh1Yi5jb20vY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tcGFyZS92MC4xLjAuLi5yYy4xLnYwLjIuMC5kaWZmIiwicGF0Y2hfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2NvbXBhcmUvdjAuMS4wLi4ucmMuMS52MC4yLjAucGF0Y2giLCJiYXNlX2NvbW1pdCI6eyJzaGEiOiI4OWU2YjFiZDZlMWM1MzFiMTRiNDRjNzFmNjYyMzk1NDE1YTBjOWRmIiwibm9kZV9pZCI6Ik1EWTZRMjl0YldsME1qZ3lNVGs1TVRRMU9qZzVaVFppTVdKa05tVXhZelV6TVdJeE5HSTBOR00zTVdZMk5qSXpPVFUwTVRWaE1HTTVaR1k9IiwiY29tbWl0Ijp7ImF1dGhvciI6eyJuYW1lIjoiS2FpbyBNYWdhbGjDo2VzIiwiZW1haWwiOiJtZUBrYWlvbWFnYWxoYWVzLmNvbSIsImRhdGUiOiIyMDIwLTA3LTI0VDEyOjA3OjE4WiJ9LCJjb21taXR0ZXIiOnsibmFtZSI6IkdpdEh1YiIsImVtYWlsIjoibm9yZXBseUBnaXRodWIuY29tIiwiZGF0ZSI6IjIwMjAtMDctMjRUMTI6MDc6MThaIn0sIm1lc3NhZ2UiOiJDcmVhdGUgLmdpdGlnbm9yZSIsInRyZWUiOnsic2hhIjoiNzZkNzg4NDI1MjZlYTFjN2I3MWFkYTAyYzM2MDViNjU3ODUwMzdkNCIsInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvZ2l0L3RyZWVzLzc2ZDc4ODQyNTI2ZWExYzdiNzFhZGEwMmMzNjA1YjY1Nzg1MDM3ZDQifSwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9naXQvY29tbWl0cy84OWU2YjFiZDZlMWM1MzFiMTRiNDRjNzFmNjYyMzk1NDE1YTBjOWRmIiwiY29tbWVudF9jb3VudCI6MCwidmVyaWZpY2F0aW9uIjp7InZlcmlmaWVkIjp0cnVlLCJyZWFzb24iOiJ2YWxpZCIsInNpZ25hdHVyZSI6Ii0tLS0tQkVHSU4gUEdQIFNJR05BVFVSRS0tLS0tXG5cbndzQmNCQUFCQ0FBUUJRSmZHczcyQ1JCSzdoajRPdjNySXdBQWRISUlBS3BBbDh3QkowUWJzOEZIb2xocU5WS1dcbmxlbnE4YW0yK2dTUlpYVXUwdDlKM29nRGIvSDVsVTJISnhiWlJHUEpSeDdFdWFGQjlTUkhVa0NBd2o2MVVXQmtcbkRZRmZDMmFGaWhuY050b05Sbmp6RE5pRjc1SUU5TzU0TkJrTXNQNzhGK003VXRSV0xoa3lWRVgxYnlNK0tUUzlcbm1LVjQxM3VlY0RveGg2R25IRG9HL0pJZ0dvR0UxMHY4L0pPeEhCSm4vVUtKYmJNL3BIS0ExbnllUHJrdDgwN1Fcbkl6QUNoOUZLVHgzTWRmSXp1a01IK1N3NVcwN0ZJZkhBTWVUa0J3cmxxdWxXU0xOQUQ3bWpUKzJoVWxIbmFoaHBcbnlTY0V5VHg0R1dvRFZOWENmSnd1dkRCa0t6d1ZzUnBwenN6Ti9OQmdBNHpyaXNlaGRTQkJ2cjNON1pFMkRzUT1cbj01Slo0XG4tLS0tLUVORCBQR1AgU0lHTkFUVVJFLS0tLS1cbiIsInBheWxvYWQiOiJ0cmVlIDc2ZDc4ODQyNTI2ZWExYzdiNzFhZGEwMmMzNjA1YjY1Nzg1MDM3ZDRcbnBhcmVudCA5MzhjOWU3NGUzMGUwZWE4N2UyNDRlMjZjNmI4OTAwMmE2MmNmODk0XG5hdXRob3IgS2FpbyBNYWdhbGjDo2VzIDxtZUBrYWlvbWFnYWxoYWVzLmNvbT4gMTU5NTU5MjQzOCAtMDMwMFxuY29tbWl0dGVyIEdpdEh1YiA8bm9yZXBseUBnaXRodWIuY29tPiAxNTk1NTkyNDM4IC0wMzAwXG5cbkNyZWF0ZSAuZ2l0aWdub3JlIn19LCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2NvbW1pdHMvODllNmIxYmQ2ZTFjNTMxYjE0YjQ0YzcxZjY2MjM5NTQxNWEwYzlkZiIsImh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2NvbW1pdC84OWU2YjFiZDZlMWM1MzFiMTRiNDRjNzFmNjYyMzk1NDE1YTBjOWRmIiwiY29tbWVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXRzLzg5ZTZiMWJkNmUxYzUzMWIxNGI0NGM3MWY2NjIzOTU0MTVhMGM5ZGYvY29tbWVudHMiLCJhdXRob3IiOnsibG9naW4iOiJrYWlvbWFnYWxoYWVzIiwiaWQiOjE1MjkyNDYsIm5vZGVfaWQiOiJNRFE2VlhObGNqRTFNamt5TkRZPSIsImF2YXRhcl91cmwiOiJodHRwczovL2F2YXRhcnMxLmdpdGh1YnVzZXJjb250ZW50LmNvbS91LzE1MjkyNDY/dj00IiwiZ3JhdmF0YXJfaWQiOiIiLCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMiLCJodG1sX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9rYWlvbWFnYWxoYWVzIiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9mb2xsb3dlcnMiLCJmb2xsb3dpbmdfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL2ZvbGxvd2luZ3svb3RoZXJfdXNlcn0iLCJnaXN0c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvc3RhcnJlZHsvb3duZXJ9ey9yZXBvfSIsInN1YnNjcmlwdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL3N1YnNjcmlwdGlvbnMiLCJvcmdhbml6YXRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL3JlcG9zIiwiZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9ldmVudHN7L3ByaXZhY3l9IiwicmVjZWl2ZWRfZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwiY29tbWl0dGVyIjp7ImxvZ2luIjoid2ViLWZsb3ciLCJpZCI6MTk4NjQ0NDcsIm5vZGVfaWQiOiJNRFE2VlhObGNqRTVPRFkwTkRRMyIsImF2YXRhcl91cmwiOiJodHRwczovL2F2YXRhcnMzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91LzE5ODY0NDQ3P3Y9NCIsImdyYXZhdGFyX2lkIjoiIiwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdyIsImh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL3dlYi1mbG93IiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZm9sbG93ZXJzIiwiZm9sbG93aW5nX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZm9sbG93aW5ney9vdGhlcl91c2VyfSIsImdpc3RzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L3N0YXJyZWR7L293bmVyfXsvcmVwb30iLCJzdWJzY3JpcHRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvc3Vic2NyaXB0aW9ucyIsIm9yZ2FuaXphdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9yZXBvcyIsImV2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L2V2ZW50c3svcHJpdmFjeX0iLCJyZWNlaXZlZF9ldmVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwicGFyZW50cyI6W3sic2hhIjoiOTM4YzllNzRlMzBlMGVhODdlMjQ0ZTI2YzZiODkwMDJhNjJjZjg5NCIsInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0cy85MzhjOWU3NGUzMGUwZWE4N2UyNDRlMjZjNmI4OTAwMmE2MmNmODk0IiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5jb20vY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0LzkzOGM5ZTc0ZTMwZTBlYTg3ZTI0NGUyNmM2Yjg5MDAyYTYyY2Y4OTQifV19LCJtZXJnZV9iYXNlX2NvbW1pdCI6eyJzaGEiOiI4OWU2YjFiZDZlMWM1MzFiMTRiNDRjNzFmNjYyMzk1NDE1YTBjOWRmIiwibm9kZV9pZCI6Ik1EWTZRMjl0YldsME1qZ3lNVGs1TVRRMU9qZzVaVFppTVdKa05tVXhZelV6TVdJeE5HSTBOR00zTVdZMk5qSXpPVFUwTVRWaE1HTTVaR1k9IiwiY29tbWl0Ijp7ImF1dGhvciI6eyJuYW1lIjoiS2FpbyBNYWdhbGjDo2VzIiwiZW1haWwiOiJtZUBrYWlvbWFnYWxoYWVzLmNvbSIsImRhdGUiOiIyMDIwLTA3LTI0VDEyOjA3OjE4WiJ9LCJjb21taXR0ZXIiOnsibmFtZSI6IkdpdEh1YiIsImVtYWlsIjoibm9yZXBseUBnaXRodWIuY29tIiwiZGF0ZSI6IjIwMjAtMDctMjRUMTI6MDc6MThaIn0sIm1lc3NhZ2UiOiJDcmVhdGUgLmdpdGlnbm9yZSIsInRyZWUiOnsic2hhIjoiNzZkNzg4NDI1MjZlYTFjN2I3MWFkYTAyYzM2MDViNjU3ODUwMzdkNCIsInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvZ2l0L3RyZWVzLzc2ZDc4ODQyNTI2ZWExYzdiNzFhZGEwMmMzNjA1YjY1Nzg1MDM3ZDQifSwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9naXQvY29tbWl0cy84OWU2YjFiZDZlMWM1MzFiMTRiNDRjNzFmNjYyMzk1NDE1YTBjOWRmIiwiY29tbWVudF9jb3VudCI6MCwidmVyaWZpY2F0aW9uIjp7InZlcmlmaWVkIjp0cnVlLCJyZWFzb24iOiJ2YWxpZCIsInNpZ25hdHVyZSI6Ii0tLS0tQkVHSU4gUEdQIFNJR05BVFVSRS0tLS0tXG5cbndzQmNCQUFCQ0FBUUJRSmZHczcyQ1JCSzdoajRPdjNySXdBQWRISUlBS3BBbDh3QkowUWJzOEZIb2xocU5WS1dcbmxlbnE4YW0yK2dTUlpYVXUwdDlKM29nRGIvSDVsVTJISnhiWlJHUEpSeDdFdWFGQjlTUkhVa0NBd2o2MVVXQmtcbkRZRmZDMmFGaWhuY050b05Sbmp6RE5pRjc1SUU5TzU0TkJrTXNQNzhGK003VXRSV0xoa3lWRVgxYnlNK0tUUzlcbm1LVjQxM3VlY0RveGg2R25IRG9HL0pJZ0dvR0UxMHY4L0pPeEhCSm4vVUtKYmJNL3BIS0ExbnllUHJrdDgwN1Fcbkl6QUNoOUZLVHgzTWRmSXp1a01IK1N3NVcwN0ZJZkhBTWVUa0J3cmxxdWxXU0xOQUQ3bWpUKzJoVWxIbmFoaHBcbnlTY0V5VHg0R1dvRFZOWENmSnd1dkRCa0t6d1ZzUnBwenN6Ti9OQmdBNHpyaXNlaGRTQkJ2cjNON1pFMkRzUT1cbj01Slo0XG4tLS0tLUVORCBQR1AgU0lHTkFUVVJFLS0tLS1cbiIsInBheWxvYWQiOiJ0cmVlIDc2ZDc4ODQyNTI2ZWExYzdiNzFhZGEwMmMzNjA1YjY1Nzg1MDM3ZDRcbnBhcmVudCA5MzhjOWU3NGUzMGUwZWE4N2UyNDRlMjZjNmI4OTAwMmE2MmNmODk0XG5hdXRob3IgS2FpbyBNYWdhbGjDo2VzIDxtZUBrYWlvbWFnYWxoYWVzLmNvbT4gMTU5NTU5MjQzOCAtMDMwMFxuY29tbWl0dGVyIEdpdEh1YiA8bm9yZXBseUBnaXRodWIuY29tPiAxNTk1NTkyNDM4IC0wMzAwXG5cbkNyZWF0ZSAuZ2l0aWdub3JlIn19LCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2NvbW1pdHMvODllNmIxYmQ2ZTFjNTMxYjE0YjQ0YzcxZjY2MjM5NTQxNWEwYzlkZiIsImh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2NvbW1pdC84OWU2YjFiZDZlMWM1MzFiMTRiNDRjNzFmNjYyMzk1NDE1YTBjOWRmIiwiY29tbWVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXRzLzg5ZTZiMWJkNmUxYzUzMWIxNGI0NGM3MWY2NjIzOTU0MTVhMGM5ZGYvY29tbWVudHMiLCJhdXRob3IiOnsibG9naW4iOiJrYWlvbWFnYWxoYWVzIiwiaWQiOjE1MjkyNDYsIm5vZGVfaWQiOiJNRFE2VlhObGNqRTFNamt5TkRZPSIsImF2YXRhcl91cmwiOiJodHRwczovL2F2YXRhcnMxLmdpdGh1YnVzZXJjb250ZW50LmNvbS91LzE1MjkyNDY/dj00IiwiZ3JhdmF0YXJfaWQiOiIiLCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMiLCJodG1sX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9rYWlvbWFnYWxoYWVzIiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9mb2xsb3dlcnMiLCJmb2xsb3dpbmdfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL2ZvbGxvd2luZ3svb3RoZXJfdXNlcn0iLCJnaXN0c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvc3RhcnJlZHsvb3duZXJ9ey9yZXBvfSIsInN1YnNjcmlwdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL3N1YnNjcmlwdGlvbnMiLCJvcmdhbml6YXRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL3JlcG9zIiwiZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9ldmVudHN7L3ByaXZhY3l9IiwicmVjZWl2ZWRfZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwiY29tbWl0dGVyIjp7ImxvZ2luIjoid2ViLWZsb3ciLCJpZCI6MTk4NjQ0NDcsIm5vZGVfaWQiOiJNRFE2VlhObGNqRTVPRFkwTkRRMyIsImF2YXRhcl91cmwiOiJodHRwczovL2F2YXRhcnMzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91LzE5ODY0NDQ3P3Y9NCIsImdyYXZhdGFyX2lkIjoiIiwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdyIsImh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL3dlYi1mbG93IiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZm9sbG93ZXJzIiwiZm9sbG93aW5nX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZm9sbG93aW5ney9vdGhlcl91c2VyfSIsImdpc3RzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L3N0YXJyZWR7L293bmVyfXsvcmVwb30iLCJzdWJzY3JpcHRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvc3Vic2NyaXB0aW9ucyIsIm9yZ2FuaXphdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9yZXBvcyIsImV2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L2V2ZW50c3svcHJpdmFjeX0iLCJyZWNlaXZlZF9ldmVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwicGFyZW50cyI6W3sic2hhIjoiOTM4YzllNzRlMzBlMGVhODdlMjQ0ZTI2YzZiODkwMDJhNjJjZjg5NCIsInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0cy85MzhjOWU3NGUzMGUwZWE4N2UyNDRlMjZjNmI4OTAwMmE2MmNmODk0IiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5jb20vY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0LzkzOGM5ZTc0ZTMwZTBlYTg3ZTI0NGUyNmM2Yjg5MDAyYTYyY2Y4OTQifV19LCJzdGF0dXMiOiJhaGVhZCIsImFoZWFkX2J5IjoxLCJiZWhpbmRfYnkiOjAsInRvdGFsX2NvbW1pdHMiOjEsImNvbW1pdHMiOlt7InNoYSI6IjNjMGFkYzQ0NTNlMjViYTMyYjliYWM1M2ZhOTc5OWY2MGZiMzdhMjEiLCJub2RlX2lkIjoiTURZNlEyOXRiV2wwTWpneU1UazVNVFExT2pOak1HRmtZelEwTlRObE1qVmlZVE15WWpsaVlXTTFNMlpoT1RjNU9XWTJNR1ppTXpkaE1qRT0iLCJjb21taXQiOnsiYXV0aG9yIjp7Im5hbWUiOiJLYWlvIE1hZ2FsaMOjZXMiLCJlbWFpbCI6Im1lQGthaW9tYWdhbGhhZXMuY29tIiwiZGF0ZSI6IjIwMjAtMDctMjRUMTQ6NTE6MjZaIn0sImNvbW1pdHRlciI6eyJuYW1lIjoiR2l0SHViIiwiZW1haWwiOiJub3JlcGx5QGdpdGh1Yi5jb20iLCJkYXRlIjoiMjAyMC0wNy0yNFQxNDo1MToyNloifSwibWVzc2FnZSI6IkFkZCAuZW52LmV4YW1wbGUiLCJ0cmVlIjp7InNoYSI6IjNjMjg2YWZhZWM2MWU2NjUzNTI3YTU5NjhiOWU4MGNjNzdmNzYyOTAiLCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2dpdC90cmVlcy8zYzI4NmFmYWVjNjFlNjY1MzUyN2E1OTY4YjllODBjYzc3Zjc2MjkwIn0sInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvZ2l0L2NvbW1pdHMvM2MwYWRjNDQ1M2UyNWJhMzJiOWJhYzUzZmE5Nzk5ZjYwZmIzN2EyMSIsImNvbW1lbnRfY291bnQiOjAsInZlcmlmaWNhdGlvbiI6eyJ2ZXJpZmllZCI6dHJ1ZSwicmVhc29uIjoidmFsaWQiLCJzaWduYXR1cmUiOiItLS0tLUJFR0lOIFBHUCBTSUdOQVRVUkUtLS0tLVxuXG53c0JjQkFBQkNBQVFCUUpmR3ZWdUNSQks3aGo0T3Yzckl3QUFkSElJQUI5RUxOWFdwaHB1emhRQ1dtdFJibTBHXG5SK1A3TDV3Mk5hL1czR0R2SCs1bzJJMUF3WEJvWHhPNlp4SXJKKytHWGw0OHZrUVFJWGQ4RmZWZktlR00xUlEzXG5tdjRyRDIvNExtVzlFODZ0RkJXV2FQa3BCRGNsdlJ5R2JybnJtMzU3T0R1VXdEckJmd1ZhNmdxUUtBV09YUGlvXG43NElzcTNhU3pzOE9icGl1dUt3ZSthbDF3UVBPZHN4M2MzWnFuUFlPWXM0Njdyc2FaaCtldDJWT0NJZnlqaVEwXG5kYTVDLzFOT1VvWmtHbTV5WEFpWmdaa2ZrV0pRVGtWTjJQTDA1YS9oYTA5QU9Tb21hN2sybWFKODAxUXBuMEVpXG42MlMxWEc3MlZkVUVVazc1bE1ibjlyWDU2NVpXQjUwcUpKaVc3ZHhiTlJHekFWa3Z2dkFVTyswNkpkbXd4V3M9XG49NkhCaVxuLS0tLS1FTkQgUEdQIFNJR05BVFVSRS0tLS0tXG4iLCJwYXlsb2FkIjoidHJlZSAzYzI4NmFmYWVjNjFlNjY1MzUyN2E1OTY4YjllODBjYzc3Zjc2MjkwXG5wYXJlbnQgODllNmIxYmQ2ZTFjNTMxYjE0YjQ0YzcxZjY2MjM5NTQxNWEwYzlkZlxuYXV0aG9yIEthaW8gTWFnYWxow6NlcyA8bWVAa2Fpb21hZ2FsaGFlcy5jb20+IDE1OTU2MDIyODYgLTAzMDBcbmNvbW1pdHRlciBHaXRIdWIgPG5vcmVwbHlAZ2l0aHViLmNvbT4gMTU5NTYwMjI4NiAtMDMwMFxuXG5BZGQgLmVudi5leGFtcGxlIn19LCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2NvbW1pdHMvM2MwYWRjNDQ1M2UyNWJhMzJiOWJhYzUzZmE5Nzk5ZjYwZmIzN2EyMSIsImh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2NvbW1pdC8zYzBhZGM0NDUzZTI1YmEzMmI5YmFjNTNmYTk3OTlmNjBmYjM3YTIxIiwiY29tbWVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXRzLzNjMGFkYzQ0NTNlMjViYTMyYjliYWM1M2ZhOTc5OWY2MGZiMzdhMjEvY29tbWVudHMiLCJhdXRob3IiOnsibG9naW4iOiJrYWlvbWFnYWxoYWVzIiwiaWQiOjE1MjkyNDYsIm5vZGVfaWQiOiJNRFE2VlhObGNqRTFNamt5TkRZPSIsImF2YXRhcl91cmwiOiJodHRwczovL2F2YXRhcnMxLmdpdGh1YnVzZXJjb250ZW50LmNvbS91LzE1MjkyNDY/dj00IiwiZ3JhdmF0YXJfaWQiOiIiLCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMiLCJodG1sX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9rYWlvbWFnYWxoYWVzIiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9mb2xsb3dlcnMiLCJmb2xsb3dpbmdfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL2ZvbGxvd2luZ3svb3RoZXJfdXNlcn0iLCJnaXN0c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvc3RhcnJlZHsvb3duZXJ9ey9yZXBvfSIsInN1YnNjcmlwdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL3N1YnNjcmlwdGlvbnMiLCJvcmdhbml6YXRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL3JlcG9zIiwiZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9ldmVudHN7L3ByaXZhY3l9IiwicmVjZWl2ZWRfZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwiY29tbWl0dGVyIjp7ImxvZ2luIjoid2ViLWZsb3ciLCJpZCI6MTk4NjQ0NDcsIm5vZGVfaWQiOiJNRFE2VlhObGNqRTVPRFkwTkRRMyIsImF2YXRhcl91cmwiOiJodHRwczovL2F2YXRhcnMzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91LzE5ODY0NDQ3P3Y9NCIsImdyYXZhdGFyX2lkIjoiIiwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdyIsImh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL3dlYi1mbG93IiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZm9sbG93ZXJzIiwiZm9sbG93aW5nX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZm9sbG93aW5ney9vdGhlcl91c2VyfSIsImdpc3RzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L3N0YXJyZWR7L293bmVyfXsvcmVwb30iLCJzdWJzY3JpcHRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvc3Vic2NyaXB0aW9ucyIsIm9yZ2FuaXphdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9yZXBvcyIsImV2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L2V2ZW50c3svcHJpdmFjeX0iLCJyZWNlaXZlZF9ldmVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwicGFyZW50cyI6W3sic2hhIjoiODllNmIxYmQ2ZTFjNTMxYjE0YjQ0YzcxZjY2MjM5NTQxNWEwYzlkZiIsInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0cy84OWU2YjFiZDZlMWM1MzFiMTRiNDRjNzFmNjYyMzk1NDE1YTBjOWRmIiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5jb20vY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0Lzg5ZTZiMWJkNmUxYzUzMWIxNGI0NGM3MWY2NjIzOTU0MTVhMGM5ZGYifV19XSwiZmlsZXMiOlt7InNoYSI6IjMzODUwYmY2OWY4OTc4OGRjNjkzYjNlNjdiZDVlNWUxN2YwOWFmMTMiLCJmaWxlbmFtZSI6Ii5lbnYuZXhhbXBsZSIsInN0YXR1cyI6ImFkZGVkIiwiYWRkaXRpb25zIjoxLCJkZWxldGlvbnMiOjAsImNoYW5nZXMiOjEsImJsb2JfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2Jsb2IvM2MwYWRjNDQ1M2UyNWJhMzJiOWJhYzUzZmE5Nzk5ZjYwZmIzN2EyMS8uZW52LmV4YW1wbGUiLCJyYXdfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L3Jhdy8zYzBhZGM0NDUzZTI1YmEzMmI5YmFjNTNmYTk3OTlmNjBmYjM3YTIxLy5lbnYuZXhhbXBsZSIsImNvbnRlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29udGVudHMvLmVudi5leGFtcGxlP3JlZj0zYzBhZGM0NDUzZTI1YmEzMmI5YmFjNTNmYTk3OTlmNjBmYjM3YTIxIiwicGF0Y2giOiJAQCAtMCwwICsxIEBAXG4rRkFLRV9LRVk9In1dfQ==
+  recorded_at: Fri, 24 Jul 2020 16:20:46 GMT
+recorded_with: VCR 6.0.0
