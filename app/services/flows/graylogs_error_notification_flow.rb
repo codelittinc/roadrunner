@@ -1,18 +1,28 @@
 module Flows
   class GraylogsErrorNotificationFlow < BaseFlow
     def execute
-      fields = @params[:event][:fields]
       incident_message = fields[:Message]
-      source = fields[:Source]
 
-      server = Server.where('link LIKE ?', "%#{source}%").first
-
-      ServerIncidentService.new.register_incident!(server, incident_message) if server
+      ServerIncidentService.new.register_incident!(server, incident_message)
     end
 
     def flow?
       text = @params[:event_definition_title]
-      return true unless text.nil?
+      text && server
+    end
+
+    private
+
+    def server
+      @server ||= Server.where('link LIKE ?', "%#{source}%").first
+    end
+
+    def source
+      fields[:Source]
+    end
+
+    def fields
+      @params[:event][:fields]
     end
   end
 end

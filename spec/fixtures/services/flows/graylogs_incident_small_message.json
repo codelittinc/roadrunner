@@ -1,0 +1,39 @@
+{
+  "event_definition_id": "5ecd7361c5cb1157618dcadf",
+  "event_definition_type": "aggregation-v1",
+  "event_definition_title": "Application Error",
+  "event_definition_description": "",
+  "job_definition_id": "5ecd7351c5cb1157618dcacd",
+  "job_trigger_id": "5ecd8456c5cb1157618de6af",
+  "event": {
+    "id": "01E99CSWH6P95NCTYZAB80WQN2",
+    "event_definition_type": "aggregation-v1",
+    "event_definition_id": "5ecd7361c5cb1157618dcadf",
+    "origin_context": "urn:graylog:message:es:graylog_0:931de400-9f93-11ea-8268-0242ac150004",
+    "timestamp": "2020-05-26T20:57:56.524Z",
+    "timestamp_processing": "2020-05-26T21:04:22.566Z",
+    "timerange_start": null,
+    "timerange_end": null,
+    "streams": [
+      
+    ],
+    "source_streams": [
+      "000000000000000000000001"
+    ],
+    "message": "Application Error",
+    "source": "0a94184ec6a5",
+    "key_tuple": [
+      
+    ],
+    "key": "",
+    "priority": 2,
+    "alert": true,
+    "fields": {
+      "Message": "{ [GraphQLasdEsrraoar: Variable \"$propearty\" got invalid value { id: 520 } }",
+      "Source": "roadrunner.codelitt.dev"
+    }
+  },
+  "backlog": [
+    
+  ]
+}
