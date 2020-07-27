@@ -4,7 +4,9 @@ class ServerIncidentService
     prod: ':fire:'
   }.freeze
 
-  def register_incident!(server, message, server_status_check = nil)
+  MESSAGE_MAX_SIZE = 150
+
+  def register_incident!(server, error_message, server_status_check = nil)
     return unless server
 
     slack_channel = server.slack_repository_info.deploy_channel
@@ -13,39 +15,38 @@ class ServerIncidentService
     recurrent = ServerIncident.where(
       server: server,
       created_at: (Time.now - 10.minutes)..Time.now,
-      message: message
+      message: error_message
     ).any?
 
     ServerIncident.create!(
       server: server,
-      message: message,
+      message: error_message,
       server_status_check: server_status_check
     )
 
-    message_max_size = 150
-    short_message = message[0..message_max_size]
     repository = server.repository
     icon = server.environment ? ICONS[server.environment.to_sym] : ICONS[:prod]
-    main_message = "#{icon} <#{repository.github_link}|#{repository.name}> environment #{icon}<#{server.link}|#{server.environment&.upcase}>#{icon} \n ``` #{short_message}```"
+    short_message = error_message[0..MESSAGE_MAX_SIZE]
+    slack_message = "#{icon} <#{repository.github_link}|#{repository.name}> environment #{icon}<#{server.link}|#{server.environment&.upcase}>#{icon} \n ``` #{short_message}```"
 
-    register!(main_message, slack_channel, response['ts']) unless recurrent?
+    notify_team!(slack_message, error_message, slack_channel) unless recurrent
   end
 
   private
 
-  def register!(main_message, slack_channel, timestamp)
-    response = Clients::Slack::ChannelMessage.new.send(main_message, slack_channel)
+  def notify_team!(slack_message, error_message, slack_channel)
+    response = Clients::Slack::ChannelMessage.new.send(slack_message, slack_channel)
     slack_message = SlackMessage.new
-    slack_message.ts = timestamp
-    slack_message.text = main_message
+    slack_message.ts = response['ts']
+    slack_message.text = slack_message
     slack_message.save
 
-    if message.size > message_max_size
-      final_message = "```#{message}````"
+    if error_message.size > MESSAGE_MAX_SIZE
+      final_message = "```#{error_message}````"
       Clients::Slack::ChannelMessage.new.send(
         final_message,
         slack_channel,
-        timestamp
+        response['ts']
       )
     end
   end
