@@ -1,5 +1,5 @@
 require 'rails_helper'
-# require 'external_api_helper'
+require 'external_api_helper'
 
 RSpec.describe Flows::ClosePullRequestFlow, type: :service do
   let(:valid_json) do
@@ -40,23 +40,34 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
     end
   end
 
-  xdescribe '#execute' do
+  describe '#execute' do
     it 'creates a set of commits from the pull request in the database' do
-      repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
-      FactoryBot.create(:pull_request, github_id: 13, repository: repository)
+      VCR.use_cassette('flows#close-pull-request#create-commit') do
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        slack_message = FactoryBot.create(:slack_message, ts: '123')
+        FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message)
 
-      flow = described_class.new(valid_json)
+        flow = described_class.new(valid_json)
 
-      expect { flow.execute }.to change { Commit.count }.by(1)
+        expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+
+        expect { flow.execute }.to change { Commit.count }.by(1)
+      end
     end
 
     it 'creates a set of commits from the pull request in the database with the right message' do
-      repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
-      FactoryBot.create(:pull_request, github_id: 13, repository: repository)
+      VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        slack_message = FactoryBot.create(:slack_message, ts: '123')
+        FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message)
 
-      flow = described_class.new(valid_json)
-      flow.execute
-      expect(Commit.last.message).to eql('Enable cors')
+        expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+        flow = described_class.new(valid_json)
+        flow.execute
+        expect(Commit.last.message).to eql('Enable cors')
+      end
     end
   end
 end

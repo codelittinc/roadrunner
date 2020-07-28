@@ -16,9 +16,7 @@ module Flows
 
       message_ts = pull_request.slack_message.ts
 
-      response = Clients::Slack::ChannelMessage.new.update(close_pull_request_message, channel, message_ts)
-      slack_message = SlackMessage.new(ts: response['ts'], pull_request: pull_request)
-      slack_message.save!
+      Clients::Slack::ChannelMessage.new.update(close_pull_request_message, channel, message_ts)
 
       Clients::Github::Branch.new.delete(repository.full_name, pull_request.head)
       CommitsCreator.new(repository, pull_request).create!
