@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'external_api_helper'
 
 RSpec.describe Flows::NewPullRequestFlow, type: :service do
   let(:valid_json) do
@@ -18,6 +19,9 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
     it 'creates a PullRequest in the database' do
       FactoryBot.create(:repository, name: 'roadrunner-rails')
 
+      expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
+                                                                                            'ts' => '123'
+                                                                                          })
       flow = described_class.new(valid_json)
 
       expect { flow.execute }.to change { PullRequest.count }.by(1)
@@ -26,6 +30,9 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
     it 'creates a SlackMessage in the database' do
       FactoryBot.create(:repository, name: 'roadrunner-rails')
 
+      expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
+                                                                                            'ts' => '123'
+                                                                                          })
       flow = described_class.new(valid_json)
 
       expect { flow.execute }.to change { SlackMessage.count }.by(1)

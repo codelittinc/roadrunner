@@ -1,8 +1,6 @@
 module Flows
   class NewPullRequestFlow < BaseFlow
     def execute
-      pull_request_data = Parsers::Github::NewPullRequestParser.new(@params).parse
-
       user = User.find_or_initialize_by(github: pull_request_data[:username])
       repository = Repository.find_or_initialize_by(name: pull_request_data[:repository_name])
 
@@ -33,11 +31,14 @@ module Flows
     def flow?
       return unless action == 'opened' || action == 'ready_for_review'
 
-      pull_request_data = Parsers::Github::NewPullRequestParser.new(@params).parse
       !pull_request_data[:draft] && !PullRequest.deployment_branches?(pull_request_data[:base], pull_request_data[:head])
     end
 
     private
+
+    def pull_request_data
+      @pull_request_data ||= Parsers::Github::NewPullRequestParser.new(@params).parse
+    end
 
     def action
       @params[:action]
