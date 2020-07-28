@@ -7,17 +7,40 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
   end
 
   describe '#flow?' do
-    context 'when an open pull request exists' do
-      it 'returns true ' do
+    context 'returns true when' do
+      it 'a pull request exists and it is open' do
         FactoryBot.create(:pull_request, github_id: 13)
 
         flow = described_class.new(valid_json)
         expect(flow.flow?).to be_truthy
       end
     end
+
+    context 'returns false when' do
+      it 'a pull request exists but it is closed' do
+        pr = FactoryBot.create(:pull_request, github_id: 13)
+        pr.merge!
+
+        flow = described_class.new(valid_json)
+        expect(flow.flow?).to be_falsey
+      end
+
+      it 'a pull request exists but it is cancelled' do
+        pr = FactoryBot.create(:pull_request, github_id: 13)
+        pr.cancel!
+
+        flow = described_class.new(valid_json)
+        expect(flow.flow?).to be_falsey
+      end
+
+      it 'a pull request does not exist' do
+        flow = described_class.new(valid_json)
+        expect(flow.flow?).to be_falsey
+      end
+    end
   end
 
-  describe '#execute' do
+  xdescribe '#execute' do
     it 'creates a set of commits from the pull request in the database' do
       repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
       FactoryBot.create(:pull_request, github_id: 13, repository: repository)

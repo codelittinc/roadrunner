@@ -24,14 +24,13 @@ module Flows
       CommitsCreator.new(repository, pull_request).create!
     end
 
-    # @TODO: check if pull request is already closed
     def flow?
       return unless action == 'closed'
 
       pull_request_data = Parsers::Github::NewPullRequestParser.new(@params).parse
       pull_requests = PullRequest.where(github_id: pull_request_data[:github_id])
 
-      pull_requests.any?
+      pull_requests.any? && pull_requests.first.open?
     end
 
     private
