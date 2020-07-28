@@ -1,7 +1,7 @@
 module Flows
   class GraylogsErrorNotificationUpdateFlow < BaseFlow
     def execute
-      base_text = slack_message.text.scan(/(^.*)\n?/).first.first.strip.gsub(':fire:', ':fire_engine:').gsub(':droplet:', ':fire_engine:')
+      base_text = base_message.scan(/(^.*)\n?/).first.first.strip.gsub(':fire:', ':fire_engine:').gsub(':droplet:', ':fire_engine:')
       message = "#{base_text} - reviewed by @#{username}"
 
       Clients::Slack::ChannelMessage.new.update(message, channel, timestamp)
@@ -12,6 +12,10 @@ module Flows
     end
 
     private
+
+    def base_message
+      slack_message&.text
+    end
 
     def slack_message
       @slack_message ||= SlackMessage.where(ts: timestamp).first

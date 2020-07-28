@@ -36,10 +36,10 @@ class ServerIncidentService
 
   def notify_team!(slack_message, error_message, slack_channel)
     response = Clients::Slack::ChannelMessage.new.send(slack_message, slack_channel)
-    slack_message = SlackMessage.new
-    slack_message.ts = response['ts']
-    slack_message.text = slack_message
-    slack_message.save
+    obj = SlackMessage.new
+    obj.ts = response['ts']
+    obj.text = slack_message
+    obj.save
 
     if error_message.size > MESSAGE_MAX_SIZE
       final_message = "```#{error_message}````"
