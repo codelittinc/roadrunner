@@ -1,4 +1,4 @@
-name: CI
+name: DEV DEPLOY
 
 env:
   POSTGRES_USER: postgres
@@ -8,11 +8,8 @@ env:
   RAILS_ENV: test
   SLACK_API_URL: https://slack-api.codelitt.dev
 
-
 on:
   push:
-    branches: [ master ]
-  pull_request:
     branches: [ master ]
 
 jobs:
@@ -71,7 +68,7 @@ jobs:
       with:
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
         heroku_email: ${{ secrets.HEROKU_EMAIL }}
-        heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+        heroku_app_name: ${{ secrets.HEROKU_APP_NAME_DEV }}
         buildpack: # optional
         branch: 'master'
         dontuseforce: false
