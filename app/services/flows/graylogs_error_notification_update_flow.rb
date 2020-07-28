@@ -1,21 +1,21 @@
 module Flows
   class GraylogsErrorNotificationUpdateFlow < BaseFlow
     def execute
-      slack_message = SlackMessage.where(ts: timestamp).first
-      return unless slack_message
-
-      base_text = slack_message.text.scan(/(^.*)\n/).first.first.strip.gsub(':fire:', ':fire_engine:').gsub(':droplet:', ':fire_engine:')
+      base_text = slack_message.text.scan(/(^.*)\n?/).first.first.strip.gsub(':fire:', ':fire_engine:').gsub(':droplet:', ':fire_engine:')
       message = "#{base_text} - reviewed by @#{username}"
 
       Clients::Slack::ChannelMessage.new.update(message, channel, timestamp)
     end
 
     def flow?
-      action = @params[:action]
-      action == 'user-addressing-error'
+      @params[:action] == 'user-addressing-error' && slack_message
     end
 
     private
+
+    def slack_message
+      @slack_message ||= SlackMessage.where(ts: timestamp).first
+    end
 
     def timestamp
       @params[:ts]
