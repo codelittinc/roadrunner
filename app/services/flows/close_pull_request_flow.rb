@@ -19,6 +19,7 @@ module Flows
       pull_request.update(description: pull_request_description)
 
       send_jira_notifications!(pull_request_description)
+      send_close_pull_request_notification!
     end
 
     def flow?
@@ -26,6 +27,12 @@ module Flows
     end
 
     private
+
+    def send_close_pull_request_notification!
+      message = Messages::Builder.close_pull_request_notification(pull_request)
+
+      Clients::Slack::DirectMessage.new.send(message, pull_request.user.slack)
+    end
 
     def action
       @params[:action]

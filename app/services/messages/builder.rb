@@ -13,6 +13,13 @@ module Messages
       "~#{new_pull_request_message(pull_request)}~"
     end
 
+    def self.close_pull_request_notification(pull_request)
+      repository = pull_request.repository
+      link = pull_request.github_link
+
+      format(Templates::PullRequest::CLOSE_PULL_REQUEST_NOTIFICATION, link, repository.name, pull_request.github_id)
+    end
+
     def self.branch_compare_message(commits, format)
       title = "Available in this release:\n"
       prs = commits.reject(&:nil?).map(&:pull_request).uniq(&:id)

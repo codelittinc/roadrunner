@@ -167,4 +167,45 @@ http_interactions:
       encoding: UTF-8
       string: '{"ok":true,"message_ts":"1595996673.001000"}'
   recorded_at: Wed, 29 Jul 2020 04:24:32 GMT
+- request:
+    method: post
+    uri: https://slack-api.codelitt.dev/direct-messages
+    body:
+      encoding: UTF-8
+      string: '{"bot":"roadrunner","message":":merge2: Pull Request closed \u003chttps://github.com/codelittinc/roadrunner-rails/pull/13|roadrunner-rails#13\u003e","username":"kaiomagalhaes"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer eyJhbGciOiJIUzI1NiJ9.cm9hZHJ1bm5lcg.2RCJIS5rW7oggjzgCvu1xGrx3e0hBE-3zSraiLUa1eY
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '718'
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
+      Date:
+      - Wed, 29 Jul 2020 05:06:29 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"channel":"DSKK0U6EP","ts":"1595999189.001800","message":{"bot_id":"BSW6NEU5N","type":"message","text":":merge2:
+        Pull Request closed <https://github.com/codelittinc/roadrunner-rails/pull/13|roadrunner-rails#13>","user":"USYCS7QHL","ts":"1595999189.001800","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
+  recorded_at: Wed, 29 Jul 2020 05:06:28 GMT
 recorded_with: VCR 6.0.0
