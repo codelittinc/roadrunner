@@ -8,6 +8,14 @@ module Clients
                                                         username: username
                                                       }))
       end
+
+      def send_ephemeral(blocks, username)
+        url = build_url('/direct-ephemeral-messages')
+        Request.post(url, authorization, build_params({
+                                                        blocks: blocks,
+                                                        username: username
+                                                      }))
+      end
     end
   end
 end
