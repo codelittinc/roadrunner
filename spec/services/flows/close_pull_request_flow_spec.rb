@@ -6,6 +6,10 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'github_close_pull_request.json'))).with_indifferent_access
   end
 
+  let(:cancelled_json) do
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'github_cancel_pull_request.json'))).with_indifferent_access
+  end
+
   describe '#flow?' do
     context 'returns true when' do
       it 'a pull request exists and it is open' do
@@ -103,6 +107,25 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
 
         flow = described_class.new(valid_json)
         flow.execute
+      end
+    end
+
+    it 'do not send a direct message to the owner of the pull request if it was cancelled' do
+      VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        slack_message = FactoryBot.create(:slack_message, ts: '123')
+        FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message)
+
+        expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+
+        flow = described_class.new(cancelled_json)
+        message_count = 0
+        allow_any_instance_of(Clients::Slack::DirectMessage).to receive(:send_ephemeral) { |_arg| message_count += 1 }
+        allow_any_instance_of(Clients::Slack::DirectMessage).to receive(:send) { |_arg| message_count += 1 }
+
+        flow.execute
+        expect(message_count).to eql(0)
       end
     end
   end
