@@ -18,6 +18,8 @@ module Flows
       pull_request_description = pull_request_data[:description]
       pull_request.update(description: pull_request_description)
 
+      return unless pull_request.merged?
+
       send_jira_notifications!(pull_request_description)
       send_close_pull_request_notification!
     end
@@ -51,7 +53,7 @@ module Flows
     end
 
     def update_pull_request_state!
-      if pull_request_data[:merged_at]
+      if pull_request_data[:merged_at].present?
         pull_request.merge!
       else
         pull_request.cancel!
