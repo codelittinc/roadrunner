@@ -87,5 +87,23 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
         expect(message_count).to eql(2)
       end
     end
+
+    it 'sends a direct message to the owner of the pull request' do
+      VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        slack_message = FactoryBot.create(:slack_message, ts: '123')
+        FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message)
+
+        expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+
+        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
+          ':merge2: Pull Request closed <https://github.com/codelittinc/roadrunner-rails/pull/13|roadrunner-rails#13>', 'kaiomagalhaes'
+        )
+
+        flow = described_class.new(valid_json)
+        flow.execute
+      end
+    end
   end
 end
