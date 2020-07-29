@@ -33,7 +33,7 @@
       "type": "User",
       "site_admin": false
     },
-    "body": "If applied this PR will fix updating brokers on lease update\r\n\r\n### Card\r\nhttps://codelitt.atlassian.net/browse/AYAPI-254",
+    "body": "If applied this PR will fix updating brokers on lease update\r\n\r\n### Card\r\nhttps://codelitt.atlassian.net/browse/AYAPI-254 https://codelitt.atlassian.net/browse/AYAPI-255",
     "created_at": "2020-07-01T18:15:03Z",
     "updated_at": "2020-07-01T18:42:48Z",
     "closed_at": "2020-07-01T18:42:48Z",

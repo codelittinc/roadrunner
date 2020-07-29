@@ -69,5 +69,23 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
         expect(Commit.last.message).to eql('Enable cors')
       end
     end
+
+    it 'sends two jira status update messages when the pull request body has two links' do
+      VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        slack_message = FactoryBot.create(:slack_message, ts: '123')
+        FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message)
+
+        expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+
+        flow = described_class.new(valid_json)
+        message_count = 0
+        allow_any_instance_of(Clients::Slack::DirectMessage).to receive(:send_ephemeral) { |_arg| message_count += 1 }
+
+        flow.execute
+        expect(message_count).to eql(2)
+      end
+    end
   end
 end
