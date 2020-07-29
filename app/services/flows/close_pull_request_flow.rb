@@ -1,15 +1,9 @@
 module Flows
   class ClosePullRequestFlow < BaseFlow
-    def execute
-      pull_request_data = Parsers::Github::NewPullRequestParser.new(@params).parse
-      pull_request = PullRequest.where(github_id: pull_request_data[:github_id]).last
-      repository = pull_request.repository
+    JIRA_CARD_REGEX = %r{https?://codelitt.atlassian.net/browse/[a-zA-Z1-9-]+}.freeze
 
-      if pull_request_data[:merged_at]
-        pull_request.merge!
-      else
-        pull_request.cancel!
-      end
+    def execute
+      update_pull_request_state!
 
       close_pull_request_message = Messages::Builder.close_pull_request_message(pull_request)
       channel = repository.slack_repository_info.dev_channel
@@ -20,21 +14,80 @@ module Flows
 
       Clients::Github::Branch.new.delete(repository.full_name, pull_request.head)
       CommitsCreator.new(repository, pull_request).create!
+
+      pull_request_description = pull_request_data[:description]
+      pull_request.update(description: pull_request_description)
+
+      send_jira_notifications!(pull_request_description)
     end
 
     def flow?
-      return unless action == 'closed'
-
-      pull_request_data = Parsers::Github::NewPullRequestParser.new(@params).parse
-      pull_requests = PullRequest.where(github_id: pull_request_data[:github_id])
-
-      pull_requests.any? && pull_requests.first.open?
+      action == 'closed' && pull_request&.open?
     end
 
     private
 
     def action
       @params[:action]
+    end
+
+    def pull_request_data
+      @pull_request_data ||= Parsers::Github::NewPullRequestParser.new(@params).parse
+    end
+
+    def pull_request
+      @pull_request ||= PullRequest.where(github_id: pull_request_data[:github_id]).last
+    end
+
+    def repository
+      @repository ||= pull_request.repository
+    end
+
+    def update_pull_request_state!
+      if pull_request_data[:merged_at]
+        pull_request.merge!
+      else
+        pull_request.cancel!
+      end
+    end
+
+    def send_jira_notifications!(pull_request_description)
+      jira_mentions = pull_request_description.scan(JIRA_CARD_REGEX)
+      jira_mentions.each do |link|
+        jira_code = link.scan(/[a-zA-Z]+-\d+$/).first
+        Clients::Slack::DirectMessage.new.send_ephemeral(
+          jira_notification_block(jira_code),
+          pull_request.user.slack
+        )
+      end
+    end
+
+    def jira_notification_block(jira_code)
+      [
+        {
+          "type": 'section',
+          "text": {
+            "type": 'mrkdwn',
+            "text": ":jira: the card *#{jira_code}* was found on the PR *#{repository.name}*-*#{pull_request.github_id}*, do you like to move it to *Ready for QA*?"
+          }
+        },
+        {
+          "type": 'actions',
+          "block_id": 'actionblock789',
+          "elements": [
+            {
+              "type": 'button',
+              "text": {
+                "type": 'plain_text',
+                "text": 'Yes, please!'
+              },
+              "style": 'primary',
+              "value": 'yes',
+              "action_id": "jira-status-update-#{jira_code}"
+            }
+          ]
+        }
+      ]
     end
   end
 end
