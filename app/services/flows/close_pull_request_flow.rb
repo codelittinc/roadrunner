@@ -6,7 +6,6 @@ module Flows
       update_pull_request_state!
 
       close_pull_request_message = Messages::Builder.close_pull_request_message(pull_request)
-      channel = repository.slack_repository_info.dev_channel
 
       message_ts = pull_request.slack_message.ts
 
@@ -18,10 +17,13 @@ module Flows
       pull_request_description = pull_request_data[:description]
       pull_request.update(description: pull_request_description)
 
-      return unless pull_request.merged?
-
-      send_jira_notifications!(pull_request_description)
-      send_close_pull_request_notification!
+      if pull_request.merged?
+        react_to_merge_pull_request!
+        send_jira_notifications!(pull_request_description)
+        send_close_pull_request_notification!
+      else
+        react_to_cancel_pull_request!
+      end
     end
 
     def flow?
@@ -30,10 +32,22 @@ module Flows
 
     private
 
+    def react_to_merge_pull_request!
+      Clients::Slack::Reactji.new.send('merge2', channel, pull_request.slack_message.ts)
+    end
+
+    def react_to_cancel_pull_request!
+      Clients::Slack::Reactji.new.send('x', channel, pull_request.slack_message.ts)
+    end
+
     def send_close_pull_request_notification!
       message = Messages::Builder.close_pull_request_notification(pull_request)
 
       Clients::Slack::DirectMessage.new.send(message, pull_request.user.slack)
+    end
+
+    def channel
+      @channel ||= repository.slack_repository_info.dev_channel
     end
 
     def action
