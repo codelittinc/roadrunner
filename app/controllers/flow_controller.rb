@@ -1,7 +1,7 @@
 class FlowController < ApplicationController
   def create
     Thread.new do
-      FlowExecutor.new(params[:flow] || params).execute
+      FlowExecutor.new((params[:flow] || params).merge(request.GET)).execute
     end
 
     render json: {

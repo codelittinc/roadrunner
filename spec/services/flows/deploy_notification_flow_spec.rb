@@ -29,13 +29,16 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
         flow = described_class.new({
                                      deploy_type: 'deploy-notification',
                                      host: 'pia.mobile.android',
-                                     env: 'android'
+                                     env: 'qa',
+                                     type: 'android',
+                                     status: 'success'
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
-          'The deploy of the project *Pia Mobile* to *ANDROID* was finished with success!',
+          'The deploy of *Pia Mobile* to *QA - ANDROID* was finished with the status: Success!',
           'feed-test-automations'
         )
+
         flow.execute
       end
 
@@ -50,7 +53,7 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
-          'The deploy of the project *Pia Web* to *PROD* was finished with success!',
+          'The deploy of *Pia Web* to *PROD* was finished with the status: Success!',
           'feed-test-automations'
         )
         flow.execute
