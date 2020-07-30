@@ -2,7 +2,7 @@ module Flows
   class DeployNotificationFlow < BaseFlow
     def execute
       Clients::Slack::ChannelMessage.new.send(
-        "The deploy of the project *#{repository.name}* to *#{environment}* was finished with success!",
+        "The deploy of *#{repository.name}* to *#{[environment, deploy_type].reject(&:nil?).join(' - ')}* was finished with the status: #{status.capitalize}!",
         channel
       )
     end
@@ -27,6 +27,14 @@ module Flows
 
     def environment
       @params[:env].upcase
+    end
+
+    def status
+      @status ||= @params[:status] || 'success'
+    end
+
+    def deploy_type
+      @deploy_type ||= @params[:type]&.upcase
     end
   end
 end
