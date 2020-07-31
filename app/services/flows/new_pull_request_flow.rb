@@ -1,7 +1,7 @@
 module Flows
   class NewPullRequestFlow < BaseFlow
     def execute
-      user = User.find_or_initialize_by(github: pull_request_data[:username])
+      user = User.find_or_initialize_by(github: pull_request_data[:username].downcase)
       repository = Repository.find_or_initialize_by(name: pull_request_data[:repository_name])
 
       user.save unless user.persisted?
