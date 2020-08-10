@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :slack_message do
-    ts { 'MyString' }
+    ts { '123' }
   end
 end

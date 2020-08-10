@@ -12,6 +12,7 @@ FactoryBot.define do
     before(:create) do |obj|
       obj.user ||= create(:user)
       obj.repository ||= create(:repository)
+      obj.slack_message ||= create(:slack_message)
     end
   end
 end
