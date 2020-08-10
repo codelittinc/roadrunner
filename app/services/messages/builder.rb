@@ -13,6 +13,10 @@ module Messages
       "~#{new_pull_request_message(pull_request)}~"
     end
 
+    def self.new_direct_message(user)
+      "Hey @#{user.slack}, there is a new message for you!"
+    end
+
     def self.close_pull_request_notification(pull_request)
       repository = pull_request.repository
       link = pull_request.github_link
