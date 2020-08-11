@@ -3,6 +3,10 @@ class ServersController < ApplicationController
   before_action :set_date, only: %i[show]
   before_action :set_server_incidents, only: %i[show]
 
+  def index
+    render json: Server.where(active: true)
+  end
+
   def show; end
 
   private
