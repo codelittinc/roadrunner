@@ -11,6 +11,8 @@ module Flows
         issues_list << issues.sample unless issues.empty?
       end
 
+      issues_list = issues_list.uniq
+
       urls = issues_list.map do |issue|
         Clients::Jira::JiraBase.new.build_browser_url(issue['key'])
       end
