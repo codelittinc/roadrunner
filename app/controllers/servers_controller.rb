@@ -4,7 +4,7 @@ class ServersController < ApplicationController
   before_action :set_server_incidents, only: %i[show]
 
   def index
-    render json: Server.where(active: true)
+    @servers = Server.where(active: true)
   end
 
   def show; end

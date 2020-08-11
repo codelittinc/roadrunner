@@ -16,7 +16,7 @@ class ServerIncidentsReportController < ApplicationController
         date: date,
         errors: grouped_incidents_by_type['error']&.size,
         warnings: grouped_incidents_by_type['warning']&.size,
-        status_verification: grouped_incidents_by_type['status_verification']&.size
+        status_verifications: grouped_incidents_by_type['status_verification']&.size
       }
     end
 
