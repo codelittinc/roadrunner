@@ -37,10 +37,10 @@ class ServerIncidentsReportController < ApplicationController
   end
 
   def set_server_incidents
-    @server = ServerIncident.where(created_at: events_date_range, server: @server)
+    @server_incidents = ServerIncident.where(created_at: events_date_range, server: @server)
   end
 
   def set_status_checks
-    @server = ServerStatusCheck.where(created_at: events_date_range, server: @server)
+    @server_status_checks = ServerStatusCheck.where(created_at: events_date_range, server: @server)
   end
 end
