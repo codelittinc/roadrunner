@@ -17,6 +17,14 @@ module Messages
       "Hey @#{user.slack}, there is a new message for you!"
     end
 
+    def self.list_repositories(channel, repositories)
+      message = "You can deploy the following repositories on the channel: *#{channel}*"
+      repositories.each do |repository|
+        message += "\n - #{repository.name}"
+      end
+      message
+    end
+
     def self.close_pull_request_notification(pull_request)
       repository = pull_request.repository
       link = pull_request.github_link
