@@ -19,7 +19,7 @@ module Flows
 
       return false unless slack_config
       return false unless environment == QA_ENVIRONMENT || environment == PRODUCTION_ENVIRONMENT
-      return false if SlackRepositoryInfo.where(deploy_channel: channel_name).count != 1
+      return false if SlackRepositoryInfo.where(deploy_channel: channel_name).count == 1
       return false if words.size != 3
 
       repository&.deploy_type == Repository::TAG_DEPLOY_TYPE
