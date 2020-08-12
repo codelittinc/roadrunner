@@ -8,7 +8,8 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
 
   describe '#flow?' do
     context 'returns true' do
-      it 'when the json is valid' do
+      it 'when the json is valid and there are multiple repositories tied to the slack channel' do
+        FactoryBot.create(:repository)
         FactoryBot.create(:repository)
 
         flow = described_class.new(valid_json)
@@ -29,14 +30,6 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
       end
 
       it 'when the json is valid, but repository does not exist' do
-        flow = described_class.new(valid_json)
-        expect(flow.flow?).to be_falsey
-      end
-
-      it 'when there is more than one repository tied to that slack channel' do
-        FactoryBot.create(:repository)
-        FactoryBot.create(:repository)
-
         flow = described_class.new(valid_json)
         expect(flow.flow?).to be_falsey
       end
