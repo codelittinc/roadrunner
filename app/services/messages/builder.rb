@@ -52,5 +52,13 @@ module Messages
     def self.extract_jira_codes(text)
       text.scan(%r{https?://codelitt.atlassian.net/browse/([A-Z]+-\d+)}).flatten
     end
+
+    def self.change_pull_request_message
+      Templates::PullRequest::NEW_CHANGE_PULL_REQUEST_NOTIFICATION
+    end
+
+    def self.notify_ci_failure(pull_request)
+      ":rotating_light: CI Failed for Pull Request: #{pull_request.github_link}"
+    end
   end
 end
