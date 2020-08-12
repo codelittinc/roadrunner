@@ -7,8 +7,8 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
   end
 
   describe '#flow?' do
-    context 'with a valid json' do
-      it 'returns true' do
+    context 'returns true' do
+      it 'when the json is valid' do
         FactoryBot.create(:repository)
 
         flow = described_class.new(valid_json)
@@ -16,12 +16,34 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
       end
     end
 
-    context 'with a valid json' do
-      it 'where the environment is different from qa or prod returns false' do
+    context 'returns false' do
+      it 'when the environment is different from qa or prod' do
         FactoryBot.create(:repository)
 
         flow = described_class.new({
                                      "text": 'update prodd',
+                                     "channel_name": 'feed-test-automations'
+                                   })
+        expect(flow.flow?).to be_falsey
+      end
+
+      it 'when the json is valid, but repository does not exist' do
+        flow = described_class.new(valid_json)
+        expect(flow.flow?).to be_falsey
+      end
+
+      it 'when there is more than one repository tied to that slack channel' do
+        FactoryBot.create(:repository)
+        FactoryBot.create(:repository)
+
+        flow = described_class.new(valid_json)
+        expect(flow.flow?).to be_falsey
+      end
+
+      it 'when the text message has more than two words' do
+        FactoryBot.create(:repository)
+        flow = described_class.new({
+                                     "text": 'update prod roadrunner-rails',
                                      "channel_name": 'feed-test-automations'
                                    })
         expect(flow.flow?).to be_falsey
