@@ -9,7 +9,7 @@ class ServerIncidentService
   def register_incident!(server, error_message, server_status_check = nil)
     return unless server
 
-    slack_channel = server.slack_repository_info.deploy_channel
+    slack_channel = server.slack_repository_info.feed_channel
     slack_group = server.slack_repository_info.dev_group
 
     recurrent = ServerIncident.where(
