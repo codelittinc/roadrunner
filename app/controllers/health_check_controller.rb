@@ -22,7 +22,7 @@ class HealthCheckController < ApplicationController
 
         next if valid_status_codes.include?(code)
 
-        slack_channel = server.repository.slack_repository_info.deploy_channel
+        slack_channel = server.repository.slack_repository_info.feed_channel
 
         ServerIncidentService.new.register_incident!(
           server,
