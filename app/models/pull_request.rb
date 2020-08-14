@@ -1,3 +1,31 @@
+# == Schema Information
+#
+# Table name: pull_requests
+#
+#  id            :bigint           not null, primary key
+#  base          :string
+#  ci_state      :string
+#  description   :string
+#  head          :string
+#  owner         :string
+#  state         :string
+#  title         :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  github_id     :integer
+#  repository_id :bigint
+#  user_id       :bigint
+#
+# Indexes
+#
+#  index_pull_requests_on_repository_id  (repository_id)
+#  index_pull_requests_on_user_id        (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (repository_id => repositories.id)
+#  fk_rails_...  (user_id => users.id)
+#
 class PullRequest < ApplicationRecord
   belongs_to :user
   belongs_to :repository
