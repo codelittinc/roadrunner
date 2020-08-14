@@ -58,7 +58,10 @@ module Messages
     end
 
     def self.notify_ci_failure(pull_request)
-      ":rotating_light: CI Failed for Pull Request: #{pull_request.github_link}"
+      repository = pull_request.repository
+      link = pull_request.github_link
+
+      format(Templates::PullRequest::NOTIFY_CI_FAILURE, link, repository.name, pull_request.github_id)
     end
   end
 end
