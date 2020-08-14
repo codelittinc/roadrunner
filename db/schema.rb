@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_134443) do
+ActiveRecord::Schema.define(version: 2020_08_14_164647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "check_runs", force: :cascade do |t|
+    t.string "state"
+    t.string "commit_sha"
+  end
 
   create_table "commits", force: :cascade do |t|
     t.string "sha"
@@ -26,6 +31,9 @@ ActiveRecord::Schema.define(version: 2020_07_15_134443) do
     t.index ["pull_request_id"], name: "index_commits_on_pull_request_id"
   end
 
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
   create_table "flow_requests", force: :cascade do |t|
     t.string "json"
     t.string "flow_name"
@@ -35,10 +43,30 @@ ActiveRecord::Schema.define(version: 2020_07_15_134443) do
     t.string "error_message"
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_projects_on_slug", unique: true
+  end
+
+  create_table "pull_request_changes", force: :cascade do |t|
+    t.bigint "pull_request_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pull_request_id"], name: "index_pull_request_changes_on_pull_request_id"
   end
 
   create_table "pull_requests", force: :cascade do |t|
@@ -53,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_134443) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "repository_id"
     t.bigint "user_id"
+    t.string "ci_state"
     t.index ["repository_id"], name: "index_pull_requests_on_repository_id"
     t.index ["user_id"], name: "index_pull_requests_on_user_id"
   end
@@ -126,6 +155,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_134443) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "pull_request_changes", "pull_requests"
   add_foreign_key "pull_requests", "repositories"
   add_foreign_key "pull_requests", "users"
   add_foreign_key "slack_repository_infos", "repositories"
