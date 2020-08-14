@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: repositories
+#
+#  id              :bigint           not null, primary key
+#  alias           :string
+#  deploy_type     :string
+#  jira_project    :string
+#  name            :string
+#  supports_deploy :boolean
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  project_id      :bigint
+#
+# Indexes
+#
+#  index_repositories_on_project_id  (project_id)
+#
 require 'rails_helper'
 
 RSpec.describe Repository, type: :model do
