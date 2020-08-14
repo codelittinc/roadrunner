@@ -87,6 +87,8 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
+    friendly_id (5.4.0)
+      activerecord (>= 4.0.0)
     gelf (3.1.0)
       json
     globalid (0.4.2)
@@ -299,6 +301,7 @@ DEPENDENCIES
   data_migrate (~> 6.3)
   dotenv-rails
   factory_bot_rails
+  friendly_id (~> 5.4.0)
   gelf
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
