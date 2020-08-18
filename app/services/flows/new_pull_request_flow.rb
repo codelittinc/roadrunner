@@ -1,19 +1,19 @@
 module Flows
   class NewPullRequestFlow < BaseFlow
     def execute
-      user = User.find_or_initialize_by(github: pull_request_data[:username].downcase)
-      repository = Repository.find_or_initialize_by(name: pull_request_data[:repository_name])
+      user = User.find_or_initialize_by(github: parser.username.downcase)
+      repository = Repository.find_or_initialize_by(name: parser.repository_name)
 
       user.save unless user.persisted?
       repository.save unless repository.persisted?
 
       pull_request = PullRequest.new(
-        head: pull_request_data[:head],
-        base: pull_request_data[:base],
-        github_id: pull_request_data[:github_id],
-        title: pull_request_data[:title],
-        description: pull_request_data[:description],
-        owner: pull_request_data[:owner],
+        head: parser.head,
+        base: parser.base,
+        github_id: parser.github_id,
+        title: parser.title,
+        description: parser.description,
+        owner: parser.owner,
         repository: repository,
         user: user
       )
@@ -28,17 +28,13 @@ module Flows
       slack_message.save!
     end
 
-    def flow?
+    def can_execute?
       return unless action == 'opened' || action == 'ready_for_review'
 
-      !pull_request_data[:draft] && !PullRequest.deployment_branches?(pull_request_data[:base], pull_request_data[:head])
+      !parser.draft && !PullRequest.deployment_branches?(parser.base, parser.head)
     end
 
     private
-
-    def pull_request_data
-      @pull_request_data ||= Parsers::Github::NewPullRequestParser.new(@params).parse
-    end
 
     def action
       @params[:action]

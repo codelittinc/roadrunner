@@ -50,7 +50,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
     end
   end
 
-  describe '#execute' do
+  describe '#run' do
     context 'when all the two users mentioned exist in the database' do
       it 'sends two slack messages' do
         FactoryBot.create(:user, github: 'kaiomagalhaes')
@@ -63,7 +63,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
         message_count = 0
         allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send) { |_arg| message_count += 1 }
 
-        flow.execute
+        flow.run
         expect(message_count).to eql(2)
       end
     end
@@ -82,7 +82,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
           '123'
         )
 
-        flow.execute
+        flow.run
       end
     end
   end

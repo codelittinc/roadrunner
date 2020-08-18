@@ -12,7 +12,7 @@ module Flows
       end
     end
 
-    def flow?
+    def can_execute?
       @params[:action] == 'created' && comment && pull_request
     end
 
@@ -22,12 +22,8 @@ module Flows
       @comment ||= @params.dig(:comment, :body)
     end
 
-    def pull_request_data
-      @pull_request_data ||= Parsers::Github::NewPullRequestParser.new(@params).parse
-    end
-
     def pull_request
-      @pull_request ||= PullRequest.where(github_id: pull_request_data[:github_id], repository: Repository.where(name: pull_request_data[:repository_name]).first).first
+      @pull_request ||= PullRequest.where(github_id: parser.github_id, repository: Repository.where(name: parser.repository_name).first).first
     end
   end
 end
