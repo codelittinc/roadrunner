@@ -14,7 +14,7 @@ module Flows
       Clients::Github::Branch.new.delete(repository.full_name, pull_request.head)
       CommitsCreator.new(repository, pull_request).create!
 
-      pull_request_description = pull_request_data[:description]
+      pull_request_description = parser.description
       pull_request.update(description: pull_request_description)
 
       if pull_request.merged?
@@ -26,7 +26,7 @@ module Flows
       end
     end
 
-    def flow?
+    def can_execute?
       action == 'closed' && pull_request&.open?
     end
 
@@ -54,12 +54,8 @@ module Flows
       @params[:action]
     end
 
-    def pull_request_data
-      @pull_request_data ||= Parsers::Github::NewPullRequestParser.new(@params).parse
-    end
-
     def pull_request
-      @pull_request ||= PullRequest.where(github_id: pull_request_data[:github_id]).last
+      @pull_request ||= PullRequest.where(github_id: parser.github_id).last
     end
 
     def repository
@@ -67,7 +63,7 @@ module Flows
     end
 
     def update_pull_request_state!
-      if pull_request_data[:merged_at].present?
+      if parser.merged_at.present?
         pull_request.merge!
       else
         pull_request.cancel!

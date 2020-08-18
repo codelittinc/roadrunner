@@ -24,7 +24,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
                                                                                           })
       flow = described_class.new(valid_json)
 
-      expect { flow.execute }.to change { PullRequest.count }.by(1)
+      expect { flow.run }.to change { PullRequest.count }.by(1)
     end
 
     it 'creates a SlackMessage in the database' do
@@ -35,7 +35,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
                                                                                           })
       flow = described_class.new(valid_json)
 
-      expect { flow.execute }.to change { SlackMessage.count }.by(1)
+      expect { flow.run }.to change { SlackMessage.count }.by(1)
     end
   end
 end

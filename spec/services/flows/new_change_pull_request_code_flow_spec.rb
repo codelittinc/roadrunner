@@ -72,7 +72,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
     end
   end
 
-  describe '#execute' do
+  describe '#run' do
     it 'sends a message if the pr was changed' do
       VCR.use_cassette('flows#change-pull-request#change-send-message', record: :new_episodes) do
         repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
@@ -83,7 +83,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
 
-        expect { flow.execute }.to change { pull_request.pull_request_changes.count }.by(1)
+        expect { flow.run }.to change { pull_request.pull_request_changes.count }.by(1)
       end
     end
 
@@ -99,7 +99,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
           ':pencil2: There is a new change!', 'feed-test-automations', '123'
         )
 
-        expect { flow.execute }.to change { pull_request.pull_request_changes.count }.by(1)
+        expect { flow.run }.to change { pull_request.pull_request_changes.count }.by(1)
       end
     end
   end
