@@ -2,6 +2,12 @@ require 'rails_helper'
 require 'external_api_helper'
 
 RSpec.describe Flows::ClosePullRequestFlow, type: :service do
+  around do |example|
+    ClimateControl.modify SLACK_API_URL: 'https://slack-api.codelitt.dev' do
+      example.run
+    end
+  end
+
   let(:valid_json) do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'github_close_pull_request.json'))).with_indifferent_access
   end
