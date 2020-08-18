@@ -248,4 +248,131 @@ http_interactions:
       encoding: UTF-8
       string: '{"ok":true}'
   recorded_at: Wed, 29 Jul 2020 05:47:41 GMT
+- request:
+    method: post
+    uri: https://slack-api.codelitt.dev//direct-ephemeral-messages
+    body:
+      encoding: UTF-8
+      string: '{"bot":"roadrunner","blocks":[{"type":"section","text":{"type":"mrkdwn","text":":jira:
+        the card *AYAPI-254* was found on the PR *roadrunner-rails*-*13*, do you like
+        to move it to *Ready for QA*?"}},{"type":"actions","block_id":"actionblock789","elements":[{"type":"button","text":{"type":"plain_text","text":"Yes,
+        please!"},"style":"primary","value":"yes","action_id":"jira-status-update-AYAPI-254"}]}],"username":"kaiomagalhaes"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer eyJhbGciOiJIUzI1NiJ9.cm9hZHJ1bm5lcg.2RCJIS5rW7oggjzgCvu1xGrx3e0hBE-3zSraiLUa1eY
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '44'
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
+      Date:
+      - Tue, 18 Aug 2020 20:11:46 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"message_ts":"1597781506.000300"}'
+  recorded_at: Tue, 18 Aug 2020 20:11:46 GMT
+- request:
+    method: post
+    uri: https://slack-api.codelitt.dev//direct-ephemeral-messages
+    body:
+      encoding: UTF-8
+      string: '{"bot":"roadrunner","blocks":[{"type":"section","text":{"type":"mrkdwn","text":":jira:
+        the card *AYAPI-255* was found on the PR *roadrunner-rails*-*13*, do you like
+        to move it to *Ready for QA*?"}},{"type":"actions","block_id":"actionblock789","elements":[{"type":"button","text":{"type":"plain_text","text":"Yes,
+        please!"},"style":"primary","value":"yes","action_id":"jira-status-update-AYAPI-255"}]}],"username":"kaiomagalhaes"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer eyJhbGciOiJIUzI1NiJ9.cm9hZHJ1bm5lcg.2RCJIS5rW7oggjzgCvu1xGrx3e0hBE-3zSraiLUa1eY
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '44'
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
+      Date:
+      - Tue, 18 Aug 2020 20:11:47 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"message_ts":"1597781507.000400"}'
+  recorded_at: Tue, 18 Aug 2020 20:11:47 GMT
+- request:
+    method: post
+    uri: https://slack-api.codelitt.dev//direct-messages
+    body:
+      encoding: UTF-8
+      string: '{"bot":"roadrunner","message":":merge2: Pull Request closed \u003chttps://github.com/codelittinc/roadrunner-rails/pull/13|roadrunner-rails#13\u003e","username":"kaiomagalhaes"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer eyJhbGciOiJIUzI1NiJ9.cm9hZHJ1bm5lcg.2RCJIS5rW7oggjzgCvu1xGrx3e0hBE-3zSraiLUa1eY
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '718'
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
+      Date:
+      - Tue, 18 Aug 2020 20:11:48 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"ok":true,"channel":"DSKK0U6EP","ts":"1597781508.000500","message":{"bot_id":"BSW6NEU5N","type":"message","text":":merge2:
+        Pull Request closed <https://github.com/codelittinc/roadrunner-rails/pull/13|roadrunner-rails#13>","user":"USYCS7QHL","ts":"1597781508.000500","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
+  recorded_at: Tue, 18 Aug 2020 20:11:48 GMT
 recorded_with: VCR 6.0.0

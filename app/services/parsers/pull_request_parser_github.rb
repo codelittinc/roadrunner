@@ -7,7 +7,7 @@ module Parsers
     end
 
     def can_parse?
-      !!pull_request
+      @json && !!pull_request
     end
 
     def parse!
