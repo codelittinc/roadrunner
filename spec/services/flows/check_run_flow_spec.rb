@@ -137,7 +137,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
         flow = described_class.new(valid_json)
 
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(':rotating_light: CI failed for pull request: <https://github.com/codelittinc/roadrunner-rails/pull/1|roadrunner-rails#1> ', 'rheniery.mendes')
+        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(':rotating_light: CI failed for pull request: <https://github.com/codelittinc/roadrunner-rails/pull/1|roadrunner-rails#1>', 'rheniery.mendes')
         expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light', 'feed-test-automations', '123')
 
         flow.execute

@@ -63,5 +63,22 @@ module Messages
 
       format(Templates::PullRequest::NOTIFY_CI_FAILURE, link, repository.name, pull_request.github_id)
     end
+
+    def self.notify_changes_request
+      ':warning: changes requested!'
+    end
+
+    def self.notify_new_message(mention = '')
+      begin_message = mention == '' ? ':speech_balloon:' : "Hey #{mention}"
+      end_message = mention == '' ? '!' : ' for you!'
+      "#{begin_message} There is a new message#{end_message}"
+    end
+
+    def self.notify_pr_conflicts(pull_request)
+      repository = pull_request.repository
+      link = pull_request.github_link
+
+      format(Templates::PullRequest::PULL_REQUEST_CONFLICTS, link, repository.name, pull_request.github_id)
+    end
   end
 end

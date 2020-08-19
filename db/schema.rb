@@ -9,7 +9,7 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 2020_08_14_164647) do
+ActiveRecord::Schema.define(version: 2020_08_17_152336) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 2020_08_14_164647) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pull_request_id"], name: "index_pull_request_changes_on_pull_request_id"
+  end
+
+  create_table "pull_request_reviews", force: :cascade do |t|
+    t.string "state"
+    t.string "username"
+    t.bigint "pull_request_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pull_request_id"], name: "index_pull_request_reviews_on_pull_request_id"
   end
 
   create_table "pull_requests", force: :cascade do |t|
@@ -151,6 +160,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_164647) do
   end
 
   add_foreign_key "pull_request_changes", "pull_requests"
+  add_foreign_key "pull_request_reviews", "pull_requests"
   add_foreign_key "pull_requests", "repositories"
   add_foreign_key "pull_requests", "users"
   add_foreign_key "slack_repository_infos", "repositories"
