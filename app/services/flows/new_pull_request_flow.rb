@@ -1,9 +1,6 @@
 module Flows
   class NewPullRequestFlow < BaseFlow
     def execute
-      user = User.find_or_initialize_by(github: parser.username.downcase)
-      repository = Repository.find_or_initialize_by(name: parser.repository_name)
-
       user.save unless user.persisted?
       repository.save unless repository.persisted?
 
@@ -29,6 +26,7 @@ module Flows
     end
 
     def can_execute?
+      return if pull_request_exists?
       return unless action == 'opened' || action == 'ready_for_review'
 
       !parser.draft && !PullRequest.deployment_branches?(parser.base, parser.head)
@@ -38,6 +36,18 @@ module Flows
 
     def action
       @params[:action]
+    end
+
+    def repository
+      @repository ||= Repository.find_or_initialize_by(name: parser.repository_name)
+    end
+
+    def user
+      @user ||= User.find_or_initialize_by(github: parser.username.downcase)
+    end
+
+    def pull_request_exists?
+      PullRequest.find_by(repository: repository, github_id: parser.github_id)
     end
   end
 end
