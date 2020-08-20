@@ -1,7 +1,7 @@
 require 'ostruct'
 
 module Parsers
-  class GithubWebhookParser
+  class GithubWebhookParser < BaseParser
     delegate :body, :state, to: :review, prefix: true, allow_nil: true
     attr_reader :base, :branch_name, :description, :draft, :github_id, :head, :merged_at, :owner, :repository_name, :review, :review_username, :state, :title, :username
 
