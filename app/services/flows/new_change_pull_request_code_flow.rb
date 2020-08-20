@@ -20,10 +20,6 @@ module Flows
       action == 'synchronize' && !reserved_branch && pull_request&.open?
     end
 
-    def parser
-      @parser ||= Parsers::PullRequestParserGithub.new(@params)
-    end
-
     private
 
     def action
