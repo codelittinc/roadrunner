@@ -30,15 +30,17 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
       end
 
       it 'a pull request exists but a slack_message does not' do
-        FactoryBot.create(:pull_request, github_id: 1)
+        repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
+        FactoryBot.create(:pull_request, github_id: 1, repository: repository)
 
         flow = described_class.new(valid_json)
         expect(flow.flow?).to be_falsey
       end
 
       it 'a pull request exists but an action is not submitted' do
+        repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        FactoryBot.create(:pull_request, github_id: 1, slack_message: slack_message)
+        FactoryBot.create(:pull_request, github_id: 1, slack_message: slack_message, repository: repository)
         invalid_json = valid_json.deep_dup
         invalid_json[:action] = 'test'
 
