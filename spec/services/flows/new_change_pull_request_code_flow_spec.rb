@@ -13,7 +13,8 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
   describe '#flow?' do
     context 'returns true when' do
       it 'a pull request exists and it is open' do
-        FactoryBot.create(:pull_request, github_id: 1)
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        FactoryBot.create(:pull_request, github_id: 1, repository: repository)
 
         flow = described_class.new(valid_json)
         expect(flow.flow?).to be_truthy
@@ -22,7 +23,8 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
 
     context 'returns false when' do
       it 'a pull request exists but it is closed' do
-        pr = FactoryBot.create(:pull_request, github_id: 1)
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        pr = FactoryBot.create(:pull_request, github_id: 1, repository: repository)
         pr.merge!
 
         flow = described_class.new(valid_json)
@@ -30,14 +32,16 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
       end
 
       it 'a pull request exists and action is not synchronize' do
-        FactoryBot.create(:pull_request, github_id: 1)
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        FactoryBot.create(:pull_request, github_id: 1, repository: repository)
 
         flow = described_class.new(closed_pr_json)
         expect(flow.flow?).to be_falsey
       end
 
       it 'a pull request exists and branch name is reserved' do
-        FactoryBot.create(:pull_request, github_id: 1)
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        FactoryBot.create(:pull_request, github_id: 1, repository: repository)
         invalid_json = valid_json.deep_dup
 
         reserved_branch_names = %w[master development develop qa]
@@ -52,7 +56,8 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
       end
 
       it 'a pull request exists but it is cancelled' do
-        pr = FactoryBot.create(:pull_request, github_id: 1)
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        pr = FactoryBot.create(:pull_request, github_id: 1, repository: repository)
         pr.cancel!
 
         flow = described_class.new(valid_json)
