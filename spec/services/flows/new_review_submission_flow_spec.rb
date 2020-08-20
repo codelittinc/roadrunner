@@ -8,6 +8,15 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
   describe '#flow?' do
     context 'returns true when' do
+      it 'contains a review' do
+        repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
+        slack_message = FactoryBot.create(:slack_message, ts: '123')
+        FactoryBot.create(:pull_request, github_id: 180, slack_message: slack_message, repository: repository, head: 'kaiomagalhaes-patch-121')
+
+        flow = described_class.new(valid_json)
+        expect(flow.flow?).to be_truthy
+      end
+
       it 'a pull request exists, slack_message exists and action is submitted' do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
@@ -21,6 +30,14 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
     context 'returns false when' do
       it 'has an empty json' do
         flow = described_class.new(JSON.parse('{}'))
+        expect(flow.flow?).to be_falsey
+      end
+
+      it 'a review is empty in json' do
+        invalid_json = valid_json.deep_dup
+        invalid_json[:review] = JSON.parse('{}')
+
+        flow = described_class.new(invalid_json)
         expect(flow.flow?).to be_falsey
       end
 
