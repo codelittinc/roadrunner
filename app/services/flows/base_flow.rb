@@ -1,5 +1,7 @@
 module Flows
   class BaseFlow
+    delegate :can_parse?, to: :parser
+
     def initialize(params)
       @params = params
     end
@@ -28,10 +30,6 @@ module Flows
 
       parse_data!
       can_execute?
-    end
-
-    def can_parse?
-      parser.can_parse?
     end
 
     def can_execute?
