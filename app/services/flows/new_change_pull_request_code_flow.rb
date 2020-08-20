@@ -21,7 +21,7 @@ module Flows
     end
 
     def parser
-      @parser ||= Parsers::PullRequestParserGithub.new(@params)
+      @parser ||= Parsers::GithubWebhookParser.new(@params)
     end
 
     private

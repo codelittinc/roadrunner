@@ -4,7 +4,7 @@ module Flows
       if pull_request_review
         pull_request_review.update(state: parser.state)
       else
-        PullRequestReview.create(pull_request: pull_request, username: parser.username, state: parser.state)
+        PullRequestReview.create(pull_request: pull_request, username: review_parser.username, state: review_parser.state)
       end
 
       send_message
@@ -22,7 +22,7 @@ module Flows
     def pull_request_data
       return @pull_request_data if @pull_request_data
 
-      @pull_request_data = Parsers::PullRequestParserGithub.new(@params)
+      @pull_request_data = Parsers::GithubWebhookParser.new(@params)
       @pull_request_data.parse!
       @pull_request_data
     end
@@ -32,7 +32,7 @@ module Flows
     end
 
     def pull_request_review
-      @pull_request_review ||= PullRequestReview.find_by(pull_request: pull_request, username: parser.username)
+      @pull_request_review ||= PullRequestReview.find_by(pull_request: pull_request, username: review_parser.username)
     end
 
     def repository
@@ -51,16 +51,22 @@ module Flows
       @github_pull_request ||= Clients::Github::PullRequest.new.get(repository.full_name, pull_request[:github_id])
     end
 
+    def review_parser
+      @review_parser = Parsers::NewReviewSubmissionParser.new(@params)
+      @review_parser.parse!
+      @review_parser
+    end
+
     def channel
       @channel ||= repository.slack_repository_info.dev_channel
     end
 
     def send_message
       slack_ts = slack_message.ts
-      if parser.state == PullRequestReview::REVIEW_STATE_CHANGES_REQUESTED
+      if review_parser.state == PullRequestReview::REVIEW_STATE_CHANGES_REQUESTED
         message = Messages::Builder.notify_changes_request
         Clients::Slack::ChannelMessage.new.send(message, channel, slack_ts)
-      elsif parser.message != ''
+      elsif review_parser.message != ''
         message = Messages::Builder.notify_new_message
         Clients::Slack::ChannelMessage.new.send(message, channel, slack_ts)
       elsif !github_pull_request[:mergeable] && github_pull_request[:mergeable_state] == 'dirty'

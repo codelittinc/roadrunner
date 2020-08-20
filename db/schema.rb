@@ -9,13 +9,17 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 2020_08_17_152336) do
+
+ActiveRecord::Schema.define(version: 2020_08_19_204950) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "check_runs", force: :cascade do |t|
     t.string "state"
     t.string "commit_sha"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "commits", force: :cascade do |t|
@@ -27,6 +31,9 @@ ActiveRecord::Schema.define(version: 2020_08_17_152336) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pull_request_id"], name: "index_commits_on_pull_request_id"
+  end
+
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
   create_table "flow_requests", force: :cascade do |t|
@@ -86,6 +93,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_152336) do
     t.bigint "repository_id"
     t.bigint "user_id"
     t.string "ci_state"
+    t.index ["github_id", "repository_id"], name: "index_pull_requests_on_github_id_and_repository_id", unique: true
     t.index ["repository_id"], name: "index_pull_requests_on_repository_id"
     t.index ["user_id"], name: "index_pull_requests_on_user_id"
   end

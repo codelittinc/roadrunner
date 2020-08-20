@@ -1,5 +1,5 @@
 module Parsers
-  class PullRequestParserGithub
+  class GithubWebhookParser
     attr_reader :head, :base, :github_id, :repository_name, :title, :draft, :state, :owner, :username, :description, :merged_at, :branch_name
 
     def initialize(json)
