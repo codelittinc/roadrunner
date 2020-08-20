@@ -31,7 +31,7 @@ module Flows
     end
 
     def can_parse?
-      parser&.can_parse?
+      parser.can_parse?
     end
 
     def can_execute?
@@ -39,7 +39,7 @@ module Flows
     end
 
     def parse_data!
-      parser&.parse!
+      parser.parse!
     end
 
     def parser

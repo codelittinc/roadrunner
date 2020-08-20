@@ -18,6 +18,6 @@ class ParserFinder
       class_const.new(@params)
     end
 
-    classes.find(&:can_parse?)
+    classes.find(&:can_parse?) || Parsers::DefaultParser.new(@params)
   end
 end
