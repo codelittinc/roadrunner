@@ -31,7 +31,7 @@ RSpec.describe Flows::SentryErrorNotificationFlow, type: :service do
         expect(flow.flow?).to be_falsey
       end
 
-      it 'when there no server with an external_identifier with the same project_name' do
+      it 'when there no server with an external identifier with the same project_name' do
         flow = described_class.new(valid_incident)
         expect(flow.flow?).to be_falsey
       end
