@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :server do
+    name { 'my cool server' }
     link { 'roadrunner.codelitt.dev' }
 
     before(:create) do |obj|
