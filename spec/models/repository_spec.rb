@@ -3,18 +3,14 @@
 # Table name: repositories
 #
 #  id              :bigint           not null, primary key
-#  alias           :string
-#  deploy_type     :string
-#  jira_project    :string
-#  name            :string
-#  supports_deploy :boolean
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  project_id      :bigint
-#
-# Indexes
-#
-#  index_repositories_on_project_id  (project_id)
+#  deploy_type     :string
+#  supports_deploy :boolean
+#  name            :string
+#  jira_project    :string
+#  alias           :string
 #
 require 'rails_helper'
 

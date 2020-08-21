@@ -3,18 +3,15 @@
 # Table name: servers
 #
 #  id                    :bigint           not null, primary key
-#  active                :boolean          default(TRUE)
-#  alias                 :string
-#  environment           :string
 #  link                  :string
 #  supports_health_check :boolean
+#  repository_id         :bigint
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
-#  repository_id         :bigint
-#
-# Indexes
-#
-#  index_servers_on_repository_id  (repository_id)
+#  external_identifier   :string
+#  active                :boolean          default(TRUE)
+#  environment           :string
+#  name                  :string
 #
 require 'rails_helper'
 
