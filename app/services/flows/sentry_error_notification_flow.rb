@@ -23,7 +23,7 @@ module Flows
     end
 
     def server
-      @server ||= Server.find_by(alias: project_name)
+      @server ||= Server.find_by(external_identifier: project_name)
     end
   end
 end
