@@ -1,5 +1,5 @@
 json.id server.id
-json.external_identifier server.external_identifier
+json.name server.name
 json.project_name server.repository.project.name
 json.environment server.environment
 json.link server.link
