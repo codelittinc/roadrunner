@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :server do
     link { 'roadrunner.codelitt.dev' }
+
     before(:create) do |obj|
       obj.repository ||= create(:repository)
     end
