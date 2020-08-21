@@ -7,7 +7,7 @@ module Parsers
     end
 
     def parse!
-      @title = @json[:title]
+      @title = @json.dig(:event, :title)
       @message = @json[:message]
       @project_name = @json[:project_name]
     end
