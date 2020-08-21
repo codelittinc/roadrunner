@@ -5,4 +5,4 @@ json.deployChannel repository.slack_repository_info.deploy_channel if repository
 json.owner 'codelittinc'
 json.supportsDeploy repository.supports_deploy?
 json.deployWithTag repository.deploy_with_tag? if repository.deploy_type
-json.servers repository.servers.map(&:alias).reject(&:nil?) if repository.servers.length > 0
+json.servers repository.servers.map(&:external_identifier).reject(&:nil?) if repository.servers.length > 0
