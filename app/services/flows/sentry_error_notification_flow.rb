@@ -18,6 +18,10 @@ module Flows
       @message ||= @parser.message
     end
 
+    def title
+      @title ||= @parser.title
+    end
+
     def server
       @server ||= Server.find_by(alias: project_name)
     end

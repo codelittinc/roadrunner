@@ -7,6 +7,7 @@ module Parsers
     end
 
     def parse!
+      @title = @json[:title]
       @message = @json[:message]
       @project_name = @json[:project_name]
     end
