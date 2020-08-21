@@ -4,15 +4,10 @@
 #
 #  id                     :bigint           not null, primary key
 #  message                :string
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
 #  server_id              :bigint
 #  server_status_check_id :bigint
-#
-# Indexes
-#
-#  index_server_incidents_on_server_id               (server_id)
-#  index_server_incidents_on_server_status_check_id  (server_status_check_id)
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
 #
 class ServerIncident < ApplicationRecord
   belongs_to :server

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_230740) do
+ActiveRecord::Schema.define(version: 2020_08_21_165315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,9 +134,10 @@ ActiveRecord::Schema.define(version: 2020_08_20_230740) do
     t.bigint "repository_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "alias"
+    t.string "external_identifier"
     t.boolean "active", default: true
     t.string "environment"
+    t.string "name"
     t.index ["repository_id"], name: "index_servers_on_repository_id"
   end
 

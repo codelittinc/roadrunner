@@ -13,7 +13,7 @@ RSpec.describe Flows::GraylogsErrorNotificationFlow, type: :service do
   describe '#flow?' do
     context 'when event_definition_title exists' do
       it 'returns true' do
-        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev')
+        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', name: 'test')
 
         flow = described_class.new(incident_big_message)
         expect(flow.flow?).to be_truthy
@@ -22,7 +22,7 @@ RSpec.describe Flows::GraylogsErrorNotificationFlow, type: :service do
 
     context 'when event_definition_title does not exist' do
       it 'returns false' do
-        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev')
+        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', name: 'test')
         flow = described_class.new({
                                      event_definition_title: nil
                                    })
@@ -32,7 +32,7 @@ RSpec.describe Flows::GraylogsErrorNotificationFlow, type: :service do
 
     context 'when the source exists' do
       it 'returns true' do
-        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev')
+        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', name: 'test')
         flow = described_class.new(incident_big_message)
         expect(flow.flow?).to be_truthy
       end
@@ -49,7 +49,7 @@ RSpec.describe Flows::GraylogsErrorNotificationFlow, type: :service do
   describe '#run' do
     context 'with a valid json in which the message is bigger than 150 chars' do
       it 'creates a new ServerIncident record' do
-        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev')
+        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', name: 'test')
 
         flow = described_class.new(incident_small_message)
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
@@ -59,7 +59,7 @@ RSpec.describe Flows::GraylogsErrorNotificationFlow, type: :service do
       end
 
       it 'calls ChannelMessage#send with the right params only once' do
-        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', environment: 'prod')
+        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', environment: 'prod', name: 'test')
 
         flow = described_class.new(incident_small_message)
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
@@ -75,7 +75,7 @@ RSpec.describe Flows::GraylogsErrorNotificationFlow, type: :service do
 
     context 'when no slack message was send 10 minutes before' do
       it 'sends a slack message' do
-        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev')
+        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', name: 'test')
 
         flow = described_class.new(incident_small_message)
 
@@ -89,7 +89,7 @@ RSpec.describe Flows::GraylogsErrorNotificationFlow, type: :service do
 
     context 'when the slack_repository_info of the server repository has both the deploy channel and feed channel' do
       it 'sends a slack message to the feed channel' do
-        server = FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', environment: 'prod')
+        server = FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', environment: 'prod', name: 'test')
         server.repository.slack_repository_info.update({
                                                          feed_channel: 'my-cool-feed-repository-channel',
                                                          deploy_channel: 'deploy-channel'
@@ -111,7 +111,7 @@ RSpec.describe Flows::GraylogsErrorNotificationFlow, type: :service do
 
     context 'when the slack_repository_info of the server repository has only the deploy channel' do
       it 'sends a slack message to the feed channel' do
-        server = FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', environment: 'prod')
+        server = FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', environment: 'prod', name: 'test')
         server.repository.slack_repository_info.update({
                                                          feed_channel: nil,
                                                          deploy_channel: 'deploy-channel'
