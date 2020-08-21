@@ -45,7 +45,7 @@ RSpec.describe Flows::SentryErrorNotificationFlow, type: :service do
       flow = described_class.new(valid_incident)
       expect_any_instance_of(ServerIncidentService).to receive(:register_incident!).with(
         server,
-        'This is an example Python exception'
+        "Error: This shouldn't happen!"
       )
 
       flow.run
