@@ -1,21 +1,17 @@
 module Flows
   class SentryErrorNotificationFlow < BaseFlow
     def execute
-      ServerIncidentService.new.register_incident!(server, message)
+      ServerIncidentService.new.register_incident!(server, title)
     end
 
     def can_execute?
-      server && message && @params[:project_slug]
+      server && @params[:project_slug]
     end
 
     private
 
     def project_name
       @project_name ||= @parser.project_name
-    end
-
-    def message
-      @message ||= @parser.message
     end
 
     def title

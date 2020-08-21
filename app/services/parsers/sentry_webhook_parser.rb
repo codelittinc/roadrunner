@@ -1,14 +1,13 @@
 module Parsers
   class SentryWebhookParser < BaseParser
-    attr_reader :message, :project_name
+    attr_reader :title, :project_name
 
     def can_parse?
-      @json && @json[:project_name] && @json[:message]
+      @json && @json[:project_name] && @json[:event]
     end
 
     def parse!
       @title = @json.dig(:event, :title)
-      @message = @json[:message]
       @project_name = @json[:project_name]
     end
   end

@@ -1,475 +1,1567 @@
 {
   "project_name": "pia-web-qa",
-  "message": "This is an example Python exception",
-  "id": "1851255036",
-  "culprit": "raven.scripts.runner in main",
+  "message": "",
+  "id": "1852473055",
+  "culprit": "onClickSuggestion(27.chunk)",
   "project_slug": "pia-web-qa",
-  "url": "https://sentry.io/organizations/codelitt-7y/issues/1851255036/?referrer=webhooks_plugin",
+  "url": "https://sentry.io/organizations/codelitt-7y/issues/1852473055/?referrer=webhooks_plugin",
   "level": "error",
   "triggering_rules": [
-    
+    "Roadrunner"
   ],
   "event": {
-    "stacktrace": {
-      "frames": [
+    "extra": {
+      "arguments": [
         {
-          "function": "build_msg",
-          "symbol_addr": null,
-          "abs_path": "/home/ubuntu/.virtualenvs/getsentry/src/raven/raven/base.py",
-          "errors": null,
-          "pre_context": [
-            "                frames = stack",
-            "",
-            "            data.update({",
-            "                'sentry.interfaces.Stacktrace': {",
-            "                    'frames': get_stack_info(frames,"
-          ],
-          "post_context": [
-            "                },",
-            "            })",
-            "",
-            "        if 'sentry.interfaces.Stacktrace' in data:",
-            "            if self.include_paths:"
-          ],
-          "vars": {
-            "'frames'": "<generator object iter_stack_frames at 0x107bcc3c0>",
-            "'culprit'": null,
-            "'event_type'": "'raven.events.Message'",
-            "'date'": "datetime.datetime(2013, 8, 13, 3, 8, 24, 880386)",
-            "'extra'": {
-              "'go_deeper'": [
-                [
-                  "{\"'bar'\":[\"'baz'\"],\"'foo'\":\"'bar'\"}"
-                ]
-              ],
-              "'user'": "'dcramer'",
-              "'loadavg'": [
-                0.37255859375,
-                0.5341796875,
-                0.62939453125
-              ]
-            },
-            "'v'": {
-              "'message'": "u'This is a test message generated using ``raven test``'",
-              "'params'": [
-                
-              ]
-            },
-            "'kwargs'": {
-              "'message'": "'This is a test message generated using ``raven test``'",
-              "'level'": 20
-            },
-            "'event_id'": "'54a322436e1b47b88e239b78998ae742'",
-            "'tags'": null,
-            "'data'": {
-              "'sentry.interfaces.Message'": {
-                "'message'": "u'This is a test message generated using ``raven test``'",
-                "'params'": [
-                  
-                ]
-              },
-              "'message'": "u'This is a test message generated using ``raven test``'"
-            },
-            "'self'": "<raven.base.Client object at 0x107bb8210>",
-            "'time_spent'": null,
-            "'result'": {
-              "'sentry.interfaces.Message'": {
-                "'message'": "u'This is a test message generated using ``raven test``'",
-                "'params'": [
-                  
-                ]
-              },
-              "'message'": "u'This is a test message generated using ``raven test``'"
-            },
-            "'stack'": true,
-            "'handler'": "<raven.events.Message object at 0x107bd0890>",
-            "'k'": "'sentry.interfaces.Message'",
-            "'public_key'": null
-          },
-          "package": null,
-          "instruction_addr": null,
-          "symbol": null,
-          "image_addr": null,
-          "module": "raven.base",
-          "filename": "raven/base.py",
-          "platform": null,
-          "lineno": 303,
-          "colno": null,
-          "trust": null,
-          "in_app": false,
-          "data": {
-            
-          },
-          "context_line": "                        transformer=self.transform)",
-          "raw_function": null
-        },
-        {
-          "function": "capture",
-          "symbol_addr": null,
-          "abs_path": "/home/ubuntu/.virtualenvs/getsentry/src/raven/raven/base.py",
-          "errors": null,
-          "pre_context": [
-            "        if not self.is_enabled():",
-            "            return",
-            "",
-            "        data = self.build_msg(",
-            "            event_type, data, date, time_spent, extra, stack, tags=tags,"
-          ],
-          "post_context": [
-            "",
-            "        self.send(**data)",
-            "",
-            "        return (data.get('event_id'),)",
-            ""
-          ],
-          "vars": {
-            "'event_type'": "'raven.events.Message'",
-            "'date'": null,
-            "'extra'": {
-              "'go_deeper'": [
-                [
-                  "{\"'bar'\":[\"'baz'\"],\"'foo'\":\"'bar'\"}"
-                ]
-              ],
-              "'user'": "'dcramer'",
-              "'loadavg'": [
-                0.37255859375,
-                0.5341796875,
-                0.62939453125
-              ]
-            },
-            "'stack'": true,
-            "'tags'": null,
-            "'data'": null,
-            "'self'": "<raven.base.Client object at 0x107bb8210>",
-            "'time_spent'": null,
-            "'kwargs'": {
-              "'message'": "'This is a test message generated using ``raven test``'",
-              "'level'": 20
-            }
-          },
-          "package": null,
-          "instruction_addr": null,
-          "symbol": null,
-          "image_addr": null,
-          "module": "raven.base",
-          "filename": "raven/base.py",
-          "platform": null,
-          "lineno": 459,
-          "colno": null,
-          "trust": null,
-          "in_app": false,
-          "data": {
-            
-          },
-          "context_line": "            **kwargs)",
-          "raw_function": null
-        },
-        {
-          "function": "captureMessage",
-          "symbol_addr": null,
-          "abs_path": "/home/ubuntu/.virtualenvs/getsentry/src/raven/raven/base.py",
-          "errors": null,
-          "pre_context": [
-            "        \"\"\"",
-            "        Creates an event from ``message``.",
-            "",
-            "        >>> client.captureMessage('My event just happened!')",
-            "        \"\"\""
-          ],
-          "post_context": [
-            "",
-            "    def captureException(self, exc_info=None, **kwargs):",
-            "        \"\"\"",
-            "        Creates an event from an exception.",
-            ""
-          ],
-          "vars": {
-            "'message'": "'This is a test message generated using ``raven test``'",
-            "'kwargs'": {
-              "'extra'": {
-                "'go_deeper'": [
-                  "[{\"'bar'\":[\"'baz'\"],\"'foo'\":\"'bar'\"}]"
-                ],
-                "'user'": "'dcramer'",
-                "'loadavg'": [
-                  0.37255859375,
-                  0.5341796875,
-                  0.62939453125
-                ]
-              },
-              "'tags'": null,
-              "'data'": null,
-              "'level'": 20,
-              "'stack'": true
-            },
-            "'self'": "<raven.base.Client object at 0x107bb8210>"
-          },
-          "package": null,
-          "instruction_addr": null,
-          "symbol": null,
-          "image_addr": null,
-          "module": "raven.base",
-          "filename": "raven/base.py",
-          "platform": null,
-          "lineno": 577,
-          "colno": null,
-          "trust": null,
-          "in_app": false,
-          "data": {
-            
-          },
-          "context_line": "        return self.capture('raven.events.Message', message=message, **kwargs)",
-          "raw_function": null
-        },
-        {
-          "function": "send_test_message",
-          "symbol_addr": null,
-          "abs_path": "/home/ubuntu/.virtualenvs/getsentry/src/raven/raven/scripts/runner.py",
-          "errors": null,
-          "pre_context": [
-            "        level=logging.INFO,",
-            "        stack=True,",
-            "        tags=options.get('tags', {}),",
-            "        extra={",
-            "            'user': get_uid(),"
-          ],
-          "post_context": [
-            "        },",
-            "    ))",
-            "",
-            "    if client.state.did_fail():",
-            "        print('error!')"
-          ],
-          "vars": {
-            "'client'": "<raven.base.Client object at 0x107bb8210>",
-            "'options'": {
-              "'tags'": null,
-              "'data'": null
-            },
-            "'data'": null,
-            "'k'": "'secret_key'"
-          },
-          "package": null,
-          "instruction_addr": null,
-          "symbol": null,
-          "image_addr": null,
-          "module": "raven.scripts.runner",
-          "filename": "raven/scripts/runner.py",
-          "platform": null,
-          "lineno": 77,
-          "colno": null,
-          "trust": null,
-          "in_app": false,
-          "data": {
-            
-          },
-          "context_line": "            'loadavg': get_loadavg(),",
-          "raw_function": null
-        },
-        {
-          "function": "main",
-          "symbol_addr": null,
-          "abs_path": "/home/ubuntu/.virtualenvs/getsentry/src/raven/raven/scripts/runner.py",
-          "errors": null,
-          "pre_context": [
-            "    print(\"Using DSN configuration:\")",
-            "    print(\" \", dsn)",
-            "    print()",
-            "",
-            "    client = Client(dsn, include_paths=['raven'])"
-          ],
-          "post_context": null,
-          "vars": {
-            "'root'": "<logging.Logger object at 0x107ba5b10>",
-            "'parser'": "<optparse.OptionParser instance at 0x107ba3368>",
-            "'dsn'": "'https://ebc35f33e151401f9deac549978bda11:f3403f81e12e4c24942d505f086b2cad@sentry.io/1'",
-            "'opts'": "<Values at 0x107ba3b00: {'data': None, 'tags': None}>",
-            "'client'": "<raven.base.Client object at 0x107bb8210>",
-            "'args'": [
-              "'test'",
-              "'https://ebc35f33e151401f9deac549978bda11:f3403f81e12e4c24942d505f086b2cad@sentry.io/1'"
-            ]
-          },
-          "package": null,
-          "instruction_addr": null,
-          "symbol": null,
-          "image_addr": null,
-          "module": "raven.scripts.runner",
-          "filename": "raven/scripts/runner.py",
-          "platform": null,
-          "lineno": 112,
-          "colno": null,
-          "trust": null,
-          "in_app": false,
-          "data": {
-            
-          },
-          "context_line": "    send_test_message(client, opts.__dict__)",
-          "raw_function": null
+          "isTrusted": "[object Event]",
+          "type": "react-mousedown",
+          "currentTarget": "react",
+          "target": "react"
         }
       ]
     },
-    "extra": {
-      "emptyList": [
-        
-      ],
-      "unauthorized": false,
-      "emptyMap": {
-        
-      },
-      "url": "http://example.org/foo/bar/",
-      "results": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "length": 10837790,
-      "session": {
-        "foo": "bar"
-      }
-    },
-    "modules": {
-      "my.package": "1.0.0"
-    },
-    "_ref_version": 2,
-    "_ref": 5388450,
-    "id": "55778899ff314b0c8acf1264da3f5e5e",
+    "id": "52b97165ae4a45d68944500d45d8248a",
     "_metrics": {
-      "bytes.stored.event": 7862
+      "bytes.ingested.event": 16804,
+      "flag.processing.error": true,
+      "bytes.stored.event": 28003
     },
-    "culprit": "raven.scripts.runner in main",
-    "title": "This is an example Python exception",
-    "event_id": "55778899ff314b0c8acf1264da3f5e5e",
-    "environment": "prod",
-    "platform": "python",
-    "version": "5",
-    "location": null,
+    "errors": [
+      {
+        "url": "http://localhost:9095/static/js/38.chunk.js",
+        "type": "restricted_ip"
+      },
+      {
+        "url": "http://localhost:9095/static/js/main.chunk.js",
+        "type": "restricted_ip"
+      },
+      {
+        "url": "http://localhost:9095/static/js/27.chunk.js",
+        "type": "restricted_ip"
+      }
+    ],
+    "culprit": "onClickSuggestion(27.chunk)",
+    "title": "Error: This shouldn't happen!",
+    "event_id": "52b97165ae4a45d68944500d45d8248a",
+    "breadcrumbs": {
+      "values": [
+        {
+          "category": "xhr",
+          "timestamp": 1598031068.972176,
+          "type": "http",
+          "data": {
+            "url": "http://localhost:9095/sockjs-node/info?t=1598031068945",
+            "status_code": 200,
+            "method": "GET"
+          },
+          "level": "info"
+        },
+        {
+          "category": "console",
+          "level": "warning",
+          "timestamp": 1598031068.986546,
+          "data": {
+            "logger": "console",
+            "arguments": [
+              "./src/components/Graphs/DonutGraph/Elements/donutGenerator.ts\n Line 10:7: 'sortDonutSlices' is assigned a value but never used @typescript-eslint/no-unused-vars"
+            ]
+          },
+          "message": "./src/components/Graphs/DonutGraph/Elements/donutGenerator.ts\n Line 10:7: 'sortDonutSlices' is assigned a value but never used @typescript-eslint/no-unused-vars",
+          "type": "default"
+        },
+        {
+          "category": "console",
+          "level": "warning",
+          "timestamp": 1598031068.987031,
+          "data": {
+            "logger": "console",
+            "arguments": [
+              "./src/pages/SearchPage/index.tsx\n Line 30:9: Comparing to itself is potentially pointless no-self-compare"
+            ]
+          },
+          "message": "./src/pages/SearchPage/index.tsx\n Line 30:9: Comparing to itself is potentially pointless no-self-compare",
+          "type": "default"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031069.463556,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031070.403911,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "navigation",
+          "timestamp": 1598031070.785681,
+          "type": "default",
+          "data": {
+            "to": "/companies/13992#investor-portfolio",
+            "from": "/companies/13992#investor-portfolio"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031071.323866,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031071.455956,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031071.619891,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031071.622725,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031071.623646,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031071.624561,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031071.784441,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031071.785836,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031071.786626,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1598031071.854216,
+          "message": "div \u003e svg \u003e g \u003e g \u003e path#biotechlifesciencespharmahealthcare-10255-0",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1598031071.981011,
+          "message": "div \u003e svg \u003e g \u003e g \u003e path#a-181150-1",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031072.163626,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031072.254946,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031072.602531,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031072.603646,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1598031072.604311,
+          "message": "div.RecentLeases_container__1Q1h4 \u003e svg \u003e g \u003e g \u003e circle#lease-bubble-1-38377",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031072.605061,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031072.852666,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031072.853541,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031072.854291,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1598031072.855001,
+          "message": "div.RecentLeases_container__1Q1h4 \u003e svg \u003e g \u003e g \u003e circle#lease-bubble-2-9896",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1598031072.954776,
+          "message": "input#companies-properties-search-input.SearchInput_search-input__S3EIX.SearchInput_search-input-small__6aDtC.SearchInput_selectable__2PIUj.SearchInput_search-input-icon__46rl7[type=\"text\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031073.401121,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031073.402046,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031073.403631,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031073.475961,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1598031073.533311,
+          "message": "svg \u003e g \u003e circle#owner-portfolio-property-27342-5",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031073.803311,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031073.804161,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1598031073.938696,
+          "message": "svg \u003e g \u003e circle#owner-portfolio-property-29945-6",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1598031075.116451,
+          "message": "input#companies-properties-search-input.SearchInput_search-input__S3EIX.SearchInput_search-input-small__6aDtC.SearchInput_selectable__2PIUj.SearchInput_search-input-icon__46rl7[type=\"text\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.input",
+          "timestamp": 1598031076.582761,
+          "message": "input#companies-properties-search-input.SearchInput_search-input__S3EIX.SearchInput_search-input-small__6aDtC.SearchInput_selectable__2PIUj.SearchInput_search-input-icon__46rl7[type=\"text\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031077.899636,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "navigation",
+          "timestamp": 1598031079.238131,
+          "type": "default",
+          "data": {
+            "to": "/properties/33368",
+            "from": "/companies/13992#investor-portfolio"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031079.817746,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1598031079.997126,
+          "message": "div.ay-row \u003e div.ay-col-xs-4 \u003e div.ActivityFeedPropertyProfile_container__3XsGb",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "navigation",
+          "timestamp": 1598031080.195281,
+          "type": "default",
+          "data": {
+            "to": "/properties/33368#building",
+            "from": "/properties/33368"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031080.645816,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031080.714151,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1598031080.799976,
+          "message": "div \u003e svg \u003e g \u003e g \u003e path#biotechlifesciencespharmahealthcare-3135-0",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031080.967576,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031080.972631,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031080.973241,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031080.987951,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031081.036141,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031081.102191,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031081.540306,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031081.811616,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031081.972516,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031082.040656,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031082.163661,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1598031082.557766,
+          "message": "div.Navbar_icon__dXO0O \u003e a \u003e img.Navbar_logo__46AHD[alt=\"Avison Young\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "navigation",
+          "timestamp": 1598031082.558591,
+          "type": "default",
+          "data": {
+            "to": "/",
+            "from": "/properties/33368#building"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1598031083.652801,
+          "message": "input#companies-properties-search-input.SearchInput_search-input__S3EIX.SearchInput_search-input-large__2eAZF.SearchInput_search-input-icon__46rl7[type=\"text\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031084.052531,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.input",
+          "timestamp": 1598031084.105486,
+          "message": "input#companies-properties-search-input.SearchInput_search-input__S3EIX.SearchInput_search-input-large__2eAZF.SearchInput_search-input-icon__46rl7[type=\"text\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031084.158301,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031084.704601,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "console",
+          "level": "error",
+          "timestamp": 1598031084.846116,
+          "data": {
+            "logger": "console",
+            "arguments": [
+              "Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in %s.%s",
+              "a useEffect cleanup function",
+              "\n in BuildingSection (at ShowProperty/index.tsx:52)\n in ShowPropertyPage (created by Context.Consumer)\n in div (at PrivateRoute/index.tsx:34)\n in Route (at PrivateRoute/index.tsx:47)\n in PrivateRoute (at App.tsx:72)"
+            ]
+          },
+          "message": "Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in %s.%s a useEffect cleanup function \n in BuildingSection (at ShowProperty/index.tsx:52)\n in ShowPropertyPage (created by Context.Consumer)\n in div (at PrivateRoute/index.tsx:34)\n in Route (at PrivateRoute/index.tsx:47)\n in PrivateRoute (at App.tsx:72)",
+          "type": "default"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1598031085.277366,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        }
+      ]
+    },
+    "grouping_config": {
+      "enhancements": "eJybzDhxY3J-bm5-npWRgaGlroGxrpHxBABcTQcY",
+      "id": "newstyle:2019-10-29"
+    },
+    "platform": "javascript",
+    "version": "7",
+    "location": "/static/js/27.chunk.js",
     "logger": "",
-    "type": "default",
+    "type": "error",
     "metadata": {
-      "title": "This is an example Python exception"
+      "function": "onClickSuggestion",
+      "type": "Error",
+      "value": "This shouldn't happen!",
+      "filename": "/static/js/27.chunk.js"
     },
     "tags": [
       [
         "browser",
-        "Chrome 28.0.1500"
+        "Chrome 84.0.4147"
       ],
       [
         "browser.name",
         "Chrome"
       ],
       [
-        "client_os",
-        "Windows 8"
+        "device",
+        "Mac"
       ],
       [
-        "client_os.name",
-        "Windows"
+        "device.family",
+        "Mac"
       ],
       [
-        "environment",
-        "prod"
+        "handled",
+        "yes"
       ],
       [
         "level",
         "error"
       ],
       [
-        "sentry:user",
-        "id:1"
+        "mechanism",
+        "instrument"
       ],
       [
-        "server_name",
-        "web01.example.org"
+        "os",
+        "Mac OS X 10.15.3"
+      ],
+      [
+        "os.name",
+        "Mac OS X"
+      ],
+      [
+        "sentry:user",
+        "id:9"
       ],
       [
         "url",
-        "http://example.com/foo"
+        "http://localhost:9095/"
       ]
     ],
-    "timestamp": 1597958819.411214,
+    "timestamp": 1598031086.505091,
     "user": {
-      "username": "sentry",
-      "name": "Sentry",
-      "ip_address": "127.0.0.1",
-      "email": "sentry@example.com",
       "geo": {
-        "city": "London",
-        "region": "H9",
-        "country_code": "GB"
+        "city": "Anápolis",
+        "region": "Brazil",
+        "country_code": "BR"
       },
-      "id": "1"
+      "ip_address": "189.123.53.160",
+      "id": "9",
+      "email": "victor.carvalho@codelitt.com"
     },
     "fingerprint": [
       "{{ default }}"
     ],
     "hashes": [
-      "3a2b45089d0211943e5a6645fb4cea3f"
+      "79ba95c03f76406de7153bf240f791ee"
     ],
-    "received": 1597958819.412631,
+    "sdk": {
+      "version": "5.21.0",
+      "name": "sentry.javascript.react",
+      "packages": [
+        {
+          "version": "5.21.0",
+          "name": "npm:@sentry/browser"
+        },
+        {
+          "version": "5.21.0",
+          "name": "npm:@sentry/react"
+        }
+      ],
+      "integrations": [
+        "InboundFilters",
+        "FunctionToString",
+        "TryCatch",
+        "Breadcrumbs",
+        "GlobalHandlers",
+        "LinkedErrors",
+        "UserAgent"
+      ]
+    },
+    "received": 1598031087.583303,
+    "exception": {
+      "values": [
+        {
+          "stacktrace": {
+            "frames": [
+              {
+                "function": "dispatchDiscreteEvent",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 51729,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 7,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "discreteUpdates",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 47254,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 16,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "discreteUpdates$1",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 70210,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 16,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "runWithPriority$2",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 58046,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 14,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "unstable_runWithPriority",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 80624,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 16,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "dispatchEvent",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 51762,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 23,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "attemptToDispatchEvent",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 51859,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 9,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "dispatchEventForPluginEventSystem",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 51742,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 9,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "batchedEventUpdates",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 47229,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 16,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "batchedEventUpdates$1",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 70193,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 16,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "handleTopLevel",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 51646,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 9,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "runExtractedPluginEventsInBatch",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 46696,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 7,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "runEventsInBatch",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 46554,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 7,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "forEachAccumulated",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 46509,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 12,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "executeDispatchesAndReleaseTopLevel",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 46537,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 14,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "executeDispatchesAndRelease",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 46528,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 9,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "executeDispatchesInOrder",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 46425,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 9,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "executeDispatch",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 46400,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 7,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "invokeGuardedCallbackAndCatchFirstError",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 46269,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 29,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "invokeGuardedCallback",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 46254,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 35,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "Object.invokeGuardedCallbackDev",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 46201,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 20,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "HTMLUnknownElement.sentryWrapped",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 4136,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 17,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "HTMLUnknownElement.callCallback",
+                "abs_path": "http://localhost:9095/static/js/38.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "38.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 46152,
+                "filename": "/static/js/38.chunk.js",
+                "post_context": null,
+                "colno": 18,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "onMouseDown",
+                "abs_path": "http://localhost:9095/static/js/main.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "main.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 3815,
+                "filename": "/static/js/main.chunk.js",
+                "post_context": null,
+                "colno": 28,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "selectSuggestion",
+                "abs_path": "http://localhost:9095/static/js/main.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "main.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 3679,
+                "filename": "/static/js/main.chunk.js",
+                "post_context": null,
+                "colno": 5,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "onClickSearchSuggestion",
+                "abs_path": "http://localhost:9095/static/js/main.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "main.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 2079,
+                "filename": "/static/js/main.chunk.js",
+                "post_context": null,
+                "colno": 5,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              },
+              {
+                "function": "onClickSuggestion",
+                "abs_path": "http://localhost:9095/static/js/27.chunk.js",
+                "errors": null,
+                "pre_context": null,
+                "vars": null,
+                "package": null,
+                "context_line": null,
+                "symbol": null,
+                "image_addr": null,
+                "module": "27.chunk",
+                "in_app": false,
+                "symbol_addr": null,
+                "lineno": 940,
+                "filename": "/static/js/27.chunk.js",
+                "post_context": null,
+                "colno": 13,
+                "trust": null,
+                "data": {
+                  "orig_in_app": 1
+                },
+                "platform": null,
+                "instruction_addr": null,
+                "raw_function": null
+              }
+            ]
+          },
+          "type": "Error",
+          "mechanism": {
+            "synthetic": null,
+            "help_link": null,
+            "data": {
+              "function": "addEventListener",
+              "handler": "callCallback",
+              "target": "EventTarget"
+            },
+            "meta": null,
+            "handled": true,
+            "type": "instrument",
+            "description": null
+          },
+          "value": "This shouldn't happen!"
+        }
+      ]
+    },
     "level": "error",
     "contexts": {
-      "client_os": {
-        "version": "8",
+      "device": {
+        "model": "Mac",
+        "type": "device",
+        "brand": "Apple",
+        "family": "Mac"
+      },
+      "os": {
+        "version": "10.15.3",
         "type": "os",
-        "name": "Windows"
+        "name": "Mac OS X"
       },
       "browser": {
-        "version": "28.0.1500",
+        "version": "84.0.4147",
         "type": "browser",
         "name": "Chrome"
       }
     },
     "request": {
-      "cookies": [
-        [
-          "foo",
-          "bar"
-        ],
-        [
-          "biz",
-          "baz"
-        ]
-      ],
-      "url": "http://example.com/foo",
+      "cookies": null,
+      "url": "http://localhost:9095/",
       "headers": [
         [
-          "Content-Type",
-          "application/json"
-        ],
-        [
-          "Referer",
-          "http://example.com"
-        ],
-        [
           "User-Agent",
-          "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36"
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36"
         ]
       ],
-      "env": {
-        "ENV": "prod"
-      },
+      "env": null,
       "fragment": null,
       "query_string": [
-        [
-          "foo",
-          "bar"
-        ]
+        
       ],
-      "data": {
-        "hello": "world"
-      },
-      "method": "GET",
-      "inferred_content_type": "application/json"
+      "data": null,
+      "method": null,
+      "inferred_content_type": null
     },
-    "logentry": {
-      "message": null,
-      "params": null,
-      "formatted": "This is an example Python exception"
-    }
+    "project": 5388450,
+    "key_id": "1301940"
   },
   "project": "pia-web-qa",
   "logger": null
