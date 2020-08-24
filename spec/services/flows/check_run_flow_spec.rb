@@ -143,5 +143,19 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         flow.execute
       end
     end
+
+    it 'create a check run data' do
+      VCR.use_cassette('flows#check-run#create-check-run-data', record: :new_episodes) do
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        slack_message = FactoryBot.create(:slack_message, ts: '123')
+        user = FactoryBot.create(:user, slack: 'rheniery.mendes')
+        pull_request = FactoryBot.create(:pull_request, github_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'develop')
+        FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
+
+        flow = described_class.new(valid_json)
+
+        expect { flow.execute }.to change { CheckRun.count }.by(1)
+      end
+    end
   end
 end
