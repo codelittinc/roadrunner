@@ -4,7 +4,7 @@ module Flows
       if check_run
         check_run.update(state: state)
       else
-        CheckRun.new(state: state, commit_sha: commit_sha)
+        CheckRun.create(state: state, commit_sha: commit_sha)
       end
 
       if state == CheckRun::FAILURE_STATE
