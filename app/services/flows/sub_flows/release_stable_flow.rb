@@ -22,8 +22,8 @@ module Flows
 
         is_first_stable_release = latest_stable_release == 'master'
 
-        major, minor, patch = latest_pre_release.scan(RELEASE_REGEX).flatten
-        new_tag_version = "v#{major}.#{minor}.#{patch}"
+        major, minor, _patch = latest_pre_release.scan(RELEASE_REGEX).flatten
+        new_tag_version = "v#{major}.#{minor}.0"
 
         new_version_commits = if is_first_stable_release
                                 Clients::Github::Branch.new.commits(@repository.full_name, 'master').reverse
