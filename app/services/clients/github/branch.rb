@@ -12,6 +12,12 @@ module Clients
       def compare(repo, head, base)
         @client.compare(repo, head, base)[:commits]
       end
+
+      def branch_exists?(repo, branch)
+        @client.branch(repo, branch)
+      rescue Octokit::NotFound
+        false
+      end
     end
   end
 end

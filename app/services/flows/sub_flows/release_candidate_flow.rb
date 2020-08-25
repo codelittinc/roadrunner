@@ -4,6 +4,7 @@ module Flows
       DEFAULT_TAG_NAME = 'rc.1.v0.0.0'.freeze
       RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/.freeze
       RELEASE_CANDIDATE_VERSION_REGEX = /^rc\.(\d+)\./.freeze
+      QA_ENVIRONMENT = 'qa'.freeze
 
       def initialize(channel_name, releases, repository)
         @channel_name = channel_name
@@ -14,7 +15,7 @@ module Flows
       def execute
         tag_names = @releases.map(&:tag_name)
 
-        version_resolver = Versioning::ReleaseVersionResolver.new('qa', tag_names, 'update')
+        version_resolver = Versioning::ReleaseVersionResolver.new(QA_ENVIRONMENT, tag_names, 'update')
 
         commits = if @releases.empty?
                     Clients::Github::Branch.new.commits(@repository.full_name, 'master').reverse
@@ -34,7 +35,8 @@ module Flows
 
         channel = @repository.slack_repository_info.deploy_channel
         if commits.empty?
-          Clients::Slack::ChannelMessage.new.send('Hey the *QA* environment already has all the latest changes', channel)
+          commits_message = Messages::Builder.notify_no_commits_changes(QA_ENVIRONMENT)
+          Clients::Slack::ChannelMessage.new.send(commits_message, channel)
           return
         end
 

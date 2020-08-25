@@ -2,6 +2,7 @@ module Flows
   module SubFlows
     class ReleaseStableFlow
       RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/.freeze
+      PROD_ENVIRONMENT = 'prod'.freeze
 
       def initialize(channel_name, releases, repository)
         @channel_name = channel_name
@@ -12,14 +13,15 @@ module Flows
       def execute
         tag_names = @releases.map(&:tag_name)
 
-        version_resolver = Versioning::ReleaseVersionResolver.new('prod', tag_names, 'update')
+        version_resolver = Versioning::ReleaseVersionResolver.new(PROD_ENVIRONMENT, tag_names, 'update')
 
         new_version_commits = fetch_commits(version_resolver)
 
         channel = @repository.slack_repository_info.deploy_channel
 
         if new_version_commits.empty?
-          Clients::Slack::ChannelMessage.new.send('Hey the *PROD* environment already has all the latest changes', channel)
+          commits_message = Messages::Builder.notify_no_commits_changes(PROD_ENVIRONMENT)
+          Clients::Slack::ChannelMessage.new.send(commits_message, channel)
           return
         end
 

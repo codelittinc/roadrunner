@@ -18,4 +18,8 @@ FactoryBot.define do
     author_name { 'MyString' }
     author_email { 'MyString' }
   end
+
+  trait :with_pull_request do
+    association :pull_request, factory: :pull_request
+  end
 end
