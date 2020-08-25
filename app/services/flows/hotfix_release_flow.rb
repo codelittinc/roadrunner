@@ -1,8 +1,8 @@
 module Flows
-  class ReleaseFlow < BaseFlow
+  class HotfixReleaseFlow < BaseFlow
     QA_ENVIRONMENT = 'qa'.freeze
     PRODUCTION_ENVIRONMENT = 'prod'.freeze
-    RELEASE_ACTION = 'update'.freeze
+    RELEASE_ACTION = 'hotfix'.freeze
 
     def execute
       Clients::Slack::ChannelMessage.new.send(release_message, channel_name)
@@ -15,10 +15,13 @@ module Flows
     def flow?
       return false if text.nil? || text.blank?
       return false unless action == RELEASE_ACTION
+
       return false unless slack_config
+
       return false unless environment == QA_ENVIRONMENT || environment == PRODUCTION_ENVIRONMENT
       return false if SlackRepositoryInfo.where(deploy_channel: channel_name).count != 1
-      return false if words.size != 2
+      return false if words.size != 4 && environment == QA_ENVIRONMENT
+      return false if words.size != 3 && environment == PRODUCTION_ENVIRONMENT
 
       repository&.deploy_type == Repository::TAG_DEPLOY_TYPE
     end
@@ -47,8 +50,16 @@ module Flows
       @action ||= words.first
     end
 
+    def repository_name
+      @repository_name ||= words.third
+    end
+
     def environment
-      @environment ||= words.last
+      @environment ||= words.second
+    end
+
+    def branch_name
+      @branch_name ||= environment == QA_ENVIRONMENT ? words.last : ''
     end
 
     def slack_config
@@ -56,7 +67,7 @@ module Flows
     end
 
     def repository
-      @repository ||= slack_config&.repository
+      @repository ||= Repository.where(name: repository_name).first
     end
 
     def release_message
@@ -69,9 +80,9 @@ module Flows
 
     def call_subflow_by_env
       if environment == QA_ENVIRONMENT
-        Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository).execute
+        Flows::SubFlows::HotfixReleaseCandidateFlow.new(channel_name, current_releases, repository, branch_name).execute
       else
-        Flows::SubFlows::ReleaseStableFlow.new(channel_name, current_releases, repository).execute
+        Flows::SubFlows::HotfixReleaseStableFlow.new(channel_name, current_releases, repository).execute
       end
     end
   end

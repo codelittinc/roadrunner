@@ -16,25 +16,25 @@ module Versioning
         end
       end
 
-      private
-
-      attr_reader :environment, :releases, :patch, :minor, :major
-
       def latest_tag_name
         @releases.find { |r| (Versioning.hotfix?(r) && Versioning.release_candidate?(r)) || Versioning.stable?(r) }
       end
 
-      def latest_normal_stable_release
-        @releases.find { |r| Versioning.stable?(r) & Versioning.normal?(r) }
+      def latest_stable_release
+        @releases.find { |r| Versioning.stable?(r) }
       end
 
       def hotfix_release_is_after_stable?
         index_latest_tag_name = @releases.index(latest_tag_name)
-        index_latest_normal_stable_release = @releases.index(latest_normal_stable_release)
-        return false unless index_latest_tag_name || index_latest_normal_stable_release
+        index_latest_stable_release = @releases.index(latest_stable_release)
+        return false unless index_latest_tag_name || index_latest_stable_release
 
-        index_latest_tag_name < index_latest_normal_stable_release
+        index_latest_tag_name < index_latest_stable_release
       end
+
+      private
+
+      attr_reader :environment, :releases, :patch, :minor, :major
 
       def mount_qa_version
         return nil if Versioning.first_pre_release?(latest_tag_name)

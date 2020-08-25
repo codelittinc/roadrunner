@@ -80,5 +80,35 @@ module Messages
 
       format(Templates::PullRequest::PULL_REQUEST_CONFLICTS, link, repository.name, pull_request.github_id)
     end
+
+    def self.branch_compare_message_hotfix(commits, format)
+      title = "Available in this release:\n"
+      points = commits.map do |commit|
+        base = " - #{commit.message}"
+        commit.message.match?('https://codelitt.atlassian.net/browse') do
+          jira_links = extract_jira_codes(commit.message).map do |jira_code|
+            if format == 'slack'
+              "<https://codelitt.atlassian.net/browse/#{jira_code}|#{jira_code}>"
+            else
+              "[#{jira_code}](https://codelitt.atlassian.net/browse/#{jira_code})"
+            end
+          end.join(' ')
+          "#{base} #{jira_links}"
+        end
+      end
+      title + points.select { |c| c }.join("\n")
+    end
+
+    def self.notify_release_action(action, environment, user_name)
+      "#{action.capitalize} release to *#{environment.upcase}* triggered by @#{user_name}"
+    end
+
+    def self.notify_branch_existence(branch_name, exist = false)
+      "Hey the branch `#{branch_name}` #{'does not' unless exist} exist"
+    end
+
+    def self.notify_no_commits_changes(environment)
+      "Hey the *#{environment.upcase}* environment already has all the latest changes"
+    end
   end
 end
