@@ -10,26 +10,11 @@ module Flows
       end
 
       def execute
-        latest_stable_release = 'master'
-        latest_pre_release = @releases.first[:tag_name]
+        tag_names = @releases.map(&:tag_name)
 
-        @releases.each do |release|
-          unless release[:prerelease]
-            latest_stable_release = release[:tag_name]
-            break
-          end
-        end
+        version_resolver = Versioning::ReleaseVersionResolver.new('prod', tag_names, 'update')
 
-        is_first_stable_release = latest_stable_release == 'master'
-
-        major, minor, patch = latest_pre_release.scan(RELEASE_REGEX).flatten
-        new_tag_version = "v#{major}.#{minor}.#{patch}"
-
-        new_version_commits = if is_first_stable_release
-                                Clients::Github::Branch.new.commits(@repository.full_name, 'master').reverse
-                              else
-                                Clients::Github::Branch.new.compare(@repository.full_name, latest_stable_release, latest_pre_release)
-                  end
+        new_version_commits = fetch_commits(version_resolver)
 
         channel = @repository.slack_repository_info.deploy_channel
 
@@ -53,13 +38,25 @@ module Flows
 
         Clients::Github::Release.new.create(
           @repository.full_name,
-          new_tag_version,
+          version_resolver.next_version,
           new_version_commits.last[:sha],
           github_message,
           false
         )
 
         Clients::Slack::ChannelMessage.new.send(slack_message, channel)
+      end
+
+      private
+
+      def fetch_commits(version_resolver)
+        first_stable_release = version_resolver.latest_normal_stable_release.nil? || version_resolver.latest_normal_stable_release == 'master'
+
+        if first_stable_release
+          Clients::Github::Branch.new.commits(@repository.full_name, 'master').reverse
+        else
+          Clients::Github::Branch.new.compare(@repository.full_name, version_resolver.latest_normal_stable_release, version_resolver.latest_tag_name)
+        end
       end
     end
   end

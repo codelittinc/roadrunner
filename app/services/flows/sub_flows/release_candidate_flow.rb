@@ -12,9 +12,9 @@ module Flows
       end
 
       def execute
-        tag_names_array = @releases.map(&:tag_name)
+        tag_names = @releases.map(&:tag_name)
 
-        version_resolver = Versioning::ReleaseVersionResolver.new('qa', tag_names_array, 'update')
+        version_resolver = Versioning::ReleaseVersionResolver.new('qa', tag_names, 'update')
 
         commits = if @releases.empty?
                     Clients::Github::Branch.new.commits(@repository.full_name, 'master').reverse
