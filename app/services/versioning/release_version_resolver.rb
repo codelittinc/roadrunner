@@ -1,6 +1,6 @@
 module Versioning
   class ReleaseVersionResolver
-    delegate :next_version, to: :resolver, allow_nil: true
+    delegate :next_version, :latest_tag_name, to: :resolver, allow_nil: true
     attr_reader :resolver
 
     ACTION_UPDATE = 'update'.freeze
