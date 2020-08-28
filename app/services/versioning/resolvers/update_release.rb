@@ -16,20 +16,20 @@ module Versioning
         end
       end
 
-      private
-
-      attr_reader :environment, :releases, :patch, :minor, :major
-
       def latest_tag_name
         releases.find { |r| Versioning.normal?(r) }
       end
 
-      def latest_qa_release
-        @releases.find { |r| !Versioning.stable?(r) && Versioning.normal?(r) }
-      end
-
       def latest_normal_stable_release
         @releases.find { |r| Versioning.stable?(r) && Versioning.normal?(r) }
+      end
+
+      private
+
+      attr_reader :environment, :releases, :patch, :minor, :major
+
+      def latest_qa_release
+        @releases.find { |r| !Versioning.stable?(r) && Versioning.normal?(r) }
       end
 
       def mount_qa_version

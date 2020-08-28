@@ -81,17 +81,17 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                                            })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
-                                message: 'Creating the README.md file',
+                                sha: '43b58be5634e022d16a10b886a80e3c0be2ee3a9',
+                                message: "Merge branch 'master' into Rheniery-patch-1",
                                 pull_request: repository,
-                                created_at: DateTime.parse('2020-07-24 11:26:10 UTC')
+                                created_at: DateTime.parse('2020-08-28 18:33:57 UTC')
                               })
 
             flow = described_class.new(valid_json)
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
-              'rc.1.v0.1.0',
+              'rc.1.v1.0.0',
               'master',
               "Available in this release:\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
               true
@@ -145,17 +145,17 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                                            })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
-                                message: 'Create .gitignore',
+                                sha: '43b58be5634e022d16a10b886a80e3c0be2ee3a9',
+                                message: "Merge branch 'master' into Rheniery-patch-1",
                                 pull_request: repository,
-                                created_at: DateTime.parse('2020-07-24 12:08:07 UTC')
+                                created_at: DateTime.parse('2020-08-28 18:33:57 UTC')
                               })
 
             flow = described_class.new(valid_json)
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
-              'rc.2.v0.1.0',
+              'rc.2.v1.0.0',
               'master',
               "Available in this release:\n - Create .gitignore [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)",
               true

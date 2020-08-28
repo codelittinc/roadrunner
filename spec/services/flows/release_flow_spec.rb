@@ -80,24 +80,24 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             repository = FactoryBot.create(:repository)
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-            repository = FactoryBot.create(:pull_request, {
-                                             title: 'Create README.md',
-                                             description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
-                                             repository: repository
-                                           })
+            pull_request = FactoryBot.create(:pull_request, {
+                                               title: 'Create README.md',
+                                               description: 'Card: [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)',
+                                               repository: repository
+                                             })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
-                                message: 'Creating the README.md file',
-                                pull_request: repository,
-                                created_at: DateTime.parse('2020-07-24 11:26:10 UTC')
+                                sha: '43b58be5634e022d16a10b886a80e3c0be2ee3a9',
+                                message: "Merge branch 'master' into Rheniery-patch-1",
+                                pull_request: pull_request,
+                                created_at: DateTime.parse('2020-08-28 18:33:57 UTC')
                               })
 
             flow = described_class.new(valid_json)
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
-              'rc.1.v0.1.0',
+              'rc.1.v1.0.0',
               'master',
               "Available in this release:\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
               true
@@ -121,10 +121,10 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                            })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
-                                message: 'Creating the README.md file',
+                                sha: '43b58be5634e022d16a10b886a80e3c0be2ee3a9',
+                                message: "Merge branch 'master' into Rheniery-patch-1",
                                 pull_request: repository,
-                                created_at: DateTime.parse('2020-07-24 11:26:10 UTC')
+                                created_at: DateTime.parse('2020-08-28 18:33:57 UTC')
                               })
 
             flow = described_class.new(valid_json)
@@ -144,24 +144,24 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             repository = FactoryBot.create(:repository)
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-            repository = FactoryBot.create(:pull_request, {
-                                             title: 'Create .gitignore',
-                                             description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-276',
-                                             repository: repository
-                                           })
+            pull_request = FactoryBot.create(:pull_request, {
+                                               title: 'Create .gitignore',
+                                               description: 'Card: [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)',
+                                               repository: repository
+                                             })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
-                                message: 'Create .gitignore',
-                                pull_request: repository,
-                                created_at: DateTime.parse('2020-07-24 12:08:07 UTC')
+                                sha: '43b58be5634e022d16a10b886a80e3c0be2ee3a9',
+                                message: "Merge branch 'master' into Rheniery-patch-1",
+                                pull_request: pull_request,
+                                created_at: DateTime.parse('2020-08-28 18:33:57 UTC')
                               })
 
             flow = described_class.new(valid_json)
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
-              'rc.2.v0.1.0',
+              'rc.2.v1.0.0',
               'master',
               "Available in this release:\n - Create .gitignore [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)",
               true
@@ -197,7 +197,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             pr1 = FactoryBot.create(:pull_request, {
                                       title: 'Create .gitignore',
-                                      description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-276',
+                                      description: 'Card:',
                                       repository: repository
                                     })
 
@@ -210,7 +210,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             pr2 = FactoryBot.create(:pull_request, {
                                       title: 'Create README.md',
-                                      description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
+                                      description: 'Card:',
                                       repository: repository,
                                       github_id: 123
                                     })
@@ -231,7 +231,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'v0.1.0',
               '89e6b1bd6e1c531b14b44c71f662395415a0c9df',
-              "Available in this release:\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)\n - Create .gitignore [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)",
+              "Available in this release:\n - Create README.md \n - Create .gitignore ",
               false
             )
 
@@ -270,7 +270,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             pr1 = FactoryBot.create(:pull_request, {
                                       title: 'Create .env.example',
-                                      description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-278',
+                                      description: 'Card:',
                                       repository: repository
                                     })
 
@@ -283,7 +283,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             pr2 = FactoryBot.create(:pull_request, {
                                       title: 'Create README.md',
-                                      description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
+                                      description: 'Card:',
                                       repository: repository,
                                       github_id: 123
                                     })
@@ -304,7 +304,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'v0.2.0',
               '3c0adc4453e25ba32b9bac53fa9799f60fb37a21',
-              "Available in this release:\n - Create .env.example [AYAPI-278](https://codelitt.atlassian.net/browse/AYAPI-278)",
+              "Available in this release:\n - Create .env.example ",
               false
             )
 
@@ -328,14 +328,14 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075esssa6779f876442649f55',
+                                sha: '2c6dd08ba0bdf065b7351255afa793f0e5784f25',
                                 message: 'Update .env 1',
                                 pull_request: pr1,
                                 created_at: DateTime.parse('2020-07-24 17:21:04 UTC')
                               })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075esssa6779f876442649f55',
+                                sha: '2c6dd08ba0bdf065b7351255afa793f0e5784f25',
                                 message: 'Update .env 2',
                                 pull_request: pr1,
                                 created_at: DateTime.parse('2020-07-24 17:22:40 UTC')
@@ -349,7 +349,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
+                                sha: '2c6dd08ba0bdf065b7351255afa793f0e5784f25',
                                 message: 'Update .env 3',
                                 pull_request: pr2,
                                 created_at: DateTime.parse('2020-07-24 17:23:05 UTC')
@@ -363,7 +363,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
+                                sha: '2c6dd08ba0bdf065b7351255afa793f0e5784f25',
                                 message: 'Update .env 4',
                                 pull_request: pr3,
                                 created_at: DateTime.parse('2020-07-24 17:25:01 UTC')
