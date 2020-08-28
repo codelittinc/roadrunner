@@ -229,8 +229,8 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
-              'v0.1.0',
-              '89e6b1bd6e1c531b14b44c71f662395415a0c9df',
+              'v1.0.0',
+              '7a0e6f44f8e3a0c4569d485c81657f2a44692c7a',
               "Available in this release:\n - Create README.md \n - Create .gitignore ",
               false
             )
@@ -276,9 +276,9 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             FactoryBot.create(:commit, {
                                 sha: '6a65601c32c1915075esssa6779f876442649f55',
-                                message: 'Add .env.example',
+                                message: 'Update README.md',
                                 pull_request: pr1,
-                                created_at: DateTime.parse('2020-07-24 14:50:07 UTC')
+                                created_at: DateTime.parse('2020-08-28 20:43:21 UTC')
                               })
 
             pr2 = FactoryBot.create(:pull_request, {
@@ -290,9 +290,9 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             FactoryBot.create(:commit, {
                                 sha: '6a65601c32c1915075e800a6779f876442649f55',
-                                message: 'Creating the README.md file',
+                                message: 'Update README.md',
                                 pull_request: pr2,
-                                created_at: DateTime.parse('2020-07-24 11:26:10 UTC')
+                                created_at: DateTime.parse('2020-08-28 20:43:21 UTC')
                               })
 
             flow = described_class.new({
@@ -302,8 +302,8 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
-              'v0.2.0',
-              '3c0adc4453e25ba32b9bac53fa9799f60fb37a21',
+              'v1.1.0',
+              'bc1f53d9bb8818665e5fafc393219023f839bec6',
               "Available in this release:\n - Create .env.example ",
               false
             )
@@ -329,16 +329,16 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             FactoryBot.create(:commit, {
                                 sha: '2c6dd08ba0bdf065b7351255afa793f0e5784f25',
-                                message: 'Update .env 1',
+                                message: 'Update README.md',
                                 pull_request: pr1,
-                                created_at: DateTime.parse('2020-07-24 17:21:04 UTC')
+                                created_at: DateTime.parse('2020-08-28 21:05:26 UTC')
                               })
 
             FactoryBot.create(:commit, {
                                 sha: '2c6dd08ba0bdf065b7351255afa793f0e5784f25',
-                                message: 'Update .env 2',
+                                message: 'Update README.md',
                                 pull_request: pr1,
-                                created_at: DateTime.parse('2020-07-24 17:22:40 UTC')
+                                created_at: DateTime.parse('2020-08-28 21:05:26 UTC')
                               })
 
             pr2 = FactoryBot.create(:pull_request, {
@@ -349,10 +349,10 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: '2c6dd08ba0bdf065b7351255afa793f0e5784f25',
-                                message: 'Update .env 3',
+                                sha: 'be6cdfeec05baaf93aba94244b98707e94199761',
+                                message: 'Update README.md',
                                 pull_request: pr2,
-                                created_at: DateTime.parse('2020-07-24 17:23:05 UTC')
+                                created_at: DateTime.parse('2020-08-28 21:05:26 UTC')
                               })
 
             pr3 = FactoryBot.create(:pull_request, {
@@ -363,10 +363,10 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: '2c6dd08ba0bdf065b7351255afa793f0e5784f25',
-                                message: 'Update .env 4',
+                                sha: 'be6cdfeec05baaf93aba94244b98707e94199761',
+                                message: 'Update README.md',
                                 pull_request: pr3,
-                                created_at: DateTime.parse('2020-07-24 17:25:01 UTC')
+                                created_at: DateTime.parse('2020-08-28 20:59:59 UTC')
                               })
 
             flow = described_class.new({
@@ -376,9 +376,9 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
-              'v0.3.0',
-              '2c6dd08ba0bdf065b7351255afa793f0e5784f25',
-              "Available in this release:\n - PR: Update .env 1 \n - PR: Update .env 3 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)\n - PR: Update .env 4 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
+              'v1.2.0',
+              '59254c02079408178f40b12e8192d945988d9644',
+              "Available in this release:\n - PR: Update .env 4 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)\n - PR: Update .env 1 ",
               false
             )
 
