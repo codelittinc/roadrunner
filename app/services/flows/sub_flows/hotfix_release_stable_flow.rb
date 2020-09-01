@@ -20,7 +20,7 @@ module Flows
         return unless version_resolver.hotfix_release_is_after_stable?
 
         if commits.empty?
-          commits_message = Messages::Templates::Builder.notify_no_commits_changes(PROD_ENVIRONMENT)
+          commits_message = Messages::Builder.notify_no_commits_changes(PROD_ENVIRONMENT)
           Clients::Slack::ChannelMessage.new.send(commits_message, channel)
           return
         end

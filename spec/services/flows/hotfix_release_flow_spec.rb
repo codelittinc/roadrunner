@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'external_api_helper'
+require 'ostruct'
 
 RSpec.describe Flows::HotfixReleaseFlow, type: :service do
   around do |example|
@@ -75,6 +76,28 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
         expect_any_instance_of(Flows::SubFlows::HotfixReleaseCandidateFlow).to receive(:execute)
 
         flow.execute
+      end
+
+      context 'when there are no changes between the branchs' do
+        it 'ensure it does not throw an error' do
+          FactoryBot.create(:repository)
+
+          flow = described_class.new({
+                                       "text": 'hotfix qa roadrunner-repository-test hotfix/fix-to-test',
+                                       "channel_name": 'feed-test-automations'
+                                     })
+
+          allow_any_instance_of(Clients::Github::Branch).to receive(:compare).and_return([])
+          allow_any_instance_of(Clients::Github::Release).to receive(:list).and_return([OpenStruct.new({ 'tag_name': 'rc.1.v1.1.1' })])
+          allow_any_instance_of(Clients::Github::Branch).to receive(:branch_exists?).and_return(true)
+          allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+
+          allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+            'Hey the *QA* environment already has all the latest changes', 'feed-test-automations', '123'
+          )
+
+          expect { flow.execute }.to_not raise_error
+        end
       end
 
       it 'create the first hotfix' do
