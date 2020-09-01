@@ -27,7 +27,7 @@ if ENV['SEED_CREATE_PROJECTS']
                       name: 'roadrunner',
                       supports_deploy: false,
                       servers: [
-                        Server.new(link: 'https://roadrunner.codelitt.dev', supports_health_check: false, alias: 'prod-roadrunner')
+                        Server.new(link: 'https://roadrunner.codelitt.dev', supports_health_check: false, external_identifier: 'prod-roadrunner', name: 'prod-roadrunner')
                       ],
                       alias: 'Roadrunner',
                       slack_repository_info: SlackRepositoryInfo.new(dev_group: '@engineers', dev_channel: 'team-automations-dev', deploy_channel: 'team-automations-dev')
@@ -42,9 +42,9 @@ if ENV['SEED_CREATE_PROJECTS']
                       jira_project: 'CW',
                       alias: 'Website',
                       servers: [
-                        Server.new(link: 'https://codelitt.dev', supports_health_check: false, alias: 'dev-website-codelitt'),
-                        Server.new(link: 'https://qa.codelitt.dev', supports_health_check: false, alias: 'qa-codelitt-website'),
-                        Server.new(link: 'https://codelitt.com', supports_health_check: false, alias: 'prod-codelitt-website')
+                        Server.new(link: 'https://codelitt.dev', supports_health_check: false, external_identifier: 'dev-website-codelitt', name: 'dev-website-codelitt'),
+                        Server.new(link: 'https://qa.codelitt.dev', supports_health_check: false, external_identifier: 'qa-codelitt-website', name: 'qa-codelitt-website'),
+                        Server.new(link: 'https://codelitt.com', supports_health_check: false, external_identifier: 'prod-codelitt-website', name: 'prod-codelitt-website')
                       ],
                       slack_repository_info: SlackRepositoryInfo.new(dev_group: '@website-devs', dev_channel: 'team-website-dev', deploy_channel: 'team-website-deploy')
                     )
@@ -56,9 +56,9 @@ if ENV['SEED_CREATE_PROJECTS']
                       supports_deploy: true,
                       deploy_type: Repository::TAG_DEPLOY_TYPE,
                       servers: [
-                        Server.new(link: 'https://dev-rolli.codelitt.dev', supports_health_check: false, alias: 'dev-rolli'),
-                        Server.new(link: 'https://qa-rolli.codelitt.dev', supports_health_check: false, alias: 'qa-rolli'),
-                        Server.new(link: 'https://rolliapp.com', supports_health_check: false, alias: 'prod-rolli')
+                        Server.new(link: 'https://dev-rolli.codelitt.dev', supports_health_check: false, external_identifier: 'dev-rolli', name: 'dev-rolli'),
+                        Server.new(link: 'https://qa-rolli.codelitt.dev', supports_health_check: false, external_identifier: 'qa-rolli', name: 'qa-rolli'),
+                        Server.new(link: 'https://rolliapp.com', supports_health_check: false, external_identifier: 'prod-rolli', name: 'prod-rolli')
                       ],
                       slack_repository_info: SlackRepositoryInfo.new(dev_group: '@rolli-devs', dev_channel: 'team-rolli-dev', deploy_channel: 'team-rolli-deploy')
                     )
@@ -70,7 +70,7 @@ if ENV['SEED_CREATE_PROJECTS']
                       supports_deploy: true,
                       deploy_type: Repository::BRANCH_DEPLOY_TYPE,
                       servers: [
-                        Server.new(link: 'https://team-maker.codelitt.dev', supports_health_check: false, alias: 'prod-team-maker')
+                        Server.new(link: 'https://team-maker.codelitt.dev', supports_health_check: false, external_identifier: 'prod-team-maker', name: 'prod-team-maker')
                       ],
                       slack_repository_info: SlackRepositoryInfo.new(dev_group: '@team-maker-devs', dev_channel: 'team-teammaker-dev', deploy_channel: 'wg-teammaker-deploy')
                     )
@@ -101,8 +101,8 @@ if ENV['SEED_CREATE_PROJECTS']
                       deploy_type: Repository::BRANCH_DEPLOY_TYPE,
                       jira_project: 'HUB',
                       servers: [
-                        Server.new(link: 'https://dev-ay-pia-web.herokuapp.com', supports_health_check: false, alias: 'dev-ay-pia-web'),
-                        Server.new(link: 'https://pia-web-prod.azurewebsites.net', supports_health_check: false)
+                        Server.new(link: 'https://dev-ay-pia-web.herokuapp.com', supports_health_check: false, external_identifier: 'dev-ay-pia-web', name: 'dev-ay-pia-web'),
+                        Server.new(link: 'https://pia-web-prod.azurewebsites.net', supports_health_check: false, name: 'prod-ay-pia-web')
                       ],
                       slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-desktop-devs', dev_channel: 'team-ay-pia-web-dev', deploy_channel: 'team-pia-web-deploy')
                     ),
@@ -130,7 +130,7 @@ if ENV['SEED_CREATE_PROJECTS']
                       name: 'blog-v2',
                       supports_deploy: false,
                       servers: [
-                        Server.new(link: 'https://blog.codelitt.com', supports_health_check: false, alias: 'prod-codelitt-blog')
+                        Server.new(link: 'https://blog.codelitt.com', supports_health_check: false, external_identifier: 'prod-codelitt-blog', name: 'prod-codelitt-blog')
                       ],
                       slack_repository_info: SlackRepositoryInfo.new(dev_group: '@website-devs', dev_channel: 'team-website-dev', deploy_channel: 'team-blog-deploy')
                     )
