@@ -18,3 +18,16 @@ rails s -b `hostname -i`
 ```
 
 8. Go to your browser and access `http://localhost:3000`
+
+## Configuring Tasks on Heroku
+
+1. Once inside your application on Heroku
+2. Click ***Resources***, then click in ***Find more add-ons***.
+3. Search for ***Heroku Scheduler*** and click on it.
+4. Add your application on the field *App to provision to* and then click on *Provision add-on* button.
+5. Inside the Heroku Scheduler now, you can add a job so, click on *Add Job* button
+    1. Choose an interval to run this job
+    2. Enter with the command to run the task. For example: 
+    ```rake server:check_up_servers```
+    3. Save the job and it's done.
+6. You can also know about it here: [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler)
