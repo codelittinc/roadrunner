@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :repository do
     name { 'roadrunner-repository-test' }
+    owner { 'codelittinc' }
     deploy_type { 'tag' }
     supports_deploy { true }
 
