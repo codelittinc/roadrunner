@@ -25,4 +25,18 @@ RSpec.describe Repository, type: :model do
   describe 'validations' do
     it { should validate_inclusion_of(:deploy_type).in_array([Repository::TAG_DEPLOY_TYPE, Repository::BRANCH_DEPLOY_TYPE]) }
   end
+
+  describe '#full_name' do
+    it 'returns a valid github repository path' do
+      repository = FactoryBot.create(:repository, owner: 'google', name: 'search')
+      expect(repository.full_name).to eql('google/search')
+    end
+  end
+
+  describe '#github_link' do
+    it 'returns a valid github link' do
+      repository = FactoryBot.create(:repository, owner: 'gotham', name: 'city')
+      expect(repository.github_link).to eql('https://github.com/gotham/city')
+    end
+  end
 end

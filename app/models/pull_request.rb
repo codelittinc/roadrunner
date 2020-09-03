@@ -43,7 +43,7 @@ class PullRequest < ApplicationRecord
   end
 
   def github_link
-    "https://github.com/codelittinc/#{repository&.name}/pull/#{github_id}"
+    "https://github.com/#{repository&.owner}/#{repository&.name}/pull/#{github_id}"
   end
 
   state_machine :state, initial: :open do

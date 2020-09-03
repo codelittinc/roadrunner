@@ -67,5 +67,13 @@ RSpec.describe PullRequest, type: :model do
         expect(pr.state).to eql('cancelled')
       end
     end
+
+    describe '#github_link' do
+      it 'returns a valid github link' do
+        repository = FactoryBot.create(:repository, owner: 'repo-owner', name: 'repo-name')
+        pr = FactoryBot.create(:pull_request, repository: repository, github_id: 1)
+        expect(pr.github_link).to eql('https://github.com/repo-owner/repo-name/pull/1')
+      end
+    end
   end
 end
