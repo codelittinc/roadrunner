@@ -1,0 +1,94 @@
+{
+  "timestamp": 1599151634297,
+  "webhookEvent": "comment_created",
+  "comment": {
+    "self": "https://codelitt.atlassian.net/rest/api/2/issue/14586/comment/12780",
+    "id": "12780",
+    "author": {
+      "self": "https://codelitt.atlassian.net/rest/api/2/user?accountId=5f0f211870b8a90025b6afa4",
+      "accountId": "5f0f211870b8a90025b6afa4",
+      "avatarUrls": {
+        "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f0f211870b8a90025b6afa4/4b11e355-99d4-4a7c-a523-f1cb8895181f/48",
+        "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f0f211870b8a90025b6afa4/4b11e355-99d4-4a7c-a523-f1cb8895181f/24",
+        "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f0f211870b8a90025b6afa4/4b11e355-99d4-4a7c-a523-f1cb8895181f/16",
+        "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f0f211870b8a90025b6afa4/4b11e355-99d4-4a7c-a523-f1cb8895181f/32"
+      },
+      "displayName": "Arath",
+      "active": true,
+      "timeZone": "America/Mexico_City",
+      "accountType": "atlassian"
+    },
+    "body": "[~accountid:5da6024d1a43fe0ddbb45cf5] we’ll remove the double spaces then",
+    "updateAuthor": {
+      "self": "https://codelitt.atlassian.net/rest/api/2/user?accountId=5f0f211870b8a90025b6afa4",
+      "accountId": "5f0f211870b8a90025b6afa4",
+      "avatarUrls": {
+        "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f0f211870b8a90025b6afa4/4b11e355-99d4-4a7c-a523-f1cb8895181f/48",
+        "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f0f211870b8a90025b6afa4/4b11e355-99d4-4a7c-a523-f1cb8895181f/24",
+        "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f0f211870b8a90025b6afa4/4b11e355-99d4-4a7c-a523-f1cb8895181f/16",
+        "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5f0f211870b8a90025b6afa4/4b11e355-99d4-4a7c-a523-f1cb8895181f/32"
+      },
+      "displayName": "Arath",
+      "active": true,
+      "timeZone": "America/Mexico_City",
+      "accountType": "atlassian"
+    },
+    "created": "2020-09-03T12:47:14.297-0400",
+    "updated": "2020-09-03T12:47:14.297-0400",
+    "jsdPublic": true
+  },
+  "issue": {
+    "id": "14586",
+    "self": "https://codelitt.atlassian.net/rest/api/2/14586",
+    "key": "HUB-893",
+    "fields": {
+      "summary": "PROD - Compose Email: formatting of the body of the email should be single-spaced",
+      "issuetype": {
+        "self": "https://codelitt.atlassian.net/rest/api/2/issuetype/10004",
+        "id": "10004",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://codelitt.atlassian.net/secure/viewavatar?size=medium\u0026avatarId=10303\u0026avatarType=issuetype",
+        "name": "Bug",
+        "subtask": false,
+        "avatarId": 10303
+      },
+      "project": {
+        "self": "https://codelitt.atlassian.net/rest/api/2/project/10005",
+        "id": "10005",
+        "key": "HUB",
+        "name": "AY - PIA Web",
+        "projectTypeKey": "software",
+        "simplified": false,
+        "avatarUrls": {
+          "48x48": "https://codelitt.atlassian.net/secure/projectavatar?pid=10005\u0026avatarId=10209",
+          "24x24": "https://codelitt.atlassian.net/secure/projectavatar?size=small\u0026s=small\u0026pid=10005\u0026avatarId=10209",
+          "16x16": "https://codelitt.atlassian.net/secure/projectavatar?size=xsmall\u0026s=xsmall\u0026pid=10005\u0026avatarId=10209",
+          "32x32": "https://codelitt.atlassian.net/secure/projectavatar?size=medium\u0026s=medium\u0026pid=10005\u0026avatarId=10209"
+        }
+      },
+      "assignee": null,
+      "priority": {
+        "self": "https://codelitt.atlassian.net/rest/api/2/priority/3",
+        "iconUrl": "https://codelitt.atlassian.net/images/icons/priorities/medium.svg",
+        "name": "Medium",
+        "id": "3"
+      },
+      "status": {
+        "self": "https://codelitt.atlassian.net/rest/api/2/status/10001",
+        "description": "",
+        "iconUrl": "https://codelitt.atlassian.net/",
+        "name": "To Do",
+        "id": "10001",
+        "statusCategory": {
+          "self": "https://codelitt.atlassian.net/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  },
+  "user_id": "arath.jimenez",
+  "user_key": "arath.jimenez"
+}
