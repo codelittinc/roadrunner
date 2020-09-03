@@ -45,9 +45,6 @@ ActiveRecord::Schema.define(version: 2020_10_16_150233) do
     t.index ["pull_request_id"], name: "index_commits_on_pull_request_id"
   end
 
-  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
-  end
-
   create_table "flow_requests", force: :cascade do |t|
     t.string "json"
     t.string "flow_name"
