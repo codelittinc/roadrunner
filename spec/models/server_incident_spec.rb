@@ -12,5 +12,8 @@
 require 'rails_helper'
 
 RSpec.describe ServerIncident, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'associations' do
+    it { should belong_to(:server) }
+    it { should belong_to(:server_status_check).optional }
+  end
 end
