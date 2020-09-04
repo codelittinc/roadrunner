@@ -11,6 +11,7 @@
 class ServerStatusCheck < ApplicationRecord
   belongs_to :server
 
+  # @TODO: remove or turn into a constant
   def incident_type
     'status_verification'
   end
