@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: repositories
@@ -19,8 +21,8 @@ class Repository < ApplicationRecord
 
   has_many :pull_requests
 
-  TAG_DEPLOY_TYPE = 'tag'.freeze
-  BRANCH_DEPLOY_TYPE = 'branch'.freeze
+  TAG_DEPLOY_TYPE = 'tag'
+  BRANCH_DEPLOY_TYPE = 'branch'
 
   validates :deploy_type, inclusion: { in: [TAG_DEPLOY_TYPE, BRANCH_DEPLOY_TYPE, nil] }
 

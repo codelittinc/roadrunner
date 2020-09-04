@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OpenPullRequestsController < ApplicationController
   def index
     pull_requests = PullRequest.where(state: 'open')

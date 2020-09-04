@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: pull_request_reviews
@@ -15,5 +17,5 @@ class PullRequestReview < ApplicationRecord
   validates :username, presence: true
   validates :state, presence: true
 
-  REVIEW_STATE_CHANGES_REQUESTED = 'changes_requested'.freeze
+  REVIEW_STATE_CHANGES_REQUESTED = 'changes_requested'
 end

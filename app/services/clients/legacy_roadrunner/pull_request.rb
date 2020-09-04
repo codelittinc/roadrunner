@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Clients
   module LegacyRoadrunner
     class PullRequest
-      URL = 'https://roadrunner.codelitt.dev'.freeze
+      URL = 'https://roadrunner.codelitt.dev'
 
       def self.by_github_id_and_repository(github_id, repository)
         url = build_url("pull-requests/#{github_id}/#{repository}")

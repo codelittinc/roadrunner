@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FlowController < ApplicationController
   def create
     render json: {

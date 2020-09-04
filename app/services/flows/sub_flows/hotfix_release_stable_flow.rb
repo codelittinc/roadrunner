@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Flows
   module SubFlows
     class HotfixReleaseStableFlow
       RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/.freeze
-      PROD_ENVIRONMENT = 'prod'.freeze
+      PROD_ENVIRONMENT = 'prod'
 
       attr_reader :channel_name, :releases, :repository, :version_resolver
 

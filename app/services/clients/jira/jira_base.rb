@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Clients
   module Jira
     class JiraBase
-      BASE_API_URL = 'https://codelitt.atlassian.net/rest/api/3'.freeze
-      BASE_BROWSER_URL = 'https://codelitt.atlassian.net/browse/'.freeze
+      BASE_API_URL = 'https://codelitt.atlassian.net/rest/api/3'
+      BASE_BROWSER_URL = 'https://codelitt.atlassian.net/browse/'
 
       def initialize
         @auth_key = 'a2Fpb0Bjb2RlbGl0dC5jb206UHpuRkJIQUhPRENDc01kelVHbEU4MTFB'

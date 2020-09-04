@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateSlackRepositoryInfos < ActiveRecord::Migration[6.0]
   def change
     create_table :slack_repository_infos do |t|

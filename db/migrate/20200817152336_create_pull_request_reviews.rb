@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePullRequestReviews < ActiveRecord::Migration[6.0]
   def change
     create_table :pull_request_reviews do |t|

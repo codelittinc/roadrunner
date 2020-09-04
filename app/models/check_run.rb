@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: check_runs
@@ -11,7 +13,7 @@
 class CheckRun < ApplicationRecord
   validates :state, presence: true
 
-  FAILURE_STATE = 'failure'.freeze
-  SUCCESS_STATE = 'success'.freeze
-  PENDING_STATE = 'pending'.freeze
+  FAILURE_STATE = 'failure'
+  SUCCESS_STATE = 'success'
+  PENDING_STATE = 'pending'
 end

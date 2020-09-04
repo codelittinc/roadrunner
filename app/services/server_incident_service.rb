@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ServerIncidentService
   ICONS = {
     qa: ':droplet:',
@@ -15,7 +17,7 @@ class ServerIncidentService
 
     recurrent = ServerIncident.where(
       server: server,
-      created_at: (Time.now - 10.minutes)..Time.now,
+      created_at: (Time.zone.now - 10.minutes)..Time.zone.now,
       message: error_message
     ).any?
 

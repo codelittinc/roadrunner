@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ServerIncidentsReportController < ApplicationController
   before_action :set_server, only: %i[show]
   before_action :set_server_incidents, only: %i[show]

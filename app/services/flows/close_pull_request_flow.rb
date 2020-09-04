@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Flows
   class ClosePullRequestFlow < BaseFlow
     JIRA_CARD_REGEX = %r{https?://codelitt.atlassian.net/browse/[a-zA-Z1-9-]+}.freeze

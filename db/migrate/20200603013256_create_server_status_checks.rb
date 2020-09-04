@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateServerStatusChecks < ActiveRecord::Migration[6.0]
   def change
     create_table :server_status_checks do |t|

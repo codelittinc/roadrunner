@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.id server.id
 json.name server.name
 json.project_name server.repository.project.name

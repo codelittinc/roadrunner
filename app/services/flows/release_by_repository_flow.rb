@@ -1,15 +1,18 @@
+# frozen_string_literal: true
+
 module Flows
   class ReleaseByRepositoryFlow < BaseFlow
-    QA_ENVIRONMENT = 'qa'.freeze
-    PRODUCTION_ENVIRONMENT = 'prod'.freeze
+    QA_ENVIRONMENT = 'qa'
+    PRODUCTION_ENVIRONMENT = 'prod'
 
     def execute
       current_releases = Clients::Github::Release.new.list(repository.full_name)
       Clients::Slack::ChannelMessage.new.send("Release to *#{environment.upcase}* triggered by @#{user_name}", channel_name)
 
-      if environment == QA_ENVIRONMENT
+      case environment
+      when QA_ENVIRONMENT
         Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository).execute
-      elsif environment == PRODUCTION_ENVIRONMENT
+      when PRODUCTION_ENVIRONMENT
         Flows::SubFlows::ReleaseStableFlow.new(channel_name, current_releases, repository).execute
       end
     end

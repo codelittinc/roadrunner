@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Flows
   module SubFlows
     class HotfixReleaseCandidateFlow
-      DEFAULT_TAG_NAME = 'rc.1.v0.0.0'.freeze
+      DEFAULT_TAG_NAME = 'rc.1.v0.0.0'
       RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/.freeze
       RELEASE_CANDIDATE_VERSION_REGEX = /^rc\.(\d+)\./.freeze
-      QA_ENVIRONMENT = 'qa'.freeze
+      QA_ENVIRONMENT = 'qa'
 
       attr_reader :branch, :channel_name, :releases, :repository, :version_resolver
 
