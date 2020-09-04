@@ -2,7 +2,6 @@
 
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'health_check', to: 'health_check#index'
   get 'projects_status', to: 'projects_status#index'
   get 'incidents', to: 'incidents#index'
   post 'flows', to: 'flow#create'
