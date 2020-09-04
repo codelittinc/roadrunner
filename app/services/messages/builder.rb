@@ -101,8 +101,8 @@ module Messages
       title + points.select { |c| c }.join("\n")
     end
 
-    def self.notify_release_action(action, environment, user_name)
-      "#{action.capitalize} release to *#{environment.upcase}* triggered by @#{user_name}"
+    def self.notify_release_action(action, environment, user_name, repository_name)
+      "#{action.capitalize} release to *#{repository_name}* *#{environment.upcase}* triggered by @#{user_name}"
     end
 
     def self.notify_branch_existence(branch_name, exist = false)
