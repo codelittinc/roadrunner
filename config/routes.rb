@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   post 'flows', to: 'flow#create'
   get 'slack_messages/:github_id/:repository_name', to: 'slack#index'
 
-  resources :users
   resources :servers
   resources :open_pull_requests, only: :index
   resources :server_incidents_report, only: :show
