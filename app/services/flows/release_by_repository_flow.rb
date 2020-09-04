@@ -7,8 +7,11 @@ module Flows
       current_releases = Clients::Github::Release.new.list(repository.full_name)
       Clients::Slack::ChannelMessage.new.send("Release to *#{environment.upcase}* triggered by @#{user_name}", channel_name)
 
-      Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository).execute if environment == QA_ENVIRONMENT
-      Flows::SubFlows::ReleaseStableFlow.new(channel_name, current_releases, repository).execute if environment == PRODUCTION_ENVIRONMENT
+      if environment == QA_ENVIRONMENT
+        Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository).execute
+      elsif environment == PRODUCTION_ENVIRONMENT
+        Flows::SubFlows::ReleaseStableFlow.new(channel_name, current_releases, repository).execute
+      end
     end
 
     # rubocop:disable Metrics/CyclomaticComplexity
