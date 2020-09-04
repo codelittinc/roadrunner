@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommitsCreator
   def initialize(repository, pull_request)
     @repository = repository

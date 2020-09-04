@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Flows
   class SlackJiraMentionFlow < BaseFlow
     REGEX = /\[~accountid:([a-z0-9]+)\]/.freeze

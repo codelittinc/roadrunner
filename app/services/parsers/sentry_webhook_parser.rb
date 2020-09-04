@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Parsers
   class SentryWebhookParser < BaseParser
     attr_reader :title, :project_name

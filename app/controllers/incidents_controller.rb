@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class IncidentsController < ApplicationController
   def index
     date = Date.new(*params[:date].split('-').map(&:to_i)).all_day

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ServersController < ApplicationController
   before_action :set_server, only: %i[show]
   before_action :set_date, only: %i[show]

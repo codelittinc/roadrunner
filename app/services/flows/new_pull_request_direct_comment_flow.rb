@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Flows
   class NewPullRequestDirectCommentFlow < BaseFlow
     def execute

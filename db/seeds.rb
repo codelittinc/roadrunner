@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # users
 if ENV['SEED_CREATE_USERS']
   User.create(slack: 'matias', jira: '5e6648d0219fb10cf9ed9c8d')

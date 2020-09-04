@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ParserFinder
   def initialize(params)
     @params = params

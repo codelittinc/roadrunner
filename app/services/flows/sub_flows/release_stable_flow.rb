@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Flows
   module SubFlows
     class ReleaseStableFlow
       RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/.freeze
-      PROD_ENVIRONMENT = 'prod'.freeze
+      PROD_ENVIRONMENT = 'prod'
 
       def initialize(channel_name, releases, repository)
         @channel_name = channel_name

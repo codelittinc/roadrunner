@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProjectsStatusController < ApplicationController
   def index
     servers = Server.all

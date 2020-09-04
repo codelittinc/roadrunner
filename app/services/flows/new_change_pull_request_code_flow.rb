@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Flows
   class NewChangePullRequestCodeFlow < BaseFlow
     def execute

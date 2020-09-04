@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 module Versioning
-  QA_ENVIRONMENT = 'qa'.freeze
-  PROD_ENVIRONMENT = 'prod'.freeze
-  DEFAULT_QA_TAG_NAME = 'rc.1.v0.0.0'.freeze
-  DEFAULT_PROD_TAG_NAME = 'v1.0.0'.freeze
+  QA_ENVIRONMENT = 'qa'
+  PROD_ENVIRONMENT = 'prod'
+  DEFAULT_QA_TAG_NAME = 'rc.1.v0.0.0'
+  DEFAULT_PROD_TAG_NAME = 'v1.0.0'
   RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/.freeze
   RELEASE_CANDIDATE_VERSION_REGEX = /^rc\.(\d+)\./.freeze
-  ACTION_UPDATE = 'update'.freeze
-  ACTION_HOTFIX = 'hotfix'.freeze
+  ACTION_UPDATE = 'update'
+  ACTION_HOTFIX = 'hotfix'
 
   def self.stable?(version)
     !version.match(/rc/)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Messages
   class Builder
     def self.new_pull_request_message(pull_request)

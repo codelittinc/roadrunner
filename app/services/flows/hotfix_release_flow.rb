@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Flows
   class HotfixReleaseFlow < BaseFlow
-    QA_ENVIRONMENT = 'qa'.freeze
-    PRODUCTION_ENVIRONMENT = 'prod'.freeze
-    RELEASE_ACTION = 'hotfix'.freeze
+    QA_ENVIRONMENT = 'qa'
+    PRODUCTION_ENVIRONMENT = 'prod'
+    RELEASE_ACTION = 'hotfix'
 
     def execute
       Clients::Slack::ChannelMessage.new.send(release_message, channel_name)
