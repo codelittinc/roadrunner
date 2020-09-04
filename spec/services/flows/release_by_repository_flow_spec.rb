@@ -55,6 +55,23 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
 
   describe '#execute' do
     context 'with the qa environment' do
+      it 'sends a start release notification to the channel' do
+        FactoryBot.create(:repository)
+
+        flow = described_class.new({
+                                     "text": 'update roadrunner-repository-test qa',
+                                     "channel_name": 'feed-test-automations'
+                                   })
+
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+          'Update release to *roadrunner-repository-test* *QA* triggered by @', 'feed-test-automations'
+        )
+        expect_any_instance_of(Clients::Github::Release).to receive(:list)
+        expect_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute)
+
+        flow.execute
+      end
+
       it 'calls the release candidate subflow' do
         FactoryBot.create(:repository)
 

@@ -4,10 +4,11 @@ module Flows
   class ReleaseByRepositoryFlow < BaseFlow
     QA_ENVIRONMENT = 'qa'
     PRODUCTION_ENVIRONMENT = 'prod'
+    RELEASE_ACTION = 'update'
 
     def execute
       current_releases = Clients::Github::Release.new.list(repository.full_name)
-      Clients::Slack::ChannelMessage.new.send("Release to *#{environment.upcase}* triggered by @#{user_name}", channel_name)
+      Clients::Slack::ChannelMessage.new.send(release_message, channel_name)
 
       case environment
       when QA_ENVIRONMENT
@@ -69,6 +70,10 @@ module Flows
 
     def repository
       @repository ||= Repository.where(name: repository_name).first
+    end
+
+    def release_message
+      @release_message ||= Messages::Builder.notify_release_action(RELEASE_ACTION, environment, user_name, repository_name)
     end
   end
 end

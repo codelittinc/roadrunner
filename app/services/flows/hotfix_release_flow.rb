@@ -73,7 +73,7 @@ module Flows
     end
 
     def release_message
-      @release_message ||= Messages::Builder.notify_release_action(RELEASE_ACTION, environment, user_name)
+      @release_message ||= Messages::Builder.notify_release_action(RELEASE_ACTION, environment, user_name, repository.name)
     end
 
     def current_releases
