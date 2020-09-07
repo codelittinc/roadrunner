@@ -54,11 +54,11 @@ module Flows
       end
 
       def slack_message
-        @slack_message = Messages::Builder.branch_compare_message_hotfix(db_commits, 'slack')
+        @slack_message = Messages::Builder.branch_compare_message_hotfix(db_commits, 'slack', @repository.name)
       end
 
       def github_message
-        @github_message = Messages::Builder.branch_compare_message_hotfix(db_commits, 'github')
+        @github_message = Messages::Builder.branch_compare_message_hotfix(db_commits, 'github', @repository.name)
       end
 
       def channel

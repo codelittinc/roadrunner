@@ -112,7 +112,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'rc.1.v1.0.0',
               'master',
-              "Available in this release:\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
+              "Available in the release of *roadrunner-repository-test*:\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
               true
             )
 
@@ -176,7 +176,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'rc.2.v1.0.0',
               'master',
-              "Available in this release:\n - Create .gitignore [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)",
+              "Available in the release of *roadrunner-repository-test*:\n - Create .gitignore [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)",
               true
             )
 
@@ -244,7 +244,8 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'v1.0.0',
               '7a0e6f44f8e3a0c4569d485c81657f2a44692c7a',
-              "Available in this release:\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)\n - Create .gitignore [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)",
+              %{Available in the release of *roadrunner-repository-test*:\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)
+ - Create .gitignore [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)},
               false
             )
 
@@ -317,7 +318,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'v1.1.0',
               'bc1f53d9bb8818665e5fafc393219023f839bec6',
-              "Available in this release:\n - Create .env.example [AYAPI-278](https://codelitt.atlassian.net/browse/AYAPI-278)",
+              "Available in the release of *roadrunner-repository-test*:\n - Create .env.example [AYAPI-278](https://codelitt.atlassian.net/browse/AYAPI-278)",
               false
             )
 
@@ -391,7 +392,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'v1.2.0',
               '59254c02079408178f40b12e8192d945988d9644',
-              "Available in this release:\n - PR: Update .env 4 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)\n - PR: Update .env 1 ",
+              "Available in the release of *roadrunner-repository-test*:\n - PR: Update .env 4 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)\n - PR: Update .env 1 ",
               false
             )
 

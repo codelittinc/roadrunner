@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# @TODO: We need to fix the release message, it is not returning the commit messages
 module Flows
   class HotfixReleaseFlow < BaseFlow
     QA_ENVIRONMENT = 'qa'

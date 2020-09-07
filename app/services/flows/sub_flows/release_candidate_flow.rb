@@ -15,16 +15,6 @@ module Flows
       end
 
       def execute
-        tag_names = @releases.map(&:tag_name)
-
-        version_resolver = Versioning::ReleaseVersionResolver.new(QA_ENVIRONMENT, tag_names, 'update')
-
-        commits = if @releases.empty?
-                    Clients::Github::Branch.new.commits(@repository.full_name, 'master').reverse
-                  else
-                    Clients::Github::Branch.new.compare(@repository.full_name, version_resolver.latest_tag_name, 'master')
-                  end
-
         db_commits = commits.map do |commit|
           date = commit[:commit][:committer][:date]
           before = date - 5.minutes
@@ -42,8 +32,8 @@ module Flows
           return
         end
 
-        slack_message = Messages::Builder.branch_compare_message(db_commits, 'slack')
-        github_message = Messages::Builder.branch_compare_message(db_commits, 'github')
+        slack_message = Messages::Builder.branch_compare_message(db_commits, 'slack', @repository.name)
+        github_message = Messages::Builder.branch_compare_message(db_commits, 'github', @repository.name)
 
         Clients::Github::Release.new.create(
           @repository.full_name,
@@ -54,6 +44,24 @@ module Flows
         )
 
         Clients::Slack::ChannelMessage.new.send(slack_message, channel)
+      end
+
+      private
+
+      def commits
+        @commits ||= if @releases.empty?
+                       Clients::Github::Branch.new.commits(@repository.full_name, 'master').reverse
+                     else
+                       Clients::Github::Branch.new.compare(@repository.full_name, version_resolver.latest_tag_name, 'master')
+                     end
+      end
+
+      def tag_names
+        @tag_names ||= @releases.map(&:tag_name)
+      end
+
+      def version_resolver
+        @version_resolver ||= Versioning::ReleaseVersionResolver.new(QA_ENVIRONMENT, tag_names, 'update')
       end
     end
   end

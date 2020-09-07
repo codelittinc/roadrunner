@@ -34,8 +34,8 @@ module Messages
       format(Templates::PullRequest::CLOSE_PULL_REQUEST_NOTIFICATION, link, repository.name, pull_request.github_id)
     end
 
-    def self.branch_compare_message(commits, format)
-      title = "Available in this release:\n"
+    def self.branch_compare_message(commits, format, repository_name)
+      title = "Available in the release of *#{repository_name}*:\n"
       prs = commits.reject(&:nil?).map(&:pull_request).uniq(&:id)
       points = prs.map do |pull_request|
         base = " - #{pull_request.title}"
@@ -83,8 +83,8 @@ module Messages
       format(Templates::PullRequest::PULL_REQUEST_CONFLICTS, link, repository.name, pull_request.github_id)
     end
 
-    def self.branch_compare_message_hotfix(commits, format)
-      title = "Available in this release:\n"
+    def self.branch_compare_message_hotfix(commits, format, repository_name)
+      title = "Available in the release of *#{repository_name}*:\n"
       points = commits.map do |commit|
         base = " - #{commit.message}"
         commit.message.match?('https://codelitt.atlassian.net/browse') do

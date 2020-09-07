@@ -4,6 +4,7 @@ require 'rails_helper'
 require 'external_api_helper'
 require 'ostruct'
 
+# @TODO: We need to fix the release message, it is not returning the commit messages
 RSpec.describe Flows::HotfixReleaseFlow, type: :service do
   around do |example|
     ClimateControl.modify SLACK_API_URL: 'https://slack-api.codelitt.dev/' do
@@ -102,7 +103,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
         end
       end
 
-      it 'create the first hotfix' do
+      it 'creates the first hotfix' do
         VCR.use_cassette('flows#hotfix#first') do
           repository = FactoryBot.create(:repository)
           repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
@@ -119,7 +120,8 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             'codelittinc/roadrunner-repository-test',
             'rc.1.v1.1.1',
             'hotfix/fix-to-test',
-            "Available in this release:\n",
+            # @TODO: send a proper message in the first hotfix
+            "Available in the release of *roadrunner-repository-test*:\n",
             true
           )
 
@@ -144,7 +146,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             'codelittinc/roadrunner-repository-test',
             'rc.2.v1.1.1',
             'hotfix/fix-to-test',
-            "Available in this release:\n",
+            "Available in the release of *roadrunner-repository-test*:\n",
             true
           )
 
@@ -230,7 +232,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'v1.1.1',
               '897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed',
-              "Available in this release:\n",
+              "Available in the release of *roadrunner-repository-test*:\n",
               false
             )
 
