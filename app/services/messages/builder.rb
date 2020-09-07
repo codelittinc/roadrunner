@@ -109,8 +109,8 @@ module Messages
       "Hey the branch `#{branch_name}` #{'does not' unless exist} exist"
     end
 
-    def self.notify_no_commits_changes(environment)
-      "Hey the *#{environment.upcase}* environment already has all the latest changes"
+    def self.notify_no_commits_changes(environment, repository_name)
+      "Hey the *#{repository_name}* *#{environment.upcase}* environment already up to date"
     end
   end
 end
