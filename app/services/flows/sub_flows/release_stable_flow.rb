@@ -22,7 +22,7 @@ module Flows
         channel = @repository.slack_repository_info.deploy_channel
 
         if new_version_commits.empty?
-          commits_message = Messages::Builder.notify_no_commits_changes(PROD_ENVIRONMENT)
+          commits_message = Messages::Builder.notify_no_commits_changes(PROD_ENVIRONMENT, @repository.name)
           Clients::Slack::ChannelMessage.new.send(commits_message, channel)
           return
         end
