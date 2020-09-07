@@ -49,11 +49,11 @@ RSpec.describe Messages::Builder, type: :service do
                                  pull_request: pr2
                                })
 
-        message = %(Available in this release:
+        message = %(Available in the release of *cool-repository*:
  - Add leaseExpirationSized rest of expirations value <https://codelitt.atlassian.net/browse/AYAPI-274|AYAPI-274>
  - Filter activity feed based on user preferences <https://codelitt.atlassian.net/browse/HUB-56|HUB-56> <https://codelitt.atlassian.net/browse/HUB-469|HUB-469>)
 
-        expect(described_class.branch_compare_message([c1, c2, c3], 'slack')).to eq(message)
+        expect(described_class.branch_compare_message([c1, c2, c3], 'slack', 'cool-repository')).to eq(message)
       end
     end
     describe 'with the Github format' do
@@ -101,11 +101,11 @@ RSpec.describe Messages::Builder, type: :service do
                                  pull_request: pr2
                                })
 
-        message = %(Available in this release:
+        message = %(Available in the release of *cool-repository*:
  - Add leaseExpirationSized rest of expirations value [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)
  - Filter activity feed based on user preferences [HUB-56](https://codelitt.atlassian.net/browse/HUB-56) [HUB-469](https://codelitt.atlassian.net/browse/HUB-469))
 
-        expect(described_class.branch_compare_message([c1, c2, c3], 'github')).to eq(message)
+        expect(described_class.branch_compare_message([c1, c2, c3], 'github', 'cool-repository')).to eq(message)
       end
     end
   end

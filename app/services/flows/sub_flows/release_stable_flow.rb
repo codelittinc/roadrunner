@@ -37,8 +37,8 @@ module Flows
           Commit.where(created_at: before..after, message: message).first
         end.flatten.reject(&:nil?)
 
-        slack_message = Messages::Builder.branch_compare_message(db_commits, 'slack')
-        github_message = Messages::Builder.branch_compare_message(db_commits, 'github')
+        slack_message = Messages::Builder.branch_compare_message(db_commits, 'slack', @repository.name)
+        github_message = Messages::Builder.branch_compare_message(db_commits, 'github', @repository.name)
 
         Clients::Github::Release.new.create(
           @repository.full_name,
