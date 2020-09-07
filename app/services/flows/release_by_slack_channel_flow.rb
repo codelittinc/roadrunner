@@ -21,7 +21,7 @@ module Flows
       return false unless contains_tag_all?
       return false unless action == UPDATE_ACTION
 
-      return false unless slack_config
+      return false unless slack_configs
       return false unless environment == QA_ENVIRONMENT || environment == PRODUCTION_ENVIRONMENT
 
       words.size == 3
@@ -57,16 +57,16 @@ module Flows
       @environment ||= words.last
     end
 
-    def slack_config
-      @slack_config ||= SlackRepositoryInfo.where(deploy_channel: channel_name).first
+    def slack_configs
+      @slack_configs ||= SlackRepositoryInfo.where(deploy_channel: channel_name)
     end
 
     def release_message
-      @release_message ||= Messages::Builder.notify_release_action(UPDATE_ACTION, environment, user_name, channels_repositories.map(&:name).join(','))
+      @release_message ||= Messages::Builder.notify_release_action(UPDATE_ACTION, environment, user_name, channels_repositories.map(&:name).join(', '))
     end
 
     def channels_repositories
-      @channels_repositories ||= Repository.where(slack_repository_info: slack_config)
+      @channels_repositories ||= Repository.where(slack_repository_info: slack_configs)
     end
 
     def call_qa_release
