@@ -59,6 +59,44 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
 
   describe '#execute' do
     context 'with the qa environment' do
+      it 'sends a start release notification to the channel' do
+        repository = FactoryBot.create(:repository)
+        repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+
+        flow = described_class.new({
+                                     "text": 'update all qa',
+                                     "channel_name": 'feed-test-automations'
+                                   })
+
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+          'Update release to *roadrunner-repository-test* *QA* triggered by @', 'feed-test-automations'
+        )
+        expect_any_instance_of(Clients::Github::Release).to receive(:list)
+        expect_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute)
+
+        flow.execute
+      end
+
+      it 'sends a start release notification with multiple repositories to the channel' do
+        repository = FactoryBot.create(:repository)
+        repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+        repository1 = FactoryBot.create(:repository, name: 'cool-repository')
+        repository1.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+
+        flow = described_class.new({
+                                     "text": 'update all qa',
+                                     "channel_name": 'feed-test-automations'
+                                   })
+
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+          'Update release to *roadrunner-repository-test, cool-repository* *QA* triggered by @', 'feed-test-automations'
+        )
+        allow_any_instance_of(Clients::Github::Release).to receive(:list)
+        allow_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute)
+
+        flow.execute
+      end
+
       it 'calls the release candidate subflow' do
         repository = FactoryBot.create(:repository)
         repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
@@ -72,6 +110,28 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
         expect_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute)
 
         flow.execute
+      end
+
+      it 'calls the release candidate subflow multiple times when there are multiple repositories' do
+        repository = FactoryBot.create(:repository)
+        repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+        repository1 = FactoryBot.create(:repository, name: 'cool-repository')
+        repository1.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+
+        flow = described_class.new({
+                                     "text": 'update all qa',
+                                     "channel_name": 'feed-test-automations'
+                                   })
+
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+
+        allow_any_instance_of(Clients::Github::Release).to receive(:list)
+        allow_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute)
+
+        message_count = 0
+        allow_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute) { |_arg| message_count += 1 }
+        flow.execute
+        expect(message_count).to be(2)
       end
     end
 
