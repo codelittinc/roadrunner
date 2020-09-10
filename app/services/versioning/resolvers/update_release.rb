@@ -41,7 +41,7 @@ module Versioning
 
         if Versioning.first_pre_release?(latest_tag_name)
           new_major += 1
-        elsif !latest_normal_stable_release.nil?
+        elsif !latest_normal_stable_release.nil? && latest_qa_release != latest_tag_name
           new_minor += 1
         end
 

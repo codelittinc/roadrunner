@@ -29,11 +29,11 @@ RSpec.describe Versioning::ReleaseVersionResolver, type: :service do
         it 'a QA RC release it should return an increased RC release' do
           flow = described_class.new(
             'qa',
-            ['rc.1.v0.2.1', 'rc.1.v0.2.2', 'v0.2.3', 'rc.1.v0.2.0'],
+            ['rc.1.v0.2.1', 'rc.1.v0.2.2', 'rc.1.v0.3.0', 'v0.2.0'],
             'update'
           )
 
-          expect(flow.next_version).to eql('rc.2.v0.2.0')
+          expect(flow.next_version).to eql('rc.2.v0.3.0')
         end
 
         it 'a normal STABLE release it returns a first RC release for that STABLE release' do
