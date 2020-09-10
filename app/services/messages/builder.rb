@@ -87,7 +87,7 @@ module Messages
       title = "Available in the release of *#{repository_name}*:\n"
       points = commits.map do |commit|
         base = " - #{commit.message}"
-        commit.message.match?('https://codelitt.atlassian.net/browse') do
+        if commit.message.match?('https://codelitt.atlassian.net/browse')
           jira_links = extract_jira_codes(commit.message).map do |jira_code|
             if format == 'slack'
               "<https://codelitt.atlassian.net/browse/#{jira_code}|#{jira_code}>"
@@ -95,8 +95,9 @@ module Messages
               "[#{jira_code}](https://codelitt.atlassian.net/browse/#{jira_code})"
             end
           end.join(' ')
-          "#{base} #{jira_links}"
+          base = "#{base} #{jira_links}"
         end
+        base
       end
       title + points.select { |c| c }.join("\n")
     end
