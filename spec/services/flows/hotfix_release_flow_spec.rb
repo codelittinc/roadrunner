@@ -121,7 +121,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             'rc.1.v1.1.1',
             'hotfix/fix-to-test',
             # @TODO: send a proper message in the first hotfix
-            "Available in the release of *roadrunner-repository-test*:\n",
+            "Available in the release of *roadrunner-repository-test*:\n - Update README.md",
             true
           )
 
@@ -135,9 +135,9 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
           repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
           FactoryBot.create(:commit, :with_pull_request, {
-                              sha: '897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed',
+                              sha: '68c44076db9827d83f110692690dbbeeb1ca3a7f',
                               message: 'Update README.md',
-                              created_at: DateTime.parse('2020-08-31 13:09:19 UTC')
+                              created_at: DateTime.parse('2020-08-31 13:38:33 UTC')
                             })
 
           flow = described_class.new(valid_json_qa)
@@ -146,7 +146,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             'codelittinc/roadrunner-repository-test',
             'rc.2.v1.1.1',
             'hotfix/fix-to-test',
-            "Available in the release of *roadrunner-repository-test*:\n",
+            "Available in the release of *roadrunner-repository-test*:\n - Update README.md",
             true
           )
 
@@ -232,7 +232,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'v1.1.1',
               '897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed',
-              "Available in the release of *roadrunner-repository-test*:\n",
+              "Available in the release of *roadrunner-repository-test*:\n - Update README.md",
               false
             )
 
