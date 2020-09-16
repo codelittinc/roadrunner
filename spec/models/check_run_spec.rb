@@ -9,6 +9,7 @@
 #  commit_sha :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  branch_id  :bigint
 #
 require 'rails_helper'
 

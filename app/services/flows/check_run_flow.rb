@@ -3,10 +3,9 @@
 module Flows
   class CheckRunFlow < BaseFlow
     def execute
-      if check_run
-        check_run.update(state: state)
-      else
-        CheckRun.create(state: state, commit_sha: commit_sha)
+      branches.map do |b|
+        branch = Branch.where(name: b[:name], repository: repository).first_or_create!(pull_request: pull_request)
+        CheckRun.create(commit_sha: commit_sha, state: state, branch: branch)
       end
 
       if state == CheckRun::FAILURE_STATE
@@ -24,17 +23,11 @@ module Flows
 
     def flow?
       return false unless branches&.length&.positive?
-      return false unless pull_request
-      return false unless message
 
       commit && (state == CheckRun::SUCCESS_STATE || state == CheckRun::FAILURE_STATE || state == CheckRun::PENDING_STATE)
     end
 
     private
-
-    def check_run
-      @check_run ||= CheckRun.find_by(commit_sha: commit_sha)
-    end
 
     def repository
       @repository ||= Repository.where(name: @params.dig(:repository, :name)).last

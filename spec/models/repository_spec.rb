@@ -13,6 +13,7 @@
 #  name            :string
 #  jira_project    :string
 #  alias           :string
+#  owner           :string
 #
 require 'rails_helper'
 
