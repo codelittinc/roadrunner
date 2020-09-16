@@ -25,6 +25,9 @@ module Flows
       response = Clients::Slack::ChannelMessage.new.send(new_pull_request_message, channel)
       slack_message = SlackMessage.new(ts: response['ts'], pull_request: pull_request)
       slack_message.save!
+
+      branch = Branch.where(name: pull_request.head, repository: repository).first_or_create
+      branch.update(pull_request: pull_request)
     end
 
     def can_execute?

@@ -13,6 +13,7 @@
 #  name            :string
 #  jira_project    :string
 #  alias           :string
+#  owner           :string
 #
 class Repository < ApplicationRecord
   belongs_to :project
@@ -20,6 +21,7 @@ class Repository < ApplicationRecord
   has_one :slack_repository_info
 
   has_many :pull_requests
+  has_many :branches
 
   TAG_DEPLOY_TYPE = 'tag'
   BRANCH_DEPLOY_TYPE = 'branch'

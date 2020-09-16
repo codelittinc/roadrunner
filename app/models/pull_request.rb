@@ -25,6 +25,7 @@ class PullRequest < ApplicationRecord
   has_many :commits, dependent: :destroy
   has_one :slack_message, dependent: :destroy
   has_many :pull_request_changes, dependent: :destroy
+  has_many :check_runs, through: :branch
 
   validates :head, presence: true
   validates :base, presence: true
