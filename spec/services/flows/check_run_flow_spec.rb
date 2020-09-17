@@ -135,7 +135,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         user = FactoryBot.create(:user, slack: 'rheniery.mendes')
         pull_request = FactoryBot.create(:pull_request, github_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'develop')
         FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
-        FactoryBot.create(:check_run, state: 'failure')
+        branch = FactoryBot.create(:branch, name: 'develop', repository: repository, pull_request: pull_request)
+        FactoryBot.create(:check_run, state: 'failure', branch: branch)
 
         flow = described_class.new(valid_json)
 
