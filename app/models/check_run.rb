@@ -14,7 +14,7 @@
 class CheckRun < ApplicationRecord
   validates :state, presence: true
 
-  belongs_to :branch, optional: true
+  belongs_to :branch
   delegate :pull_request, to: :branch, allow_nil: true
 
   FAILURE_STATE = 'failure'
