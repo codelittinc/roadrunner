@@ -52,6 +52,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
       expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                             'ts' => '123'
                                                                                           })
+      expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
       flow = described_class.new(valid_json)
 
       expect { flow.run }.to change { PullRequest.count }.by(1)
@@ -63,9 +64,73 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
       expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                             'ts' => '123'
                                                                                           })
+      expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
+
       flow = described_class.new(valid_json)
 
       expect { flow.run }.to change { SlackMessage.count }.by(1)
+    end
+
+    context 'when there is a check run linked with the branch of the pull request' do
+      it 'and it state is success, sends a success reaction' do
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository: repository)
+        FactoryBot.create(:check_run, state: 'success', branch: branch)
+
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
+                                                                                              'ts' => '123'
+                                                                                            })
+        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('white_check_mark', 'feed-test-automations', '123')
+
+        flow = described_class.new(valid_json)
+
+        flow.run
+      end
+
+      it 'and it state is failure, sends a failure reaction' do
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository: repository)
+        FactoryBot.create(:check_run, state: 'failure', branch: branch)
+
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
+                                                                                              'ts' => '123'
+                                                                                            })
+        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light', 'feed-test-automations', '123')
+
+        flow = described_class.new(valid_json)
+
+        flow.run
+      end
+
+      it 'and it state is pending, sends a pending reaction' do
+        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository: repository)
+        FactoryBot.create(:check_run, state: 'pending', branch: branch)
+
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
+                                                                                              'ts' => '123'
+                                                                                            })
+        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations', '123')
+
+        flow = described_class.new(valid_json)
+
+        flow.run
+      end
+    end
+
+    context 'when there is not a check run linked with the branch of the pull request' do
+      it 'sends a pending reaction' do
+        FactoryBot.create(:repository, name: 'roadrunner-rails')
+
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
+                                                                                              'ts' => '123'
+                                                                                            })
+        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations', '123')
+
+        flow = described_class.new(valid_json)
+
+        flow.run
+      end
     end
   end
 end

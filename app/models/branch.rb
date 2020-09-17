@@ -19,4 +19,5 @@ class Branch < ApplicationRecord
 
   validates :name, presence: true
   validates :repository, presence: true
+  validates :pull_request, uniqueness: true, allow_nil: true
 end
