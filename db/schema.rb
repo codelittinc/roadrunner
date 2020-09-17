@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_172919) do
     t.bigint "pull_request_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["pull_request_id"], name: "index_branches_on_pull_request_id"
+    t.index ["pull_request_id"], name: "index_branches_on_pull_request_id", unique: true
     t.index ["repository_id"], name: "index_branches_on_repository_id"
   end
 
