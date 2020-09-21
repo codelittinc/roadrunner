@@ -5,7 +5,7 @@ require 'external_api_helper'
 
 RSpec.describe Flows::CheckRunFlow, type: :service do
   let(:valid_json) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'github_check_run_failure.json'))).with_indifferent_access
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'github_check_run.json'))).with_indifferent_access
   end
 
   describe '#flow?' do
@@ -18,24 +18,20 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
     end
 
     context 'returns true when' do
-      it 'a check run contains commit' do
+      it 'a check run contains commit sha' do
         valid_json_with_commit = valid_json.deep_dup
 
-        valid_json_with_commit[:commit] = {
-          "sha": 'testing'
-        }
+        valid_json_with_commit[:check_run][:head_sha] = '8bdc18cc18ea9d7f4a19d2424171e8aa6e8f8f72'
 
         flow = described_class.new(valid_json_with_commit)
 
         expect(flow.flow?).to be_truthy
       end
 
-      it 'a check run contains more than 0 branches' do
+      it 'a check run contains branch' do
         valid_json_with_branches = valid_json.deep_dup
 
-        valid_json_with_branches[:branches] = [{
-          "name": 'develop'
-        }]
+        valid_json_with_branches[:check_run][:check_suite][:head_branch] = 'develop'
 
         flow = described_class.new(valid_json_with_branches)
 
@@ -45,7 +41,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       it 'a check run contains state eqls failure' do
         valid_json_with_state_failure = valid_json.deep_dup
 
-        valid_json_with_state_failure[:state] = 'failure'
+        valid_json_with_state_failure[:check_run][:conclusion] = 'failure'
 
         flow = described_class.new(valid_json_with_state_failure)
 
@@ -55,7 +51,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       it 'a check run contains state eqls pending' do
         valid_json_with_state_pending = valid_json.deep_dup
 
-        valid_json_with_state_pending[:state] = 'pending'
+        valid_json_with_state_pending[:check_run][:conclusion] = 'pending'
 
         flow = described_class.new(valid_json_with_state_pending)
 
@@ -65,7 +61,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       it 'a check run contains state eqls success' do
         valid_json_with_state_success = valid_json.deep_dup
 
-        valid_json_with_state_success[:state] = 'success'
+        valid_json_with_state_success[:check_run][:conclusion] = 'success'
 
         flow = described_class.new(valid_json_with_state_success)
 
@@ -82,25 +78,16 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
     context 'returns false when' do
       it 'a check run doesnt contains a commit' do
         invalid_json = valid_json.deep_dup
-        invalid_json[:commit] = nil
+        invalid_json[:check_run][:head_sha] = nil
 
         flow = described_class.new(invalid_json)
 
         expect(flow.flow?).to be_falsey
       end
 
-      it 'a check run doesnt contains branches' do
+      it 'a check run doesnt contains branch name' do
         invalid_json = valid_json.deep_dup
-        invalid_json[:branches] = []
-
-        flow = described_class.new(invalid_json)
-
-        expect(flow.flow?).to be_falsey
-      end
-
-      it 'a check run has state different of success, failure or pending' do
-        invalid_json = valid_json.deep_dup
-        invalid_json[:state] = 'test'
+        invalid_json[:check_run][:check_suite][:head_branch] = ''
 
         flow = described_class.new(invalid_json)
 
@@ -112,10 +99,10 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
   describe '#execute' do
     it 'sends a message if the check run is correct' do
       VCR.use_cassette('flows#check-run#check-run-send-message', record: :new_episodes) do
-        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
         user = FactoryBot.create(:user, slack: 'rheniery.mendes')
-        pull_request = FactoryBot.create(:pull_request, github_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'develop')
+        pull_request = FactoryBot.create(:pull_request, github_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
         FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
 
         flow = described_class.new(valid_json)
@@ -128,31 +115,70 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       end
     end
 
-    it 'sends the right message' do
-      VCR.use_cassette('flows#check-run#check-run-send-right-message', record: :new_episodes) do
-        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
-        slack_message = FactoryBot.create(:slack_message, ts: '123')
-        user = FactoryBot.create(:user, slack: 'rheniery.mendes')
-        pull_request = FactoryBot.create(:pull_request, github_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'develop')
-        FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
-        branch = FactoryBot.create(:branch, name: 'develop', repository: repository, pull_request: pull_request)
-        FactoryBot.create(:check_run, state: 'failure', branch: branch)
+    it 'sends failure message and reaction if check run state eqls failure' do
+      repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
+      slack_message = FactoryBot.create(:slack_message, ts: '123')
+      user = FactoryBot.create(:user, slack: 'rheniery.mendes')
+      pull_request = FactoryBot.create(:pull_request, github_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
+      FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
+      branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository: repository, pull_request: pull_request)
+      FactoryBot.create(:check_run, state: 'failure', branch: branch)
 
-        flow = described_class.new(valid_json)
+      flow = described_class.new(valid_json)
 
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(':rotating_light: CI failed for pull request: <https://github.com/codelittinc/roadrunner-rails/pull/1|roadrunner-rails#1>', 'rheniery.mendes')
-        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light', 'feed-test-automations', '123')
+      expected_message = ':rotating_light: CI failed for pull request: <https://github.com/codelittinc/gh-hooks-repo-test/pull/1|gh-hooks-repo-test#1>'
+      expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message, 'rheniery.mendes')
+      expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light', 'feed-test-automations', '123')
 
-        flow.execute
-      end
+      flow.execute
+    end
+
+    it 'sends success reaction if check run state eqls success' do
+      repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
+      slack_message = FactoryBot.create(:slack_message, ts: '123')
+      user = FactoryBot.create(:user, slack: 'rheniery.mendes')
+      pull_request = FactoryBot.create(:pull_request, github_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
+      FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
+      branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository: repository, pull_request: pull_request)
+      FactoryBot.create(:check_run, state: 'success', branch: branch)
+
+      valid_json_with_state_success = valid_json.deep_dup
+
+      valid_json_with_state_success[:check_run][:conclusion] = 'success'
+
+      flow = described_class.new(valid_json_with_state_success)
+
+      expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('white_check_mark', 'feed-test-automations', '123')
+
+      flow.execute
+    end
+
+    it 'sends pending reaction if check run state is different from success or failure' do
+      repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
+      slack_message = FactoryBot.create(:slack_message, ts: '123')
+      user = FactoryBot.create(:user, slack: 'rheniery.mendes')
+      pull_request = FactoryBot.create(:pull_request, github_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
+      FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
+      branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository: repository, pull_request: pull_request)
+      FactoryBot.create(:check_run, state: 'pending', branch: branch)
+
+      valid_json_with_random_state = valid_json.deep_dup
+
+      valid_json_with_random_state[:check_run][:conclusion] = ''
+
+      flow = described_class.new(valid_json_with_random_state)
+
+      expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations', '123')
+
+      flow.execute
     end
 
     it 'create a check run data' do
       VCR.use_cassette('flows#check-run#create-check-run-data', record: :new_episodes) do
-        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
+        repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
         user = FactoryBot.create(:user, slack: 'rheniery.mendes')
-        pull_request = FactoryBot.create(:pull_request, github_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'develop')
+        pull_request = FactoryBot.create(:pull_request, github_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
         FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
 
         flow = described_class.new(valid_json)
