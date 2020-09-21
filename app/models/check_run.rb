@@ -20,4 +20,6 @@ class CheckRun < ApplicationRecord
   FAILURE_STATE = 'failure'
   SUCCESS_STATE = 'success'
   PENDING_STATE = 'pending'
+
+  SUPPORTED_STATES = [SUCCESS_STATE, FAILURE_STATE, PENDING_STATE].freeze
 end
