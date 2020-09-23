@@ -42,12 +42,16 @@ RSpec.describe Flows::SentryErrorNotificationFlow, type: :service do
 
   describe '#run' do
     it 'calls the ServerIncidentService with the right params' do
-      server = FactoryBot.create(:server, external_identifier: 'pia-web-qa')
+      repository = FactoryBot.create(:repository, name: 'pia-web-qa')
+      server = FactoryBot.create(:server, external_identifier: 'pia-web-qa', repository: repository)
 
       flow = described_class.new(valid_incident)
       expect_any_instance_of(ServerIncidentService).to receive(:register_incident!).with(
         server,
-        "Error: This shouldn't happen!"
+        "\n *_Error: This shouldn't happen!_*\n *File Name*: /static/js/27.chunk.js\n *Function*: onClickSuggestion\n *User*: \n>Id - 9\n>Email - victor.carvalho@codelitt.com\n *Browser*: Chrome\n\n "\
+        '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/1851228751/events/6e54db70e36142d4b300b3389f4ff238/?project=5388450|See issue in Sentry.io>',
+        nil,
+        'sentry'
       )
 
       flow.run

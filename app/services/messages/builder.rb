@@ -113,5 +113,15 @@ module Messages
     def self.notify_no_commits_changes(environment, repository_name)
       "Hey the *#{repository_name}* *#{environment.upcase}* environment already up to date"
     end
+
+    def self.notify_sentry_error(title, metadata, user, browser_name, link_sentry)
+      message = "\n *_#{title}_*"
+      message += "\n *File Name*: #{metadata[:filename]}" if metadata[:filename] && metadata[:filename] != '<anonymous>'
+      message += "\n *Function*: #{metadata[:function]}" if metadata[:function]
+      message += "\n *User*: \n>Id - #{user[:id]}\n>Email - #{user[:email]}"
+      message += "\n *Browser*: #{browser_name}"
+      message += "\n\n *Link*: <#{link_sentry}|See issue in Sentry.io>"
+      message
+    end
   end
 end

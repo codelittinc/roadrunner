@@ -3,7 +3,8 @@
 module Flows
   class SentryErrorNotificationFlow < BaseFlow
     def execute
-      ServerIncidentService.new.register_incident!(server, title)
+      notify_sentry_error_message = Messages::Builder.notify_sentry_error(title, metadata, user, browser_name, link_sentry)
+      ServerIncidentService.new.register_incident!(server, notify_sentry_error_message, nil, ServerIncidentService::SENTRY_MESSAGE_TYPE)
     end
 
     def can_execute?
@@ -17,7 +18,35 @@ module Flows
     end
 
     def title
-      @title ||= @parser.title
+      @title ||= @parser.event_title
+    end
+
+    def metadata
+      @metadata ||= @parser.event_metadata
+    end
+
+    def browser_name
+      @browser_name ||= @parser.event_contexts.dig(:browser, :name)
+    end
+
+    def user
+      @user ||= @parser.event_user
+    end
+
+    def link_sentry
+      "https://sentry.io/organizations/codelitt-7y/issues/#{issue_id}/events/#{event_id}/?project=#{project_id}"
+    end
+
+    def issue_id
+      @issue_id ||= @parser.issue_id
+    end
+
+    def project_id
+      @project_id ||= @parser.event_project
+    end
+
+    def event_id
+      @event_id ||= @parser.event_id
     end
 
     def server

@@ -7,13 +7,14 @@ class ServerIncidentService
   }.freeze
 
   MESSAGE_MAX_SIZE = 150
+  GRAYLOG_MESSAGE_TYPE = 'graylog'
+  SENTRY_MESSAGE_TYPE = 'sentry'
 
-  def register_incident!(server, error_message, server_status_check = nil)
+  def register_incident!(server, error_message, server_status_check = nil, message_type = GRAYLOG_MESSAGE_TYPE)
     return unless server
 
     slack_repository_info = server.slack_repository_info
     slack_channel = slack_repository_info.feed_channel || slack_repository_info.deploy_channel
-    slack_group = slack_repository_info.dev_group
 
     recurrent = ServerIncident.where(
       server: server,
@@ -29,23 +30,23 @@ class ServerIncidentService
 
     repository = server.repository
     icon = server.environment ? ICONS[server.environment.to_sym] : ICONS[:prod]
-    short_message = error_message[0..MESSAGE_MAX_SIZE]
-    slack_message = "#{icon} <#{repository.github_link}|#{repository.name}> environment #{icon}<#{server.link}|#{server.environment&.upcase}>#{icon} \n ``` #{short_message}```"
+    short_message = message_type == GRAYLOG_MESSAGE_TYPE ? "```#{error_message[0..MESSAGE_MAX_SIZE]}```" : error_message
+    slack_message = "#{icon} <#{repository.github_link}|#{repository.name}> environment #{icon}<#{server.link}|#{server.environment&.upcase}>#{icon} \n #{short_message}"
 
-    notify_team!(slack_message, error_message, slack_channel) unless recurrent
+    notify_team!(slack_message, error_message, slack_channel, message_type) unless recurrent
   end
 
   private
 
-  def notify_team!(slack_message, error_message, slack_channel)
+  def notify_team!(slack_message, error_message, slack_channel, message_type)
     response = Clients::Slack::ChannelMessage.new.send(slack_message, slack_channel)
     obj = SlackMessage.new
     obj.ts = response['ts']
     obj.text = slack_message
     obj.save
 
-    if error_message.size > MESSAGE_MAX_SIZE
-      final_message = "```#{error_message}````"
+    if error_message.size > MESSAGE_MAX_SIZE && message_type == GRAYLOG_MESSAGE_TYPE
+      final_message = "```#{error_message}```"
       Clients::Slack::ChannelMessage.new.send(
         final_message,
         slack_channel,
