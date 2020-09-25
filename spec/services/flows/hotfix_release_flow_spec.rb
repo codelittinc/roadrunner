@@ -45,10 +45,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
         expect(flow.flow?).to be_falsey
       end
 
-      it 'when there is more than one repository tied to that slack channel' do
-        FactoryBot.create(:repository)
-        FactoryBot.create(:repository)
-
+      it 'when there is not link between the repository and that slack channel' do
         flow = described_class.new(valid_json_qa)
         expect(flow.flow?).to be_falsey
       end
