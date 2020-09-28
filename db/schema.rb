@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_184340) do
+ActiveRecord::Schema.define(version: 2020_09_29_123928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,14 +123,24 @@ ActiveRecord::Schema.define(version: 2020_09_17_184340) do
     t.index ["project_id"], name: "index_repositories_on_project_id"
   end
 
+  create_table "server_incident_instances", force: :cascade do |t|
+    t.bigint "server_incident_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["server_incident_id"], name: "index_server_incident_instances_on_server_incident_id"
+  end
+
   create_table "server_incidents", force: :cascade do |t|
     t.string "message"
     t.bigint "server_id"
     t.bigint "server_status_check_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "state"
+    t.bigint "slack_message_id"
     t.index ["server_id"], name: "index_server_incidents_on_server_id"
     t.index ["server_status_check_id"], name: "index_server_incidents_on_server_status_check_id"
+    t.index ["slack_message_id"], name: "index_server_incidents_on_slack_message_id"
   end
 
   create_table "server_status_checks", force: :cascade do |t|
@@ -189,5 +199,6 @@ ActiveRecord::Schema.define(version: 2020_09_17_184340) do
   add_foreign_key "pull_request_reviews", "pull_requests"
   add_foreign_key "pull_requests", "repositories"
   add_foreign_key "pull_requests", "users"
+  add_foreign_key "server_incident_instances", "server_incidents"
   add_foreign_key "slack_repository_infos", "repositories"
 end
