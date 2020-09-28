@@ -56,5 +56,19 @@ RSpec.describe Flows::SentryErrorNotificationFlow, type: :service do
 
       flow.run
     end
+
+    it 'update server incident and create server incident instance' do
+      repository = FactoryBot.create(:repository, name: 'pia-web-qa')
+      server = FactoryBot.create(:server, external_identifier: 'pia-web-qa', repository: repository)
+      slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: "\n *_Error: This shouldn't happen!_*\n *File Name*: /static/js/27.chunk.js\n *Function*: onClickSuggestion\n *User*: \n>Id - 9"\
+              "\n>Email - victor.carvalho@codelitt.com\n *Browser*: Chrome\n\n *Link*: <https://sentry.io/organizations/codelitt-7y/issues/1851228751/events/6e54db70e36142d4b300b3389f4ff238/?project=5388450|See issue "\
+              'in Sentry.io>')
+
+      FactoryBot.create(:server_incident, server: server, message: slack_message.text, slack_message: slack_message)
+
+      flow = described_class.new(valid_incident)
+
+      expect { flow.run }.to change { ServerIncidentInstance.count }.by(1)
+    end
   end
 end
