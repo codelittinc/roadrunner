@@ -3,7 +3,7 @@
 module Flows
   class GraylogsErrorNotificationFlow < BaseFlow
     def execute
-      incident_message = fields[:Message]
+      incident_message = fields[:Message] || 'No error message was provided.'
 
       ServerIncidentService.new.register_incident!(server, incident_message)
     end
