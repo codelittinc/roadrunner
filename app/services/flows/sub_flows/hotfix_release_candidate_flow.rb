@@ -49,15 +49,11 @@ module Flows
 
       def db_commits
         db_commits = commits.map do |commit|
-          date = commit[:commit][:committer][:date]
-          before = date - 5.minutes
-          after = date + 5.minutes
-
           message = commit[:commit][:message]
 
-          Commit.where(created_at: before..after, message: message).first
+          Commit.where(message: message).first
         end.flatten
-        db_commits.select { |c| c }
+        db_commits.uniq { |c| c }
       end
 
       def slack_message
