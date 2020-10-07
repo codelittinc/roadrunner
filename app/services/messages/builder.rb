@@ -85,7 +85,7 @@ module Messages
 
     def self.branch_compare_message_hotfix(commits, format, repository_name)
       title = "Available in the release of *#{repository_name}*:\n"
-      points = commits.map do |commit|
+      points = commits.compact.map do |commit|
         base = " - #{commit.message}"
         if commit.message.match?('https://codelitt.atlassian.net/browse')
           jira_links = extract_jira_codes(commit.message).map do |jira_code|

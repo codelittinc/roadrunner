@@ -178,9 +178,9 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             FactoryBot.create(:commit, :with_pull_request, {
-                                sha: 'e8226ba00200b0ef0849b3a32578dcc60b9c35b5',
+                                sha: 'be6cdfeec05baaf93aba94244b98707e94199761',
                                 message: 'Update README.md',
-                                created_at: DateTime.parse('2020-08-23 13:08:10 UTC')
+                                created_at: DateTime.parse('2020-08-28 13:08:10 UTC')
                               })
 
             flow = described_class.new(valid_json_qa)
