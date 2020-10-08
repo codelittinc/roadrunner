@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_123928) do
+ActiveRecord::Schema.define(version: 2020_10_08_122806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,8 +136,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_123928) do
     t.bigint "server_status_check_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "state"
     t.bigint "slack_message_id"
+    t.string "state"
     t.index ["server_id"], name: "index_server_incidents_on_server_id"
     t.index ["server_status_check_id"], name: "index_server_incidents_on_server_status_check_id"
     t.index ["slack_message_id"], name: "index_server_incidents_on_slack_message_id"
