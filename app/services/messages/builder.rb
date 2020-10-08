@@ -111,7 +111,7 @@ module Messages
     end
 
     def self.notify_no_commits_changes(environment, repository_name)
-      "Hey the *#{repository_name}* *#{environment.upcase}* environment already up to date"
+      "Hey the *#{repository_name}* *#{environment.upcase}* environment is already up to date"
     end
 
     def self.notify_sentry_error(title, metadata, user, browser_name, link_sentry)
