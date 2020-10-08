@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class UpdateStatusToServerIncidents < ActiveRecord::Migration[6.0]
+class UpdateStateToServerIncidents < ActiveRecord::Migration[6.0]
   def up
     ServerIncident.find_each do |s|
-      s.update(status: 'completed')
+      s.update(state: 'completed')
     end
   end
 
