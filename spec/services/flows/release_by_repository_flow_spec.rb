@@ -243,7 +243,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
               'v1.0.0',
-              '7a0e6f44f8e3a0c4569d485c81657f2a44692c7a',
+              '89374111e03f9c111cbff83c941d80b4d1a8c019',
               %{Available in the release of *roadrunner-repository-test*:\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)
  - Create .gitignore [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)},
               false

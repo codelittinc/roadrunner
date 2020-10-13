@@ -218,7 +218,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             FactoryBot.create(:commit, :with_pull_request, {
-                                sha: '897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed',
+                                sha: '029fe9f4df0abcd43f366cfa291bebe2a9a7806d',
                                 message: 'Update README.md',
                                 created_at: DateTime.parse('2020-08-31 13:09:19 UTC')
                               })
@@ -228,7 +228,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
               'v1.1.1',
-              '897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed',
+              '029fe9f4df0abcd43f366cfa291bebe2a9a7806d',
               "Available in the release of *roadrunner-repository-test*:\n - Update README.md",
               false
             )
