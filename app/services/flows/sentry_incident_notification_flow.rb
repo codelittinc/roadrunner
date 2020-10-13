@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class SentryErrorNotificationFlow < BaseFlow
+  class SentryIncidentNotificationFlow < BaseFlow
     def execute
       notify_sentry_error_message = Messages::Builder.notify_sentry_error(title, metadata, user, browser_name, link_sentry)
       ServerIncidentService.new.register_incident!(server, notify_sentry_error_message, nil, ServerIncidentService::SENTRY_MESSAGE_TYPE)
