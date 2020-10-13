@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Flows::SentryErrorNotificationFlow, type: :service do
+RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
   let(:valid_incident) do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'sentry_incident.json'))).with_indifferent_access
   end

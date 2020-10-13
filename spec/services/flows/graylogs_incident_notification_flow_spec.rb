@@ -3,7 +3,7 @@
 require 'rails_helper'
 # require 'external_api_helper'
 
-RSpec.describe Flows::GraylogsErrorNotificationFlow, type: :service do
+RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
   let(:incident_big_message) do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'graylogs_incident_big_message.json'))).with_indifferent_access
   end

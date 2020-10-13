@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Flows::GraylogsErrorNotificationUpdateFlow, type: :service do
+RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
   describe '#flow?' do
     context 'with a valid action' do
       it 'returns true' do

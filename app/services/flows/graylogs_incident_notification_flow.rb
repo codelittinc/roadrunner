@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class GraylogsErrorNotificationFlow < BaseFlow
+  class GraylogsIncidentNotificationFlow < BaseFlow
     def execute
       incident_message = fields[:Message] || 'No error message was provided.'
 
