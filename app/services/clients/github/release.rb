@@ -4,7 +4,9 @@ module Clients
   module Github
     class Release < GithubBase
       def list(repository)
-        @client.list_releases(repository)
+        @client.list_releases(repository, {
+                                per_page: 100
+                              })
       end
 
       def create(repository, tag_name, target, body, prerelease)
