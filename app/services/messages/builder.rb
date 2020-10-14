@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Messages
+  # rubocop:disable Metrics/ClassLength
   class Builder
     def self.new_pull_request_message(pull_request)
       repository = pull_request.repository
@@ -123,5 +124,14 @@ module Messages
       message += "\n\n *Link*: <#{link_sentry}|See issue in Sentry.io>"
       message
     end
+
+    def self.notify_no_results_from_flow
+      'There are no results for your request. Please, check for more information using the `/roadrunner help` command.'
+    end
+
+    def self.notify_exception_from_flow
+      'There was an error with your request. Hey @automations-dev can you please check this?'
+    end
   end
+  # rubocop:enable Metrics/ClassLength
 end
