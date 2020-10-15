@@ -22,7 +22,7 @@ module Flows
         channel = @repository.slack_repository_info.deploy_channel
 
         if new_version_commits.empty?
-          commits_message = Messages::Builder.notify_no_commits_changes(PROD_ENVIRONMENT, @repository.name)
+          commits_message = Messages::ReleaseBuilder.notify_no_commits_changes(PROD_ENVIRONMENT, @repository.name)
           Clients::Slack::ChannelMessage.new.send(commits_message, channel)
           return
         end
@@ -37,8 +37,8 @@ module Flows
           Commit.where(created_at: before..after, message: message).first
         end.flatten.reject(&:nil?)
 
-        slack_message = Messages::Builder.branch_compare_message(db_commits, 'slack', @repository.name)
-        github_message = Messages::Builder.branch_compare_message(db_commits, 'github', @repository.name)
+        slack_message = Messages::ReleaseBuilder.branch_compare_message(db_commits, 'slack', @repository.name)
+        github_message = Messages::ReleaseBuilder.branch_compare_message(db_commits, 'github', @repository.name)
 
         Clients::Github::Release.new.create(
           @repository.full_name,

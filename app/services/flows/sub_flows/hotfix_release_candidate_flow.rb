@@ -19,7 +19,7 @@ module Flows
 
       def execute
         unless branch_exists
-          branch_message = Messages::Builder.notify_branch_existence(branch, false)
+          branch_message = Messages::ReleaseBuilder.notify_branch_existence(branch, false)
           Clients::Slack::ChannelMessage.new.send(branch_message, channel)
           return
         end
@@ -29,7 +29,7 @@ module Flows
         @version_resolver = Versioning::ReleaseVersionResolver.new(QA_ENVIRONMENT, tag_names, 'hotfix')
 
         if commits.empty?
-          commits_message = Messages::Builder.notify_no_commits_changes(QA_ENVIRONMENT, @repository.name)
+          commits_message = Messages::ReleaseBuilder.notify_no_commits_changes(QA_ENVIRONMENT, @repository.name)
           Clients::Slack::ChannelMessage.new.send(commits_message, channel)
           return
         end
@@ -57,11 +57,11 @@ module Flows
       end
 
       def slack_message
-        @slack_message = Messages::Builder.branch_compare_message_hotfix(db_commits, 'slack', @repository.name)
+        @slack_message = Messages::ReleaseBuilder.branch_compare_message_hotfix(db_commits, 'slack', @repository.name)
       end
 
       def github_message
-        @github_message = Messages::Builder.branch_compare_message_hotfix(db_commits, 'github', @repository.name)
+        @github_message = Messages::ReleaseBuilder.branch_compare_message_hotfix(db_commits, 'github', @repository.name)
       end
 
       def channel

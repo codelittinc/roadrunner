@@ -62,7 +62,7 @@ module Flows
     end
 
     def release_message
-      @release_message ||= Messages::Builder.notify_release_action(UPDATE_ACTION, environment, user_name, channels_repositories.map(&:name).join(', '))
+      @release_message ||= Messages::ReleaseBuilder.notify_release_action(UPDATE_ACTION, environment, user_name, channels_repositories.map(&:name).join(', '))
     end
 
     def channels_repositories

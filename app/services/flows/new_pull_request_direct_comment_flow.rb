@@ -9,7 +9,7 @@ module Flows
       mentions = comment.scan(/@([a-zA-Z0-9]+)/).flatten
 
       User.where(github: mentions).each do |user|
-        message = Messages::Builder.new_direct_message(user)
+        message = Messages::GenericBuilder.new_direct_message(user)
         Clients::Slack::ChannelMessage.new.send(message, slack_channel, slack_message_ts)
       end
     end

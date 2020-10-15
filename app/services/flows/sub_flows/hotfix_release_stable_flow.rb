@@ -22,7 +22,7 @@ module Flows
         return unless version_resolver.hotfix_release_is_after_stable?
 
         if commits.empty?
-          commits_message = Messages::Builder.notify_no_commits_changes(PROD_ENVIRONMENT, @repository.name)
+          commits_message = Messages::ReleaseBuilder.notify_no_commits_changes(PROD_ENVIRONMENT, @repository.name)
           Clients::Slack::ChannelMessage.new.send(commits_message, channel)
           return
         end
@@ -50,11 +50,11 @@ module Flows
       end
 
       def slack_message
-        @slack_message = Messages::Builder.branch_compare_message_hotfix(db_commits, 'slack', @repository.name)
+        @slack_message = Messages::ReleaseBuilder.branch_compare_message_hotfix(db_commits, 'slack', @repository.name)
       end
 
       def github_message
-        @github_message = Messages::Builder.branch_compare_message_hotfix(db_commits, 'github', @repository.name)
+        @github_message = Messages::ReleaseBuilder.branch_compare_message_hotfix(db_commits, 'github', @repository.name)
       end
 
       def channel

@@ -5,7 +5,7 @@ module Flows
     def execute
       PullRequestChange.create!(pull_request: pull_request)
 
-      change_pull_request_message = Messages::Builder.change_pull_request_message
+      change_pull_request_message = Messages::PullRequestBuilder.change_pull_request_message
 
       message_ts = pull_request.slack_message.ts
 

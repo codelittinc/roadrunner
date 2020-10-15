@@ -7,7 +7,7 @@ module Flows
     def execute
       update_pull_request_state!
 
-      close_pull_request_message = Messages::Builder.close_pull_request_message(pull_request)
+      close_pull_request_message = Messages::PullRequestBuilder.close_pull_request_message(pull_request)
 
       message_ts = pull_request.slack_message.ts
 
@@ -43,7 +43,7 @@ module Flows
     end
 
     def send_close_pull_request_notification!
-      message = Messages::Builder.close_pull_request_notification(pull_request)
+      message = Messages::PullRequestBuilder.close_pull_request_notification(pull_request)
 
       Clients::Slack::DirectMessage.new.send(message, pull_request.user.slack)
     end

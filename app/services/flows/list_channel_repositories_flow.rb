@@ -3,7 +3,7 @@
 module Flows
   class ListChannelRepositoriesFlow < BaseFlow
     def execute
-      message = Messages::Builder.list_repositories(channel_name, repositories)
+      message = Messages::GenericBuilder.list_repositories(channel_name, repositories)
       Clients::Slack::DirectMessage.new.send(
         message,
         user_name
