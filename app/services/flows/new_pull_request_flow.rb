@@ -54,7 +54,7 @@ module Flows
     end
 
     def new_pull_request_message
-      Messages::Builder.new_pull_request_message(pull_request)
+      Messages::PullRequestBuilder.new_pull_request_message(pull_request)
     end
 
     def branch

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Messages::Builder, type: :service do
+RSpec.describe Messages::ReleaseBuilder, type: :service do
   describe '.branch_compare_message' do
     describe 'with the Slack format' do
       it 'returns a formatted message' do
@@ -14,33 +14,33 @@ RSpec.describe Messages::Builder, type: :service do
         c1 = FactoryBot.create(:commit, {
                                  sha: '123456',
                                  message: 'Fix this thing\n
-          this is my description
-        ',
+              this is my description
+            ',
                                  pull_request: pr1
                                })
 
         c2 = FactoryBot.create(:commit, {
                                  sha: '13529',
                                  message: 'Update that feature\n
-          this is my second description
-        ',
+              this is my second description
+            ',
                                  pull_request: pr1
                                })
 
         pr2 = FactoryBot.create(:pull_request, {
                                   title: 'Filter activity feed based on user preferences',
                                   description: %{
-          If applied, this pull request will make the activity feed filter items based on the user's preferences (market and property type).
+              If applied, this pull request will make the activity feed filter items based on the user's preferences (market and property type).
 
-          ### Other minor changes:
-          - Fixed unescaped character in a regex constant
-          - Add an "empty state" component to show when no activities are available
-          - Removed components and functions to handle the recent searches, as they will be replaced in the next PR with the homepage activity feed
+              ### Other minor changes:
+              - Fixed unescaped character in a regex constant
+              - Add an "empty state" component to show when no activities are available
+              - Removed components and functions to handle the recent searches, as they will be replaced in the next PR with the homepage activity feed
 
-          ### Card Link:
-          https://codelitt.atlassian.net/browse/HUB-56
-          https://codelitt.atlassian.net/browse/HUB-469
-        }
+              ### Card Link:
+              https://codelitt.atlassian.net/browse/HUB-56
+              https://codelitt.atlassian.net/browse/HUB-469
+            }
                                 })
 
         c3 = FactoryBot.create(:commit, {
@@ -66,33 +66,33 @@ RSpec.describe Messages::Builder, type: :service do
         c1 = FactoryBot.create(:commit, {
                                  sha: '123456',
                                  message: 'Fix this thing\n
-          this is my description
-        ',
+              this is my description
+            ',
                                  pull_request: pr1
                                })
 
         c2 = FactoryBot.create(:commit, {
                                  sha: '13529',
                                  message: 'Update that feature\n
-          this is my second description
-        ',
+              this is my second description
+            ',
                                  pull_request: pr1
                                })
 
         pr2 = FactoryBot.create(:pull_request, {
                                   title: 'Filter activity feed based on user preferences',
                                   description: %{
-          If applied, this pull request will make the activity feed filter items based on the user's preferences (market and property type).
+              If applied, this pull request will make the activity feed filter items based on the user's preferences (market and property type).
 
-          ### Other minor changes:
-          - Fixed unescaped character in a regex constant
-          - Add an "empty state" component to show when no activities are available
-          - Removed components and functions to handle the recent searches, as they will be replaced in the next PR with the homepage activity feed
+              ### Other minor changes:
+              - Fixed unescaped character in a regex constant
+              - Add an "empty state" component to show when no activities are available
+              - Removed components and functions to handle the recent searches, as they will be replaced in the next PR with the homepage activity feed
 
-          ### Card Link:
-          https://codelitt.atlassian.net/browse/HUB-56
-          https://codelitt.atlassian.net/browse/HUB-469
-        }
+              ### Card Link:
+              https://codelitt.atlassian.net/browse/HUB-56
+              https://codelitt.atlassian.net/browse/HUB-469
+            }
                                 })
 
         c3 = FactoryBot.create(:commit, {

@@ -53,13 +53,13 @@ module Flows
     def send_message
       slack_ts = slack_message.ts
       if parser.review_state == PullRequestReview::REVIEW_STATE_CHANGES_REQUESTED
-        message = Messages::Builder.notify_changes_request
+        message = Messages::PullRequestBuilder.notify_changes_request
         Clients::Slack::ChannelMessage.new.send(message, channel, slack_ts)
       elsif parser.review_body != ''
-        message = Messages::Builder.notify_new_message
+        message = Messages::PullRequestBuilder.notify_new_message
         Clients::Slack::ChannelMessage.new.send(message, channel, slack_ts)
       elsif !github_pull_request[:mergeable] && github_pull_request[:mergeable_state] == 'dirty'
-        message = Messages::Builder.notify_pr_conflicts(pull_request)
+        message = Messages::PullRequestBuilder.notify_pr_conflicts(pull_request)
         Clients::Slack::DirectMessage.new.send(message, pull_request.user.slack)
       end
     end
