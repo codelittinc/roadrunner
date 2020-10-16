@@ -14,6 +14,7 @@ class ServerIncidentService
 
   def register_incident!(server, error_message, server_status_check = nil, message_type = GRAYLOG_MESSAGE_TYPE)
     return unless server
+    return if ignore_incident?(error_message)
 
     @recurrent_server_incident ||= ServerIncident.find_by(
       server: server,
@@ -68,5 +69,9 @@ class ServerIncidentService
     else
       ServerIncidentInstance.create!(server_incident: recurrent_server_incident)
     end
+  end
+
+  def ignore_incident?(error_message)
+    ServerIncidentType.find { |type| error_message.match?(type.regex_identifier) }.present?
   end
 end

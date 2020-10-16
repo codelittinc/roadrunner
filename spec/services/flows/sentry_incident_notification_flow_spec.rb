@@ -70,5 +70,18 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
 
       expect { flow.run }.to change { ServerIncidentInstance.count }.by(1)
     end
+
+    context 'when there is a ignore type for the incident' do
+      it 'it does not create a server incident ' do
+        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', name: 'test')
+        FactoryBot.create(:server_incident_type, name: 'Php File', regex_identifier: '.php.*')
+        invalid_json = valid_incident.deep_dup
+
+        invalid_json[:event][:title] = 'ActionController::RoutingError (No route matches [GET] "/wp-content/plugins/wp-file-manager/lib/files/badmin1.php"):'
+
+        flow = described_class.new(invalid_json)
+        expect { flow.run }.to change { ServerIncident.count }.by(0)
+      end
+    end
   end
 end
