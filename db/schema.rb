@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_123928) do
+ActiveRecord::Schema.define(version: 2020_10_16_150233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,13 @@ ActiveRecord::Schema.define(version: 2020_09_29_123928) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["server_incident_id"], name: "index_server_incident_instances_on_server_incident_id"
+  end
+
+  create_table "server_incident_types", force: :cascade do |t|
+    t.string "name"
+    t.string "regex_identifier"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "server_incidents", force: :cascade do |t|
