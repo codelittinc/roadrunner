@@ -2,7 +2,7 @@
 
 module Flows
   class ClosePullRequestFlow < BaseFlow
-    JIRA_CARD_REGEX = %r{https?://codelitt.atlassian.net/browse/[a-zA-Z1-9-]+}.freeze
+    JIRA_CARD_REGEX = %r{https?://codelitt.atlassian.net/browse/[a-zA-Z0-9-]+}.freeze
 
     def execute
       update_pull_request_state!
