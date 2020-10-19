@@ -67,11 +67,7 @@ class FlowExecutor
 
   def send_no_result_message!
     message = Messages::GenericBuilder.notify_no_results_from_flow
-    if channel_name
-      send_channel_message_result(message, channel_name)
-    elsif user_name
-      send_direct_message_result(message, user_name)
-    end
+    send_direct_message_result(message, user_name) if user_name
   end
 
   def send_exception_message!
