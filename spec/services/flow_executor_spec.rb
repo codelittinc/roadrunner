@@ -34,7 +34,7 @@ RSpec.describe FlowExecutor, type: :service do
                                             })
 
         expected_message = 'There are no results for your request. Please, check for more information using the `/roadrunner help` command.'
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(expected_message, 'feed-test-automations')
+        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message, 'rheniery.mendes')
 
         expect { flow_executor.execute }.to change { FlowRequest.count }.by(1)
       end

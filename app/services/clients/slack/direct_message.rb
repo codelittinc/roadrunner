@@ -11,11 +11,12 @@ module Clients
                                                       }))
       end
 
-      def send_ephemeral(blocks, username)
+      def send_ephemeral(blocks, username, channel = nil)
         url = build_url('/direct-ephemeral-messages')
         Request.post(url, authorization, build_params({
                                                         blocks: blocks,
-                                                        username: username
+                                                        username: username,
+                                                        channel: channel
                                                       }))
       end
     end
