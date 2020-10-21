@@ -145,5 +145,17 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
         expect { flow.run }.to change { ServerIncident.count }.by(0)
       end
     end
+
+    context 'when it is a dev server incident' do
+      it 'it does not send server incident notification to slack' do
+        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', name: 'test', environment: 'dev')
+
+        flow = described_class.new(incident_small_message)
+
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to_not receive(:send)
+
+        expect { flow.run }.to change { ServerIncident.count }.by(1)
+      end
+    end
   end
 end

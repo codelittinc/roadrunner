@@ -83,5 +83,18 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         expect { flow.run }.to change { ServerIncident.count }.by(0)
       end
     end
+
+    context 'when it is a dev server incident' do
+      it 'it does not send server incident notification to slack' do
+        repository = FactoryBot.create(:repository, name: 'pia-web-qa')
+        FactoryBot.create(:server, external_identifier: 'pia-web-qa', environment: 'dev', repository: repository)
+
+        flow = described_class.new(valid_incident)
+
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to_not receive(:send)
+
+        expect { flow.run }.to change { ServerIncident.count }.by(1)
+      end
+    end
   end
 end

@@ -25,6 +25,7 @@ class ServerIncident < ApplicationRecord
   INCIDENT_ERROR = 'error'
   INCIDENT_WARNING = 'warning'
   REGEX_PROJECT_IN_INCIDENT_MESSAGE = /(?<=\|)[^.*]+(?=>)/.freeze
+  DEVELOPMENT_ENVIRONMENT = 'dev'
 
   def incident_type
     server_status_check ? INCIDENT_ERROR : INCIDENT_WARNING
