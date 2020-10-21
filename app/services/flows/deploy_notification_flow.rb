@@ -10,7 +10,7 @@ module Flows
     end
 
     def flow?
-      @params[:deploy_type] == 'deploy-notification'
+      @params[:deploy_type] == 'deploy-notification' && environment.downcase != ServerIncident::DEVELOPMENT_ENVIRONMENT
     end
 
     private

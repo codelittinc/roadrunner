@@ -7,7 +7,16 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
     context 'returns true' do
       it 'when deploy type is deploy-notification' do
         flow = described_class.new({
-                                     deploy_type: 'deploy-notification'
+                                     deploy_type: 'deploy-notification',
+                                     env: 'qa'
+                                   })
+        expect(flow.flow?).to be_truthy
+      end
+
+      it 'when environment is not equals DEV' do
+        flow = described_class.new({
+                                     deploy_type: 'deploy-notification',
+                                     env: 'qa'
                                    })
         expect(flow.flow?).to be_truthy
       end
@@ -17,6 +26,14 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
       it 'when deploy type is not deploy-notification' do
         flow = described_class.new({
                                      deploy_type: 'not-deploy-notification'
+                                   })
+        expect(flow.flow?).to be_falsey
+      end
+
+      it 'when environment is equals dev' do
+        flow = described_class.new({
+                                     deploy_type: 'deploy-notification',
+                                     env: 'dev'
                                    })
         expect(flow.flow?).to be_falsey
       end
