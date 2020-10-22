@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/codelittinc/gh-hooks-repo-test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.18.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - token 2e593567d90bd505570de77f516f44ebe4aba218
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 22 Oct 2020 17:13:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"c4d357a4d9a01ffce6d50f856811c27c8678f1e6eeb0e0d80ee228bdf9fceafb"
+      Last-Modified:
+      - Mon, 21 Sep 2020 18:00:50 GMT
+      X-Oauth-Scopes:
+      - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
+        admin:repo_hook, delete:packages, delete_repo, gist, notifications, read:packages,
+        repo, user, workflow, write:discussion, write:packages
+      X-Accepted-Oauth-Scopes:
+      - repo
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4943'
+      X-Ratelimit-Reset:
+      - '1603387531'
+      X-Ratelimit-Used:
+      - '57'
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+        X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - E5F6:3D68:1A680B:41871C:5F91BDAA
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":234684185,"node_id":"MDEwOlJlcG9zaXRvcnkyMzQ2ODQxODU=","name":"gh-hooks-repo-test","full_name":"codelittinc/gh-hooks-repo-test","private":true,"owner":{"login":"codelittinc","id":5694024,"node_id":"MDEyOk9yZ2FuaXphdGlvbjU2OTQwMjQ=","avatar_url":"https://avatars0.githubusercontent.com/u/5694024?v=4","gravatar_id":"","url":"https://api.github.com/users/codelittinc","html_url":"https://github.com/codelittinc","followers_url":"https://api.github.com/users/codelittinc/followers","following_url":"https://api.github.com/users/codelittinc/following{/other_user}","gists_url":"https://api.github.com/users/codelittinc/gists{/gist_id}","starred_url":"https://api.github.com/users/codelittinc/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/codelittinc/subscriptions","organizations_url":"https://api.github.com/users/codelittinc/orgs","repos_url":"https://api.github.com/users/codelittinc/repos","events_url":"https://api.github.com/users/codelittinc/events{/privacy}","received_events_url":"https://api.github.com/users/codelittinc/received_events","type":"Organization","site_admin":false},"html_url":"https://github.com/codelittinc/gh-hooks-repo-test","description":null,"fork":false,"url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test","forks_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/forks","keys_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/keys{/key_id}","collaborators_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/teams","hooks_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/hooks","issue_events_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/issues/events{/number}","events_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/events","assignees_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/assignees{/user}","branches_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/branches{/branch}","tags_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/tags","blobs_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/git/refs{/sha}","trees_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/git/trees{/sha}","statuses_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/statuses/{sha}","languages_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/languages","stargazers_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/stargazers","contributors_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/contributors","subscribers_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/subscribers","subscription_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/subscription","commits_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/commits{/sha}","git_commits_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/git/commits{/sha}","comments_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/comments{/number}","issue_comment_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/issues/comments{/number}","contents_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/contents/{+path}","compare_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/compare/{base}...{head}","merges_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/merges","archive_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/downloads","issues_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/issues{/number}","pulls_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/pulls{/number}","milestones_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/milestones{/number}","notifications_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/labels{/name}","releases_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/releases{/id}","deployments_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/deployments","created_at":"2020-01-18T05:01:44Z","updated_at":"2020-09-21T18:00:50Z","pushed_at":"2020-10-13T14:16:17Z","git_url":"git://github.com/codelittinc/gh-hooks-repo-test.git","ssh_url":"git@github.com:codelittinc/gh-hooks-repo-test.git","clone_url":"https://github.com/codelittinc/gh-hooks-repo-test.git","svn_url":"https://github.com/codelittinc/gh-hooks-repo-test","homepage":null,"size":182,"stargazers_count":0,"watchers_count":0,"language":null,"has_issues":true,"has_projects":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"archived":false,"disabled":false,"open_issues_count":78,"license":null,"forks":0,"open_issues":78,"watchers":0,"default_branch":"master","permissions":{"admin":true,"push":true,"pull":true},"temp_clone_token":"AALVLHQY2NUOVPQ266BI2Q27SG7NM","allow_squash_merge":true,"allow_merge_commit":true,"allow_rebase_merge":true,"delete_branch_on_merge":false,"organization":{"login":"codelittinc","id":5694024,"node_id":"MDEyOk9yZ2FuaXphdGlvbjU2OTQwMjQ=","avatar_url":"https://avatars0.githubusercontent.com/u/5694024?v=4","gravatar_id":"","url":"https://api.github.com/users/codelittinc","html_url":"https://github.com/codelittinc","followers_url":"https://api.github.com/users/codelittinc/followers","following_url":"https://api.github.com/users/codelittinc/following{/other_user}","gists_url":"https://api.github.com/users/codelittinc/gists{/gist_id}","starred_url":"https://api.github.com/users/codelittinc/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/codelittinc/subscriptions","organizations_url":"https://api.github.com/users/codelittinc/orgs","repos_url":"https://api.github.com/users/codelittinc/repos","events_url":"https://api.github.com/users/codelittinc/events{/privacy}","received_events_url":"https://api.github.com/users/codelittinc/received_events","type":"Organization","site_admin":false},"network_count":0,"subscribers_count":2}'
+  recorded_at: Thu, 22 Oct 2020 17:13:14 GMT
+recorded_with: VCR 6.0.0
