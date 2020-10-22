@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/codelittinc/gh-hooks-repo-test/hooks
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 4.18.0
+      Content-Type:
+      - application/json
+      Authorization:
+      - token 2e593567d90bd505570de77f516f44ebe4aba218
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 22 Oct 2020 14:00:06 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"21a2d6c662499e8776a88306d78846935adf332de801ce69b9069a8316cef693"
+      X-Oauth-Scopes:
+      - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
+        admin:repo_hook, delete:packages, delete_repo, gist, notifications, read:packages,
+        repo, user, workflow, write:discussion, write:packages
+      X-Accepted-Oauth-Scopes:
+      - admin:repo_hook, read:repo_hook, repo, write:repo_hook
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4963'
+      X-Ratelimit-Reset:
+      - '1603376064'
+      X-Ratelimit-Used:
+      - '37'
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+        X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - 96EA:14C1:812A55:D41FA0:5F919066
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"type":"Repository","id":175886004,"name":"web","active":false,"events":["*"],"config":{"content_type":"json","insecure_ssl":"0","url":"http://roadrunner.codelitt.dev/flows"},"updated_at":"2020-09-21T17:44:18Z","created_at":"2020-01-18T05:02:15Z","url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/hooks/175886004","test_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/hooks/175886004/test","ping_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/hooks/175886004/pings","last_response":{"code":200,"status":"active","message":"OK"}},{"type":"Repository","id":242589231,"name":"web","active":true,"events":["check_run","pull_request"],"config":{"content_type":"json","insecure_ssl":"1","url":"http://0b237fcb2d66.ngrok.io/flows"},"updated_at":"2020-09-21T17:35:42Z","created_at":"2020-08-19T14:15:47Z","url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/hooks/242589231","test_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/hooks/242589231/test","ping_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/hooks/242589231/pings","last_response":{"code":404,"status":"missing","message":"Invalid
+        HTTP Response: 404"}},{"type":"Repository","id":257475150,"name":"web","active":true,"events":["check_run","pull_request","pull_request_review","push","release"],"config":{"content_type":"json","insecure_ssl":"1","url":"https://roadrunner.codelitt.dev/flows"},"updated_at":"2020-10-22T13:51:31Z","created_at":"2020-10-22T13:51:31Z","url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/hooks/257475150","test_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/hooks/257475150/test","ping_url":"https://api.github.com/repos/codelittinc/gh-hooks-repo-test/hooks/257475150/pings","last_response":{"code":200,"status":"active","message":"OK"}}]'
+  recorded_at: Thu, 22 Oct 2020 14:00:06 GMT
+recorded_with: VCR 6.0.0
