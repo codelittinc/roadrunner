@@ -75,7 +75,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
             'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
         flow = described_class.new(
           {
-            "action": 'user-added-reaction',
+            "action": 'added-incident-update-reaction',
             "ts": '1598981604.000400'
           }
         )
@@ -89,7 +89,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
         FactoryBot.create(:server_incident, server: server, slack_message: slack_message)
         flow = described_class.new(
           {
-            "action": 'user-added-reaction',
+            "action": 'added-incident-update-reaction',
             "channel": 'feed-test-automations',
             "ts": '1598981604.000400'
           }
@@ -104,14 +104,25 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
         FactoryBot.create(:server_incident, server: server, slack_message: slack_message)
         flow = described_class.new(
           {
-            "action": 'user-added-reaction',
+            "action": 'added-incident-update-reaction',
             "channel": 'feed-test-automations',
             "ts": '1598981604.000400',
-            "reactions": [
-              {
-                "name": 'test'
-              }
-            ]
+            "reactions": 'test'
+          }
+        )
+        expect(flow.flow?).to be_falsey
+      end
+
+      it 'there is no action' do
+        slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: ':fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<https://codelitt.dev|>:fire: ```'\
+            'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
+        server = FactoryBot.create(:server, external_identifier: 'codelitt-v2')
+        FactoryBot.create(:server_incident, server: server, slack_message: slack_message)
+        flow = described_class.new(
+          {
+            "channel": 'feed-test-automations',
+            "ts": '1598981604.000400',
+            "reactions": 'white_check_mark'
           }
         )
         expect(flow.flow?).to be_falsey
