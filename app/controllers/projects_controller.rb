@@ -1,13 +1,19 @@
 # frozen_string_literal: true
 
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[show]
+  ALLOWED_EXPANDS = ['servers'].freeze
 
-  def show; end
+  def show
+    q = Project
+    @expand.each do |e|
+      q = q.includes(e.to_sym)
+    end
+    @project = q.friendly.find(params[:id])
+  end
 
   private
 
-  def set_project
-    @project = Project.friendly.find(params[:id])
+  def allowed_expands
+    ALLOWED_EXPANDS
   end
 end
