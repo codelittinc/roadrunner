@@ -15,4 +15,5 @@ class Project < ApplicationRecord
   friendly_id :name, use: :slugged
 
   has_many :repositories
+  has_many :servers, through: :repositories
 end
