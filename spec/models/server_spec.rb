@@ -26,4 +26,41 @@ RSpec.describe Server, type: :model do
     it { should validate_presence_of(:link) }
     it { should validate_presence_of(:repository) }
   end
+
+  describe 'status' do
+    context 'when there are health check without incidents' do
+      it 'returns normal' do
+        server = FactoryBot.create(:server)
+
+        FactoryBot.create(:server_status_check, server: server)
+        expect(server.reload.status).to eql('normal')
+      end
+    end
+
+    context 'when there is a health check and a server incident' do
+      it 'returns unstable' do
+        server = FactoryBot.create(:server)
+        FactoryBot.create(:server_incident, server: server)
+        FactoryBot.create(:server_status_check, server: server)
+        expect(server.reload.status).to eql('unstable')
+      end
+    end
+
+    context 'when there is a health check incident' do
+      it 'returns unavailable' do
+        server = FactoryBot.create(:server)
+        FactoryBot.create(:server_status_check, server: server, code: 500)
+
+        expect(server.reload.status).to eql('unavailable')
+      end
+    end
+
+    context 'when there is no health check and server incident' do
+      it 'returns data unavailable' do
+        server = FactoryBot.create(:server)
+
+        expect(server.reload.status).to eql('data unavailable')
+      end
+    end
+  end
 end
