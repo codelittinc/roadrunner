@@ -1,0 +1,42 @@
+{
+  "schemaId": "AzureMonitorMetricAlert",
+  "data": {
+    "version": "2.0",
+    "properties": null,
+    "status": "Deactivated",
+    "context": {
+      "timestamp": "2020-11-25T18:46:30.4179413Z",
+      "id": "/subscriptions/c297ae5b-f67a-438f-b5aa-f1954ed4831e/resourceGroups/rg-innovations/providers/microsoft.insights/metricAlerts/Properties%20API%20DB%20CPU",
+      "name": "Properties API DB CPU",
+      "description": "",
+      "conditionType": "SingleResourceMultipleMetricCriteria",
+      "severity": "3",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "metricName": "cpu_percent",
+            "metricNamespace": "Microsoft.DBforPostgreSQL/servers",
+            "operator": "GreaterThan",
+            "threshold": "10",
+            "timeAggregation": "Average",
+            "dimensions": [
+              {
+                "name": "ResourceId",
+                "value": "/SUBSCRIPTIONS/C297AE5B-F67A-438F-B5AA-F1954ED4831E/RESOURCEGROUPS/RG-INNOVATIONS/PROVIDERS/MICROSOFT.DBFORPOSTGRESQL/SERVERS/PROPERTIES-API-DB-PROD"
+              }
+            ],
+            "metricValue": 6.342,
+            "webTestName": null
+          }
+        ]
+      },
+      "subscriptionId": "c297ae5b-f67a-438f-b5aa-f1954ed4831e",
+      "resourceGroupName": "rg-innovations",
+      "resourceName": "properties-api-db-prod",
+      "resourceType": "Microsoft.DBforPostgreSQL/servers",
+      "resourceId": "/subscriptions/c297ae5b-f67a-438f-b5aa-f1954ed4831e/resourceGroups/rg-innovations/providers/Microsoft.DBforPostgreSQL/servers/properties-api-db-prod",
+      "portalLink": "https://portal.azure.com/#resource/subscriptions/c297ae5b-f67a-438f-b5aa-f1954ed4831e/resourceGroups/rg-innovations/providers/Microsoft.DBforPostgreSQL/servers/properties-api-db-prod"
+    }
+  }
+}
