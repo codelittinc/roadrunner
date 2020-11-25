@@ -35,5 +35,11 @@ module Messages
     def self.extract_jira_codes(text)
       text.scan(%r{https?://codelitt.atlassian.net/browse/([A-Z]+-\d+)}).flatten
     end
+
+    def self.azure_database_notification(server, database_usage)
+      repository = server.repository
+      message = ":bellhop_bell: <#{repository.github_link}|#{repository.name}> environment :bellhop_bell:<#{server.link}|#{server.environment&.upcase}>:bellhop_bell: - "
+      message + "The database usage of the server at *#{database_usage}%*!"
+    end
   end
 end
