@@ -14,8 +14,16 @@ module Messages
       message
     end
 
-    def self.notify_sentry_error(title, metadata, user, browser_name, link_sentry)
+    # rubocop:disable Metrics/ParameterLists
+    def self.notify_sentry_error(title, metadata, user, browser_name, link_sentry, caught_by_exception_handler)
+      type_message = if caught_by_exception_handler
+                       'Caught Exception'
+                     else
+                       'Uncaught Exception'
+                     end
+
       message = "\n *_#{title}_*"
+      message += "\n *Type*: #{type_message}"
       message += "\n *File Name*: #{metadata[:filename]}" if metadata[:filename] && metadata[:filename] != '<anonymous>'
       message += "\n *Function*: #{metadata[:function]}" if metadata[:function]
       message += "\n *User*: \n>Id - #{user[:id]}\n>Email - #{user[:email]}"
@@ -23,6 +31,7 @@ module Messages
       message += "\n\n *Link*: <#{link_sentry}|See issue in Sentry.io>"
       message
     end
+    # rubocop:enable Metrics/ParameterLists
 
     def self.notify_no_results_from_flow
       'There are no results for your request. Please, check for more information using the `/roadrunner help` command.'

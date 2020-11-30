@@ -1,0 +1,3072 @@
+{
+  "project_name": "pia-web-qa",
+  "message": "",
+  "id": "2052407554",
+  "culprit": "callback(services/ErrorsMonitor)",
+  "project_slug": "pia-web-qa",
+  "url": "https://sentry.io/organizations/codelitt-7y/issues/2052407554/?referrer=webhooks_plugin",
+  "level": "error",
+  "triggering_rules": [
+    "Roadrunner"
+  ],
+  "event": {
+    "grouping_config": {
+      "enhancements": "eJybzDhxY3J-bm5-npWRgaGlroGxrpHxBABcTQcY",
+      "id": "newstyle:2019-10-29"
+    },
+    "_ref_version": 2,
+    "_ref": 5388450,
+    "id": "25693e1886a940e7801439205bb5337f",
+    "_metrics": {
+      "bytes.ingested.event": 22639,
+      "bytes.stored.event": 91381
+    },
+    "errors": [
+      {
+        "type": "invalid_attribute",
+        "name": "breadcrumbs.values.11.event_id"
+      },
+      {
+        "type": "invalid_attribute",
+        "name": "breadcrumbs.values.23.event_id"
+      },
+      {
+        "type": "invalid_attribute",
+        "name": "breadcrumbs.values.26.event_id"
+      },
+      {
+        "type": "invalid_attribute",
+        "name": "breadcrumbs.values.68.event_id"
+      },
+      {
+        "type": "invalid_attribute",
+        "name": "breadcrumbs.values.71.event_id"
+      },
+      {
+        "type": "invalid_attribute",
+        "name": "breadcrumbs.values.86.event_id"
+      }
+    ],
+    "culprit": "callback(services/ErrorsMonitor)",
+    "title": "Error: File timeout abstracting",
+    "event_id": "25693e1886a940e7801439205bb5337f",
+    "breadcrumbs": {
+      "values": [
+        {
+          "category": "fetch",
+          "timestamp": 1606226875.638,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226875.765,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226875.781,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226875.782,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226875.787,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226875.797,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226875.863,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226875.936,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226875.936,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226875.937,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226875.946,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "sentry.transaction",
+          "level": "info",
+          "event_id": null,
+          "timestamp": 1606226876.422,
+          "message": "8418a30443cb4f46a268fd1663e7ee69",
+          "type": "default"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226876.731,
+          "message": "button.MarketAndProperty_select-market-btn__3gCN3.MarketAndProperty_has-value__Xg8Nm",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226876.78,
+          "message": "div.ModalWrapper_content__2hw6r > div.MarketSelectorModal_options__11V6O",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226878.037,
+          "message": "div.CheckboxGroupInput_label__2g5Fi",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226878.956,
+          "message": "div.CheckboxGroupInput_regular-size__s3ogG.MarketSelectorModal_radio-item__372uw.CheckboxGroupInput_checkbox-group-item__2Z_ln.CheckboxGroupInput_background__1csBN[title=\"Charlotte\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226879.816,
+          "message": "button.Button_button__2Lf63.Button_main__1J5zf.MarketSelectorModal_tab-button__2CXhB[type=\"button\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226879.935,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226883.655,
+          "message": "button.Button_button__2Lf63.Button_main__1J5zf.Button_regular-size__3sppK.UserSettings_user-settings-btn__2e3DC[type=\"button\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226883.857,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226883.932,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-users.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "navigation",
+          "timestamp": 1606226883.946,
+          "type": "default",
+          "data": {
+            "to": "/",
+            "from": "/user-settings"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226884.87,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "sentry.transaction",
+          "level": "info",
+          "event_id": null,
+          "timestamp": 1606226885.008,
+          "message": "a3ce2ddf350b4a9abbd3acc5b29f3bfe",
+          "type": "default"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226886.205,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "navigation",
+          "timestamp": 1606226886.935,
+          "type": "default",
+          "data": {
+            "to": "/properties/53904",
+            "from": "/"
+          },
+          "level": "info"
+        },
+        {
+          "category": "sentry.transaction",
+          "level": "info",
+          "event_id": null,
+          "timestamp": 1606226887.947,
+          "message": "9ecebebb2b8e4de089733a2d7d6e7a14",
+          "type": "default"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.139,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.388,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.44,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.442,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.443,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.584,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.585,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226888.588,
+          "message": "svg#svg-graph > g > g > circle#inner-property-53904",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.623,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.675,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.701,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.724,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226888.725,
+          "message": "div.RecentSales_container__YWbgW > svg > g > g > path",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.803,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.804,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.849,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226888.893,
+          "message": "svg > g > circle#owner-portfolio-graph-53904-0",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226888.956,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226889.052,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226889.211,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226947.762,
+          "message": "svg",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226948.082,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226948.332,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226948.522,
+          "message": "div > div > div > div.gm-style > div",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226948.523,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226948.524,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226948.525,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226948.526,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226948.527,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226948.53,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226948.535,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226948.763,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226948.772,
+          "message": "svg > g > circle#owner-portfolio-graph-53904-0",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226948.811,
+          "message": "div",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606226948.911,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226948.952,
+          "message": "svg > g > circle#owner-portfolio-graph-53904-0",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226949.481,
+          "message": "button.gm-control-active.gm-fullscreen-control[type=\"button\"][title=\"Toggle fullscreen view\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226949.542,
+          "message": "div > button.gm-tilt.gm-control-active[type=\"button\"][title=\"Tilt map\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606226956.622,
+          "message": "button.Button_button__2Lf63.Button_neutral__2RQQQ.Button_small-size__2EM0m.FormSection_cancel-btn__1-p-d[type=\"button\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606227421.111,
+          "message": "div.Navbar_icon__dXO0O > a > img.Navbar_logo__46AHD[alt=\"Avison Young\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "navigation",
+          "timestamp": 1606227421.122,
+          "type": "default",
+          "data": {
+            "to": "/",
+            "from": "/properties/53904"
+          },
+          "level": "info"
+        },
+        {
+          "category": "sentry.transaction",
+          "level": "info",
+          "event_id": null,
+          "timestamp": 1606227422.149,
+          "message": "b525252b50c1439f87cfc2f1966a8972",
+          "type": "default"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606227529.05,
+          "message": "div.Button_button-with-text-and-icon__2X74i",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "navigation",
+          "timestamp": 1606227529.052,
+          "type": "default",
+          "data": {
+            "to": "/comps",
+            "from": "/"
+          },
+          "level": "info"
+        },
+        {
+          "category": "sentry.transaction",
+          "level": "info",
+          "event_id": null,
+          "timestamp": 1606227530.059,
+          "message": "2109c630010a4349a50c2206a4ea7c0e",
+          "type": "default"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227531.661,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227531.721,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227531.765,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227531.817,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227531.845,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227531.994,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227532.056,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606227535.205,
+          "message": "div.OptionSearchFilter_result-bar__1CzSQ.OptionSearchFilter_result-bar-regular__2EXx5.OptionSearchFilter_hoverable__G_NN-",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606227537.552,
+          "message": "div.CheckboxGroupInput_regular-size__s3ogG.OptionSearchFilter_checkbox-item__o0VpN.CheckboxGroupInput_checkbox-group-item__2Z_ln.CheckboxGroupInput_background__1csBN[title=\"Montreal\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227537.739,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606227538.733,
+          "message": "div.CheckboxGroupInput_regular-size__s3ogG.OptionSearchFilter_checkbox-item__o0VpN.CheckboxGroupInput_checkbox-group-item__2Z_ln.CheckboxGroupInput_background__1csBN[title=\"Austin\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227538.819,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606227539.787,
+          "message": "button.Button_button__2Lf63.Button_main__1J5zf.Button_regular-size__3sppK.EditSearchCriteria_find-comps-btn__2srHv[type=\"button\"]",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "navigation",
+          "timestamp": 1606227539.794,
+          "type": "default",
+          "data": {
+            "to": "/comps?t=&c[markets][0][id]=12&c[markets][0][name]=Austin",
+            "from": "/comps"
+          },
+          "level": "info"
+        },
+        {
+          "category": "sentry.transaction",
+          "level": "info",
+          "event_id": null,
+          "timestamp": 1606227540.805,
+          "message": "5c687a3b2daa4f34a406f2c85a3575ae",
+          "type": "default"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227541.322,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227541.658,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227542.228,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606227542.445,
+          "message": "div.TableView_scroll-container__3mwGg > div.TableView_scroll-wrapper__3WibV",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227542.452,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227542.75,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "status_code": 200,
+            "method": "POST"
+          },
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606227544.649,
+          "message": "div.ResultTabs_item__1aJQ0 > span.ResultTabs_item-total__3ODxw",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606227544.83,
+          "message": "div.TableView_scroll-container__3mwGg > div.TableView_scroll-wrapper__3WibV",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606227547.683,
+          "message": "div > div.TableView_container__3r23K",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "fetch",
+          "timestamp": 1606227569.917,
+          "type": "http",
+          "data": {
+            "url": "https://qa.ay-properties.codelitt.dev/graphql",
+            "method": "POST"
+          },
+          "level": "error"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606227721.463,
+          "message": "div.OptionsContainer_options-button__35aZ7.OptionsContainer_main__1lhqG",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "ui.click",
+          "timestamp": 1606227722.244,
+          "message": "button.OptionsContainer_option__1ChxH.OptionsContainer_main__1lhqG.OptionsContainer_option-primary-color-400__1M_g4",
+          "type": "default",
+          "level": "info"
+        },
+        {
+          "category": "navigation",
+          "timestamp": 1606227722.246,
+          "type": "default",
+          "data": {
+            "to": "/comps/upload",
+            "from": "/comps?t=&c[markets][0][id]=12&c[markets][0][name]=Austin"
+          },
+          "level": "info"
+        }
+      ]
+    },
+    "environment": "production",
+    "platform": "javascript",
+    "version": "7",
+    "location": "services/ErrorsMonitor.ts",
+    "logger": "",
+    "type": "error",
+    "metadata": {
+      "function": "callback",
+      "type": "Error",
+      "value": "File timeout abstracting",
+      "filename": "services/ErrorsMonitor.ts"
+    },
+    "tags": [
+      [
+        "browser",
+        "Chrome 87.0.4280"
+      ],
+      [
+        "browser.name",
+        "Chrome"
+      ],
+      [
+        "environment",
+        "production"
+      ],
+      [
+        "handled",
+        "yes"
+      ],
+      [
+        "level",
+        "error"
+      ],
+      [
+        "mechanism",
+        "generic"
+      ],
+      [
+        "os",
+        "Windows 10"
+      ],
+      [
+        "os.name",
+        "Windows"
+      ],
+      [
+        "sentry:user",
+        "id:38"
+      ],
+      [
+        "trace",
+        "f472b305e953497faf04a389843448d9"
+      ],
+      [
+        "trace.ctx",
+        "f472b305e953497faf04a389843448d9-b8b1108e0364991f"
+      ],
+      [
+        "trace.span",
+        "b8b1108e0364991f"
+      ],
+      [
+        "transaction",
+        "/comps"
+      ],
+      [
+        "type",
+        "error_caught"
+      ],
+      [
+        "url",
+        "https://qa.ay-pia.codelitt.dev/comps/upload"
+      ]
+    ],
+    "timestamp": 1606227722.7,
+    "user": {
+      "geo": {
+        "city": "Sayville",
+        "region": "United States",
+        "country_code": "US"
+      },
+      "ip_address": "69.112.29.107",
+      "id": "38",
+      "email": "carl.caputo@avisonyoung.com"
+    },
+    "fingerprint": [
+      "{{ default }}"
+    ],
+    "hashes": [
+      "25ae03bac614de2dc1ef125b73314023",
+      "fa48ca3e6633641f61b9f7c7dfa50bdf"
+    ],
+    "sdk": {
+      "version": "5.27.3",
+      "name": "sentry.javascript.browser",
+      "packages": [
+        {
+          "version": "5.27.3",
+          "name": "npm:@sentry/browser"
+        }
+      ],
+      "integrations": [
+        "InboundFilters",
+        "FunctionToString",
+        "TryCatch",
+        "Breadcrumbs",
+        "GlobalHandlers",
+        "LinkedErrors",
+        "UserAgent",
+        "BrowserTracing"
+      ]
+    },
+    "received": 1606227723.158863,
+    "exception": {
+      "values": [
+        {
+          "stacktrace": {
+            "frames": [
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-link-http/lib/bundle.esm.js",
+                "pre_context": [
+                  "        operation.setContext({",
+                  "          response: response",
+                  "        });",
+                  "        return response;",
+                  "      }).then(parseAndCheckHttpResponse(operation)).then(function (result) {"
+                ],
+                "post_context": [
+                  "        observer.complete();",
+                  "        return result;",
+                  "      }).catch(function (err) {",
+                  "        if (err.name === 'AbortError') return;",
+                  ""
+                ],
+                "module": "apollo-link-http/lib/bundle.esm",
+                "filename": "../node_modules/apollo-link-http/lib/bundle.esm.js",
+                "lineno": 107,
+                "colno": 18,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "        observer.next(result);"
+              },
+              {
+                "function": "next",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "  }",
+                  "",
+                  "  _createClass(SubscriptionObserver, [{",
+                  "    key: \"next\",",
+                  "    value: function next(value) {"
+                ],
+                "post_context": [
+                  "    }",
+                  "  }, {",
+                  "    key: \"error\",",
+                  "    value: function error(value) {",
+                  "      onNotify(this._subscription, 'error', value);"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 251,
+                "colno": 7,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "      onNotify(this._subscription, 'next', value);"
+              },
+              {
+                "function": "onNotify",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "      return flushSubscription(subscription);",
+                  "    });",
+                  "    return;",
+                  "  }",
+                  ""
+                ],
+                "post_context": [
+                  "}",
+                  "",
+                  "var Subscription =",
+                  "/*#__PURE__*/",
+                  "function () {"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 195,
+                "colno": 3,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "  notifySubscription(subscription, type, value);"
+              },
+              {
+                "function": "notifySubscription",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "  try {",
+                  "    var m = getMethod(observer, type);",
+                  "",
+                  "    switch (type) {",
+                  "      case 'next':"
+                ],
+                "post_context": [
+                  "        break;",
+                  "",
+                  "      case 'error':",
+                  "        closeSubscription(subscription);",
+                  "        if (m) m.call(observer, value);else throw value;"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 151,
+                "colno": 18,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "        if (m) m.call(observer, value);"
+              },
+              {
+                "function": "call",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-link-retry/lib/bundle.esm.js",
+                "pre_context": [
+                  "      _this.values.push(value);",
+                  "",
+                  "      for (var _i = 0, _a = _this.observers; _i < _a.length; _i++) {",
+                  "        var observer = _a[_i];",
+                  "        if (!observer) continue;"
+                ],
+                "post_context": [
+                  "      }",
+                  "    };",
+                  "",
+                  "    this.onComplete = function () {",
+                  "      _this.complete = true;"
+                ],
+                "module": "apollo-link-retry/lib/bundle.esm",
+                "filename": "../node_modules/apollo-link-retry/lib/bundle.esm.js",
+                "lineno": 58,
+                "colno": 18,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "        observer.next(value);"
+              },
+              {
+                "function": "next",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "  }",
+                  "",
+                  "  _createClass(SubscriptionObserver, [{",
+                  "    key: \"next\",",
+                  "    value: function next(value) {"
+                ],
+                "post_context": [
+                  "    }",
+                  "  }, {",
+                  "    key: \"error\",",
+                  "    value: function error(value) {",
+                  "      onNotify(this._subscription, 'error', value);"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 251,
+                "colno": 7,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "      onNotify(this._subscription, 'next', value);"
+              },
+              {
+                "function": "onNotify",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "      return flushSubscription(subscription);",
+                  "    });",
+                  "    return;",
+                  "  }",
+                  ""
+                ],
+                "post_context": [
+                  "}",
+                  "",
+                  "var Subscription =",
+                  "/*#__PURE__*/",
+                  "function () {"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 195,
+                "colno": 3,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "  notifySubscription(subscription, type, value);"
+              },
+              {
+                "function": "notifySubscription",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "  try {",
+                  "    var m = getMethod(observer, type);",
+                  "",
+                  "    switch (type) {",
+                  "      case 'next':"
+                ],
+                "post_context": [
+                  "        break;",
+                  "",
+                  "      case 'error':",
+                  "        closeSubscription(subscription);",
+                  "        if (m) m.call(observer, value);else throw value;"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 151,
+                "colno": 18,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "        if (m) m.call(observer, value);"
+              },
+              {
+                "function": "call",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-client/bundle.esm.js",
+                "pre_context": [
+                  "  var sub = null;",
+                  "  return new Observable(function (observer) {",
+                  "    observers.add(observer);",
+                  "    sub = sub || inner.subscribe({",
+                  "      next: function next(value) {"
+                ],
+                "post_context": [
+                  "          return obs.next && obs.next(value);",
+                  "        });",
+                  "      },",
+                  "      error: function error(_error) {",
+                  "        observers.forEach(function (obs) {"
+                ],
+                "module": "apollo-client/bundle.esm",
+                "filename": "../node_modules/apollo-client/bundle.esm.js",
+                "lineno": 1085,
+                "colno": 19,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "        observers.forEach(function (obs) {"
+              },
+              {
+                "function": "Set.forEach",
+                "abs_path": "<anonymous>",
+                "in_app": true,
+                "filename": "<anonymous>"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-client/bundle.esm.js",
+                "pre_context": [
+                  "  return new Observable(function (observer) {",
+                  "    observers.add(observer);",
+                  "    sub = sub || inner.subscribe({",
+                  "      next: function next(value) {",
+                  "        observers.forEach(function (obs) {"
+                ],
+                "post_context": [
+                  "        });",
+                  "      },",
+                  "      error: function error(_error) {",
+                  "        observers.forEach(function (obs) {",
+                  "          return obs.error && obs.error(_error);"
+                ],
+                "module": "apollo-client/bundle.esm",
+                "filename": "../node_modules/apollo-client/bundle.esm.js",
+                "lineno": 1086,
+                "colno": 34,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "          return obs.next && obs.next(value);"
+              },
+              {
+                "function": "next",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "  }",
+                  "",
+                  "  _createClass(SubscriptionObserver, [{",
+                  "    key: \"next\",",
+                  "    value: function next(value) {"
+                ],
+                "post_context": [
+                  "    }",
+                  "  }, {",
+                  "    key: \"error\",",
+                  "    value: function error(value) {",
+                  "      onNotify(this._subscription, 'error', value);"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 251,
+                "colno": 7,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "      onNotify(this._subscription, 'next', value);"
+              },
+              {
+                "function": "onNotify",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "      return flushSubscription(subscription);",
+                  "    });",
+                  "    return;",
+                  "  }",
+                  ""
+                ],
+                "post_context": [
+                  "}",
+                  "",
+                  "var Subscription =",
+                  "/*#__PURE__*/",
+                  "function () {"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 195,
+                "colno": 3,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "  notifySubscription(subscription, type, value);"
+              },
+              {
+                "function": "notifySubscription",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "  try {",
+                  "    var m = getMethod(observer, type);",
+                  "",
+                  "    switch (type) {",
+                  "      case 'next':"
+                ],
+                "post_context": [
+                  "        break;",
+                  "",
+                  "      case 'error':",
+                  "        closeSubscription(subscription);",
+                  "        if (m) m.call(observer, value);else throw value;"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 151,
+                "colno": 18,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "        if (m) m.call(observer, value);"
+              },
+              {
+                "function": "call",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "      var C = getSpecies(this);",
+                  "      return new C(function (observer) {",
+                  "        return _this2.subscribe({",
+                  "          next: function next(value) {",
+                  "            try {"
+                ],
+                "post_context": [
+                  "            } catch (e) {",
+                  "              return observer.error(e);",
+                  "            }",
+                  "",
+                  "            observer.next(value);"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 338,
+                "colno": 23,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "              value = fn(value);"
+              },
+              {
+                "function": "fn",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-client/bundle.esm.js",
+                "pre_context": [
+                  "",
+                  "          _this.invalidate(queryId);",
+                  "",
+                  "          _this.invalidate(fetchMoreForQueryId);",
+                  ""
+                ],
+                "post_context": [
+                  "        }",
+                  "",
+                  "        if (errorPolicy === 'none' && isNonEmptyArray(result.errors)) {",
+                  "          return reject(new ApolloError({",
+                  "            graphQLErrors: result.errors"
+                ],
+                "module": "apollo-client/bundle.esm",
+                "filename": "../node_modules/apollo-client/bundle.esm.js",
+                "lineno": 2116,
+                "colno": 17,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "          _this.broadcastQueries();"
+              },
+              {
+                "function": "broadcastQueries",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-client/bundle.esm.js",
+                "pre_context": [
+                  "",
+                  "  QueryManager.prototype.broadcastQueries = function () {",
+                  "    var _this = this;",
+                  "",
+                  "    this.onBroadcast();"
+                ],
+                "post_context": [
+                  "      if (info.invalidated) {",
+                  "        info.listeners.forEach(function (listener) {",
+                  "          if (listener) {",
+                  "            listener(_this.queryStore.get(id), info.newData);",
+                  "          }"
+                ],
+                "module": "apollo-client/bundle.esm",
+                "filename": "../node_modules/apollo-client/bundle.esm.js",
+                "lineno": 1989,
+                "colno": 18,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "    this.queries.forEach(function (info, id) {"
+              },
+              {
+                "function": "Map.forEach",
+                "abs_path": "<anonymous>",
+                "in_app": true,
+                "filename": "<anonymous>"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-client/bundle.esm.js",
+                "pre_context": [
+                  "    var _this = this;",
+                  "",
+                  "    this.onBroadcast();",
+                  "    this.queries.forEach(function (info, id) {",
+                  "      if (info.invalidated) {"
+                ],
+                "post_context": [
+                  "          if (listener) {",
+                  "            listener(_this.queryStore.get(id), info.newData);",
+                  "          }",
+                  "        });",
+                  "      }"
+                ],
+                "module": "apollo-client/bundle.esm",
+                "filename": "../node_modules/apollo-client/bundle.esm.js",
+                "lineno": 1991,
+                "colno": 24,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "        info.listeners.forEach(function (listener) {"
+              },
+              {
+                "function": "Set.forEach",
+                "abs_path": "<anonymous>",
+                "in_app": true,
+                "filename": "<anonymous>"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-client/bundle.esm.js",
+                "pre_context": [
+                  "    this.onBroadcast();",
+                  "    this.queries.forEach(function (info, id) {",
+                  "      if (info.invalidated) {",
+                  "        info.listeners.forEach(function (listener) {",
+                  "          if (listener) {"
+                ],
+                "post_context": [
+                  "          }",
+                  "        });",
+                  "      }",
+                  "    });",
+                  "  };"
+                ],
+                "module": "apollo-client/bundle.esm",
+                "filename": "../node_modules/apollo-client/bundle.esm.js",
+                "lineno": 1993,
+                "colno": 13,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "            listener(_this.queryStore.get(id), info.newData);"
+              },
+              {
+                "function": "listener",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-client/bundle.esm.js",
+                "pre_context": [
+                  "",
+                  "        if (errorPolicy === 'all' && hasGraphQLErrors) {",
+                  "          resultFromStore.errors = queryStoreValue.graphQLErrors;",
+                  "        }",
+                  ""
+                ],
+                "post_context": [
+                  "      } catch (networkError) {",
+                  "        invoke('error', new ApolloError({",
+                  "          networkError: networkError",
+                  "        }));",
+                  "      }"
+                ],
+                "module": "apollo-client/bundle.esm",
+                "filename": "../node_modules/apollo-client/bundle.esm.js",
+                "lineno": 1625,
+                "colno": 9,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "        invoke('next', resultFromStore);"
+              },
+              {
+                "function": "invoke",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-client/bundle.esm.js",
+                "pre_context": [
+                  "    var _this = this;",
+                  "",
+                  "    function invoke(method, argument) {",
+                  "      if (observer[method]) {",
+                  "        try {"
+                ],
+                "post_context": [
+                  "        } catch (e) {",
+                  "          process.env.NODE_ENV === \"production\" || invariant.error(e);",
+                  "        }",
+                  "      } else if (method === 'error') {",
+                  "        process.env.NODE_ENV === \"production\" || invariant.error(argument);"
+                ],
+                "module": "apollo-client/bundle.esm",
+                "filename": "../node_modules/apollo-client/bundle.esm.js",
+                "lineno": 1539,
+                "colno": 20,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "          observer[method](argument);"
+              },
+              {
+                "function": "method",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-client/bundle.esm.js",
+                "pre_context": [
+                  "              } else {",
+                  "                iterateObserversSafely(_this.observers, 'next', result);",
+                  "              }",
+                  "            });",
+                  "          } else {"
+                ],
+                "post_context": [
+                  "          }",
+                  "        }",
+                  "      },",
+                  "      error: onError",
+                  "    }).catch(onError);"
+                ],
+                "module": "apollo-client/bundle.esm",
+                "filename": "../node_modules/apollo-client/bundle.esm.js",
+                "lineno": 513,
+                "colno": 13,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "            iterateObserversSafely(_this.observers, 'next', result);"
+              },
+              {
+                "function": "iterateObserversSafely",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-client/bundle.esm.js",
+                "pre_context": [
+                  "function iterateObserversSafely(observers, method, argument) {",
+                  "  var observersWithMethod = [];",
+                  "  observers.forEach(function (obs) {",
+                  "    return obs[method] && observersWithMethod.push(obs);",
+                  "  });"
+                ],
+                "post_context": [
+                  "    return obs[method](argument);",
+                  "  });",
+                  "}",
+                  "",
+                  "function assertNotCacheFirstOrOnly(obsQuery) {"
+                ],
+                "module": "apollo-client/bundle.esm",
+                "filename": "../node_modules/apollo-client/bundle.esm.js",
+                "lineno": 546,
+                "colno": 23,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "  observersWithMethod.forEach(function (obs) {"
+              },
+              {
+                "function": "Array.forEach",
+                "abs_path": "<anonymous>",
+                "in_app": true,
+                "filename": "<anonymous>"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/apollo-client/bundle.esm.js",
+                "pre_context": [
+                  "  var observersWithMethod = [];",
+                  "  observers.forEach(function (obs) {",
+                  "    return obs[method] && observersWithMethod.push(obs);",
+                  "  });",
+                  "  observersWithMethod.forEach(function (obs) {"
+                ],
+                "post_context": [
+                  "  });",
+                  "}",
+                  "",
+                  "function assertNotCacheFirstOrOnly(obsQuery) {",
+                  "  var fetchPolicy = obsQuery.options.fetchPolicy;"
+                ],
+                "module": "apollo-client/bundle.esm",
+                "filename": "../node_modules/apollo-client/bundle.esm.js",
+                "lineno": 547,
+                "colno": 16,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "    return obs[method](argument);"
+              },
+              {
+                "function": "method",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "  }",
+                  "",
+                  "  _createClass(SubscriptionObserver, [{",
+                  "    key: \"next\",",
+                  "    value: function next(value) {"
+                ],
+                "post_context": [
+                  "    }",
+                  "  }, {",
+                  "    key: \"error\",",
+                  "    value: function error(value) {",
+                  "      onNotify(this._subscription, 'error', value);"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 251,
+                "colno": 7,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "      onNotify(this._subscription, 'next', value);"
+              },
+              {
+                "function": "onNotify",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "      return flushSubscription(subscription);",
+                  "    });",
+                  "    return;",
+                  "  }",
+                  ""
+                ],
+                "post_context": [
+                  "}",
+                  "",
+                  "var Subscription =",
+                  "/*#__PURE__*/",
+                  "function () {"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 195,
+                "colno": 3,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "  notifySubscription(subscription, type, value);"
+              },
+              {
+                "function": "notifySubscription",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/zen-observable/lib/Observable.js",
+                "pre_context": [
+                  "  try {",
+                  "    var m = getMethod(observer, type);",
+                  "",
+                  "    switch (type) {",
+                  "      case 'next':"
+                ],
+                "post_context": [
+                  "        break;",
+                  "",
+                  "      case 'error':",
+                  "        closeSubscription(subscription);",
+                  "        if (m) m.call(observer, value);else throw value;"
+                ],
+                "module": "zen-observable/lib/Observable",
+                "filename": "../node_modules/zen-observable/lib/Observable.js",
+                "lineno": 151,
+                "colno": 18,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "        if (m) m.call(observer, value);"
+              },
+              {
+                "function": "call",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/@apollo/react-hooks/lib/react-hooks.esm.js",
+                "pre_context": [
+                  "",
+                  "        if (previousResult && previousResult.loading === loading && previousResult.networkStatus === networkStatus && equal(previousResult.d {snip}",
+                  "          return;",
+                  "        }",
+                  ""
+                ],
+                "post_context": [
+                  "      },",
+                  "      error: function error(_error) {",
+                  "        _this.resubscribeToQuery();",
+                  "",
+                  "        if (!_error.hasOwnProperty('graphQLErrors')) throw _error;"
+                ],
+                "module": "@apollo/react-hooks/lib/react-hooks.esm",
+                "filename": "../node_modules/@apollo/react-hooks/lib/react-hooks.esm.js",
+                "lineno": 292,
+                "colno": 15,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "        _this.forceUpdate();"
+              },
+              {
+                "function": "forceUpdate",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/react-dom/cjs/react-dom.production.min.js",
+                "pre_context": [
+                  "          l = d(k, c);",
+                  "      f.eagerReducer = d;",
+                  "      f.eagerState = l;",
+                  "      if (of(l, k)) return;",
+                  "    } catch (m) {} finally {}"
+                ],
+                "post_context": [
+                  "  }",
+                  "}",
+                  "",
+                  "var Lh = {",
+                  "  readContext: xg,"
+                ],
+                "module": "react-dom/cjs/react-dom.production",
+                "filename": "../node_modules/react-dom/cjs/react-dom.production.min.js",
+                "lineno": 3875,
+                "colno": 5,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "    Rg(a, e);"
+              },
+              {
+                "function": "Rg",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/react-dom/cjs/react-dom.production.min.js",
+                "pre_context": [
+                  "  if (50 < Hj) throw Hj = 0, Ij = null, Error(u(185));",
+                  "  a = Kj(a, b);",
+                  "",
+                  "  if (null !== a) {",
+                  "    var c = dg();"
+                ],
+                "post_context": [
+                  "    (T & 4) === S || 98 !== c && 99 !== c || (null === Gj ? Gj = new Map([[a, b]]) : (c = Gj.get(a), (void 0 === c || c > b) && Gj.set(a, b)));",
+                  "  }",
+                  "}",
+                  "",
+                  "function Kj(a, b) {"
+                ],
+                "module": "react-dom/cjs/react-dom.production",
+                "filename": "../node_modules/react-dom/cjs/react-dom.production.min.js",
+                "lineno": 5191,
+                "colno": 92,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "    1073741823 === b ? (T & nj) !== S && (T & (oj | pj)) === S ? Lj(a) : (Z(a), T === S && jg()) : Z(a);"
+              },
+              {
+                "function": "jg",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/react-dom/cjs/react-dom.production.min.js",
+                "pre_context": [
+                  "    var a = $f;",
+                  "    $f = null;",
+                  "    Nf(a);",
+                  "  }",
+                  ""
+                ],
+                "post_context": [
+                  "}",
+                  "",
+                  "function ig() {",
+                  "  if (!ag && null !== Zf) {",
+                  "    ag = !0;"
+                ],
+                "module": "react-dom/cjs/react-dom.production",
+                "filename": "../node_modules/react-dom/cjs/react-dom.production.min.js",
+                "lineno": 2814,
+                "colno": 3,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "  ig();"
+              },
+              {
+                "function": "ig",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/react-dom/cjs/react-dom.production.min.js",
+                "pre_context": [
+                  "    ag = !0;",
+                  "    var a = 0;",
+                  "",
+                  "    try {",
+                  "      var b = Zf;"
+                ],
+                "post_context": [
+                  "        for (; a < b.length; a++) {",
+                  "          var c = b[a];",
+                  "",
+                  "          do {",
+                  "            c = c(!0);"
+                ],
+                "module": "react-dom/cjs/react-dom.production",
+                "filename": "../node_modules/react-dom/cjs/react-dom.production.min.js",
+                "lineno": 2824,
+                "colno": 7,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "      fg(99, function () {"
+              },
+              {
+                "function": "fg",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/react-dom/cjs/react-dom.production.min.js",
+                "pre_context": [
+                  "  }",
+                  "}",
+                  "",
+                  "function fg(a, b) {",
+                  "  a = eg(a);"
+                ],
+                "post_context": [
+                  "}",
+                  "",
+                  "function gg(a, b, c) {",
+                  "  a = eg(a);",
+                  "  return Mf(a, b, c);"
+                ],
+                "module": "react-dom/cjs/react-dom.production",
+                "filename": "../node_modules/react-dom/cjs/react-dom.production.min.js",
+                "lineno": 2794,
+                "colno": 10,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "  return Lf(a, b);"
+              },
+              {
+                "function": "Lf",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/scheduler/cjs/scheduler.production.min.js",
+                "pre_context": [
+                  "",
+                  "  var c = R;",
+                  "  R = a;",
+                  "",
+                  "  try {"
+                ],
+                "post_context": [
+                  "  } finally {",
+                  "    R = c;",
+                  "  }",
+                  "};",
+                  ""
+                ],
+                "module": "scheduler/cjs/scheduler.production",
+                "filename": "../node_modules/scheduler/cjs/scheduler.production.min.js",
+                "lineno": 270,
+                "colno": 12,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "    return b();"
+              },
+              {
+                "function": "b",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/react-dom/cjs/react-dom.production.min.js",
+                "pre_context": [
+                  "      fg(99, function () {",
+                  "        for (; a < b.length; a++) {",
+                  "          var c = b[a];",
+                  "",
+                  "          do {"
+                ],
+                "post_context": [
+                  "          } while (null !== c);",
+                  "        }",
+                  "      });",
+                  "      Zf = null;",
+                  "    } catch (c) {"
+                ],
+                "module": "react-dom/cjs/react-dom.production",
+                "filename": "../node_modules/react-dom/cjs/react-dom.production.min.js",
+                "lineno": 2829,
+                "colno": 17,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "            c = c(!0);"
+              },
+              {
+                "function": "Lj",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/react-dom/cjs/react-dom.production.min.js",
+                "pre_context": [
+                  "      T |= oj;",
+                  "      var d = Uj(a);",
+                  "",
+                  "      do {",
+                  "        try {"
+                ],
+                "post_context": [
+                  "          break;",
+                  "        } catch (e) {",
+                  "          Wj(a, e);",
+                  "        }",
+                  "      } while (1);"
+                ],
+                "module": "react-dom/cjs/react-dom.production",
+                "filename": "../node_modules/react-dom/cjs/react-dom.production.min.js",
+                "lineno": 5393,
+                "colno": 11,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "          Zj();"
+              },
+              {
+                "function": "Zj",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/react-dom/cjs/react-dom.production.min.js",
+                "pre_context": [
+                  "  a > Aj && (Aj = a);",
+                  "}",
+                  "",
+                  "function Zj() {",
+                  "  for (; null !== V;) {"
+                ],
+                "post_context": [
+                  "  }",
+                  "}",
+                  "",
+                  "function Vj() {",
+                  "  for (; null !== V && !Of();) {"
+                ],
+                "module": "react-dom/cjs/react-dom.production",
+                "filename": "../node_modules/react-dom/cjs/react-dom.production.min.js",
+                "lineno": 5637,
+                "colno": 9,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "    V = fk(V);"
+              },
+              {
+                "function": "fk",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/react-dom/cjs/react-dom.production.min.js",
+                "pre_context": [
+                  "    V = fk(V);",
+                  "  }",
+                  "}",
+                  "",
+                  "function fk(a) {"
+                ],
+                "post_context": [
+                  "  a.memoizedProps = a.pendingProps;",
+                  "  null === b && (b = ek(a));",
+                  "  mj.current = null;",
+                  "  return b;",
+                  "}"
+                ],
+                "module": "react-dom/cjs/react-dom.production",
+                "filename": "../node_modules/react-dom/cjs/react-dom.production.min.js",
+                "lineno": 5648,
+                "colno": 11,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "  var b = gk(a.alternate, a, W);"
+              },
+              {
+                "function": "gk",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/react-dom/cjs/react-dom.production.min.js",
+                "pre_context": [
+                  "      d = b.type;",
+                  "      null !== a && (a.alternate = null, b.alternate = null, b.effectTag |= 2);",
+                  "      a = b.pendingProps;",
+                  "      e = Ef(b, J.current);",
+                  "      vg(b, c);"
+                ],
+                "post_context": [
+                  "      b.effectTag |= 1;",
+                  "",
+                  "      if (\"object\" === typeof e && null !== e && \"function\" === typeof e.render && void 0 === e.$$typeof) {",
+                  "        b.tag = 1;",
+                  "        Mh();"
+                ],
+                "module": "react-dom/cjs/react-dom.production",
+                "filename": "../node_modules/react-dom/cjs/react-dom.production.min.js",
+                "lineno": 6612,
+                "colno": 11,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "      e = Ih(null, b, d, a, e, c);"
+              },
+              {
+                "function": "Ih",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/react-dom/cjs/react-dom.production.min.js",
+                "pre_context": [
+                  "function Ih(a, b, c, d, e, f) {",
+                  "  th = f;",
+                  "  uh = b;",
+                  "  vh = null !== a ? a.memoizedState : null;",
+                  "  sh.current = null === vh ? Jh : Kh;"
+                ],
+                "post_context": [
+                  "",
+                  "  if (Bh) {",
+                  "    do {",
+                  "      Bh = !1, Gh += 1, vh = null !== a ? a.memoizedState : null, xh = wh, zh = P = O = null, sh.current = Kh, b = c(d, e);",
+                  "    } while (Bh);"
+                ],
+                "module": "react-dom/cjs/react-dom.production",
+                "filename": "../node_modules/react-dom/cjs/react-dom.production.min.js",
+                "lineno": 3610,
+                "colno": 7,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "  b = c(d, e);"
+              },
+              {
+                "function": "c",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/components/CreateComps/UploadSection/ItemUpload/index.tsx",
+                "pre_context": [
+                  "      return null;",
+                  "    }",
+                  "",
+                  "    return (",
+                  "      <Col wrapperClassName={styles.content}>"
+                ],
+                "post_context": [
+                  "        {renderResult()}",
+                  "        {renderSummary()}",
+                  "      </Col>",
+                  "    );",
+                  "  };"
+                ],
+                "module": "components/CreateComps/UploadSection/ItemUpload/index",
+                "filename": "components/CreateComps/UploadSection/ItemUpload/index.tsx",
+                "lineno": 267,
+                "colno": 10,
+                "in_app": true,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/15.19d5909f.chunk.js.map"
+                },
+                "context_line": "        {renderError()}"
+              },
+              {
+                "function": "renderError",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/components/CreateComps/UploadSection/ItemUpload/index.tsx",
+                "pre_context": [
+                  "        'The imported file does not match any of the valid templates';",
+                  "    }",
+                  "",
+                  "    if (!errorMessage) return null;",
+                  ""
+                ],
+                "post_context": [
+                  "",
+                  "    return <div className={styles.error}>{errorMessage}</div>;",
+                  "  };",
+                  "",
+                  "  const hasSummaryErrors = () :  {"
+                ],
+                "module": "components/CreateComps/UploadSection/ItemUpload/index",
+                "filename": "components/CreateComps/UploadSection/ItemUpload/index.tsx",
+                "lineno": 111,
+                "colno": 5,
+                "in_app": true,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/15.19d5909f.chunk.js.map"
+                },
+                "context_line": "    errorsMonitor(errorMessage);"
+              },
+              {
+                "function": "errorsMonitor",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/services/ErrorsMonitor.ts",
+                "pre_context": [
+                  "import * as Sentry from '@sentry/react';",
+                  "",
+                  "const errorsMonitor = (errorMessage: string) :  {",
+                  "  try {"
+                ],
+                "post_context": [
+                  "      scope.setTag('type', 'error_caught');",
+                  "      Sentry.captureException(new Error(errorMessage));",
+                  "    });",
+                  "  } catch (e) {",
+                  "    console.error(e);"
+                ],
+                "module": "services/ErrorsMonitor",
+                "filename": "services/ErrorsMonitor.ts",
+                "lineno": 5,
+                "colno": 5,
+                "in_app": true,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/main.8cc53499.chunk.js.map"
+                },
+                "context_line": "    Sentry.withScope(function(scope) {"
+              },
+              {
+                "function": "Sentry",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/@sentry/minimal/esm/index.js",
+                "pre_context": [
+                  " *",
+                  " * @param callback that will be enclosed into push/popScope.",
+                  " */",
+                  "",
+                  "export function withScope(callback) {"
+                ],
+                "post_context": [
+                  "}",
+                  "/**",
+                  " * Calls a function on the latest client. Use this with caution, it's meant as",
+                  " * in \"internal\" helper so we don't need to expose every possible function in",
+                  " * the shim. It is not guaranteed that the client actually implements the"
+                ],
+                "module": "@sentry/minimal/esm/index",
+                "filename": "../node_modules/@sentry/minimal/esm/index.js",
+                "lineno": 176,
+                "colno": 3,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "  callOnHub('withScope', callback);"
+              },
+              {
+                "function": "callOnHub",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/@sentry/minimal/esm/index.js",
+                "pre_context": [
+                  "",
+                  "  var hub = getCurrentHub();",
+                  "",
+                  "  if (hub && hub[method]) {",
+                  "    // eslint-disable-next-line @typescript-eslint/no-explicit-any"
+                ],
+                "post_context": [
+                  "  }",
+                  "",
+                  "  throw new Error(\"No hub defined or \" + method + \" was not found on the hub, please open a bug report.\");",
+                  "}",
+                  "/**"
+                ],
+                "module": "@sentry/minimal/esm/index",
+                "filename": "../node_modules/@sentry/minimal/esm/index.js",
+                "lineno": 21,
+                "colno": 24,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "    return hub[method].apply(hub, __spread(args));"
+              },
+              {
+                "function": "apply",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/node_modules/@sentry/hub/esm/hub.js",
+                "pre_context": [
+                  "",
+                  "  Hub.prototype.withScope = function (callback) {",
+                  "    var scope = this.pushScope();",
+                  "",
+                  "    try {"
+                ],
+                "post_context": [
+                  "    } finally {",
+                  "      this.popScope();",
+                  "    }",
+                  "  };",
+                  "  /**"
+                ],
+                "module": "@sentry/hub/esm/hub",
+                "filename": "../node_modules/@sentry/hub/esm/hub.js",
+                "lineno": 111,
+                "colno": 7,
+                "in_app": false,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js.map"
+                },
+                "context_line": "      callback(scope);"
+              },
+              {
+                "function": "callback",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/services/ErrorsMonitor.ts",
+                "pre_context": [
+                  "",
+                  "const errorsMonitor = (errorMessage: string) :  {",
+                  "  try {",
+                  "    Sentry.withScope(function(scope) {",
+                  "      scope.setTag('type', 'error_caught');"
+                ],
+                "post_context": [
+                  "    });",
+                  "  } catch (e) {",
+                  "    console.error(e);",
+                  "  }",
+                  "};"
+                ],
+                "module": "services/ErrorsMonitor",
+                "filename": "services/ErrorsMonitor.ts",
+                "lineno": 7,
+                "colno": 31,
+                "in_app": true,
+                "data": {
+                  "sourcemap": "https://qa.ay-pia.codelitt.dev/static/js/main.8cc53499.chunk.js.map"
+                },
+                "context_line": "      Sentry.captureException(new Error(errorMessage));"
+              }
+            ]
+          },
+          "type": "Error",
+          "raw_stacktrace": {
+            "frames": [
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 383804,
+                "in_app": false,
+                "context_line": "{snip} .parseAndCheckHttpResponse)(e)).then((function(e){return n.next(e),n.complete(),e})).catch((function(e){\"AbortError\"!==e.name&&(e.result&&e. {snip}"
+              },
+              {
+                "function": "e.value",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 671016,
+                "in_app": false,
+                "context_line": "{snip} ._subscription=t}return o(e,[{key:\"next\",value:function(e){A(this._subscription,\"next\",e)}},{key:\"error\",value:function(e){A(this._subscript {snip}"
+              },
+              {
+                "function": "A",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 670463,
+                "in_app": false,
+                "context_line": "{snip} .type,t[n].value),\"closed\"!==e._state);++n);}}(e)}))):void b(e,t,n);e._queue.push({type:t,value:n})}}var w=function(){function e(t,n){r(this {snip}"
+              },
+              {
+                "function": "b",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 669957,
+                "in_app": false,
+                "context_line": "{snip} r r=e._observer;try{var i=p(r,t);switch(t){case\"next\":i&&i.call(r,n);break;case\"error\":if(y(e),!i)throw n;i.call(r,n);break;case\"complete\":y {snip}"
+              },
+              {
+                "function": "Object.onNext [as next]",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 509149,
+                "in_app": false,
+                "context_line": "{snip} ;for(var t=0,n=o.observers;t<n.length;t++){var r=n[t];r&&r.next(e)}},this.onComplete=function(){o.complete=!0;for(var e=0,t=o.observers;e<t. {snip}"
+              },
+              {
+                "function": "e.value",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 671016,
+                "in_app": false,
+                "context_line": "{snip} ._subscription=t}return o(e,[{key:\"next\",value:function(e){A(this._subscription,\"next\",e)}},{key:\"error\",value:function(e){A(this._subscript {snip}"
+              },
+              {
+                "function": "A",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 670463,
+                "in_app": false,
+                "context_line": "{snip} .type,t[n].value),\"closed\"!==e._state);++n);}}(e)}))):void b(e,t,n);e._queue.push({type:t,value:n})}}var w=function(){function e(t,n){r(this {snip}"
+              },
+              {
+                "function": "b",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 669957,
+                "in_app": false,
+                "context_line": "{snip} r r=e._observer;try{var i=p(r,t);switch(t){case\"next\":i&&i.call(r,n);break;case\"error\":if(y(e),!i)throw n;i.call(r,n);break;case\"complete\":y {snip}"
+              },
+              {
+                "function": "Object.next",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 74771,
+                "in_app": false,
+                "context_line": "{snip} on(r){return t.add(r),n=n||e.subscribe({next:function(e){t.forEach((function(t){return t.next&&t.next(e)}))},error:function(e){t.forEach((fu {snip}"
+              },
+              {
+                "function": "Set.forEach",
+                "abs_path": "<anonymous>",
+                "in_app": true,
+                "filename": "<anonymous>"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 74809,
+                "in_app": false,
+                "context_line": "{snip} ({next:function(e){t.forEach((function(t){return t.next&&t.next(e)}))},error:function(e){t.forEach((function(t){return t.error&&t.error(e)}) {snip}"
+              },
+              {
+                "function": "e.value",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 671016,
+                "in_app": false,
+                "context_line": "{snip} ._subscription=t}return o(e,[{key:\"next\",value:function(e){A(this._subscription,\"next\",e)}},{key:\"error\",value:function(e){A(this._subscript {snip}"
+              },
+              {
+                "function": "A",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 670463,
+                "in_app": false,
+                "context_line": "{snip} .type,t[n].value),\"closed\"!==e._state);++n);}}(e)}))):void b(e,t,n);e._queue.push({type:t,value:n})}}var w=function(){function e(t,n){r(this {snip}"
+              },
+              {
+                "function": "b",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 669957,
+                "in_app": false,
+                "context_line": "{snip} r r=e._observer;try{var i=p(r,t);switch(t){case\"next\":i&&i.call(r,n);break;case\"error\":if(y(e),!i)throw n;i.call(r,n);break;case\"complete\":y {snip}"
+              },
+              {
+                "function": "Object.next",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 672137,
+                "in_app": false,
+                "context_line": "{snip} ))((function(n){return t.subscribe({next:function(t){try{t=e(t)}catch(r){return n.error(r)}n.next(t)},error:function(e){n.error(e)},complete {snip}"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 89029,
+                "in_app": false,
+                "context_line": "{snip} e.markQueryResult(a,e,u),i.invalidate(a),i.invalidate(u),i.broadcastQueries()),\"none\"===p&&h(e.errors))return f(new g({graphQLErrors:e.error {snip}"
+              },
+              {
+                "function": "e.broadcastQueries",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 87085,
+                "in_app": false,
+                "context_line": "{snip} ries=function(){var e=this;this.onBroadcast(),this.queries.forEach((function(t,n){t.invalidated&&t.listeners.forEach((function(r){r&&r(e.que {snip}"
+              },
+              {
+                "function": "Map.forEach",
+                "abs_path": "<anonymous>",
+                "in_app": true,
+                "filename": "<anonymous>"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 87135,
+                "in_app": false,
+                "context_line": "{snip} .queries.forEach((function(t,n){t.invalidated&&t.listeners.forEach((function(r){r&&r(e.queryStore.get(n),t.newData)}))}))},e.prototype.getLo {snip}"
+              },
+              {
+                "function": "Set.forEach",
+                "abs_path": "<anonymous>",
+                "in_app": true,
+                "filename": "<anonymous>"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 87159,
+                "in_app": false,
+                "context_line": "{snip} on(t,n){t.invalidated&&t.listeners.forEach((function(r){r&&r(e.queryStore.get(n),t.newData)}))}))},e.prototype.getLocalState=function(){retu {snip}"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 81742,
+                "in_app": false,
+                "context_line": "{snip} rkStatus,stale:E};\"all\"===y&&m&&(O.errors=n.graphQLErrors),i(\"next\",O)}catch(k){i(\"error\",new g({networkError:k}))}}}}}},e.prototype.transfo {snip}"
+              },
+              {
+                "function": "i",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 80580,
+                "in_app": false,
+                "context_line": "{snip} function(e,t,n){var r=this;function i(e,t){if(n[e])try{n[e](t)}catch(r){}}return function(n,o){if(r.invalidate(e,!1),n){var a=r.getQuery(e), {snip}"
+              },
+              {
+                "function": "Object.next",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 66962,
+                "in_app": false,
+                "context_line": "{snip} &&!Object(a.a)(s,i)?e.refetch():A(e.observers,\"next\",n)})):A(e.observers,\"next\",n)}},error:o}).catch(o)},t.prototype.tearDownQuery=function( {snip}"
+              },
+              {
+                "function": "A",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 67401,
+                "in_app": false,
+                "context_line": "{snip} ar r=[];e.forEach((function(e){return e[t]&&r.push(e)})),r.forEach((function(e){return e[t](n)}))}function w(e){var t=e.options.fetchPolicy; {snip}"
+              },
+              {
+                "function": "Array.forEach",
+                "abs_path": "<anonymous>",
+                "in_app": true,
+                "filename": "<anonymous>"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 67433,
+                "in_app": false,
+                "context_line": "{snip} eturn e[t]&&r.push(e)})),r.forEach((function(e){return e[t](n)}))}function w(e){var t=e.options.fetchPolicy;Object(l.b)(\"cache-first\"!==t&&\" {snip}"
+              },
+              {
+                "function": "e.value",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 671016,
+                "in_app": false,
+                "context_line": "{snip} ._subscription=t}return o(e,[{key:\"next\",value:function(e){A(this._subscription,\"next\",e)}},{key:\"error\",value:function(e){A(this._subscript {snip}"
+              },
+              {
+                "function": "A",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 670463,
+                "in_app": false,
+                "context_line": "{snip} .type,t[n].value),\"closed\"!==e._state);++n);}}(e)}))):void b(e,t,n);e._queue.push({type:t,value:n})}}var w=function(){function e(t,n){r(this {snip}"
+              },
+              {
+                "function": "b",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 669957,
+                "in_app": false,
+                "context_line": "{snip} r r=e._observer;try{var i=p(r,t);switch(t){case\"next\":i&&i.call(r,n);break;case\"error\":if(y(e),!i)throw n;i.call(r,n);break;case\"complete\":y {snip}"
+              },
+              {
+                "function": "Object.next",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 413235,
+                "in_app": false,
+                "context_line": "{snip} loading===n&&o.networkStatus===r&&Object(c.a)(o.data,i)||e.forceUpdate()},error:function(t){if(e.resubscribeToQuery(),!t.hasOwnProperty(\"gra {snip}"
+              },
+              {
+                "function": "Ca",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 602965,
+                "in_app": false,
+                "context_line": "{snip} f(o.eagerReducer=r,o.eagerState=l,ei(l,u))return}catch(f){}mc(e,i)}}var Ra={readContext:fo,useCallback:pa,useContext:pa,useEffect:pa,useImpe {snip}"
+              },
+              {
+                "function": "mc",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 624259,
+                "in_app": false,
+                "context_line": "{snip} ===t?(Ws&Ds)!==Ms&&(Ws&(Ps|Ls))===Ms?wc(e):(bc(e),Ws===Ms&&Ji()):bc(e),(4&Ws)===Ms||98!==n&&99!==n||(null===lc?lc=new Map([[e,t]]):(void 0== {snip}"
+              },
+              {
+                "function": "Ji",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 585451,
+                "in_app": false,
+                "context_line": "{snip} h(e),zi}function Ji(){if(null!==Fi){var e=Fi;Fi=null,Ti(e)}Xi()}function Xi(){if(!qi&&null!==Ui){qi=!0;var e=0;try{var t=Ui;Yi(99,(function( {snip}"
+              },
+              {
+                "function": "Xi",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 585516,
+                "in_app": false,
+                "context_line": "{snip} unction Xi(){if(!qi&&null!==Ui){qi=!0;var e=0;try{var t=Ui;Yi(99,(function(){for(;e<t.length;e++){var n=t[e];do{n=n(!0)}while(null!==n)}})), {snip}"
+              },
+              {
+                "function": "Yi",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 585280,
+                "in_app": false,
+                "context_line": "{snip} fault:throw Error(a(332))}}function Yi(e,t){return e=Hi(e),Si(e,t)}function Ki(e,t,n){return e=Hi(e),Ii(e,t,n)}function Zi(e){return null=== {snip}"
+              },
+              {
+                "function": "t.unstable_runWithPriority",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 660693,
+                "in_app": false,
+                "context_line": "{snip} e 3:case 4:case 5:break;default:e=3}var n=N;N=e;try{return t()}finally{N=n}},t.unstable_next=function(e){switch(N){case 1:case 2:case 3:var  {snip}"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 585571,
+                "in_app": false,
+                "context_line": "{snip} =Ui;Yi(99,(function(){for(;e<t.length;e++){var n=t[e];do{n=n(!0)}while(null!==n)}})),Ui=null}catch(n){throw null!==Ui&&(Ui=Ui.slice(e+1)),Ii {snip}"
+              },
+              {
+                "function": "wc",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 627493,
+                "in_app": false,
+                "context_line": "{snip} s||Ec(e,t),null!==Gs){var n=Ws;Ws|=Ps;for(var r=kc();;)try{Tc();break}catch(i){Oc(e,i)}if(ao(),Ws=n,Rs.current=r,Ys===zs)throw n=Ks,Ec(e,t), {snip}"
+              },
+              {
+                "function": "Tc",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 630173,
+                "in_app": false,
+                "context_line": "{snip} nction Ic(e){e>$s&&($s=e)}function Tc(){for(;null!==Gs;)Gs=Cc(Gs)}function jc(){for(;null!==Gs&&!ji();)Gs=Cc(Gs)}function Cc(e){var t=js(e.a {snip}"
+              },
+              {
+                "function": "Cc",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 630248,
+                "in_app": false,
+                "context_line": "{snip} jc(){for(;null!==Gs&&!ji();)Gs=Cc(Gs)}function Cc(e){var t=js(e.alternate,e,Hs);return e.memoizedProps=e.pendingProps,null===t&&(t=Rc(e)),Ns {snip}"
+              },
+              {
+                "function": "js",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 644728,
+                "in_app": false,
+                "context_line": "{snip} ffectTag|=2),e=t.pendingProps,i=bi(t,mi.current),lo(t,n),i=ha(null,t,r,e,i,n),t.effectTag|=1,\"object\"===typeof i&&null!==i&&\"function\"===typ {snip}"
+              },
+              {
+                "function": "ha",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 599292,
+                "in_app": false,
+                "context_line": "{snip} null!==e?e.memoizedState:null,Jo.current=null===na?Na:Ma,t=n(r,i),ua){do{ua=!1,fa+=1,na=null!==e?e.memoizedState:null,oa=ra,sa=ia=ta=null,Jo {snip}"
+              },
+              {
+                "function": "T",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/15.19d5909f.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=15.19d5909f.chunk.js.map"
+                ],
+                "filename": "/static/js/15.19d5909f.chunk.js",
+                "lineno": 1,
+                "colno": 11095,
+                "in_app": true,
+                "context_line": "{snip} (e),o.a.createElement(\"div\",{className:y.a.error},e)):null}(),function(){if(!i)return null;if(!E()&&!i.created&&!i.updated)return o.a.create {snip}"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/15.19d5909f.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=15.19d5909f.chunk.js.map"
+                ],
+                "filename": "/static/js/15.19d5909f.chunk.js",
+                "lineno": 1,
+                "colno": 11036,
+                "in_app": true,
+                "context_line": "{snip}  does not match any of the valid templates\"),e?(Object(I.a)(e),o.a.createElement(\"div\",{className:y.a.error},e)):null}(),function(){if(!i)re {snip}"
+              },
+              {
+                "function": "t.a",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/main.8cc53499.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=main.8cc53499.chunk.js.map"
+                ],
+                "filename": "/static/js/main.8cc53499.chunk.js",
+                "lineno": 1,
+                "colno": 35928,
+                "in_app": true,
+                "context_line": "{snip} tion(e,t,n){\"use strict\";var r=n(36);t.a=function(e){try{r.c((function(t){t.setTag(\"type\",\"error_caught\"),r.a(new Error(e))}))}catch(t){cons {snip}"
+              },
+              {
+                "function": "Object.c",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 59063,
+                "in_app": false,
+                "context_line": "{snip} icException:n})}function s(e){o(\"setUser\",e)}function c(e){o(\"withScope\",e)}},function(e,t,n){\"use strict\";n.d(t,\"a\",(function(){return j})) {snip}"
+              },
+              {
+                "function": "o",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 58726,
+                "in_app": false,
+                "context_line": "{snip} 1]=arguments[n];var o=Object(i.c)();if(o&&o[e])return o[e].apply(o,Object(r.g)(t));throw new Error(\"No hub defined or \"+e+\" was not found on {snip}"
+              },
+              {
+                "function": "e.withScope",
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/10.5bee0048.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=10.5bee0048.chunk.js.map"
+                ],
+                "filename": "/static/js/10.5bee0048.chunk.js",
+                "lineno": 1,
+                "colno": 391200,
+                "in_app": false,
+                "context_line": "{snip} prototype.withScope=function(e){var t=this.pushScope();try{e(t)}finally{this.popScope()}},e.prototype.getClient=function(){return this.getSt {snip}"
+              },
+              {
+                "abs_path": "https://qa.ay-pia.codelitt.dev/static/js/main.8cc53499.chunk.js",
+                "post_context": [
+                  "//# sourceMappingURL=main.8cc53499.chunk.js.map"
+                ],
+                "filename": "/static/js/main.8cc53499.chunk.js",
+                "lineno": 1,
+                "colno": 35979,
+                "in_app": true,
+                "context_line": "{snip} ){try{r.c((function(t){t.setTag(\"type\",\"error_caught\"),r.a(new Error(e))}))}catch(t){console.error(t)}}},,,,function(e,t,n){\"use strict\";var {snip}"
+              }
+            ]
+          },
+          "value": "File timeout abstracting",
+          "mechanism": {
+            "type": "generic",
+            "handled": true
+          }
+        }
+      ]
+    },
+    "_meta": {
+      "breadcrumbs": {
+        "values": {
+          "11": {
+            "event_id": {
+              "": {
+                "err": [
+                  "invalid_attribute"
+                ]
+              }
+            }
+          },
+          "26": {
+            "event_id": {
+              "": {
+                "err": [
+                  "invalid_attribute"
+                ]
+              }
+            }
+          },
+          "23": {
+            "event_id": {
+              "": {
+                "err": [
+                  "invalid_attribute"
+                ]
+              }
+            }
+          },
+          "71": {
+            "event_id": {
+              "": {
+                "err": [
+                  "invalid_attribute"
+                ]
+              }
+            }
+          },
+          "68": {
+            "event_id": {
+              "": {
+                "err": [
+                  "invalid_attribute"
+                ]
+              }
+            }
+          },
+          "86": {
+            "event_id": {
+              "": {
+                "err": [
+                  "invalid_attribute"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "level": "error",
+    "contexts": {
+      "os": {
+        "version": "10",
+        "type": "os",
+        "name": "Windows"
+      },
+      "trace": {
+        "op": "navigation",
+        "type": "trace",
+        "trace_id": "f472b305e953497faf04a389843448d9",
+        "span_id": "b8b1108e0364991f"
+      },
+      "browser": {
+        "version": "87.0.4280",
+        "type": "browser",
+        "name": "Chrome"
+      }
+    },
+    "request": {
+      "url": "https://qa.ay-pia.codelitt.dev/comps/upload",
+      "headers": [
+        [
+          "Referer",
+          "https://qa.ay-pia.codelitt.dev/comps/upload"
+        ],
+        [
+          "User-Agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36"
+        ]
+      ]
+    },
+    "project": 5388450,
+    "key_id": "1301940"
+  },
+  "project": "pia-web-qa",
+  "logger": null
+}
