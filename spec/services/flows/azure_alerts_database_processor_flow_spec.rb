@@ -31,7 +31,7 @@ RSpec.describe Flows::AzureAlertsDatabaseProcessorFlow, type: :service do
 
       expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
         ':bellhop_bell: <https://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test> environment :bellhop_bell:<my_host.com|PROD>:bellhop_bell: - The database usage of the server at *10%*!',
-        server.repository.slack_repository_info.deploy_channel
+        server.repository.slack_repository_info.feed_channel
       )
 
       flow.run

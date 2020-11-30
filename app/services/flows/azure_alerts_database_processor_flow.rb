@@ -17,7 +17,7 @@ module Flows
     end
 
     def channel
-      @channel ||= server.repository.slack_repository_info.deploy_channel
+      @channel ||= server.repository.slack_repository_info.feed_channel
     end
 
     def server
