@@ -25,7 +25,7 @@ module Flows
     end
 
     def message
-      Messages::GenericBuilder.azure_database_notification(server, parser.threshold)
+      Messages::GenericBuilder.azure_database_notification(server, parser.threshold, parser.azure_link)
     end
   end
 end
