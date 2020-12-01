@@ -45,10 +45,11 @@ module Messages
       text.scan(%r{https?://codelitt.atlassian.net/browse/([A-Z]+-\d+)}).flatten
     end
 
-    def self.azure_database_notification(server, database_usage)
+    def self.azure_database_notification(server, database_usage, azure_link)
       repository = server.repository
       message = ":bellhop_bell: <#{repository.github_link}|#{repository.name}> environment :bellhop_bell:<#{server.link}|#{server.environment&.upcase}>:bellhop_bell: - "
-      message + "The database usage of the server at *#{database_usage}%*!"
+      message += "The database usage of the server at *#{database_usage}%*!"
+      message + "\n\n Review the Azure Portal <#{azure_link}|here>"
     end
   end
 end
