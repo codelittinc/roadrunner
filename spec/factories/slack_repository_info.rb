@@ -2,8 +2,9 @@
 
 FactoryBot.define do
   factory :slack_repository_info do
-    dev_group { '@batman' }
+    dev_group { '@website-devs' }
     dev_channel { 'feed-test-automations' }
     deploy_channel { 'feed-test-automations' }
+    feed_channel { 'feed-test-automations' }
   end
 end
