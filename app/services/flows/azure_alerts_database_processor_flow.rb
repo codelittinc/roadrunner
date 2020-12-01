@@ -2,12 +2,14 @@
 
 module Flows
   class AzureAlertsDatabaseProcessorFlow < BaseFlow
+    delegate :threshold, :azure_link, :severity, to: :parser
+
     def execute
       Clients::Slack::ChannelMessage.new.send(message, channel)
     end
 
     def can_execute?
-      !!parser.schema_id
+      parser.schema_id.present?
     end
 
     private
@@ -25,7 +27,7 @@ module Flows
     end
 
     def message
-      Messages::GenericBuilder.azure_database_notification(server, parser.threshold, parser.azure_link)
+      Messages::GenericBuilder.azure_database_notification(server, threshold, azure_link, severity)
     end
   end
 end

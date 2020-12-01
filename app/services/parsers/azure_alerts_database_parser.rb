@@ -3,7 +3,7 @@
 require 'ostruct'
 module Parsers
   class AzureAlertsDatabaseParser < BaseParser
-    attr_reader :schema_id, :threshold, :azure_link
+    attr_reader :schema_id, :threshold, :azure_link, :severity
 
     def can_parse?
       @json && @json[:schemaId] == 'AzureMonitorMetricAlert'
@@ -14,6 +14,7 @@ module Parsers
       @schema_id = @json[:schemaId]
       @threshold = context[:condition][:allOf].first[:threshold]
       @azure_link = context[:portalLink]
+      @severity = context[:severity]
     end
   end
 end

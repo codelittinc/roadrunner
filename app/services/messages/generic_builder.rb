@@ -45,11 +45,19 @@ module Messages
       text.scan(%r{https?://codelitt.atlassian.net/browse/([A-Z]+-\d+)}).flatten
     end
 
-    def self.azure_database_notification(server, database_usage, azure_link)
+    def self.azure_database_notification(server, database_usage, azure_link, severity)
       repository = server.repository
-      message = ":bellhop_bell: <#{repository.github_link}|#{repository.name}> environment :bellhop_bell:<#{server.link}|#{server.environment&.upcase}>:bellhop_bell: - "
-      message += "The database usage of the server at *#{database_usage}%*!"
-      message + "\n\n Review the Azure Portal <#{azure_link}|here>"
+
+      message = ":bellhop_bell: <#{repository.github_link}|#{repository.name}> environment :bellhop_bell:<#{server.link}|#{server.environment&.upcase}>:bellhop_bell:\n\n\n"
+      low_severity = 3
+
+      if severity.to_i <= low_severity
+        message += "The database usage of the server is at *#{database_usage}%*!"
+      else
+        slack_group = server.slack_repository_info.dev_group
+        message += ":fire: #{slack_group} the database usage of the server is at *#{database_usage}%*!"
+      end
+      message + "\n\n\n Click <#{azure_link}|here> to see this application on Azure."
     end
   end
 end
