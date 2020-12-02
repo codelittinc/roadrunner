@@ -2,10 +2,10 @@
 
 module Flows
   class SentryIncidentNotificationFlow < BaseFlow
-    delegate :project_name, :issue_id, :event_id, :type, to: :parser
+    delegate :project_name, :issue_id, :event_id, :type, :custom_message, to: :parser
 
     def execute
-      notify_sentry_error_message = Messages::GenericBuilder.notify_sentry_error(title, metadata, user, browser_name, link_sentry, type)
+      notify_sentry_error_message = Messages::GenericBuilder.notify_sentry_error(title, metadata, user, browser_name, link_sentry, type, custom_message)
       ServerIncidentService.new.register_incident!(server, notify_sentry_error_message, nil, ServerIncidentService::SENTRY_MESSAGE_TYPE)
     end
 
