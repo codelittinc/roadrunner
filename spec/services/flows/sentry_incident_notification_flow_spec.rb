@@ -11,6 +11,10 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'sentry_incident_with_error_caught_tag.json'))).with_indifferent_access
   end
 
+  let(:valid_incident_with_custom_message) do
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'sentry_incident_with_custom_message.json'))).with_indifferent_access
+  end
+
   let(:invalid_incident) do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'graylogs_incident_big_message.json'))).with_indifferent_access
   end
@@ -114,6 +118,26 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
           "\n *_Error: File timeout abstracting_*\n *Type*: Caught Exception\n *File Name*: services/ErrorsMonitor.ts\n"\
           " *Function*: callback\n *User*: \n>Id - 38\n>Email - carl.caputo@avisonyoung.com\n *Browser*: Chrome\n\n "\
           '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/2052407554/events/25693e1886a940e7801439205bb5337f/?project=5388450|See issue in Sentry.io>',
+          nil,
+          'sentry'
+        )
+
+        flow.run
+      end
+    end
+
+    context 'when there is a "custom message" extra' do
+      it 'adds the content to the message' do
+        repository = FactoryBot.create(:repository, name: 'pia-web-qa')
+        server = FactoryBot.create(:server, external_identifier: 'pia-web-qa', repository: repository)
+
+        flow = described_class.new(valid_incident_with_custom_message)
+        expect_any_instance_of(ServerIncidentService).to receive(:register_incident!).with(
+          server,
+          "\n *_Error: failed to create company \"Avison Young\" (compareName: \"avison young\"). company already exists (ID..._*\n *Type*: Caught Exception\n *Displayed message*: [undefined]\n"\
+          " *File Name*: services/ErrorLogger.ts\n"\
+          " *Function*: callback\n *User*: \n>Id - \n>Email - \n *Browser*: Chrome\n\n "\
+          '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/2067016219/events/b10521c963414374a4e786d9ab468ade/?project=5388450|See issue in Sentry.io>',
           nil,
           'sentry'
         )

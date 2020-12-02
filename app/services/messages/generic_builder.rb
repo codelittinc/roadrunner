@@ -15,7 +15,7 @@ module Messages
     end
 
     # rubocop:disable Metrics/ParameterLists
-    def self.notify_sentry_error(title, metadata, user, browser_name, link_sentry, caught_by_exception_handler)
+    def self.notify_sentry_error(title, metadata, user, browser_name, link_sentry, caught_by_exception_handler, custom_message)
       type_message = if caught_by_exception_handler
                        'Caught Exception'
                      else
@@ -24,6 +24,7 @@ module Messages
 
       message = "\n *_#{title}_*"
       message += "\n *Type*: #{type_message}"
+      message += "\n *Displayed message*: #{custom_message}" if custom_message
       message += "\n *File Name*: #{metadata[:filename]}" if metadata[:filename] && metadata[:filename] != '<anonymous>'
       message += "\n *Function*: #{metadata[:function]}" if metadata[:function]
       message += "\n *User*: \n>Id - #{user[:id]}\n>Email - #{user[:email]}"

@@ -5,7 +5,7 @@ module Parsers
   class SentryWebhookParser < BaseParser
     delegate :contexts, :id, :location, :metadata, :project, :title, :user, to: :event, prefix: true, allow_nil: true
 
-    attr_reader :event, :issue_id, :project_name, :type
+    attr_reader :event, :issue_id, :project_name, :type, :custom_message
 
     def can_parse?
       @json && @json[:project_name] && @json[:event]
@@ -14,10 +14,9 @@ module Parsers
     def parse!
       @project_name = @json[:project_name]
       @event = OpenStruct.new @json[:event]
-      _, @type = @event.tags.find do |name, _value|
-        name == 'type'
-      end
+      _, @type = @event.tags.find { |name, _value| name == 'type' }
       @issue_id = @json[:id]
+      @custom_message = @event.dig(:extra, :customMessage)
     end
   end
 end
