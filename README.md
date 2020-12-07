@@ -1,4 +1,4 @@
-![CI](https://github.com/codelittinc/roadrunner-rails/workflows/CI/badge.svg)
+![CI](https://github.com/codelittinc/roadrunner-rails/workflows/CI/badge.svg)aSSA
 
 ## Getting started
 
