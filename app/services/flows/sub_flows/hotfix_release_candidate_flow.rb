@@ -4,8 +4,8 @@ module Flows
   module SubFlows
     class HotfixReleaseCandidateFlow
       DEFAULT_TAG_NAME = 'rc.1.v0.0.0'
-      RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/.freeze
-      RELEASE_CANDIDATE_VERSION_REGEX = /^rc\.(\d+)\./.freeze
+      RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/
+      RELEASE_CANDIDATE_VERSION_REGEX = /^rc\.(\d+)\./
       QA_ENVIRONMENT = 'qa'
 
       attr_reader :branch, :channel_name, :releases, :repository, :version_resolver

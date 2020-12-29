@@ -2,7 +2,7 @@
 
 module Flows
   class SlackJiraMentionFlow < BaseFlow
-    REGEX = /\[~accountid:([a-z0-9]+)\]/.freeze
+    REGEX = /\[~accountid:([a-z0-9]+)\]/
 
     def execute
       mentions = comment.scan(REGEX).flatten

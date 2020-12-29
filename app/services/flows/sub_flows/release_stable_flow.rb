@@ -3,7 +3,7 @@
 module Flows
   module SubFlows
     class ReleaseStableFlow
-      RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/.freeze
+      RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/
       PROD_ENVIRONMENT = 'prod'
 
       def initialize(channel_name, releases, repository)
