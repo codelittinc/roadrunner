@@ -5,6 +5,7 @@ require: rubocop-rails
 # Enable all rubocop new cops between versions
 AllCops:
   NewCops: enable
+  SuggestExtensions: false
 
 Metrics/BlockLength:
   Enabled: true

@@ -1,0 +1,12 @@
+{
+    "env": "DEV",
+    "filename": "teste",
+    "source_host": "ec2-34-234-228-127.compute-1.amazonaws.com",
+    "source_database": "d2elqpp67avkpp",
+    "source_user": "tbqumaljebeeoq",
+    "source_password": "f0b24ee94d6804aa5ac275071417776f7ddd4429ab1e8e32a1f44ea117f67ea4",
+    "destination_host": "ec2-34-236-215-156.compute-1.amazonaws.com",
+    "destination_database": "d3ls4uhlfv7gd4",
+    "destination_user": "vhmemprvkdjwse",
+    "destination_password": "9e3ef1c15cb505a828e293247ccb2afcf07ca6e8c3400aad1c7620fbe68b94fc"
+}
