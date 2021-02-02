@@ -8,7 +8,7 @@ class DatabaseCredential < ApplicationRecord
   SUPPORTED_ENVS = [DEV_ENV, QA_ENV, PROD_ENV].freeze
 
   validates :env, presence: true, inclusion: { in: SUPPORTED_ENVS }
-  validates :type, presence: true
+  validates :database_type, presence: true
   validates :name, presence: true, uniqueness: true
   validates :db_host, presence: true, uniqueness: true
   validates :db_user, presence: true

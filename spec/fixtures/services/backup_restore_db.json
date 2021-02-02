@@ -1,6 +1,6 @@
 {
     "env": "DEV",
-    "filename": "teste",
+    "filename": "test",
     "source_host": "ec2-34-234-228-127.compute-1.amazonaws.com",
     "source_database": "d2elqpp67avkpp",
     "source_user": "tbqumaljebeeoq",

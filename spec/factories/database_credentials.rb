@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :database_credential do
-    env { 'env' }
-    type { 'postgresql' }
-    name { 'roadrunner' }
+    env { 'dev' }
+    database_type { 'postgresql' }
+    name { 'roadrunner dev' }
     db_host { 'MyString' }
     db_user { 'MyString' }
     db_name { 'MyString' }
