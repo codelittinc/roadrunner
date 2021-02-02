@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe DatabaseCredential, type: :model do
   describe 'should validate the props' do
     it { is_expected.to validate_presence_of(:env) }
-    it { is_expected.to validate_presence_of(:type) }
+    it { is_expected.to validate_presence_of(:database_type) }
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:db_host) }
     it { is_expected.to validate_presence_of(:db_user) }
