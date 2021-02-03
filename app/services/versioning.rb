@@ -5,8 +5,8 @@ module Versioning
   PROD_ENVIRONMENT = 'prod'
   DEFAULT_QA_TAG_NAME = 'rc.1.v0.0.0'
   DEFAULT_PROD_TAG_NAME = 'v1.0.0'
-  RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/
-  RELEASE_CANDIDATE_VERSION_REGEX = /^rc\.(\d+)\./
+  RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/.freeze
+  RELEASE_CANDIDATE_VERSION_REGEX = /^rc\.(\d+)\./.freeze
   ACTION_UPDATE = 'update'
   ACTION_HOTFIX = 'hotfix'
 

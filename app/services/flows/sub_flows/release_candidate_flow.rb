@@ -4,8 +4,8 @@ module Flows
   module SubFlows
     class ReleaseCandidateFlow
       DEFAULT_TAG_NAME = 'rc.1.v0.0.0'
-      RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/
-      RELEASE_CANDIDATE_VERSION_REGEX = /^rc\.(\d+)\./
+      RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/.freeze
+      RELEASE_CANDIDATE_VERSION_REGEX = /^rc\.(\d+)\./.freeze
       QA_ENVIRONMENT = 'qa'
 
       def initialize(channel_name, releases, repository)

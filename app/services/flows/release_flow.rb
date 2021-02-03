@@ -34,7 +34,7 @@ module Flows
     end
 
     def words
-      @words ||= text.split
+      @words ||= text.split(' ')
     end
 
     def channel_name
