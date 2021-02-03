@@ -6,11 +6,12 @@ require 'nested_form/builder_mixin'
 RailsAdmin.config do |config|
   ### Popular gems integration
 
-  ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  config.authenticate_with do
+    authenticate_or_request_with_http_basic('Login required') do |username, password|
+      user = UserAdmin.where(username: username).or(UserAdmin.where(email: username)).first
+      user&.authenticate(password) if user
+    end
+  end
 
   ## == CancanCan ==
   # config.authorize_with :cancancan
