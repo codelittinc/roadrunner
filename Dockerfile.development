@@ -1,5 +1,5 @@
 # This is our DEVELOPMENT dockerfile.
-FROM ruby:3.0.0-buster
+FROM ruby:2.7.1-buster
 
 RUN gem install bundler
 
