@@ -12,7 +12,7 @@ gem 'data_migrate', '~> 6.3'
 gem 'pg', '~> 1.2'
 gem 'pg_search'
 
-gem 'rails_admin', '~> 2.0'
+gem 'rails_admin', github: 'sferik/rails_admin'
 
 gem 'gelf'
 
