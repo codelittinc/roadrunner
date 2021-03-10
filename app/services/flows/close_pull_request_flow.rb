@@ -57,11 +57,11 @@ module Flows
     end
 
     def pull_request
-      @pull_request ||= PullRequest.where(github_id: parser.github_id).last
+      @pull_request ||= PullRequest.find_by(github_id: parser.github_id, repository: repository)
     end
 
     def repository
-      @repository ||= pull_request.repository
+      @repository ||= Repository.find_by(owner: parser.owner, name: parser.repository_name)
     end
 
     def update_pull_request_state!
