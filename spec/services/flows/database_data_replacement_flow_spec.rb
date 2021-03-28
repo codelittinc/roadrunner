@@ -79,15 +79,15 @@ RSpec.describe Flows::DatabaseDataReplacementFlow, type: :service do
 
       expected_json_param =
         {
-          "filename": 'backup',
-          "source_host": from_database.db_host,
-          "source_database": from_database.db_name,
-          "source_user": from_database.db_user,
-          "source_password": from_database.db_password,
-          "destination_host": to_database.db_host,
-          "destination_database": to_database.db_name,
-          "destination_user": to_database.db_user,
-          "destination_password": to_database.db_password
+          filename: 'backup',
+          source_host: from_database.db_host,
+          source_database: from_database.db_name,
+          source_user: from_database.db_user,
+          source_password: from_database.db_password,
+          destination_host: to_database.db_host,
+          destination_database: to_database.db_name,
+          destination_user: to_database.db_user,
+          destination_password: to_database.db_password
         }
 
       expect_any_instance_of(DatabaseService).to receive(:backup_restore_db).with(expected_json_param, true).and_return('Command executed with success!')

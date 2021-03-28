@@ -64,7 +64,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
       it 'action is not added-incident-update-reaction or there is not a slack message' do
         flow = described_class.new(
           {
-            "action": 'test'
+            action: 'test'
           }
         )
         expect(flow.flow?).to be_falsey
@@ -75,8 +75,8 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
             'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
         flow = described_class.new(
           {
-            "action": 'added-incident-update-reaction',
-            "ts": '1598981604.000400'
+            action: 'added-incident-update-reaction',
+            ts: '1598981604.000400'
           }
         )
         expect(flow.flow?).to be_falsey
@@ -89,9 +89,9 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
         FactoryBot.create(:server_incident, server: server, slack_message: slack_message)
         flow = described_class.new(
           {
-            "action": 'added-incident-update-reaction',
-            "channel": 'feed-test-automations',
-            "ts": '1598981604.000400'
+            action: 'added-incident-update-reaction',
+            channel: 'feed-test-automations',
+            ts: '1598981604.000400'
           }
         )
         expect(flow.flow?).to be_falsey
@@ -104,10 +104,10 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
         FactoryBot.create(:server_incident, server: server, slack_message: slack_message)
         flow = described_class.new(
           {
-            "action": 'added-incident-update-reaction',
-            "channel": 'feed-test-automations',
-            "ts": '1598981604.000400',
-            "reactions": 'test'
+            action: 'added-incident-update-reaction',
+            channel: 'feed-test-automations',
+            ts: '1598981604.000400',
+            reactions: 'test'
           }
         )
         expect(flow.flow?).to be_falsey
@@ -120,9 +120,9 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
         FactoryBot.create(:server_incident, server: server, slack_message: slack_message)
         flow = described_class.new(
           {
-            "channel": 'feed-test-automations',
-            "ts": '1598981604.000400',
-            "reactions": 'white_check_mark'
+            channel: 'feed-test-automations',
+            ts: '1598981604.000400',
+            reactions: 'white_check_mark'
           }
         )
         expect(flow.flow?).to be_falsey

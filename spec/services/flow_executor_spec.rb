@@ -11,9 +11,9 @@ RSpec.describe FlowExecutor, type: :service do
           repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
           # branch from the json doesn't exist
           flow_executor = described_class.new({
-                                                "text": 'hotfix qa roadrunner-repository-test hotfix/test-hotfix-octtefdhh',
-                                                "channel_name": 'feed-test-automations',
-                                                "user_name": 'rheniery.mendes'
+                                                text: 'hotfix qa roadrunner-repository-test hotfix/test-hotfix-octtefdhh',
+                                                channel_name: 'feed-test-automations',
+                                                user_name: 'rheniery.mendes'
                                               })
 
           expected_message = 'There was an error with your request. Hey @automations-dev can you please check this?'
@@ -28,9 +28,9 @@ RSpec.describe FlowExecutor, type: :service do
     context 'when there is no results from flows and the command was sent through Channel' do
       it 'sends a channel no results message' do
         flow_executor = described_class.new({
-                                              "text": 'test',
-                                              "channel_name": 'feed-test-automations',
-                                              "user_name": 'rheniery.mendes'
+                                              text: 'test',
+                                              channel_name: 'feed-test-automations',
+                                              user_name: 'rheniery.mendes'
                                             })
 
         expected_message = 'There are no results for your request. Please, check for more information using the `/roadrunner help` command.'
@@ -42,8 +42,8 @@ RSpec.describe FlowExecutor, type: :service do
     context 'when there is no results from flows and the command was sent through Direct Message' do
       it 'sends a direct no results message' do
         flow_executor = described_class.new({
-                                              "text": 'test',
-                                              "user_name": 'rheniery.mendes'
+                                              text: 'test',
+                                              user_name: 'rheniery.mendes'
                                             })
 
         expected_message = 'There are no results for your request. Please, check for more information using the `/roadrunner help` command.'

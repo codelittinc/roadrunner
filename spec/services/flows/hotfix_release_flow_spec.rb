@@ -34,8 +34,8 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
         FactoryBot.create(:repository)
 
         flow = described_class.new({
-                                     "text": 'update prodd',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update prodd',
+                                     channel_name: 'feed-test-automations'
                                    })
         expect(flow.flow?).to be_falsey
       end
@@ -53,8 +53,8 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
       it 'when the text message has more than four words' do
         FactoryBot.create(:repository)
         flow = described_class.new({
-                                     "text": 'update prod roadrunner-rails test branch',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update prod roadrunner-rails test branch',
+                                     channel_name: 'feed-test-automations'
                                    })
         expect(flow.flow?).to be_falsey
       end
@@ -67,8 +67,8 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
         FactoryBot.create(:repository)
 
         flow = described_class.new({
-                                     "text": 'hotfix qa roadrunner-repository-test hotfix/fix-to-test',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'hotfix qa roadrunner-repository-test hotfix/fix-to-test',
+                                     channel_name: 'feed-test-automations'
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
@@ -83,12 +83,12 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
           FactoryBot.create(:repository)
 
           flow = described_class.new({
-                                       "text": 'hotfix qa roadrunner-repository-test hotfix/fix-to-test',
-                                       "channel_name": 'feed-test-automations'
+                                       text: 'hotfix qa roadrunner-repository-test hotfix/fix-to-test',
+                                       channel_name: 'feed-test-automations'
                                      })
 
           allow_any_instance_of(Clients::Github::Branch).to receive(:compare).and_return([])
-          allow_any_instance_of(Clients::Github::Release).to receive(:list).and_return([OpenStruct.new({ 'tag_name': 'rc.1.v1.1.1' })])
+          allow_any_instance_of(Clients::Github::Release).to receive(:list).and_return([OpenStruct.new({ tag_name: 'rc.1.v1.1.1' })])
           allow_any_instance_of(Clients::Github::Branch).to receive(:branch_exists?).and_return(true)
           allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
 
@@ -158,8 +158,8 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             flow = described_class.new({
-                                         "text": 'hotfix qa roadrunner-repository-test hotfix/test',
-                                         "channel_name": 'feed-test-automations'
+                                         text: 'hotfix qa roadrunner-repository-test hotfix/test',
+                                         channel_name: 'feed-test-automations'
                                        })
 
             message_count = 0
@@ -200,8 +200,8 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
         FactoryBot.create(:repository)
 
         flow = described_class.new({
-                                     "text": 'hotfix prod roadrunner-repository-test',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'hotfix prod roadrunner-repository-test',
+                                     channel_name: 'feed-test-automations'
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
@@ -245,8 +245,8 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             flow = described_class.new({
-                                         "text": 'hotfix prod roadrunner-repository-test',
-                                         "channel_name": 'feed-test-automations'
+                                         text: 'hotfix prod roadrunner-repository-test',
+                                         channel_name: 'feed-test-automations'
                                        })
 
             expect(flow.execute).to be_nil

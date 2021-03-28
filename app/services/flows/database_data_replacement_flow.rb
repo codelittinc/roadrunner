@@ -5,15 +5,15 @@ module Flows
     def execute
       backup_restore_json =
         {
-          "filename": 'backup',
-          "source_host": from_database_credential.db_host,
-          "source_database": from_database_credential.db_name,
-          "source_user": from_database_credential.db_user,
-          "source_password": from_database_credential.db_password,
-          "destination_host": to_database_credential.db_host,
-          "destination_database": to_database_credential.db_name,
-          "destination_user": to_database_credential.db_user,
-          "destination_password": to_database_credential.db_password
+          filename: 'backup',
+          source_host: from_database_credential.db_host,
+          source_database: from_database_credential.db_name,
+          source_user: from_database_credential.db_user,
+          source_password: from_database_credential.db_password,
+          destination_host: to_database_credential.db_host,
+          destination_database: to_database_credential.db_name,
+          destination_user: to_database_credential.db_user,
+          destination_password: to_database_credential.db_password
         }
 
       DatabaseService.new.backup_restore_db(backup_restore_json, true)

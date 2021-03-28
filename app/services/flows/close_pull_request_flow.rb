@@ -86,25 +86,25 @@ module Flows
     def jira_notification_block(jira_code)
       [
         {
-          "type": 'section',
-          "text": {
-            "type": 'mrkdwn',
-            "text": ":jira: the card *#{jira_code}* was found on the PR *#{repository.name}*-*#{pull_request.github_id}*, do you like to move it to *Ready for QA*?"
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: ":jira: the card *#{jira_code}* was found on the PR *#{repository.name}*-*#{pull_request.github_id}*, do you like to move it to *Ready for QA*?"
           }
         },
         {
-          "type": 'actions',
-          "block_id": 'actionblock789',
-          "elements": [
+          type: 'actions',
+          block_id: 'actionblock789',
+          elements: [
             {
-              "type": 'button',
-              "text": {
-                "type": 'plain_text',
-                "text": 'Yes, please!'
+              type: 'button',
+              text: {
+                type: 'plain_text',
+                text: 'Yes, please!'
               },
-              "style": 'primary',
-              "value": 'yes',
-              "action_id": "jira-status-update-#{jira_code}"
+              style: 'primary',
+              value: 'yes',
+              action_id: "jira-status-update-#{jira_code}"
             }
           ]
         }
