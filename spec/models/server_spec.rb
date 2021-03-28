@@ -20,6 +20,7 @@ require 'rails_helper'
 RSpec.describe Server, type: :model do
   describe 'associations' do
     it { should belong_to(:repository) }
+    it { should belong_to(:application) }
   end
 
   describe 'validations' do

@@ -21,6 +21,7 @@ RSpec.describe Repository, type: :model do
   describe 'associations' do
     it { should have_many(:servers) }
     it { should belong_to(:project) }
+    it { should have_many(:applications) }
   end
 
   describe 'validations' do
