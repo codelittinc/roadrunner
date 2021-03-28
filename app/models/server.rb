@@ -17,6 +17,7 @@
 #
 class Server < ApplicationRecord
   belongs_to :repository
+  belongs_to :application
 
   validates :link, presence: true
   validates :repository, presence: true

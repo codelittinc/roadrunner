@@ -22,6 +22,7 @@ class Repository < ApplicationRecord
 
   has_many :pull_requests
   has_many :branches
+  has_many :applications
 
   TAG_DEPLOY_TYPE = 'tag'
   BRANCH_DEPLOY_TYPE = 'branch'
