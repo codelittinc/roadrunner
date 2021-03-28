@@ -14,8 +14,8 @@ module Clients
         url = build_api_url("/issue/#{issue_key}/transitions?expand=expand.fields")
         status = Clients::Jira::Status.new.list_by_issue(issue_key, status_name)[0]
         body = Request.post(url, authorization, {
-                              "transition": {
-                                "id": status['id']
+                              transition: {
+                                id: status['id']
                               }
                             })
       end

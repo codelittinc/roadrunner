@@ -30,8 +30,8 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
         FactoryBot.create(:repository)
 
         flow = described_class.new({
-                                     "text": 'update roadrunner-repository-test prodd',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update roadrunner-repository-test prodd',
+                                     channel_name: 'feed-test-automations'
                                    })
 
         expect(flow.flow?).to be_falsey
@@ -45,8 +45,8 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
       it 'when the text words number is different from three' do
         FactoryBot.create(:repository)
         flow = described_class.new({
-                                     "text": 'update prod',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update prod',
+                                     channel_name: 'feed-test-automations'
                                    })
         expect(flow.flow?).to be_falsey
       end
@@ -59,8 +59,8 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
         FactoryBot.create(:repository)
 
         flow = described_class.new({
-                                     "text": 'update roadrunner-repository-test qa',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update roadrunner-repository-test qa',
+                                     channel_name: 'feed-test-automations'
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
@@ -76,8 +76,8 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
         FactoryBot.create(:repository)
 
         flow = described_class.new({
-                                     "text": 'update roadrunner-repository-test qa',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update roadrunner-repository-test qa',
+                                     channel_name: 'feed-test-automations'
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
@@ -191,8 +191,8 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
         FactoryBot.create(:repository)
 
         flow = described_class.new({
-                                     "text": 'update roadrunner-repository-test prod',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update roadrunner-repository-test prod',
+                                     channel_name: 'feed-test-automations'
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
@@ -236,8 +236,8 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                               })
 
             flow = described_class.new({
-                                         "text": 'update roadrunner-repository-test prod',
-                                         "channel_name": 'feed-test-automations'
+                                         text: 'update roadrunner-repository-test prod',
+                                         channel_name: 'feed-test-automations'
                                        })
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
@@ -263,8 +263,8 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             flow = described_class.new({
-                                         "text": 'update roadrunner-repository-test prod',
-                                         "channel_name": 'feed-test-automations'
+                                         text: 'update roadrunner-repository-test prod',
+                                         channel_name: 'feed-test-automations'
                                        })
 
             message_count = 0
@@ -310,8 +310,8 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                               })
 
             flow = described_class.new({
-                                         "text": 'update roadrunner-repository-test prod',
-                                         "channel_name": 'feed-test-automations'
+                                         text: 'update roadrunner-repository-test prod',
+                                         channel_name: 'feed-test-automations'
                                        })
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
@@ -384,8 +384,8 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                               })
 
             flow = described_class.new({
-                                         "text": 'update roadrunner-repository-test prod',
-                                         "channel_name": 'feed-test-automations'
+                                         text: 'update roadrunner-repository-test prod',
+                                         channel_name: 'feed-test-automations'
                                        })
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(

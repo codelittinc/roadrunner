@@ -30,8 +30,8 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
         FactoryBot.create(:repository)
 
         flow = described_class.new({
-                                     "text": 'update all prodd',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update all prodd',
+                                     channel_name: 'feed-test-automations'
                                    })
 
         expect(flow.flow?).to be_falsey
@@ -40,8 +40,8 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
       it 'when the text words number is different from three' do
         FactoryBot.create(:repository)
         flow = described_class.new({
-                                     "text": 'update prod',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update prod',
+                                     channel_name: 'feed-test-automations'
                                    })
         expect(flow.flow?).to be_falsey
       end
@@ -49,8 +49,8 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
       it 'when the channel_name does not exist' do
         FactoryBot.create(:repository)
         flow = described_class.new({
-                                     "text": 'update prod',
-                                     "channel_name": 'feed-test-test'
+                                     text: 'update prod',
+                                     channel_name: 'feed-test-test'
                                    })
         expect(flow.flow?).to be_falsey
       end
@@ -64,8 +64,8 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
         repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
         flow = described_class.new({
-                                     "text": 'update all qa',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update all qa',
+                                     channel_name: 'feed-test-automations'
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
@@ -84,8 +84,8 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
         repository1.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
         flow = described_class.new({
-                                     "text": 'update all qa',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update all qa',
+                                     channel_name: 'feed-test-automations'
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
@@ -102,8 +102,8 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
         repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
         flow = described_class.new({
-                                     "text": 'update all qa',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update all qa',
+                                     channel_name: 'feed-test-automations'
                                    })
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
@@ -119,8 +119,8 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
         repository1.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
         flow = described_class.new({
-                                     "text": 'update all qa',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update all qa',
+                                     channel_name: 'feed-test-automations'
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
@@ -141,8 +141,8 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
         repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
         flow = described_class.new({
-                                     "text": 'update all prod',
-                                     "channel_name": 'feed-test-automations'
+                                     text: 'update all prod',
+                                     channel_name: 'feed-test-automations'
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
