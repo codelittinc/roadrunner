@@ -12,11 +12,15 @@
 #  created_at          :datetime       not null
 #  updated_at          :datetime       not null
 #
-class Application < ApplicationRecord
-  belongs_to :repository
-  has_one :server, dependent: :destroy
+FactoryBot.define do
+  factory :application do
+    environment { 'environment1' }
+    version { 'version1' }
+    external_identifier { FFaker::Name.first_name }
+    repository_id { 1 }
 
-  validates :environment, presence: true
-  validates :version, presence: true
-  validates :external_identifier, presence: true, uniqueness: true
+    before(:create) do |obj|
+      obj.repository ||= create(:repository)
+    end
+  end
 end

@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :open_pull_requests, only: :index
   resources :server_incidents_report, only: :show
   resources :projects, only: :show
+  resources :application, only: :show do
+    resources :changelogs, only: :index
+  end
 
   root 'application#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

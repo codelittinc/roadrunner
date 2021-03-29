@@ -115,6 +115,7 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     faraday-net_http (1.0.1)
+    ffaker (2.18.0)
     ffi (1.15.0)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
@@ -321,6 +322,7 @@ DEPENDENCIES
   data_migrate (~> 6.3)
   dotenv-rails
   factory_bot_rails
+  ffaker
   friendly_id (~> 5.4.0)
   gelf
   jbuilder (~> 2.7)

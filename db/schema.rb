@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_03_175730) do
+ActiveRecord::Schema.define(version: 2021_03_28_071124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.string "environment"
+    t.string "version"
+    t.string "external_identifier"
+    t.bigint "repository_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["external_identifier"], name: "index_applications_on_external_identifier", unique: true
+    t.index ["repository_id"], name: "index_applications_on_repository_id"
+  end
 
   create_table "branches", force: :cascade do |t|
     t.string "name"
@@ -182,6 +193,8 @@ ActiveRecord::Schema.define(version: 2021_02_03_175730) do
     t.boolean "active", default: true
     t.string "environment"
     t.string "name"
+    t.bigint "application_id"
+    t.index ["application_id"], name: "index_servers_on_application_id"
     t.index ["repository_id"], name: "index_servers_on_repository_id"
   end
 
@@ -221,6 +234,7 @@ ActiveRecord::Schema.define(version: 2021_02_03_175730) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "applications", "repositories"
   add_foreign_key "branches", "pull_requests"
   add_foreign_key "branches", "repositories"
   add_foreign_key "check_runs", "branches"
@@ -229,5 +243,6 @@ ActiveRecord::Schema.define(version: 2021_02_03_175730) do
   add_foreign_key "pull_requests", "repositories"
   add_foreign_key "pull_requests", "users"
   add_foreign_key "server_incident_instances", "server_incidents"
+  add_foreign_key "servers", "applications"
   add_foreign_key "slack_repository_infos", "repositories"
 end
