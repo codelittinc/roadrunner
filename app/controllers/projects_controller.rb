@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProjectsController < ApplicationController
-  ALLOWED_EXPANDS = ['servers'].freeze
+  ALLOWED_EXPANDS = %w[applications].freeze
 
   def show
     q = Project

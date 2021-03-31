@@ -16,4 +16,5 @@ class Project < ApplicationRecord
 
   has_many :repositories
   has_many :servers, through: :repositories
+  has_many :applications, through: :repositories
 end

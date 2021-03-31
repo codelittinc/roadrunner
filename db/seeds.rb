@@ -21,133 +21,138 @@ User.create(slack: 'manuel.lajo', jira: '5e6aa4e72a0bb00ce03419be', github: 'Man
 User.create(slack: 'mauricio.villaalba', jira: '5e6f922e5ffd840c43a99308', github: 'mvillalba2016')
 User.create(slack: 'ana.marija', jira: '5ca6158010e4f967c3022b24')
 
-Project.create!(name: 'Roadrunner', repositories: [
-                  Repository.new(
-                    name: 'roadrunner',
-                    supports_deploy: false,
-                    servers: [
-                      Server.new(link: 'https://roadrunner.codelitt.dev', supports_health_check: false, external_identifier: 'prod-roadrunner', name: 'prod-roadrunner')
-                    ],
-                    alias: 'Roadrunner',
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@engineers', dev_channel: 'team-automations-dev', deploy_channel: 'team-automations-dev')
-                  )
-                ])
+# ------
+project = Project.create!(name: 'Rolli')
 
-Project.create!(name: 'Codelitt website', repositories: [
-                  Repository.new(
-                    name: 'codelitt-v2',
-                    supports_deploy: true,
-                    deploy_type: Repository::TAG_DEPLOY_TYPE,
-                    jira_project: 'CW',
-                    alias: 'Website',
-                    servers: [
-                      Server.new(link: 'https://codelitt.dev', supports_health_check: false, external_identifier: 'dev-website-codelitt', name: 'dev-website-codelitt'),
-                      Server.new(link: 'https://qa.codelitt.dev', supports_health_check: false, external_identifier: 'qa-codelitt-website', name: 'qa-codelitt-website'),
-                      Server.new(link: 'https://codelitt.com', supports_health_check: false, external_identifier: 'prod-codelitt-website', name: 'prod-codelitt-website')
-                    ],
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@website-devs', dev_channel: 'team-website-dev', deploy_channel: 'team-website-deploy')
-                  )
-                ])
+repository = Repository.create!(
+  name: 'rolli',
+  supports_deploy: true,
+  deploy_type: Repository::TAG_DEPLOY_TYPE,
+  project: project,
+  slack_repository_info: SlackRepositoryInfo.new(dev_group: '@rolli-devs', dev_channel: 'team-rolli-dev', deploy_channel: 'team-rolli-deploy')
+)
 
-Project.create!(name: 'Rolli', repositories: [
-                  Repository.new(
-                    name: 'rolli',
-                    supports_deploy: true,
-                    deploy_type: Repository::TAG_DEPLOY_TYPE,
-                    servers: [
-                      Server.new(link: 'https://dev-rolli.codelitt.dev', supports_health_check: false, external_identifier: 'dev-rolli', name: 'dev-rolli'),
-                      Server.new(link: 'https://qa-rolli.codelitt.dev', supports_health_check: false, external_identifier: 'qa-rolli', name: 'qa-rolli'),
-                      Server.new(link: 'https://rolliapp.com', supports_health_check: false, external_identifier: 'prod-rolli', name: 'prod-rolli')
-                    ],
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@rolli-devs', dev_channel: 'team-rolli-dev', deploy_channel: 'team-rolli-deploy')
-                  )
-                ])
+application = Application.create!(version: 'v1.0.12', external_identifier: 'rolli.com', environment: 'prod', repository: repository)
 
-Project.create!(name: 'Team Maker', repositories: [
-                  Repository.new(
-                    name: 'team-maker',
-                    supports_deploy: true,
-                    deploy_type: Repository::BRANCH_DEPLOY_TYPE,
-                    servers: [
-                      Server.new(link: 'https://team-maker.codelitt.dev', supports_health_check: false, external_identifier: 'prod-team-maker', name: 'prod-team-maker')
-                    ],
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@team-maker-devs', dev_channel: 'team-teammaker-dev', deploy_channel: 'wg-teammaker-deploy')
-                  )
-                ])
+Server.create(link: 'https://dev-rolli.codelitt.dev', supports_health_check: false, external_identifier: 'dev-rolli', repository: repository, application: application)
+Server.create(link: 'https://qa-rolli.codelitt.dev', supports_health_check: false, external_identifier: 'qa-rolli', repository: repository, application: application)
+Server.create(link: 'https://rolliapp.com', supports_health_check: false, external_identifier: 'prod-rolli', repository: repository, application: application)
 
-Project.create!(name: 'Zonda', repositories: [
-                  Repository.new(
-                    name: 'zonda',
-                    supports_deploy: true,
-                    deploy_type: Repository::BRANCH_DEPLOY_TYPE,
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@zonda-devs', dev_channel: 'team-zonda-dev', deploy_channel: 'wg-zonda-deploy')
-                  )
-                ])
-
-Project.create!(name: 'Avison Young', repositories: [
-                  Repository.new(
-                    name: 'ay-design-library',
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-devs', dev_channel: 'team-ay-pia-web-dev')
-                  ),
-                  Repository.new(
-                    name: 'ay-properties-api',
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev'),
-                    jira_project: 'AYAPI'
-                  ),
-                  Repository.new(
-                    name: 'ay-pia-web',
-                    supports_deploy: true,
-                    deploy_type: Repository::BRANCH_DEPLOY_TYPE,
-                    jira_project: 'HUB',
-                    servers: [
-                      Server.new(link: 'https://dev-ay-pia-web.herokuapp.com', supports_health_check: false, external_identifier: 'dev-ay-pia-web', name: 'dev-ay-pia-web'),
-                      Server.new(link: 'https://pia-web-prod.azurewebsites.net', supports_health_check: false, name: 'prod-ay-pia-web')
-                    ],
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-desktop-devs', dev_channel: 'team-ay-pia-web-dev', deploy_channel: 'team-pia-web-deploy')
-                  ),
-                  Repository.new(
-                    name: 'ay-excel-import-api',
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev'),
-                    jira_project: 'AYI'
-                  ),
-                  Repository.new(
-                    name: 'ay-property-intelligence',
-                    supports_deploy: true,
-                    deploy_type: Repository::BRANCH_DEPLOY_TYPE,
-                    jira_project: 'AYPI',
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-mobile-devs', dev_channel: 'team-ay-pia-dev', deploy_channel: 'team-ay-pia-deploy')
-                  ),
-                  Repository.new(
-                    name: 'ay-users-api',
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev'),
-                    jira_project: 'AYAPI'
-                  )
-                ])
-
-Project.create!(name: 'Codelitt Blog', repositories: [
-                  Repository.new(
-                    name: 'blog-v2',
-                    supports_deploy: false,
-                    servers: [
-                      Server.new(link: 'https://blog.codelitt.com', supports_health_check: false, external_identifier: 'prod-codelitt-blog', name: 'prod-codelitt-blog')
-                    ],
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@website-devs', dev_channel: 'team-website-dev', deploy_channel: 'team-blog-deploy')
-                  )
-                ])
-
-Project.create!(name: 'Codelitt Design System', repositories: [
-                  Repository.new(
-                    name: 'codelitt-design-system',
-                    supports_deploy: false,
-                    deploy_type: Repository::TAG_DEPLOY_TYPE,
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@engineers', dev_channel: 'team-codelitt-design-system-dev', deploy_channel: 'team-design-system-deploy')
-                  )
-                ])
-Project.create!(name: 'Farm to fork', repositories: [
-                  Repository.new(
-                    name: 'foodlitt',
-                    supports_deploy: false,
-                    deploy_type: Repository::TAG_DEPLOY_TYPE,
-                    slack_repository_info: SlackRepositoryInfo.new(dev_group: '@farm-to-fork-devs', dev_channel: 'team-farm-to-fork-dev', deploy_channel: 'team-farm-to-fork-deploy')
-                  )
-                ])
+# @TODO: fix the seeds bellow
+# -----
+# Project.create!(name: 'Roadrunner', repositories: [
+#                   Repository.new(
+#                     name: 'roadrunner',
+#                     supports_deploy: false,
+#                     servers: [
+#                       Server.new(link: 'https://roadrunner.codelitt.dev', supports_health_check: false, external_identifier: 'prod-roadrunner', name: 'prod-roadrunner')
+#                     ],
+#                     alias: 'Roadrunner',
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@engineers', dev_channel: 'team-automations-dev', deploy_channel: 'team-automations-dev')
+#                   )
+#                 ])
+#
+# Project.create!(name: 'Codelitt website', repositories: [
+#                   Repository.new(
+#                     name: 'codelitt-v2',
+#                     supports_deploy: true,
+#                     deploy_type: Repository::TAG_DEPLOY_TYPE,
+#                     jira_project: 'CW',
+#                     alias: 'Website',
+#                     servers: [
+#                       Server.new(link: 'https://codelitt.dev', supports_health_check: false, external_identifier: 'dev-website-codelitt', name: 'dev-website-codelitt'),
+#                       Server.new(link: 'https://qa.codelitt.dev', supports_health_check: false, external_identifier: 'qa-codelitt-website', name: 'qa-codelitt-website'),
+#                       Server.new(link: 'https://codelitt.com', supports_health_check: false, external_identifier: 'prod-codelitt-website', name: 'prod-codelitt-website')
+#                     ],
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@website-devs', dev_channel: 'team-website-dev', deploy_channel: 'team-website-deploy')
+#                   )
+#                 ])
+#
+# Project.create!(name: 'Team Maker', repositories: [
+#                   Repository.new(
+#                     name: 'team-maker',
+#                     supports_deploy: true,
+#                     deploy_type: Repository::BRANCH_DEPLOY_TYPE,
+#                     servers: [
+#                       Server.new(link: 'https://team-maker.codelitt.dev', supports_health_check: false, external_identifier: 'prod-team-maker', name: 'prod-team-maker')
+#                     ],
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@team-maker-devs', dev_channel: 'team-teammaker-dev', deploy_channel: 'wg-teammaker-deploy')
+#                   )
+#                 ])
+#
+# Project.create!(name: 'Zonda', repositories: [
+#                   Repository.new(
+#                     name: 'zonda',
+#                     supports_deploy: true,
+#                     deploy_type: Repository::BRANCH_DEPLOY_TYPE,
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@zonda-devs', dev_channel: 'team-zonda-dev', deploy_channel: 'wg-zonda-deploy')
+#                   )
+#                 ])
+#
+# Project.create!(name: 'Avison Young', repositories: [
+#                   Repository.new(
+#                     name: 'ay-design-library',
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-devs', dev_channel: 'team-ay-pia-web-dev')
+#                   ),
+#                   Repository.new(
+#                     name: 'ay-properties-api',
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev'),
+#                     jira_project: 'AYAPI'
+#                   ),
+#                   Repository.new(
+#                     name: 'ay-pia-web',
+#                     supports_deploy: true,
+#                     deploy_type: Repository::BRANCH_DEPLOY_TYPE,
+#                     jira_project: 'HUB',
+#                     servers: [
+#                       Server.new(link: 'https://dev-ay-pia-web.herokuapp.com', supports_health_check: false, external_identifier: 'dev-ay-pia-web', name: 'dev-ay-pia-web'),
+#                       Server.new(link: 'https://pia-web-prod.azurewebsites.net', supports_health_check: false, name: 'prod-ay-pia-web')
+#                     ],
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-desktop-devs', dev_channel: 'team-ay-pia-web-dev', deploy_channel: 'team-pia-web-deploy')
+#                   ),
+#                   Repository.new(
+#                     name: 'ay-excel-import-api',
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev'),
+#                     jira_project: 'AYI'
+#                   ),
+#                   Repository.new(
+#                     name: 'ay-property-intelligence',
+#                     supports_deploy: true,
+#                     deploy_type: Repository::BRANCH_DEPLOY_TYPE,
+#                     jira_project: 'AYPI',
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-mobile-devs', dev_channel: 'team-ay-pia-dev', deploy_channel: 'team-ay-pia-deploy')
+#                   ),
+#                   Repository.new(
+#                     name: 'ay-users-api',
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@ay-backend-devs', dev_channel: 'team-ay-dev'),
+#                     jira_project: 'AYAPI'
+#                   )
+#                 ])
+#
+# Project.create!(name: 'Codelitt Blog', repositories: [
+#                   Repository.new(
+#                     name: 'blog-v2',
+#                     supports_deploy: false,
+#                     servers: [
+#                       Server.new(link: 'https://blog.codelitt.com', supports_health_check: false, external_identifier: 'prod-codelitt-blog', name: 'prod-codelitt-blog')
+#                     ],
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@website-devs', dev_channel: 'team-website-dev', deploy_channel: 'team-blog-deploy')
+#                   )
+#                 ])
+#
+# Project.create!(name: 'Codelitt Design System', repositories: [
+#                   Repository.new(
+#                     name: 'codelitt-design-system',
+#                     supports_deploy: false,
+#                     deploy_type: Repository::TAG_DEPLOY_TYPE,
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@engineers', dev_channel: 'team-codelitt-design-system-dev', deploy_channel: 'team-design-system-deploy')
+#                   )
+#                 ])
+# Project.create!(name: 'Farm to fork', repositories: [
+#                   Repository.new(
+#                     name: 'foodlitt',
+#                     supports_deploy: false,
+#                     deploy_type: Repository::TAG_DEPLOY_TYPE,
+#                     slack_repository_info: SlackRepositoryInfo.new(dev_group: '@farm-to-fork-devs', dev_channel: 'team-farm-to-fork-dev', deploy_channel: 'team-farm-to-fork-deploy')
+#                   )
+#                 ])

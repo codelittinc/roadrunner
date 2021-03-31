@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_28_071124) do
+ActiveRecord::Schema.define(version: 2021_03_31_214730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,9 +54,6 @@ ActiveRecord::Schema.define(version: 2021_03_28_071124) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pull_request_id"], name: "index_commits_on_pull_request_id"
-  end
-
-  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
   create_table "database_credentials", force: :cascade do |t|
@@ -192,7 +189,6 @@ ActiveRecord::Schema.define(version: 2021_03_28_071124) do
     t.string "external_identifier"
     t.boolean "active", default: true
     t.string "environment"
-    t.string "name"
     t.bigint "application_id"
     t.index ["application_id"], name: "index_servers_on_application_id"
     t.index ["repository_id"], name: "index_servers_on_repository_id"

@@ -7,7 +7,7 @@ RSpec.describe ServerIncidentService, type: :service do
     context 'when it is a dev server incident' do
       it 'it does not send server incident notification to slack' do
         repository = FactoryBot.create(:repository, name: 'pia-web-qa')
-        server = FactoryBot.create(:server, external_identifier: 'pia-web-qa', environment: 'dev', repository: repository)
+        server = FactoryBot.create(:server, external_identifier: 'pia-web-qa', repository: repository, environment: 'dev')
 
         server_incident_service = described_class.new
         error_message = 'test'
