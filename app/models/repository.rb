@@ -40,4 +40,8 @@ class Repository < ApplicationRecord
   def deploy_with_tag?
     deploy_type == TAG_DEPLOY_TYPE
   end
+
+  def application_by_environment(environment)
+    applications.find_by(environment: environment)
+  end
 end

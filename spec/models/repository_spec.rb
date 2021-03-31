@@ -41,4 +41,22 @@ RSpec.describe Repository, type: :model do
       expect(repository.github_link).to eql('https://github.com/gotham/city')
     end
   end
+
+  describe '#application_by_environment' do
+    it 'returns the correct application when there are more than one' do
+      repository = FactoryBot.create(:repository, owner: 'gotham', name: 'city')
+      FactoryBot.create(:application, repository: repository, environment: 'prod')
+
+      application = FactoryBot.create(:application, repository: repository, environment: 'qa')
+
+      expect(repository.application_by_environment('qa')).to eql(application)
+    end
+
+    it 'returns nil if there are no applications for that environment' do
+      repository = FactoryBot.create(:repository, owner: 'gotham', name: 'city')
+      FactoryBot.create(:application, repository: repository, environment: 'prod')
+
+      expect(repository.application_by_environment('qa')).to be_nil
+    end
+  end
 end

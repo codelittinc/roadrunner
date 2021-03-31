@@ -20,10 +20,17 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'release_hotfix_prod.json'))).with_indifferent_access
   end
 
+  let(:repository_with_applications) do
+    repository = FactoryBot.create(:repository)
+    repository.applications << FactoryBot.create(:application, repository: repository, environment: 'prod')
+    repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
+    repository
+  end
+
   describe '#flow?' do
     context 'returns true' do
       it 'when the json is valid' do
-        FactoryBot.create(:repository, name: 'roadrunner-repository-test')
+        repository_with_applications.update(name: 'roadrunner-repository-test')
         flow = described_class.new(valid_json_qa)
         expect(flow.flow?).to be_truthy
       end
@@ -31,7 +38,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
 
     context 'returns false' do
       it 'when the environment is different from qa or prod' do
-        FactoryBot.create(:repository)
+        repository_with_applications
 
         flow = described_class.new({
                                      text: 'update prodd',
@@ -51,7 +58,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
       end
 
       it 'when the text message has more than four words' do
-        FactoryBot.create(:repository)
+        repository_with_applications
         flow = described_class.new({
                                      text: 'update prod roadrunner-rails test branch',
                                      channel_name: 'feed-test-automations'
@@ -64,7 +71,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
   describe '#execute' do
     context 'with the qa environment' do
       it 'calls the release candidate subflow' do
-        FactoryBot.create(:repository)
+        repository_with_applications
 
         flow = described_class.new({
                                      text: 'hotfix qa roadrunner-repository-test hotfix/fix-to-test',
@@ -80,7 +87,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
 
       context 'when there are no changes between the branchs' do
         it 'ensure it does not throw an error' do
-          FactoryBot.create(:repository)
+          repository_with_applications
 
           flow = described_class.new({
                                        text: 'hotfix qa roadrunner-repository-test hotfix/fix-to-test',
@@ -102,7 +109,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
 
       it 'creates the first hotfix' do
         VCR.use_cassette('flows#hotfix#first') do
-          repository = FactoryBot.create(:repository)
+          repository = repository_with_applications
           repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
           FactoryBot.create(:commit, :with_pull_request, {
@@ -128,7 +135,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
 
       it 'create the next hotfix if exists another one' do
         VCR.use_cassette('flows#hotfix#create-others-hotfix') do
-          repository = FactoryBot.create(:repository)
+          repository = repository_with_applications
           repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
           FactoryBot.create(:commit, :with_pull_request, {
@@ -154,7 +161,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
       context 'when does not exist the branch passed as parameter' do
         it 'sends a message notifying about the fact that there is no branch to deploy' do
           VCR.use_cassette('flows#hotfix#no-branch') do
-            repository = FactoryBot.create(:repository)
+            repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             flow = described_class.new({
@@ -174,7 +181,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
       context 'when it is creating from a pre-release but there are no changes since the last one' do
         it 'sends a message notifying about the fact that there are no changes to deploy' do
           VCR.use_cassette('flows#hotfix#no-changes') do
-            repository = FactoryBot.create(:repository)
+            repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             FactoryBot.create(:commit, :with_pull_request, {
@@ -197,7 +204,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
 
     describe 'with the prod environment' do
       it 'calls the release candidate subflow' do
-        FactoryBot.create(:repository)
+        repository_with_applications
 
         flow = described_class.new({
                                      text: 'hotfix prod roadrunner-repository-test',
@@ -214,7 +221,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
       context 'when there is a hotfix QA version at the moment' do
         it 'create a hotfix stable version' do
           VCR.use_cassette('flows#hotfix#create-stable-release') do
-            repository = FactoryBot.create(:repository)
+            repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             FactoryBot.create(:commit, :with_pull_request, {
@@ -241,7 +248,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
       context 'when there is not hotfix QA version' do
         it 'it should returns nil' do
           VCR.use_cassette('flows#hotfix#handle-stable-hotfix') do
-            repository = FactoryBot.create(:repository)
+            repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             flow = described_class.new({

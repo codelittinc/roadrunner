@@ -34,15 +34,20 @@ module Flows
           return
         end
 
+        version = version_resolver.next_version
+
         Clients::Github::Release.new.create(
           @repository.full_name,
-          version_resolver.next_version,
+          version,
           branch,
           github_message,
           true
         )
 
         Clients::Slack::ChannelMessage.new.send(slack_message, channel)
+
+        app = @repository.application_by_environment(QA_ENVIRONMENT)
+        app.update(version: version)
       end
 
       private
