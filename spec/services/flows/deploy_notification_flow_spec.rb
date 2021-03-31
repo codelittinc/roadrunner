@@ -63,7 +63,7 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
 
       it 'when host is the server partial link' do
         repository = FactoryBot.create(:repository, name: 'Pia Web')
-        FactoryBot.create(:server, link: 'https://pia.web.com', repository: repository, name: 'test')
+        FactoryBot.create(:server, link: 'https://pia.web.com', repository: repository)
 
         flow = described_class.new({
                                      deploy_type: 'deploy-notification',

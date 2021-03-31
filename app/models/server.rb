@@ -12,8 +12,6 @@
 #  updated_at            :datetime         not null
 #  external_identifier   :string
 #  active                :boolean          default(TRUE)
-#  environment           :string
-#  name                  :string
 #
 class Server < ApplicationRecord
   belongs_to :repository
@@ -21,7 +19,7 @@ class Server < ApplicationRecord
 
   validates :link, presence: true
   validates :repository, presence: true
-  validates :name, presence: true
+  validates :application, presence: true
 
   has_one :slack_repository_info, through: :repository
   has_many :server_incidents

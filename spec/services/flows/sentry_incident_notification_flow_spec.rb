@@ -83,7 +83,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
 
     context 'when there is a ignore type for the incident' do
       it 'it does not create a server incident ' do
-        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev', name: 'test')
+        FactoryBot.create(:server, link: 'roadrunner.codelitt.dev')
         FactoryBot.create(:server_incident_type, name: 'Php File', regex_identifier: '.php.*')
         invalid_json = valid_incident.deep_dup
 
