@@ -6,10 +6,10 @@ FactoryBot.define do
     owner { 'codelittinc' }
     deploy_type { 'tag' }
     supports_deploy { true }
+    project { association :project }
 
-    before(:create) do |obj|
-      obj.project ||= create(:project)
-      obj.slack_repository_info ||= create(:slack_repository_info, repository: obj)
+    after(:create) do |obj|
+      create(:slack_repository_info, repository: obj)
     end
   end
 end

@@ -35,15 +35,20 @@ module Flows
         slack_message = Messages::ReleaseBuilder.branch_compare_message(db_commits, 'slack', @repository.name)
         github_message = Messages::ReleaseBuilder.branch_compare_message(db_commits, 'github', @repository.name)
 
+        version = version_resolver.next_version
+
         Clients::Github::Release.new.create(
           @repository.full_name,
-          version_resolver.next_version,
+          version,
           'master',
           github_message,
           true
         )
 
         Clients::Slack::ChannelMessage.new.send(slack_message, channel)
+
+        app = @repository.application_by_environment(QA_ENVIRONMENT)
+        app.update(version: version)
       end
 
       private

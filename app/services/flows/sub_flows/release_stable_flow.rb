@@ -40,18 +40,26 @@ module Flows
         slack_message = Messages::ReleaseBuilder.branch_compare_message(db_commits, 'slack', @repository.name)
         github_message = Messages::ReleaseBuilder.branch_compare_message(db_commits, 'github', @repository.name)
 
+        version = version_resolver.next_version
+
         Clients::Github::Release.new.create(
           @repository.full_name,
-          version_resolver.next_version,
+          version,
           new_version_commits.last[:sha],
           github_message,
           false
         )
 
         Clients::Slack::ChannelMessage.new.send(slack_message, channel)
+        update_application_version!(version)
       end
 
       private
+
+      def update_application_version!(version)
+        app = @repository.application_by_environment(PROD_ENVIRONMENT)
+        app.update(version: version)
+      end
 
       def fetch_commits(version_resolver)
         first_stable_release = version_resolver.latest_normal_stable_release.nil? || version_resolver.latest_normal_stable_release == 'master'

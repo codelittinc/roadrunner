@@ -15,12 +15,8 @@
 FactoryBot.define do
   factory :application do
     environment { 'environment1' }
-    version { 'version1' }
-    external_identifier { FFaker::Name.first_name }
-    repository_id { 1 }
-
-    before(:create) do |obj|
-      obj.repository ||= create(:repository)
-    end
+    version { "v#{rand(100)}.#{rand(100)}.#{rand(100)}" }
+    external_identifier { "v#{rand(100)}.#{rand(100)}.#{rand(100)}" }
+    repository { association :repository }
   end
 end

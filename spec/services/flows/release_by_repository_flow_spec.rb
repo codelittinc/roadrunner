@@ -14,10 +14,17 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'release_by_repository_tag.json'))).with_indifferent_access
   end
 
+  let(:repository_with_applications) do
+    repository = FactoryBot.create(:repository)
+    repository.applications << FactoryBot.create(:application, repository: repository, environment: 'prod')
+    repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
+    repository
+  end
+
   describe '#flow?' do
     context 'returns true' do
       it 'when the json is valid and there are multiple repositories tied to the slack channel' do
-        FactoryBot.create(:repository)
+        repository_with_applications
         FactoryBot.create(:repository)
 
         flow = described_class.new(valid_json)
@@ -27,7 +34,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
 
     context 'returns false' do
       it 'when the environment is different from qa or prod' do
-        FactoryBot.create(:repository)
+        repository_with_applications
 
         flow = described_class.new({
                                      text: 'update roadrunner-repository-test prodd',
@@ -43,7 +50,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
       end
 
       it 'when the text words number is different from three' do
-        FactoryBot.create(:repository)
+        repository_with_applications
         flow = described_class.new({
                                      text: 'update prod',
                                      channel_name: 'feed-test-automations'
@@ -56,7 +63,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
   describe '#execute' do
     context 'with the qa environment' do
       it 'sends a start release notification to the channel' do
-        FactoryBot.create(:repository)
+        repository_with_applications
 
         flow = described_class.new({
                                      text: 'update roadrunner-repository-test qa',
@@ -73,7 +80,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
       end
 
       it 'calls the release candidate subflow' do
-        FactoryBot.create(:repository)
+        repository_with_applications
 
         flow = described_class.new({
                                      text: 'update roadrunner-repository-test qa',
@@ -90,7 +97,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
       context 'when it is the first pre-release' do
         it 'creates the first pre-release' do
           VCR.use_cassette('flows#pre-release#first') do
-            repository = FactoryBot.create(:repository)
+            repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             repository = FactoryBot.create(:pull_request, {
@@ -124,7 +131,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
       context 'when it is creating from a pre-release but there are no changes since the last one' do
         it 'sends a message notifying about the fact that there are no changes to deploy' do
           VCR.use_cassette('flows#pre-release#no-changes') do
-            repository = FactoryBot.create(:repository)
+            repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             repository = FactoryBot.create(:pull_request, {
@@ -154,7 +161,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
       context 'when it is creating from a pre-release and there are changes since the last one' do
         it 'creates a new version' do
           VCR.use_cassette('flows#pre-release#new-changes') do
-            repository = FactoryBot.create(:repository)
+            repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             repository = FactoryBot.create(:pull_request, {
@@ -188,7 +195,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
 
     context 'with the prod environment' do
       it 'calls the release candidate subflow' do
-        FactoryBot.create(:repository)
+        repository_with_applications
 
         flow = described_class.new({
                                      text: 'update roadrunner-repository-test prod',
@@ -205,7 +212,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
       context 'when it is the first pre-release' do
         it 'creates a new stable release tag from a pre release version' do
           VCR.use_cassette('flows#stable-release#first') do
-            repository = FactoryBot.create(:repository)
+            repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             pr1 = FactoryBot.create(:pull_request, {
@@ -259,7 +266,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
       context 'when there are no differences from the latest release' do
         it 'sends a message about it' do
           VCR.use_cassette('flows#stable-release#no-changes') do
-            repository = FactoryBot.create(:repository)
+            repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             flow = described_class.new({
@@ -279,7 +286,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
       context 'when it is the second release' do
         it 'creates the release' do
           VCR.use_cassette('flows#stable-release#new-changes') do
-            repository = FactoryBot.create(:repository)
+            repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             pr1 = FactoryBot.create(:pull_request, {
@@ -332,7 +339,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
       context 'when there are four commits' do
         it 'uses the latest to create the tag' do
           VCR.use_cassette('flows#stable-release#many-commits') do
-            repository = FactoryBot.create(:repository)
+            repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
             pr1 = FactoryBot.create(:pull_request, {
