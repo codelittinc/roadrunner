@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_200321) do
+ActiveRecord::Schema.define(version: 2021_04_02_200852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -186,7 +186,6 @@ ActiveRecord::Schema.define(version: 2021_04_02_200321) do
     t.boolean "supports_health_check"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "external_identifier"
     t.boolean "active", default: true
     t.string "environment"
     t.bigint "application_id"
