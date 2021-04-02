@@ -31,14 +31,9 @@ RSpec.describe Application, type: :model do
       should validate_uniqueness_of(:external_identifier)
     end
 
-    describe 'accepts only valid values in the environment' do
-      let(:app) do
-        FactoryBot.build(:application)
-      end
-
-      it 'dev' do
-        expect(app).to validate_inclusion_of(:environment).in_array(%w[dev qa prod])
-      end
+    it 'only accepts valid values in the environment' do
+      app = FactoryBot.build(:application)
+      expect(app).to validate_inclusion_of(:environment).in_array(%w[dev qa prod])
     end
   end
 end

@@ -22,7 +22,7 @@ class Application < ApplicationRecord
   QA = 'qa'
   PROD = 'prod'
 
-  validates :environment, presence: true, inclusion: {in: [DEV, QA, PROD]}
+  validates :environment, presence: true, inclusion: { in: [DEV, QA, PROD] }
   validates :version, presence: true
   validates :external_identifier, presence: true, uniqueness: true
 end

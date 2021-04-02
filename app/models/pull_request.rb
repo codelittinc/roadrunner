@@ -34,7 +34,6 @@ class PullRequest < ApplicationRecord
   validates :github_id, presence: true, uniqueness: { scope: :repository_id }
   validates :title, presence: true
   validates :state, presence: true
-  validates :owner, presence: true
 
   DEPLOY_DEV_BRANCH_LEGACY = 'dev'
   DEPLOY_DEV_BRANCH = 'develop'

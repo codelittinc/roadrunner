@@ -7,7 +7,6 @@ FactoryBot.define do
     github_id { 1 }
     title { 'my nice PR' }
     description { 'my nice PR' }
-    owner { 'codelittinc' }
 
     before(:create) do |obj|
       obj.user ||= create(:user)
