@@ -8,7 +8,7 @@ class ApplicationIncidentService
     prod: ':fire:'
   }.freeze
 
-  MESSAGE_MAX_SIZE = 150
+  MESSAGE_MAX_SIZE = 149
   GRAYLOG_MESSAGE_TYPE = 'graylog'
   SENTRY_MESSAGE_TYPE = 'sentry'
 
@@ -43,14 +43,14 @@ class ApplicationIncidentService
     obj.save
     current_server_incident.update(slack_message_id: obj.id)
 
-    if error_message.size > MESSAGE_MAX_SIZE && message_type == GRAYLOG_MESSAGE_TYPE
-      final_message = "```#{error_message}```"
-      Clients::Slack::ChannelMessage.new.send(
-        final_message,
-        slack_channel,
-        response['ts']
-      )
-    end
+    return unless error_message.size > MESSAGE_MAX_SIZE && message_type == GRAYLOG_MESSAGE_TYPE
+
+    final_message = "```#{error_message}```"
+    Clients::Slack::ChannelMessage.new.send(
+      final_message,
+      slack_channel,
+      response['ts']
+    )
   end
 
   def create_new_recurrent_incident?
