@@ -16,11 +16,12 @@ module Tasks
 
         valid_status_codes = %w[401 200]
 
+        next if valid_status_codes.include?(code)
+
         status_check = ServerStatusCheck.create!(
           server: server,
           code: code
         )
-        next if valid_status_codes.include?(code)
 
         ApplicationIncidentService.new.register_incident!(
           server,
