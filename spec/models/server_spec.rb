@@ -7,13 +7,12 @@
 #  id                    :bigint           not null, primary key
 #  link                  :string
 #  supports_health_check :boolean
-#  repository_id         :bigint
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  external_identifier   :string
 #  active                :boolean          default(TRUE)
 #  environment           :string
-#  name                  :string
+#  application_id        :bigint
 #
 require 'rails_helper'
 

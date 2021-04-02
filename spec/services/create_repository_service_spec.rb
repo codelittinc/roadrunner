@@ -11,7 +11,6 @@ RSpec.describe CreateRepositoryService, type: :service do
                                                   owner: 'codelittinc',
                                                   deploy_type: 'tag',
                                                   supports_deploy: true,
-                                                  alias: '',
                                                   jira_project: nil
                                                 })
 
@@ -27,7 +26,6 @@ RSpec.describe CreateRepositoryService, type: :service do
                                                   owner: 'codelittinc',
                                                   deploy_type: 'tag',
                                                   supports_deploy: true,
-                                                  alias: '',
                                                   jira_project: nil
                                                 })
 

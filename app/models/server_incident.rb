@@ -6,12 +6,12 @@
 #
 #  id                     :bigint           not null, primary key
 #  message                :string
-#  server_id              :bigint
 #  server_status_check_id :bigint
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  state                  :string
 #  slack_message_id       :bigint
+#  application_id         :integer
 #
 class ServerIncident < ApplicationRecord
   belongs_to :application

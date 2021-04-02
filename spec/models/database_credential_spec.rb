@@ -1,5 +1,20 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: database_credentials
+#
+#  id            :bigint           not null, primary key
+#  env           :string
+#  database_type :string
+#  name          :string
+#  db_host       :string
+#  db_user       :string
+#  db_name       :string
+#  db_password   :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
 require 'rails_helper'
 
 RSpec.describe DatabaseCredential, type: :model do

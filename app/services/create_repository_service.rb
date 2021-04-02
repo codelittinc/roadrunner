@@ -13,7 +13,6 @@ class CreateRepositoryService
       owner: owner,
       deploy_type: deploy_type,
       supports_deploy: supports_deploy,
-      alias: repo_alias,
       jira_project: jira_project
     )
     github_repo = Clients::Github::Repository.new.get_repository(repository.full_name) if repository
@@ -36,10 +35,6 @@ class CreateRepositoryService
 
   def supports_deploy
     @params[:supports_deploy]
-  end
-
-  def repo_alias
-    @params[:alias]
   end
 
   def jira_project

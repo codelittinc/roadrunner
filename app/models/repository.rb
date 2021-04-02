@@ -12,7 +12,6 @@
 #  supports_deploy :boolean
 #  name            :string
 #  jira_project    :string
-#  alias           :string
 #  owner           :string
 #
 class Repository < ApplicationRecord
