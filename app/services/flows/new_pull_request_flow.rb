@@ -29,6 +29,7 @@ module Flows
     end
 
     def repository
+      # @TODO: add owner verification
       @repository ||= Repository.find_or_initialize_by(name: parser.repository_name)
     end
 
@@ -47,7 +48,6 @@ module Flows
         github_id: parser.github_id,
         title: parser.title,
         description: parser.description,
-        owner: parser.owner,
         repository: repository,
         user: user
       )
