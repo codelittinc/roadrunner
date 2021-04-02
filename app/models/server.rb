@@ -9,7 +9,6 @@
 #  supports_health_check :boolean
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
-#  external_identifier   :string
 #  active                :boolean          default(TRUE)
 #  environment           :string
 #  application_id        :bigint
