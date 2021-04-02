@@ -49,11 +49,11 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
   end
 
   describe '#run' do
-    it 'calls the ServerIncidentService with the right params' do
+    it 'calls the ApplicationIncidentService with the right params' do
       application = FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
 
       flow = described_class.new(valid_incident)
-      expect_any_instance_of(ServerIncidentService).to receive(:register_incident!).with(
+      expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
         application,
         "\n *_Error: This shouldn't happen!_*\n *Type*: Uncaught Exception\n *File Name*: /static/js/27.chunk.js\n *Function*: onClickSuggestion\n"\
         " *User*: \n>Id - 9\n>Email - victor.carvalho@codelitt.com\n *Browser*: Chrome\n\n "\
@@ -109,7 +109,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         application = FactoryBot.create(:application, external_identifier: 'pia-web-qa')
 
         flow = described_class.new(valid_incident_with_error_caught)
-        expect_any_instance_of(ServerIncidentService).to receive(:register_incident!).with(
+        expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
           application,
           "\n *_Error: File timeout abstracting_*\n *Type*: Caught Exception\n *File Name*: services/ErrorsMonitor.ts\n"\
           " *Function*: callback\n *User*: \n>Id - 38\n>Email - carl.caputo@avisonyoung.com\n *Browser*: Chrome\n\n "\
@@ -127,7 +127,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         application = FactoryBot.create(:application, external_identifier: 'pia-web-qa')
 
         flow = described_class.new(valid_incident_with_custom_message)
-        expect_any_instance_of(ServerIncidentService).to receive(:register_incident!).with(
+        expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
           application,
           "\n *_Error: failed to create company \"Avison Young\" (compareName: \"avison young\"). company already exists (ID..._*\n *Type*: Caught Exception\n *Displayed message*: [undefined]\n"\
           " *File Name*: services/ErrorLogger.ts\n"\

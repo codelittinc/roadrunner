@@ -27,7 +27,7 @@ RSpec.describe Flows::HelpSummaryFlow, type: :service do
 
   describe '#run' do
     context 'in a non deploy channel' do
-      it 'calls the ServerIncidentService with the right params' do
+      it 'calls the ApplicationIncidentService with the right params' do
         flow = described_class.new({
                                      text: 'help',
                                      channel_name: 'cool-channel',

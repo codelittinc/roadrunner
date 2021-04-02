@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ServerIncidentService
+class ApplicationIncidentService
   attr_reader :current_server_incident, :error_message, :message_type, :recurrent_server_incident, :application, :server, :environment
 
   ICONS = {
@@ -98,6 +98,6 @@ class ServerIncidentService
   end
 
   def dev_server?
-    environment&.include?(ServerIncident::DEVELOPMENT_ENVIRONMENT)
+    environment&.include?(Application::DEV)
   end
 end
