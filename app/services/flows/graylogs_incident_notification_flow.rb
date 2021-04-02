@@ -14,7 +14,11 @@ module Flows
     private
 
     def server
-      @server ||= Server.where('link LIKE ?', "%#{source}%").first
+      @server ||= application&.server
+    end
+
+    def application
+      @application ||= Application.find_by(external_identifier: source)
     end
 
     def source

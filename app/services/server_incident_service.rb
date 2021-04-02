@@ -72,7 +72,7 @@ class ServerIncidentService
   end
 
   def slack_repository_info
-    server.slack_repository_info
+    server.application.repository.slack_repository_info
   end
 
   def slack_channel
