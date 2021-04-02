@@ -11,7 +11,6 @@
 #  title         :string
 #  description   :string
 #  state         :string
-#  owner         :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  repository_id :bigint

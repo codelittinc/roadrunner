@@ -3,7 +3,7 @@
 module Flows
   class GraylogsIncidentNotificationFlow < BaseFlow
     def execute
-      ServerIncidentService.new.register_incident!(application, incident_message)
+      ApplicationIncidentService.new.register_incident!(application, incident_message)
     end
 
     def flow?

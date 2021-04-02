@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ServerIncidentService, type: :service do
+RSpec.describe ApplicationIncidentService, type: :service do
   describe '#register_incident' do
     context 'when it is a dev server incident' do
       it 'it does not send server incident notification to slack' do

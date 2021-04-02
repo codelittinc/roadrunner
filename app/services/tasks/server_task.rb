@@ -22,7 +22,7 @@ module Tasks
         )
         next if valid_status_codes.include?(code)
 
-        ServerIncidentService.new.register_incident!(
+        ApplicationIncidentService.new.register_incident!(
           server,
           "Roadrunner is trying to reach #{link}, and is receiving:\n\ncode: #{response.code}\nmessage: #{response.body}",
           status_check
