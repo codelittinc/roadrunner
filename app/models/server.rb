@@ -20,7 +20,6 @@ class Server < ApplicationRecord
   validates :application, presence: true
 
   has_one :repository, through: :application
-  has_one :slack_repository_info, through: :repository
   has_many :server_incidents
   has_many :server_status_checks
 

@@ -18,5 +18,9 @@ FactoryBot.define do
     version { "v#{rand(100)}.#{rand(100)}.#{rand(100)}" }
     external_identifier { "v#{rand(100)}.#{rand(100)}.#{rand(100)}" }
     repository { association :repository }
+
+    trait :with_server do
+      server { association :server }
+    end
   end
 end
