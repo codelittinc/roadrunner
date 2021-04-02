@@ -25,9 +25,20 @@ RSpec.describe Application, type: :model do
     it { should validate_presence_of(:environment) }
     it { should validate_presence_of(:version) }
     it { should validate_presence_of(:external_identifier) }
+
     it 'should be unique' do
       FactoryBot.create(:application)
       should validate_uniqueness_of(:external_identifier)
+    end
+
+    describe 'accepts only valid values in the environment' do
+      let(:app) do
+        FactoryBot.build(:application)
+      end
+
+      it 'dev' do
+        expect(app).to validate_inclusion_of(:environment).in_array(%w[dev qa prod])
+      end
     end
   end
 end

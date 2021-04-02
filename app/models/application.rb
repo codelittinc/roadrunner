@@ -18,7 +18,11 @@ class Application < ApplicationRecord
   has_one :server, dependent: :destroy
   has_many :server_incidents, dependent: :destroy
 
-  validates :environment, presence: true
+  DEV = 'dev'
+  QA = 'qa'
+  PROD = 'prod'
+
+  validates :environment, presence: true, inclusion: {in: [DEV, QA, PROD]}
   validates :version, presence: true
   validates :external_identifier, presence: true, uniqueness: true
 end

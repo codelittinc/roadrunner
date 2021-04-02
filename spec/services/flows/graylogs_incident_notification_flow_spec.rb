@@ -53,7 +53,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
   describe '#run' do
     context 'with a valid json in which the message is bigger than 150 chars' do
       it 'creates a new ServerIncident record' do
-        FactoryBot.create(:application, :with_server, external_identifier: 'roadrunner.codelitt.dev')
+        FactoryBot.create(:application, :with_server, external_identifier: 'roadrunner.codelitt.dev', environment: 'qa')
 
         flow = described_class.new(incident_small_message)
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
@@ -79,7 +79,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
 
     context 'when no slack message was send 10 minutes before' do
       it 'sends a slack message' do
-        FactoryBot.create(:application, :with_server, external_identifier: 'roadrunner.codelitt.dev')
+        FactoryBot.create(:application, :with_server, external_identifier: 'roadrunner.codelitt.dev', environment: 'qa')
 
         flow = described_class.new(incident_small_message)
 

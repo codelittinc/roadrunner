@@ -14,7 +14,7 @@
 #
 FactoryBot.define do
   factory :application do
-    environment { 'cool environment' }
+    environment { 'dev' }
     version { "v#{rand(100)}.#{rand(100)}.#{rand(100)}" }
     external_identifier { "v#{rand(100)}.#{rand(100)}.#{rand(100)}" }
     repository { association :repository }
