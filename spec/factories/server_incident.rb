@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :server_incident do
-    before(:create) do |obj|
-      obj.server ||= create(:server)
-    end
+    application { associate :application }
   end
 end

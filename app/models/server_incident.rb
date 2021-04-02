@@ -14,7 +14,8 @@
 #  slack_message_id       :bigint
 #
 class ServerIncident < ApplicationRecord
-  belongs_to :server
+  belongs_to :application
+
   belongs_to :server_status_check, optional: true
   belongs_to :slack_message, optional: true
 

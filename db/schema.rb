@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_162541) do
+ActiveRecord::Schema.define(version: 2021_04_02_183232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,13 +161,12 @@ ActiveRecord::Schema.define(version: 2021_04_02_162541) do
 
   create_table "server_incidents", force: :cascade do |t|
     t.string "message"
-    t.bigint "server_id"
     t.bigint "server_status_check_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "state"
     t.bigint "slack_message_id"
-    t.index ["server_id"], name: "index_server_incidents_on_server_id"
+    t.integer "application_id"
     t.index ["server_status_check_id"], name: "index_server_incidents_on_server_status_check_id"
     t.index ["slack_message_id"], name: "index_server_incidents_on_slack_message_id"
   end

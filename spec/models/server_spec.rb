@@ -40,8 +40,9 @@ RSpec.describe Server, type: :model do
     context 'when there is a health check and a server incident' do
       it 'returns unstable' do
         server = FactoryBot.create(:server)
-        FactoryBot.create(:server_incident, server: server)
+        FactoryBot.create(:server_incident, application: server.application)
         FactoryBot.create(:server_status_check, server: server)
+
         expect(server.reload.status).to eql('unstable')
       end
     end

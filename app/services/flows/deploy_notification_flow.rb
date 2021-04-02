@@ -24,7 +24,7 @@ module Flows
     end
 
     def repository
-      @repository ||= Repository.where(alias: host).first || Server.where('link LIKE ?', "%#{host}%").first.repository
+      @repository ||= Application.find_by(external_identifier: host)&.repository
     end
 
     def environment

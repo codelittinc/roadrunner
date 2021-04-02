@@ -6,11 +6,11 @@ module Flows
 
     def execute
       notify_sentry_error_message = Messages::GenericBuilder.notify_sentry_error(title, metadata, user, browser_name, link_sentry, type, custom_message)
-      ServerIncidentService.new.register_incident!(server, notify_sentry_error_message, nil, ServerIncidentService::SENTRY_MESSAGE_TYPE)
+      ServerIncidentService.new.register_incident!(application, notify_sentry_error_message, nil, ServerIncidentService::SENTRY_MESSAGE_TYPE)
     end
 
     def can_execute?
-      server && @params[:project_slug]
+      application && @params[:project_slug]
     end
 
     private
@@ -39,8 +39,8 @@ module Flows
       @project_id ||= @parser.event_project
     end
 
-    def server
-      @server ||= Server.find_by(external_identifier: project_name)
+    def application
+      @application ||= Application.find_by(external_identifier: project_name)
     end
   end
 end
