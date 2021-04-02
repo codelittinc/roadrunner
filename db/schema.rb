@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_31_214730) do
+ActiveRecord::Schema.define(version: 2021_04_02_162541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -183,7 +183,6 @@ ActiveRecord::Schema.define(version: 2021_03_31_214730) do
   create_table "servers", force: :cascade do |t|
     t.string "link"
     t.boolean "supports_health_check"
-    t.bigint "repository_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "external_identifier"
@@ -191,7 +190,6 @@ ActiveRecord::Schema.define(version: 2021_03_31_214730) do
     t.string "environment"
     t.bigint "application_id"
     t.index ["application_id"], name: "index_servers_on_application_id"
-    t.index ["repository_id"], name: "index_servers_on_repository_id"
   end
 
   create_table "slack_messages", force: :cascade do |t|
