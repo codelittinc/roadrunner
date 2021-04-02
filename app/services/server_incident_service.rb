@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ServerIncidentService
-  attr_reader :current_server_incident, :error_message, :message_type, :recurrent_server_incident, :server
+  attr_reader :current_server_incident, :error_message, :message_type, :recurrent_server_incident, :application, :server, :environment
 
   ICONS = {
     qa: ':droplet:',
@@ -12,16 +12,18 @@ class ServerIncidentService
   GRAYLOG_MESSAGE_TYPE = 'graylog'
   SENTRY_MESSAGE_TYPE = 'sentry'
 
-  def register_incident!(server, error_message, server_status_check = nil, message_type = GRAYLOG_MESSAGE_TYPE)
-    @server ||= server
-    @error_message ||= error_message
-    @message_type ||= message_type
+  def register_incident!(application, error_message, server_status_check = nil, message_type = GRAYLOG_MESSAGE_TYPE)
+    @application = application
+    @error_message = error_message
+    @message_type = message_type
+    @server = application&.server
+    @environment = application&.environment
 
-    return unless server
+    return unless application
     return if ignore_incident?
 
     @recurrent_server_incident ||= ServerIncident.find_by(
-      server: server,
+      application: application,
       created_at: (Time.zone.now - 1.day)..Time.zone.now,
       message: error_message
     )
@@ -58,7 +60,7 @@ class ServerIncidentService
   def create_incident(server_status_check)
     if create_new_recurrent_incident?
       @current_server_incident = ServerIncident.create!(
-        server: server,
+        application: application,
         message: error_message,
         server_status_check: server_status_check
       )
@@ -72,7 +74,7 @@ class ServerIncidentService
   end
 
   def slack_repository_info
-    server.application.repository.slack_repository_info
+    application.repository.slack_repository_info
   end
 
   def slack_channel
@@ -80,7 +82,7 @@ class ServerIncidentService
   end
 
   def repository
-    server.repository
+    application.repository
   end
 
   def short_message
@@ -88,14 +90,14 @@ class ServerIncidentService
   end
 
   def slack_message
-    "#{icon} <#{repository.github_link}|#{repository.name}> environment #{icon}<#{server.link}|#{server.environment&.upcase}>#{icon} \n #{short_message}"
+    "#{icon} <#{repository.github_link}|#{repository.name}> environment #{icon}<#{server.link}|#{environment&.upcase}>#{icon} \n #{short_message}"
   end
 
   def icon
-    server.environment ? ICONS[server.environment.to_sym] : ICONS[:prod]
+    environment ? ICONS[environment.to_sym] : ICONS[:prod]
   end
 
   def dev_server?
-    server.environment&.include?(ServerIncident::DEVELOPMENT_ENVIRONMENT)
+    environment&.include?(ServerIncident::DEVELOPMENT_ENVIRONMENT)
   end
 end

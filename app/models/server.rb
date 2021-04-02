@@ -20,7 +20,7 @@ class Server < ApplicationRecord
   validates :application, presence: true
 
   has_one :repository, through: :application
-  has_many :server_incidents
+  has_many :server_incidents, through: :application
   has_many :server_status_checks
 
   VALID_STATUS_CODES = [401, 200].freeze

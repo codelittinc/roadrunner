@@ -37,8 +37,8 @@ module Flows
       @project_name ||= base_message[ServerIncident::REGEX_PROJECT_IN_INCIDENT_MESSAGE]
     end
 
-    def server
-      @server ||= Server.find_by(external_identifier: project_name)
+    def application
+      @application ||= Application.find_by(external_identifier: project_name)
     end
 
     def channel
@@ -60,7 +60,7 @@ module Flows
     def server_incident
       return @server_incident if @server_incident
 
-      @server_incident = ServerIncident.where(server: server, slack_message_id: slack_message).open_incidents.last
+      @server_incident = ServerIncident.where(application: application, slack_message_id: slack_message).open_incidents.last
     end
   end
 end

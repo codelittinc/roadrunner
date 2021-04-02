@@ -3,19 +3,15 @@
 module Flows
   class GraylogsIncidentNotificationFlow < BaseFlow
     def execute
-      ServerIncidentService.new.register_incident!(server, incident_message)
+      ServerIncidentService.new.register_incident!(application, incident_message)
     end
 
     def flow?
       text = @params[:event_definition_title]
-      text && server
+      text && application
     end
 
     private
-
-    def server
-      @server ||= application&.server
-    end
 
     def application
       @application ||= Application.find_by(external_identifier: source)

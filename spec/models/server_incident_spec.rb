@@ -21,7 +21,7 @@ RSpec.describe ServerIncident, type: :model do
   end
 
   describe 'associations' do
-    it { should belong_to(:server) }
+    it { should belong_to(:application) }
     it { should belong_to(:server_status_check).optional }
   end
 end

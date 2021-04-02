@@ -14,13 +14,15 @@
 #
 FactoryBot.define do
   factory :application do
-    environment { 'environment1' }
+    environment { 'cool environment' }
     version { "v#{rand(100)}.#{rand(100)}.#{rand(100)}" }
     external_identifier { "v#{rand(100)}.#{rand(100)}.#{rand(100)}" }
     repository { association :repository }
 
     trait :with_server do
-      server { association :server }
+      after :create do |application|
+        create :server, application: application
+      end
     end
   end
 end

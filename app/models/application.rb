@@ -14,7 +14,9 @@
 #
 class Application < ApplicationRecord
   belongs_to :repository
+
   has_one :server, dependent: :destroy
+  has_many :server_incidents, dependent: :destroy
 
   validates :environment, presence: true
   validates :version, presence: true
