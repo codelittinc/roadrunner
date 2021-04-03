@@ -56,6 +56,9 @@ ActiveRecord::Schema.define(version: 2021_03_31_214730) do
     t.index ["pull_request_id"], name: "index_commits_on_pull_request_id"
   end
 
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
   create_table "database_credentials", force: :cascade do |t|
     t.string "env"
     t.string "database_type"
