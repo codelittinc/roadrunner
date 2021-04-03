@@ -24,6 +24,8 @@ class Repository < ApplicationRecord
   has_many :branches
   has_many :applications
 
+  accepts_nested_attributes_for :slack_repository_info
+
   TAG_DEPLOY_TYPE = 'tag'
   BRANCH_DEPLOY_TYPE = 'branch'
 
