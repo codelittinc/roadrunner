@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :applications, only: :show do
     resources :changelogs, only: :index
   end
+  resources :repositories, only: :create
 
   root 'application#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
