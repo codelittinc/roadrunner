@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   get 'incidents', to: 'incidents#index'
   post 'flows', to: 'flow#create'
 
-  resources :servers
   resources :open_pull_requests, only: :index
   resources :server_incidents_report, only: :show
   resources :projects, only: :show
-  resources :applications, only: :show do
+  resources :applications, only: %i[index show create update] do
+    resources :servers, only: %i[index show create update]
     resources :changelogs, only: :index
   end
   resources :repositories, only: %i[index create update]
