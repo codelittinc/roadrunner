@@ -34,9 +34,9 @@ repository = Repository.create!(
 
 application = Application.create!(version: 'v1.0.12', external_identifier: 'rolli.com', environment: 'prod', repository: repository)
 
-Server.create(link: 'https://dev-rolli.codelitt.dev', supports_health_check: false, external_identifier: 'dev-rolli', repository: repository, application: application)
-Server.create(link: 'https://qa-rolli.codelitt.dev', supports_health_check: false, external_identifier: 'qa-rolli', repository: repository, application: application)
-Server.create(link: 'https://rolliapp.com', supports_health_check: false, external_identifier: 'prod-rolli', repository: repository, application: application)
+Server.create(link: 'https://dev-rolli.codelitt.dev', supports_health_check: false, application: application)
+Server.create(link: 'https://qa-rolli.codelitt.dev', supports_health_check: false, application: application)
+Server.create(link: 'https://rolliapp.com', supports_health_check: false, application: application)
 
 # @TODO: fix the seeds bellow
 # -----
