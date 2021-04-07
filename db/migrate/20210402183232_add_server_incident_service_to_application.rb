@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AddApplicationIncidentServiceToApplication < ActiveRecord::Migration[6.1]
+class AddServerIncidentServiceToApplication < ActiveRecord::Migration[6.1]
   def change
     # rubocop:disable Rails/BulkChangeTable
     remove_column :server_incidents, :server_id, :int
