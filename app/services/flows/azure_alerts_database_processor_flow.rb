@@ -19,11 +19,11 @@ module Flows
     end
 
     def channel
-      @channel ||= server.repository.slack_repository_info.feed_channel
+      @channel ||= server.application.repository.slack_repository_info.feed_channel
     end
 
     def server
-      @server ||= Server.where('link LIKE ?', "%#{source}%").first
+      @server ||= Application.find_by(external_identifier: source).server
     end
 
     def message

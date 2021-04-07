@@ -47,7 +47,7 @@ module Messages
     end
 
     def self.azure_database_notification(server, database_usage, azure_link, severity)
-      repository = server.repository
+      repository = server.application.repository
 
       message = ":bellhop_bell: <#{repository.github_link}|#{repository.name}> environment :bellhop_bell:<#{server.link}|#{server.environment&.upcase}>:bellhop_bell:\n\n\n"
       low_severity = 3
