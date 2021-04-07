@@ -27,15 +27,7 @@ module Flows
           return
         end
 
-        db_commits = new_version_commits.map do |commit|
-          date = commit[:commit][:committer][:date]
-          before = date - 5.minutes
-          after = date + 5.minutes
-
-          message = commit[:commit][:message]
-
-          Commit.where(created_at: before..after, message: message).first
-        end.flatten.reject(&:nil?)
+        db_commits = CommitsMatcher.new(new_version_commits).commits
 
         slack_message = Messages::ReleaseBuilder.branch_compare_message(db_commits, 'slack', @repository.name)
         github_message = Messages::ReleaseBuilder.branch_compare_message(db_commits, 'github', @repository.name)

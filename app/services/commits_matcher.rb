@@ -6,14 +6,16 @@ class CommitsMatcher
   end
 
   def commits
-    @github_commits.map do |commit|
-      date = commit[:commit][:committer][:date]
-      before = date - 15.days
-      after = date + 15.days
-
+    commits = []
+    @github_commits.each do |commit|
       message = commit[:commit][:message]
+      c = Commit.order(created_at: :desc)
+                .where.not(id: commits&.map(&:id))
+                .where(message: message).first
 
-      Commit.find_by(created_at: before..after, message: message)
-    end.flatten
+      commits << c if c
+    end
+
+    commits.sort_by(&:created_at)
   end
 end
