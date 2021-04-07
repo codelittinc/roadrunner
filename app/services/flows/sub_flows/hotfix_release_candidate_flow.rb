@@ -47,7 +47,7 @@ module Flows
         Clients::Slack::ChannelMessage.new.send(slack_message, channel)
 
         app = @repository.application_by_environment(QA_ENVIRONMENT)
-        app.update(version: version)
+        app&.update(version: version)
       end
 
       private
