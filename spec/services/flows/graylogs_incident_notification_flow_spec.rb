@@ -94,11 +94,10 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
     context 'when the slack_repository_info of the server repository has both the deploy channel and feed channel' do
       it 'sends a slack message to the feed channel' do
         application = FactoryBot.create(:application, :with_server, external_identifier: 'roadrunner.codelitt.dev', environment: 'prod')
-        server = application.server
-        server.repository.slack_repository_info.update({
-                                                         feed_channel: 'my-cool-feed-repository-channel',
-                                                         deploy_channel: 'deploy-channel'
-                                                       })
+        application.repository.slack_repository_info.update({
+                                                              feed_channel: 'my-cool-feed-repository-channel',
+                                                              deploy_channel: 'deploy-channel'
+                                                            })
 
         flow = described_class.new(incident_small_message)
 
@@ -117,11 +116,10 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
     context 'when the slack_repository_info of the server repository has only the deploy channel' do
       it 'sends a slack message to the feed channel' do
         application = FactoryBot.create(:application, :with_server, external_identifier: 'roadrunner.codelitt.dev', environment: 'prod')
-        server = application.server
-        server.repository.slack_repository_info.update({
-                                                         feed_channel: nil,
-                                                         deploy_channel: 'deploy-channel'
-                                                       })
+        application.repository.slack_repository_info.update({
+                                                              feed_channel: nil,
+                                                              deploy_channel: 'deploy-channel'
+                                                            })
 
         flow = described_class.new(incident_small_message)
 

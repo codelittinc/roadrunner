@@ -19,7 +19,6 @@ class Server < ApplicationRecord
   validates :link, presence: true
   validates :application, presence: true
 
-  has_one :repository, through: :application
   has_many :server_incidents, through: :application
   has_many :server_status_checks
 
