@@ -37,7 +37,7 @@ module Flows
 
       def update_application_version!(version)
         app = @repository.application_by_environment(PROD_ENVIRONMENT)
-        app.update(version: version)
+        app&.update(version: version)
       end
 
       def github_release_commits
