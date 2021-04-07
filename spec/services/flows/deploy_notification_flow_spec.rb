@@ -42,29 +42,9 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
 
   describe '#execute' do
     context 'sends a channel message' do
-      xit 'when host is the repository alias' do
-        FactoryBot.create(:repository, alias: 'pia.mobile.android', name: 'Pia Mobile')
-
-        flow = described_class.new({
-                                     deploy_type: 'deploy-notification',
-                                     host: 'pia.mobile.android',
-                                     env: 'qa',
-                                     type: 'android',
-                                     status: 'success'
-                                   })
-
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
-          'The deploy of *Pia Mobile* to *QA - ANDROID* was finished with the status: Success!',
-          'feed-test-automations'
-        )
-
-        flow.execute
-      end
-
-      it 'when host is the server partial link' do
-        repository = FactoryBot.create(:repository, name: 'Pia Web')
-        application = FactoryBot.create(:application, :with_server, repository: repository, external_identifier: 'pia.web.com')
-        application.server.update(link: 'https://pia.web.com')
+      it 'when host is the application external identifier' do
+        repository = FactoryBot.create(:repository, name: 'pia-web-mobile')
+        FactoryBot.create(:application, :with_server, repository: repository, external_identifier: 'pia.web.com')
 
         flow = described_class.new({
                                      deploy_type: 'deploy-notification',
@@ -73,7 +53,7 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
-          'The deploy of *Pia Web* to *PROD* was finished with the status: Success!',
+          'The deploy of *pia-web-mobile* to *PROD* was finished with the status: Success!',
           'feed-test-automations'
         )
         flow.execute

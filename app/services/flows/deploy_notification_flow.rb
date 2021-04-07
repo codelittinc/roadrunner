@@ -15,7 +15,7 @@ module Flows
 
     private
 
-    def host
+    def source
       @params[:host]
     end
 
@@ -24,7 +24,7 @@ module Flows
     end
 
     def repository
-      @repository ||= Application.find_by(external_identifier: host)&.repository
+      @repository ||= Application.find_by(external_identifier: source)&.repository
     end
 
     def environment
