@@ -2,42 +2,29 @@
 
 module Flows
   module SubFlows
-    class ReleaseStableFlow
+    class ReleaseStableFlow < BaseReleaseSubFlow
       RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/
       PROD_ENVIRONMENT = 'prod'
 
       def initialize(channel_name, releases, repository)
-        @channel_name = channel_name
-        @releases = releases
-        @repository = repository
+        super(channel_name, releases, repository)
+        @environment = PROD_ENVIRONMENT
       end
 
       def execute
-        tag_names = @releases.map(&:tag_name)
-
-        version_resolver = Versioning::ReleaseVersionResolver.new(PROD_ENVIRONMENT, tag_names, 'update')
-
-        new_version_commits = fetch_commits(version_resolver)
-
         channel = @repository.slack_repository_info.deploy_channel
 
-        if new_version_commits.empty?
-          commits_message = Messages::ReleaseBuilder.notify_no_commits_changes(PROD_ENVIRONMENT, @repository.name)
-          Clients::Slack::ChannelMessage.new.send(commits_message, channel)
+        if release_commits.empty?
+          notify_no_changes_between_releases!
           return
         end
-
-        db_commits = CommitsMatcher.new(new_version_commits).commits
-
-        slack_message = Messages::ReleaseBuilder.branch_compare_message(db_commits, 'slack', @repository.name)
-        github_message = Messages::ReleaseBuilder.branch_compare_message(db_commits, 'github', @repository.name)
 
         version = version_resolver.next_version
 
         Clients::Github::Release.new.create(
           @repository.full_name,
           version,
-          new_version_commits.last[:sha],
+          release_commits.first.sha,
           github_message,
           false
         )
@@ -53,7 +40,7 @@ module Flows
         app.update(version: version)
       end
 
-      def fetch_commits(version_resolver)
+      def github_release_commits
         first_stable_release = version_resolver.latest_normal_stable_release.nil? || version_resolver.latest_normal_stable_release == 'master'
 
         if first_stable_release
@@ -61,6 +48,19 @@ module Flows
         else
           Clients::Github::Branch.new.compare(@repository.full_name, version_resolver.latest_normal_stable_release, version_resolver.latest_tag_name)
         end
+      end
+
+      def version_resolver
+        tag_names = @releases.map(&:tag_name)
+        @version_resolver ||= Versioning::ReleaseVersionResolver.new(PROD_ENVIRONMENT, tag_names, 'update')
+      end
+
+      def slack_message
+        @slack_message ||= Messages::ReleaseBuilder.branch_compare_message(release_commits, 'slack', @repository.name)
+      end
+
+      def github_message
+        @github_message ||= Messages::ReleaseBuilder.branch_compare_message(release_commits, 'github', @repository.name)
       end
     end
   end
