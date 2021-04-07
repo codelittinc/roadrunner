@@ -222,7 +222,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
+                                sha: 'a6a65601c32c1915075e800a6779f876442649f55',
                                 message: 'Create .gitignore',
                                 pull_request: pr1,
                                 created_at: DateTime.parse('2020-07-24 12:08:07 UTC')
@@ -236,7 +236,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
+                                sha: 'b6a65601c32c1915075e800a6779f876442649f55',
                                 message: 'Creating the README.md file',
                                 pull_request: pr2,
                                 created_at: DateTime.parse('2020-07-24 11:26:10 UTC')
@@ -250,7 +250,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
               'v1.0.0',
-              '89374111e03f9c111cbff83c941d80b4d1a8c019',
+              'b6a65601c32c1915075e800a6779f876442649f55',
               %{Available in the release of *roadrunner-repository-test*:\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)
  - Create .gitignore [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)},
               false
@@ -296,7 +296,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075esssa6779f876442649f55',
+                                sha: 'a6a65601c32c1915075esssa6779f876442649f55',
                                 message: 'Update README.md',
                                 pull_request: pr1,
                                 created_at: DateTime.parse('2020-08-28 20:43:21 UTC')
@@ -310,7 +310,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
+                                sha: 'b6a65601c32c1915075e800a6779f876442649f55',
                                 message: 'Update README.md',
                                 pull_request: pr2,
                                 created_at: DateTime.parse('2020-08-28 20:43:21 UTC')
@@ -324,7 +324,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
               'v1.1.0',
-              'bc1f53d9bb8818665e5fafc393219023f839bec6',
+              'a6a65601c32c1915075esssa6779f876442649f55',
               'Available in the release of *roadrunner-repository-test*:'\
               "\n - Create .env.example [AYAPI-278](https://codelitt.atlassian.net/browse/AYAPI-278)"\
               "\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
@@ -350,14 +350,14 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075esssa6779f876442649f55',
+                                sha: 'a6a65601c32c1915075esssa6779f876442649f55',
                                 message: 'Update README.md',
                                 pull_request: pr1,
                                 created_at: DateTime.parse('2020-08-28 21:05:26 UTC')
                               })
 
             FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075esssa6779f876442649f55',
+                                sha: 'b6a65601c32c1915075esssa6779f876442649f55',
                                 message: 'Update README.md',
                                 pull_request: pr1,
                                 created_at: DateTime.parse('2020-08-28 21:05:26 UTC')
@@ -385,7 +385,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: 'be6cdfeec05baaf93aba94244b98707e94199761',
+                                sha: 'cbe6cdfeec05baaf93aba94244b98707e94199761',
                                 message: 'Update README.md',
                                 pull_request: pr3,
                                 created_at: DateTime.parse('2020-08-28 20:59:59 UTC')
@@ -399,7 +399,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
               'v1.2.0',
-              '59254c02079408178f40b12e8192d945988d9644',
+              'cbe6cdfeec05baaf93aba94244b98707e94199761',
               "Available in the release of *roadrunner-repository-test*:\n"\
               " - PR: Update .env 4 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)\n"\
               " - PR: Update .env 1 \n"\
