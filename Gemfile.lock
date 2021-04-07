@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/sferik/rails_admin.git
-  revision: 97ccc28940d65fee53b30c409c49032fbb0885db
+  revision: 7962a19469a709c00f481a50a6d1e7ddd1e37cc6
   specs:
     rails_admin (2.1.1)
       activemodel-serializers-xml (>= 1.0)
@@ -127,7 +127,7 @@ GEM
       temple (>= 0.8.0)
       tilt
     hashdiff (1.0.1)
-    i18n (1.8.9)
+    i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
@@ -158,7 +158,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
-    marcel (1.0.0)
+    marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.0.3)
     mini_portile2 (2.5.0)
@@ -176,7 +176,7 @@ GEM
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
     parallel (1.20.1)
-    parser (3.0.0.0)
+    parser (3.0.1.0)
       ast (~> 2.4.1)
     pg (1.2.3)
     pg_search (2.3.5)
@@ -227,7 +227,7 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.1.1)
     remotipart (1.4.4)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -245,7 +245,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
-    rubocop (1.12.0)
+    rubocop (1.12.1)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
