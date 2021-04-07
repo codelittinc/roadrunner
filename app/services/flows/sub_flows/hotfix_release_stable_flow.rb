@@ -46,12 +46,7 @@ module Flows
       private
 
       def db_commits
-        db_commits = commits.map do |commit|
-          message = commit[:commit][:message]
-
-          Commit.where(message: message).first
-        end.flatten
-        db_commits.uniq { |c| c }
+        @db_commits ||= CommitsMatcher.new(commits).commits
       end
 
       def slack_message

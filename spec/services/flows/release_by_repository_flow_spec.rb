@@ -325,7 +325,9 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'v1.1.0',
               'bc1f53d9bb8818665e5fafc393219023f839bec6',
-              "Available in the release of *roadrunner-repository-test*:\n - Create .env.example [AYAPI-278](https://codelitt.atlassian.net/browse/AYAPI-278)",
+              'Available in the release of *roadrunner-repository-test*:'\
+              "\n - Create .env.example [AYAPI-278](https://codelitt.atlassian.net/browse/AYAPI-278)"\
+              "\n - Create README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
               false
             )
 
@@ -341,7 +343,6 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
           VCR.use_cassette('flows#stable-release#many-commits') do
             repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
-
             pr1 = FactoryBot.create(:pull_request, {
                                       title: 'PR: Update .env 1',
                                       description: 'Change 1',
@@ -399,7 +400,10 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'v1.2.0',
               '59254c02079408178f40b12e8192d945988d9644',
-              "Available in the release of *roadrunner-repository-test*:\n - PR: Update .env 4 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)\n - PR: Update .env 1 ",
+              "Available in the release of *roadrunner-repository-test*:\n"\
+              " - PR: Update .env 4 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)\n"\
+              " - PR: Update .env 1 \n"\
+              ' - PR: Update .env 3 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)',
               false
             )
 
