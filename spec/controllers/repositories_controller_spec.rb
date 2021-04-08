@@ -3,13 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe RepositoriesController, type: :controller do
+  render_views
+
   let(:project) { FactoryBot.create(:project) }
 
   describe '#index' do
     it 'displays all repositories' do
       FactoryBot.create(:repository)
       FactoryBot.create(:repository)
-      get :index
+      get :index, format: :json
 
       repositories_count = JSON.parse(response.body).length
       expect(repositories_count).to be(2)
@@ -18,7 +20,7 @@ RSpec.describe RepositoriesController, type: :controller do
     it 'displays the correct repositories data' do
       FactoryBot.create(:repository)
       FactoryBot.create(:repository, name: 'Second repository')
-      get :index
+      get :index, format: :json
 
       repository_name = JSON.parse(response.body)[1]['name']
       expect(repository_name).to eq('Second repository')

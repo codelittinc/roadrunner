@@ -3,13 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationsController, type: :controller do
+  render_views
+
   let(:repository) { FactoryBot.create(:repository) }
 
   describe '#index' do
     it 'displays all applications' do
       FactoryBot.create(:application)
       FactoryBot.create(:application)
-      get :index
+      get :index, format: :json
 
       applications_count = JSON.parse(response.body).length
       expect(applications_count).to be(2)
@@ -18,7 +20,7 @@ RSpec.describe ApplicationsController, type: :controller do
     it 'displays the correct applications data' do
       FactoryBot.create(:application)
       FactoryBot.create(:application, version: 'Second')
-      get :index
+      get :index, format: :json
 
       version = JSON.parse(response.body)[1]['version']
       expect(version).to eq('Second')
@@ -28,7 +30,7 @@ RSpec.describe ApplicationsController, type: :controller do
   describe '#show' do
     it 'returns the application data as JSON' do
       application = FactoryBot.create(:application, version: 'version')
-      get :show, params: { id: application }
+      get :show, format: :json, params: { id: application }
 
       version = JSON.parse(response.body)['version']
       expect(version).to eq('version')

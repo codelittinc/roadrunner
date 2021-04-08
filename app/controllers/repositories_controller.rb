@@ -2,25 +2,24 @@
 
 class RepositoriesController < ApplicationController
   def index
-    repositories = Repository.all
-    render json: repositories.to_json
+    @repositories = Repository.all
   end
 
   def create
-    repository = Repository.new(repository_params)
-    if repository.save
-      render json: repository.to_json
+    @repository = Repository.new(repository_params)
+    if @repository.save
+      render 'repositories/show', formats: [:json]
     else
-      render json: { error: repository.errors }
+      render partial: 'repositories/error', formats: [:json]
     end
   end
 
   def update
-    repository = Repository.find(params[:id])
-    if repository.update(repository_params)
-      render json: repository.to_json
+    @repository = Repository.find(params[:id])
+    if @repository.update(repository_params)
+      render 'repositories/show', formats: [:json]
     else
-      render json: { error: repository.errors }
+      render partial: 'repositories/error', formats: [:json]
     end
   end
 
