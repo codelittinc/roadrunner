@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   get 'incidents', to: 'incidents#index'
   post 'flows', to: 'flow#create'
 
-  resources :open_pull_requests, only: :index
-  resources :server_incidents_report, only: :show
-  resources :projects, only: :show
-  resources :applications, only: %i[index show create update] do
-    resources :servers, only: %i[index show create update]
-    resources :changelogs, only: :index
+  resources :open_pull_requests, only: :index, defaults: { format: :json }
+  resources :server_incidents_report, only: :show, defaults: { format: :json }
+  resources :projects, only: :show, defaults: { format: :json }
+  resources :applications, only: %i[index show create update], defaults: { format: :json } do
+    resources :servers, only: %i[index show create update], defaults: { format: :json }
+    resources :changelogs, only: :index, defaults: { format: :json }
   end
-  resources :repositories, only: %i[index create update]
+  resources :repositories, only: %i[index create update], defaults: { format: :json }
 
   root 'application#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

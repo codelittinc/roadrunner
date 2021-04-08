@@ -3,13 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe ServersController, type: :controller do
+  render_views
+
   let(:application) { FactoryBot.create(:application) }
 
   describe '#index' do
     it 'displays all active servers' do
       FactoryBot.create(:server)
       FactoryBot.create(:server)
-      get :index, params: { application_id: application }
+      get :index, format: :json, params: { application_id: application }
 
       servers_count = JSON.parse(response.body).length
       expect(servers_count).to be(2)
@@ -18,7 +20,7 @@ RSpec.describe ServersController, type: :controller do
     it 'displays the correct servers data' do
       FactoryBot.create(:server)
       FactoryBot.create(:server, link: 'link')
-      get :index, params: { application_id: application }
+      get :index, format: :json, params: { application_id: application }
 
       link = JSON.parse(response.body)[1]['link']
       expect(link).to eq('link')
@@ -28,7 +30,7 @@ RSpec.describe ServersController, type: :controller do
   describe '#show' do
     it 'returns the server data as JSON' do
       server = FactoryBot.create(:server, link: 'link')
-      get :show, params: { id: server, application_id: application }
+      get :show, format: :json, params: { id: server, application_id: application }
 
       link = JSON.parse(response.body)['link']
       expect(link).to eq('link')

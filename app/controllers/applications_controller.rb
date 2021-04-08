@@ -4,28 +4,25 @@ class ApplicationsController < ApplicationController
   before_action :set_application, only: %i[show update]
 
   def index
-    applications = Application.all
-    render json: applications.to_json
+    @applications = Application.all
   end
 
-  def show
-    render json: @application
-  end
+  def show; end
 
   def create
-    application = Application.new(application_params)
-    if application.save
-      render json: application.to_json
+    @application = Application.new(application_params)
+    if @application.save
+      render 'applications/show', formats: [:json]
     else
-      render json: { error: application.errors }
+      render partial: 'applications/error', formats: [:json]
     end
   end
 
   def update
     if @application.update(application_params)
-      render json: @application.to_json
+      render 'applications/show', formats: [:json]
     else
-      render json: { error: @application.errors }
+      render partial: 'applications/error', formats: [:json]
     end
   end
 
