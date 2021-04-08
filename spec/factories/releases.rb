@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :release do
-    string { '' }
+    version { '' }
   end
 end

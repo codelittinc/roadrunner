@@ -19,6 +19,7 @@ RSpec.describe Application, type: :model do
     it { should belong_to(:repository) }
     it { should have_one(:server).dependent(:destroy) }
     it { should have_many(:server_incidents) }
+    it { should have_many(:releases) }
   end
 
   describe 'validations' do

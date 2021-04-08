@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_213322) do
+ActiveRecord::Schema.define(version: 2021_04_08_122158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,14 @@ ActiveRecord::Schema.define(version: 2021_04_02_213322) do
     t.index ["user_id"], name: "index_pull_requests_on_user_id"
   end
 
+  create_table "releases", force: :cascade do |t|
+    t.string "version"
+    t.bigint "application_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["application_id"], name: "index_releases_on_application_id"
+  end
+
   create_table "repositories", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -232,6 +240,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_213322) do
   add_foreign_key "pull_request_reviews", "pull_requests"
   add_foreign_key "pull_requests", "repositories"
   add_foreign_key "pull_requests", "users"
+  add_foreign_key "releases", "applications"
   add_foreign_key "server_incident_instances", "server_incidents"
   add_foreign_key "servers", "applications"
   add_foreign_key "slack_repository_infos", "repositories"
