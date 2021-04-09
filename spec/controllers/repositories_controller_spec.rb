@@ -27,6 +27,16 @@ RSpec.describe RepositoriesController, type: :controller do
     end
   end
 
+  describe '#show' do
+    it 'returns the repository data as JSON' do
+      repository = FactoryBot.create(:repository, name: 'repository')
+      get :show, format: :json, params: { id: repository }
+
+      name = JSON.parse(response.body)['name']
+      expect(name).to eq('repository')
+    end
+  end
+
   describe '#create' do
     it 'creates a repository' do
       json = {

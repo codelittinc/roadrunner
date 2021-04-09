@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
 class RepositoriesController < ApplicationController
+  before_action :set_repository, only: %i[show update]
+
   def index
     @repositories = Repository.all
   end
+
+  def show; end
 
   def create
     @repository = Repository.new(repository_params)
@@ -15,7 +19,6 @@ class RepositoriesController < ApplicationController
   end
 
   def update
-    @repository = Repository.find(params[:id])
     if @repository.update(repository_params)
       render 'repositories/show', formats: [:json]
     else
@@ -24,6 +27,10 @@ class RepositoriesController < ApplicationController
   end
 
   private
+
+  def set_repository
+    @repository = Repository.find(params[:id])
+  end
 
   def repository_params
     params.require(:repository).permit(

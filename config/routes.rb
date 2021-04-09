@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :servers, only: %i[index show create update], defaults: { format: :json }
     resources :changelogs, only: :index, defaults: { format: :json }
   end
-  resources :repositories, only: %i[index create update], defaults: { format: :json }
+  resources :repositories, except: %i[new edit destroy], defaults: { format: :json }
 
   root 'application#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
