@@ -21,26 +21,21 @@ module Flows
           return
         end
 
-        slack_message = Messages::ReleaseBuilder.branch_compare_message(release_commits, 'slack', @repository.name)
-        github_message = Messages::ReleaseBuilder.branch_compare_message(release_commits, 'github', @repository.name)
-
-        version = version_resolver.next_version
-
-        Clients::Github::Release.new.create(
-          @repository.full_name,
-          version,
-          'master',
-          github_message,
-          true
-        )
+        create_release!('master', true)
 
         Clients::Slack::ChannelMessage.new.send(slack_message, channel)
-
-        app = @repository.application_by_environment(QA_ENVIRONMENT)
-        app&.update(version: version)
+        update_application_version!
       end
 
       private
+
+      def slack_message
+        Messages::ReleaseBuilder.branch_compare_message(release_commits, 'slack', @repository.name)
+      end
+
+      def github_message
+        Messages::ReleaseBuilder.branch_compare_message(release_commits, 'github', @repository.name)
+      end
 
       def github_release_commits
         if @releases.empty?

@@ -21,6 +21,29 @@ module Flows
         Clients::Slack::ChannelMessage.new.send(commits_message, channel)
       end
 
+      def version
+        @version ||= version_resolver.next_version
+      end
+
+      def channel
+        @channel ||= @repository.slack_repository_info.deploy_channel
+      end
+
+      def update_application_version!
+        app = @repository.application_by_environment(@environment)
+        app&.update(version: version)
+      end
+
+      def create_release!(target, prerelease)
+        Clients::Github::Release.new.create(
+          @repository.full_name,
+          version,
+          target,
+          github_message,
+          prerelease
+        )
+      end
+
       def github_release_commits
         throw Error.new('Implement this method!')
       end

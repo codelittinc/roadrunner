@@ -21,20 +21,11 @@ module Flows
           return
         end
 
-        version = version_resolver.next_version
-
-        Clients::Github::Release.new.create(
-          @repository.full_name,
-          version,
-          release_commits.last.sha,
-          github_message,
-          false
-        )
+        create_release!(release_commits.last.sha, false)
 
         Clients::Slack::ChannelMessage.new.send(slack_message, channel)
 
-        app = @repository.application_by_environment(PROD_ENVIRONMENT)
-        app&.update(version: version)
+        update_application_version!
       end
 
       private

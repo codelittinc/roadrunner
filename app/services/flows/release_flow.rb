@@ -9,7 +9,9 @@ module Flows
     def execute
       Clients::Slack::ChannelMessage.new.send(release_message, channel_name)
 
-      call_subflow_by_env
+      subflow = environment == QA_ENVIRONMENT ? Flows::SubFlows::ReleaseCandidateFlow : Flows::SubFlows::ReleaseStableFlow
+      @flow = subflow.new(channel_name, current_releases, repository)
+      @flow.execute
     end
 
     # rubocop:disable Metrics/CyclomaticComplexity
@@ -67,14 +69,6 @@ module Flows
 
     def current_releases
       @current_releases ||= Clients::Github::Release.new.list(repository.full_name)
-    end
-
-    def call_subflow_by_env
-      if environment == QA_ENVIRONMENT
-        Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository).execute
-      else
-        Flows::SubFlows::ReleaseStableFlow.new(channel_name, current_releases, repository).execute
-      end
     end
   end
 end
