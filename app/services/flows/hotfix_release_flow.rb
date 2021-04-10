@@ -33,6 +33,14 @@ module Flows
 
     private
 
+    def call_subflow_by_env
+      if environment == QA_ENVIRONMENT
+        Flows::SubFlows::HotfixReleaseCandidateFlow.new(channel_name, current_releases, repository, branch_name).execute
+      else
+        Flows::SubFlows::HotfixReleaseStableFlow.new(channel_name, current_releases, repository).execute
+      end
+    end
+
     def text
       @text ||= @params[:text]
     end
@@ -79,14 +87,6 @@ module Flows
 
     def current_releases
       @current_releases ||= Clients::Github::Release.new.list(repository.full_name)
-    end
-
-    def call_subflow_by_env
-      if environment == QA_ENVIRONMENT
-        Flows::SubFlows::HotfixReleaseCandidateFlow.new(channel_name, current_releases, repository, branch_name).execute
-      else
-        Flows::SubFlows::HotfixReleaseStableFlow.new(channel_name, current_releases, repository).execute
-      end
     end
   end
 end

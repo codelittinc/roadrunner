@@ -19,26 +19,13 @@ module Flows
           return
         end
 
-        version = version_resolver.next_version
-
-        Clients::Github::Release.new.create(
-          @repository.full_name,
-          version,
-          release_commits.first.sha,
-          github_message,
-          false
-        )
+        create_release!(release_commits.first.sha, false)
 
         Clients::Slack::ChannelMessage.new.send(slack_message, channel)
-        update_application_version!(version)
+        update_application_version!
       end
 
       private
-
-      def update_application_version!(version)
-        app = @repository.application_by_environment(PROD_ENVIRONMENT)
-        app&.update(version: version)
-      end
 
       def github_release_commits
         first_stable_release = version_resolver.latest_normal_stable_release.nil? || version_resolver.latest_normal_stable_release == 'master'

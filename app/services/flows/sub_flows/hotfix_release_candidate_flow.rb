@@ -11,9 +11,7 @@ module Flows
       attr_reader :branch, :channel_name, :releases, :repository
 
       def initialize(channel_name, releases, repository, branch)
-        @channel_name = channel_name
-        @releases = releases
-        @repository = repository
+        super(channel_name, releases, repository)
         @branch = branch
         @environment = QA_ENVIRONMENT
       end
@@ -30,20 +28,11 @@ module Flows
           return
         end
 
-        version = version_resolver.next_version
-
-        Clients::Github::Release.new.create(
-          @repository.full_name,
-          version,
-          branch,
-          github_message,
-          true
-        )
+        create_release!(branch, true)
 
         Clients::Slack::ChannelMessage.new.send(slack_message, channel)
 
-        app = @repository.application_by_environment(QA_ENVIRONMENT)
-        app&.update(version: version)
+        update_application_version!
       end
 
       private
