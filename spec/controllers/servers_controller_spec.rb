@@ -99,4 +99,13 @@ RSpec.describe ServersController, type: :controller do
       expect(error).to eq('link' => ["can't be blank"])
     end
   end
+
+  describe '#destroy' do
+    it 'deletes the server' do
+      server = FactoryBot.create(:server)
+
+      expect { delete :destroy, params: { application_id: application, id: server } }
+        .to change { Server.count }.from(1).to(0)
+    end
+  end
 end

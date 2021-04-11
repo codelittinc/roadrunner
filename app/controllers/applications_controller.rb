@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationsController < ApplicationController
-  before_action :set_application, only: %i[show update]
+  before_action :set_application, only: %i[show update destroy]
 
   def index
     @applications = Application.all
@@ -24,6 +24,11 @@ class ApplicationsController < ApplicationController
     else
       render partial: 'applications/error', formats: [:json]
     end
+  end
+
+  def destroy
+    @application.destroy
+    head :ok
   end
 
   private

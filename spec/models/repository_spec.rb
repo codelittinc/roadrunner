@@ -19,6 +19,9 @@ require 'rails_helper'
 RSpec.describe Repository, type: :model do
   describe 'associations' do
     it { should belong_to(:project) }
+    it { should have_one(:slack_repository_info).dependent(:destroy) }
+    it { should have_many(:pull_requests) }
+    it { should have_many(:branches) }
     it { should have_many(:applications) }
   end
 
