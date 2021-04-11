@@ -97,4 +97,13 @@ RSpec.describe ApplicationsController, type: :controller do
       expect(error).to eq('version' => ["can't be blank"])
     end
   end
+
+  describe '#destroy' do
+    it 'deletes the application' do
+      application = FactoryBot.create(:application)
+
+      expect { delete :destroy, params: { id: application } }
+        .to change { Application.count }.from(1).to(0)
+    end
+  end
 end

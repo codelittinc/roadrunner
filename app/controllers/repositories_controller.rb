@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RepositoriesController < ApplicationController
-  before_action :set_repository, only: %i[show update]
+  before_action :set_repository, only: %i[show update destroy]
 
   def index
     @repositories = Repository.all
@@ -24,6 +24,11 @@ class RepositoriesController < ApplicationController
     else
       render partial: 'repositories/error', formats: [:json]
     end
+  end
+
+  def destroy
+    @repository.destroy
+    head :ok
   end
 
   private

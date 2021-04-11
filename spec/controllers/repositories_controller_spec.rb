@@ -111,4 +111,13 @@ RSpec.describe RepositoriesController, type: :controller do
       expect(error).to eq('project' => ['must exist'])
     end
   end
+
+  describe '#destroy' do
+    it 'deletes the repository' do
+      repository = FactoryBot.create(:repository)
+
+      expect { delete :destroy, params: { id: repository } }
+        .to change { Repository.count }.from(1).to(0)
+    end
+  end
 end
