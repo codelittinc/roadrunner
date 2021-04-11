@@ -16,7 +16,7 @@
 #
 class Repository < ApplicationRecord
   belongs_to :project
-  has_one :slack_repository_info
+  has_one :slack_repository_info, dependent: :destroy
 
   has_many :pull_requests
   has_many :branches
