@@ -35,6 +35,31 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 
+  describe '#create' do
+    it 'creates a project' do
+      json = { project: { name: 'project' } }
+      expect { post :create, params: json }.to change { Project.count }.by(1)
+    end
+
+    it 'returns the project data as JSON' do
+      json = { project: { name: 'project' } }
+      post :create, params: json
+
+      name = JSON.parse(response.body)['name']
+      expect(name).to eq('project')
+    end
+  end
+
+  describe '#update' do
+    it 'updates a project and returns its data as JSON' do
+      project = FactoryBot.create(:project, name: 'Before update')
+      patch :update, params: { id: project.id, project: { name: 'After update' } }
+
+      name = JSON.parse(response.body)['name']
+      expect(name).to eq('After update')
+    end
+  end
+
   describe '#destroy' do
     it 'deletes the project' do
       project = FactoryBot.create(:project)
