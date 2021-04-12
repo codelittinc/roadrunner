@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :release do
-    version { '' }
+    version { "v#{rand(100)}.#{rand(100)}.#{rand(100)}" }
   end
 end

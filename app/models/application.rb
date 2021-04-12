@@ -26,4 +26,8 @@ class Application < ApplicationRecord
   validates :environment, presence: true, inclusion: { in: [DEV, QA, PROD] }
   validates :version, presence: true
   validates :external_identifier, presence: true, uniqueness: true
+
+  def latest_release
+    releases.last
+  end
 end
