@@ -37,4 +37,17 @@ RSpec.describe Application, type: :model do
       expect(app).to validate_inclusion_of(:environment).in_array(%w[dev qa prod])
     end
   end
+
+  describe "#latest_release" do
+    context "when there are multiple releases" do
+      it 'returns the newest one' do
+        application = FactoryBot.create(:application)
+        FactoryBot.create(:release, application: application)
+        FactoryBot.create(:release, application: application)
+        latest_release = FactoryBot.create(:release, application: application)
+
+        expect(application.latest_release).to eq(latest_release)
+      end
+    end
+  end
 end
