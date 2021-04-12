@@ -38,8 +38,8 @@ RSpec.describe Application, type: :model do
     end
   end
 
-  describe "#latest_release" do
-    context "when there are multiple releases" do
+  describe '#latest_release' do
+    context 'when there are multiple releases' do
       it 'returns the newest one' do
         application = FactoryBot.create(:application)
         FactoryBot.create(:release, application: application)
