@@ -55,7 +55,7 @@ module Messages
       if severity.to_i <= low_severity
         message += "The database usage of the server is at *#{database_usage}%*!"
       else
-        slack_group = server.slack_repository_info.dev_group
+        slack_group = repository.slack_repository_info.dev_group
         message += ":fire: #{slack_group} the database usage of the server is at *#{database_usage}%*!"
       end
       message + "\n\n\n Click <#{azure_link}|here> to see this application on Azure."
