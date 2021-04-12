@@ -297,7 +297,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             prod_application = repository.application_by_environment('prod').reload
 
-            expect(prod_application.version).to eql('v1.0.0')
+            expect(prod_application.latest_release.version).to eql('v1.0.0')
           end
         end
       end
@@ -374,7 +374,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
           end
         end
 
-        it 'updates the application version' do
+        it 'adds the release model to the application' do
           VCR.use_cassette('flows#stable-release#new-changes') do
             repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
@@ -404,7 +404,8 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             flow.execute
 
             prod_application = repository.application_by_environment('prod').reload
-            expect(prod_application.version).to eql('v1.1.0')
+
+            expect(prod_application.latest_release.version).to eql('v1.1.0')
           end
         end
       end
