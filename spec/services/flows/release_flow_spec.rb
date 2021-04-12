@@ -241,7 +241,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: 'a6a65601c32c1915075e800a6779f876442649f55',
+                                sha: '6a65601c32c1915075e800a6779f876442649f55',
                                 message: 'Creating the README.md file',
                                 pull_request: pr2,
                                 created_at: DateTime.parse('2020-07-24 11:26:10 UTC')
@@ -255,7 +255,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
               'v1.0.0',
-              'a6a65601c32c1915075e800a6779f876442649f55',
+              '89374111e03f9c111cbff83c941d80b4d1a8c019',
               "Available in the release of *roadrunner-repository-test*:\n - Create README.md \n - Create .gitignore ",
               false
             )
@@ -297,7 +297,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             prod_application = repository.application_by_environment('prod').reload
 
-            expect(prod_application.latest_release.version).to eql('v1.0.0')
+            expect(prod_application.version).to eql('v1.0.0')
           end
         end
       end
@@ -349,7 +349,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                     })
 
             FactoryBot.create(:commit, {
-                                sha: 'a6a65601c32c1915075e800a6779f876442649f55',
+                                sha: '6a65601c32c1915075e800a6779f876442649f55',
                                 message: 'Update README.md',
                                 pull_request: pr2,
                                 created_at: DateTime.parse('2020-08-28 20:43:21 UTC')
@@ -363,8 +363,8 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
               'v1.1.0',
-              '6a65601c32c1915075esssa6779f876442649f55',
-              "Available in the release of *roadrunner-repository-test*:\n - Create .env.example \n - Create README.md ",
+              'bc1f53d9bb8818665e5fafc393219023f839bec6',
+              "Available in the release of *roadrunner-repository-test*:\n - Create .env.example ",
               false
             )
 
@@ -374,7 +374,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
           end
         end
 
-        it 'adds the release model to the application' do
+        it 'updates the application version' do
           VCR.use_cassette('flows#stable-release#new-changes') do
             repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
@@ -404,8 +404,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             flow.execute
 
             prod_application = repository.application_by_environment('prod').reload
-
-            expect(prod_application.latest_release.version).to eql('v1.1.0')
+            expect(prod_application.version).to eql('v1.1.0')
           end
         end
       end
@@ -472,11 +471,8 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
               'codelittinc/roadrunner-repository-test',
               'v1.2.0',
-              'be6cdfeec05baaf93aba94244b98707e94199761',
-              'Available in the release of *roadrunner-repository-test*:'\
-              "\n - PR: Update .env 3 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)"\
-              "\n - PR: Update .env 1 "\
-              "\n - PR: Update .env 4 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
+              '59254c02079408178f40b12e8192d945988d9644',
+              "Available in the release of *roadrunner-repository-test*:\n - PR: Update .env 4 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
               false
             )
 
