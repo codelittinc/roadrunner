@@ -29,7 +29,7 @@ module RailsApiBaseProject
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Flash
     config.middleware.use Rack::MethodOverride
-    config.middleware.use ActionDispatch::Session::CookieStore, { key: '_rails_api_base_project_session' }
+    config.middleware.use ActionDispatch::Session::CookieStore, { key: '_roadrunner_session' }
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
