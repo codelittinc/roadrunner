@@ -2,32 +2,37 @@
 
 module Flows
   module SubFlows
-    class ReleaseStableFlow
+    class ReleaseStableFlow < BaseReleaseSubFlow
       RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/
-      PROD_ENVIRONMENT = 'prod'
-
-      def initialize(channel_name, releases, repository)
-        @channel_name = channel_name
-        @releases = releases
-        @repository = repository
-      end
 
       def execute
-        tag_names = @releases.map(&:tag_name)
-
-        version_resolver = Versioning::ReleaseVersionResolver.new(PROD_ENVIRONMENT, tag_names, 'update')
-
-        new_version_commits = fetch_commits(version_resolver)
-
         channel = @repository.slack_repository_info.deploy_channel
 
-        if new_version_commits.empty?
-          commits_message = Messages::ReleaseBuilder.notify_no_commits_changes(PROD_ENVIRONMENT, @repository.name)
-          Clients::Slack::ChannelMessage.new.send(commits_message, channel)
+        if github_release_commits.empty?
+          notify_no_changes_between_releases!
           return
         end
 
-        db_commits = new_version_commits.map do |commit|
+        Clients::Github::Release.new.create(
+          @repository.full_name,
+          version,
+          github_release_commits.last[:sha],
+          github_message,
+          false
+        )
+
+        Clients::Slack::ChannelMessage.new.send(slack_message, channel)
+        update_application_version!
+      end
+
+      private
+
+      def environment
+        Application::PROD
+      end
+
+      def release_commits
+        github_release_commits.map do |commit|
           date = commit[:commit][:committer][:date]
           before = date - 5.minutes
           after = date + 5.minutes
@@ -35,40 +40,31 @@ module Flows
           message = commit[:commit][:message]
 
           Commit.where(created_at: before..after, message: message).first
-        end.flatten.reject(&:nil?)
-
-        slack_message = Messages::ReleaseBuilder.branch_compare_message(db_commits, 'slack', @repository.name)
-        github_message = Messages::ReleaseBuilder.branch_compare_message(db_commits, 'github', @repository.name)
-
-        version = version_resolver.next_version
-
-        Clients::Github::Release.new.create(
-          @repository.full_name,
-          version,
-          new_version_commits.last[:sha],
-          github_message,
-          false
-        )
-
-        Clients::Slack::ChannelMessage.new.send(slack_message, channel)
-        update_application_version!(version)
+        end.flatten.compact
       end
 
-      private
-
-      def update_application_version!(version)
-        app = @repository.application_by_environment(PROD_ENVIRONMENT)
-        app.update(version: version)
+      def slack_message
+        @slack_message ||= Messages::ReleaseBuilder.branch_compare_message(release_commits, 'slack', @repository.name)
       end
 
-      def fetch_commits(version_resolver)
+      def github_message
+        @github_message ||= Messages::ReleaseBuilder.branch_compare_message(release_commits, 'github', @repository.name)
+      end
+
+      def version_resolver
+        @version_resolver ||= Versioning::ReleaseVersionResolver.new(environment, tag_names, 'update')
+      end
+
+      def github_release_commits
+        return @github_release_commits if @github_release_commits
+
         first_stable_release = version_resolver.latest_normal_stable_release.nil? || version_resolver.latest_normal_stable_release == 'master'
 
-        if first_stable_release
-          Clients::Github::Branch.new.commits(@repository.full_name, 'master').reverse
-        else
-          Clients::Github::Branch.new.compare(@repository.full_name, version_resolver.latest_normal_stable_release, version_resolver.latest_tag_name)
-        end
+        @github_release_commits ||= if first_stable_release
+                                      Clients::Github::Branch.new.commits(@repository.full_name, 'master').reverse
+                                    else
+                                      Clients::Github::Branch.new.compare(@repository.full_name, version_resolver.latest_normal_stable_release, version_resolver.latest_tag_name)
+                                    end
       end
     end
   end
