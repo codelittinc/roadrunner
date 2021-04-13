@@ -2,18 +2,15 @@
 
 module Flows
   module SubFlows
-    class HotfixReleaseCandidateFlow
+    class HotfixReleaseCandidateFlow < BaseReleaseSubFlow
       DEFAULT_TAG_NAME = 'rc.1.v0.0.0'
       RELEASE_REGEX = /v(\d+)\.(\d+)\.(\d+)/
       RELEASE_CANDIDATE_VERSION_REGEX = /^rc\.(\d+)\./
-      QA_ENVIRONMENT = 'qa'
 
-      attr_reader :branch, :channel_name, :releases, :repository, :version_resolver
+      attr_reader :branch, :channel_name, :releases
 
       def initialize(channel_name, releases, repository, branch)
-        @channel_name = channel_name
-        @releases = releases
-        @repository = repository
+        super(channel_name, releases, repository)
         @branch = branch
       end
 
@@ -24,17 +21,10 @@ module Flows
           return
         end
 
-        tag_names = @releases.map(&:tag_name)
-
-        @version_resolver = Versioning::ReleaseVersionResolver.new(QA_ENVIRONMENT, tag_names, 'hotfix')
-
-        if commits.empty?
-          commits_message = Messages::ReleaseBuilder.notify_no_commits_changes(QA_ENVIRONMENT, @repository.name)
-          Clients::Slack::ChannelMessage.new.send(commits_message, channel)
+        if github_release_commits.empty?
+          notify_no_changes_between_releases!
           return
         end
-
-        version = version_resolver.next_version
 
         Clients::Github::Release.new.create(
           @repository.full_name,
@@ -46,31 +36,21 @@ module Flows
 
         Clients::Slack::ChannelMessage.new.send(slack_message, channel)
 
-        app = @repository.application_by_environment(QA_ENVIRONMENT)
-        app.update(version: version)
+        update_application_version!
       end
 
       private
 
-      def db_commits
-        db_commits = commits.map do |commit|
-          message = commit[:commit][:message]
-
-          Commit.where(message: message).first
-        end.flatten
-        db_commits.uniq { |c| c }
+      def environment
+        Application::QA
       end
 
       def slack_message
-        @slack_message = Messages::ReleaseBuilder.branch_compare_message_hotfix(db_commits, 'slack', @repository.name)
+        @slack_message = Messages::ReleaseBuilder.branch_compare_message_hotfix(release_commits, 'slack', @repository.name)
       end
 
       def github_message
-        @github_message = Messages::ReleaseBuilder.branch_compare_message_hotfix(db_commits, 'github', @repository.name)
-      end
-
-      def channel
-        @channel ||= @repository.slack_repository_info.deploy_channel
+        @github_message = Messages::ReleaseBuilder.branch_compare_message_hotfix(release_commits, 'github', @repository.name)
       end
 
       def branch_exists
@@ -81,12 +61,18 @@ module Flows
         @releases.empty?
       end
 
-      def commits
-        @commits ||= if first_pre_release?
-                       Clients::Github::Branch.new.commits(@repository.full_name, branch).reverse
-                     else
-                       Clients::Github::Branch.new.compare(@repository.full_name, version_resolver.latest_tag_name, branch)
-                     end
+      def version_resolver
+        @version_resolver ||= Versioning::ReleaseVersionResolver.new(environment, tag_names, 'hotfix')
+      end
+
+      def github_release_commits
+        return @github_release_commits if @github_release_commits
+
+        @github_release_commits ||= if first_pre_release?
+                                      Clients::Github::Branch.new.commits(@repository.full_name, branch).reverse
+                                    else
+                                      Clients::Github::Branch.new.compare(@repository.full_name, version_resolver.latest_tag_name, branch)
+                                    end
       end
     end
   end

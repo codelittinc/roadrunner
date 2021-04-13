@@ -9,15 +9,26 @@ module Flows
         @repository = repository
       end
 
+      # @TODO: Update to use the CommitsMatcher
       def release_commits
-        return @release_commits if @release_commits
+        return @commits if @commits
 
-        @release_commits = CommitsMatcher.new(github_release_commits).commits
+        @commits = []
+        github_release_commits.each do |commit|
+          message = commit[:commit][:message]
+
+          c = Commit
+              .where.not(id: @commits.map(&:id))
+              .where(message: message).first
+          @commits << c if c
+        end
+
+        @commits
       end
 
       def notify_no_changes_between_releases!
         channel = @repository.slack_repository_info.deploy_channel
-        commits_message = Messages::ReleaseBuilder.notify_no_commits_changes(@environment, @repository.name)
+        commits_message = Messages::ReleaseBuilder.notify_no_commits_changes(environment, @repository.name)
         Clients::Slack::ChannelMessage.new.send(commits_message, channel)
       end
 
@@ -30,7 +41,7 @@ module Flows
       end
 
       def update_application_version!
-        app = @repository.application_by_environment(@environment)
+        app = @repository.application_by_environment(environment)
         Release.create(application: app, version: version) if app
       end
 
@@ -42,6 +53,14 @@ module Flows
           github_message,
           prerelease
         )
+      end
+
+      def tag_names
+        @tag_names ||= @releases.map(&:tag_name)
+      end
+
+      def environment
+        throw Error.new('Implement this method!')
       end
 
       def github_release_commits

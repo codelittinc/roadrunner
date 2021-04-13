@@ -293,11 +293,11 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
 
-            flow.execute
-
             prod_application = repository.application_by_environment('prod').reload
 
-            expect(prod_application.version).to eql('v1.0.0')
+            flow.execute
+
+            expect(prod_application.latest_release.version).to eql('v1.0.0')
           end
         end
       end
@@ -404,7 +404,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             flow.execute
 
             prod_application = repository.application_by_environment('prod').reload
-            expect(prod_application.version).to eql('v1.1.0')
+            expect(prod_application.latest_release.version).to eql('v1.1.0')
           end
         end
       end
