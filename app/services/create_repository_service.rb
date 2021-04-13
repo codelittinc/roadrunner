@@ -1,28 +1,44 @@
 # frozen_string_literal: true
 
 class CreateRepositoryService
-  def initialize(project, params)
+  def initialize(params)
     @params = params
-    @project = project
   end
 
   def create
-    repository = Repository.create!(
-      project: @project,
+    repository = Repository.create(
       name: name,
+      project_id: project_id,
       owner: owner,
       deploy_type: deploy_type,
       supports_deploy: supports_deploy,
       jira_project: jira_project
     )
+
+    if repository && slack_repository_info_attributes
+      SlackRepositoryInfo.create(
+        repository: repository,
+        deploy_channel: slack_repository_info_attributes['deploy_channel'],
+        dev_channel: slack_repository_info_attributes['dev_channel'],
+        dev_group: slack_repository_info_attributes['dev_group'],
+        feed_channel: slack_repository_info_attributes['feed_channel']
+      )
+    end
+
     github_repo = Clients::Github::Repository.new.get_repository(repository.full_name) if repository
     Clients::Github::Hook.new.create(repository.full_name) if github_repo
+
+    repository
   end
 
   private
 
   def name
     @params[:name]
+  end
+
+  def project_id
+    @params[:project_id]
   end
 
   def owner
@@ -39,5 +55,9 @@ class CreateRepositoryService
 
   def jira_project
     @params[:jira_project]
+  end
+
+  def slack_repository_info_attributes
+    @params[:slack_repository_info_attributes]
   end
 end

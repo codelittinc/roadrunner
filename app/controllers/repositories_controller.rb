@@ -10,7 +10,7 @@ class RepositoriesController < ApplicationController
   def show; end
 
   def create
-    @repository = Repository.new(repository_params)
+    @repository = CreateRepositoryService.new(repository_params).create
     if @repository.save
       render 'repositories/show', formats: [:json]
     else
@@ -39,13 +39,12 @@ class RepositoriesController < ApplicationController
 
   def repository_params
     params.require(:repository).permit(
+      :name,
       :project_id,
+      :owner,
       :deploy_type,
       :supports_deploy,
-      :name,
       :jira_project,
-      :alias,
-      :owner,
       slack_repository_info_attributes: %i[deploy_channel dev_channel dev_group feed_channel]
     )
   end

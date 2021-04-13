@@ -45,6 +45,9 @@ RSpec.describe RepositoriesController, type: :controller do
           name: 'testing'
         }
       }
+      allow_any_instance_of(Clients::Github::Repository).to receive(:get_repository)
+      allow_any_instance_of(Clients::Github::Hook).to receive(:create)
+
       expect { post :create, params: json }.to change { Repository.count }.by(1)
     end
 
@@ -56,6 +59,9 @@ RSpec.describe RepositoriesController, type: :controller do
           slack_repository_info_attributes: { deploy_channel: 'test' }
         }
       }
+      allow_any_instance_of(Clients::Github::Repository).to receive(:get_repository)
+      allow_any_instance_of(Clients::Github::Hook).to receive(:create)
+
       expect { post :create, params: json }.to change { SlackRepositoryInfo.count }.by(1)
     end
 
@@ -67,6 +73,9 @@ RSpec.describe RepositoriesController, type: :controller do
           slack_repository_info_attributes: { deploy_channel: 'test' }
         }
       }
+      allow_any_instance_of(Clients::Github::Repository).to receive(:get_repository)
+      allow_any_instance_of(Clients::Github::Hook).to receive(:create)
+
       post :create, params: json
 
       expect(SlackRepositoryInfo.last).to have_attributes(deploy_channel: 'test')
@@ -79,6 +88,10 @@ RSpec.describe RepositoriesController, type: :controller do
           name: 'testing'
         }
       }
+
+      allow_any_instance_of(Clients::Github::Repository).to receive(:get_repository)
+      allow_any_instance_of(Clients::Github::Hook).to receive(:create)
+
       post :create, params: json
 
       name = JSON.parse(response.body)['name']
@@ -87,6 +100,10 @@ RSpec.describe RepositoriesController, type: :controller do
 
     it 'returns an error message when fails to create' do
       json = { repository: { name: 'testing' } }
+
+      allow_any_instance_of(Clients::Github::Repository).to receive(:get_repository)
+      allow_any_instance_of(Clients::Github::Hook).to receive(:create)
+
       post :create, params: json
 
       error = JSON.parse(response.body)['error']
