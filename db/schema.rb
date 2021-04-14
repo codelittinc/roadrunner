@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_08_122158) do
+ActiveRecord::Schema.define(version: 2021_04_14_141634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2021_04_08_122158) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "branch_id"
     t.index ["branch_id"], name: "index_check_runs_on_branch_id"
+  end
+
+  create_table "commit_releases", force: :cascade do |t|
+    t.bigint "commit_id"
+    t.bigint "release_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commit_id"], name: "index_commit_releases_on_commit_id"
+    t.index ["release_id"], name: "index_commit_releases_on_release_id"
   end
 
   create_table "commits", force: :cascade do |t|
