@@ -24,5 +24,7 @@ RSpec.describe Commit, type: :model do
 
   describe 'associations' do
     it { should belong_to(:pull_request) }
+    it { should have_many(:commit_releases).dependent(:destroy) }
+    it { should have_many(:releases).through(:commit_releases) }
   end
 end

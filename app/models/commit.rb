@@ -15,6 +15,8 @@
 #
 class Commit < ApplicationRecord
   belongs_to :pull_request
+  has_many :commit_releases, dependent: :destroy
+  has_many :releases, through: :commit_releases
 
   validates :sha, presence: true
   validates :author_name, presence: true

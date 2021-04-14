@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # users
-User.create(slack: 'matias', jira: '5e6648d0219fb10cf9ed9c8d')
+user = User.create!(slack: 'matias', jira: '5e6648d0219fb10cf9ed9c8d')
 User.create(slack: 'vincent', jira: '5c73e558a610e635fa0fad26')
 User.create(slack: 'ian.campelo', jira: '5e67dba377d46c0cf93af7f0', github: 'iancampelo')
 User.create(slack: 'vicky', jira: '5a0f40fb3f50ba4cff298870')
@@ -37,6 +37,28 @@ application = Application.create!(version: 'v1.0.12', external_identifier: 'roll
 Server.create(link: 'https://dev-rolli.codelitt.dev', supports_health_check: false, application: application)
 Server.create(link: 'https://qa-rolli.codelitt.dev', supports_health_check: false, application: application)
 Server.create(link: 'https://rolliapp.com', supports_health_check: false, application: application)
+
+pull_request = PullRequest.create!(
+  user: user,
+  repository: repository,
+  head: 'updated project',
+  base: 'project',
+  github_id: 1,
+  title: 'Some changes',
+  state: 'open'
+)
+
+Commit.create(
+  pull_request: pull_request,
+  sha: '56e05fced214c44',
+  author_name: 'Vinicius',
+  author_email: 'vinicius@gmail.com'
+)
+
+Release.create(
+  application: application,
+  version: '2.0'
+)
 
 # @TODO: fix the seeds bellow
 # -----
