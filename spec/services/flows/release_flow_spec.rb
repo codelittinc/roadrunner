@@ -407,6 +407,39 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             expect(prod_application.latest_release.version).to eql('v1.1.0')
           end
         end
+
+        it 'add commits to release' do
+          VCR.use_cassette('flows#stable-release#new-changes') do
+            repository = repository_with_applications
+            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+
+            pr1 = FactoryBot.create(:pull_request, {
+                                      title: 'Create .env.example',
+                                      description: 'Card:',
+                                      repository: repository
+                                    })
+
+            FactoryBot.create(:commit, {
+                                sha: '6a65601c32c1915075esssa6779f876442649f55',
+                                message: 'Update README.md',
+                                pull_request: pr1,
+                                created_at: DateTime.parse('2020-08-28 20:43:21 UTC')
+                              })
+
+            flow = described_class.new({
+                                         text: 'update prod',
+                                         channel_name: 'feed-test-automations'
+                                       })
+
+            expect_any_instance_of(Clients::Github::Release).to receive(:create)
+
+            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+
+            flow.execute
+            prod_application = repository.application_by_environment('prod').reload
+            expect(prod_application.latest_release.commits.count).to eq(1)
+          end
+        end
       end
 
       context 'when there are four commits' do

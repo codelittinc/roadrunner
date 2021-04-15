@@ -42,7 +42,7 @@ module Flows
 
       def update_application_version!
         app = @repository.application_by_environment(environment)
-        Release.create(application: app, version: version) if app
+        Release.create(application: app, version: version, commits: release_commits) if app
       end
 
       def create_release!(target, prerelease)
