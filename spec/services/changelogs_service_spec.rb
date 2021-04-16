@@ -4,30 +4,32 @@ require 'rails_helper'
 
 RSpec.describe ChangelogsService, type: :service do
   it 'returns the changelog' do
-    application = FactoryBot.create(:application)
-    changelog = ChangelogsService.new(application.id).changelog
+    repository = FactoryBot.create(:repository)
+    application = FactoryBot.create(:application, repository: repository)
+    release = FactoryBot.create(:release, application: application, version: '1.0.0')
+    pull_request = FactoryBot.create(:pull_request, repository: repository)
+    FactoryBot.create(
+      :commit,
+      releases: [release],
+      pull_request: pull_request,
+      message: 'Create form component'
+    )
+    FactoryBot.create(
+      :commit,
+      releases: [release],
+      pull_request: pull_request,
+      message: 'Create input component'
+    )
+
+    changelog = ChangelogsService.new(application).changelog
     expect(changelog).to eq(
-      [
-        {
-          version: '1.0.0',
-          changes: [
-            {
-              message: 'Create form component',
-              references: [
-                'https://codelitt.atlassian.net/secure/RapidBoard.jspa?rapidView=35&projectKey=ADS&modal=detail&selectedIssue=ADS-68',
-                'https://codelitt.atlassian.net/secure/RapidBoard.jspa?rapidView=35&projectKey=ADS&modal=detail&selectedIssue=ADS-69'
-              ]
-            },
-            {
-              message: 'Create input component',
-              references: [
-                'https://codelitt.atlassian.net/secure/RapidBoard.jspa?rapidView=35&projectKey=ADS&modal=detail&selectedIssue=ADS-66',
-                'https://codelitt.atlassian.net/secure/RapidBoard.jspa?rapidView=35&projectKey=ADS&modal=detail&selectedIssue=ADS-69'
-              ]
-            }
-          ]
-        }
-      ]
+      {
+        version: '1.0.0',
+        changes: [
+          { message: 'Create form component' },
+          { message: 'Create input component' }
+        ]
+      }
     )
   end
 end
