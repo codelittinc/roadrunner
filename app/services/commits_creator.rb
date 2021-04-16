@@ -8,6 +8,9 @@ class CommitsCreator
 
   def create!
     commits = Clients::Github::PullRequest.new.list_commits(@repository.full_name, @pull_request.github_id)
+
+    throw Error.new("No commits found for #{@repository.full_name} - #{@pull_request.github_id}") if commits.length.zero?
+
     commits.each do |commit|
       Commit.create!(
         pull_request: @pull_request,
