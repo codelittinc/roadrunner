@@ -7,7 +7,20 @@ RSpec.describe ChangelogsService, type: :service do
     repository = FactoryBot.create(:repository)
     application = FactoryBot.create(:application, repository: repository)
     release = FactoryBot.create(:release, application: application, version: '1.0.0')
-    pull_request = FactoryBot.create(:pull_request, repository: repository)
+    pull_request = FactoryBot.create(
+      :pull_request,
+      repository: repository,
+      description: '### Other minor changes:
+      - Move files out to a utils file in UploadSection to shorten the file size and improve readability.
+     ### Card Link:
+     https://codelitt.atlassian.net/browse/HUB-2519
+     ### Design Expected Screenshot
+     ![image](https://user-images.githubusercontent.com/68696952/115034665.png)
+     ### Implementation Screenshot or GIF
+     ![Property Intelligence](https://user-images.githubusercontent.com/68696952.gif)
+     ### Notes:
+     Still WIP'
+    )
     FactoryBot.create(
       :commit,
       releases: [release],
@@ -26,8 +39,22 @@ RSpec.describe ChangelogsService, type: :service do
       {
         version: '1.0.0',
         changes: [
-          { message: 'Create form component' },
-          { message: 'Create input component' }
+          {
+            message: 'Create form component',
+            references: [
+              'https://codelitt.atlassian.net/browse/HUB-2519',
+              'https://user-images.githubusercontent.com/68696952/115034665.png',
+              'https://user-images.githubusercontent.com/68696952.gif'
+            ]
+          },
+          {
+            message: 'Create input component',
+            references: [
+              'https://codelitt.atlassian.net/browse/HUB-2519',
+              'https://user-images.githubusercontent.com/68696952/115034665.png',
+              'https://user-images.githubusercontent.com/68696952.gif'
+            ]
+          }
         ]
       }
     )
