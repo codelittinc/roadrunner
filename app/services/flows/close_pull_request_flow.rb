@@ -14,7 +14,6 @@ module Flows
       Clients::Slack::ChannelMessage.new.update(close_pull_request_message, channel, message_ts)
 
       Clients::Github::Branch.new.delete(repository.full_name, pull_request.head)
-      CommitsCreator.new(repository, pull_request).create!
 
       pull_request_description = parser.description
       pull_request.update(description: pull_request_description)
@@ -26,6 +25,8 @@ module Flows
       else
         react_to_cancel_pull_request!
       end
+
+      CommitsCreator.new(repository, pull_request).create!
     end
 
     def can_execute?
