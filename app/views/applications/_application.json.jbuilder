@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 json.id application.id
-json.name application.repository.project.name
-json.version application.version
+json.name application.name
+json.project_name application.repository.project.name
 json.external_identifier application.external_identifier
 # @TODO: move this logic to the application
 json.environment application.environment

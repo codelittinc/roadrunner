@@ -6,8 +6,8 @@
 #
 #  id                  :bigint           not null, primary key
 #  environment         :string
-#  version             :string
 #  external_identifier :string
+#  name                :string
 #  repository_id       :bigint           not null
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
@@ -24,7 +24,6 @@ RSpec.describe Application, type: :model do
 
   describe 'validations' do
     it { should validate_presence_of(:environment) }
-    it { should validate_presence_of(:version) }
     it { should validate_presence_of(:external_identifier) }
 
     it 'should be unique' do

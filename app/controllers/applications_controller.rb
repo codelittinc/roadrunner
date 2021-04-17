@@ -34,7 +34,7 @@ class ApplicationsController < ApplicationController
   private
 
   def application_params
-    params.require(:application).permit(:repository_id, :environment, :version, :external_identifier)
+    params.require(:application).permit(:repository_id, :environment, :external_identifier, :name)
   end
 
   def set_application
