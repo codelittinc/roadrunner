@@ -2,7 +2,8 @@
 
 class ChangelogsController < ApplicationController
   def index
-    changelog = ChangelogsService.new(params[:application_id]).changelog
+    application = Application.find(params[:application_id])
+    changelog = ChangelogsService.new(application).changelog
     render json: changelog
   end
 end
