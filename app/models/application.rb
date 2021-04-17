@@ -6,8 +6,8 @@
 #
 #  id                  :bigint           not null, primary key
 #  environment         :string
-#  version             :string
 #  external_identifier :string
+#  name :string
 #  repository_id       :bigint           not null
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
@@ -24,7 +24,6 @@ class Application < ApplicationRecord
   PROD = 'prod'
 
   validates :environment, presence: true, inclusion: { in: [DEV, QA, PROD] }
-  validates :version, presence: true
   validates :external_identifier, presence: true, uniqueness: true
 
   def latest_release

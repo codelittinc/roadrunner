@@ -19,21 +19,21 @@ RSpec.describe ApplicationsController, type: :controller do
 
     it 'displays the correct applications data' do
       FactoryBot.create(:application)
-      FactoryBot.create(:application, version: 'Second')
+      FactoryBot.create(:application, environment: 'dev')
       get :index, format: :json
 
-      version = JSON.parse(response.body)[1]['version']
-      expect(version).to eq('Second')
+      environment = JSON.parse(response.body)[1]['environment']
+      expect(environment).to eq('dev')
     end
   end
 
   describe '#show' do
     it 'returns the application data as JSON' do
-      application = FactoryBot.create(:application, version: 'version')
+      application = FactoryBot.create(:application, environment: 'dev')
       get :show, format: :json, params: { id: application }
 
-      version = JSON.parse(response.body)['version']
-      expect(version).to eq('version')
+      environment = JSON.parse(response.body)['environment']
+      expect(environment).to eq('dev')
     end
   end
 
@@ -43,7 +43,6 @@ RSpec.describe ApplicationsController, type: :controller do
         application: {
           repository_id: repository,
           environment: 'dev',
-          version: 'ver',
           external_identifier: 'ident'
         }
       }
@@ -55,7 +54,6 @@ RSpec.describe ApplicationsController, type: :controller do
         application: {
           repository_id: repository,
           environment: 'dev',
-          version: 'ver',
           external_identifier: 'ident'
         }
       }
@@ -69,8 +67,7 @@ RSpec.describe ApplicationsController, type: :controller do
       json = {
         application: {
           repository_id: repository,
-          environment: 'dev',
-          version: 'ver'
+          environment: 'dev'
         }
       }
       post :create, params: json
@@ -82,19 +79,19 @@ RSpec.describe ApplicationsController, type: :controller do
 
   describe '#update' do
     it 'updates a application and returns its data as JSON' do
-      application = FactoryBot.create(:application, version: 'Before update')
-      patch :update, params: { id: application, application: { version: 'After update' } }
+      application = FactoryBot.create(:application, environment: 'dev')
+      patch :update, params: { id: application, application: { environment: 'qa' } }
 
-      version = JSON.parse(response.body)['version']
-      expect(version).to eq('After update')
+      environment = JSON.parse(response.body)['environment']
+      expect(environment).to eq('qa')
     end
 
     it 'returns an error message when fails to update' do
       application = FactoryBot.create(:application)
-      patch :update, params: { id: application, application: { version: '' } }
+      patch :update, params: { id: application, application: { environment: '' } }
 
       error = JSON.parse(response.body)['error']
-      expect(error).to eq('version' => ["can't be blank"])
+      expect(error).to eq('environment' => ["can't be blank", 'is not included in the list'])
     end
   end
 
