@@ -11,6 +11,7 @@
 #  deploy_type     :string
 #  supports_deploy :boolean
 #  name            :string
+#  friendly_name   :string
 #  jira_project    :string
 #  owner           :string
 #
@@ -27,6 +28,8 @@ RSpec.describe Repository, type: :model do
 
   describe 'validations' do
     it { should validate_inclusion_of(:deploy_type).in_array([Repository::TAG_DEPLOY_TYPE, Repository::BRANCH_DEPLOY_TYPE]) }
+    it { should validate_presence_of(:friendly_name) }
+    it { should validate_uniqueness_of(:friendly_name) }
   end
 
   describe '#full_name' do

@@ -28,6 +28,7 @@ class Repository < ApplicationRecord
   BRANCH_DEPLOY_TYPE = 'branch'
 
   validates :deploy_type, inclusion: { in: [TAG_DEPLOY_TYPE, BRANCH_DEPLOY_TYPE, nil] }
+  validates :friendly_name, presence: true, uniqueness: true
 
   def full_name
     "#{owner}/#{name}"

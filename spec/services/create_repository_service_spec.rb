@@ -9,6 +9,7 @@ RSpec.describe CreateRepositoryService, type: :service do
     it 'creates a new repo' do
       create_repo_service = described_class.new({
                                                   name: 'teste',
+                                                  friendly_name: 'test repo',
                                                   project_id: project.id,
                                                   owner: 'codelittinc',
                                                   deploy_type: 'tag',
@@ -24,6 +25,7 @@ RSpec.describe CreateRepositoryService, type: :service do
     it 'creates a hook for the new repo' do
       create_repo_service = described_class.new({
                                                   name: 'gh-hooks-repo-test',
+                                                  friendly_name: 'test repo',
                                                   project_id: project.id,
                                                   owner: 'codelittinc',
                                                   deploy_type: 'tag',
@@ -40,6 +42,7 @@ RSpec.describe CreateRepositoryService, type: :service do
     it 'creates a slack repository info' do
       create_repo_service = described_class.new({
                                                   name: 'teste',
+                                                  friendly_name: 'test repo',
                                                   project_id: project.id,
                                                   owner: 'codelittinc',
                                                   deploy_type: 'tag',

@@ -19,21 +19,21 @@ RSpec.describe RepositoriesController, type: :controller do
 
     it 'displays the correct repositories data' do
       FactoryBot.create(:repository)
-      FactoryBot.create(:repository, name: 'Second repository')
+      FactoryBot.create(:repository, friendly_name: 'Second repo')
       get :index, format: :json
 
-      repository_name = JSON.parse(response.body)[1]['name']
-      expect(repository_name).to eq('Second repository')
+      repository_name = JSON.parse(response.body)[1]['friendly_name']
+      expect(repository_name).to eq('Second repo')
     end
   end
 
   describe '#show' do
     it 'returns the repository data as JSON' do
-      repository = FactoryBot.create(:repository, name: 'repository')
+      repository = FactoryBot.create(:repository, friendly_name: 'repository')
       get :show, format: :json, params: { id: repository }
 
-      name = JSON.parse(response.body)['name']
-      expect(name).to eq('repository')
+      friendly_name = JSON.parse(response.body)['friendly_name']
+      expect(friendly_name).to eq('repository')
     end
   end
 
@@ -42,7 +42,8 @@ RSpec.describe RepositoriesController, type: :controller do
       json = {
         repository: {
           project_id: project.id,
-          name: 'testing'
+          name: 'testing',
+          friendly_name: 'test repo'
         }
       }
       allow_any_instance_of(Clients::Github::Repository).to receive(:get_repository)
@@ -56,6 +57,7 @@ RSpec.describe RepositoriesController, type: :controller do
         repository: {
           project_id: project.id,
           name: 'testing',
+          friendly_name: 'test repo',
           slack_repository_info_attributes: { deploy_channel: 'test' }
         }
       }
@@ -70,6 +72,7 @@ RSpec.describe RepositoriesController, type: :controller do
         repository: {
           project_id: project.id,
           name: 'testing',
+          friendly_name: 'test repo',
           slack_repository_info_attributes: { deploy_channel: 'test' }
         }
       }
@@ -85,7 +88,8 @@ RSpec.describe RepositoriesController, type: :controller do
       json = {
         repository: {
           project_id: project.id,
-          name: 'testing'
+          name: 'testing',
+          friendly_name: 'test repo'
         }
       }
 
@@ -99,7 +103,7 @@ RSpec.describe RepositoriesController, type: :controller do
     end
 
     it 'returns an error message when fails to create' do
-      json = { repository: { name: 'testing' } }
+      json = { repository: { friendly_name: 'test repo' } }
 
       allow_any_instance_of(Clients::Github::Repository).to receive(:get_repository)
       allow_any_instance_of(Clients::Github::Hook).to receive(:create)
@@ -113,19 +117,19 @@ RSpec.describe RepositoriesController, type: :controller do
 
   describe '#update' do
     it 'updates a repository and returns its data as JSON' do
-      repository = FactoryBot.create(:repository, name: 'Before update')
-      patch :update, params: { id: repository, repository: { name: 'After update' } }
+      repository = FactoryBot.create(:repository)
+      patch :update, params: { id: repository, repository: { friendly_name: 'After update' } }
 
-      name = JSON.parse(response.body)['name']
-      expect(name).to eq('After update')
+      friendly_name = JSON.parse(response.body)['friendly_name']
+      expect(friendly_name).to eq('After update')
     end
 
     it 'returns an error message when fails to update' do
       repository = FactoryBot.create(:repository)
-      patch :update, params: { id: repository, repository: { project_id: '' } }
+      patch :update, params: { id: repository, repository: { friendly_name: '' } }
 
       error = JSON.parse(response.body)['error']
-      expect(error).to eq('project' => ['must exist'])
+      expect(error).to eq('friendly_name' => ["can't be blank"])
     end
   end
 
