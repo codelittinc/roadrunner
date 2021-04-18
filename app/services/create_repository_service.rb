@@ -8,6 +8,7 @@ class CreateRepositoryService
   def create
     repository = Repository.create(
       name: name,
+      friendly_name: friendly_name,
       project_id: project_id,
       owner: owner,
       deploy_type: deploy_type,
@@ -35,6 +36,10 @@ class CreateRepositoryService
 
   def name
     @params[:name]
+  end
+
+  def friendly_name
+    @params[:friendly_name]
   end
 
   def project_id

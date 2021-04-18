@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_17_172014) do
+ActiveRecord::Schema.define(version: 2021_04_19_131002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2021_04_17_172014) do
     t.bigint "repository_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
     t.index ["external_identifier"], name: "index_applications_on_external_identifier", unique: true
     t.index ["repository_id"], name: "index_applications_on_repository_id"
   end
@@ -157,6 +156,8 @@ ActiveRecord::Schema.define(version: 2021_04_17_172014) do
     t.string "name"
     t.string "jira_project"
     t.string "owner"
+    t.string "friendly_name"
+    t.index ["friendly_name"], name: "index_repositories_on_friendly_name", unique: true
     t.index ["project_id"], name: "index_repositories_on_project_id"
   end
 

@@ -40,6 +40,7 @@ class RepositoriesController < ApplicationController
   def repository_params
     params.require(:repository).permit(
       :name,
+      :friendly_name,
       :project_id,
       :owner,
       :deploy_type,

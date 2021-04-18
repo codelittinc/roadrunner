@@ -7,7 +7,6 @@
 #  id                  :bigint           not null, primary key
 #  environment         :string
 #  external_identifier :string
-#  name :string
 #  repository_id       :bigint           not null
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null

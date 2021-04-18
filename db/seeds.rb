@@ -26,13 +26,14 @@ project = Project.create!(name: 'Rolli')
 
 repository = Repository.create!(
   name: 'rolli',
+  friendly_name: 'rolli repo',
   supports_deploy: true,
   deploy_type: Repository::TAG_DEPLOY_TYPE,
   project: project,
   slack_repository_info: SlackRepositoryInfo.new(dev_group: '@rolli-devs', dev_channel: 'team-rolli-dev', deploy_channel: 'team-rolli-deploy')
 )
 
-application = Application.create!(version: 'v1.0.12', external_identifier: 'rolli.com', environment: 'prod', repository: repository)
+application = Application.create!(external_identifier: 'rolli.com', environment: 'prod', repository: repository)
 
 Server.create(link: 'https://dev-rolli.codelitt.dev', supports_health_check: false, application: application)
 Server.create(link: 'https://qa-rolli.codelitt.dev', supports_health_check: false, application: application)
