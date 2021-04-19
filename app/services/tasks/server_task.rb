@@ -24,7 +24,7 @@ module Tasks
         )
 
         ApplicationIncidentService.new.register_incident!(
-          server,
+          server.application,
           "Roadrunner is trying to reach #{link}, and is receiving:\n\ncode: #{response.code}\nmessage: #{response.body}",
           status_check
         )
