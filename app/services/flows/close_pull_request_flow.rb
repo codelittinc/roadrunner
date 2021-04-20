@@ -44,9 +44,11 @@ module Flows
     end
 
     def send_close_pull_request_notification!
-      message = Messages::PullRequestBuilder.close_pull_request_notification(pull_request)
+      slack_username = pull_request.user.slack
+      return unless slack_username
 
-      Clients::Slack::DirectMessage.new.send(message, pull_request.user.slack)
+      message = Messages::PullRequestBuilder.close_pull_request_notification(pull_request)
+      Clients::Slack::DirectMessage.new.send(message, slack_username)
     end
 
     def channel
