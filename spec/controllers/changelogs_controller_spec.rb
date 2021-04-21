@@ -45,17 +45,35 @@ RSpec.describe ChangelogsController, type: :controller do
             {
               'message' => 'Create form component',
               'references' => [
-                'https://codelitt.atlassian.net/browse/HUB-2519',
-                'https://user-images.githubusercontent.com/68696952/115034665.png',
-                'https://user-images.githubusercontent.com/68696952.gif'
+                {
+                  'link' => 'https://codelitt.atlassian.net/browse/HUB-2519',
+                  'type' => 'jira'
+                },
+                {
+                  'link' => 'https://user-images.githubusercontent.com/68696952/115034665.png',
+                  'type' => 'unknown'
+                },
+                {
+                  'link' => 'https://user-images.githubusercontent.com/68696952.gif',
+                  'type' => 'unknown'
+                }
               ]
             },
             {
               'message' => 'Create input component',
               'references' => [
-                'https://codelitt.atlassian.net/browse/HUB-2519',
-                'https://user-images.githubusercontent.com/68696952/115034665.png',
-                'https://user-images.githubusercontent.com/68696952.gif'
+                {
+                  'link' => 'https://codelitt.atlassian.net/browse/HUB-2519',
+                  'type' => 'jira'
+                },
+                {
+                  'link' => 'https://user-images.githubusercontent.com/68696952/115034665.png',
+                  'type' => 'unknown'
+                },
+                {
+                  'link' => 'https://user-images.githubusercontent.com/68696952.gif',
+                  'type' => 'unknown'
+                }
               ]
             }
           ]

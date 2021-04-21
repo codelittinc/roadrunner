@@ -15,10 +15,21 @@ class ChangelogsService
 
   private
 
+  # rubocop:disable Style/RedundantRegexpEscape, Style/RegexpLiteral
+  LINK_REGEX = /https?[a-zA-Z\/:\-\.0-9]*/
+  # rubocop:enable Style/RedundantRegexpEscape, Style/RegexpLiteral
+
   def urls_from_description(description)
-    # rubocop:disable Style/RedundantRegexpEscape, Style/RegexpLiteral
-    description.scan(/https?[a-zA-Z\/:\-\.0-9]*/)
-    # rubocop:enable Style/RedundantRegexpEscape, Style/RegexpLiteral
+    description.scan(LINK_REGEX).map do |url|
+      {
+        link: url,
+        type: url_type(url)
+      }
+    end
+  end
+
+  def url_type(url)
+    url.match?(/.+atlassian.+/) ? 'jira' : 'unknown'
   end
 
   def commits_data
