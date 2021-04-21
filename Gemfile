@@ -13,6 +13,7 @@ gem 'pg', '~> 1.2'
 gem 'pg_search'
 
 gem 'rails_admin', github: 'sferik/rails_admin'
+gem 'rails_admin_material'
 
 gem 'gelf'
 
