@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 class ChangelogsService
-  def initialize(application)
-    @application = application
+  def initialize(commits, version)
+    @commits = commits
+    @version = version
   end
 
   def changelog
     {
-      version: @application.latest_release.version,
+      version: @version,
       changes: commits_data
     }
   end
@@ -21,8 +22,7 @@ class ChangelogsService
   end
 
   def commits_data
-    commits = @application.latest_release.commits
-    commits.map do |commit|
+    @commits.map do |commit|
       {
         message: commit.message,
         references: urls_from_description(commit.pull_request.description)

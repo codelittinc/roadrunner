@@ -34,7 +34,9 @@ RSpec.describe ChangelogsService, type: :service do
       message: 'Create input component'
     )
 
-    changelog = ChangelogsService.new(application).changelog
+    commits = release.commits
+    version = release.version
+    changelog = ChangelogsService.new(commits, version).changelog
     expect(changelog).to eq(
       {
         version: '1.0.0',
