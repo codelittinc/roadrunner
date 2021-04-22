@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ChangelogsService
+  LINK_REGEX = %r{https?[a-zA-Z/:\-.0-9]*}
+
   def initialize(commits, version)
     @commits = commits
     @version = version
@@ -9,15 +11,11 @@ class ChangelogsService
   def changelog
     {
       version: @version,
-      changes: commits_data
+      changes: changes
     }
   end
 
   private
-
-  # rubocop:disable Style/RedundantRegexpEscape, Style/RegexpLiteral
-  LINK_REGEX = /https?[a-zA-Z\/:\-\.0-9]*/
-  # rubocop:enable Style/RedundantRegexpEscape, Style/RegexpLiteral
 
   def urls_from_description(description)
     description.scan(LINK_REGEX).map do |url|
@@ -32,11 +30,11 @@ class ChangelogsService
     url.match?(/.+atlassian.+/) ? 'jira' : 'unknown'
   end
 
-  def commits_data
-    @commits.map do |commit|
+  def changes
+    @commits.map(&:pull_request).uniq.map do |pull_request|
       {
-        message: commit.message,
-        references: urls_from_description(commit.pull_request.description)
+        message: pull_request.title,
+        references: urls_from_description(pull_request.description)
       }
     end
   end
