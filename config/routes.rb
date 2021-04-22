@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :projects, only: %i[index show create update destroy], defaults: { format: :json }
   resources :applications, only: %i[index show create update destroy], defaults: { format: :json } do
     resources :servers, only: %i[index show create update destroy], defaults: { format: :json }
-    resources :changelogs, only: :index, defaults: { format: :json }
+    resources :releases, only: :show, defaults: { format: :json }
   end
   resources :repositories, only: %i[index show create update destroy], defaults: { format: :json }
 
