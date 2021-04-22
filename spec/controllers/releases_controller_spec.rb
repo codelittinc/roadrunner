@@ -10,6 +10,7 @@ RSpec.describe ReleasesController, type: :controller do
       release = FactoryBot.create(:release, application: application, version: '1.0.0')
       pull_request = FactoryBot.create(
         :pull_request,
+        title: 'This is a nice PR',
         repository: repository,
         description: '### Other minor changes:
         - Move files out to a utils file in UploadSection to shorten the file size and improve readability.
@@ -43,24 +44,7 @@ RSpec.describe ReleasesController, type: :controller do
           'version' => '1.0.0',
           'changes' => [
             {
-              'message' => 'Create form component',
-              'references' => [
-                {
-                  'link' => 'https://codelitt.atlassian.net/browse/HUB-2519',
-                  'type' => 'jira'
-                },
-                {
-                  'link' => 'https://user-images.githubusercontent.com/68696952/115034665.png',
-                  'type' => 'unknown'
-                },
-                {
-                  'link' => 'https://user-images.githubusercontent.com/68696952.gif',
-                  'type' => 'unknown'
-                }
-              ]
-            },
-            {
-              'message' => 'Create input component',
+              'message' => 'This is a nice PR',
               'references' => [
                 {
                   'link' => 'https://codelitt.atlassian.net/browse/HUB-2519',
