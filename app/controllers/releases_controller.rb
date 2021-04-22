@@ -4,8 +4,7 @@ class ReleasesController < ApplicationController
   def show
     release = Release.find(params[:id])
     commits = release.commits
-    version = release.version
-    changelog = ChangelogsService.new(commits, version).changelog
+    changelog = ChangelogsService.new(release, commits).changelog
     render json: changelog
   end
 

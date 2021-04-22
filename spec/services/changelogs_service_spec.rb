@@ -19,6 +19,8 @@ RSpec.describe ChangelogsService, type: :service do
      ![image](https://user-images.githubusercontent.com/68696952/115034665.png)
      ### Implementation Screenshot or GIF
      ![Property Intelligence](https://user-images.githubusercontent.com/68696952.gif)
+     ### Example Link:
+     https://example.atlassian.net/browse/HUB-3874
      ### Notes:
      Still WIP'
     )
@@ -36,28 +38,29 @@ RSpec.describe ChangelogsService, type: :service do
     )
 
     commits = release.commits
-    version = release.version
-    changelog = ChangelogsService.new(commits, version).changelog
+    changelog = ChangelogsService.new(release, commits).changelog
     expect(changelog).to eq(
       {
         version: '1.0.0',
+        id: release.id,
+        created_at: release.created_at,
         changes: [
           {
             message: 'This is a cool PR',
-            references: [
-              {
-                link: 'https://codelitt.atlassian.net/browse/HUB-2519',
-                type: 'jira'
-              },
-              {
-                link: 'https://user-images.githubusercontent.com/68696952/115034665.png',
-                type: 'unknown'
-              },
-              {
-                link: 'https://user-images.githubusercontent.com/68696952.gif',
-                type: 'unknown'
-              }
-            ]
+            references: {
+              task_manager: [
+                {
+                  link: 'https://codelitt.atlassian.net/browse/HUB-2519',
+                  type: 'jira',
+                  reference_code: 'HUB-2519'
+                },
+                {
+                  link: 'https://example.atlassian.net/browse/HUB-3874',
+                  type: 'jira',
+                  reference_code: 'HUB-3874'
+                }
+              ]
+            }
           }
         ]
       }
