@@ -32,6 +32,8 @@ RSpec.describe ReleasesController, type: :controller do
        ![image](https://user-images.githubusercontent.com/68696952/115034665.png)
        ### Implementation Screenshot or GIF
        ![Property Intelligence](https://user-images.githubusercontent.com/68696952.gif)
+       ### Example Link:
+       https://example.atlassian.net/browse/HUB-3874
        ### Notes:
        Still WIP'
       )
@@ -50,27 +52,30 @@ RSpec.describe ReleasesController, type: :controller do
 
       get :show, format: :json, params: { application_id: application, id: release }
 
+      release_creation_time = release.created_at.strftime('%Y-%m-%dT%H:%M:%S.%LZ')
       changelog = JSON.parse(response.body)
       expect(changelog).to eq(
         {
           'version' => '1.0.0',
+          'id' => release.id,
+          'created_at' => release_creation_time,
           'changes' => [
             {
               'message' => 'This is a nice PR',
-              'references' => [
-                {
-                  'link' => 'https://codelitt.atlassian.net/browse/HUB-2519',
-                  'type' => 'jira'
-                },
-                {
-                  'link' => 'https://user-images.githubusercontent.com/68696952/115034665.png',
-                  'type' => 'unknown'
-                },
-                {
-                  'link' => 'https://user-images.githubusercontent.com/68696952.gif',
-                  'type' => 'unknown'
-                }
-              ]
+              'references' => {
+                'task_manager' => [
+                  {
+                    'link' => 'https://codelitt.atlassian.net/browse/HUB-2519',
+                    'type' => 'jira',
+                    'reference_code' => 'HUB-2519'
+                  },
+                  {
+                    'link' => 'https://example.atlassian.net/browse/HUB-3874',
+                    'type' => 'jira',
+                    'reference_code' => 'HUB-3874'
+                  }
+                ]
+              }
             }
           ]
         }
