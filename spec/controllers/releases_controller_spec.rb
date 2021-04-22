@@ -3,10 +3,22 @@
 require 'rails_helper'
 
 RSpec.describe ReleasesController, type: :controller do
+  let(:repository) { FactoryBot.create(:repository) }
+  let(:application) { FactoryBot.create(:application, repository: repository) }
+
   describe '#index' do
+    it 'displays the application releases' do
+      FactoryBot.create(:release, application: application)
+      FactoryBot.create(:release, application: application)
+      get :index, format: :json, params: { application_id: application }
+
+      releases_count = JSON.parse(response.body).length
+      expect(releases_count).to be(2)
+    end
+  end
+
+  describe '#show' do
     it 'displays the changelog' do
-      repository = FactoryBot.create(:repository)
-      application = FactoryBot.create(:application, repository: repository)
       release = FactoryBot.create(:release, application: application, version: '1.0.0')
       pull_request = FactoryBot.create(
         :pull_request,

@@ -8,4 +8,10 @@ class ReleasesController < ApplicationController
     changelog = ChangelogsService.new(commits, version).changelog
     render json: changelog
   end
+
+  def index
+    application = Application.find(params[:application_id])
+    releases = application.releases
+    render json: releases
+  end
 end
