@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ChangelogsController, type: :controller do
+RSpec.describe ReleasesController, type: :controller do
   describe '#index' do
     it 'displays the changelog' do
       repository = FactoryBot.create(:repository)
@@ -35,7 +35,7 @@ RSpec.describe ChangelogsController, type: :controller do
         message: 'Create input component'
       )
 
-      get :index, format: :json, params: { application_id: application, release_id: release }
+      get :show, format: :json, params: { application_id: application, id: release }
 
       changelog = JSON.parse(response.body)
       expect(changelog).to eq(
