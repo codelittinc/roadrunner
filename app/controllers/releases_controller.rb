@@ -11,6 +11,9 @@ class ReleasesController < ApplicationController
   def index
     application = Application.find(params[:application_id])
     releases = application.releases
-    render json: releases
+    changelogs = releases.map do |release|
+      ChangelogsService.new(release, release.commits).changelog
+    end
+    render json: changelogs
   end
 end
