@@ -46,7 +46,24 @@ RSpec.describe ChangelogsService, type: :service do
         created_at: release.created_at,
         changes: [
           {
-            message: 'This is a cool PR',
+            message: 'Create form component',
+            references: {
+              task_manager: [
+                {
+                  link: 'https://codelitt.atlassian.net/browse/HUB-2519',
+                  type: 'jira',
+                  reference_code: 'HUB-2519'
+                },
+                {
+                  link: 'https://example.atlassian.net/browse/HUB-3874',
+                  type: 'jira',
+                  reference_code: 'HUB-3874'
+                }
+              ]
+            }
+          },
+          {
+            message: 'Create input component',
             references: {
               task_manager: [
                 {

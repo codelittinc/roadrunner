@@ -18,18 +18,15 @@ class ChangelogsService
   end
 
   def self.changes(commits)
-    commits.map(&:pull_request).uniq.map do |pull_request|
+    commits.uniq.map do |commit|
       {
-        message: pull_request.title,
+        message: commit.message,
         references: {
-          task_manager: self.urls_from_description(pull_request.description)
+          task_manager: urls_from_description(commit.pull_request.description)
         }
       }
     end
   end
-
-  private
-
 
   def self.urls_from_description(description)
     description

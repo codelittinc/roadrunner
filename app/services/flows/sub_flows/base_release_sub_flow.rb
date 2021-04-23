@@ -78,7 +78,6 @@ module Flows
       def github_message
         @github_message = Messages::ReleaseBuilder.branch_compare_message(release_commits, 'github', @repository.name)
       end
-
     end
   end
 end
