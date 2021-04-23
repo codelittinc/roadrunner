@@ -256,7 +256,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'v1.0.0',
               '89374111e03f9c111cbff83c941d80b4d1a8c019',
-              "Available in the release of *roadrunner-repository-test*:\n - Create README.md \n - Create .gitignore ",
+              "Available in the release of *roadrunner-repository-test*:\n - Create README.md \n - Create .gitignore",
               false
             )
 
@@ -364,7 +364,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'v1.1.0',
               'bc1f53d9bb8818665e5fafc393219023f839bec6',
-              "Available in the release of *roadrunner-repository-test*:\n - Create .env.example ",
+              "Available in the release of *roadrunner-repository-test*:\n - Create .env.example",
               false
             )
 

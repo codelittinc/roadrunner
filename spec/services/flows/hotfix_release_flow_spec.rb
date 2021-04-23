@@ -125,7 +125,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             'rc.1.v1.1.1',
             'hotfix/fix-to-test',
             # @TODO: send a proper message in the first hotfix
-            "Available in the release of *roadrunner-repository-test*:\n - Update README.md",
+            "Available in the release of *roadrunner-repository-test*:\n - my nice PR",
             true
           )
 
@@ -150,7 +150,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             'codelittinc/roadrunner-repository-test',
             'rc.2.v1.1.1',
             'hotfix/fix-to-test',
-            "Available in the release of *roadrunner-repository-test*:\n - Update README.md",
+            "Available in the release of *roadrunner-repository-test*:\n - my nice PR",
             true
           )
 
@@ -236,7 +236,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
               'codelittinc/roadrunner-repository-test',
               'v1.1.1',
               '029fe9f4df0abcd43f366cfa291bebe2a9a7806d',
-              "Available in the release of *roadrunner-repository-test*:\n - Update README.md",
+              "Available in the release of *roadrunner-repository-test*:\n - my nice PR",
               false
             )
 
