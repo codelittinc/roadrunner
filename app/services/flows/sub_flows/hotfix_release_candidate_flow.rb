@@ -46,11 +46,11 @@ module Flows
       end
 
       def slack_message
-        @slack_message = Messages::ReleaseBuilder.branch_compare_message_hotfix(release_commits, 'slack', @repository.name)
+        @slack_message = Messages::ReleaseBuilder.branch_compare_message(release_commits, 'slack', @repository.name)
       end
 
       def github_message
-        @github_message = Messages::ReleaseBuilder.branch_compare_message_hotfix(release_commits, 'github', @repository.name)
+        @github_message = Messages::ReleaseBuilder.branch_compare_message(release_commits, 'github', @repository.name)
       end
 
       def branch_exists

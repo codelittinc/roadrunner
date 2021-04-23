@@ -13,24 +13,25 @@ class ChangelogsService
       version: @release.version,
       id: @release.id,
       created_at: @release.created_at,
-      changes: changes
+      changes: self.class.changes(@commits)
     }
   end
 
-  private
-
-  def changes
-    @commits.map(&:pull_request).uniq.map do |pull_request|
+  def self.changes(commits)
+    commits.map(&:pull_request).uniq.map do |pull_request|
       {
         message: pull_request.title,
         references: {
-          task_manager: urls_from_description(pull_request.description)
+          task_manager: self.urls_from_description(pull_request.description)
         }
       }
     end
   end
 
-  def urls_from_description(description)
+  private
+
+
+  def self.urls_from_description(description)
     description
       .scan(LINK_REGEX)
       .select { |url| url_type(url) == 'jira' }
@@ -43,11 +44,11 @@ class ChangelogsService
       end
   end
 
-  def url_type(url)
+  def self.url_type(url)
     url.match?(/.+atlassian.+/) ? 'jira' : 'unknown'
   end
 
-  def url_reference(url)
+  def self.url_reference(url)
     url[/[a-zA-Z]+-\d+/]
   end
 end
