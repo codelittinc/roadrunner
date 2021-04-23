@@ -45,14 +45,6 @@ module Flows
         Application::QA
       end
 
-      def slack_message
-        @slack_message = Messages::ReleaseBuilder.branch_compare_message(release_commits, 'slack', @repository.name)
-      end
-
-      def github_message
-        @github_message = Messages::ReleaseBuilder.branch_compare_message(release_commits, 'github', @repository.name)
-      end
-
       def branch_exists
         @branch_exists ||= Clients::Github::Branch.new.branch_exists?(@repository.full_name, branch)
       end

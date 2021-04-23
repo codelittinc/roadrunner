@@ -43,14 +43,6 @@ module Flows
         end.flatten.compact
       end
 
-      def slack_message
-        @slack_message ||= Messages::ReleaseBuilder.branch_compare_message(release_commits, 'slack', @repository.name)
-      end
-
-      def github_message
-        @github_message ||= Messages::ReleaseBuilder.branch_compare_message(release_commits, 'github', @repository.name)
-      end
-
       def version_resolver
         @version_resolver ||= Versioning::ReleaseVersionResolver.new(environment, tag_names, 'update')
       end
