@@ -32,14 +32,6 @@ module Flows
         Application::QA
       end
 
-      def slack_message
-        @slack_message ||= Messages::ReleaseBuilder.branch_compare_message(release_commits, 'slack', @repository.name)
-      end
-
-      def github_message
-        @github_message ||= Messages::ReleaseBuilder.branch_compare_message(release_commits, 'github', @repository.name)
-      end
-
       def github_release_commits
         return @github_release_commits if @github_release_commits
 

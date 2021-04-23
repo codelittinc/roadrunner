@@ -72,12 +72,13 @@ module Flows
       end
 
       def slack_message
-        throw Error.new('Implement this method!')
+        @slack_message = Messages::ReleaseBuilder.branch_compare_message(release_commits, 'slack', @repository.name)
       end
 
       def github_message
-        throw Error.new('Implement this method!')
+        @github_message = Messages::ReleaseBuilder.branch_compare_message(release_commits, 'github', @repository.name)
       end
+
     end
   end
 end
