@@ -53,12 +53,16 @@ RSpec.describe ReleasesController, type: :controller do
       get :show, format: :json, params: { application_id: application, id: release }
 
       release_creation_time = release.created_at.strftime('%Y-%m-%dT%H:%M:%S.%LZ')
+      release_update_time = release.updated_at.strftime('%Y-%m-%dT%H:%M:%S.%LZ')
+
       changelog = JSON.parse(response.body)
       expect(changelog).to eq(
         {
           'version' => '1.0.0',
           'id' => release.id,
+          'application_id' => application.id,
           'created_at' => release_creation_time,
+          'updated_at' => release_update_time,
           'changes' => [
             {
               'message' => 'Create form component',

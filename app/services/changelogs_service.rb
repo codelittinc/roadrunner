@@ -12,7 +12,9 @@ class ChangelogsService
     {
       version: @release.version,
       id: @release.id,
+      application_id: @release.application.id,
       created_at: @release.created_at,
+      updated_at: @release.updated_at,
       changes: self.class.changes(@commits)
     }
   end

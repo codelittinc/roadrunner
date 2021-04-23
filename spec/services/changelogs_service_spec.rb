@@ -43,7 +43,9 @@ RSpec.describe ChangelogsService, type: :service do
       {
         version: '1.0.0',
         id: release.id,
+        application_id: application.id,
         created_at: release.created_at,
+        updated_at: release.updated_at,
         changes: [
           {
             message: 'Create form component',
