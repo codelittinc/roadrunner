@@ -61,7 +61,24 @@ RSpec.describe ReleasesController, type: :controller do
           'created_at' => release_creation_time,
           'changes' => [
             {
-              'message' => 'This is a nice PR',
+              'message' => 'Create form component',
+              'references' => {
+                'task_manager' => [
+                  {
+                    'link' => 'https://codelitt.atlassian.net/browse/HUB-2519',
+                    'type' => 'jira',
+                    'reference_code' => 'HUB-2519'
+                  },
+                  {
+                    'link' => 'https://example.atlassian.net/browse/HUB-3874',
+                    'type' => 'jira',
+                    'reference_code' => 'HUB-3874'
+                  }
+                ]
+              }
+            },
+            {
+              'message' => 'Create input component',
               'references' => {
                 'task_manager' => [
                   {
