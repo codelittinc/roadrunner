@@ -5,6 +5,8 @@ module Clients
     class Branch < GithubBase
       def delete(repo, branch)
         @client.delete_branch(repo, branch)
+      rescue Octokit::UnprocessableEntity
+        false
       end
 
       def commits(repo, branch)
