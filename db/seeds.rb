@@ -49,6 +49,10 @@ pull_request = PullRequest.create!(
   state: 'open'
 )
 
+GithubPullRequest.create(github_id: 1, pull_request: pull_request)
+
+AzurePullRequest.create(azure_id: 1, pull_request: pull_request)
+
 Commit.create(
   pull_request: pull_request,
   sha: '56e05fced214c44',

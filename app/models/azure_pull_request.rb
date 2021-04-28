@@ -12,6 +12,7 @@
 #
 class AzurePullRequest < ApplicationRecord
   belongs_to :pull_request
+  has_many :source_controls, as: :source
 
   validates :azure_id, presence: true
   validates :pull_request, presence: true

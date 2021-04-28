@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_134226) do
+ActiveRecord::Schema.define(version: 2021_04_28_192241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -240,6 +240,15 @@ ActiveRecord::Schema.define(version: 2021_04_28_134226) do
     t.string "dev_group"
     t.string "feed_channel"
     t.index ["repository_id"], name: "index_slack_repository_infos_on_repository_id"
+  end
+
+  create_table "source_controls", force: :cascade do |t|
+    t.string "content"
+    t.integer "pull_request_id"
+    t.integer "source_id"
+    t.string "source_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_admins", force: :cascade do |t|
