@@ -11,6 +11,8 @@
 #  updated_at      :datetime         not null
 #
 class AzurePullRequest < ApplicationRecord
+  include SourceControl
+
   belongs_to :pull_request
 
   validates :azure_id, presence: true

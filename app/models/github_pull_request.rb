@@ -11,6 +11,8 @@
 #  updated_at      :datetime         not null
 #
 class GithubPullRequest < ApplicationRecord
+  include SourceControl
+
   belongs_to :pull_request
 
   validates :github_id, presence: true

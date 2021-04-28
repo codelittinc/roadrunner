@@ -20,6 +20,7 @@
 class PullRequest < ApplicationRecord
   belongs_to :user
   belongs_to :repository
+  belongs_to :source_control, :polymorphic => true
 
   has_many :commits, dependent: :destroy
   has_many :github_pull_requests, dependent: :destroy

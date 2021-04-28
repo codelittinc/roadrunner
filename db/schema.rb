@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_134226) do
+ActiveRecord::Schema.define(version: 2021_04_28_144721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,8 +150,11 @@ ActiveRecord::Schema.define(version: 2021_04_28_134226) do
     t.bigint "repository_id"
     t.bigint "user_id"
     t.string "ci_state"
+    t.string "source_control_type", null: false
+    t.bigint "source_control_id", null: false
     t.index ["github_id", "repository_id"], name: "index_pull_requests_on_github_id_and_repository_id", unique: true
     t.index ["repository_id"], name: "index_pull_requests_on_repository_id"
+    t.index ["source_control_type", "source_control_id"], name: "index_pull_requests_on_source_control"
     t.index ["user_id"], name: "index_pull_requests_on_user_id"
   end
 
