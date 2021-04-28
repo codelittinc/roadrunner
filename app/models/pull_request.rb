@@ -27,6 +27,7 @@ class PullRequest < ApplicationRecord
   has_one :slack_message, dependent: :destroy
   has_many :pull_request_changes, dependent: :destroy
   has_one :branch, dependent: :nullify
+  has_many :azure_pull_requests, dependent: :destroy
   has_many :check_runs, through: :branch
 
   validates :head, presence: true
