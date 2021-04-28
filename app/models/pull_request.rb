@@ -22,6 +22,7 @@ class PullRequest < ApplicationRecord
   belongs_to :repository
 
   has_many :commits, dependent: :destroy
+  has_many :github_pull_requests, dependent: :destroy
   has_many :pull_request_reviews, dependent: :destroy
   has_one :slack_message, dependent: :destroy
   has_many :pull_request_changes, dependent: :destroy
