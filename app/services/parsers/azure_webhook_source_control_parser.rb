@@ -27,6 +27,13 @@ module Parsers
       # @state = pull_request[:state]
     end
 
+    # @TODO: add tests
+    def user_by_source_control
+      User.find_or_initialize_by(azure: username)
+    end
+
+    private
+
     def resource
       @json[:resource]
     end
