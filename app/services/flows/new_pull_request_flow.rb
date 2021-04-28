@@ -38,14 +38,14 @@ module Flows
     end
 
     def pull_request_exists?
-      PullRequest.find_by(repository: repository, github_id: parser.github_id)
+      PullRequest.find_by(repository: repository, source_control_id: parser.source_control_id)
     end
 
     def pull_request
       @pull_request ||= PullRequest.create(
         head: parser.head,
         base: parser.base,
-        github_id: parser.github_id,
+        source_control_id: parser.source_control_id,
         title: parser.title,
         description: parser.description,
         repository: repository,

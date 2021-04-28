@@ -237,7 +237,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                       title: 'Create README.md',
                                       description: 'Card:',
                                       repository: repository,
-                                      github_id: 123
+                                      source_control_id: 123
                                     })
 
             FactoryBot.create(:commit, {
@@ -345,7 +345,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                       title: 'Create README.md',
                                       description: 'Card:',
                                       repository: repository,
-                                      github_id: 123
+                                      source_control_id: 123
                                     })
 
             FactoryBot.create(:commit, {
@@ -472,7 +472,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                       title: 'PR: Update .env 3',
                                       description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
                                       repository: repository,
-                                      github_id: 123
+                                      source_control_id: 123
                                     })
 
             FactoryBot.create(:commit, {
@@ -486,7 +486,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                       title: 'PR: Update .env 1',
                                       description: 'Change 1',
                                       repository: repository,
-                                      github_id: 124
+                                      source_control_id: 124
                                     })
 
             FactoryBot.create(:commit, {

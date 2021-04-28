@@ -44,7 +44,7 @@ pull_request = PullRequest.create!(
   repository: repository,
   head: 'updated project',
   base: 'project',
-  github_id: 1,
+  source_control_id: 1,
   title: 'Some changes',
   state: 'open'
 )

@@ -25,7 +25,7 @@ module Flows
     end
 
     def pull_request
-      @pull_request ||= PullRequest.where(github_id: parser.github_id, repository: Repository.where(name: parser.repository_name).first).first
+      @pull_request ||= PullRequest.where(source_control_id: parser.source_control_id, repository: Repository.where(name: parser.repository_name).first).first
     end
   end
 end

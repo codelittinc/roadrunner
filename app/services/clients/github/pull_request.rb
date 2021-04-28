@@ -3,12 +3,12 @@
 module Clients
   module Github
     class PullRequest < GithubBase
-      def get(repository, github_id)
-        @client.pull_request(repository, github_id)
+      def get(repository, source_control_id)
+        @client.pull_request(repository, source_control_id)
       end
 
-      def list_commits(repository, github_id)
-        @client.pull_request_commits(repository, github_id)
+      def list_commits(repository, source_control_id)
+        @client.pull_request_commits(repository, source_control_id)
       end
     end
   end

@@ -37,7 +37,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
 
       it 'pull request already exists in database' do
         repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
-        FactoryBot.create(:pull_request, repository: repository, github_id: 160)
+        FactoryBot.create(:pull_request, repository: repository, source_control_id: 160)
 
         flow = described_class.new(valid_json)
         expect(flow.flow?).to be_falsey

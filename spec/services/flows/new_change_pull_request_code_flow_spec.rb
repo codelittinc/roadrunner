@@ -16,7 +16,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
     context 'returns true when' do
       it 'a pull request exists and it is open' do
         repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
-        FactoryBot.create(:pull_request, github_id: 1, repository: repository)
+        FactoryBot.create(:pull_request, source_control_id: 1, repository: repository)
 
         flow = described_class.new(valid_json)
         expect(flow.flow?).to be_truthy
@@ -26,7 +26,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
     context 'returns false when' do
       it 'a pull request exists but it is closed' do
         repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
-        pr = FactoryBot.create(:pull_request, github_id: 1, repository: repository)
+        pr = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository)
         pr.merge!
 
         flow = described_class.new(valid_json)
@@ -35,7 +35,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
 
       it 'a pull request exists and action is not synchronize' do
         repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
-        FactoryBot.create(:pull_request, github_id: 1, repository: repository)
+        FactoryBot.create(:pull_request, source_control_id: 1, repository: repository)
 
         flow = described_class.new(closed_pr_json)
         expect(flow.flow?).to be_falsey
@@ -43,7 +43,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
 
       it 'a pull request exists and branch name is reserved' do
         repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
-        FactoryBot.create(:pull_request, github_id: 1, repository: repository)
+        FactoryBot.create(:pull_request, source_control_id: 1, repository: repository)
         invalid_json = valid_json.deep_dup
 
         reserved_branch_names = %w[master development develop qa]
@@ -59,7 +59,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
 
       it 'a pull request exists but it is cancelled' do
         repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
-        pr = FactoryBot.create(:pull_request, github_id: 1, repository: repository)
+        pr = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository)
         pr.cancel!
 
         flow = described_class.new(valid_json)
@@ -84,7 +84,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
       VCR.use_cassette('flows#change-pull-request#change-send-message', record: :new_episodes) do
         repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        pull_request = FactoryBot.create(:pull_request, github_id: 1, repository: repository, slack_message: slack_message)
+        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message)
 
         flow = described_class.new(valid_json)
 
@@ -98,7 +98,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
       VCR.use_cassette('flows#change-pull-request#change-send-right-message', record: :new_episodes) do
         repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        pull_request = FactoryBot.create(:pull_request, github_id: 1, repository: repository, slack_message: slack_message)
+        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message)
 
         flow = described_class.new(valid_json)
 
