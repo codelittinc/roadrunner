@@ -24,7 +24,11 @@ module Parsers
       @review_username = review&.dig(:user, :login)
       @state = pull_request[:state]
       @title = pull_request[:title]
-      @username = pull_request.dig(:user, :login)
+      @username = pull_request.dig(:user, :login).downcase
+    end
+
+    def user_by_source_control
+      User.find_or_initialize_by(github: username)
     end
 
     private

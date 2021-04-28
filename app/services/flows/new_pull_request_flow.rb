@@ -34,7 +34,7 @@ module Flows
     end
 
     def user
-      @user ||= User.find_or_initialize_by(github: parser.username.downcase)
+      @user ||= parser.user_by_source_control
     end
 
     def pull_request_exists?
