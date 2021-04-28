@@ -5,10 +5,14 @@ require 'ostruct'
 module Parsers
   class GithubWebhookParser < BaseParser
     delegate :body, :state, to: :review, prefix: true, allow_nil: true
-    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged_at, :owner, :repository_name, :review, :review_username, :state, :title, :username
+    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged_at, :owner, :repository_name, :review, :review_username, :state, :title, :username, :action
 
     def can_parse?
       @json && !!pull_request
+    end
+
+    def new_pull_request_flow?
+      action == 'opened' || action == 'ready_for_review'
     end
 
     def parse!
@@ -25,6 +29,7 @@ module Parsers
       @state = pull_request[:state]
       @title = pull_request[:title]
       @username = pull_request.dig(:user, :login).downcase
+      @action = @json[:action]
     end
 
     def user_by_source_control
