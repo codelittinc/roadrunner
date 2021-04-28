@@ -33,6 +33,7 @@ RSpec.describe PullRequest, type: :model do
     it { should belong_to(:repository) }
     it { should have_many(:commits) }
     it { should have_one(:slack_message) }
+    it { should have_many(:github_pull_requests).dependent(:destroy) }
   end
 
   describe 'state machine' do
