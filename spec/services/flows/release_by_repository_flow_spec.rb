@@ -232,7 +232,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                                       title: 'Create README.md',
                                       description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
                                       repository: repository,
-                                      github_id: 124
+                                      source_control_id: 124
                                     })
 
             FactoryBot.create(:commit, {
@@ -306,7 +306,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                                       title: 'Create README.md',
                                       description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
                                       repository: repository,
-                                      github_id: 123
+                                      source_control_id: 123
                                     })
 
             FactoryBot.create(:commit, {
@@ -366,7 +366,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                                       title: 'PR: Update .env 3',
                                       description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
                                       repository: repository,
-                                      github_id: 123
+                                      source_control_id: 123
                                     })
 
             FactoryBot.create(:commit, {
@@ -380,7 +380,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
                                       title: 'PR: Update .env 4',
                                       description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
                                       repository: repository,
-                                      github_id: 1234
+                                      source_control_id: 1234
                                     })
 
             FactoryBot.create(:commit, {

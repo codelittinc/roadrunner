@@ -29,7 +29,7 @@ module Flows
     end
 
     def pull_request
-      @pull_request ||= PullRequest.where(github_id: parser.github_id).last
+      @pull_request ||= PullRequest.where(source_control_id: parser.source_control_id).last
     end
 
     def repository

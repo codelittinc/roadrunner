@@ -7,7 +7,7 @@
 #  id            :bigint           not null, primary key
 #  head          :string
 #  base          :string
-#  github_id     :integer
+#  source_control_id     :integer
 #  title         :string
 #  description   :string
 #  state         :string
@@ -32,7 +32,7 @@ class PullRequest < ApplicationRecord
 
   validates :head, presence: true
   validates :base, presence: true
-  validates :github_id, presence: true, uniqueness: { scope: :repository_id }
+  validates :source_control_id, presence: true, uniqueness: { scope: :repository_id }
   validates :title, presence: true
   validates :state, presence: true
 
@@ -46,7 +46,7 @@ class PullRequest < ApplicationRecord
   end
 
   def github_link
-    "https://github.com/#{repository&.owner}/#{repository&.name}/pull/#{github_id}"
+    "https://github.com/#{repository&.owner}/#{repository&.name}/pull/#{source_control_id}"
   end
 
   state_machine :state, initial: :open do

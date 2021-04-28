@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_134226) do
+ActiveRecord::Schema.define(version: 2021_04_28_221055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_134226) do
   create_table "pull_requests", force: :cascade do |t|
     t.string "head"
     t.string "base"
-    t.integer "github_id"
+    t.integer "source_control_id"
     t.string "title"
     t.string "description"
     t.string "state"
@@ -150,8 +150,8 @@ ActiveRecord::Schema.define(version: 2021_04_28_134226) do
     t.bigint "repository_id"
     t.bigint "user_id"
     t.string "ci_state"
-    t.index ["github_id", "repository_id"], name: "index_pull_requests_on_github_id_and_repository_id", unique: true
     t.index ["repository_id"], name: "index_pull_requests_on_repository_id"
+    t.index ["source_control_id", "repository_id"], name: "index_pull_requests_on_source_control_id_and_repository_id", unique: true
     t.index ["user_id"], name: "index_pull_requests_on_user_id"
   end
 

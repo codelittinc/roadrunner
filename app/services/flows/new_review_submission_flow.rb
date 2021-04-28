@@ -23,7 +23,7 @@ module Flows
     private
 
     def pull_request
-      @pull_request ||= PullRequest.where(github_id: parser.github_id, repository: repository, head: parser.head).first
+      @pull_request ||= PullRequest.where(source_control_id: parser.source_control_id, repository: repository, head: parser.head).first
     end
 
     def pull_request_review
@@ -43,7 +43,7 @@ module Flows
     end
 
     def github_pull_request
-      @github_pull_request ||= Clients::Github::PullRequest.new.get(repository.full_name, pull_request[:github_id])
+      @github_pull_request ||= Clients::Github::PullRequest.new.get(repository.full_name, pull_request[:source_control_id])
     end
 
     def channel

@@ -25,7 +25,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
   describe '#flow?' do
     context 'returns true when' do
       it 'a pull request exists and it is open' do
-        FactoryBot.create(:pull_request, github_id: 13, repository: repository)
+        FactoryBot.create(:pull_request, source_control_id: 13, repository: repository)
 
         flow = described_class.new(valid_json)
         expect(flow.flow?).to be_truthy
@@ -34,7 +34,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
 
     context 'returns false when' do
       it 'a pull request exists but it is closed' do
-        pr = FactoryBot.create(:pull_request, github_id: 13, repository: repository)
+        pr = FactoryBot.create(:pull_request, source_control_id: 13, repository: repository)
         pr.merge!
 
         flow = described_class.new(valid_json)
@@ -42,7 +42,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
       end
 
       it 'a pull request exists but it is cancelled' do
-        pr = FactoryBot.create(:pull_request, github_id: 13, repository: repository)
+        pr = FactoryBot.create(:pull_request, source_control_id: 13, repository: repository)
         pr.cancel!
 
         flow = described_class.new(valid_json)
@@ -66,8 +66,8 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
             slack_message = FactoryBot.create(:slack_message, ts: '123')
             slack_message2 = FactoryBot.create(:slack_message, ts: '1234')
 
-            pr = FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message, head: 'fix/update-leases-brokers')
-            FactoryBot.create(:pull_request, github_id: 13, repository: repository2, slack_message: slack_message2, head: 'feature/create_feature')
+            pr = FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message, head: 'fix/update-leases-brokers')
+            FactoryBot.create(:pull_request, source_control_id: 13, repository: repository2, slack_message: slack_message2, head: 'feature/create_feature')
 
             expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
             expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
@@ -84,7 +84,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
       it 'updates the pull request state to merged' do
         VCR.use_cassette('flows#close-pull-request#create-commit-right-message', record: :new_episodes) do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          pr = FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message, head: 'fix/update-leases-brokers')
+          pr = FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message, head: 'fix/update-leases-brokers')
 
           expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
@@ -100,7 +100,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
       it 'sends a merge reaction to the slack message' do
         VCR.use_cassette('flows#close-pull-request#create-commit-right-message', record: :new_episodes) do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message, head: 'fix/update-leases-brokers')
+          FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message, head: 'fix/update-leases-brokers')
 
           expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
@@ -118,7 +118,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
       it 'do not send a direct message to the owner of the pull request if it was cancelled' do
         VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message)
+          FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message)
 
           expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
@@ -136,7 +136,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
       it 'sends a cancel reaction if the pr was cancelled' do
         VCR.use_cassette('flows#close-pull-request#create-commit-right-message', record: :new_episodes) do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message)
+          FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message)
 
           expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
@@ -153,7 +153,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
     it 'creates a set of commits from the pull request in the database' do
       VCR.use_cassette('flows#close-pull-request#create-commit') do
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message)
+        FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message)
 
         flow = described_class.new(valid_json)
 
@@ -167,7 +167,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
     it 'creates a set of commits from the pull request in the database' do
       VCR.use_cassette('flows#close-pull-request#create-commit') do
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message)
+        FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message)
 
         flow = described_class.new(valid_json)
 
@@ -181,7 +181,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
     it 'creates a set of commits from the pull request in the database with the right message' do
       VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message)
+        FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message)
 
         expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
@@ -196,7 +196,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
     it 'sends two jira status update messages when the pull request body has two links' do
       VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message)
+        FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message)
 
         expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
@@ -213,7 +213,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
     it 'sends a direct message to the owner of the pull request' do
       VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        FactoryBot.create(:pull_request, github_id: 13, repository: repository, slack_message: slack_message)
+        FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message)
 
         expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)

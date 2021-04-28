@@ -60,7 +60,7 @@ module Flows
     end
 
     def pull_request
-      @pull_request ||= PullRequest.find_by(github_id: parser.github_id, repository: repository)
+      @pull_request ||= PullRequest.find_by(source_control_id: parser.source_control_id, repository: repository)
     end
 
     def repository
@@ -92,7 +92,7 @@ module Flows
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: ":jira: the card *#{jira_code}* was found on the PR *#{repository.name}*-*#{pull_request.github_id}*, do you like to move it to *Ready for QA*?"
+            text: ":jira: the card *#{jira_code}* was found on the PR *#{repository.name}*-*#{pull_request.source_control_id}*, do you like to move it to *Ready for QA*?"
           }
         },
         {

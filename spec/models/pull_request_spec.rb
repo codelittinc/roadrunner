@@ -7,7 +7,7 @@
 #  id            :bigint           not null, primary key
 #  head          :string
 #  base          :string
-#  github_id     :integer
+#  source_control_id     :integer
 #  title         :string
 #  description   :string
 #  state         :string
@@ -23,7 +23,7 @@ RSpec.describe PullRequest, type: :model do
   describe 'should validate the props' do
     it { is_expected.to validate_presence_of(:head) }
     it { is_expected.to validate_presence_of(:base) }
-    it { is_expected.to validate_presence_of(:github_id) }
+    it { is_expected.to validate_presence_of(:source_control_id) }
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:state) }
   end
@@ -75,7 +75,7 @@ RSpec.describe PullRequest, type: :model do
     describe '#github_link' do
       it 'returns a valid github link' do
         repository = FactoryBot.create(:repository, owner: 'repo-owner', name: 'repo-name')
-        pr = FactoryBot.create(:pull_request, repository: repository, github_id: 1)
+        pr = FactoryBot.create(:pull_request, repository: repository, source_control_id: 1)
         expect(pr.github_link).to eql('https://github.com/repo-owner/repo-name/pull/1')
       end
     end
