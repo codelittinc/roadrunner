@@ -27,6 +27,7 @@ class PullRequest < ApplicationRecord
   has_many :pull_request_changes, dependent: :destroy
   has_one :branch, dependent: :nullify
   has_many :check_runs, through: :branch
+  has_many :azure_pull_requests, dependent: :destroy
 
   validates :head, presence: true
   validates :base, presence: true

@@ -29,6 +29,7 @@ RSpec.describe PullRequest, type: :model do
   end
 
   describe 'associations' do
+    it { should have_many(:azure_pull_requests).dependent(:destroy) }
     it { should belong_to(:user) }
     it { should belong_to(:repository) }
     it { should have_many(:commits) }
