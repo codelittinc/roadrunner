@@ -17,20 +17,17 @@ module Flows
 
     def can_execute?
       return if pull_request_exists?
-      return unless action == 'opened' || action == 'ready_for_review'
+
+      return unless parser.new_pull_request_flow?
 
       !parser.draft && !PullRequest.deployment_branches?(parser.base, parser.head)
     end
 
     private
 
-    def action
-      @params[:action]
-    end
-
     def repository
       # @TODO: add owner verification
-      @repository ||= Repository.find_or_initialize_by(name: parser.repository_name)
+      @repository ||= Repository.find_by(name: parser.repository_name)
     end
 
     def user

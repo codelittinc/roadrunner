@@ -58,11 +58,11 @@ RSpec.describe Parsers::AzureWebhookSourceControlParser, type: :service do
       expect(flow.draft).to eql(false)
     end
 
-    it 'parses the azure_id properly' do
+    it 'parses the source_control_id properly' do
       flow = described_class.new(new_pull_request)
       flow.parse!
 
-      expect(flow.azure_id).to eql(35)
+      expect(flow.source_control_id).to eql(35)
     end
 
     it 'parses the owner properly' do
