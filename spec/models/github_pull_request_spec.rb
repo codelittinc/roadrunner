@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: azure_pull_requests
+# Table name: github_pull_requests
 #
 #  id                :bigint           not null, primary key
 #  source_control_id :string
@@ -12,7 +12,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe AzurePullRequest, type: :model do
+RSpec.describe GithubPullRequest, type: :model do
   describe 'associations' do
     it { should have_one(:pull_request).dependent(:destroy) }
   end
