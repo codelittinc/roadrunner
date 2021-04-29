@@ -13,7 +13,7 @@ FactoryBot.define do
       obj.repository ||= create(:repository)
       obj.slack_message ||= create(:slack_message)
       # @TODO: update this to be dependent on the type of the request
-      obj.source = GithubPullRequest.create(github_id: 1, pull_request: obj) unless obj.source
+      obj.source = GithubPullRequest.create(source_control_id: 1, pull_request: obj) unless obj.source
     end
   end
 end
