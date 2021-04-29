@@ -34,10 +34,8 @@ RSpec.describe PullRequest, type: :model do
     it { should have_many(:commits).dependent(:destroy) }
     it { should have_one(:slack_message).dependent(:destroy) }
     it { should have_one(:branch).dependent(:nullify) }
-    it { should have_many(:github_pull_requests).dependent(:destroy) }
     it { should have_many(:pull_request_reviews).dependent(:destroy) }
     it { should have_many(:pull_request_changes).dependent(:destroy) }
-    it { should have_many(:azure_pull_requests).dependent(:destroy) }
     it { should have_many(:check_runs) }
   end
 
