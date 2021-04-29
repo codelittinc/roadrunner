@@ -42,7 +42,9 @@ module Flows
     end
 
     def pull_request
-      @pull_request ||= PullRequest.create(
+      return @pull_request if @pull_request
+
+      pr = PullRequest.create(
         head: parser.head,
         base: parser.base,
         source_control_id: parser.source_control_id,
@@ -51,6 +53,10 @@ module Flows
         repository: repository,
         user: user
       )
+      # @TODO: update this to be dependent on the type of the request
+      pr.source = GithubPullRequest.create!(github_id: parser.source_control_id, pull_request: pr)
+      pr.save!
+      @pull_request = pr
     end
 
     def new_pull_request_message

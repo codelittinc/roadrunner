@@ -14,7 +14,7 @@ require 'rails_helper'
 
 RSpec.describe AzurePullRequest, type: :model do
   describe 'associations' do
-    it { should belong_to(:pull_request) }
+    it { should have_one(:pull_request) }
   end
 
   describe 'validations' do
