@@ -11,7 +11,7 @@
 #  updated_at      :datetime         not null
 #
 class GithubPullRequest < ApplicationRecord
-  belongs_to :pull_request
+  has_one :pull_request, as: :source, dependent: :destroy
 
   validates :github_id, presence: true
   validates :pull_request, presence: true

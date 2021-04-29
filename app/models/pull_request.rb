@@ -30,6 +30,9 @@ class PullRequest < ApplicationRecord
   has_many :azure_pull_requests, dependent: :destroy
   has_many :check_runs, through: :branch
 
+  # @TODO: rename to source_control
+  belongs_to :source, polymorphic: true
+
   validates :head, presence: true
   validates :base, presence: true
   validates :source_control_id, presence: true, uniqueness: { scope: :repository_id }
@@ -40,6 +43,12 @@ class PullRequest < ApplicationRecord
   DEPLOY_DEV_BRANCH = 'develop'
   DEPLOY_QA_BRANCH = 'qa'
   DEPLOY_PROD_BRANCH = 'master'
+
+  before_save :create_github_pull_request
+
+  def create_github_pull_request
+    self.source = GithubPullRequest.create(github_id: 1, pull_request: self) unless source
+  end
 
   def self.deployment_branches?(base, head)
     (base == DEPLOY_QA_BRANCH || base == DEPLOY_PROD_BRANCH) && (head == DEPLOY_DEV_BRANCH || head == DEPLOY_QA_BRANCH || head == DEPLOY_DEV_BRANCH_LEGACY)
