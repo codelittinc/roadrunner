@@ -31,6 +31,7 @@ RSpec.describe PullRequest, type: :model do
   describe 'associations' do
     it { should belong_to(:user) }
     it { should belong_to(:repository) }
+    it { should belong_to(:source) }
     it { should have_many(:commits).dependent(:destroy) }
     it { should have_one(:slack_message).dependent(:destroy) }
     it { should have_one(:branch).dependent(:nullify) }
@@ -38,7 +39,7 @@ RSpec.describe PullRequest, type: :model do
     it { should have_many(:pull_request_reviews).dependent(:destroy) }
     it { should have_many(:pull_request_changes).dependent(:destroy) }
     it { should have_many(:azure_pull_requests).dependent(:destroy) }
-    it { should have_many(:check_runs) }
+    it { should have_many(:check_runs).through(:branch) }
   end
 
   describe 'state machine' do

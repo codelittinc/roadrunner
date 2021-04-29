@@ -54,7 +54,7 @@ module Flows
         user: user
       )
       # @TODO: update this to be dependent on the type of the request
-      pr.source = GithubPullRequest.create!(github_id: parser.source_control_id, pull_request: pr)
+      pr.source = GithubPullRequest.create!(source_control_id: parser.source_control_id, pull_request: pr)
       pr.save!
       @pull_request = pr
     end
