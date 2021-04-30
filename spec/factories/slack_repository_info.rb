@@ -6,9 +6,6 @@ FactoryBot.define do
     dev_channel { 'feed-test-automations' }
     deploy_channel { 'feed-test-automations' }
     feed_channel { 'feed-test-automations' }
-
-    before(:create) do |obj|
-      obj.repository ||= create(:repository)
-    end
+    repository
   end
 end
