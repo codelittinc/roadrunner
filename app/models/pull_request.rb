@@ -46,10 +46,7 @@ class PullRequest < ApplicationRecord
   end
 
   delegate :link, to: :source
-
-  def source_control_id
-    source&.source_control_id
-  end
+  delegate :source_control_id, to: :source
 
   def self.by_repository_and_source_control_id(repository, source_control_id)
     # @TODO: refactor this to use a proper query

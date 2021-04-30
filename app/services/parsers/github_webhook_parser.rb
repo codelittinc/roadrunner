@@ -31,6 +31,10 @@ module Parsers
       User.find_or_initialize_by(github: username)
     end
 
+    def build_source(pull_request)
+      GithubPullRequest.new(source_control_id: source_control_id, pull_request: pull_request)
+    end
+
     private
 
     def pull_request
