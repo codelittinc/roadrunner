@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_141700) do
+ActiveRecord::Schema.define(version: 2021_04_30_035150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,8 @@ ActiveRecord::Schema.define(version: 2021_04_29_141700) do
 
   create_table "azure_pull_requests", force: :cascade do |t|
     t.string "source_control_id"
-    t.bigint "pull_request_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["pull_request_id"], name: "index_azure_pull_requests_on_pull_request_id"
   end
 
   create_table "branches", force: :cascade do |t|
@@ -108,10 +106,8 @@ ActiveRecord::Schema.define(version: 2021_04_29_141700) do
 
   create_table "github_pull_requests", force: :cascade do |t|
     t.string "source_control_id"
-    t.bigint "pull_request_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["pull_request_id"], name: "index_github_pull_requests_on_pull_request_id"
   end
 
   create_table "projects", force: :cascade do |t|
