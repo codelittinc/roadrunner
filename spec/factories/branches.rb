@@ -14,9 +14,6 @@
 FactoryBot.define do
   factory :branch do
     name { 'branch1' }
-
-    before(:create) do |obj|
-      obj.repository ||= create(:repository)
-    end
+    repository
   end
 end
