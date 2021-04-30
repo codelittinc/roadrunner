@@ -44,7 +44,7 @@ module Flows
     def pull_request
       return @pull_request if @pull_request
 
-      pr = PullRequest.create(
+      pr = PullRequest.new(
         head: parser.head,
         base: parser.base,
         title: parser.title,
@@ -52,9 +52,10 @@ module Flows
         repository: repository,
         user: user
       )
-      # @TODO: update this to be dependent on the type of the request
-      pr.source = GithubPullRequest.create!(source_control_id: parser.source_control_id, pull_request: pr)
+
+      pr.source = parser.build_source(pr)
       pr.save!
+
       @pull_request = pr
     end
 
@@ -71,6 +72,7 @@ module Flows
     end
 
     def checkrun
+      # @TODO: specify the pull request
       @checkrun ||= CheckRun.where(branch: branch).last
     end
 
