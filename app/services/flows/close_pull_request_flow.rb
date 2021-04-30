@@ -60,7 +60,7 @@ module Flows
     end
 
     def pull_request
-      @pull_request ||= PullRequest.find_by(source_control_id: parser.source_control_id, repository: repository)
+      @pull_request ||= PullRequest.by_repository_and_source_control_id(repository, parser.source_control_id)
     end
 
     def repository

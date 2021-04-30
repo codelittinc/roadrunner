@@ -33,7 +33,6 @@ class PullRequest < ApplicationRecord
 
   validates :head, presence: true
   validates :base, presence: true
-  validates :source_control_id, presence: true, uniqueness: { scope: :repository_id }
   validates :title, presence: true
   validates :state, presence: true
 
@@ -47,6 +46,18 @@ class PullRequest < ApplicationRecord
   end
 
   delegate :link, to: :source
+
+  def source_control_id
+    source&.source_control_id
+  end
+
+  def self.by_repository_and_source_control_id(repository, source_control_id)
+    # @TODO: refactor this to use a proper query
+    PullRequest.all.find do |pr|
+      pr.repository.id == repository.id &&
+        pr.source.source_control_id.to_i == source_control_id
+    end
+  end
 
   state_machine :state, initial: :open do
     event :merge! do
