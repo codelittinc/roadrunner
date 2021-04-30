@@ -23,7 +23,7 @@ module Flows
     private
 
     def pull_request
-      @pull_request ||= PullRequest.where(source_control_id: parser.source_control_id, repository: repository, head: parser.head).first
+      @pull_request ||= PullRequest.by_repository_and_source_control_id(repository, parser.source_control_id)
     end
 
     def pull_request_review
@@ -31,7 +31,8 @@ module Flows
     end
 
     def repository
-      @repository ||= Repository.where(name: parser.repository_name).first
+      # @TODO: add owner verification
+      @repository ||= Repository.find_by(name: parser.repository_name)
     end
 
     def action
@@ -43,7 +44,7 @@ module Flows
     end
 
     def github_pull_request
-      @github_pull_request ||= Clients::Github::PullRequest.new.get(repository.full_name, pull_request[:source_control_id])
+      @github_pull_request ||= Clients::Github::PullRequest.new.get(repository.full_name, pull_request.source_control_id)
     end
 
     def channel

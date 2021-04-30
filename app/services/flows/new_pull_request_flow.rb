@@ -38,7 +38,7 @@ module Flows
     end
 
     def pull_request_exists?
-      PullRequest.find_by(repository: repository, source_control_id: parser.source_control_id)
+      PullRequest.by_repository_and_source_control_id(repository, parser.source_control_id)
     end
 
     def pull_request
@@ -47,7 +47,6 @@ module Flows
       pr = PullRequest.create(
         head: parser.head,
         base: parser.base,
-        source_control_id: parser.source_control_id,
         title: parser.title,
         description: parser.description,
         repository: repository,

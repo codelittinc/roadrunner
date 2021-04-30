@@ -23,7 +23,6 @@ RSpec.describe PullRequest, type: :model do
   describe 'should validate the props' do
     it { is_expected.to validate_presence_of(:head) }
     it { is_expected.to validate_presence_of(:base) }
-    it { is_expected.to validate_presence_of(:source_control_id) }
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:state) }
   end

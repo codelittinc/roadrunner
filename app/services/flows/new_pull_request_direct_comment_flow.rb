@@ -24,8 +24,13 @@ module Flows
       @comment ||= @params.dig(:comment, :body)
     end
 
+    def repository
+      # @TODO: add owner verification
+      @repository ||= Repository.find_or_initialize_by(name: parser.repository_name)
+    end
+
     def pull_request
-      @pull_request ||= PullRequest.where(source_control_id: parser.source_control_id, repository: Repository.where(name: parser.repository_name).first).first
+      @pull_request ||= PullRequest.by_repository_and_source_control_id(repository, parser.source_control_id)
     end
   end
 end

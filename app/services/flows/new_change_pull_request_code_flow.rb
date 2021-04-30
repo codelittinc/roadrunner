@@ -29,11 +29,12 @@ module Flows
     end
 
     def pull_request
-      @pull_request ||= PullRequest.where(source_control_id: parser.source_control_id).last
+      @pull_request ||= PullRequest.by_repository_and_source_control_id(repository, parser.source_control_id)
     end
 
     def repository
-      @repository ||= pull_request.repository
+      # @TODO: add owner verification
+      @repository ||= Repository.find_by(name: parser.repository_name)
     end
 
     def channel
