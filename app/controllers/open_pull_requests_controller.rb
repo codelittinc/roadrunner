@@ -11,7 +11,7 @@ class OpenPullRequestsController < ApplicationController
 
       {
         title: pull_request.title,
-        link: pull_request.github_link,
+        link: pull_request.link,
         user: pull_request.user&.slack,
         state: pull_request.check_runs.last&.state,
         approved_by: approved_by,

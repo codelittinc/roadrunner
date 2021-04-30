@@ -6,7 +6,7 @@ module Messages
       repository = pull_request.repository
       slack_group = repository.slack_repository_info.dev_group
 
-      link = pull_request.github_link
+      link = pull_request.link
 
       format(Templates::PullRequest::NEW_PULL_REQUEST, slack_group, link, repository.name, pull_request.source_control_id)
     end
@@ -17,7 +17,7 @@ module Messages
 
     def self.close_pull_request_notification(pull_request)
       repository = pull_request.repository
-      link = pull_request.github_link
+      link = pull_request.link
 
       format(Templates::PullRequest::CLOSE_PULL_REQUEST_NOTIFICATION, link, repository.name, pull_request.source_control_id)
     end
@@ -28,7 +28,7 @@ module Messages
 
     def self.notify_ci_failure(pull_request)
       repository = pull_request.repository
-      link = pull_request.github_link
+      link = pull_request.link
 
       format(Templates::PullRequest::NOTIFY_CI_FAILURE, link, repository.name, pull_request.source_control_id)
     end
@@ -45,7 +45,7 @@ module Messages
 
     def self.notify_pr_conflicts(pull_request)
       repository = pull_request.repository
-      link = pull_request.github_link
+      link = pull_request.link
 
       format(Templates::PullRequest::PULL_REQUEST_CONFLICTS, link, repository.name, pull_request.source_control_id)
     end

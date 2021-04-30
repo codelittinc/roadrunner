@@ -42,19 +42,11 @@ class PullRequest < ApplicationRecord
   DEPLOY_QA_BRANCH = 'qa'
   DEPLOY_PROD_BRANCH = 'master'
 
-  before_save :create_github_pull_request
-
-  def create_github_pull_request
-    self.source = GithubPullRequest.create(github_id: 1, pull_request: self) unless source
-  end
-
   def self.deployment_branches?(base, head)
     (base == DEPLOY_QA_BRANCH || base == DEPLOY_PROD_BRANCH) && (head == DEPLOY_DEV_BRANCH || head == DEPLOY_QA_BRANCH || head == DEPLOY_DEV_BRANCH_LEGACY)
   end
 
-  def github_link
-    "https://github.com/#{repository&.owner}/#{repository&.name}/pull/#{source_control_id}"
-  end
+  delegate :link, to: :source
 
   state_machine :state, initial: :open do
     event :merge! do
