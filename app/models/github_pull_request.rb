@@ -15,4 +15,9 @@ class GithubPullRequest < ApplicationRecord
 
   validates :source_control_id, presence: true
   validates :pull_request, presence: true
+
+  def link
+    repository = pull_request.repository
+    "https://github.com/#{repository&.owner}/#{repository&.name}/pull/#{source_control_id}"
+  end
 end
