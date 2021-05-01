@@ -12,6 +12,7 @@
 #  branch_id  :bigint
 #
 class CheckRun < ApplicationRecord
+  # @TODO: add repository reference
   validates :state, presence: true
 
   belongs_to :branch

@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 module Flows
-  class NewPullRequestFlow < BaseFlow
+  class NewPullRequestFlow < BaseGithubFlow
     def execute
       user.save unless user.persisted?
-      repository.save unless repository.persisted?
 
       response = Clients::Slack::ChannelMessage.new.send(new_pull_request_message, channel)
       slack_message = SlackMessage.new(ts: response['ts'], pull_request: pull_request)
@@ -25,17 +24,8 @@ module Flows
 
     private
 
-    def repository
-      # @TODO: add owner verification
-      @repository ||= Repository.find_by(name: parser.repository_name)
-    end
-
     def user
       @user ||= parser.user_by_source_control
-    end
-
-    def pull_request_exists?
-      PullRequest.by_repository_and_source_control_id(repository, parser.source_control_id)
     end
 
     def pull_request
@@ -83,10 +73,6 @@ module Flows
                  'pending' => 'hourglass' }
 
       reacts[checkrun&.state] || 'hourglass'
-    end
-
-    def channel
-      @channel ||= repository.slack_repository_info.dev_channel
     end
   end
 end
