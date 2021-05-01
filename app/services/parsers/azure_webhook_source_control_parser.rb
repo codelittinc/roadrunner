@@ -22,9 +22,10 @@ module Parsers
       @source_control_id = resource[:pullRequestId]
       @draft = resource[:isDraft]
       @head = resource[:sourceRefName].scan(%r{/.*/(.+/.+$)}).flatten.first
-      @owner = resource.dig(:createdBy, :uniqueName)
+      @owner = resource.dig(:repository, :project, :name)
       @repository_name = resource.dig(:repository, :name)
       @title = resource[:title]
+      @username = resource.dig(:createdBy, :uniqueName)
       # @TODO: implement the fields below
       # @merged_at = pull_request[:merged_at]
       # @review = OpenStruct.new @json[:review]

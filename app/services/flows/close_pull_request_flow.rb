@@ -51,10 +51,6 @@ module Flows
       Clients::Slack::DirectMessage.new.send(message, slack_username)
     end
 
-    def channel
-      @channel ||= repository.slack_repository_info.dev_channel
-    end
-
     def action
       @params[:action]
     end

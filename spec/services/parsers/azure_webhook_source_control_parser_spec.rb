@@ -69,7 +69,14 @@ RSpec.describe Parsers::AzureWebhookSourceControlParser, type: :service do
       flow = described_class.new(new_pull_request)
       flow.parse!
 
-      expect(flow.owner).to eql('kaio.magalhaes@avisonyoung.onmicrosoft.com')
+      expect(flow.owner).to eql('Avant')
+    end
+
+    it 'parses the username properly' do
+      flow = described_class.new(new_pull_request)
+      flow.parse!
+
+      expect(flow.username).to eql('kaio.magalhaes@avisonyoung.onmicrosoft.com')
     end
 
     it 'parses the repository_name properly' do
