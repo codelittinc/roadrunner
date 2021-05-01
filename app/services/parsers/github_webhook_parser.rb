@@ -16,19 +16,13 @@ module Parsers
     end
 
     def parse!
-      @base = pull_request&.dig(:base, :ref)
-      @description = pull_request&.dig(:body)
-      @draft = pull_request&.dig(:draft)
-      @source_control_id = pull_request&.dig(:number)
-      @head = pull_request&.dig(:head, :ref)
-      @merged_at = pull_request&.dig(:merged_at)
+      parse_pull_request! if pull_request
+
       @owner = @json.dig(:organization, :login)
       @repository_name = @json.dig(:repository, :name)
+      @username = @json.dig(:sender, :login).downcase
       @review = OpenStruct.new @json[:review]
       @review_username = review&.dig(:user, :login)
-      @state = pull_request&.dig(:state)
-      @title = pull_request&.dig(:title)
-      @username = @json.dig(:sender, :login).downcase
       @action = @json[:action]
     end
 
@@ -41,6 +35,17 @@ module Parsers
     end
 
     private
+
+    def parse_pull_request!
+      @base = pull_request&.dig(:base, :ref)
+      @description = pull_request&.dig(:body)
+      @draft = pull_request&.dig(:draft)
+      @source_control_id = pull_request&.dig(:number)
+      @head = pull_request&.dig(:head, :ref)
+      @merged_at = pull_request&.dig(:merged_at)
+      @state = pull_request&.dig(:state)
+      @title = pull_request&.dig(:title)
+    end
 
     def pull_request
       @json[:pull_request]
