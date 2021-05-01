@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class ClosePullRequestFlow < BaseFlow
+  class ClosePullRequestFlow < BaseGithubFlow
     JIRA_CARD_REGEX = %r{https?://codelitt.atlassian.net/browse/[a-zA-Z0-9-]+}
 
     def execute
@@ -59,10 +59,6 @@ module Flows
       @pull_request ||= PullRequest.by_repository_and_source_control_id(repository, parser.source_control_id)
     end
 
-    def repository
-      @repository ||= Repository.find_by(owner: parser.owner, name: parser.repository_name)
-    end
-
     def update_pull_request_state!
       if parser.merged_at.present?
         pull_request.merge!
@@ -80,10 +76,6 @@ module Flows
           pull_request.user.slack
         )
       end
-    end
-
-    def channel
-      @channel ||= repository.slack_repository_info.dev_channel
     end
 
     def jira_notification_block(jira_code)
