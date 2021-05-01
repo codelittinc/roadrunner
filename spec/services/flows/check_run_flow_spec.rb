@@ -96,7 +96,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
     end
   end
 
-  describe '#execute' do
+  describe '#run' do
     it 'sends a message if the check run is correct' do
       VCR.use_cassette('flows#check-run#check-run-send-message', record: :new_episodes) do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
@@ -111,7 +111,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
         expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
 
-        flow.execute
+        flow.run
       end
     end
 
@@ -130,7 +130,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message, 'rheniery.mendes')
       expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light', 'feed-test-automations', '123')
 
-      flow.execute
+      flow.run
     end
 
     it 'sends success reaction if check run state eqls success' do
@@ -150,7 +150,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
       expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('white_check_mark', 'feed-test-automations', '123')
 
-      flow.execute
+      flow.run
     end
 
     it 'sends pending reaction if check run state is different from success or failure' do
@@ -170,7 +170,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
       expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations', '123')
 
-      flow.execute
+      flow.run
     end
 
     it 'create a check run data' do
@@ -183,7 +183,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
         flow = described_class.new(valid_json)
 
-        expect { flow.execute }.to change { CheckRun.count }.by(1)
+        expect { flow.run }.to change { CheckRun.count }.by(1)
       end
     end
   end

@@ -8,7 +8,7 @@ module Parsers
     attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged_at, :owner, :repository_name, :review, :review_username, :state, :title, :username, :action
 
     def can_parse?
-      @json && !!pull_request
+      @json && (!!pull_request || !!checkrun)
     end
 
     def new_pull_request_flow?
@@ -16,19 +16,19 @@ module Parsers
     end
 
     def parse!
-      @base = pull_request.dig(:base, :ref)
-      @description = pull_request[:body]
-      @draft = pull_request[:draft]
-      @source_control_id = pull_request[:number]
-      @head = pull_request.dig(:head, :ref)
-      @merged_at = pull_request[:merged_at]
-      @owner = pull_request.dig(:head, :repo, :owner, :login)
+      @base = pull_request&.dig(:base, :ref)
+      @description = pull_request&.dig(:body)
+      @draft = pull_request&.dig(:draft)
+      @source_control_id = pull_request&.dig(:number)
+      @head = pull_request&.dig(:head, :ref)
+      @merged_at = pull_request&.dig(:merged_at)
+      @owner = @json.dig(:organization, :login)
       @repository_name = @json.dig(:repository, :name)
       @review = OpenStruct.new @json[:review]
       @review_username = review&.dig(:user, :login)
-      @state = pull_request[:state]
-      @title = pull_request[:title]
-      @username = pull_request.dig(:user, :login).downcase
+      @state = pull_request&.dig(:state)
+      @title = pull_request&.dig(:title)
+      @username = @json.dig(:sender, :login).downcase
       @action = @json[:action]
     end
 
@@ -44,6 +44,10 @@ module Parsers
 
     def pull_request
       @json[:pull_request]
+    end
+
+    def checkrun
+      @json[:check_run]
     end
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class CheckRunFlow < BaseFlow
+  class CheckRunFlow < BaseGithubFlow
     def execute
       branch = Branch.where(name: branch_name, repository: repository).first_or_create!(pull_request: pull_request)
       CheckRun.create(commit_sha: commit_sha, state: state, branch: branch)
@@ -29,10 +29,6 @@ module Flows
     end
 
     private
-
-    def repository
-      @repository ||= Repository.where(name: @params.dig(:repository, :name)).last
-    end
 
     def pull_request
       @pull_request ||= PullRequest.where(repository: repository, head: branch_name, state: 'open').last
@@ -63,10 +59,6 @@ module Flows
                  'failure' => 'rotating_light' }
 
       reacts[state] || 'hourglass'
-    end
-
-    def channel
-      @channel ||= repository.slack_repository_info.dev_channel
     end
   end
 end

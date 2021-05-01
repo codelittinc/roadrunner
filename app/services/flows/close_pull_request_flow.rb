@@ -82,6 +82,10 @@ module Flows
       end
     end
 
+    def channel
+      @channel ||= repository.slack_repository_info.dev_channel
+    end
+
     def jira_notification_block(jira_code)
       [
         {
