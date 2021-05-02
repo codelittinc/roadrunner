@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class NewReviewSubmissionFlow < BaseFlow
+  class NewReviewSubmissionFlow < BaseGithubFlow
     def execute
       if pull_request_review
         pull_request_review.update(state: parser.review_state)
@@ -30,11 +30,6 @@ module Flows
       @pull_request_review ||= PullRequestReview.find_by(pull_request: pull_request, username: parser.review_username)
     end
 
-    def repository
-      # @TODO: add owner verification
-      @repository ||= Repository.find_by(name: parser.repository_name)
-    end
-
     def action
       @action ||= @params[:action]
     end
@@ -47,10 +42,6 @@ module Flows
       @github_pull_request ||= Clients::Github::PullRequest.new.get(repository.full_name, pull_request.source_control_id)
     end
 
-    def channel
-      @channel ||= repository.slack_repository_info.dev_channel
-    end
-
     def send_message
       slack_ts = slack_message.ts
       if parser.review_state == PullRequestReview::REVIEW_STATE_CHANGES_REQUESTED
@@ -59,7 +50,7 @@ module Flows
       elsif parser.review_body != ''
         message = Messages::PullRequestBuilder.notify_new_message
         Clients::Slack::ChannelMessage.new.send(message, channel, slack_ts)
-      elsif !github_pull_request[:mergeable] && github_pull_request[:mergeable_state] == 'dirty'
+      elsif !github_pull_request[:mergeable] && github_pull_request[:mergeable_state] == 'dirty' && pull_request.user.slack
         message = Messages::PullRequestBuilder.notify_pr_conflicts(pull_request)
         Clients::Slack::DirectMessage.new.send(message, pull_request.user.slack)
       end

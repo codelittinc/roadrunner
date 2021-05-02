@@ -12,7 +12,7 @@ module Parsers
     end
 
     def new_pull_request_flow?
-      action == 'opened' || action == 'ready_for_review'
+      action == 'opened' || action == 'ready_for_review' || 'submitted'
     end
 
     def parse!
