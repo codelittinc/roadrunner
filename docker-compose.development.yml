@@ -3,6 +3,8 @@ services:
   db:
     image: postgres
     container_name: roadrunner-project-db
+    volumes:
+      - .:/share
     env_file:
       - .env
     ports:
