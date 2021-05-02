@@ -6,16 +6,16 @@ module Flows
       user.save unless user.persisted?
 
       response = Clients::Slack::ChannelMessage.new.send(new_pull_request_message, channel)
-      slack_message = SlackMessage.new(ts: response['ts'], pull_request: pull_request)
+      slack_message = SlackMessage.new(ts: response['ts'], pull_request: current_pull_request)
       slack_message.save!
 
       Clients::Slack::Reactji.new.send(reaction, channel, slack_message.ts) if branch
 
-      pull_request&.update(ci_state: checkrun_state)
+      current_pull_request&.update(ci_state: checkrun_state)
     end
 
     def can_execute?
-      return if pull_request_exists?
+      return unless pull_request.nil?
 
       return unless parser.new_pull_request_flow?
 
@@ -28,8 +28,8 @@ module Flows
       @user ||= parser.user_by_source_control
     end
 
-    def pull_request
-      return @pull_request if @pull_request
+    def current_pull_request
+      return @current_pull_request if @current_pull_request
 
       pr = PullRequest.new(
         head: parser.head,
@@ -43,23 +43,22 @@ module Flows
       pr.source = parser.build_source(pr)
       pr.save!
 
-      @pull_request = pr
+      @current_pull_request = pr
     end
 
     def new_pull_request_message
-      Messages::PullRequestBuilder.new_pull_request_message(pull_request)
+      Messages::PullRequestBuilder.new_pull_request_message(current_pull_request)
     end
 
     def branch
       return @branch if @branch
 
-      @branch = Branch.where(name: pull_request.head, repository: repository).first_or_create
-      @branch.update(pull_request: pull_request)
+      @branch = Branch.where(name: current_pull_request.head, repository: repository).first_or_create
+      @branch.update(pull_request: current_pull_request)
       @branch
     end
 
     def checkrun
-      # @TODO: specify the pull request
       @checkrun ||= CheckRun.where(branch: branch).last
     end
 

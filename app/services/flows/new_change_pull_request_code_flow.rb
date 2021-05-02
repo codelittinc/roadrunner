@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class NewChangePullRequestCodeFlow < BaseFlow
+  class NewChangePullRequestCodeFlow < BaseGithubFlow
     def execute
       PullRequestChange.create!(pull_request: pull_request)
 
@@ -20,25 +20,6 @@ module Flows
       reserved_branch = %w[master development develop qa].include? parser.head
 
       action == 'synchronize' && !reserved_branch && pull_request&.open?
-    end
-
-    private
-
-    def action
-      @params[:action]
-    end
-
-    def pull_request
-      @pull_request ||= PullRequest.by_repository_and_source_control_id(repository, parser.source_control_id)
-    end
-
-    def repository
-      # @TODO: add owner verification
-      @repository ||= Repository.find_by(name: parser.repository_name)
-    end
-
-    def channel
-      @channel ||= repository.slack_repository_info.dev_channel
     end
   end
 end
