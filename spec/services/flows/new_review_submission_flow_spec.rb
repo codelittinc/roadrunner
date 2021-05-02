@@ -112,6 +112,24 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
       end
     end
 
+    it 'does not send a message if the user does not have a slack username' do
+      VCR.use_cassette('flows#new-review-submission-request#new-review-send-direct-message', record: :new_episodes) do
+        user = FactoryBot.create(:user, slack: nil)
+        repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
+        slack_message = FactoryBot.create(:slack_message, ts: '123')
+        FactoryBot.create(:pull_request, source_control_id: 180, slack_message: slack_message, user: user, repository: repository, head: 'kaiomagalhaes-patch-121')
+        valid_json_direct_message = valid_json.deep_dup
+        valid_json_direct_message[:review][:state] = 'test'
+        valid_json_direct_message[:review][:body] = ''
+
+        flow = described_class.new(valid_json_direct_message)
+
+        expect_any_instance_of(Clients::Slack::DirectMessage).to_not receive(:send)
+
+        flow.run
+      end
+    end
+
     it 'sends the correct channel message when there are changes requested' do
       VCR.use_cassette('flows#new-review-submission-request#new-review-send-channel-message', record: :new_episodes) do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
