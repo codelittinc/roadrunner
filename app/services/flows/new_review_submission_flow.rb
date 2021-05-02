@@ -22,16 +22,8 @@ module Flows
 
     private
 
-    def pull_request
-      @pull_request ||= PullRequest.by_repository_and_source_control_id(repository, parser.source_control_id)
-    end
-
     def pull_request_review
       @pull_request_review ||= PullRequestReview.find_by(pull_request: pull_request, username: parser.review_username)
-    end
-
-    def action
-      @action ||= @params[:action]
     end
 
     def slack_message

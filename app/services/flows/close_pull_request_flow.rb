@@ -44,19 +44,10 @@ module Flows
     end
 
     def send_close_pull_request_notification!
-      slack_username = pull_request.user.slack
       return unless slack_username
 
       message = Messages::PullRequestBuilder.close_pull_request_notification(pull_request)
       Clients::Slack::DirectMessage.new.send(message, slack_username)
-    end
-
-    def action
-      @params[:action]
-    end
-
-    def pull_request
-      @pull_request ||= PullRequest.by_repository_and_source_control_id(repository, parser.source_control_id)
     end
 
     def update_pull_request_state!

@@ -12,13 +12,13 @@ module Parsers
     end
 
     def new_pull_request_flow?
-      action == 'opened' || action == 'ready_for_review' || 'submitted'
+      action == 'opened' || action == 'ready_for_review'
     end
 
     def parse!
       parse_pull_request! if pull_request
 
-      @owner = @json.dig(:organization, :login)
+      @owner = @json.dig(:organization, :login) || @json.dig(:pull_request, :head, :repo, :owner, :login)
       @repository_name = @json.dig(:repository, :name)
       @username = @json.dig(:sender, :login).downcase
       @review = OpenStruct.new @json[:review]

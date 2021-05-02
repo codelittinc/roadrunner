@@ -10,10 +10,10 @@ module Flows
 
       if state == CheckRun::FAILURE_STATE
         notify_ci_failure_message = Messages::PullRequestBuilder.notify_ci_failure(pull_request)
-        if pull_request.user.slack
+        if slack_username
           Clients::Slack::DirectMessage.new.send(
             notify_ci_failure_message,
-            pull_request.user.slack
+            slack_username
           )
         end
       end
@@ -33,7 +33,7 @@ module Flows
     private
 
     def pull_request
-      @pull_request ||= PullRequest.where(repository: repository, head: branch_name, state: 'open').last
+      @pull_request ||= PullRequest.find_by(repository: repository, head: branch_name, state: 'open')
     end
 
     def message
