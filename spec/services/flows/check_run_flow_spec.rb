@@ -133,6 +133,23 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       flow.run
     end
 
+    it 'does not send a failure dm if check run state eqls failure but the user does not have a slack username' do
+      repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
+      slack_message = FactoryBot.create(:slack_message, ts: '123')
+      user = FactoryBot.create(:user, slack: nil)
+      pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
+      FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
+      branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository: repository, pull_request: pull_request)
+      FactoryBot.create(:check_run, state: 'failure', branch: branch)
+
+      flow = described_class.new(valid_json)
+
+      expect_any_instance_of(Clients::Slack::DirectMessage).to_not receive(:send)
+      expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light', 'feed-test-automations', '123')
+
+      flow.run
+    end
+
     it 'sends success reaction if check run state eqls success' do
       repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
       slack_message = FactoryBot.create(:slack_message, ts: '123')
