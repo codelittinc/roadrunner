@@ -49,11 +49,9 @@ class PullRequest < ApplicationRecord
   delegate :source_control_id, to: :source
 
   def self.by_repository_and_source_control_id(repository, source_control_id)
-    # @TODO: refactor this to use a proper query
-    PullRequest.all.find do |pr|
-      pr.repository.id == repository.id &&
-        pr.source.source_control_id.to_i == source_control_id
-    end
+    [GithubPullRequest, AzurePullRequest].lazy.map do |clazz|
+      clazz.joins(:pull_request).find_by(source_control_id: source_control_id, pull_request: {repository_id: repository.id})
+    end.find(&:itself)&.pull_request
   end
 
   state_machine :state, initial: :open do
