@@ -38,7 +38,7 @@ class FlowExecutor
 
   def files
     @files ||= Dir['./app/services/flows/*'].reject do |file|
-      file.include?('base_flow')
+      file.include?('base')
     end
   end
 
