@@ -13,14 +13,13 @@ module Flows
 
       Clients::Slack::ChannelMessage.new.update(close_pull_request_message, channel, message_ts)
 
-      Clients::Github::Branch.new.delete(repository.full_name, pull_request.head)
+      parser.destroy_branch!(pull_request)
 
       pull_request_description = parser.description
       pull_request.update(description: pull_request_description)
 
       if pull_request.merged?
         react_to_merge_pull_request!
-        send_jira_notifications!(pull_request_description)
         send_close_pull_request_notification!
       else
         react_to_cancel_pull_request!
@@ -56,45 +55,6 @@ module Flows
       else
         pull_request.cancel!
       end
-    end
-
-    def send_jira_notifications!(pull_request_description)
-      jira_mentions = pull_request_description.scan(JIRA_CARD_REGEX)
-      jira_mentions.each do |link|
-        jira_code = link.scan(/[a-zA-Z]+-\d+$/).first
-        Clients::Slack::DirectMessage.new.send_ephemeral(
-          jira_notification_block(jira_code),
-          pull_request.user.slack
-        )
-      end
-    end
-
-    def jira_notification_block(jira_code)
-      [
-        {
-          type: 'section',
-          text: {
-            type: 'mrkdwn',
-            text: ":jira: the card *#{jira_code}* was found on the PR *#{repository.name}*-*#{pull_request.source_control_id}*, do you like to move it to *Ready for QA*?"
-          }
-        },
-        {
-          type: 'actions',
-          block_id: 'actionblock789',
-          elements: [
-            {
-              type: 'button',
-              text: {
-                type: 'plain_text',
-                text: 'Yes, please!'
-              },
-              style: 'primary',
-              value: 'yes',
-              action_id: "jira-status-update-#{jira_code}"
-            }
-          ]
-        }
-      ]
     end
   end
 end
