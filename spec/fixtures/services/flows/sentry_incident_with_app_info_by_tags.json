@@ -1,0 +1,456 @@
+{
+  "id": "2371765146",
+  "project": "avant",
+  "project_name": "avant",
+  "project_slug": "avant",
+  "logger": null,
+  "level": "error",
+  "culprit": "Explore.PropertyExploreNew._propertyCardHtml(spaces/assets/app)",
+  "message": "",
+  "url": "https://sentry.io/organizations/avison-young/issues/2371765146/?referrer=webhooks_plugin",
+  "triggering_rules": [
+    "Roadrunner",
+    "Roadrunner"
+  ],
+  "event": {
+    "event_id": "207cad8681564e41b6c59cde20abcaab",
+    "level": "error",
+    "version": "7",
+    "type": "error",
+    "fingerprint": [
+      "{{ default }}"
+    ],
+    "culprit": "Explore.PropertyExploreNew._propertyCardHtml(spaces/assets/app)",
+    "logger": "",
+    "platform": "javascript",
+    "timestamp": 1619729271.359,
+    "received": 1619729271.390997,
+    "environment": "LOCAL",
+    "user": {
+      "email": "Ivan.Trograncic@avisonyoung.com",
+      "ip_address": "24.12.137.114",
+      "geo": {
+        "country_code": "US",
+        "city": "Chicago",
+        "region": "United States"
+      }
+    },
+    "request": {
+      "url": "https://app.truss.localhost:3444/spaces/explore",
+      "headers": [
+        [
+          "Referer",
+          "https://app.truss.localhost:3444/spaces/explore"
+        ],
+        [
+          "User-Agent",
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
+        ]
+      ]
+    },
+    "contexts": {
+      "browser": {
+        "name": "Chrome",
+        "version": "90.0.4430",
+        "type": "browser"
+      },
+      "device": {
+        "family": "Mac",
+        "model": "Mac",
+        "brand": "Apple",
+        "type": "device"
+      },
+      "os": {
+        "name": "Mac OS X",
+        "version": "10.15.7",
+        "type": "os"
+      }
+    },
+    "breadcrumbs": {
+      "values": [
+        {
+          "timestamp": 1619729268.367,
+          "type": "default",
+          "category": "console",
+          "level": "info",
+          "message": "socket open",
+          "data": {
+            "arguments": [
+              "socket open"
+            ],
+            "logger": "console"
+          }
+        },
+        {
+          "timestamp": 1619729268.586,
+          "type": "default",
+          "category": "navigation",
+          "level": "info",
+          "data": {
+            "from": "/spaces/explore",
+            "to": "/spaces/explore"
+          }
+        },
+        {
+          "timestamp": 1619729269.178,
+          "type": "http",
+          "category": "fetch",
+          "level": "info",
+          "data": {
+            "method": "GET",
+            "status_code": 200,
+            "url": "[Filtered]"
+          }
+        },
+        {
+          "timestamp": 1619729269.282,
+          "type": "http",
+          "category": "fetch",
+          "level": "info",
+          "data": {
+            "method": "GET",
+            "status_code": 200,
+            "url": "[Filtered]"
+          }
+        },
+        {
+          "timestamp": 1619729269.301,
+          "type": "http",
+          "category": "fetch",
+          "level": "info",
+          "data": {
+            "method": "GET",
+            "status_code": 200,
+            "url": "[Filtered]"
+          }
+        },
+        {
+          "timestamp": 1619729269.31,
+          "type": "http",
+          "category": "fetch",
+          "level": "info",
+          "data": {
+            "method": "GET",
+            "status_code": 200,
+            "url": "[Filtered]"
+          }
+        },
+        {
+          "timestamp": 1619729269.515,
+          "type": "http",
+          "category": "fetch",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 204,
+            "url": "[Filtered]"
+          }
+        },
+        {
+          "timestamp": 1619729269.941,
+          "type": "http",
+          "category": "fetch",
+          "level": "info",
+          "data": {
+            "method": "GET",
+            "status_code": 200,
+            "url": "[Filtered]"
+          }
+        },
+        {
+          "timestamp": 1619729269.943,
+          "type": "http",
+          "category": "fetch",
+          "level": "info",
+          "data": {
+            "method": "GET",
+            "status_code": 200,
+            "url": "[Filtered]"
+          }
+        }
+      ]
+    },
+    "exception": {
+      "values": [
+        {
+          "type": "TypeError",
+          "value": "Cannot read property 'fullName' of undefined",
+          "stacktrace": {
+            "frames": [
+              {
+                "function": "VirtualLayout._onAnimationFrame",
+                "module": "spaces/assets/app",
+                "filename": "/spaces/assets/app.js",
+                "abs_path": "https://app.truss.localhost:3444/spaces/assets/app.js?v=e8b3df6e21c552bb4b92c4ca3f66f237",
+                "lineno": 1,
+                "colno": 309223,
+                "in_app": true
+              },
+              {
+                "function": "VirtualLayout._renderElements",
+                "module": "spaces/assets/app",
+                "filename": "/spaces/assets/app.js",
+                "abs_path": "https://app.truss.localhost:3444/spaces/assets/app.js?v=e8b3df6e21c552bb4b92c4ca3f66f237",
+                "lineno": 1,
+                "colno": 312500,
+                "in_app": true
+              },
+              {
+                "function": "FastGrid._onVirtualLayoutItemRender",
+                "module": "spaces/assets/app",
+                "filename": "/spaces/assets/app.js",
+                "abs_path": "https://app.truss.localhost:3444/spaces/assets/app.js?v=e8b3df6e21c552bb4b92c4ca3f66f237",
+                "lineno": 1,
+                "colno": 2743427,
+                "in_app": true
+              },
+              {
+                "function": "Explore.PropertyExploreNew._propertyCardHtml",
+                "module": "spaces/assets/app",
+                "filename": "/spaces/assets/app.js",
+                "abs_path": "https://app.truss.localhost:3444/spaces/assets/app.js?v=e8b3df6e21c552bb4b92c4ca3f66f237",
+                "lineno": 1,
+                "colno": 2948114,
+                "in_app": true
+              }
+            ]
+          },
+          "mechanism": {
+            "type": "instrument",
+            "handled": true,
+            "data": {
+              "function": "requestAnimationFrame",
+              "handler": "requestAnimationFrame"
+            }
+          }
+        }
+      ]
+    },
+    "tags": [
+      [
+        "app",
+        "appraisal-api-qa.azurewebsites.net"
+      ],
+      [
+        "browser",
+        "Chrome 90.0.4430"
+      ],
+      [
+        "browser.name",
+        "Chrome"
+      ],
+      [
+        "device",
+        "Mac"
+      ],
+      [
+        "device.family",
+        "Mac"
+      ],
+      [
+        "environment",
+        "LOCAL"
+      ],
+      [
+        "handled",
+        "yes"
+      ],
+      [
+        "level",
+        "error"
+      ],
+      [
+        "mechanism",
+        "instrument"
+      ],
+      [
+        "os",
+        "Mac OS X 10.15.7"
+      ],
+      [
+        "os.name",
+        "Mac OS X"
+      ],
+      [
+        "sentry:user",
+        "email:Ivan.Trograncic@avisonyoung.com"
+      ],
+      [
+        "url",
+        "https://app.truss.localhost:3444/spaces/explore"
+      ]
+    ],
+    "extra": {
+      "arguments": [
+        3313.357
+      ]
+    },
+    "sdk": {
+      "name": "sentry.javascript.browser",
+      "version": "6.3.0",
+      "packages": [
+        {
+          "name": "npm:@sentry/browser",
+          "version": "6.3.0"
+        }
+      ]
+    },
+    "errors": [
+      {
+        "type": "fetch_generic_error",
+        "value": "\u003cclass 'requests.exceptions.ConnectionError'\u003e",
+        "url": "https://app.truss.localhost:3444/spaces/assets/app.js?v=e8b3df6e21c552bb4b92c4ca3f66f237"
+      }
+    ],
+    "key_id": "1558627",
+    "project": 5691309,
+    "grouping_config": {
+      "enhancements": "eJybzDRxY3J-bm5-npWRgaGlroGxrpHxBABcYgcZ",
+      "id": "newstyle:2019-10-29"
+    },
+    "_metrics": {
+      "bytes.ingested.event": 3388,
+      "bytes.stored.event": 6674,
+      "flag.processing.error": true
+    },
+    "_ref": 5691309,
+    "_ref_version": 2,
+    "hashes": [
+      "217df3e8c4f921b7865b9ccbe604a7c0"
+    ],
+    "location": "/spaces/assets/app.js",
+    "metadata": {
+      "filename": "/spaces/assets/app.js",
+      "function": "Explore.PropertyExploreNew._propertyCardHtml",
+      "type": "TypeError",
+      "value": "Cannot read property 'fullName' of undefined"
+    },
+    "title": "TypeError: Cannot read property 'fullName' of undefined",
+    "_meta": {
+      "breadcrumbs": {
+        "values": {
+          "2": {
+            "data": {
+              "url": {
+                "": {
+                  "rem": [
+                    [
+                      "@password:filter",
+                      "s",
+                      0,
+                      10
+                    ]
+                  ],
+                  "len": 152
+                }
+              }
+            }
+          },
+          "3": {
+            "data": {
+              "url": {
+                "": {
+                  "rem": [
+                    [
+                      "@password:filter",
+                      "s",
+                      0,
+                      10
+                    ]
+                  ],
+                  "len": 191
+                }
+              }
+            }
+          },
+          "4": {
+            "data": {
+              "url": {
+                "": {
+                  "rem": [
+                    [
+                      "@password:filter",
+                      "s",
+                      0,
+                      10
+                    ]
+                  ],
+                  "len": 167
+                }
+              }
+            }
+          },
+          "5": {
+            "data": {
+              "url": {
+                "": {
+                  "rem": [
+                    [
+                      "@password:filter",
+                      "s",
+                      0,
+                      10
+                    ]
+                  ],
+                  "len": 166
+                }
+              }
+            }
+          },
+          "6": {
+            "data": {
+              "url": {
+                "": {
+                  "rem": [
+                    [
+                      "@password:filter",
+                      "s",
+                      0,
+                      10
+                    ]
+                  ],
+                  "len": 139
+                }
+              }
+            }
+          },
+          "7": {
+            "data": {
+              "url": {
+                "": {
+                  "rem": [
+                    [
+                      "@password:filter",
+                      "s",
+                      0,
+                      10
+                    ]
+                  ],
+                  "len": 210
+                }
+              }
+            }
+          },
+          "8": {
+            "data": {
+              "url": {
+                "": {
+                  "rem": [
+                    [
+                      "@password:filter",
+                      "s",
+                      0,
+                      10
+                    ]
+                  ],
+                  "len": 209
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "id": "207cad8681564e41b6c59cde20abcaab"
+  }
+}

@@ -12,11 +12,12 @@ module Parsers
     end
 
     def parse!
-      @project_name = @json[:project_name]
       @event = OpenStruct.new @json[:event]
       _, @type = @event.tags.find { |name, _value| name == 'type' }
       @issue_id = @json[:id]
       @custom_message = @event.dig(:extra, :customMessage)
+      @app_name = @event.tags.find { |name, _value| name == 'app' }
+      @project_name = @app_name || @json[:project_name]
     end
   end
 end

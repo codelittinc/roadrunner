@@ -1,143 +1,196 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+# @TODO: move this to a higher level and use it in all tests
+def load_fixture(*args)
+  JSON.parse(File.read(File.join(['spec', 'fixtures', 'services', args].flatten))).with_indifferent_access
+end
 
 RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
-  let(:valid_incident) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'sentry_incident.json'))).with_indifferent_access
-  end
+  let(:valid_incident) { load_fixture('flows', 'sentry_incident.json') }
+  let(:valid_incident_with_app_info_by_tags) { load_fixture('flows', 'sentry_incident_with_app_info_by_tags.json') }
+  let(:valid_incident_with_error_caught) { load_fixture('flows', 'sentry_incident_with_error_caught_tag.json') }
+  let(:valid_incident_with_custom_message) { load_fixture('flows', 'sentry_incident_with_custom_message.json') }
+  let(:invalid_incident) { load_fixture('flows', 'graylogs_incident_big_message.json') }
 
-  let(:valid_incident_with_error_caught) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'sentry_incident_with_error_caught_tag.json'))).with_indifferent_access
-  end
+  context 'normal flow' do
+    describe '#flow?' do
+      context 'returns true' do
+        it 'with a valid json' do
+          FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
+          flow = described_class.new(valid_incident)
+          expect(flow.flow?).to be_truthy
+        end
 
-  let(:valid_incident_with_custom_message) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'sentry_incident_with_custom_message.json'))).with_indifferent_access
-  end
-
-  let(:invalid_incident) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'graylogs_incident_big_message.json'))).with_indifferent_access
-  end
-
-  describe '#flow?' do
-    context 'returns true' do
-      it 'with a valid json' do
-        FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
-        flow = described_class.new(valid_incident)
-        expect(flow.flow?).to be_truthy
+        it 'when there is a server with an external_identifier with the same project_name' do
+          FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
+          flow = described_class.new(valid_incident)
+          expect(flow.flow?).to be_truthy
+        end
       end
 
-      it 'when there is a server with an external_identifier with the same project_name' do
-        FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
-        flow = described_class.new(valid_incident)
-        expect(flow.flow?).to be_truthy
-      end
-    end
+      context 'returns false' do
+        it 'with a invalid json' do
+          FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
+          flow = described_class.new(invalid_incident)
+          expect(flow.flow?).to be_falsey
+        end
 
-    context 'returns false' do
-      it 'with a invalid json' do
-        FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
-        flow = described_class.new(invalid_incident)
-        expect(flow.flow?).to be_falsey
-      end
-
-      it 'when there no server with an external identifier with the same project_name' do
-        flow = described_class.new(valid_incident)
-        expect(flow.flow?).to be_falsey
-      end
-    end
-  end
-
-  describe '#run' do
-    it 'calls the ApplicationIncidentService with the right params' do
-      application = FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
-
-      flow = described_class.new(valid_incident)
-      expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
-        application,
-        "\n *_Error: This shouldn't happen!_*\n *Type*: Uncaught Exception\n *File Name*: /static/js/27.chunk.js\n *Function*: onClickSuggestion\n"\
-        " *User*: \n>Id - 9\n>Email - victor.carvalho@codelitt.com\n *Browser*: Chrome\n\n "\
-        '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/1851228751/events/6e54db70e36142d4b300b3389f4ff238/?project=5388450|See issue in Sentry.io>',
-        nil,
-        'sentry'
-      )
-
-      flow.run
-    end
-
-    it 'update server incident and create server incident instance' do
-      application = FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
-      slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: "\n *_Error: This shouldn't happen!_*\n *Type*: Uncaught Exception\n *File Name*: /static/js/27.chunk.js\n"\
-        " *Function*: onClickSuggestion\n *User*: \n>Id - 9"\
-              "\n>Email - victor.carvalho@codelitt.com\n *Browser*: Chrome\n\n *Link*: <https://sentry.io/organizations/codelitt-7y/issues/1851228751/events/6e54db70e36142d4b300b3389f4ff238/?project=5388450|See issue "\
-              'in Sentry.io>')
-
-      FactoryBot.create(:server_incident, application: application, message: slack_message.text, slack_message: slack_message)
-
-      flow = described_class.new(valid_incident)
-
-      expect { flow.run }.to change { ServerIncidentInstance.count }.by(1)
-    end
-
-    context 'when there is a ignore type for the incident' do
-      it 'it does not create a server incident ' do
-        FactoryBot.create(:application, :with_server, external_identifier: 'roadrunner.codelitt.dev')
-        FactoryBot.create(:server_incident_type, name: 'Php File', regex_identifier: '.php.*')
-        invalid_json = valid_incident.deep_dup
-
-        invalid_json[:event][:title] = 'ActionController::RoutingError (No route matches [GET] "/wp-content/plugins/wp-file-manager/lib/files/badmin1.php"):'
-
-        flow = described_class.new(invalid_json)
-        expect { flow.run }.to change { ServerIncident.count }.by(0)
+        it 'when there no server with an external identifier with the same project_name' do
+          flow = described_class.new(valid_incident)
+          expect(flow.flow?).to be_falsey
+        end
       end
     end
 
-    context 'when it is a dev server incident' do
-      it 'it does not send server incident notification to slack' do
-        FactoryBot.create(:application, external_identifier: 'pia-web-qa', environment: 'dev')
+    describe '#run' do
+      it 'calls the ApplicationIncidentService with the right params' do
+        application = FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
 
         flow = described_class.new(valid_incident)
-
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to_not receive(:send)
-
-        expect { flow.run }.to change { ServerIncident.count }.by(1)
-      end
-    end
-
-    context 'when there is an "error caught" tag' do
-      it 'it adds to the message error that it was caught by the browser' do
-        application = FactoryBot.create(:application, external_identifier: 'pia-web-qa')
-
-        flow = described_class.new(valid_incident_with_error_caught)
         expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
           application,
-          "\n *_Error: File timeout abstracting_*\n *Type*: Caught Exception\n *File Name*: services/ErrorsMonitor.ts\n"\
-          " *Function*: callback\n *User*: \n>Id - 38\n>Email - carl.caputo@avisonyoung.com\n *Browser*: Chrome\n\n "\
-          '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/2052407554/events/25693e1886a940e7801439205bb5337f/?project=5388450|See issue in Sentry.io>',
+          "\n *_Error: This shouldn't happen!_*\n *Type*: Uncaught Exception\n *File Name*: /static/js/27.chunk.js\n *Function*: onClickSuggestion\n"\
+          " *User*: \n>Id - 9\n>Email - victor.carvalho@codelitt.com\n *Browser*: Chrome\n\n "\
+          '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/1851228751/events/6e54db70e36142d4b300b3389f4ff238/?project=5388450|See issue in Sentry.io>',
           nil,
           'sentry'
         )
 
         flow.run
       end
+
+      it 'update server incident and create server incident instance' do
+        application = FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
+        slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: "\n *_Error: This shouldn't happen!_*\n *Type*: Uncaught Exception\n *File Name*: /static/js/27.chunk.js\n"\
+          " *Function*: onClickSuggestion\n *User*: \n>Id - 9"\
+                "\n>Email - victor.carvalho@codelitt.com\n *Browser*: Chrome\n\n *Link*: <https://sentry.io/organizations/codelitt-7y/issues/1851228751/events/6e54db70e36142d4b300b3389f4ff238/?project=5388450|See issue "\
+                'in Sentry.io>')
+
+        FactoryBot.create(:server_incident, application: application, message: slack_message.text, slack_message: slack_message)
+
+        flow = described_class.new(valid_incident)
+
+        expect { flow.run }.to change { ServerIncidentInstance.count }.by(1)
+      end
+
+      context 'when there is a ignore type for the incident' do
+        it 'it does not create a server incident ' do
+          FactoryBot.create(:application, :with_server, external_identifier: 'roadrunner.codelitt.dev')
+          FactoryBot.create(:server_incident_type, name: 'Php File', regex_identifier: '.php.*')
+          invalid_json = valid_incident.deep_dup
+
+          invalid_json[:event][:title] = 'ActionController::RoutingError (No route matches [GET] "/wp-content/plugins/wp-file-manager/lib/files/badmin1.php"):'
+
+          flow = described_class.new(invalid_json)
+          expect { flow.run }.to change { ServerIncident.count }.by(0)
+        end
+      end
+
+      context 'when it is a dev server incident' do
+        it 'it does not send server incident notification to slack' do
+          FactoryBot.create(:application, external_identifier: 'pia-web-qa', environment: 'dev')
+
+          flow = described_class.new(valid_incident)
+
+          expect_any_instance_of(Clients::Slack::ChannelMessage).to_not receive(:send)
+
+          expect { flow.run }.to change { ServerIncident.count }.by(1)
+        end
+      end
+
+      context 'when there is an "error caught" tag' do
+        it 'it adds to the message error that it was caught by the browser' do
+          application = FactoryBot.create(:application, external_identifier: 'pia-web-qa')
+
+          flow = described_class.new(valid_incident_with_error_caught)
+          expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
+            application,
+            "\n *_Error: File timeout abstracting_*\n *Type*: Caught Exception\n *File Name*: services/ErrorsMonitor.ts\n"\
+            " *Function*: callback\n *User*: \n>Id - 38\n>Email - carl.caputo@avisonyoung.com\n *Browser*: Chrome\n\n "\
+            '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/2052407554/events/25693e1886a940e7801439205bb5337f/?project=5388450|See issue in Sentry.io>',
+            nil,
+            'sentry'
+          )
+
+          flow.run
+        end
+      end
+
+      context 'when there is a "custom message" extra' do
+        it 'adds the content to the message' do
+          application = FactoryBot.create(:application, external_identifier: 'pia-web-qa')
+
+          flow = described_class.new(valid_incident_with_custom_message)
+          expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
+            application,
+            "\n *_Error: failed to create company \"Avison Young\" (compareName: \"avison young\"). company already exists (ID..._*\n *Type*: Caught Exception\n *Displayed message*: [undefined]\n"\
+            " *File Name*: services/ErrorLogger.ts\n"\
+            " *Function*: callback\n *User*: \n>Id - \n>Email - \n *Browser*: Chrome\n\n "\
+            '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/2067016219/events/b10521c963414374a4e786d9ab468ade/?project=5388450|See issue in Sentry.io>',
+            nil,
+            'sentry'
+          )
+
+          flow.run
+        end
+      end
+    end
+  end
+
+  context 'by tags flow' do
+    describe '#flow?' do
+      context 'returns true' do
+        it 'with a valid json' do
+          FactoryBot.create(:application, :with_server, external_identifier: 'appraisal-api-qa.azurewebsites.net')
+          flow = described_class.new(valid_incident_with_app_info_by_tags)
+          expect(flow.flow?).to be_truthy
+        end
+
+        it 'when there is a server with an external_identifier with the same project_name' do
+          FactoryBot.create(:application, :with_server, external_identifier: 'appraisal-api-qa.azurewebsites.net')
+          flow = described_class.new(valid_incident_with_app_info_by_tags)
+          expect(flow.flow?).to be_truthy
+        end
+      end
     end
 
-    context 'when there is a "custom message" extra' do
-      it 'adds the content to the message' do
-        application = FactoryBot.create(:application, external_identifier: 'pia-web-qa')
+    describe '#run' do
+      it 'calls the ApplicationIncidentService with the right params' do
+        application = FactoryBot.create(:application, :with_server, external_identifier: 'appraisal-api-qa.azurewebsites.net')
 
-        flow = described_class.new(valid_incident_with_custom_message)
+        flow = described_class.new(valid_incident_with_app_info_by_tags)
+        expected_message = "\n *_TypeError: Cannot read property 'fullName' of undefined_*\n *Type*: Uncaught"\
+        " Exception\n *File Name*: /spaces/assets/app.js\n *Function*: Explore.PropertyExploreNew._propertyCardHtml\n"\
+        " *User*: \n>Id - \n>Email - Ivan.Trograncic@avisonyoung.com\n *Browser*: Chrome\n\n *Link*: <https://sentry.io/"\
+        'organizations/codelitt-7y/issues/2371765146/events/207cad8681564e41b6c59cde20abcaab/?project=5691309|See issue in Sentry.io>'
+
         expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
           application,
-          "\n *_Error: failed to create company \"Avison Young\" (compareName: \"avison young\"). company already exists (ID..._*\n *Type*: Caught Exception\n *Displayed message*: [undefined]\n"\
-          " *File Name*: services/ErrorLogger.ts\n"\
-          " *Function*: callback\n *User*: \n>Id - \n>Email - \n *Browser*: Chrome\n\n "\
-          '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/2067016219/events/b10521c963414374a4e786d9ab468ade/?project=5388450|See issue in Sentry.io>',
+          expected_message,
           nil,
           'sentry'
         )
 
         flow.run
+      end
+
+      it 'update server incident and create server incident instance' do
+        application = FactoryBot.create(:application, :with_server, external_identifier: 'appraisal-api-qa.azurewebsites.net')
+
+        message = "\n *_TypeError: Cannot read property 'fullName' of undefined_*\n *Type*: Uncaught Exception\n *File Name*:"\
+        " /spaces/assets/app.js\n *Function*: Explore.PropertyExploreNew._propertyCardHtml\n *User*: \n>Id - \n>Email - Ivan.T"\
+        "rograncic@avisonyoung.com\n *Browser*: Chrome\n\n *Link*: <https://sentry.io/organizations/codelitt-7y/issues/237176514"\
+        '6/events/207cad8681564e41b6c59cde20abcaab/?project=5691309|See issue in Sentry.io>'
+
+        slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400',
+                                                          text: message)
+
+        FactoryBot.create(:server_incident, application: application, message: slack_message.text, slack_message: slack_message)
+
+        flow = described_class.new(valid_incident_with_app_info_by_tags)
+
+        expect { flow.run }.to change { ServerIncidentInstance.count }.by(1)
       end
     end
   end
