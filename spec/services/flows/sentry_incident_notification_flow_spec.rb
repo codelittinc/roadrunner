@@ -1,17 +1,14 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-# @TODO: move this to a higher level and use it in all tests
-def load_fixture(*args)
-  JSON.parse(File.read(File.join(['spec', 'fixtures', 'services', args].flatten))).with_indifferent_access
-end
+require 'flows_helper'
 
 RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
-  let(:valid_incident) { load_fixture('flows', 'sentry_incident.json') }
-  let(:valid_incident_with_app_info_by_tags) { load_fixture('flows', 'sentry_incident_with_app_info_by_tags.json') }
-  let(:valid_incident_with_error_caught) { load_fixture('flows', 'sentry_incident_with_error_caught_tag.json') }
-  let(:valid_incident_with_custom_message) { load_fixture('flows', 'sentry_incident_with_custom_message.json') }
-  let(:invalid_incident) { load_fixture('flows', 'graylogs_incident_big_message.json') }
+  let(:valid_incident) { load_flow_fixture('sentry_incident.json') }
+  let(:valid_incident_with_app_info_by_tags) { load_flow_fixture('sentry_incident_with_app_info_by_tags.json') }
+  let(:valid_incident_with_error_caught) { load_flow_fixture('sentry_incident_with_error_caught_tag.json') }
+  let(:valid_incident_with_custom_message) { load_flow_fixture('sentry_incident_with_custom_message.json') }
+  let(:invalid_incident) { load_flow_fixture('graylogs_incident_big_message.json') }
 
   context 'normal flow' do
     describe '#flow?' do

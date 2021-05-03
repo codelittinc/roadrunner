@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require 'external_api_helper'
+require 'flows_helper'
 
 RSpec.describe Flows::ClosePullRequestFlow, type: :service do
   around do |example|
@@ -10,13 +11,8 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
     end
   end
 
-  let(:valid_json) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'github_close_pull_request.json'))).with_indifferent_access
-  end
-
-  let(:cancelled_json) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'github_cancel_pull_request.json'))).with_indifferent_access
-  end
+  let(:valid_json) {load_flow_fixture('github_close_pull_request.json')}
+  let(:cancelled_json) {load_flow_fixture('github_cancel_pull_request.json')}
 
   let(:repository) do
     FactoryBot.create(:repository, name: 'ay-properties-api')
@@ -112,6 +108,35 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
           flow.run
         end
       end
+
+    it 'creates a set of commits from the pull request in the database' do
+      VCR.use_cassette('flows#close-pull-request#create-commit') do
+        slack_message = FactoryBot.create(:slack_message, ts: '123')
+        FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message)
+
+        flow = described_class.new(valid_json)
+
+        expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+
+        expect { flow.run }.to change { Commit.count }.by(1)
+      end
+    end
+
+    it 'creates a set of commits from the pull request in the database with the right message' do
+      VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
+        slack_message = FactoryBot.create(:slack_message, ts: '123')
+        FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message)
+
+        expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+
+        flow = described_class.new(valid_json)
+        flow.run
+
+        expect(Commit.last.message).to eql('Add PoC for File Upload')
+      end
+    end
     end
 
     context 'the PR was cancelled' do
@@ -147,35 +172,6 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
 
           flow.run
         end
-      end
-    end
-
-    it 'creates a set of commits from the pull request in the database' do
-      VCR.use_cassette('flows#close-pull-request#create-commit') do
-        slack_message = FactoryBot.create(:slack_message, ts: '123')
-        FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message)
-
-        flow = described_class.new(valid_json)
-
-        expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
-
-        expect { flow.run }.to change { Commit.count }.by(1)
-      end
-    end
-
-    it 'creates a set of commits from the pull request in the database with the right message' do
-      VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
-        slack_message = FactoryBot.create(:slack_message, ts: '123')
-        FactoryBot.create(:pull_request, source_control_id: 13, repository: repository, slack_message: slack_message)
-
-        expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
-
-        flow = described_class.new(valid_json)
-        flow.run
-
-        expect(Commit.last.message).to eql('Add PoC for File Upload')
       end
     end
 
