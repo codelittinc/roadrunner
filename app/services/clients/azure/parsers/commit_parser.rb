@@ -7,7 +7,7 @@ module Clients
         attr_reader :sha, :author_name, :author_email, :message
 
         def initialize(json)
-          @json = json
+          @json = json.with_indifferent_access
           parse!
         end
 

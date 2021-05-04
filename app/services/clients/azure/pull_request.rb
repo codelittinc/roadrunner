@@ -9,7 +9,7 @@ module Clients
       end
 
       def list_commits(repository, source_control_id)
-        url = "#{azure_url}git/repositories/#{repository}/pullrequests/#{source_control_id}?api-version=6.0&includeCommits=true"
+        url = "#{azure_url}git/repositories/#{repository.name}/pullrequests/#{source_control_id}?api-version=6.0&includeCommits=true"
         response = Request.get(url, authorization)
         commits = response['commits']
         commits.map do |commit|

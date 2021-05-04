@@ -25,11 +25,11 @@ module Flows
         react_to_cancel_pull_request!
       end
 
-      CommitsCreator.new(repository, pull_request).create!
+      CommitsCreator.new(repository, pull_request, parser.source_control_pull_request).create!
     end
 
     def can_execute?
-      action == 'closed' && pull_request&.open?
+      parser.close_pull_request_flow? && pull_request&.open?
     end
 
     private
@@ -50,7 +50,7 @@ module Flows
     end
 
     def update_pull_request_state!
-      if parser.merged_at.present?
+      if parser.merged
         pull_request.merge!
       else
         pull_request.cancel!
