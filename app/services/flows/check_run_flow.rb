@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class CheckRunFlow < BaseGithubFlow
+  class CheckRunFlow < BaseSourceControlFlow
     def execute
       branch = Branch.where(name: branch_name, repository: repository).first_or_create!(pull_request: pull_request)
       CheckRun.create(commit_sha: commit_sha, state: state, branch: branch)

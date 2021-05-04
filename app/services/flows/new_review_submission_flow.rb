@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class NewReviewSubmissionFlow < BaseGithubFlow
+  class NewReviewSubmissionFlow < BaseSourceControlFlow
     def execute
       if pull_request_review
         pull_request_review.update(state: parser.review_state)
