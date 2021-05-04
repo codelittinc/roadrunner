@@ -5,7 +5,11 @@ require 'ostruct'
 module Parsers
   class GithubWebhookParser < BaseParser
     delegate :body, :state, to: :review, prefix: true, allow_nil: true
-    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged_at, :owner, :repository_name, :review, :review_username, :state, :title, :username, :action
+    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :review, :review_username, :state, :title, :username, :action
+
+    def source_control_pull_request
+      Clients::Github::PullRequest
+    end
 
     def can_parse?
       @json && (!!pull_request || !!checkrun)
@@ -13,6 +17,10 @@ module Parsers
 
     def new_pull_request_flow?
       action == 'opened' || action == 'ready_for_review'
+    end
+
+    def close_pull_request_flow?
+      action == 'closed'
     end
 
     def destroy_branch!(pull_request)
@@ -46,7 +54,7 @@ module Parsers
       @draft = pull_request&.dig(:draft)
       @source_control_id = pull_request&.dig(:number)
       @head = pull_request&.dig(:head, :ref)
-      @merged_at = pull_request&.dig(:merged_at)
+      @merged = !pull_request[:merged_at]&.empty?
       @state = pull_request&.dig(:state)
       @title = pull_request&.dig(:title)
     end

@@ -8,7 +8,7 @@ module Clients
       end
 
       def list_commits(repository, source_control_id)
-        commits = @client.pull_request_commits(repository, source_control_id)
+        commits = @client.pull_request_commits(repository.full_name, source_control_id)
         commits.map do |commit|
           Clients::Github::Parsers::CommitParser.new(commit)
         end

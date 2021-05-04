@@ -5,14 +5,22 @@ require 'ostruct'
 module Parsers
   class AzureWebhookSourceControlParser < BaseParser
     delegate :body, :state, to: :review, prefix: true, allow_nil: true
-    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged_at, :owner, :repository_name, :review, :review_username, :state, :title, :username, :event_type
+    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :review, :review_username, :state, :title, :username, :event_type
 
     def can_parse?
       @json[:publisherId] == 'tfs'
     end
 
+    def source_control_pull_request
+      Clients::Azure::PullRequest
+    end
+
     def new_pull_request_flow?
       event_type == 'git.pullrequest.created'
+    end
+
+    def close_pull_request_flow?
+      event_type == 'git.pullrequest.merged'
     end
 
     def parse!
@@ -26,8 +34,8 @@ module Parsers
       @repository_name = resource.dig(:repository, :name)
       @title = resource[:title]
       @username = resource.dig(:createdBy, :uniqueName)
+      @merged = resource[:mergeStatus] == 'succeeded'
       # @TODO: implement the fields below
-      # @merged_at = pull_request[:merged_at]
       # @review = OpenStruct.new @json[:review]
       # @review_username = review&.dig(:user, :login)
       # @state = pull_request[:state]

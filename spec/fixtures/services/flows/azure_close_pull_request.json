@@ -1,0 +1,140 @@
+{
+  "subscriptionId": "687eeb09-4543-4221-ad8b-74727e3fa9a1",
+  "notificationId": 1,
+  "id": "b773c5af-aa27-428c-b712-a1fc8de24db6",
+  "eventType": "git.pullrequest.merged",
+  "publisherId": "tfs",
+  "message": {
+    "text": "Merge attempted for pull request 35 (Added test) in ay-users-api-test\r\nhttps://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/",
+    "html": "Merge attempted for \u003ca href=\"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35\"\u003epull request 35\u003c/a\u003e (Added test) in \u003ca href=\"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/\"\u003eay-users-api-test\u003c/a\u003e",
+    "markdown": "Merge attempted for [pull request 35](https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35) (Added test) in [ay-users-api-test](https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/)"
+  },
+  "detailedMessage": {
+    "text": "Merge attempted for pull request 35 (Added test) in ay-users-api-test\r\nhttps://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/\r\nAdded test\r\n",
+    "html": "Merge attempted for \u003ca href=\"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35\"\u003epull request 35\u003c/a\u003e (Added test) in \u003ca href=\"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/\"\u003eay-users-api-test\u003c/a\u003e\u003cp\u003eAdded test\u003c/p\u003e",
+    "markdown": "Merge attempted for [pull request 35](https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35) (Added test) in [ay-users-api-test](https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/)\r\nAdded test\r\n"
+  },
+  "resource": {
+    "repository": {
+      "id": "89287597-fb30-419a-b728-2a84a5cf1b34",
+      "name": "ay-users-api-test",
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34",
+      "project": {
+        "id": "e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4",
+        "name": "Avant",
+        "description": "Avant application",
+        "url": "https://dev.azure.com/AY-InnovationCenter/_apis/projects/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4",
+        "state": "wellFormed",
+        "revision": 65,
+        "visibility": "private",
+        "lastUpdateTime": "2021-04-13T13:00:08.2Z"
+      },
+      "size": 2787,
+      "remoteUrl": "https://AY-InnovationCenter@dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test",
+      "sshUrl": "git@ssh.dev.azure.com:v3/AY-InnovationCenter/Avant/ay-users-api-test",
+      "webUrl": "https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test",
+      "isDisabled": false
+    },
+    "pullRequestId": 35,
+    "codeReviewId": 35,
+    "status": "completed",
+    "createdBy": {
+      "displayName": "Kaio Magalhaes",
+      "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9",
+      "_links": {
+        "avatar": {
+          "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+        }
+      },
+      "id": "f504d917-1f93-6f97-ab3e-7eceb7174af9",
+      "uniqueName": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+      "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9",
+      "descriptor": "aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+    },
+    "creationDate": "2021-04-28T19:52:20.5886326Z",
+    "closedDate": "2021-05-03T23:37:45.976545Z",
+    "title": "Added test",
+    "description": "Added test",
+    "sourceRefName": "refs/heads/feat/test1",
+    "targetRefName": "refs/heads/main",
+    "mergeStatus": "succeeded",
+    "isDraft": false,
+    "mergeId": "7003ef8e-4d45-4735-8a5d-ecaa691dda09",
+    "lastMergeSourceCommit": {
+      "commitId": "82d4cf31a948ca3f7bfb2c6bb1286badc0a1013d",
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/commits/82d4cf31a948ca3f7bfb2c6bb1286badc0a1013d"
+    },
+    "lastMergeTargetCommit": {
+      "commitId": "34a471369f7e8c485185a59401491c219edb6515",
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/commits/34a471369f7e8c485185a59401491c219edb6515"
+    },
+    "lastMergeCommit": {
+      "commitId": "a6877e5ad7e14ab39ba01a0bdd2a06fd84516d47",
+      "author": {
+        "name": "Kaio Magalhaes",
+        "email": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+        "date": "2021-04-28T19:52:15Z"
+      },
+      "committer": {
+        "name": "Kaio Magalhaes",
+        "email": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+        "date": "2021-05-03T23:37:45Z"
+      },
+      "comment": "Added test",
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/commits/a6877e5ad7e14ab39ba01a0bdd2a06fd84516d47"
+    },
+    "reviewers": [
+
+    ],
+    "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/pullRequests/35",
+    "_links": {
+      "web": {
+        "href": "https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35"
+      },
+      "statuses": {
+        "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/pullRequests/35/statuses"
+      }
+    },
+    "completionOptions": {
+      "mergeCommitMessage": "Merged PR 35: Added test\n\nAdded test",
+      "deleteSourceBranch": true,
+      "mergeStrategy": "rebase",
+      "transitionWorkItems": true,
+      "autoCompleteIgnoreConfigIds": [
+
+      ]
+    },
+    "supportsIterations": true,
+    "completionQueueTime": "2021-05-03T23:37:44.9091409Z",
+    "closedBy": {
+      "displayName": "Kaio Magalhaes",
+      "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9",
+      "_links": {
+        "avatar": {
+          "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+        }
+      },
+      "id": "f504d917-1f93-6f97-ab3e-7eceb7174af9",
+      "uniqueName": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+      "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9",
+      "descriptor": "aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+    },
+    "artifactId": "vstfs:///Git/PullRequestId/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4%2f89287597-fb30-419a-b728-2a84a5cf1b34%2f35"
+  },
+  "resourceVersion": "1.0",
+  "resourceContainers": {
+    "collection": {
+      "id": "a121438c-5a62-4eaf-8333-7204deeb7308",
+      "baseUrl": "https://dev.azure.com/AY-InnovationCenter/"
+    },
+    "account": {
+      "id": "c713fab0-a7a4-4858-b8d7-acd0e4cae999",
+      "baseUrl": "https://dev.azure.com/AY-InnovationCenter/"
+    },
+    "project": {
+      "id": "e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4",
+      "baseUrl": "https://dev.azure.com/AY-InnovationCenter/"
+    }
+  },
+  "createdDate": "2021-05-03T23:37:52.3096112Z"
+}

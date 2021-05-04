@@ -12,11 +12,12 @@ FactoryBot.define do
 
     transient do
       source_control_id { 1 }
+      source_control_type { 'github' }
     end
 
     before(:create) do |obj, evaluator|
-      # @TODO: update this to be dependent on the type of the request
-      obj.source = GithubPullRequest.create(source_control_id: evaluator.source_control_id, pull_request: obj) unless obj.source
+      clazz = evaluator.source_control_type == 'github' ? GithubPullRequest : AzurePullRequest
+      obj.source = clazz.create(source_control_id: evaluator.source_control_id, pull_request: obj) unless obj.source
     end
   end
 end
