@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class BaseGithubFlow < BaseFlow
+  class BaseSourceControlFlow < BaseFlow
     def repository
       @repository ||= Repository.find_by(name: parser.repository_name, owner: parser.owner)
     end

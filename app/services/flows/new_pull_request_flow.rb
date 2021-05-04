@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class NewPullRequestFlow < BaseGithubFlow
+  class NewPullRequestFlow < BaseSourceControlFlow
     def execute
       user.save unless user.persisted?
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class NewChangePullRequestCodeFlow < BaseGithubFlow
+  class NewChangePullRequestCodeFlow < BaseSourceControlFlow
     def execute
       PullRequestChange.create!(pull_request: pull_request)
 

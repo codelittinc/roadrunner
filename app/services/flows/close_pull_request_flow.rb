@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class ClosePullRequestFlow < BaseGithubFlow
+  class ClosePullRequestFlow < BaseSourceControlFlow
     JIRA_CARD_REGEX = %r{https?://codelitt.atlassian.net/browse/[a-zA-Z0-9-]+}
 
     def execute

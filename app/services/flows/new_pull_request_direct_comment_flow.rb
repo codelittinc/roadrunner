@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Flows
-  class NewPullRequestDirectCommentFlow < BaseGithubFlow
+  class NewPullRequestDirectCommentFlow < BaseSourceControlFlow
     def execute
       slack_message_ts = pull_request.slack_message.ts
       slack_channel = pull_request.repository.slack_repository_info.dev_channel
