@@ -36,19 +36,19 @@ http_interactions:
       - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
         STA UNI COM INT PHY ONL FIN PUR LOC CNT"
       Set-Cookie:
-      - VstsSession=%7B%22PersistentSessionId%22%3A%224bade02d-0539-4d84-ad4d-abef1926746d%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
-        domain=.dev.azure.com; expires=Sun, 03-May-2026 20:56:33 GMT; path=/; secure;
+      - VstsSession=%7B%22PersistentSessionId%22%3A%22f7c6e436-30d4-4a8f-ab3b-866c9bca7726%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Mon, 04-May-2026 21:21:08 GMT; path=/; secure;
         HttpOnly
       X-Tfs-Processid:
-      - 8870796b-8bc0-4433-81f4-9b8c878f9e7b
+      - 91a72b93-c4e2-43d0-b0f5-b23d069b76e4
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Activityid:
-      - 4ae5239c-47bf-4d96-9a24-67a8730834e3
+      - 77653478-1f09-4d0f-9499-f48ea3eee6ab
       X-Tfs-Session:
-      - 4ae5239c-47bf-4d96-9a24-67a8730834e3
+      - 77653478-1f09-4d0f-9499-f48ea3eee6ab
       X-Vss-E2eid:
-      - 4ae5239c-47bf-4d96-9a24-67a8730834e3
+      - 77653478-1f09-4d0f-9499-f48ea3eee6ab
       X-Vss-Userdata:
       - f504d917-1f93-6f97-ab3e-7eceb7174af9:kaio.magalhaes@avisonyoung.onmicrosoft.com
       X-Frame-Options:
@@ -59,10 +59,12 @@ http_interactions:
       - Request-Context
       X-Content-Type-Options:
       - nosniff
+      X-Cache:
+      - CONFIG_NOCACHE
       X-Msedge-Ref:
-      - 'Ref A: 24397D04D4224F70B1FCFCC6B4092E21 Ref B: SAO03EDGE0705 Ref C: 2021-05-04T20:56:33Z'
+      - 'Ref A: 71F3F07B4A5D4AF5A94517DB9A191111 Ref B: SAO03EDGE0810 Ref C: 2021-05-05T21:21:08Z'
       Date:
-      - Tue, 04 May 2021 20:56:33 GMT
+      - Wed, 05 May 2021 21:21:08 GMT
     body:
       encoding: ASCII-8BIT
       string: '{"repository":{"id":"89287597-fb30-419a-b728-2a84a5cf1b34","name":"ay-users-api-test","url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34","project":{"id":"e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4","name":"Avant","description":"Avant
@@ -77,5 +79,5 @@ http_interactions:
         test","url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/commits/82d4cf31a948ca3f7bfb2c6bb1286badc0a1013d"}],"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/pullRequests/35","_links":{"self":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/pullRequests/35"},"repository":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34"},"workItems":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/pullRequests/35/workitems"},"sourceBranch":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs/heads/feat/test1"},"targetBranch":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs/heads/main"},"statuses":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/pullRequests/35/statuses"},"sourceCommit":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/commits/82d4cf31a948ca3f7bfb2c6bb1286badc0a1013d"},"targetCommit":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/commits/34a471369f7e8c485185a59401491c219edb6515"},"mergeCommit":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/commits/a6877e5ad7e14ab39ba01a0bdd2a06fd84516d47"},"createdBy":{"href":"https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9"},"iterations":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/pullRequests/35/iterations"}},"completionOptions":{"mergeCommitMessage":"Merged
         PR 35: Added test\n\nAdded test","deleteSourceBranch":true,"mergeStrategy":"rebase","transitionWorkItems":true,"autoCompleteIgnoreConfigIds":[]},"supportsIterations":true,"completionQueueTime":"2021-05-03T23:37:44.9091409Z","closedBy":{"displayName":"Kaio
         Magalhaes","url":"https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9","_links":{"avatar":{"href":"https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"}},"id":"f504d917-1f93-6f97-ab3e-7eceb7174af9","uniqueName":"kaio.magalhaes@avisonyoung.onmicrosoft.com","imageUrl":"https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9","descriptor":"aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"},"artifactId":"vstfs:///Git/PullRequestId/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4%2f89287597-fb30-419a-b728-2a84a5cf1b34%2f35"}'
-  recorded_at: Tue, 04 May 2021 20:56:33 GMT
+  recorded_at: Wed, 05 May 2021 21:21:09 GMT
 recorded_with: VCR 6.0.0

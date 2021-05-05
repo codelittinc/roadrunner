@@ -4,7 +4,11 @@ module Clients
   module Azure
     class AzureBase
       def azure_url
-        'https://dev.azure.com/AY-InnovationCenter/Avant/_apis/git/repositories/'
+        'https://dev.azure.com/AY-InnovationCenter/Avant/_apis/'
+      end
+
+      def azure_api_url
+        'https://vsrm.dev.azure.com/AY-InnovationCenter/Avant/_apis/'
       end
 
       def authorization
