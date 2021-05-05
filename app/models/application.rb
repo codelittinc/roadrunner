@@ -17,6 +17,7 @@ class Application < ApplicationRecord
   has_one :server, dependent: :destroy
   has_many :server_incidents, dependent: :destroy
   has_many :releases, dependent: :destroy
+  has_many :external_identifiers, dependent: :destroy
 
   DEV = 'dev'
   QA = 'qa'

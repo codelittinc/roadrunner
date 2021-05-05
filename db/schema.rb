@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_01_140240) do
+ActiveRecord::Schema.define(version: 2021_05_05_131301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,14 @@ ActiveRecord::Schema.define(version: 2021_05_01_140240) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["db_host"], name: "index_database_credentials_on_db_host", unique: true
     t.index ["name"], name: "index_database_credentials_on_name", unique: true
+  end
+
+  create_table "external_identifiers", force: :cascade do |t|
+    t.string "text"
+    t.bigint "application_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["application_id"], name: "index_external_identifiers_on_application_id"
   end
 
   create_table "flow_requests", force: :cascade do |t|
