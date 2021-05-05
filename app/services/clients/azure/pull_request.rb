@@ -11,7 +11,10 @@ module Clients
       def list_commits(repository, source_control_id)
         url = "#{azure_url}git/repositories/#{repository}/pullrequests/#{source_control_id}?api-version=6.0&includeCommits=true"
         response = Request.get(url, authorization)
-        response['commits']
+        commits = response['commits']
+        commits.map do |commit|
+          Clients::Azure::Parsers::CommitParser.new(commit)
+        end
       end
     end
   end
