@@ -19,6 +19,7 @@ RSpec.describe Application, type: :model do
     it { should have_one(:server).dependent(:destroy) }
     it { should have_many(:server_incidents) }
     it { should have_many(:releases) }
+    it { should have_many(:external_identifiers).dependent(:destroy) }
   end
 
   describe 'validations' do
