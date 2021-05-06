@@ -2,7 +2,7 @@
 
 module Flows
   class SentryIncidentNotificationFlow < BaseFlow
-    delegate :project_name, :issue_id, :event_id, :type, :custom_message, to: :parser
+    delegate :project_name, :issue_id, :event_id, :type, :custom_message, :custom_name, to: :parser
 
     def execute
       notify_sentry_error_message = Messages::GenericBuilder.notify_sentry_error(title, metadata, user, browser_name, link_sentry, type, custom_message)
@@ -40,7 +40,7 @@ module Flows
     end
 
     def application
-      @application ||= Application.by_external_identifier(project_name)
+      @application ||= Application.by_external_identifier([custom_name, project_name])
     end
   end
 end
