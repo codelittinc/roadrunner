@@ -38,7 +38,7 @@ module Flows
     end
 
     def application
-      @application ||= Application.find_by(external_identifier: project_name)
+      @application ||= Application.by_external_identifier(project_name)
     end
 
     def channel
