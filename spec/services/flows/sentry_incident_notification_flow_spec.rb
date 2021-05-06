@@ -139,13 +139,16 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
     describe '#flow?' do
       context 'returns true' do
         it 'with a valid json' do
-          FactoryBot.create(:application, :with_server, external_identifier: 'appraisal-api-qa.azurewebsites.net')
+          application = FactoryBot.create(:application, :with_server, external_identifier: 'appraisal-api-qa.azurewebsites.net')
+          FactoryBot.create(:external_identifier, application: application, text: 'spaces local')
+
           flow = described_class.new(valid_incident_with_app_info_by_tags)
           expect(flow.flow?).to be_truthy
         end
 
         it 'when there is a server with an external_identifier with the same project_name' do
-          FactoryBot.create(:application, :with_server, external_identifier: 'appraisal-api-qa.azurewebsites.net')
+          application = FactoryBot.create(:application, :with_server, external_identifier: 'appraisal-api-qa.azurewebsites.net')
+          FactoryBot.create(:external_identifier, application: application, text: 'spaces local')
           flow = described_class.new(valid_incident_with_app_info_by_tags)
           expect(flow.flow?).to be_truthy
         end
@@ -155,6 +158,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
     describe '#run' do
       it 'calls the ApplicationIncidentService with the right params' do
         application = FactoryBot.create(:application, :with_server, external_identifier: 'appraisal-api-qa.azurewebsites.net')
+        FactoryBot.create(:external_identifier, application: application, text: 'spaces local')
 
         flow = described_class.new(valid_incident_with_app_info_by_tags)
         expected_message = "\n *_TypeError: Cannot read property 'fullName' of undefined_*\n *Type*: Uncaught"\
@@ -174,6 +178,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
 
       it 'update server incident and create server incident instance' do
         application = FactoryBot.create(:application, :with_server, external_identifier: 'appraisal-api-qa.azurewebsites.net')
+        FactoryBot.create(:external_identifier, application: application, text: 'spaces local')
 
         message = "\n *_TypeError: Cannot read property 'fullName' of undefined_*\n *Type*: Uncaught Exception\n *File Name*:"\
         " /spaces/assets/app.js\n *Function*: Explore.PropertyExploreNew._propertyCardHtml\n *User*: \n>Id - \n>Email - Ivan.T"\
