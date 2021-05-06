@@ -14,7 +14,7 @@ module Flows
     private
 
     def application
-      @application ||= Application.find_by(external_identifier: source)
+      @application ||= Application.by_external_identifier(source)
     end
 
     def source

@@ -24,7 +24,10 @@ class Application < ApplicationRecord
   PROD = 'prod'
 
   validates :environment, presence: true, inclusion: { in: [DEV, QA, PROD] }
-  validates :external_identifier, presence: true, uniqueness: true
+
+  def self.by_external_identifier(*external_identifiers)
+    ExternalIdentifier.find_by(text: external_identifiers)&.application
+  end
 
   def latest_release
     releases.last

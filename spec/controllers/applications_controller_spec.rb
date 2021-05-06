@@ -42,8 +42,7 @@ RSpec.describe ApplicationsController, type: :controller do
       json = {
         application: {
           repository_id: repository,
-          environment: 'dev',
-          external_identifier: 'ident'
+          environment: 'dev'
         }
       }
       expect { post :create, params: json }.to change { Application.count }.by(1)
@@ -53,27 +52,25 @@ RSpec.describe ApplicationsController, type: :controller do
       json = {
         application: {
           repository_id: repository,
-          environment: 'dev',
-          external_identifier: 'ident'
-        }
-      }
-      post :create, params: json
-
-      external_identifier = JSON.parse(response.body)['external_identifier']
-      expect(external_identifier).to eq('ident')
-    end
-
-    it 'returns an error message when fails to create' do
-      json = {
-        application: {
-          repository_id: repository,
           environment: 'dev'
         }
       }
       post :create, params: json
 
+      environment = JSON.parse(response.body)['environment']
+      expect(environment).to eq('dev')
+    end
+
+    it 'returns an error message when fails to create' do
+      json = {
+        application: {
+          repository_id: repository
+        }
+      }
+      post :create, params: json
+
       error = JSON.parse(response.body)['error']
-      expect(error).to eq('external_identifier' => ["can't be blank"])
+      expect(error).to eq('environment' => ["can't be blank", 'is not included in the list'])
     end
   end
 

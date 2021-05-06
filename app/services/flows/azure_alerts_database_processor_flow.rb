@@ -23,7 +23,7 @@ module Flows
     end
 
     def server
-      @server ||= Application.find_by(external_identifier: source).server
+      @server ||= Application.by_external_identifier(source).server
     end
 
     def message

@@ -14,8 +14,15 @@
 FactoryBot.define do
   factory :application do
     environment { 'dev' }
-    external_identifier { "v#{rand(100)}.#{rand(100)}.#{rand(100)}" }
     repository { association :repository }
+
+    transient do
+      external_identifier { "v#{rand(100)}.#{rand(100)}.#{rand(100)}" }
+    end
+
+    before(:create) do |obj, evaluator|
+      obj.external_identifiers << ExternalIdentifier.create(text: evaluator.external_identifier, application: obj) if obj.external_identifiers.size.zero?
+    end
 
     trait :with_server do
       after :create do |application|
