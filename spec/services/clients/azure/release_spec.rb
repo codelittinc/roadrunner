@@ -7,8 +7,8 @@ RSpec.describe Clients::Azure::Release, type: :service do
   describe '#list' do
     it 'returns a list of releases' do
       VCR.use_cassette('azure#release#list') do
-        commits = described_class.new.list
-        expect(commits.size).to eql(50)
+        releases = described_class.new.list('spaces')
+        expect(releases.size).to eql(50)
       end
     end
   end
