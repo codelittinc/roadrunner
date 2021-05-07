@@ -14,7 +14,8 @@ RSpec.describe CreateRepositoryService, type: :service do
                                                   owner: 'codelittinc',
                                                   deploy_type: 'tag',
                                                   supports_deploy: true,
-                                                  jira_project: nil
+                                                  jira_project: nil,
+                                                  source_control_type: 'github'
                                                 })
 
       expect_any_instance_of(Clients::Github::Repository).to receive(:get_repository)
@@ -30,7 +31,8 @@ RSpec.describe CreateRepositoryService, type: :service do
                                                   owner: 'codelittinc',
                                                   deploy_type: 'tag',
                                                   supports_deploy: true,
-                                                  jira_project: nil
+                                                  jira_project: nil,
+                                                  source_control_type: 'github'
                                                 })
 
       allow_any_instance_of(Clients::Github::Repository).to receive(:get_repository)
@@ -50,7 +52,8 @@ RSpec.describe CreateRepositoryService, type: :service do
                                                   jira_project: nil,
                                                   slack_repository_info_attributes: {
                                                     deploy_channel: 'test'
-                                                  }
+                                                  },
+                                                  source_control_type: 'github'
                                                 })
 
       expect_any_instance_of(Clients::Github::Repository).to receive(:get_repository)
