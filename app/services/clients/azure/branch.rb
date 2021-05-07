@@ -8,6 +8,18 @@ module Clients
         response = Request.get(url, authorization)
         response['value']
       end
+
+      def compare(repo, head, base)
+        url = "#{azure_url}git/repositories/#{repo}/diffs/commits?baseVersion=#{base}&baseVersionType=branch&targetVersion=#{head}&targetVersionType=branch&api-version=4.1"
+        response = Request.get(url, authorization)
+        response['changes']
+      end
+
+      def branch_exists?(repo, branch)
+        url = "#{azure_url}git/repositories/#{repo}/refs?filter=heads/#{branch}&api-version=4.1"
+        response = Request.get(url, authorization)
+        response['count'].positive?
+      end
     end
   end
 end
