@@ -5,6 +5,7 @@ FactoryBot.define do
     name { 'roadrunner-repository-test' }
     friendly_name { FFaker::Name.name }
     owner { 'codelittinc' }
+    source_control_type { 'github' }
     deploy_type { 'tag' }
     supports_deploy { true }
     project { association :project }

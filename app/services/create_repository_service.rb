@@ -13,7 +13,8 @@ class CreateRepositoryService
       owner: owner,
       deploy_type: deploy_type,
       supports_deploy: supports_deploy,
-      jira_project: jira_project
+      jira_project: jira_project,
+      source_control_type: source_control_type
     )
 
     if repository && slack_repository_info_attributes
@@ -64,5 +65,9 @@ class CreateRepositoryService
 
   def slack_repository_info_attributes
     @params[:slack_repository_info_attributes]
+  end
+
+  def source_control_type
+    @params[:source_control_type]
   end
 end

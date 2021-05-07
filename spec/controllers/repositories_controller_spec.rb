@@ -43,7 +43,8 @@ RSpec.describe RepositoriesController, type: :controller do
         repository: {
           project_id: project.id,
           name: 'testing',
-          friendly_name: 'test repo'
+          friendly_name: 'test repo',
+          source_control_type: 'github'
         }
       }
       allow_any_instance_of(Clients::Github::Repository).to receive(:get_repository)
@@ -58,6 +59,7 @@ RSpec.describe RepositoriesController, type: :controller do
           project_id: project.id,
           name: 'testing',
           friendly_name: 'test repo',
+          source_control_type: 'github',
           slack_repository_info_attributes: { deploy_channel: 'test' }
         }
       }
@@ -73,6 +75,7 @@ RSpec.describe RepositoriesController, type: :controller do
           project_id: project.id,
           name: 'testing',
           friendly_name: 'test repo',
+          source_control_type: 'github',
           slack_repository_info_attributes: { deploy_channel: 'test' }
         }
       }
@@ -89,7 +92,8 @@ RSpec.describe RepositoriesController, type: :controller do
         repository: {
           project_id: project.id,
           name: 'testing',
-          friendly_name: 'test repo'
+          friendly_name: 'test repo',
+          source_control_type: 'github'
         }
       }
 
@@ -103,7 +107,7 @@ RSpec.describe RepositoriesController, type: :controller do
     end
 
     it 'returns an error message when fails to create' do
-      json = { repository: { friendly_name: 'test repo' } }
+      json = { repository: { friendly_name: 'test repo', source_control_type: 'github' } }
 
       allow_any_instance_of(Clients::Github::Repository).to receive(:get_repository)
       allow_any_instance_of(Clients::Github::Hook).to receive(:create)
