@@ -5,8 +5,8 @@ require 'net/http'
 module Clients
   module Azure
     class Release < AzureBase
-      def list
-        url = "#{azure_api_url}/release/releases?api-version=4.1-preview.6"
+      def list(repository)
+        url = "#{azure_api_url}release/releases?path=\\#{repository}&api-version=4.1-preview.6"
         response = Request.get(url, authorization)
         response['value']
       end
