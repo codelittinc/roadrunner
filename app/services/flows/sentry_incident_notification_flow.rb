@@ -32,7 +32,7 @@ module Flows
     end
 
     def link_sentry
-      "https://sentry.io/organizations/codelitt-7y/issues/#{issue_id}/events/#{event_id}/?project=#{project_id}"
+      "https://sentry.io/organizations/avison-young/issues/#{issue_id}/events/#{event_id}/?project=#{project_id}"
     end
 
     def project_id
