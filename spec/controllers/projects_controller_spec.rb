@@ -16,12 +16,11 @@ RSpec.describe ProjectsController, type: :controller do
     end
 
     it 'displays the correct projects data' do
-      FactoryBot.create(:project)
-      FactoryBot.create(:project, name: 'Second')
+      project = FactoryBot.create(:project)
       get :index, format: :json
 
-      name = JSON.parse(response.body)[1]['name']
-      expect(name).to eq('Second')
+      id = JSON.parse(response.body)[0]['id']
+      expect(id).to eq(project.id)
     end
   end
 
