@@ -26,8 +26,7 @@ module Flows
           return
         end
 
-        Clients::Github::Release.new.create(
-          @repository.full_name,
+        source_control_client.create_release(
           version,
           branch,
           github_message,

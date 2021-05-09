@@ -9,6 +9,10 @@ module Flows
         @repository = repository
       end
 
+      def source_control_client
+        Clients::SourceControlClient.new(@repository)
+      end
+
       # @TODO: Update to use the CommitsMatcher
       def release_commits
         return @commits if @commits
