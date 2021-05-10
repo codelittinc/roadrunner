@@ -32,7 +32,9 @@ module Flows
     end
 
     def link_sentry
-      "https://sentry.io/organizations/avison-young/issues/#{issue_id}/events/#{event_id}/?project=#{project_id}"
+      return azure_link if repository_source == 'azure'
+
+      github_link
     end
 
     def project_id
@@ -41,6 +43,23 @@ module Flows
 
     def application
       @application ||= Application.by_external_identifier([custom_name, project_name])
+    end
+
+    def repository
+      @repository ||= application.repository
+    end
+
+    def repository_source
+      @repository_source ||= repository.source_control_type
+    end
+
+    def azure_link
+      # TODO: Build link without hard code for the organization, using project_name property instead avison-young
+      "https://sentry.io/organizations/avison-young/issues/#{issue_id}/events/#{event_id}/?project=#{project_id}"
+    end
+
+    def github_link
+      "https://sentry.io/organizations/codelitt-7y/issues/#{issue_id}/events/#{event_id}/?project=#{project_id}"
     end
   end
 end
