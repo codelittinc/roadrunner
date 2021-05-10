@@ -14,6 +14,8 @@ module Clients
 
       def create(repository, name = 'web')
         @client.create_hook(repository, name, build_config, build_options)
+      rescue Octokit::UnprocessableEntity
+        { status: 200 }
       end
 
       private

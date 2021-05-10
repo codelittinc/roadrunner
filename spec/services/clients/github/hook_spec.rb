@@ -16,6 +16,16 @@ RSpec.describe Clients::Github::Hook, type: :service do
         expect(hook_found).to eql(true)
       end
     end
+
+    it 'returns success when the repo already exists' do
+      VCR.use_cassette('github#create_existing_hook') do
+        repo = 'codelittinc/gh-hooks-repo-test'
+
+        response = described_class.new.create(repo)
+
+        expect(response[:status]).to eql(200)
+      end
+    end
   end
 
   describe '#list' do
