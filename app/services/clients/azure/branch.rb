@@ -6,7 +6,10 @@ module Clients
       def commits(repo, branch)
         url = "#{azure_url}git/repositories/#{repo}/commits?searchCriteria.itemVersion.version=#{branch}&api-version=4.1"
         response = Request.get(url, authorization)
-        response['value']
+        commits = response['value']
+        commits.map do |commit|
+          Clients::Azure::Parsers::CommitParser.new(commit)
+        end
       end
 
       def compare(repo, head, base)
