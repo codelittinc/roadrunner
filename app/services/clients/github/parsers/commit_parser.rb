@@ -4,7 +4,7 @@ module Clients
   module Github
     module Parsers
       class CommitParser
-        attr_reader :sha, :author_name, :author_email, :message
+        attr_reader :sha, :author_name, :author_email, :message, :date
 
         def initialize(json)
           @json = json
@@ -16,6 +16,7 @@ module Clients
           @author_name = @json[:commit][:author][:name]
           @author_email = @json[:commit][:author][:email]
           @message = @json[:commit][:message]
+          @date = @json[:commit][:committer][:date]
         end
       end
     end
