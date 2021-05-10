@@ -32,9 +32,9 @@ module Clients
         {
           name: tag_name,
           taggedObject: {
-            objectId: last_commit['commitId']
+            objectId: last_commit.sha
           },
-          message: last_commit['comment']
+          message: last_commit.message
         }
       end
     end
