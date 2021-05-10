@@ -16,7 +16,7 @@ module Flows
         Clients::Github::Release.new.create(
           @repository.full_name,
           version,
-          github_release_commits.last[:sha],
+          github_release_commits.last.sha,
           github_message,
           false
         )
@@ -33,12 +33,11 @@ module Flows
 
       def release_commits
         github_release_commits.map do |commit|
-          date = commit[:commit][:committer][:date]
+          date = commit.date
           before = date - 5.minutes
           after = date + 5.minutes
 
-          message = commit[:commit][:message]
-
+          message = commit.message
           Commit.where(created_at: before..after, message: message).first
         end.flatten.compact
       end

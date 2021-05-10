@@ -15,7 +15,7 @@ module Flows
 
         @commits = []
         github_release_commits.each do |commit|
-          message = commit[:commit][:message]
+          message = commit.message
 
           c = Commit
               .where.not(id: @commits.map(&:id))

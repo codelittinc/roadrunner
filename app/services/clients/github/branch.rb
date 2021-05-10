@@ -10,11 +10,17 @@ module Clients
       end
 
       def commits(repo, branch)
-        @client.list_commits(repo, branch)
+        commits = @client.list_commits(repo, branch)
+        commits.map do |commit|
+          Clients::Github::Parsers::CommitParser.new(commit)
+        end
       end
 
       def compare(repo, head, base)
-        @client.compare(repo, head, base)[:commits]
+        commits = @client.compare(repo, head, base)[:commits]
+        commits.map do |commit|
+          Clients::Github::Parsers::CommitParser.new(commit)
+        end
       end
 
       def branch_exists?(repo, branch)

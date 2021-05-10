@@ -18,7 +18,7 @@ module Flows
         Clients::Github::Release.new.create(
           @repository.full_name,
           version,
-          github_release_commits.last[:sha],
+          github_release_commits.last.sha,
           github_message,
           false
         )

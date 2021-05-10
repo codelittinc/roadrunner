@@ -8,7 +8,7 @@ class CommitsMatcher
   def commits
     commits = []
     @github_commits.each do |commit|
-      message = commit[:commit][:message]
+      message = commit.message
       c = Commit.order(created_at: :desc)
                 .where.not(id: commits&.map(&:id))
                 .where(message: message).first
