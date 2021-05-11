@@ -15,7 +15,10 @@ module Clients
       def compare(repo, head, base)
         url = "#{azure_url}git/repositories/#{repo}/diffs/commits?baseVersion=#{base}&baseVersionType=branch&targetVersion=#{head}&targetVersionType=branch&api-version=4.1"
         response = Request.get(url, authorization)
-        response['changes']
+        commits = response['changes']
+        commits.map do |commit|
+          Clients::Azure::Parsers::CommitParser.new(commit)
+        end
       end
 
       def branch_exists?(repo, branch)
