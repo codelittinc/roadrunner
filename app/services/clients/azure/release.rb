@@ -8,7 +8,10 @@ module Clients
       def list(repository)
         url = "#{azure_api_url}release/releases?path=\\#{repository}&api-version=4.1-preview.6"
         response = Request.get(url, authorization)
-        response['value']
+        releases = response['value']
+        releases.map do |release|
+          Clients::Azure::Parsers::ReleaseParser.new(release)
+        end
       end
 
       def create(repository, tag_name, target, _body, _prerelease)
