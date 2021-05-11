@@ -11,7 +11,7 @@ RSpec.describe Clients::Github::Repository, type: :service do
 
         repository = described_class.new.get_repository(repo)
 
-        expect(repository).to_not be_nil
+        expect(repository).to be_a(Clients::Github::Parsers::RepositoryParser)
       end
     end
   end

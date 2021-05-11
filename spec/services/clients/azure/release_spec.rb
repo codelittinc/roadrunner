@@ -14,16 +14,13 @@ RSpec.describe Clients::Azure::Release, type: :service do
   end
 
   describe '#create' do
-    it 'creates a release' do
+    it 'creates a release parser' do
       VCR.use_cassette('azure#release#create') do
         repo = 'ay-users-api-test'
         tag_name = 'v0.4.0'
+        release = described_class.new.create(repo, tag_name, 'main', '', true)
 
-        response = described_class.new.create(repo, tag_name, 'main', '', true)
-        json_response = JSON.parse(response.body)
-        json_response['name']
-
-        expect(json_response['name']).to eql(tag_name)
+        expect(release).to be_a(Clients::Azure::Parsers::ReleaseParser)
       end
     end
   end

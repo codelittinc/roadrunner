@@ -25,7 +25,8 @@ module Clients
         request['Authorization'] = authorization
         request['Accept'] = 'application/json; api-version=4.1-preview.1'
 
-        http.request(request)
+        release = JSON.parse(request.body)
+        Clients::Azure::Parsers::ReleaseParser.new(release)
       end
 
       private
