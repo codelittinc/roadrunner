@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'flows_helper'
 
 RSpec.describe Parsers::AzureWebhookSourceControlParser, type: :service do
-  let(:new_pull_request) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'azure_new_pull_request.json'))).with_indifferent_access
-  end
+  let(:new_pull_request) { load_flow_fixture('azure_new_pull_request.json') }
+  let(:close_pull_request) { load_flow_fixture('azure_close_pull_request.json') }
 
   context 'can_parse?' do
     describe 'returns true when' do
@@ -91,6 +91,24 @@ RSpec.describe Parsers::AzureWebhookSourceControlParser, type: :service do
       flow.parse!
 
       expect(flow.title).to eql('Added test')
+    end
+  end
+
+  context '#close_pull_request_flow?' do
+    it 'returns true when the status is completed' do
+      flow = described_class.new(close_pull_request)
+      flow.parse!
+
+      expect(flow.close_pull_request_flow?).to be_truthy
+    end
+
+    it 'returns true when the status is different from completed' do
+      close_pull_request_clone = close_pull_request.deep_dup
+      close_pull_request_clone[:resource][:status] = 'active'
+      flow = described_class.new(close_pull_request_clone)
+      flow.parse!
+
+      expect(flow.close_pull_request_flow?).to be_falsy
     end
   end
 end

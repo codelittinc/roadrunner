@@ -20,7 +20,7 @@ module Parsers
     end
 
     def close_pull_request_flow?
-      event_type == 'git.pullrequest.merged'
+      event_type == 'git.pullrequest.merged' && @status == 'completed'
     end
 
     def parse!
@@ -35,6 +35,7 @@ module Parsers
       @title = resource[:title]
       @username = resource.dig(:createdBy, :uniqueName)
       @merged = resource[:mergeStatus] == 'succeeded'
+      @status = resource[:status]
       # @TODO: implement the fields below
       # @review = OpenStruct.new @json[:review]
       # @review_username = review&.dig(:user, :login)
