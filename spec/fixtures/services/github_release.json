@@ -1,0 +1,38 @@
+{
+  "url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/32508880",
+  "assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/32508880/assets",
+  "upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/32508880/assets{?name,label}",
+  "html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v1.1.1",
+  "id":32508880,
+  "node_id":"MDc6UmVsZWFzZTMyNTA4ODgw",
+  "tag_name":"rc.1.v1.1.1",
+  "target_commitish":"hotfix/fix-to-test",
+  "name":"rc.1.v1.1.1",
+  "draft":false,
+  "author":{
+    "login":"Rheniery",
+    "id":12198683,
+    "node_id":"MDQ6VXNlcjEyMTk4Njgz",
+    "avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4",
+    "gravatar_id":"","url":"https://api.github.com/users/Rheniery",
+    "html_url":"https://github.com/Rheniery",
+    "followers_url":"https://api.github.com/users/Rheniery/followers",
+    "following_url":"https://api.github.com/users/Rheniery/following{/other_user}",
+    "gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}",
+    "starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}",
+    "subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions",
+    "organizations_url":"https://api.github.com/users/Rheniery/orgs",
+    "repos_url":"https://api.github.com/users/Rheniery/repos",
+    "events_url":"https://api.github.com/users/Rheniery/events{/privacy}",
+    "received_events_url":"https://api.github.com/users/Rheniery/received_events",
+    "type":"User",
+    "site_admin":false
+  }
+  ,"prerelease":true,
+  "created_at":"2020-08-31T13:09:19Z",
+  "published_at":"2020-10-13T14:06:45Z",
+  "assets":[],
+  "tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v1.1.1",
+  "zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v1.1.1",
+  "body":"Description of the release"
+}

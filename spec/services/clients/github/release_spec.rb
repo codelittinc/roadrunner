@@ -23,7 +23,7 @@ RSpec.describe Clients::Github::Release, type: :service do
 
         release = described_class.new.list(repo).first
 
-        expect(release[:tag_name]).to eql(tag_name)
+        expect(release.tag_name).to eql(tag_name)
       end
     end
   end
@@ -33,10 +33,10 @@ RSpec.describe Clients::Github::Release, type: :service do
       VCR.use_cassette('github#release#delete') do
         repo = 'codelittinc/gh-hooks-repo-test'
         release_to_delete = described_class.new.list(repo).first
-        described_class.new.delete(release_to_delete[:url])
+        described_class.new.delete(release_to_delete.url)
         release_to_check = described_class.new.list(repo).first
 
-        expect(release_to_delete[:tag_name]).not_to eql(release_to_check[:tag_name])
+        expect(release_to_delete.tag_name).not_to eql(release_to_check.tag_name)
       end
     end
   end
