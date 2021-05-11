@@ -4,23 +4,21 @@ require 'net/http'
 
 module Tasks
   class ServerTask
+    VALID_STATUS_CODE = %w[401 200].freeze
+
     def self.check_up_servers!
       servers = Server.where(active: true)
 
       servers.each do |server|
         link = server.link
         link = "#{server.link}/health" if server.supports_health_check
+        response = result_request(link)
 
-        response = Net::HTTP.get_response(URI(link))
-        code = response.code
-
-        valid_status_codes = %w[401 200]
-
-        next if valid_status_codes.include?(code)
+        next if VALID_STATUS_CODE.include?(response.code)
 
         status_check = ServerStatusCheck.create!(
           server: server,
-          code: code
+          code: response.code
         )
 
         ApplicationIncidentService.new.register_incident!(
@@ -29,6 +27,19 @@ module Tasks
           status_check
         )
       end
+    end
+
+    def self.result_request(link, retries = 0)
+      response = Net::HTTP.get_response(URI(link))
+
+      return response if VALID_STATUS_CODE.include?(response.code)
+
+      if retries <= 3
+        sleep(3)
+        return result_request(link, retries + 1)
+      end
+
+      response
     end
   end
 end
