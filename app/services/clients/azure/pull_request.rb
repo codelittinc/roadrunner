@@ -5,7 +5,8 @@ module Clients
     class PullRequest < AzureBase
       def get(repository, source_control_id)
         url = "#{azure_url}git/repositories/#{repository}/pullrequests/#{source_control_id}"
-        Request.get(url, authorization)
+        pull_request = Request.get(url, authorization)
+        Clients::Azure::Parsers::PullRequestParser.new(pull_request)
       end
 
       def list_commits(repository, source_control_id)
