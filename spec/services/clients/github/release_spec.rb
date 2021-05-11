@@ -23,7 +23,7 @@ RSpec.describe Clients::Github::Release, type: :service do
 
         release = described_class.new.list(repo).first
 
-        expect(release.tag_name).to eql(tag_name)
+        expect(release).to be_a(Clients::Github::Parsers::ReleaseParser)
       end
     end
   end
