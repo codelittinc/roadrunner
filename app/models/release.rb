@@ -6,4 +6,7 @@ class Release < ApplicationRecord
   has_many :commits, through: :commit_releases
 
   validates :version, presence: true
+  validates :deploy_status, inclusion: {
+    in: ['success', 'failure', nil]
+  }
 end
