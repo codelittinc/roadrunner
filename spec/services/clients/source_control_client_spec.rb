@@ -69,7 +69,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#list_branch_commits' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Github::Branch).to receive(:commits).with(
-          repository, branch
+          repository.full_name, branch
         )
 
         Clients::SourceControlClient.new(repository).list_branch_commits(
@@ -81,7 +81,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#compare_commits' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Github::Branch).to receive(:compare).with(
-          repository, pull_request.head, pull_request.base
+          repository.full_name, pull_request.head, pull_request.base
         )
 
         Clients::SourceControlClient.new(repository).compare_commits(
@@ -185,7 +185,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#list_branch_commits' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Azure::Branch).to receive(:commits).with(
-          repository, branch
+          repository.full_name, branch
         )
 
         Clients::SourceControlClient.new(repository).list_branch_commits(branch)
@@ -195,7 +195,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#compare_commits' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Azure::Branch).to receive(:compare).with(
-          repository, pull_request.head, pull_request.base
+          repository.full_name, pull_request.head, pull_request.base
         )
 
         Clients::SourceControlClient.new(repository).compare_commits(
