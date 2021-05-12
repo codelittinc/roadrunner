@@ -27,11 +27,11 @@ module Clients
     end
 
     def list_branch_commits(branch)
-      client_class('Branch').new.commits(@repository, branch)
+      client_class('Branch').new.commits(@repository.full_name, branch)
     end
 
     def compare_commits(head, base)
-      client_class('Branch').new.compare(@repository, head, base)
+      client_class('Branch').new.compare(@repository.full_name, head, base)
     end
 
     def delete_github_branch(branch)
