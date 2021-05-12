@@ -51,9 +51,9 @@ module Flows
         first_stable_release = version_resolver.latest_normal_stable_release.nil? || version_resolver.latest_normal_stable_release == 'master'
 
         @github_release_commits ||= if first_stable_release
-                                      Clients::Github::Branch.new.commits(@repository.full_name, 'master').reverse
+                                      source_control_client.list_branch_commits('master').reverse
                                     else
-                                      Clients::Github::Branch.new.compare(@repository.full_name, version_resolver.latest_normal_stable_release, version_resolver.latest_tag_name)
+                                      source_control_client.compare_commits(version_resolver.latest_normal_stable_release, version_resolver.latest_tag_name)
                                     end
       end
     end
