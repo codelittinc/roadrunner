@@ -39,7 +39,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#branch_exists?' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Github::Branch).to receive(:branch_exists?).with(
-          repository, 'my-cool-branch'
+          repository.full_name, 'my-cool-branch'
         )
 
         Clients::SourceControlClient.new(repository).branch_exists?('my-cool-branch')
@@ -143,7 +143,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#branch_exists?' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Azure::Branch).to receive(:branch_exists?).with(
-          repository, 'my-cool-branch'
+          repository.full_name, 'my-cool-branch'
         )
 
         Clients::SourceControlClient.new(repository).branch_exists?('my-cool-branch')
