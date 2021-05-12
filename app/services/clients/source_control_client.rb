@@ -15,7 +15,7 @@ module Clients
     end
 
     def branch_exists?(branch)
-      client_class('Branch').new.branch_exists?(@repository, branch)
+      client_class('Branch').new.branch_exists?(@repository.full_name, branch)
     end
 
     def get_pull_request(source_control_id)

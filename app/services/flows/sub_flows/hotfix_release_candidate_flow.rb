@@ -45,7 +45,7 @@ module Flows
       end
 
       def branch_exists
-        @branch_exists ||= Clients::Github::Branch.new.branch_exists?(@repository.full_name, branch)
+        @branch_exists ||= source_control_client.branch_exists?(branch)
       end
 
       def first_pre_release?
