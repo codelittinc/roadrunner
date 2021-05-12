@@ -50,8 +50,7 @@ module Flows
       end
 
       def create_release!(target, prerelease)
-        Clients::Github::Release.new.create(
-          @repository.full_name,
+        source_control_client.create_release(
           version,
           target,
           github_message,
