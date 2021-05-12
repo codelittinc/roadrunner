@@ -41,9 +41,9 @@ module Flows
         return @github_release_commits if @github_release_commits
 
         @github_release_commits ||= if version_resolver.latest_tag_name.nil?
-                                      Clients::Github::Branch.new.commits(@repository.full_name, 'master').reverse
+                                      source_control_client.list_branch_commits('master').reverse
                                     else
-                                      Clients::Github::Branch.new.compare(@repository.full_name, version_resolver.latest_stable_release, version_resolver.latest_tag_name)
+                                      source_control_client.compare_commits(version_resolver.latest_stable_release, version_resolver.latest_tag_name)
                                     end
       end
     end
