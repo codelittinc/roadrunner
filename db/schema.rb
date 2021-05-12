@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_12_172707) do
+ActiveRecord::Schema.define(version: 2021_05_13_135418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,20 +66,6 @@ ActiveRecord::Schema.define(version: 2021_05_12_172707) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pull_request_id"], name: "index_commits_on_pull_request_id"
-  end
-
-  create_table "database_credentials", force: :cascade do |t|
-    t.string "env"
-    t.string "database_type"
-    t.string "name"
-    t.string "db_host"
-    t.string "db_user"
-    t.string "db_name"
-    t.string "db_password"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["db_host"], name: "index_database_credentials_on_db_host", unique: true
-    t.index ["name"], name: "index_database_credentials_on_name", unique: true
   end
 
   create_table "external_identifiers", force: :cascade do |t|
