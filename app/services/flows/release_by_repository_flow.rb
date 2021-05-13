@@ -7,7 +7,7 @@ module Flows
     RELEASE_ACTION = 'update'
 
     def execute
-      current_releases = Clients::Github::Release.new.list(repository.full_name)
+      current_releases = source_control_client.new(repository).list_releases
       Clients::Slack::ChannelMessage.new.send(release_message, channel_name)
 
       case environment

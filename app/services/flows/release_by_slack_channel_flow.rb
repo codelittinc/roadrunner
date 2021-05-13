@@ -73,7 +73,7 @@ module Flows
       channels_repositories.each do |repository|
         next if repository.deploy_type != Repository::TAG_DEPLOY_TYPE
 
-        current_releases = Clients::Github::Release.new.list(repository.full_name)
+        current_releases = source_control_client.new(repository).list_releases
         Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository).execute
       end
     end
@@ -82,7 +82,7 @@ module Flows
       channels_repositories.each do |repository|
         next if repository.deploy_type != Repository::TAG_DEPLOY_TYPE
 
-        current_releases = Clients::Github::Release.new.list(repository.full_name)
+        current_releases = source_control_client.new(repository).list_releases
         Flows::SubFlows::ReleaseStableFlow.new(channel_name, current_releases, repository).execute
       end
     end

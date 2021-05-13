@@ -31,7 +31,7 @@ module Flows
     end
 
     def github_pull_request
-      @github_pull_request ||= Clients::Github::PullRequest.new.get(repository.full_name, pull_request.source_control_id)
+      @github_pull_request ||= source_control_client.new(repository).get_pull_request(pull_request.source_control_id)
     end
 
     def send_message
