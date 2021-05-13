@@ -18,7 +18,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
 
     describe '#list_releases' do
       it 'triggers the correct action' do
-        expect_any_instance_of(Clients::Github::Release).to receive(:list).with(repository)
+        expect_any_instance_of(Clients::Github::Release).to receive(:list).with(repository.full_name)
 
         Clients::SourceControlClient.new(repository).list_releases
       end
@@ -49,7 +49,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#get_pull_request' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Github::PullRequest).to receive(:get).with(
-          repository, 1
+          repository.full_name, 1
         )
 
         Clients::SourceControlClient.new(repository).get_pull_request(1)
@@ -134,7 +134,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
 
     describe '#list_releases' do
       it 'triggers the correct action' do
-        expect_any_instance_of(Clients::Azure::Release).to receive(:list).with(repository)
+        expect_any_instance_of(Clients::Azure::Release).to receive(:list).with(repository.full_name)
 
         Clients::SourceControlClient.new(repository).list_releases
       end
@@ -165,7 +165,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#get_pull_request' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Azure::PullRequest).to receive(:get).with(
-          repository, 1
+          repository.full_name, 1
         )
 
         Clients::SourceControlClient.new(repository).get_pull_request(1)

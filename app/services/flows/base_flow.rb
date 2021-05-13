@@ -45,5 +45,9 @@ module Flows
     def parser
       @parser ||= ParserFinder.new(@params).find
     end
+
+    def source_control_client
+      Clients::SourceControlClient
+    end
   end
 end

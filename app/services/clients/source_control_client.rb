@@ -7,7 +7,7 @@ module Clients
     end
 
     def list_releases
-      client_class('Release').new.list(@repository)
+      client_class('Release').new.list(@repository.full_name)
     end
 
     def create_release(tag_name, target, body, prerelease)
@@ -19,7 +19,7 @@ module Clients
     end
 
     def get_pull_request(source_control_id)
-      client_class('PullRequest').new.get(@repository, source_control_id)
+      client_class('PullRequest').new.get(@repository.full_name, source_control_id)
     end
 
     def list_pull_request_commits(source_control_id)
