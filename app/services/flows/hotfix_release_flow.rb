@@ -86,7 +86,7 @@ module Flows
     end
 
     def current_releases
-      @current_releases ||= Clients::Github::Release.new.list(repository.full_name)
+      @current_releases ||= source_control_client.new(repository).list_releases
     end
   end
 end
