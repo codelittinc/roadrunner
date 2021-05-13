@@ -58,6 +58,25 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
         )
         flow.execute
       end
+
+      it 'updated the latest release deploy status' do
+        repository = FactoryBot.create(:repository, name: 'pia-web-mobile')
+        application = FactoryBot.create(:application, :with_server, repository: repository, external_identifier: 'pia.web.com')
+        release = FactoryBot.create(:release, application: application, version: '3.0.0', deploy_status: nil)
+
+        flow = described_class.new({
+                                     deploy_type: 'deploy-notification',
+                                     host: 'pia.web.com',
+                                     env: 'prod'
+                                   })
+
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+        flow.execute
+
+        release.reload
+
+        expect(release.deploy_status).to eq('success')
+      end
     end
   end
 end

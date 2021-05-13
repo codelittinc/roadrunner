@@ -3,6 +3,8 @@
 module Flows
   class DeployNotificationFlow < BaseFlow
     def execute
+      update_release_deploy_status!
+
       Clients::Slack::ChannelMessage.new.send(
         "The deploy of *#{repository.name}* to *#{[environment, deploy_type].reject(&:nil?).join(' - ')}* was finished with the status: #{status.capitalize}!",
         channel
@@ -15,6 +17,10 @@ module Flows
 
     private
 
+    def update_release_deploy_status!
+      latest_release&.update(deploy_status: status)
+    end
+
     def source
       @params[:host]
     end
@@ -24,7 +30,15 @@ module Flows
     end
 
     def repository
-      @repository ||= Application.by_external_identifier(source)&.repository
+      @repository ||= application.repository
+    end
+
+    def latest_release
+      @latest_release ||= application.releases.last
+    end
+
+    def application
+      @application ||= Application.by_external_identifier(source)
     end
 
     def environment
