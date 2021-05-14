@@ -90,6 +90,14 @@ RSpec.describe Clients::SourceControlClient, type: :service do
       end
     end
 
+    describe '#repository' do
+      it 'triggers the correct action' do
+        expect_any_instance_of(Clients::Github::Repository).to receive(:get_repository).with(repository.full_name)
+
+        Clients::SourceControlClient.new(repository).repository
+      end
+    end
+
     describe '#delete_github_branch' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Github::Branch).to receive(:delete).with(
@@ -112,7 +120,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
 
     describe '#create_github_hook' do
       it 'triggers the correct action' do
-        expect_any_instance_of(Clients::Github::Hook).to receive(:create).with(repository)
+        expect_any_instance_of(Clients::Github::Hook).to receive(:create).with(repository.full_name)
 
         Clients::SourceControlClient.new(repository).create_github_hook
       end
