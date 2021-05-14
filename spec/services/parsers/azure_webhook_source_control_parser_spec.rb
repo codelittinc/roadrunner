@@ -5,6 +5,7 @@ require 'flows_helper'
 
 RSpec.describe Parsers::AzureWebhookSourceControlParser, type: :service do
   let(:new_pull_request) { load_flow_fixture('azure_new_pull_request.json') }
+  let(:updated_pull_request) { load_flow_fixture('azure_updated_pull_request.json') }
   let(:close_pull_request) { load_flow_fixture('azure_close_pull_request.json') }
 
   context 'can_parse?' do
@@ -91,6 +92,29 @@ RSpec.describe Parsers::AzureWebhookSourceControlParser, type: :service do
       flow.parse!
 
       expect(flow.title).to eql('Added test')
+    end
+  end
+
+  context '#new_pull_request_flow?' do
+    it 'returns true when the event_type is created' do
+      flow = described_class.new(new_pull_request)
+      flow.parse!
+
+      expect(flow.new_pull_request_flow?).to be_truthy
+    end
+
+    it 'returns true when the event_type is updated' do
+      flow = described_class.new(updated_pull_request)
+      flow.parse!
+
+      expect(flow.new_pull_request_flow?).to be_truthy
+    end
+
+    it 'returns false when the event_type is not updated or created' do
+      flow = described_class.new(close_pull_request)
+      flow.parse!
+
+      expect(flow.new_pull_request_flow?).to be_falsy
     end
   end
 
