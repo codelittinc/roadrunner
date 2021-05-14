@@ -43,7 +43,11 @@ module Clients
     end
 
     def create_github_hook
-      client_class('Hook').new.create(@repository)
+      client_class('Hook').new.create(@repository.full_name)
+    end
+
+    def repository
+      client_class('Repository').new.get_repository(@repository.full_name)
     end
 
     private
