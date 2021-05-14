@@ -4,14 +4,16 @@ require 'rails_helper'
 require 'external_api_helper'
 
 RSpec.describe Clients::Github::Repository, type: :service do
+  let(:repository) do
+    FactoryBot.create(:repository, owner: 'codelittinc', name: 'gh-hooks-repo-test')
+  end
+
   describe '#get' do
     it 'returns a repo' do
       VCR.use_cassette('github#repository#get') do
-        repo = 'codelittinc/gh-hooks-repo-test'
+        repo = described_class.new.get_repository(repository)
 
-        repository = described_class.new.get_repository(repo)
-
-        expect(repository).to be_a(Clients::Github::Parsers::RepositoryParser)
+        expect(repo).to be_a(Clients::Github::Parsers::RepositoryParser)
       end
     end
   end

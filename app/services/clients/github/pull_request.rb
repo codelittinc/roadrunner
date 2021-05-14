@@ -4,7 +4,7 @@ module Clients
   module Github
     class PullRequest < GithubBase
       def get(repository, source_control_id)
-        pull_request = @client.pull_request(repository, source_control_id)
+        pull_request = @client.pull_request(repository.full_name, source_control_id)
         Clients::Github::Parsers::PullRequestParser.new(pull_request)
       end
 

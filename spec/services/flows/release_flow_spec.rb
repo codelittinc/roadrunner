@@ -15,7 +15,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
   end
 
   let(:repository_with_applications) do
-    repository = FactoryBot.create(:repository)
+    repository = FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test')
     repository.applications << FactoryBot.create(:application, repository: repository, environment: 'prod')
     repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
     repository
@@ -121,7 +121,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             flow = described_class.new(valid_json)
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              'codelittinc/roadrunner-repository-test',
+              repository_with_applications,
               'rc.1.v1.0.0',
               'master',
               "Available in the release of *roadrunner-repository-test*:\n - Merge branch 'master' into Rheniery-patch-1 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
@@ -185,7 +185,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             flow = described_class.new(valid_json)
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              'codelittinc/roadrunner-repository-test',
+              repository_with_applications,
               'rc.2.v1.0.0',
               'master',
               "Available in the release of *roadrunner-repository-test*:\n - Merge branch 'master' into Rheniery-patch-1 [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)",
@@ -253,7 +253,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                        })
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              'codelittinc/roadrunner-repository-test',
+              repository_with_applications,
               'v1.0.0',
               '89374111e03f9c111cbff83c941d80b4d1a8c019',
               "Available in the release of *roadrunner-repository-test*:\n - Creating the README.md file \n - Create .gitignore",
@@ -361,7 +361,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                        })
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              'codelittinc/roadrunner-repository-test',
+              repository_with_applications,
               'v1.1.0',
               'bc1f53d9bb8818665e5fafc393219023f839bec6',
               "Available in the release of *roadrunner-repository-test*:\n - Update README.md",
@@ -502,7 +502,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                        })
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              'codelittinc/roadrunner-repository-test',
+              repository_with_applications,
               'v1.2.0',
               '59254c02079408178f40b12e8192d945988d9644',
               "Available in the release of *roadrunner-repository-test*:\n - Update README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",

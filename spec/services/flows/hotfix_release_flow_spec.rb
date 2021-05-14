@@ -21,7 +21,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
   end
 
   let(:repository_with_applications) do
-    repository = FactoryBot.create(:repository)
+    repository = FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test')
     repository.applications << FactoryBot.create(:application, repository: repository, environment: 'prod')
     repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
     repository
@@ -121,7 +121,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
           flow = described_class.new(valid_json_qa)
 
           expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-            'codelittinc/roadrunner-repository-test',
+            repository_with_applications,
             'rc.1.v1.1.1',
             'hotfix/fix-to-test',
             # @TODO: send a proper message in the first hotfix
@@ -147,7 +147,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
           flow = described_class.new(valid_json_qa)
 
           expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-            'codelittinc/roadrunner-repository-test',
+            repository_with_applications,
             'rc.2.v1.1.1',
             'hotfix/fix-to-test',
             "Available in the release of *roadrunner-repository-test*:\n - Update README.md",
@@ -233,7 +233,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             flow = described_class.new(valid_json_prod)
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              'codelittinc/roadrunner-repository-test',
+              repository_with_applications,
               'v1.1.1',
               '029fe9f4df0abcd43f366cfa291bebe2a9a7806d',
               "Available in the release of *roadrunner-repository-test*:\n - Update README.md",

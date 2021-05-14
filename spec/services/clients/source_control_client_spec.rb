@@ -18,7 +18,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
 
     describe '#list_releases' do
       it 'triggers the correct action' do
-        expect_any_instance_of(Clients::Github::Release).to receive(:list).with(repository.full_name)
+        expect_any_instance_of(Clients::Github::Release).to receive(:list).with(repository)
 
         Clients::SourceControlClient.new(repository).list_releases
       end
@@ -27,7 +27,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#create_release' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-          repository.full_name, 'v1', 'master', 'cool message', true
+          repository, 'v1', 'master', 'cool message', true
         )
 
         Clients::SourceControlClient.new(repository).create_release(
@@ -39,7 +39,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#branch_exists?' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Github::Branch).to receive(:branch_exists?).with(
-          repository.full_name, 'my-cool-branch'
+          repository, 'my-cool-branch'
         )
 
         Clients::SourceControlClient.new(repository).branch_exists?('my-cool-branch')
@@ -49,7 +49,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#get_pull_request' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Github::PullRequest).to receive(:get).with(
-          repository.full_name, 1
+          repository, 1
         )
 
         Clients::SourceControlClient.new(repository).get_pull_request(1)
@@ -69,7 +69,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#list_branch_commits' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Github::Branch).to receive(:commits).with(
-          repository.full_name, branch
+          repository, branch
         )
 
         Clients::SourceControlClient.new(repository).list_branch_commits(
@@ -81,7 +81,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#compare_commits' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Github::Branch).to receive(:compare).with(
-          repository.full_name, pull_request.head, pull_request.base
+          repository, pull_request.head, pull_request.base
         )
 
         Clients::SourceControlClient.new(repository).compare_commits(
@@ -92,37 +92,37 @@ RSpec.describe Clients::SourceControlClient, type: :service do
 
     describe '#repository' do
       it 'triggers the correct action' do
-        expect_any_instance_of(Clients::Github::Repository).to receive(:get_repository).with(repository.full_name)
+        expect_any_instance_of(Clients::Github::Repository).to receive(:get_repository).with(repository)
 
         Clients::SourceControlClient.new(repository).repository
       end
     end
 
-    describe '#delete_github_branch' do
+    describe '#delete_branch' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Github::Branch).to receive(:delete).with(
           repository, branch
         )
 
-        Clients::SourceControlClient.new(repository).delete_github_branch(branch)
+        Clients::SourceControlClient.new(repository).delete_branch(branch)
       end
     end
 
-    describe '#list_github_hook' do
+    describe '#list_hooks' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Github::Hook).to receive(:list).with(
           repository
         )
 
-        Clients::SourceControlClient.new(repository).list_github_hook
+        Clients::SourceControlClient.new(repository).list_hooks
       end
     end
 
-    describe '#create_github_hook' do
+    describe '#create_hook' do
       it 'triggers the correct action' do
-        expect_any_instance_of(Clients::Github::Hook).to receive(:create).with(repository.full_name)
+        expect_any_instance_of(Clients::Github::Hook).to receive(:create).with(repository)
 
-        Clients::SourceControlClient.new(repository).create_github_hook
+        Clients::SourceControlClient.new(repository).create_hook
       end
     end
   end
@@ -142,7 +142,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
 
     describe '#list_releases' do
       it 'triggers the correct action' do
-        expect_any_instance_of(Clients::Azure::Release).to receive(:list).with(repository.full_name)
+        expect_any_instance_of(Clients::Azure::Release).to receive(:list).with(repository)
 
         Clients::SourceControlClient.new(repository).list_releases
       end
@@ -151,7 +151,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#branch_exists?' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Azure::Branch).to receive(:branch_exists?).with(
-          repository.full_name, 'my-cool-branch'
+          repository, 'my-cool-branch'
         )
 
         Clients::SourceControlClient.new(repository).branch_exists?('my-cool-branch')
@@ -161,7 +161,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#create_release' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Azure::Release).to receive(:create).with(
-          repository.full_name, 'v1', 'master', 'cool message', true
+          repository, 'v1', 'master', 'cool message', true
         )
 
         Clients::SourceControlClient.new(repository).create_release(
@@ -173,7 +173,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#get_pull_request' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Azure::PullRequest).to receive(:get).with(
-          repository.full_name, 1
+          repository, 1
         )
 
         Clients::SourceControlClient.new(repository).get_pull_request(1)
@@ -193,7 +193,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#list_branch_commits' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Azure::Branch).to receive(:commits).with(
-          repository.full_name, branch
+          repository, branch
         )
 
         Clients::SourceControlClient.new(repository).list_branch_commits(branch)
@@ -203,7 +203,7 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     describe '#compare_commits' do
       it 'triggers the correct action' do
         expect_any_instance_of(Clients::Azure::Branch).to receive(:compare).with(
-          repository.full_name, pull_request.head, pull_request.base
+          repository, pull_request.head, pull_request.base
         )
 
         Clients::SourceControlClient.new(repository).compare_commits(

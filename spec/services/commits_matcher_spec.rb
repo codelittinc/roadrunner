@@ -3,9 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe CommitsMatcher, type: :service do
+  let(:repository) do
+    FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner')
+  end
+
   it 'returns a list of commits' do
     VCR.use_cassette('services#commits-matcher#list-commits') do
-      github_commits = Clients::Github::Branch.new.commits('codelittinc/roadrunner', 'master').reverse
+      github_commits = Clients::Github::Branch.new.commits(repository, 'master').reverse
       commits = [
         FactoryBot.create(:commit, :with_pull_request, message: 'update rails admin to use master while they release a version compatible with ruby 3'),
         FactoryBot.create(:commit, :with_pull_request, message: 'add rails admin dependencies'),
@@ -20,7 +24,7 @@ RSpec.describe CommitsMatcher, type: :service do
 
   it 'when there are two commits with the same message it returns the latest one' do
     VCR.use_cassette('services#commits-matcher#list-commits') do
-      github_commits = Clients::Github::Branch.new.commits('codelittinc/roadrunner', 'master').reverse
+      github_commits = Clients::Github::Branch.new.commits(repository, 'master').reverse
       message = 'update rails admin to use master while they release a version compatible with ruby 3'
       FactoryBot.create(:commit, :with_pull_request, message: message, created_at: 5.days.ago, author_name: 'robin')
       FactoryBot.create(:commit, :with_pull_request, message: message, created_at: 2.days.ago, author_name: 'batman')
