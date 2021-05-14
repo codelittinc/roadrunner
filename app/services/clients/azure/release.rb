@@ -6,7 +6,7 @@ module Clients
   module Azure
     class Release < AzureBase
       def list(repository)
-        url = "#{azure_api_url}release/releases?path=\\#{repository}&api-version=4.1-preview.6"
+        url = "#{azure_api_url}release/releases?path=\\#{repository.name}&api-version=4.1-preview.6"
         response = Request.get(url, authorization)
         releases = response['value']
         releases.map do |release|
@@ -15,7 +15,7 @@ module Clients
       end
 
       def create(repository, tag_name, target, _body, _prerelease)
-        url = "#{azure_url}git/repositories/#{repository}/annotatedtags"
+        url = "#{azure_url}git/repositories/#{repository.name}/annotatedtags"
         uri = URI.parse(url)
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true

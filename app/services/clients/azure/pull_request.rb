@@ -4,7 +4,7 @@ module Clients
   module Azure
     class PullRequest < AzureBase
       def get(repository, source_control_id)
-        url = "#{azure_url}git/repositories/#{repository}/pullrequests/#{source_control_id}"
+        url = "#{azure_url}git/repositories/#{repository.name}/pullrequests/#{source_control_id}"
         pull_request = Request.get(url, authorization)
         Clients::Azure::Parsers::PullRequestParser.new(pull_request)
       end

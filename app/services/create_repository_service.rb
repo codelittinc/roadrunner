@@ -28,7 +28,7 @@ class CreateRepositoryService
     end
 
     github_repo = Clients::SourceControlClient.new(repository).repository if repository
-    Clients::SourceControlClient.new(repository).create_github_hook if github_repo
+    Clients::SourceControlClient.new(repository).create_hook if github_repo
 
     repository
   end

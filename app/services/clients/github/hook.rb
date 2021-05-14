@@ -9,11 +9,11 @@ module Clients
       SSL_VERIFICATION = '1'
 
       def list(repository)
-        @client.hooks(repository)
+        @client.hooks(repository.full_name)
       end
 
       def create(repository, name = 'web')
-        @client.create_hook(repository, name, build_config, build_options)
+        @client.create_hook(repository.full_name, name, build_config, build_options)
       rescue Octokit::UnprocessableEntity
         { status: 200 }
       end
