@@ -22,11 +22,13 @@ jobs:
         heroku_app_name: ${{ secrets.HEROKU_APP_NAME_PROD }}
         branch: ${{ env.RELEASE_VERSION }}
         dontuseforce: false
-
   build-and-deploy-to-convox:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+
+    - name: test
+      run: echo $GITHUB_REF
 
     - name: Set tag version
       run: echo "TAG_VERSION=\"$(echo $GITHUB_REF | sed 's/.*tags\///')\"" >> $GITHUB_ENV
