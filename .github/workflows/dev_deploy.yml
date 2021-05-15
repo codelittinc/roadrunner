@@ -10,7 +10,7 @@ env:
 
 on:
   push:
-    branches: [ master ]
+    branches: [ potato ]
 
 jobs:
   test-and-lint:
@@ -74,7 +74,7 @@ jobs:
         dontuseforce: false
         usedocker: # optional, default is false
         docker_heroku_process_type: # optional, default is web
-        appdir: # optional, default is 
-        healthcheck: # optional, default is 
-        checkstring: # optional, default is 
-        procfile: # optional, default is 
+        appdir: # optional, default is
+        healthcheck: # optional, default is
+        checkstring: # optional, default is
+        procfile: # optional, default is

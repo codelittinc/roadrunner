@@ -1,0 +1,11 @@
+environment:
+  - PORT=5000
+services:
+  web:
+    image: kaiomagalhaes/roadrunner:<IMAGE_TAG_VERSION>
+    port: 5000
+    environment:
+      - DATABASE_URL
+      - LOG_ENV
+      - LOG_HOST
+    domain: api.convox.codelitt.dev
