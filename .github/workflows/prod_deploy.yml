@@ -5,7 +5,7 @@ on:
     tags: [ 'v*' ]
 
 jobs:
-  deploy-qa:
+  deploy-prod:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,3 +22,31 @@ jobs:
         heroku_app_name: ${{ secrets.HEROKU_APP_NAME_PROD }}
         branch: ${{ env.RELEASE_VERSION }}
         dontuseforce: false
+
+  build-and-deploy-to-convox:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set tag version
+      run: echo "TAG_VERSION=\"$(echo $GITHUB_REF | sed 's/.*tags\///')\"" >> $GITHUB_ENV
+
+    - name: Set image name
+      run: echo "IMG_NAME=kaiomagalhaes/roadrunner:${{env.RELEASE_VERSION}}" >> $GITHUB_ENV
+
+    - name: Build image with webpack
+      uses: dfreilich/pack-action@v1
+      with:
+        args: 'build ${{ env.IMG_NAME }} --path /github/workspace/ --builder heroku/buildpacks:20 --publish'
+        username: kaiomagalhaes
+        password: ${{ secrets.DOCKER_PASS }}
+
+    - name: Updates the image name in convox.yml
+      run: sed -i -e "s/<IMAGE_TAG_VERSION>/${{env.RELEASE_VERSION}}/g" convox.yml
+
+    - uses: convox/action-deploy@v1
+      name: Deploy to Convox
+      with:
+        rack: prod
+        app: roadrunner
+        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
