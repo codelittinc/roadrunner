@@ -6,10 +6,12 @@ require 'nested_form/builder_mixin'
 RailsAdmin.config do |config|
   ### Popular gems integration
 
-  config.authenticate_with do
-    authenticate_or_request_with_http_basic('Login required') do |username, password|
-      user = UserAdmin.where(username: username).or(UserAdmin.where(email: username)).first
-      user&.authenticate(password) if user
+  if ENV['ENABLE_AUTH'] == 'true'
+    config.authenticate_with do
+      authenticate_or_request_with_http_basic('Login required') do |username, password|
+        user = UserAdmin.where(username: username).or(UserAdmin.where(email: username)).first
+        user&.authenticate(password) if user
+      end
     end
   end
 
