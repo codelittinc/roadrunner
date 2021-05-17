@@ -24,7 +24,7 @@ module Parsers
     end
 
     def destroy_branch!(pull_request)
-      Clients::Github::Branch.new.delete(pull_request.repository.full_name, pull_request.head)
+      Clients::Github::Branch.new.delete(pull_request.repository, pull_request.head)
     end
 
     def parse!
