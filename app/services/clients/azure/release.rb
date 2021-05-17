@@ -6,7 +6,7 @@ module Clients
   module Azure
     class Release < AzureBase
       def list(repository)
-        url = "#{azure_api_url}release/releases?path=\\#{repository.name}&api-version=4.1-preview.6"
+        url = "#{azure_url}git/repositories/#{repository.name}/refs?api-version=6.1-preview.1&filterContains=tag"
         response = Request.get(url, authorization)
         releases = response['value']
         releases.map do |release|
