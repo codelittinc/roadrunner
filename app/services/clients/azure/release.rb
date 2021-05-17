@@ -23,9 +23,9 @@ module Clients
         request = Net::HTTP::Post.new(uri.path, { 'Content-Type' => 'application/json' })
         request.body = build_body_release(repository, tag_name, target).to_json
         request['Authorization'] = authorization
-        request['Accept'] = 'application/json; api-version=4.1-preview.1'
+        request['Accept'] = 'application/json; api-version=6.1-preview.1'
 
-        release = JSON.parse(request.body)
+        release = JSON.parse(http.request(request).body)
         Clients::Azure::Parsers::ReleaseParser.new(release)
       end
 

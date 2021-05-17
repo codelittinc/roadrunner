@@ -4,7 +4,7 @@ module Clients
   module Azure
     module Parsers
       class ReleaseParser
-        attr_reader :tag_name
+        attr_reader :tag_name, :created_by
 
         def initialize(json)
           @json = json.with_indifferent_access
@@ -13,6 +13,7 @@ module Clients
 
         def parse!
           @tag_name = @json[:tag_name]
+          @created_by = @json[:taggedBy][:name]
         end
       end
     end
