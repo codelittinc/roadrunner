@@ -23,6 +23,7 @@ User.create(slack: 'ana.marija', jira: '5ca6158010e4f967c3022b24')
 
 # ------
 project = Project.create!(name: 'Rolli')
+project_avison_young = Project.create!(name: 'Avison Young')
 
 repository = Repository.create!(
   name: 'rolli',
@@ -30,21 +31,34 @@ repository = Repository.create!(
   supports_deploy: true,
   deploy_type: Repository::TAG_DEPLOY_TYPE,
   project: project,
+  source_control_type: 'github',
   slack_repository_info: SlackRepositoryInfo.new(dev_group: '@rolli-devs', dev_channel: 'team-rolli-dev', deploy_channel: 'team-rolli-deploy')
 )
 
-application = Application.create!(external_identifier: 'rolli.com', environment: 'prod', repository: repository)
+Repository.create(
+  name: 'ay-users-api-test',
+  friendly_name: 'ay-users-api-test',
+  supports_deploy: true,
+  deploy_type: Repository::TAG_DEPLOY_TYPE,
+  project: project_avison_young,
+  source_control_type: 'azure',
+  slack_repository_info: SlackRepositoryInfo.new(dev_group: 'feed-test-automation', dev_channel: 'feed-test-automation', deploy_channel: 'feed-test-automation')
+)
+
+application = Application.create!(environment: 'prod', repository: repository)
 
 Server.create(link: 'https://dev-rolli.codelitt.dev', supports_health_check: false, application: application)
 Server.create(link: 'https://qa-rolli.codelitt.dev', supports_health_check: false, application: application)
 Server.create(link: 'https://rolliapp.com', supports_health_check: false, application: application)
 
+github_pull_request = GithubPullRequest.new(source_control_id: 1)
+
 pull_request = PullRequest.create!(
   user: user,
   repository: repository,
+  source: github_pull_request,
   head: 'updated project',
   base: 'project',
-  source_control_id: 1,
   title: 'Some changes',
   state: 'open'
 )
@@ -57,6 +71,7 @@ Commit.create(
 )
 
 Release.create(
+  deploy_status: 'success',
   application: application,
   version: '2.0'
 )
