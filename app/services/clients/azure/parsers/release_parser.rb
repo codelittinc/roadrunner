@@ -12,8 +12,8 @@ module Clients
         end
 
         def parse!
-          @tag_name = @json[:tag_name]
-          @created_by = @json[:taggedBy][:name]
+          @tag_name = @json[:name].remove('refs/tags/')
+          @created_by = @json.dig(:creator, :displayName) || @json[:taggedBy][:name]
         end
       end
     end

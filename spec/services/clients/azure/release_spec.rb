@@ -4,24 +4,42 @@ require 'rails_helper'
 require 'external_api_helper'
 
 RSpec.describe Clients::Azure::Release, type: :service do
-  xdescribe '#list' do
+  describe '#list' do
     it 'returns a list of releases' do
       VCR.use_cassette('azure#release#list') do
-        repository = FactoryBot.create(:repository, name: 'spaces')
+        repository = FactoryBot.create(:repository, name: 'ay-users-api-test')
         releases = described_class.new.list(repository)
-        expect(releases.size).to eql(50)
+        expect(releases.size).to eql(1)
+      end
+    end
+
+    it 'returns the correct information' do
+      VCR.use_cassette('azure#release#list') do
+        repository = FactoryBot.create(:repository, name: 'ay-users-api-test')
+        releases = described_class.new.list(repository)
+        expect(releases.first.tag_name).to eq('rc.1.v1.0.0')
       end
     end
   end
 
   describe '#create' do
-    it 'creates a release parser' do
+    it 'creates a release parser, with correct created_by' do
       VCR.use_cassette('azure#release#create') do
         repository = FactoryBot.create(:repository, name: 'ay-users-api-test')
         tag_name = 'rc.2.v1.0.0'
         release = described_class.new.create(repository, tag_name, 'master', '', true)
 
         expect(release.created_by).to eql('Kaio Magalhaes')
+      end
+    end
+
+    it 'creates a release parser, with correct tag_name' do
+      VCR.use_cassette('azure#release#create') do
+        repository = FactoryBot.create(:repository, name: 'ay-users-api-test')
+        tag_name = 'rc.2.v1.0.0'
+        release = described_class.new.create(repository, tag_name, 'master', '', true)
+
+        expect(release.tag_name).to eql('rc.2.v1.0.0')
       end
     end
 
