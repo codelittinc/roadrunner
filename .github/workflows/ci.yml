@@ -55,3 +55,6 @@ jobs:
 
       - name: Run RSpec
         run: COVERAGE=true bundle exec rspec
+
+      - name: Run db:seed
+        run: bundle exec rails db:seed
