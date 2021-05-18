@@ -8,4 +8,4 @@ services:
       - DATABASE_URL
       - LOG_ENV
       - LOG_HOST
-    domain: api.convox.codelitt.dev
+    domain: api.roadrunner.codelitt.dev
