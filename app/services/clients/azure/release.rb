@@ -11,7 +11,7 @@ module Clients
         releases = response['value']
         releases.map do |release|
           Clients::Azure::Parsers::ReleaseParser.new(release)
-        end
+        end.reverse
       end
 
       def create(repository, tag_name, target, _body, _prerelease)
