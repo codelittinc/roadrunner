@@ -8,4 +8,9 @@ services:
       - DATABASE_URL
       - LOG_ENV
       - LOG_HOST
+      - AZURE_AUTH_KEY
+      - GIT_AUTH_KEY
+      - JIRA_AUTH_KEY
+      - SLACK_API_KEY
+      - SLACK_API_URL
     domain: api.roadrunner.codelitt.dev
