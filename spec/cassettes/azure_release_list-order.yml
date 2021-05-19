@@ -34,19 +34,19 @@ http_interactions:
       - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
         STA UNI COM INT PHY ONL FIN PUR LOC CNT"
       Set-Cookie:
-      - VstsSession=%7B%22PersistentSessionId%22%3A%22c99095a5-649f-48cc-bcba-63e8aa5db190%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
-        domain=.dev.azure.com; expires=Thu, 19-May-2022 16:43:24 GMT; path=/; secure;
+      - VstsSession=%7B%22PersistentSessionId%22%3A%2234717963-8dcc-4c38-8c5d-3e7179d8d4e4%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Thu, 19-May-2022 16:44:26 GMT; path=/; secure;
         HttpOnly
       X-Tfs-Processid:
-      - 49914976-f8c5-451b-a8d7-dcbddffb3fad
+      - 597d83d3-9d55-4835-9bef-74765e456c82
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Activityid:
-      - 77ec3c59-7223-4ca5-85dc-af7b9f46e1a8
+      - 025af8d1-c50c-495d-b7ed-58dc1f8df490
       X-Tfs-Session:
-      - 77ec3c59-7223-4ca5-85dc-af7b9f46e1a8
+      - 025af8d1-c50c-495d-b7ed-58dc1f8df490
       X-Vss-E2eid:
-      - 77ec3c59-7223-4ca5-85dc-af7b9f46e1a8
+      - 025af8d1-c50c-495d-b7ed-58dc1f8df490
       X-Vss-Userdata:
       - f504d917-1f93-6f97-ab3e-7eceb7174af9:kaio.magalhaes@avisonyoung.onmicrosoft.com
       X-Frame-Options:
@@ -60,9 +60,9 @@ http_interactions:
       X-Cache:
       - CONFIG_NOCACHE
       X-Msedge-Ref:
-      - 'Ref A: DEDCDD9E64D0401FA96BF1747DFA9109 Ref B: RIO03EDGE0415 Ref C: 2021-05-19T16:43:23Z'
+      - 'Ref A: 1131830F2E5F4EFD94C613E7869CCC80 Ref B: RIO03EDGE0317 Ref C: 2021-05-19T16:44:26Z'
       Date:
-      - Wed, 19 May 2021 16:43:24 GMT
+      - Wed, 19 May 2021 16:44:25 GMT
     body:
       encoding: ASCII-8BIT
       string: '{"value":[{"name":"refs/tags/rc.1.v1.0.0","objectId":"1e57befc95e21f34003e82f860b4ee65ae11209c","creator":{"displayName":"Kaio
@@ -80,5 +80,5 @@ http_interactions:
         Magalhaes","url":"https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9","_links":{"avatar":{"href":"https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"}},"id":"f504d917-1f93-6f97-ab3e-7eceb7174af9","uniqueName":"kaio.magalhaes@avisonyoung.onmicrosoft.com","imageUrl":"https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9","descriptor":"aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Fv1.0.0"},{"name":"refs/tags/v1.1.0","objectId":"1e9174acb6a7009d91151fd12f49ddf596ccbab6","creator":{"displayName":"Kaio
         Magalhaes","url":"https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9","_links":{"avatar":{"href":"https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"}},"id":"f504d917-1f93-6f97-ab3e-7eceb7174af9","uniqueName":"kaio.magalhaes@avisonyoung.onmicrosoft.com","imageUrl":"https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9","descriptor":"aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Fv1.1.0"},{"name":"refs/tags/v1.2.0","objectId":"61a61ce8913a4e2225ad6e3b7fbd7041c538fd7d","creator":{"displayName":"Kaio
         Magalhaes","url":"https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9","_links":{"avatar":{"href":"https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"}},"id":"f504d917-1f93-6f97-ab3e-7eceb7174af9","uniqueName":"kaio.magalhaes@avisonyoung.onmicrosoft.com","imageUrl":"https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9","descriptor":"aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Fv1.2.0"}],"count":14}'
-  recorded_at: Wed, 19 May 2021 16:43:24 GMT
+  recorded_at: Wed, 19 May 2021 16:44:26 GMT
 recorded_with: VCR 6.0.0

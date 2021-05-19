@@ -4,7 +4,10 @@ module Clients
   module Azure
     class Branch < AzureBase
       def commits(repository, branch)
-        url = "#{azure_url}git/repositories/#{repository.name}/commits?searchCriteria.itemVersion.version=#{branch}&api-version=4.1"
+        type = %w[master main].include?(branch) ? 'branch' : 'commit'
+        type = 'tag' if branch.match?(/rc.\d|^v\d/)
+        url = "#{azure_url}git/repositories/#{repository.name}/commits?searchCriteria.itemVersion.version=#{branch}&api-version=6.1-preview.1&searchCriteria.itemVersion.versionType=#{type}"
+        # url = "#{azure_url}git/repositories/#{repository.name}/commits?searchCriteria.itemVersion.version=#{branch}&api-version=4.1"
         response = Request.get(url, authorization)
         commits = response['value']
         commits.map do |commit|
@@ -14,7 +17,8 @@ module Clients
 
       def compare(repository, head, base)
         base_version_type = head.match?(/^rc|^v/) ? 'tag' : 'branch'
-        url = "#{azure_url}git/repositories/#{repository.name}/diffs/commits?baseVersion=#{head}&baseVersionType=#{base_version_type}&targetVersion=#{base}&targetVersionType=branch&api-version=4.1"
+        target_version_type = base.match?(/^rc|^v/) ? 'tag' : 'branch'
+        url = "#{azure_url}git/repositories/#{repository.name}/diffs/commits?baseVersion=#{head}&baseVersionType=#{base_version_type}&targetVersion=#{base}&targetVersionType=#{target_version_type}&api-version=4.1"
         response = Request.get(url, authorization)
         commits = response['changes']
         commits.map do |commit|

@@ -1,0 +1,185 @@
+{
+  "value": [
+    {
+      "name": "refs/tags/rc.1.v1.0.0",
+      "objectId": "1e57befc95e21f34003e82f860b4ee65ae11209c",
+      "creator": {
+        "displayName": "Kaio Magalhaes",
+        "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+          }
+        },
+        "id": "f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "uniqueName": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "descriptor": "aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+      },
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Frc.1.v1.0.0"
+    },
+    {
+      "name": "refs/tags/rc.1.v1.1.0",
+      "objectId": "a8b6183bbd34b9b38bf51a47c065a0f08777e934",
+      "creator": {
+        "displayName": "Kaio Magalhaes",
+        "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+          }
+        },
+        "id": "f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "uniqueName": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "descriptor": "aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+      },
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Frc.1.v1.1.0"
+    },
+    {
+      "name": "refs/tags/rc.2.v1.0.0",
+      "objectId": "ae4dc8ab34c2043e4ebea3e2b0499ec877da5d92",
+      "creator": {
+        "displayName": "Kaio Magalhaes",
+        "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+          }
+        },
+        "id": "f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "uniqueName": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "descriptor": "aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+      },
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Frc.2.v1.0.0"
+    },
+    {
+      "name": "refs/tags/rc.3.v1.0.0",
+      "objectId": "5acfcb0f16c1c4575e0dcaa9c23bb38ad1ba9c25",
+      "creator": {
+        "displayName": "Kaio Magalhaes",
+        "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+          }
+        },
+        "id": "f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "uniqueName": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "descriptor": "aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+      },
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Frc.3.v1.0.0"
+    },
+    {
+      "name": "refs/tags/rc.4.v1.0.0",
+      "objectId": "d81ef8ab85f899777338a8855eafcab52aa90216",
+      "creator": {
+        "displayName": "Kaio Magalhaes",
+        "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+          }
+        },
+        "id": "f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "uniqueName": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "descriptor": "aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+      },
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Frc.4.v1.0.0"
+    },
+    {
+      "name": "refs/tags/rc.5.v1.0.0",
+      "objectId": "f6936ada92bc065710b35319e38e6d0a6de5bf9c",
+      "creator": {
+        "displayName": "Kaio Magalhaes",
+        "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+          }
+        },
+        "id": "f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "uniqueName": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "descriptor": "aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+      },
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Frc.5.v1.0.0"
+    },
+    {
+      "name": "refs/tags/rc.6.v1.0.0",
+      "objectId": "286cc81a1b3bf631863091b6cf93d4e1f7028ed8",
+      "creator": {
+        "displayName": "Kaio Magalhaes",
+        "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+          }
+        },
+        "id": "f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "uniqueName": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "descriptor": "aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+      },
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Frc.6.v1.0.0"
+    },
+    {
+      "name": "refs/tags/rc.7.v1.0.0",
+      "objectId": "476009b3511d8e1ecfdcda411e3208d4fea47194",
+      "creator": {
+        "displayName": "Kaio Magalhaes",
+        "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+          }
+        },
+        "id": "f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "uniqueName": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "descriptor": "aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+      },
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Frc.7.v1.0.0"
+    },
+    {
+      "name": "refs/tags/rc.8.v1.0.0",
+      "objectId": "b3caa37ce0ce9855a8997bcc92379ad6a860e1ea",
+      "creator": {
+        "displayName": "Kaio Magalhaes",
+        "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+          }
+        },
+        "id": "f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "uniqueName": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "descriptor": "aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+      },
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Frc.8.v1.0.0"
+    },
+    {
+      "name": "refs/tags/v1.0.0",
+      "objectId": "dcc96c001b9c1242a7a7107b5a410bccf9ff5b20",
+      "creator": {
+        "displayName": "Kaio Magalhaes",
+        "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+          }
+        },
+        "id": "f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "uniqueName": "kaio.magalhaes@avisonyoung.onmicrosoft.com",
+        "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9",
+        "descriptor": "aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"
+      },
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/refs?filter=tags%2Fv1.0.0"
+    }
+  ],
+  "count": 10
+}

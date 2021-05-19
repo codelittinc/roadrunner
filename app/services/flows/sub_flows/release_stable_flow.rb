@@ -32,7 +32,11 @@ module Flows
 
       def release_commits
         github_release_commits.map do |commit|
+          next if commit.date.nil?
+
           date = commit.date
+          date = Date.parse(date) if date.instance_of?(String)
+
           before = date - 5.minutes
           after = date + 5.minutes
 
