@@ -11,8 +11,8 @@ RSpec.describe Clients::Azure::Branch, type: :service do
   describe '#commits' do
     it 'returns a list of commits' do
       VCR.use_cassette('azure#branch#commits') do
-        commits = described_class.new.commits(repository, 'main')
-        expect(commits.size).to eql(4)
+        commits = described_class.new.commits(repository, 'master')
+        expect(commits.size).to eql(14)
       end
     end
   end

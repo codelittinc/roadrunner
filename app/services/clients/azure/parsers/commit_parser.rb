@@ -4,7 +4,7 @@ module Clients
   module Azure
     module Parsers
       class CommitParser
-        attr_reader :sha, :author_name, :author_email, :message
+        attr_reader :sha, :author_name, :author_email, :message, :date
 
         def initialize(json)
           @json = json.with_indifferent_access
@@ -16,6 +16,7 @@ module Clients
           @author_name = @json.dig(:author, :name)
           @author_email = @json.dig(:author, :email)
           @message = @json[:comment]
+          @date = @json.dig(:author, :date)
         end
       end
     end
