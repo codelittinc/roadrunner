@@ -12,7 +12,7 @@ module Clients
         end
 
         def parse!
-          @sha = @json[:commitId]
+          @sha = @json[:commitId] || @json.dig(:item, :commitId)
           @author_name = @json.dig(:author, :name)
           @author_email = @json.dig(:author, :email)
           @message = @json[:comment]

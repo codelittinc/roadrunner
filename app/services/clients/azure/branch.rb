@@ -13,8 +13,8 @@ module Clients
       end
 
       def compare(repository, head, base)
-        baseVersionType = head.match?(/^rc|^v/) ? 'tag' : 'branch'
-        url = "#{azure_url}git/repositories/#{repository.name}/diffs/commits?baseVersion=#{head}&baseVersionType=#{baseVersionType}&targetVersion=#{base}&targetVersionType=branch&api-version=4.1"
+        base_version_type = head.match?(/^rc|^v/) ? 'tag' : 'branch'
+        url = "#{azure_url}git/repositories/#{repository.name}/diffs/commits?baseVersion=#{head}&baseVersionType=#{base_version_type}&targetVersion=#{base}&targetVersionType=branch&api-version=4.1"
         response = Request.get(url, authorization)
         commits = response['changes']
         commits.map do |commit|

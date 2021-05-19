@@ -20,8 +20,8 @@ RSpec.describe Clients::Azure::Branch, type: :service do
   describe '#compare' do
     it 'returns a list the commits difference between two branches' do
       VCR.use_cassette('azure#branch#compare') do
-        commits = described_class.new.compare(repository, 'main', 'feat/test')
-        expect(commits.size).to eql(4)
+        commits = described_class.new.compare(repository, 'master', 'feat/cool-test')
+        expect(commits.size).to eql(1)
       end
     end
   end

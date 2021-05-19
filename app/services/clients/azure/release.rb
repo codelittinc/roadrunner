@@ -32,7 +32,7 @@ module Clients
       private
 
       def build_body_release(repository, tag_name, target)
-        last_commit = Branch.new.commits(repository, target).last
+        last_commit = Branch.new.commits(repository, target).first
         {
           name: tag_name,
           taggedObject: {
