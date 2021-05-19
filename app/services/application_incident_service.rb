@@ -90,7 +90,7 @@ class ApplicationIncidentService
   end
 
   def slack_message
-    "#{icon} <#{repository.github_link}|#{repository.name}> environment #{icon}<#{server.link}|#{environment&.upcase}>#{icon} \n #{short_message}"
+    "#{icon} <#{repository.github_link}|#{repository.name}> environment #{icon}<#{server&.link}|#{environment&.upcase}>#{icon} \n #{short_message}"
   end
 
   def icon

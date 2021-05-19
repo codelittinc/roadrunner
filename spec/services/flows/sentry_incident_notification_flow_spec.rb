@@ -9,6 +9,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
   let(:valid_incident_with_error_caught) { load_flow_fixture('sentry_incident_with_error_caught_tag.json') }
   let(:valid_incident_with_custom_message) { load_flow_fixture('sentry_incident_with_custom_message.json') }
   let(:invalid_incident) { load_flow_fixture('graylogs_incident_big_message.json') }
+  let(:valid_incident_of_missing_server) { load_flow_fixture('sentry_incident_with_missing_server.json') }
 
   context 'normal flow' do
     describe '#flow?' do
@@ -216,6 +217,29 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         flow = described_class.new(valid_incident_with_app_info_by_tags)
 
         expect { flow.run }.to change { ServerIncidentInstance.count }.by(1)
+      end
+
+      context 'when there is no server' do
+        it 'dont add the link to the slack message' do
+          repository = FactoryBot.create(:repository, source_control_type: 'azure')
+          FactoryBot.create(:application, external_identifier: 'avant', repository: repository, environment: 'qa')
+
+          flow = described_class.new(valid_incident_of_missing_server)
+
+          slack_message = ':droplet: <https://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test> environment '\
+          ":droplet:<|QA>:droplet: \n \n *_<unknown>_*\n *Type*: Caught Exception\n *User*: \n>Id - 37\n>Email - "\
+          "john.sikaitis@avisonyoung.com\n *Browser*: \n\n *Link*: <https://sentry.io/organizations/avison-young/issues/2403853699"\
+          '/events/fc188ef59c9b46f8a6a970cfe49ac276/?project=5691309|See issue in Sentry.io>'
+
+          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+            slack_message,
+            'feed-test-automations'
+          ).and_return(
+            { 'ts' => '123' }
+          )
+
+          flow.run
+        end
       end
     end
   end

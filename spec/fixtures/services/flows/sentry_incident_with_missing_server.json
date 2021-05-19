@@ -1,0 +1,1384 @@
+{
+  "id": "2403853699",
+  "project": "avant",
+  "project_name": "avant",
+  "project_slug": "avant",
+  "logger": null,
+  "level": "error",
+  "culprit": "",
+  "message": "Network error: Network request failed",
+  "url": "https://sentry.io/organizations/avison-young/issues/2403853699/?referrer=webhooks_plugin",
+  "triggering_rules": [
+    "Roadrunner",
+    "Roadrunner"
+  ],
+  "event": {
+    "event_id": "fc188ef59c9b46f8a6a970cfe49ac276",
+    "level": "error",
+    "version": "7",
+    "type": "error",
+    "fingerprint": [
+      "{{ default }}"
+    ],
+    "culprit": "",
+    "logentry": {
+      "formatted": "Network error: Network request failed"
+    },
+    "logger": "",
+    "platform": "javascript",
+    "timestamp": 1621294400.845,
+    "received": 1621294401.056504,
+    "release": "com.avisonyoung.avant@1.0.26+3",
+    "dist": "3",
+    "environment": "PROD",
+    "user": {
+      "id": "37",
+      "email": "john.sikaitis@avisonyoung.com",
+      "ip_address": "69.126.143.89",
+      "geo": {
+        "country_code": "US",
+        "city": "Westport",
+        "region": "United States"
+      }
+    },
+    "contexts": {
+      "app": {
+        "app_start_time": "2021-05-17T22:57:57Z",
+        "device_app_hash": "f1b7cabc485c007d240d090257ce66abd7b0291b",
+        "build_type": "app store",
+        "app_identifier": "com.avisonyoung.avant",
+        "app_name": "Avant",
+        "app_version": "1.0.26",
+        "app_build": "3",
+        "app_id": "2B8BC182-6F2A-3E90-8FEE-30D430A0C53A",
+        "type": "app"
+      },
+      "device": {
+        "family": "iOS",
+        "model": "iPhone12,1",
+        "model_id": "N104AP",
+        "memory_size": 4047126528,
+        "free_memory": 467746816,
+        "usable_memory": 3547103232,
+        "storage_size": 63933894656,
+        "boot_time": "2021-05-16T16:35:19Z",
+        "timezone": "EDT",
+        "type": "device"
+      },
+      "os": {
+        "name": "iOS",
+        "version": "14.4.2",
+        "build": "18D70",
+        "kernel_version": "Darwin Kernel Version 20.3.0: Tue Jan 5 18:34:51 PST 2021; root:xnu-7195.80.35~2/RELEASE_ARM64_T8030",
+        "rooted": false,
+        "type": "os"
+      }
+    },
+    "breadcrumbs": {
+      "values": [
+        {
+          "timestamp": 1621292277.649,
+          "type": "default",
+          "category": "console",
+          "level": "info",
+          "message": "Running \"Avant\" with {\"rootTag\":1,\"initialProps\":{}}",
+          "data": {
+            "arguments": [
+              "Running \"Avant\" with {\"rootTag\":1,\"initialProps\":{}}"
+            ],
+            "logger": "console"
+          }
+        },
+        {
+          "timestamp": 1621292278.08,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "GET",
+            "status_code": 200,
+            "url": "https://users-api-prod.azurewebsites.net/termsOfUse/version"
+          }
+        },
+        {
+          "timestamp": 1621292278.087,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621292278.862,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://users-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621292278.973,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://users-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621292279.365,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "GET",
+            "status_code": 200,
+            "url": "https://itunes.apple.com/US/lookup?bundleId=com.avisonyoung.avant\u0026date=1621292278982"
+          }
+        },
+        {
+          "timestamp": 1621292279.482,
+          "type": "default",
+          "category": "console",
+          "level": "info",
+          "message": "Can receive notifications true",
+          "data": {
+            "arguments": [
+              "Can receive notifications",
+              true
+            ],
+            "logger": "console"
+          }
+        },
+        {
+          "timestamp": 1621292279.68,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://users-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621292280.585,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294333.331,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294333.343,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294333.355,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294333.674,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294333.917,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294338.142,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294338.672,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294339.355,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294340.31,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294340.409,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294345.127,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294345.203,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294345.579,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294345.611,
+          "type": "default",
+          "category": "console",
+          "level": "warning",
+          "message": "Animated.event now requires a second argument for options",
+          "data": {
+            "arguments": [
+              "Animated.event now requires a second argument for options"
+            ],
+            "logger": "console"
+          }
+        },
+        {
+          "timestamp": 1621294345.835,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294346.07,
+          "type": "default",
+          "category": "console",
+          "level": "warning",
+          "message": "Animated.event now requires a second argument for options",
+          "data": {
+            "arguments": [
+              "Animated.event now requires a second argument for options"
+            ],
+            "logger": "console"
+          }
+        },
+        {
+          "timestamp": 1621294346.115,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294346.157,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294346.392,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294346.524,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294346.642,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294346.695,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294347.112,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294348.546,
+          "type": "default",
+          "category": "console",
+          "level": "warning",
+          "message": "Animated.event now requires a second argument for options",
+          "data": {
+            "arguments": [
+              "Animated.event now requires a second argument for options"
+            ],
+            "logger": "console"
+          }
+        },
+        {
+          "timestamp": 1621294348.852,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294350.426,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294357.424,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 0,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294357.755,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294357.928,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294358.198,
+          "type": "default",
+          "category": "console",
+          "level": "warning",
+          "message": "Animated.event now requires a second argument for options",
+          "data": {
+            "arguments": [
+              "Animated.event now requires a second argument for options"
+            ],
+            "logger": "console"
+          }
+        },
+        {
+          "timestamp": 1621294363.204,
+          "type": "default",
+          "category": "console",
+          "level": "warning",
+          "message": "Animated.event now requires a second argument for options",
+          "data": {
+            "arguments": [
+              "Animated.event now requires a second argument for options"
+            ],
+            "logger": "console"
+          }
+        },
+        {
+          "timestamp": 1621294364.124,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294364.129,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294365.98,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294366.054,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294366.06,
+          "type": "default",
+          "category": "console",
+          "level": "warning",
+          "message": "Animated.event now requires a second argument for options",
+          "data": {
+            "arguments": [
+              "Animated.event now requires a second argument for options"
+            ],
+            "logger": "console"
+          }
+        },
+        {
+          "timestamp": 1621294366.405,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294366.487,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294366.609,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294366.625,
+          "type": "default",
+          "category": "console",
+          "level": "warning",
+          "message": "Animated.event now requires a second argument for options",
+          "data": {
+            "arguments": [
+              "Animated.event now requires a second argument for options"
+            ],
+            "logger": "console"
+          }
+        },
+        {
+          "timestamp": 1621294366.926,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294369.971,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294369.992,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294378.068,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294378.196,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294378.551,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294378.577,
+          "type": "default",
+          "category": "console",
+          "level": "warning",
+          "message": "Animated.event now requires a second argument for options",
+          "data": {
+            "arguments": [
+              "Animated.event now requires a second argument for options"
+            ],
+            "logger": "console"
+          }
+        },
+        {
+          "timestamp": 1621294378.82,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294378.821,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294378.9,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294379.043,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294379.093,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294379.193,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294379.579,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 200,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        },
+        {
+          "timestamp": 1621294380.219,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294382.722,
+          "type": "default",
+          "category": "console",
+          "level": "error",
+          "message": "Error: Network error: Network request failed",
+          "data": {
+            "arguments": [
+              {
+                "extraInfo": "[undefined]",
+                "graphQLErrors": "[Array]",
+                "message": "Network error: Network request failed",
+                "name": "Error",
+                "networkError": "[object Error]",
+                "stack": "n@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:1648\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:629:3318\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:8002\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:3066\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:4015\n_@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10137\nv@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:10228\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:661:688\nD@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:1775:2813\nfr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:38815\nVr@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:46770\nCl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74734\nRl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74659\nPl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:74426\nTl@/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:71559\nTl@[native code]\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle:99:23573\n/private/var/containers/Bundle/Application/71859A32-34B5-4AC3-8A2E-766FC465667B/Avant.app/main.jsbundle..."
+              }
+            ]
+          }
+        },
+        {
+          "timestamp": 1621294400.842,
+          "type": "http",
+          "category": "xhr",
+          "level": "info",
+          "data": {
+            "method": "POST",
+            "status_code": 0,
+            "url": "https://properties-api-prod.azurewebsites.net/graphql"
+          }
+        }
+      ]
+    },
+    "exception": {
+      "values": [
+        {
+          "type": "Error",
+          "value": "Network error: Network request failed",
+          "stacktrace": {
+            "frames": null
+          },
+          "mechanism": {
+            "type": "generic",
+            "synthetic": true,
+            "handled": true
+          }
+        }
+      ]
+    },
+    "tags": [
+      [
+        "app",
+        "Properties - Mobile"
+      ],
+      [
+        "app.device",
+        "f1b7cabc485c007d240d090257ce66abd7b0291b"
+      ],
+      [
+        "device",
+        "iPhone12,1"
+      ],
+      [
+        "device.family",
+        "iOS"
+      ],
+      [
+        "environment",
+        "PROD"
+      ],
+      [
+        "event.origin",
+        "javascript"
+      ],
+      [
+        "handled",
+        "yes"
+      ],
+      [
+        "level",
+        "error"
+      ],
+      [
+        "mechanism",
+        "generic"
+      ],
+      [
+        "os",
+        "iOS 14.4.2"
+      ],
+      [
+        "os.name",
+        "iOS"
+      ],
+      [
+        "os.rooted",
+        "no"
+      ],
+      [
+        "sentry:dist",
+        "3"
+      ],
+      [
+        "sentry:release",
+        "com.avisonyoung.avant@1.0.26+3"
+      ],
+      [
+        "sentry:user",
+        "id:37"
+      ],
+      [
+        "type",
+        "error_caught"
+      ]
+    ],
+    "sdk": {
+      "name": "sentry.javascript.react-native",
+      "version": "2.4.1",
+      "packages": [
+        {
+          "name": "npm:@sentry/react-native",
+          "version": "2.4.1"
+        }
+      ]
+    },
+    "errors": [
+      {
+        "type": "missing_attribute",
+        "name": "exception.values.0.stacktrace.frames"
+      }
+    ],
+    "key_id": "1558627",
+    "project": 5691309,
+    "grouping_config": {
+      "enhancements": "eJybzDRxY3J-bm5-npWRgaGlroGxrpHxBABcYgcZ",
+      "id": "newstyle:2019-10-29"
+    },
+    "_metrics": {
+      "bytes.ingested.event": 86773,
+      "bytes.stored.event": 44310
+    },
+    "_ref": 5691309,
+    "_ref_version": 2,
+    "hashes": [
+      "9e1159d92d317485beba277afbf53691"
+    ],
+    "metadata": {
+      "value": "Network error: Network request failed"
+    },
+    "title": "\u003cunknown\u003e",
+    "_meta": {
+      "breadcrumbs": {
+        "values": {
+          "10": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "12": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "14": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "17": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "19": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "33": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "34": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "36": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "50": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "51": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "52": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "63": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "64": {
+            "data": {
+              "": {
+                "len": 2
+              },
+              "arguments": {
+                "0": {
+                  "stack": {
+                    "": {
+                      "rem": [
+                        [
+                          "!limit",
+                          "s",
+                          1956,
+                          1959
+                        ]
+                      ],
+                      "len": 5095
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "exception": {
+        "values": {
+          "0": {
+            "stacktrace": {
+              "frames": {
+                "": {
+                  "err": [
+                    "missing_attribute"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "id": "fc188ef59c9b46f8a6a970cfe49ac276"
+  }
+}
