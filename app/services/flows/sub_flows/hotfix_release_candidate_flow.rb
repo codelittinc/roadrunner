@@ -21,7 +21,7 @@ module Flows
           return
         end
 
-        if github_release_commits.empty?
+        if source_control_release_commits.empty?
           notify_no_changes_between_releases!
           return
         end
@@ -56,10 +56,10 @@ module Flows
         @version_resolver ||= Versioning::ReleaseVersionResolver.new(environment, tag_names, 'hotfix')
       end
 
-      def github_release_commits
-        return @github_release_commits if @github_release_commits
+      def source_control_release_commits
+        return @source_control_release_commits if @source_control_release_commits
 
-        @github_release_commits ||= if first_pre_release?
+        @source_control_release_commits ||= if first_pre_release?
                                       source_control_client.list_branch_commits(branch).reverse
                                     else
                                       source_control_client.compare_commits(version_resolver.latest_tag_name, branch)

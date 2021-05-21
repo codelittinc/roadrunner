@@ -10,14 +10,14 @@ module Flows
       def execute
         return unless version_resolver.hotfix_release_is_after_stable?
 
-        if github_release_commits.empty?
+        if source_control_release_commits.empty?
           notify_no_changes_between_releases!
           return
         end
 
         source_control_client.create_release(
           version,
-          github_release_commits.last.sha,
+          source_control_release_commits.last.sha,
           github_message,
           false
         )
@@ -37,10 +37,10 @@ module Flows
         @version_resolver ||= Versioning::ReleaseVersionResolver.new(environment, tag_names, 'hotfix')
       end
 
-      def github_release_commits
-        return @github_release_commits if @github_release_commits
+      def source_control_release_commits
+        return @source_control_release_commits if @source_control_release_commits
 
-        @github_release_commits ||= if version_resolver.latest_tag_name.nil?
+        @source_control_release_commits ||= if version_resolver.latest_tag_name.nil?
                                       source_control_client.list_branch_commits('master').reverse
                                     else
                                       source_control_client.compare_commits(version_resolver.latest_stable_release, version_resolver.latest_tag_name)

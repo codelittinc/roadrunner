@@ -18,7 +18,7 @@ module Flows
         return @commits if @commits
 
         @commits = []
-        github_release_commits.each do |commit|
+        source_control_release_commits.each do |commit|
           message = commit.message
 
           c = Commit
@@ -66,7 +66,7 @@ module Flows
         throw Error.new('Implement this method!')
       end
 
-      def github_release_commits
+      def source_control_release_commits
         throw Error.new('Implement this method!')
       end
 

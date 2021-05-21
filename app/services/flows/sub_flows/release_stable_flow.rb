@@ -8,14 +8,14 @@ module Flows
       def execute
         channel = @repository.slack_repository_info.deploy_channel
 
-        if github_release_commits.empty?
+        if source_control_release_commits.empty?
           notify_no_changes_between_releases!
           return
         end
 
         source_control_client.create_release(
           version,
-          github_release_commits.last.sha,
+          source_control_release_commits.last.sha,
           github_message,
           false
         )
@@ -31,7 +31,7 @@ module Flows
       end
 
       def release_commits
-        github_release_commits.map do |commit|
+        source_control_release_commits.map do |commit|
           next if commit.date.nil?
 
           date = commit.date
@@ -49,12 +49,12 @@ module Flows
         @version_resolver ||= Versioning::ReleaseVersionResolver.new(environment, tag_names, 'update')
       end
 
-      def github_release_commits
-        return @github_release_commits if @github_release_commits
+      def source_control_release_commits
+        return @source_control_release_commits if @source_control_release_commits
 
         first_stable_release = version_resolver.latest_normal_stable_release.nil? || version_resolver.latest_normal_stable_release == 'master'
 
-        @github_release_commits ||= if first_stable_release
+        @source_control_release_commits ||= if first_stable_release
                                       source_control_client.list_branch_commits('master').reverse
                                     else
                                       source_control_client.compare_commits(version_resolver.latest_normal_stable_release, version_resolver.latest_tag_name)
