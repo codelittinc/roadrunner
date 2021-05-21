@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require 'external_api_helper'
+require 'flows_helper'
 
 RSpec.describe Flows::ReleaseFlow, type: :service do
   around do |example|
@@ -10,21 +11,16 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
     end
   end
 
-  let(:valid_json) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'release_tag.json'))).with_indifferent_access
-  end
+  let(:valid_json) { load_flow_fixture('release_tag.json') }
 
-  let(:repository_with_applications) do
-    repository = FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test')
-    repository.applications << FactoryBot.create(:application, repository: repository, environment: 'prod')
-    repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
-    repository
+  let(:repository) do
+    FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test')
   end
 
   describe '#flow?' do
     context 'returns true' do
       it 'when the json is valid' do
-        repository_with_applications
+        repository
         flow = described_class.new(valid_json)
         expect(flow.flow?).to be_truthy
       end
@@ -32,7 +28,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
     context 'returns false' do
       it 'when the environment is different from qa or prod' do
-        repository_with_applications
+        repository
 
         flow = described_class.new({
                                      text: 'update prodd',
@@ -47,15 +43,15 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
       end
 
       it 'when there is more than one repository tied to that slack channel' do
-        repository_with_applications
-        FactoryBot.create(:repository)
+        repository
+        FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test')
 
         flow = described_class.new(valid_json)
         expect(flow.flow?).to be_falsey
       end
 
       it 'when the text message has more than two words' do
-        repository_with_applications
+        repository
         flow = described_class.new({
                                      text: 'update prod roadrunner-rails',
                                      channel_name: 'feed-test-automations'
@@ -65,10 +61,10 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
     end
   end
 
-  describe '#execute' do
+  describe '#run' do
     context 'with the qa environment' do
       it 'sends a start release notification to the channel' do
-        repository_with_applications
+        repository
 
         flow = described_class.new({
                                      text: 'update qa',
@@ -81,11 +77,11 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
         expect_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute)
 
-        flow.execute
+        flow.run
       end
 
       it 'calls the release candidate subflow' do
-        repository_with_applications
+        repository
 
         flow = described_class.new({
                                      text: 'update qa',
@@ -96,111 +92,30 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
         expect_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute)
 
-        flow.execute
-      end
-
-      context 'when it is the first pre-release' do
-        it 'creates the first pre-release' do
-          VCR.use_cassette('flows#pre-release#first') do
-            repository = repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
-
-            pull_request = FactoryBot.create(:pull_request, {
-                                               title: 'Create README.md',
-                                               description: 'Card: [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)',
-                                               repository: repository
-                                             })
-
-            FactoryBot.create(:commit, {
-                                sha: '43b58be5634e022d16a10b886a80e3c0be2ee3a9',
-                                message: "Merge branch 'master' into Rheniery-patch-1",
-                                pull_request: pull_request,
-                                created_at: DateTime.parse('2020-08-28 18:33:57 UTC')
-                              })
-
-            flow = described_class.new(valid_json)
-
-            expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              repository_with_applications,
-              'rc.1.v1.0.0',
-              'master',
-              "Available in the release of *roadrunner-repository-test*:\n - Merge branch 'master' into Rheniery-patch-1 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
-              true
-            )
-
-            flow.execute
-          end
-        end
-      end
-
-      context 'when it is creating from a pre-release but there are no changes since the last one' do
-        it 'sends a message notifying about the fact that there are no changes to deploy' do
-          VCR.use_cassette('flows#pre-release#no-changes') do
-            repository = repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
-
-            repository = FactoryBot.create(:pull_request, {
-                                             title: 'Create README.md',
-                                             description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
-                                             repository: repository
-                                           })
-
-            FactoryBot.create(:commit, {
-                                sha: '43b58be5634e022d16a10b886a80e3c0be2ee3a9',
-                                message: "Merge branch 'master' into Rheniery-patch-1",
-                                pull_request: repository,
-                                created_at: DateTime.parse('2020-08-28 18:33:57 UTC')
-                              })
-
-            flow = described_class.new(valid_json)
-
-            message_count = 0
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send) { |_arg| message_count += 1 }
-
-            flow.execute
-            expect(message_count).to eql(2)
-          end
-        end
-      end
-
-      context 'when it is creating from a pre-release and there are changes since the last one' do
-        it 'creates a new version' do
-          VCR.use_cassette('flows#pre-release#new-changes') do
-            repository = repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
-
-            pull_request = FactoryBot.create(:pull_request, {
-                                               title: 'Create .gitignore',
-                                               description: 'Card: [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)',
-                                               repository: repository
-                                             })
-
-            FactoryBot.create(:commit, {
-                                sha: '43b58be5634e022d16a10b886a80e3c0be2ee3a9',
-                                message: "Merge branch 'master' into Rheniery-patch-1",
-                                pull_request: pull_request,
-                                created_at: DateTime.parse('2020-08-28 18:33:57 UTC')
-                              })
-
-            flow = described_class.new(valid_json)
-
-            expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              repository_with_applications,
-              'rc.2.v1.0.0',
-              'master',
-              "Available in the release of *roadrunner-repository-test*:\n - Merge branch 'master' into Rheniery-patch-1 [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)",
-              true
-            )
-
-            flow.execute
-          end
-        end
+        flow.run
       end
     end
 
     context 'with the prod environment' do
+      it 'sends a start release notification to the channel' do
+        repository
+
+        flow = described_class.new({
+                                     text: 'update prod',
+                                     channel_name: 'feed-test-automations'
+                                   })
+
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+          'Update release to *roadrunner-repository-test* *PROD* triggered by @', 'feed-test-automations'
+        )
+        expect_any_instance_of(Clients::Github::Release).to receive(:list)
+        expect_any_instance_of(Flows::SubFlows::ReleaseStableFlow).to receive(:execute)
+
+        flow.run
+      end
+
       it 'calls the release candidate subflow' do
-        repository_with_applications
+        repository
 
         flow = described_class.new({
                                      text: 'update prod',
@@ -211,309 +126,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
         expect_any_instance_of(Flows::SubFlows::ReleaseStableFlow).to receive(:execute)
 
-        flow.execute
-      end
-
-      context 'when it is the first pre-release' do
-        it 'creates a new stable release tag from a pre release version' do
-          VCR.use_cassette('flows#stable-release#first') do
-            repository = repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
-
-            pr1 = FactoryBot.create(:pull_request, {
-                                      title: 'Create .gitignore',
-                                      description: 'Card:',
-                                      repository: repository
-                                    })
-
-            FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
-                                message: 'Create .gitignore',
-                                pull_request: pr1,
-                                created_at: DateTime.parse('2020-07-24 12:08:07 UTC')
-                              })
-
-            pr2 = FactoryBot.create(:pull_request, {
-                                      title: 'Create README.md',
-                                      description: 'Card:',
-                                      repository: repository,
-                                      source_control_id: 123
-                                    })
-
-            FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
-                                message: 'Creating the README.md file',
-                                pull_request: pr2,
-                                created_at: DateTime.parse('2020-07-24 11:26:10 UTC')
-                              })
-
-            flow = described_class.new({
-                                         text: 'update prod',
-                                         channel_name: 'feed-test-automations'
-                                       })
-
-            expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              repository_with_applications,
-              'v1.0.0',
-              '89374111e03f9c111cbff83c941d80b4d1a8c019',
-              "Available in the release of *roadrunner-repository-test*:\n - Creating the README.md file \n - Create .gitignore",
-              false
-            )
-
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
-
-            flow.execute
-          end
-        end
-
-        it 'updates the application version' do
-          VCR.use_cassette('flows#stable-release#first') do
-            repository = repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
-
-            pr1 = FactoryBot.create(:pull_request, {
-                                      title: 'Create .gitignore',
-                                      description: 'Card:',
-                                      repository: repository
-                                    })
-
-            FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
-                                message: 'Create .gitignore',
-                                pull_request: pr1,
-                                created_at: DateTime.parse('2020-07-24 12:08:07 UTC')
-                              })
-
-            flow = described_class.new({
-                                         text: 'update prod',
-                                         channel_name: 'feed-test-automations'
-                                       })
-
-            expect_any_instance_of(Clients::Github::Release).to receive(:create)
-
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
-
-            prod_application = repository.application_by_environment('prod').reload
-
-            flow.execute
-
-            expect(prod_application.latest_release.version).to eql('v1.0.0')
-          end
-        end
-      end
-
-      context 'when there are no differences from the latest release' do
-        it 'sends a message about it' do
-          VCR.use_cassette('flows#stable-release#no-changes') do
-            repository = repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
-
-            flow = described_class.new({
-                                         text: 'update prod',
-                                         channel_name: 'feed-test-automations'
-                                       })
-
-            message_count = 0
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send) { |_arg| message_count += 1 }
-
-            flow.execute
-            expect(message_count).to eql(2)
-          end
-        end
-      end
-
-      context 'when it is the second release' do
-        it 'creates the release' do
-          VCR.use_cassette('flows#stable-release#new-changes') do
-            repository = repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
-
-            pr1 = FactoryBot.create(:pull_request, {
-                                      title: 'Create .env.example',
-                                      description: 'Card:',
-                                      repository: repository
-                                    })
-
-            FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075esssa6779f876442649f55',
-                                message: 'Update README.md',
-                                pull_request: pr1,
-                                created_at: DateTime.parse('2020-08-28 20:43:21 UTC')
-                              })
-
-            pr2 = FactoryBot.create(:pull_request, {
-                                      title: 'Create README.md',
-                                      description: 'Card:',
-                                      repository: repository,
-                                      source_control_id: 123
-                                    })
-
-            FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075e800a6779f876442649f55',
-                                message: 'Update README.md',
-                                pull_request: pr2,
-                                created_at: DateTime.parse('2020-08-28 20:43:21 UTC')
-                              })
-
-            flow = described_class.new({
-                                         text: 'update prod',
-                                         channel_name: 'feed-test-automations'
-                                       })
-
-            expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              repository_with_applications,
-              'v1.1.0',
-              'bc1f53d9bb8818665e5fafc393219023f839bec6',
-              "Available in the release of *roadrunner-repository-test*:\n - Update README.md",
-              false
-            )
-
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
-
-            flow.execute
-          end
-        end
-
-        it 'updates the application version' do
-          VCR.use_cassette('flows#stable-release#new-changes') do
-            repository = repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
-
-            pr1 = FactoryBot.create(:pull_request, {
-                                      title: 'Create .env.example',
-                                      description: 'Card:',
-                                      repository: repository
-                                    })
-
-            FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075esssa6779f876442649f55',
-                                message: 'Update README.md',
-                                pull_request: pr1,
-                                created_at: DateTime.parse('2020-08-28 20:43:21 UTC')
-                              })
-
-            flow = described_class.new({
-                                         text: 'update prod',
-                                         channel_name: 'feed-test-automations'
-                                       })
-
-            expect_any_instance_of(Clients::Github::Release).to receive(:create)
-
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
-
-            flow.execute
-
-            prod_application = repository.application_by_environment('prod').reload
-            expect(prod_application.latest_release.version).to eql('v1.1.0')
-          end
-        end
-
-        it 'add commits to release' do
-          VCR.use_cassette('flows#stable-release#new-changes') do
-            repository = repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
-
-            pr1 = FactoryBot.create(:pull_request, {
-                                      title: 'Create .env.example',
-                                      description: 'Card:',
-                                      repository: repository
-                                    })
-
-            FactoryBot.create(:commit, {
-                                sha: '6a65601c32c1915075esssa6779f876442649f55',
-                                message: 'Update README.md',
-                                pull_request: pr1,
-                                created_at: DateTime.parse('2020-08-28 20:43:21 UTC')
-                              })
-
-            flow = described_class.new({
-                                         text: 'update prod',
-                                         channel_name: 'feed-test-automations'
-                                       })
-
-            expect_any_instance_of(Clients::Github::Release).to receive(:create)
-
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
-
-            flow.execute
-            prod_application = repository.application_by_environment('prod').reload
-            expect(prod_application.latest_release.commits.count).to eq(1)
-          end
-        end
-      end
-
-      context 'when there are four commits' do
-        it 'uses the latest to create the tag' do
-          VCR.use_cassette('flows#stable-release#many-commits') do
-            repository = repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
-
-            pr1 = FactoryBot.create(:pull_request, {
-                                      title: 'PR: Update .env 4',
-                                      description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
-                                      repository: repository
-                                    })
-
-            FactoryBot.create(:commit, {
-                                sha: '2c6dd08ba0bdf065b7351255afa793f0e5784f25',
-                                message: 'Update README.md',
-                                pull_request: pr1,
-                                created_at: DateTime.parse('2020-08-28 21:05:26 UTC')
-                              })
-
-            FactoryBot.create(:commit, {
-                                sha: '2c6dd08ba0bdf065b7351255afa793f0e5784f25',
-                                message: 'Update README.md',
-                                pull_request: pr1,
-                                created_at: DateTime.parse('2020-08-28 21:05:26 UTC')
-                              })
-
-            pr2 = FactoryBot.create(:pull_request, {
-                                      title: 'PR: Update .env 3',
-                                      description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
-                                      repository: repository,
-                                      source_control_id: 123
-                                    })
-
-            FactoryBot.create(:commit, {
-                                sha: 'be6cdfeec05baaf93aba94244b98707e94199761',
-                                message: 'Update README.md',
-                                pull_request: pr2,
-                                created_at: DateTime.parse('2020-08-10 21:05:26 UTC')
-                              })
-
-            pr3 = FactoryBot.create(:pull_request, {
-                                      title: 'PR: Update .env 1',
-                                      description: 'Change 1',
-                                      repository: repository,
-                                      source_control_id: 124
-                                    })
-
-            FactoryBot.create(:commit, {
-                                sha: '59254c02079408178f40b12e8192d945988d9644',
-                                message: 'Update README.md',
-                                pull_request: pr3,
-                                created_at: DateTime.parse('2020-08-28 14:50:22 UTC')
-                              })
-
-            flow = described_class.new({
-                                         text: 'update prod',
-                                         channel_name: 'feed-test-automations'
-                                       })
-
-            expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              repository_with_applications,
-              'v1.2.0',
-              '59254c02079408178f40b12e8192d945988d9644',
-              "Available in the release of *roadrunner-repository-test*:\n - Update README.md [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
-              false
-            )
-
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
-
-            flow.execute
-          end
-        end
+        flow.run
       end
     end
   end
