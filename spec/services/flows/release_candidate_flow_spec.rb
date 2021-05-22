@@ -33,17 +33,16 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             repository = github_repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-            pull_request = FactoryBot.create(:pull_request, {
-                                               title: 'Create README.md',
-                                               description: 'Card: [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)',
-                                               repository: repository
-                                             })
+            pull_request = FactoryBot.create(:pull_request, repository: repository)
 
             FactoryBot.create(:commit, {
-                                sha: '43b58be5634e022d16a10b886a80e3c0be2ee3a9',
-                                message: "Merge branch 'master' into Rheniery-patch-1",
-                                pull_request: pull_request,
-                                created_at: DateTime.parse('2020-08-28 18:33:57 UTC')
+                                message: 'commit number one',
+                                pull_request: pull_request
+                              })
+
+            FactoryBot.create(:commit, {
+                                message: 'commit number two',
+                                pull_request: pull_request
                               })
 
             flow = described_class.new(valid_json)
@@ -52,7 +51,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               github_repository_with_applications,
               'rc.1.v1.0.0',
               'master',
-              "Available in the release of *roadrunner-repository-test*:\n - Merge branch 'master' into Rheniery-patch-1 [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
+              "Available in the release of *roadrunner-repository-test*:\n - commit number one \n - commit number two",
               true
             )
 
@@ -66,19 +65,6 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
           VCR.use_cassette('flows#pre-release#no-changes') do
             repository = github_repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
-
-            repository = FactoryBot.create(:pull_request, {
-                                             title: 'Create README.md',
-                                             description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
-                                             repository: repository
-                                           })
-
-            FactoryBot.create(:commit, {
-                                sha: '43b58be5634e022d16a10b886a80e3c0be2ee3a9',
-                                message: "Merge branch 'master' into Rheniery-patch-1",
-                                pull_request: repository,
-                                created_at: DateTime.parse('2020-08-28 18:33:57 UTC')
-                              })
 
             flow = described_class.new(valid_json)
 
@@ -97,17 +83,11 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             repository = github_repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-            pull_request = FactoryBot.create(:pull_request, {
-                                               title: 'Create .gitignore',
-                                               description: 'Card: [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)',
-                                               repository: repository
-                                             })
+            pull_request = FactoryBot.create(:pull_request, repository: repository)
 
             FactoryBot.create(:commit, {
-                                sha: '43b58be5634e022d16a10b886a80e3c0be2ee3a9',
-                                message: "Merge branch 'master' into Rheniery-patch-1",
-                                pull_request: pull_request,
-                                created_at: DateTime.parse('2020-08-28 18:33:57 UTC')
+                                message: 'commit number three',
+                                pull_request: pull_request
                               })
 
             flow = described_class.new(valid_json)
@@ -116,7 +96,39 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               github_repository_with_applications,
               'rc.2.v1.0.0',
               'master',
-              "Available in the release of *roadrunner-repository-test*:\n - Merge branch 'master' into Rheniery-patch-1 [AYAPI-276](https://codelitt.atlassian.net/browse/AYAPI-276)",
+              "Available in the release of *roadrunner-repository-test*:\n - commit number three",
+              true
+            )
+
+            flow.run
+          end
+        end
+      end
+
+      context 'when the pull request has a jira link in it' do
+        it 'shows the jira link in the message' do
+          VCR.use_cassette('flows#pre-release#new-changes') do
+            repository = github_repository_with_applications
+            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+
+            pull_request = FactoryBot.create(:pull_request, {
+                                               title: 'PR: Update .env 4',
+                                               description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
+                                               repository: repository
+                                             })
+
+            FactoryBot.create(:commit, {
+                                message: 'commit number three',
+                                pull_request: pull_request
+                              })
+
+            flow = described_class.new(valid_json)
+
+            expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
+              github_repository_with_applications,
+              'rc.2.v1.0.0',
+              'master',
+              "Available in the release of *roadrunner-repository-test*:\n - commit number three [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
               true
             )
 
