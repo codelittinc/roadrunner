@@ -31,18 +31,7 @@ module Flows
       end
 
       def release_commits
-        source_control_release_commits.map do |commit|
-          next if commit.date.nil?
-
-          date = commit.date
-          date = Date.parse(date) if date.instance_of?(String)
-
-          before = date - 5.minutes
-          after = date + 5.minutes
-
-          message = commit.message
-          Commit.where(created_at: before..after, message: message).first
-        end.flatten.compact
+        CommitsMatcher.new(source_control_release_commits).commits
       end
 
       def version_resolver
