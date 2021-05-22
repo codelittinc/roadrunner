@@ -18,11 +18,15 @@ module Clients
       def compare(repository, head, base)
         base_version_type = head.match?(/^rc|^v/) ? 'tag' : 'branch'
         target_version_type = base.match?(/^rc|^v/) ? 'tag' : 'branch'
-        url = "#{azure_url}git/repositories/#{repository.name}/diffs/commits?baseVersion=#{head}&baseVersionType=#{base_version_type}&targetVersion=#{base}&targetVersionType=#{target_version_type}&api-version=4.1"
+        url = "#{azure_url}git/repositories/#{repository.name}/diffs/commits?baseVersion=#{head}&baseVersionType=#{base_version_type}&targetVersion=#{base}&targetVersionType=#{target_version_type}&api-version=6.0"
         response = Request.get(url, authorization)
         commits = response['changes']
         commits.map do |commit|
-          Clients::Azure::Parsers::CommitParser.new(commit)
+          sha = commit['item']['commitId']
+          azure_commit_url = "#{azure_url}git/repositories/#{repository.name}/commits/#{sha}?api-version=6.0"
+          response = Request.get(azure_commit_url, authorization)
+
+          Clients::Azure::Parsers::CommitParser.new(response)
         end
       end
 

@@ -20,119 +20,238 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
   end
 
   context 'when the repository type is Github' do
-    let(:github_repository_with_applications) do
-      repository = FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test', source_control_type: 'github')
-      repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
-      repository
-    end
-
     describe '#run' do
-      context 'when it is the first pre-release' do
-        it 'creates the first pre-release' do
-          VCR.use_cassette('flows#pre-release#first') do
-            repository = github_repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+      context 'When the repository belongs to Github' do
+        let(:github_repository_with_applications) do
+          repository = FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test', source_control_type: 'github')
+          repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
+          repository
+        end
+        context 'when it is the first pre-release' do
+          it 'creates the first pre-release' do
+            VCR.use_cassette('flows#pre-release#first') do
+              repository = github_repository_with_applications
+              repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-            pull_request = FactoryBot.create(:pull_request, repository: repository)
+              pull_request = FactoryBot.create(:pull_request, repository: repository)
 
-            FactoryBot.create(:commit, {
-                                message: 'commit number one',
-                                pull_request: pull_request
-                              })
+              FactoryBot.create(:commit, {
+                                  message: 'commit number one',
+                                  pull_request: pull_request
+                                })
 
-            FactoryBot.create(:commit, {
-                                message: 'commit number two',
-                                pull_request: pull_request
-                              })
+              FactoryBot.create(:commit, {
+                                  message: 'commit number two',
+                                  pull_request: pull_request
+                                })
 
-            flow = described_class.new(valid_json)
+              flow = described_class.new(valid_json)
 
-            expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              github_repository_with_applications,
-              'rc.1.v1.0.0',
-              'master',
-              "Available in the release of *roadrunner-repository-test*:\n - commit number one \n - commit number two",
-              true
-            )
+              expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
+                github_repository_with_applications,
+                'rc.1.v1.0.0',
+                'master',
+                "Available in the release of *roadrunner-repository-test*:\n - commit number one \n - commit number two",
+                true
+              )
 
-            flow.run
+              flow.run
+            end
+          end
+        end
+
+        context 'when it is creating from a pre-release but there are no changes since the last one' do
+          it 'sends a message notifying about the fact that there are no changes to deploy' do
+            VCR.use_cassette('flows#pre-release#no-changes') do
+              repository = github_repository_with_applications
+              repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+
+              flow = described_class.new(valid_json)
+
+              message_count = 0
+              allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send) { |_arg| message_count += 1 }
+
+              flow.run
+              expect(message_count).to eql(2)
+            end
+          end
+        end
+
+        context 'when it is creating from a pre-release and there are changes since the last one' do
+          it 'creates a new version' do
+            VCR.use_cassette('flows#pre-release#new-changes') do
+              repository = github_repository_with_applications
+              repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+
+              pull_request = FactoryBot.create(:pull_request, repository: repository)
+
+              FactoryBot.create(:commit, {
+                                  message: 'commit number three',
+                                  pull_request: pull_request
+                                })
+
+              flow = described_class.new(valid_json)
+
+              expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
+                github_repository_with_applications,
+                'rc.2.v1.0.0',
+                'master',
+                "Available in the release of *roadrunner-repository-test*:\n - commit number three",
+                true
+              )
+
+              flow.run
+            end
+          end
+        end
+
+        context 'when the pull request has a jira link in it' do
+          it 'shows the jira link in the message' do
+            VCR.use_cassette('flows#pre-release#new-changes') do
+              repository = github_repository_with_applications
+              repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+
+              pull_request = FactoryBot.create(:pull_request, {
+                                                 title: 'PR: Update .env 4',
+                                                 description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
+                                                 repository: repository
+                                               })
+
+              FactoryBot.create(:commit, {
+                                  message: 'commit number three',
+                                  pull_request: pull_request
+                                })
+
+              flow = described_class.new(valid_json)
+
+              expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
+                github_repository_with_applications,
+                'rc.2.v1.0.0',
+                'master',
+                "Available in the release of *roadrunner-repository-test*:\n - commit number three [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
+                true
+              )
+
+              flow.run
+            end
           end
         end
       end
 
-      context 'when it is creating from a pre-release but there are no changes since the last one' do
-        it 'sends a message notifying about the fact that there are no changes to deploy' do
-          VCR.use_cassette('flows#pre-release#no-changes') do
-            repository = github_repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+      context 'When the repository belongs to Azure' do
+        let(:github_repository_with_applications) do
+          repository = FactoryBot.create(:repository, owner: 'Avant', name: 'roadrunner-repository-test', source_control_type: 'azure')
+          repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
+          repository
+        end
 
-            flow = described_class.new(valid_json)
+        context 'when it is the first pre-release' do
+          it 'creates the first pre-release' do
+            VCR.use_cassette('flows#azure#pre-release#first') do
+              repository = github_repository_with_applications
+              repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-            message_count = 0
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send) { |_arg| message_count += 1 }
+              pull_request = FactoryBot.create(:pull_request, repository: repository)
 
-            flow.run
-            expect(message_count).to eql(2)
+              FactoryBot.create(:commit, {
+                                  message: 'commit number one',
+                                  pull_request: pull_request
+                                })
+
+              FactoryBot.create(:commit, {
+                                  message: 'commit number two',
+                                  pull_request: pull_request
+                                })
+
+              flow = described_class.new(valid_json)
+
+              expect_any_instance_of(Clients::Azure::Release).to receive(:create).with(
+                github_repository_with_applications,
+                'rc.1.v1.0.0',
+                'master',
+                "Available in the release of *roadrunner-repository-test*:\n - commit number one \n - commit number two",
+                true
+              )
+
+              flow.run
+            end
           end
         end
-      end
 
-      context 'when it is creating from a pre-release and there are changes since the last one' do
-        it 'creates a new version' do
-          VCR.use_cassette('flows#pre-release#new-changes') do
-            repository = github_repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+        context 'when it is creating from a pre-release but there are no changes since the last one' do
+          it 'sends a message notifying about the fact that there are no changes to deploy' do
+            VCR.use_cassette('flows#azure#pre-release#no-changes') do
+              repository = github_repository_with_applications
+              repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-            pull_request = FactoryBot.create(:pull_request, repository: repository)
+              flow = described_class.new(valid_json)
 
-            FactoryBot.create(:commit, {
-                                message: 'commit number three',
-                                pull_request: pull_request
-                              })
+              message_count = 0
+              allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send) { |_arg| message_count += 1 }
 
-            flow = described_class.new(valid_json)
-
-            expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              github_repository_with_applications,
-              'rc.2.v1.0.0',
-              'master',
-              "Available in the release of *roadrunner-repository-test*:\n - commit number three",
-              true
-            )
-
-            flow.run
+              flow.run
+              expect(message_count).to eql(2)
+            end
           end
         end
-      end
 
-      context 'when the pull request has a jira link in it' do
-        it 'shows the jira link in the message' do
-          VCR.use_cassette('flows#pre-release#new-changes') do
-            repository = github_repository_with_applications
-            repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+        context 'when it is creating from a pre-release and there are changes since the last one' do
+          it 'creates a new version' do
+            VCR.use_cassette('flows#azure#pre-release#new-changes') do
+              repository = github_repository_with_applications
+              repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-            pull_request = FactoryBot.create(:pull_request, {
-                                               title: 'PR: Update .env 4',
-                                               description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
-                                               repository: repository
-                                             })
+              pull_request = FactoryBot.create(:pull_request, repository: repository)
 
-            FactoryBot.create(:commit, {
-                                message: 'commit number three',
-                                pull_request: pull_request
-                              })
+              FactoryBot.create(:commit, {
+                                  message: 'commit number three',
+                                  pull_request: pull_request
+                                })
 
-            flow = described_class.new(valid_json)
+              flow = described_class.new(valid_json)
 
-            expect_any_instance_of(Clients::Github::Release).to receive(:create).with(
-              github_repository_with_applications,
-              'rc.2.v1.0.0',
-              'master',
-              "Available in the release of *roadrunner-repository-test*:\n - commit number three [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
-              true
-            )
+              expect_any_instance_of(Clients::Azure::Release).to receive(:create).with(
+                github_repository_with_applications,
+                'rc.2.v1.0.0',
+                'master',
+                "Available in the release of *roadrunner-repository-test*:\n - commit number three",
+                true
+              )
 
-            flow.run
+              flow.run
+            end
+          end
+        end
+
+        context 'when the pull request has a jira link in it' do
+          it 'shows the jira link in the message' do
+            VCR.use_cassette('flows#azure#pre-release#new-changes') do
+              repository = github_repository_with_applications
+              repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+
+              pull_request = FactoryBot.create(:pull_request, {
+                                                 title: 'PR: Update .env 4',
+                                                 description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
+                                                 repository: repository
+                                               })
+
+              FactoryBot.create(:commit, {
+                                  message: 'commit number three',
+                                  pull_request: pull_request
+                                })
+
+              flow = described_class.new(valid_json)
+
+              expect_any_instance_of(Clients::Azure::Release).to receive(:create).with(
+                github_repository_with_applications,
+                'rc.2.v1.0.0',
+                'master',
+                "Available in the release of *roadrunner-repository-test*:\n - commit number three [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
+                true
+              )
+
+              flow.run
+            end
           end
         end
       end
