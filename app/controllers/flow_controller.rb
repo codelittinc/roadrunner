@@ -2,8 +2,12 @@
 
 class FlowController < ApplicationController
   def create
-    render json: { text: 'Roadrunner is processing your request.' }, status: :ok
+    Thread.new do
+      Rails.application.executor.wrap do
+        FlowExecutor.new((params[:flow] || params).merge(request.GET)).execute
+      end
+    end
 
-    FlowExecutor.new((params[:flow] || params).merge(request.GET)).execute
+    render json: { text: 'Roadrunner is processing your request.' }, status: :ok
   end
 end
