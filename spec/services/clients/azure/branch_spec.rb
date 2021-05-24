@@ -18,6 +18,7 @@ RSpec.describe Clients::Azure::Branch, type: :service do
   end
 
   describe '#compare' do
+    # @TODO: we need to add an example that brings more than one commit item
     it 'returns a list the commits difference between two branches' do
       VCR.use_cassette('azure#branch#compare') do
         commits = described_class.new.compare(repository, 'master', 'feat/cool-test')
