@@ -185,19 +185,19 @@ http_interactions:
       - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
         STA UNI COM INT PHY ONL FIN PUR LOC CNT"
       Set-Cookie:
-      - VstsSession=%7B%22PersistentSessionId%22%3A%226f59dac0-7905-4db1-9c29-216ef1d264fd%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
-        domain=.dev.azure.com; expires=Sun, 22-May-2022 04:56:26 GMT; path=/; secure;
+      - VstsSession=%7B%22PersistentSessionId%22%3A%22ee409c23-c9e6-4823-acd4-579a8f973fc3%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Wed, 25-May-2022 16:01:11 GMT; path=/; secure;
         HttpOnly
       X-Tfs-Processid:
-      - 1d7388c0-c76f-467f-9111-a4ac5629bbbd
+      - '08335d5f-989d-477c-8188-e599d48060be'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Activityid:
-      - d3ec52d1-c569-4837-91c9-9ac7247f3b7b
+      - 52100333-c04c-4b50-9f85-e101118c6ec0
       X-Tfs-Session:
-      - d3ec52d1-c569-4837-91c9-9ac7247f3b7b
+      - 52100333-c04c-4b50-9f85-e101118c6ec0
       X-Vss-E2eid:
-      - d3ec52d1-c569-4837-91c9-9ac7247f3b7b
+      - 52100333-c04c-4b50-9f85-e101118c6ec0
       X-Vss-Userdata:
       - f504d917-1f93-6f97-ab3e-7eceb7174af9:kaio.magalhaes@avisonyoung.onmicrosoft.com
       X-Frame-Options:
@@ -211,15 +211,14 @@ http_interactions:
       X-Cache:
       - CONFIG_NOCACHE
       X-Msedge-Ref:
-      - 'Ref A: 73079BF180C34210A785A2E8A205B6C3 Ref B: RIO03EDGE0311 Ref C: 2021-05-22T04:56:26Z'
+      - 'Ref A: CB3D401A6B484A6F97918B21AE5941C3 Ref B: RIO03EDGE0611 Ref C: 2021-05-25T16:01:10Z'
       Date:
-      - Sat, 22 May 2021 04:56:25 GMT
+      - Tue, 25 May 2021 16:01:10 GMT
     body:
       encoding: ASCII-8BIT
       string: '{"value":[{"name":"refs/tags/rc.1.v1.0.0","objectId":"b7813a61a4f775f31bfe4e5c071766bbd710158a","creator":{"displayName":"Kaio
-        Magalhaes","url":"https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9","_links":{"avatar":{"href":"https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"}},"id":"f504d917-1f93-6f97-ab3e-7eceb7174af9","uniqueName":"kaio.magalhaes@avisonyoung.onmicrosoft.com","imageUrl":"https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9","descriptor":"aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/refs?filter=tags%2Frc.1.v1.0.0"},{"name":"refs/tags/rc.2.v1.0.0","objectId":"a12e3032e23081fc8fccc985c042cd1550948cbe","creator":{"displayName":"Kaio
-        Magalhaes","url":"https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9","_links":{"avatar":{"href":"https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"}},"id":"f504d917-1f93-6f97-ab3e-7eceb7174af9","uniqueName":"kaio.magalhaes@avisonyoung.onmicrosoft.com","imageUrl":"https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9","descriptor":"aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/refs?filter=tags%2Frc.2.v1.0.0"}],"count":2}'
-  recorded_at: Sat, 22 May 2021 04:56:26 GMT
+        Magalhaes","url":"https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/f504d917-1f93-6f97-ab3e-7eceb7174af9","_links":{"avatar":{"href":"https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"}},"id":"f504d917-1f93-6f97-ab3e-7eceb7174af9","uniqueName":"kaio.magalhaes@avisonyoung.onmicrosoft.com","imageUrl":"https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=f504d917-1f93-6f97-ab3e-7eceb7174af9","descriptor":"aad.ZjUwNGQ5MTctMWY5My03Zjk3LWFiM2UtN2VjZWI3MTc0YWY5"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/refs?filter=tags%2Frc.1.v1.0.0"}],"count":1}'
+  recorded_at: Tue, 25 May 2021 16:01:11 GMT
 - request:
     method: get
     uri: https://dev.azure.com/AY-InnovationCenter/Avant/_apis/git/repositories/roadrunner-repository-test/commits?api-version=6.1-preview.1&searchCriteria.itemVersion.version=master&searchCriteria.itemVersion.versionType=branch
@@ -245,7 +244,7 @@ http_interactions:
       Pragma:
       - no-cache
       Content-Length:
-      - '714'
+      - '717'
       Content-Type:
       - application/json; charset=utf-8; api-version=6.1-preview.1
       Expires:
@@ -256,25 +255,25 @@ http_interactions:
       - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
         STA UNI COM INT PHY ONL FIN PUR LOC CNT"
       Set-Cookie:
-      - VstsSession=%7B%22PersistentSessionId%22%3A%22e2271aab-a30d-455d-85bd-d34f7cd45eeb%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
-        domain=.dev.azure.com; expires=Sun, 22-May-2022 04:56:27 GMT; path=/; secure;
+      - VstsSession=%7B%22PersistentSessionId%22%3A%22ecbbb607-8ecf-473b-84e2-21edae512516%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Wed, 25-May-2022 16:01:12 GMT; path=/; secure;
         HttpOnly
       X-Tfs-Processid:
-      - b555df9f-1aaa-4ac6-8169-ffe624632d85
+      - 6f4e7c2b-1163-4869-adab-0ec0f3b0d94d
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Activityid:
-      - a2cffcac-3c84-47a8-bc61-307db142cfb2
+      - df43190c-6888-4335-9fb1-fa83e48c5d0e
       X-Tfs-Session:
-      - a2cffcac-3c84-47a8-bc61-307db142cfb2
+      - df43190c-6888-4335-9fb1-fa83e48c5d0e
       X-Vss-E2eid:
-      - a2cffcac-3c84-47a8-bc61-307db142cfb2
+      - df43190c-6888-4335-9fb1-fa83e48c5d0e
       X-Vss-Userdata:
       - f504d917-1f93-6f97-ab3e-7eceb7174af9:kaio.magalhaes@avisonyoung.onmicrosoft.com
       X-Frame-Options:
       - SAMEORIGIN
       Link:
-      - <6386d66dbc96076897ade78021bb91cb94f40972>;rel="startingCommitId"
+      - <b0e771a0c2483c4e3802b421ba30d2043bcd28c2>;rel="startingCommitId"
       Request-Context:
       - appId=cid-v1:0c3d14cd-19b4-4eb7-9b56-c7dfb8d9a151
       Access-Control-Expose-Headers:
@@ -284,19 +283,19 @@ http_interactions:
       X-Cache:
       - CONFIG_NOCACHE
       X-Msedge-Ref:
-      - 'Ref A: 7B578B18BF464255AC2CA440F30DAE39 Ref B: RIO03EDGE0310 Ref C: 2021-05-22T04:56:26Z'
+      - 'Ref A: 74CC855A34A94D0BBAC95BA85D5289DC Ref B: RIO03EDGE0309 Ref C: 2021-05-25T16:01:11Z'
       Date:
-      - Sat, 22 May 2021 04:56:26 GMT
+      - Tue, 25 May 2021 16:01:11 GMT
     body:
       encoding: ASCII-8BIT
-      string: '{"count":3,"value":[{"commitId":"6386d66dbc96076897ade78021bb91cb94f40972","author":{"name":"Kaio
-        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-22T04:50:13Z"},"committer":{"name":"Kaio
-        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-22T04:50:13Z"},"comment":"commit
-        number three","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/6386d66dbc96076897ade78021bb91cb94f40972","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/6386d66dbc96076897ade78021bb91cb94f40972"},{"commitId":"c69a3d840ae27f07cfdcf54eca3fc65a85d3e462","author":{"name":"Kaio
+      string: '{"count":3,"value":[{"commitId":"b0e771a0c2483c4e3802b421ba30d2043bcd28c2","author":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-25T15:14:58Z"},"committer":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-25T15:14:58Z"},"comment":"commit
+        number three","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/b0e771a0c2483c4e3802b421ba30d2043bcd28c2","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/b0e771a0c2483c4e3802b421ba30d2043bcd28c2"},{"commitId":"c69a3d840ae27f07cfdcf54eca3fc65a85d3e462","author":{"name":"Kaio
         Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-22T04:16:06Z"},"committer":{"name":"Kaio
         Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-22T04:16:06Z"},"comment":"commit
         number two","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/c69a3d840ae27f07cfdcf54eca3fc65a85d3e462","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/c69a3d840ae27f07cfdcf54eca3fc65a85d3e462"},{"commitId":"b4d53f613c4a96df13b58023055383dbe423d5bc","author":{"name":"Kaio
         Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-22T04:08:09Z"},"committer":{"name":"kaiomagalhaes","email":"me@kaiomagalhaes.com","date":"2021-05-22T04:11:26Z"},"comment":"commit
         number one","changeCounts":{"Add":1,"Edit":0,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/b4d53f613c4a96df13b58023055383dbe423d5bc","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/b4d53f613c4a96df13b58023055383dbe423d5bc"}]}'
-  recorded_at: Sat, 22 May 2021 04:56:27 GMT
+  recorded_at: Tue, 25 May 2021 16:01:12 GMT
 recorded_with: VCR 6.0.0

@@ -6,7 +6,6 @@ module Clients
       def commits(repository, branch)
         type = resource_type(branch)
         url = "#{azure_url}git/repositories/#{repository.name}/commits?searchCriteria.itemVersion.version=#{branch}&api-version=6.1-preview.1&searchCriteria.itemVersion.versionType=#{type}"
-        # url = "#{azure_url}git/repositories/#{repository.name}/commits?searchCriteria.itemVersion.version=#{branch}&api-version=4.1"
         response = Request.get(url, authorization)
         commits = response['value']
         commits.map do |commit|
@@ -18,11 +17,9 @@ module Clients
         head_commits = commits(repository, head)
         base_commits = commits(repository, base)
 
-        head_commits.filter do |head_commit|
-          !base_commits.find do |base_commit|
-            base_commit.sha == head_commit.sha
-          end
-        end
+        list = source_commits_diff(head_commits, base_commits)
+        list = source_commits_diff(base_commits, head_commits).reverse if list.empty?
+        list
       end
 
       def branch_exists?(repository, branch)
@@ -44,6 +41,14 @@ module Clients
 
       def tag?(tag)
         tag.match?(/^rc|^v/)
+      end
+
+      def source_commits_diff(source_commits_a, source_commits_b)
+        source_commits_a.filter do |source_commit_a|
+          !source_commits_b.find do |source_commit_b|
+            source_commit_a.sha == source_commit_b.sha
+          end
+        end
       end
     end
   end
