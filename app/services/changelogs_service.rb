@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class ChangelogsService
-  LINK_REGEX = %r{https?[a-zA-Z/:\-.0-9]*}
+  LINK_REGEX = %r{https?[a-zA-Z/:\-_.0-9]*}
+  JIRA_REFERENCE_REGEX = /[a-zA-Z]+-\d+/
+  AZURE_REFERENCE_REGEX = /\d+$/
 
   def initialize(release, commits)
     @release = release
@@ -31,7 +33,7 @@ class ChangelogsService
   def self.urls_from_description(description)
     description
       .scan(LINK_REGEX)
-      .select { |url| url_type(url) == 'jira' }
+      .select { |url| url_type(url) == 'jira' || url_type(url) == 'azure' }
       .map do |url|
         {
           link: url,
@@ -42,10 +44,17 @@ class ChangelogsService
   end
 
   def self.url_type(url)
-    url.match?(/.+atlassian.+/) ? 'jira' : 'unknown'
+    case url
+    when /.+atlassian.+/
+      'jira'
+    when /.+azure.+/
+      'azure'
+    else
+      'unknown'
+    end
   end
 
   def self.url_reference(url)
-    url[/[a-zA-Z]+-\d+/]
+    url_type(url) == 'jira' ? url[JIRA_REFERENCE_REGEX] : url[AZURE_REFERENCE_REGEX]
   end
 end
