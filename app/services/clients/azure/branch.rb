@@ -4,8 +4,7 @@ module Clients
   module Azure
     class Branch < AzureBase
       def commits(repository, branch)
-        type = %w[master main].include?(branch) ? 'branch' : 'commit'
-        type = 'tag' if branch.match?(/rc.\d|^v\d/)
+        type = resource_type(branch)
         url = "#{azure_url}git/repositories/#{repository.name}/commits?searchCriteria.itemVersion.version=#{branch}&api-version=6.1-preview.1&searchCriteria.itemVersion.versionType=#{type}"
         # url = "#{azure_url}git/repositories/#{repository.name}/commits?searchCriteria.itemVersion.version=#{branch}&api-version=4.1"
         response = Request.get(url, authorization)
@@ -16,17 +15,13 @@ module Clients
       end
 
       def compare(repository, head, base)
-        base_version_type = head.match?(/^rc|^v/) ? 'tag' : 'branch'
-        target_version_type = base.match?(/^rc|^v/) ? 'tag' : 'branch'
-        url = "#{azure_url}git/repositories/#{repository.name}/diffs/commits?baseVersion=#{head}&baseVersionType=#{base_version_type}&targetVersion=#{base}&targetVersionType=#{target_version_type}&api-version=6.0"
-        response = Request.get(url, authorization)
-        commits = response['changes']
-        commits.map do |commit|
-          sha = commit['item']['commitId']
-          azure_commit_url = "#{azure_url}git/repositories/#{repository.name}/commits/#{sha}?api-version=6.0"
-          response = Request.get(azure_commit_url, authorization)
+        head_commits = commits(repository, head)
+        base_commits = commits(repository, base)
 
-          Clients::Azure::Parsers::CommitParser.new(response)
+        head_commits.filter do |head_commit|
+          !base_commits.find do |base_commit|
+            base_commit.sha == head_commit.sha
+          end
         end
       end
 
@@ -34,6 +29,21 @@ module Clients
         url = "#{azure_url}git/repositories/#{repository.name}/refs?filter=heads/#{branch}&api-version=4.1"
         response = Request.get(url, authorization)
         response['count'].positive?
+      end
+
+      def resource_type(resource)
+        return 'commit' if sha?(resource)
+        return 'tag' if tag?(resource)
+
+        'branch'
+      end
+
+      def sha?(sha)
+        sha.match?(/\b[0-9a-f]{5,40}\b/)
+      end
+
+      def tag?(tag)
+        tag.match?(/^rc|^v/)
       end
     end
   end
