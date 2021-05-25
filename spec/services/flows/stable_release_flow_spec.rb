@@ -197,7 +197,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             expect_any_instance_of(Clients::Azure::Release).to receive(:create).with(
               azure_repository_with_applications,
               'v1.0.0',
-              '6386d66dbc96076897ade78021bb91cb94f40972',
+              'b0e771a0c2483c4e3802b421ba30d2043bcd28c2',
               "Available in the release of *roadrunner-repository-test*:\n - commit number one \n - commit number two \n - commit number three",
               false
             )
@@ -281,8 +281,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
         end
       end
 
-      # @TODO: We're currently not bringing all the changes through the Azure::Branch compare method, we need to fix it before we work on this test
-      xcontext 'when it is the second release' do
+      context 'when it is the second release' do
         it 'creates the release' do
           VCR.use_cassette('flows#azure#stable-release#new-changes') do
             repository = azure_repository_with_applications
@@ -306,8 +305,8 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             expect_any_instance_of(Clients::Azure::Release).to receive(:create).with(
               azure_repository_with_applications,
               'v1.1.0',
-              '14442b5cfdf65531211250b7a7427b0250b64fc1',
-              "Available in the release of *roadrunner-repository-test*:\n - commit number four \n - commit number five \n - commit number 6 \n - commit number seven",
+              '73c4a3ea1767614944919c4a96c502f942606516',
+              "Available in the release of *roadrunner-repository-test*:\n - commit number four \n - commit number five \n - commit number 6",
               false
             )
 
