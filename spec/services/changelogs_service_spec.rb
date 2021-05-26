@@ -162,4 +162,81 @@ RSpec.describe ChangelogsService, type: :service do
       }
     )
   end
+
+  it 'returns the github type changelogs' do
+    pull_request = FactoryBot.create(
+      :pull_request,
+      title: 'This is a cool PR',
+      repository: repository,
+      description: '### Other minor changes:
+        - Move files out to a utils file in UploadSection to shorten the file size and improve readability.
+      ### Card Link:
+      https://github.com/codelittinc/roadrunner/issues/315
+      ### Design Expected Screenshot
+      ![image](https://user-images.githubusercontent.com/68696952/115034665.png)
+      ### Implementation Screenshot or GIF
+      ![Property Intelligence](https://user-images.githubusercontent.com/68696952.gif)
+      ### Example Link:
+      https://github.com/codelittinc/roadrunner/issues/317
+      ### Notes:
+      Still WIP'
+    )
+    FactoryBot.create(
+      :commit,
+      releases: [release],
+      pull_request: pull_request,
+      message: 'Create form component'
+    )
+    FactoryBot.create(
+      :commit,
+      releases: [release],
+      pull_request: pull_request,
+      message: 'Create input component'
+    )
+    commits = release.commits
+    changelog = ChangelogsService.new(release, commits).changelog
+    expect(changelog).to eq(
+      {
+        version: '1.0.0',
+        id: release.id,
+        created_at: release.created_at,
+        changes: [
+          {
+            message: 'Create form component',
+            references: {
+              task_manager: [
+                {
+                  link: 'https://github.com/codelittinc/roadrunner/issues/315',
+                  type: 'github',
+                  reference_code: '315'
+                },
+                {
+                  link: 'https://github.com/codelittinc/roadrunner/issues/317',
+                  type: 'github',
+                  reference_code: '317'
+                }
+              ]
+            }
+          },
+          {
+            message: 'Create input component',
+            references: {
+              task_manager: [
+                {
+                  link: 'https://github.com/codelittinc/roadrunner/issues/315',
+                  type: 'github',
+                  reference_code: '315'
+                },
+                {
+                  link: 'https://github.com/codelittinc/roadrunner/issues/317',
+                  type: 'github',
+                  reference_code: '317'
+                }
+              ]
+            }
+          }
+        ]
+      }
+    )
+  end
 end

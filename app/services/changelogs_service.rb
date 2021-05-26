@@ -3,7 +3,7 @@
 class ChangelogsService
   LINK_REGEX = %r{https?[a-zA-Z/:\-_.0-9]*}
   JIRA_REFERENCE_REGEX = /[a-zA-Z]+-\d+/
-  AZURE_REFERENCE_REGEX = /\d+$/
+  AZURE_AND_GITHUB_REFERENCE_REGEX = /\d+$/
 
   def initialize(release, commits)
     @release = release
@@ -33,7 +33,7 @@ class ChangelogsService
   def self.urls_from_description(description)
     description
       .scan(LINK_REGEX)
-      .select { |url| url_type(url) == 'jira' || url_type(url) == 'azure' }
+      .select { |url| %w[jira azure github].include? url_type(url) }
       .map do |url|
         {
           link: url,
@@ -49,12 +49,14 @@ class ChangelogsService
       'jira'
     when /.+azure.+/
       'azure'
+    when %r{.+github.com/codelittinc.+}
+      'github'
     else
       'unknown'
     end
   end
 
   def self.url_reference(url)
-    url_type(url) == 'jira' ? url[JIRA_REFERENCE_REGEX] : url[AZURE_REFERENCE_REGEX]
+    url_type(url) == 'jira' ? url[JIRA_REFERENCE_REGEX] : url[AZURE_AND_GITHUB_REFERENCE_REGEX]
   end
 end
