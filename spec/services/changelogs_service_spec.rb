@@ -173,7 +173,7 @@ RSpec.describe ChangelogsService, type: :service do
       ### Card Link:
       https://github.com/codelittinc/roadrunner/issues/315
       ### Design Expected Screenshot
-      ![image](https://user-images.githubusercontent.com/68696952/115034665.png)
+      ![image](https://user-images.github.com/68696952/115034665.png)
       ### Implementation Screenshot or GIF
       ![Property Intelligence](https://user-images.githubusercontent.com/68696952.gif)
       ### Example Link:
