@@ -3,8 +3,8 @@
 class ChangelogsService
   LINK_REGEX = %r{https?[a-zA-Z/:\-_.0-9]*}
   JIRA_REFERENCE_REGEX = /[a-zA-Z]+-\d+/
+  AZURE_AND_GITHUB_REFERENCE_REGEX = %r{(\d+)/?$}
   TRELLO_REFERENCE_REGEX = %r{[a-zA-Z\-0-9]*/?$}
-  AZURE_AND_GITHUB_REFERENCE_REGEX = /\d+$/
   JIRA_TYPE = 'jira'
   AZURE_TYPE = 'azure'
   GITHUB_TYPE = 'github'
@@ -63,14 +63,20 @@ class ChangelogsService
     end
   end
 
-  def self.url_reference(url)
-    case url_type(url)
+  def self.reference_regex(type)
+    case type
+    when GITHUB_TYPE, AZURE_TYPE
+      AZURE_AND_GITHUB_REFERENCE_REGEX
     when JIRA_TYPE
-      url[JIRA_REFERENCE_REGEX]
-    when AZURE_TYPE, GITHUB_TYPE
-      url[AZURE_AND_GITHUB_REFERENCE_REGEX]
-    else
-      url[TRELLO_REFERENCE_REGEX]
+      JIRA_REFERENCE_REGEX
+    when TRELLO_TYPE
+      TRELLO_REFERENCE_REGEX
     end
+  end
+
+  def self.url_reference(url)
+    regex = reference_regex(url_type(url))
+
+    url[regex].gsub('/', '')
   end
 end

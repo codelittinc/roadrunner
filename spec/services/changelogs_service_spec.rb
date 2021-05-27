@@ -94,7 +94,7 @@ RSpec.describe ChangelogsService, type: :service do
       description: '### Other minor changes:
         - Move files out to a utils file in UploadSection to shorten the file size and improve readability.
       ### Card Link:
-      https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1427
+      https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1427/
       ### Design Expected Screenshot
       ![image](https://user-images.githubusercontent.com/68696952/115034665.png)
       ### Implementation Screenshot or GIF
@@ -129,7 +129,7 @@ RSpec.describe ChangelogsService, type: :service do
             references: {
               task_manager: [
                 {
-                  link: 'https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1427',
+                  link: 'https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1427/',
                   type: 'azure',
                   reference_code: '1427'
                 },
@@ -146,7 +146,7 @@ RSpec.describe ChangelogsService, type: :service do
             references: {
               task_manager: [
                 {
-                  link: 'https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1427',
+                  link: 'https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1427/',
                   type: 'azure',
                   reference_code: '1427'
                 },
