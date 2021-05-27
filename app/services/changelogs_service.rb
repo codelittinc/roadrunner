@@ -3,10 +3,12 @@
 class ChangelogsService
   LINK_REGEX = %r{https?[a-zA-Z/:\-_.0-9]*}
   JIRA_REFERENCE_REGEX = /[a-zA-Z]+-\d+/
+  TRELLO_REFERENCE_REGEX = %r{[a-zA-Z\-0-9]*/?$}
   AZURE_AND_GITHUB_REFERENCE_REGEX = /\d+$/
   JIRA_TYPE = 'jira'
   AZURE_TYPE = 'azure'
   GITHUB_TYPE = 'github'
+  TRELLO_TYPE = 'trello'
 
   def initialize(release, commits)
     @release = release
@@ -36,7 +38,7 @@ class ChangelogsService
   def self.urls_from_description(description)
     description
       .scan(LINK_REGEX)
-      .select { |url| [JIRA_TYPE, AZURE_TYPE, GITHUB_TYPE].include? url_type(url) }
+      .select { |url| [JIRA_TYPE, AZURE_TYPE, GITHUB_TYPE, TRELLO_TYPE].include? url_type(url) }
       .map do |url|
         {
           link: url,
@@ -54,12 +56,21 @@ class ChangelogsService
       AZURE_TYPE
     when /^(?=.*\bgithub\b)(?=.*\bissues\b).*$/
       GITHUB_TYPE
+    when /.+trello.+/
+      TRELLO_TYPE
     else
       'unknown'
     end
   end
 
   def self.url_reference(url)
-    url_type(url) == JIRA_TYPE ? url[JIRA_REFERENCE_REGEX] : url[AZURE_AND_GITHUB_REFERENCE_REGEX]
+    case url_type(url)
+    when JIRA_TYPE
+      url[JIRA_REFERENCE_REGEX]
+    when AZURE_TYPE, GITHUB_TYPE
+      url[AZURE_AND_GITHUB_REFERENCE_REGEX]
+    else
+      url[TRELLO_REFERENCE_REGEX]
+    end
   end
 end
