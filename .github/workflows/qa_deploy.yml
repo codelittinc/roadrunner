@@ -22,3 +22,21 @@ jobs:
         heroku_app_name: ${{ secrets.HEROKU_APP_NAME_QA }}
         branch: ${{ env.RELEASE_VERSION }}
         dontuseforce: false
+
+  build-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set tag version
+      run: echo "TAG_VERSION=\"$(echo $GITHUB_REF | sed 's/.*tags\///')\"" >> $GITHUB_ENV
+
+    - name: Set image name
+      run: echo "IMG_NAME=kaiomagalhaes/roadrunner:${{env.TAG_VERSION}}" >> $GITHUB_ENV
+
+    - name: Build image with webpack
+      uses: dfreilich/pack-action@v1
+      with:
+        args: 'build ${{ env.IMG_NAME }} --path /github/workspace/ --builder heroku/buildpacks:20 --publish'
+        username: kaiomagalhaes
+        password: ${{ secrets.DOCKER_PASS }}
