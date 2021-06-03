@@ -17,6 +17,8 @@ gem 'pg_search'
 gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'rails_admin_material'
 
+gem 'sidekiq'
+
 gem 'gelf'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
