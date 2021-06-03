@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class FlowExecutor
-  def initialize(params)
-    @params = params
+  def initialize(flow_request)
+    @params = JSON.parse(flow_request.json).with_indifferent_access
+    @flow_request = flow_request
   end
 
-  def execute
+  def execute!
     executed = true
-    flow_request = FlowRequest.create!(json: @params.to_json)
 
     classnames.each do |classname|
       classConst = Object.const_get("Flows::#{classname}")
@@ -16,14 +16,14 @@ class FlowExecutor
       next unless object.flow?
 
       executed = true
-      flow_request.update(flow_name: object.class.name)
+      @flow_request.update(flow_name: object.class.name)
 
       begin
         object.run
-        flow_request.update(executed: true)
+        @flow_request.update(executed: true)
       rescue Exception => e
         message = [e.to_s, e.backtrace].flatten.join("\n")
-        flow_request.update(error_message: message)
+        @flow_request.update(error_message: message)
         send_exception_message! if channel_name
         raise e
       end

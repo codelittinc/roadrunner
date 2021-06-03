@@ -4,11 +4,13 @@ FROM ruby:3.0.0-buster
 RUN gem install bundler
 
 EXPOSE 3000
+EXPOSE 6379
 
 WORKDIR /share
 ADD Gemfile /share/Gemfile
 ADD Gemfile.lock /share/Gemfile.lock
 RUN bundle config set with 'development'
 RUN bundle install
+run gem install foreman
 
 ADD ./ /share
