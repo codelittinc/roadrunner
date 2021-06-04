@@ -5,7 +5,7 @@ module Versioning
     class UpdateRelease
       def initialize(environment, releases)
         @environment = environment
-        @releases = releases
+        @releases = Versioning::Sorter.new(releases).sort
         @major, @minor, @patch = latest_tag_name&.scan(Versioning::RELEASE_REGEX)&.flatten
       end
 
