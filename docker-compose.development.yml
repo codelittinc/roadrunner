@@ -1,15 +1,5 @@
 version: '2'
 services:
-  redis:
-    image: redis
-    container_name: roadrunner-project-redis
-    volumes:
-      - .:/share
-    env_file:
-      - .env
-    ports:
-      - '6379:6379'
-
   db:
     image: postgres
     container_name: roadrunner-project-db
@@ -38,14 +28,12 @@ services:
       - '3000:3000'
 
     depends_on:
-      - redis
       - db
       - box
 
     links:
       - db
       - box
-      - redis
 
   box:
     container_name: roadrunner-project-bundle-box
