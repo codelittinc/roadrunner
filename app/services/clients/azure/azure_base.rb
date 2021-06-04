@@ -12,7 +12,9 @@ module Clients
       end
 
       def authorization
-        "Basic #{ENV['AZURE_AUTH_KEY']}"
+        key = ":#{ENV['AZURE_AUTH_KEY']}"
+        base64_key = Base64.urlsafe_encode64(key)
+        "Basic #{base64_key}"
       end
     end
   end
