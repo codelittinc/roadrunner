@@ -1,3 +1,4 @@
+rm latest.dump
 docker-compose -f docker-compose.development.yml up -d
 docker stop roadrunner-project-api
 heroku pg:backups:capture --app prod-roadrunner
