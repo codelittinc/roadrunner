@@ -204,7 +204,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               pull_request = FactoryBot.create(:pull_request, repository: repository)
 
               FactoryBot.create(:commit, {
-                                  message: 'commit number three',
+                                  message: 'commit number seven',
                                   pull_request: pull_request
                                 })
 
@@ -212,9 +212,9 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
               expect_any_instance_of(Clients::Azure::Release).to receive(:create).with(
                 azure_repository_with_applications,
-                'rc.2.v1.0.0',
+                'rc.2.v1.1.0',
                 'master',
-                "Available in the release of *roadrunner-repository-test*:\n - commit number three",
+                "Available in the release of *roadrunner-repository-test*:\n - commit number seven",
                 true
               )
 
@@ -236,7 +236,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                                })
 
               FactoryBot.create(:commit, {
-                                  message: 'commit number three',
+                                  message: 'commit number seven',
                                   pull_request: pull_request
                                 })
 
@@ -244,9 +244,9 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
               expect_any_instance_of(Clients::Azure::Release).to receive(:create).with(
                 azure_repository_with_applications,
-                'rc.2.v1.0.0',
+                'rc.2.v1.1.0',
                 'master',
-                "Available in the release of *roadrunner-repository-test*:\n - commit number three [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
+                "Available in the release of *roadrunner-repository-test*:\n - commit number seven [AYAPI-274](https://codelitt.atlassian.net/browse/AYAPI-274)",
                 true
               )
 

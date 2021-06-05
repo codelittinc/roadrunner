@@ -16,7 +16,7 @@ module Clients
           @author_name = @json.dig(:author, :name)
           @author_email = @json.dig(:author, :email)
           @message = @json[:comment]
-          @date = @json.dig(:author, :date)
+          @date = @json.dig(:committer, :date)
         end
       end
     end

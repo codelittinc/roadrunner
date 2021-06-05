@@ -1,0 +1,867 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://dev.azure.com/AY-InnovationCenter/Avant/_apis/git/repositories/ay-users-api-test/commits?api-version=6.1-preview.1&searchCriteria.itemVersion.version=feat/compare-branches-roadrunner&searchCriteria.itemVersion.versionType=branch
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic OnRvbnJjcHB6dmVuc3Zma3Vtd2c3Zm4ybmkzcHB5bHFoYnl3aHd5empoeGZpMnRjZGgyNmE=
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '385'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      P3p:
+      - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
+        STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+      Set-Cookie:
+      - VstsSession=%7B%22PersistentSessionId%22%3A%22ac6592e1-56a5-4ddc-93b4-d8ec618ccdfd%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Sun, 05-Jun-2022 13:09:45 GMT; path=/; secure;
+        HttpOnly
+      X-Tfs-Processid:
+      - 8d03202c-d927-4735-9101-ed0bb2b27858
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Activityid:
+      - 6f0daa7c-0b51-4315-978b-145faa398c7f
+      X-Tfs-Session:
+      - 6f0daa7c-0b51-4315-978b-145faa398c7f
+      X-Vss-E2eid:
+      - 6f0daa7c-0b51-4315-978b-145faa398c7f
+      X-Vss-Userdata:
+      - 4d13cd81-e536-6e63-93fa-0de9cffbb868:kaio@codelitt.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Request-Context:
+      - appId=cid-v1:0c3d14cd-19b4-4eb7-9b56-c7dfb8d9a151
+      Access-Control-Expose-Headers:
+      - Request-Context
+      X-Content-Type-Options:
+      - nosniff
+      X-Cache:
+      - CONFIG_NOCACHE
+      X-Msedge-Ref:
+      - 'Ref A: 71F6281A95954B23BA2AED53849D16DB Ref B: RIO03EDGE0519 Ref C: 2021-06-05T13:09:45Z'
+      Date:
+      - Sat, 05 Jun 2021 13:09:45 GMT
+    body:
+      encoding: UTF-8
+      string: '{"$id":"1","innerException":null,"message":"TF401175:The version descriptor
+        <Branch: feat/compare-branches-roadrunner > could not be resolved to a version
+        in the repository ay-users-api-test","typeName":"Microsoft.TeamFoundation.Git.Server.GitUnresolvableToCommitException,
+        Microsoft.TeamFoundation.Git.Server","typeKey":"GitUnresolvableToCommitException","errorCode":0,"eventId":3000}'
+  recorded_at: Sat, 05 Jun 2021 13:09:45 GMT
+- request:
+    method: get
+    uri: https://dev.azure.com/AY-InnovationCenter/Avant/_apis/git/repositories/ay-property-intelligence/commits?api-version=6.1-preview.1&searchCriteria.itemVersion.version=feat/compare-branches-roadrunner&searchCriteria.itemVersion.versionType=branch
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic OnRvbnJjcHB6dmVuc3Zma3Vtd2c3Zm4ybmkzcHB5bHFoYnl3aHd5empoeGZpMnRjZGgyNmE=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '11626'
+      Content-Type:
+      - application/json; charset=utf-8; api-version=6.1-preview.1
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      P3p:
+      - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
+        STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+      Set-Cookie:
+      - VstsSession=%7B%22PersistentSessionId%22%3A%22e5e480bb-d35a-442f-89a7-332d06859394%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Sun, 05-Jun-2022 13:28:40 GMT; path=/; secure;
+        HttpOnly
+      X-Tfs-Processid:
+      - ac8dc494-0571-464a-a92a-c3f55f4aa8d7
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Activityid:
+      - c2ee3917-46de-43b6-a37f-48b4dd15cf83
+      X-Tfs-Session:
+      - c2ee3917-46de-43b6-a37f-48b4dd15cf83
+      X-Vss-E2eid:
+      - c2ee3917-46de-43b6-a37f-48b4dd15cf83
+      X-Vss-Userdata:
+      - 4d13cd81-e536-6e63-93fa-0de9cffbb868:kaio@codelitt.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Link:
+      - <3978fbeebf70a3464b92c5b93c2c98cbfcc3048b>;rel="startingCommitId"
+      - <https://dev.azure.com/_apis/git/repositories/ay-property-intelligence/commits>;rel="next"
+      Request-Context:
+      - appId=cid-v1:0c3d14cd-19b4-4eb7-9b56-c7dfb8d9a151
+      Access-Control-Expose-Headers:
+      - Request-Context
+      X-Content-Type-Options:
+      - nosniff
+      X-Cache:
+      - CONFIG_NOCACHE
+      X-Msedge-Ref:
+      - 'Ref A: 8C1C10224B34409885C6F0DE1DC3C63F Ref B: RIO03EDGE0620 Ref C: 2021-06-05T13:28:39Z'
+      Date:
+      - Sat, 05 Jun 2021 13:28:40 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: '{"count":100,"value":[{"commitId":"3978fbeebf70a3464b92c5b93c2c98cbfcc3048b","author":{"name":"Victor
+        Carvalho","email":"victor.carvalho@avisonyoung.onmicrosoft.com","date":"2021-06-02T16:25:59Z"},"committer":{"name":"Victor
+        Carvalho","email":"victor.carvalho@avisonyoung.onmicrosoft.com","date":"2021-06-02T16:25:59Z"},"comment":"Update
+        qa_branch_update.yml for Azure Pipelines","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/3978fbeebf70a3464b92c5b93c2c98cbfcc3048b","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/3978fbeebf70a3464b92c5b93c2c98cbfcc3048b"},{"commitId":"24d10a0835acb58051b5c38d475c8e1ff5612182","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-06-02T16:18:03Z"},"committer":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-06-02T16:18:03Z"},"comment":"Merge
+        branch ''master'' of https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/24d10a0835acb58051b5c38d475c8e1ff5612182","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/24d10a0835acb58051b5c38d475c8e1ff5612182"},{"commitId":"bf801ab76d3411392c40525bda048aa01a6d8691","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-06-02T16:17:08Z"},"committer":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-06-02T16:17:08Z"},"comment":"Testing
+        the deployment pipeline","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/bf801ab76d3411392c40525bda048aa01a6d8691","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/bf801ab76d3411392c40525bda048aa01a6d8691"},{"commitId":"14eaa6d39c366dcbe670f09fb63b4ea123c3cee8","author":{"name":"Victor
+        Carvalho","email":"victor.carvalho@avisonyoung.onmicrosoft.com","date":"2021-06-02T16:10:05Z"},"committer":{"name":"Victor
+        Carvalho","email":"victor.carvalho@avisonyoung.onmicrosoft.com","date":"2021-06-02T16:10:05Z"},"comment":"Update
+        qa_branch_update.yml for Azure Pipelines","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/14eaa6d39c366dcbe670f09fb63b4ea123c3cee8","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/14eaa6d39c366dcbe670f09fb63b4ea123c3cee8"},{"commitId":"f17774fb9b581553e913259f9c372db82afa81f2","author":{"name":"Victor
+        Carvalho","email":"victor.carvalho@avisonyoung.onmicrosoft.com","date":"2021-06-02T16:07:15Z"},"committer":{"name":"Victor
+        Carvalho","email":"victor.carvalho@avisonyoung.onmicrosoft.com","date":"2021-06-02T16:07:15Z"},"comment":"Update
+        qa_branch_update.yml for Azure Pipelines","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/f17774fb9b581553e913259f9c372db82afa81f2","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/f17774fb9b581553e913259f9c372db82afa81f2"},{"commitId":"a61ad28b4cafcd7d3fdba2c95cf3bb762c8c7931","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-06-02T16:07:02Z"},"committer":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-06-02T16:07:02Z"},"comment":"Testing
+        the deployment pipeline","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/a61ad28b4cafcd7d3fdba2c95cf3bb762c8c7931","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/a61ad28b4cafcd7d3fdba2c95cf3bb762c8c7931"},{"commitId":"372b24e04864d0bb72676793daef38575a2e2759","author":{"name":"Victor
+        Carvalho","email":"victor.carvalho@avisonyoung.onmicrosoft.com","date":"2021-06-02T16:01:06Z"},"committer":{"name":"Victor
+        Carvalho","email":"victor.carvalho@avisonyoung.onmicrosoft.com","date":"2021-06-02T16:01:06Z"},"comment":"Update
+        qa_branch_update.yml for Azure Pipelines","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/372b24e04864d0bb72676793daef38575a2e2759","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/372b24e04864d0bb72676793daef38575a2e2759"},{"commitId":"4512af4986694fabe4d37c82efd376b64ff0a127","author":{"name":"Victor
+        Carvalho","email":"victor.carvalho@avisonyoung.onmicrosoft.com","date":"2021-06-02T15:47:16Z"},"committer":{"name":"Victor
+        Carvalho","email":"victor.carvalho@avisonyoung.onmicrosoft.com","date":"2021-06-02T15:47:16Z"},"comment":"Set
+        the QA branch update on Azure pipelines","commentTruncated":true,"changeCounts":{"Add":1,"Edit":0,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/4512af4986694fabe4d37c82efd376b64ff0a127","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/4512af4986694fabe4d37c82efd376b64ff0a127"},{"commitId":"95f61304ad1c24fd16e8a7cab843903682cf5040","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-05-26T21:37:02Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-05-26T21:47:01Z"},"comment":"Fix
+        the recent leases chart to display only FS or NNN values","changeCounts":{"Add":0,"Edit":4,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/95f61304ad1c24fd16e8a7cab843903682cf5040","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/95f61304ad1c24fd16e8a7cab843903682cf5040"},{"commitId":"4761f1926c7aa1c8bb11689b80fd557f9f3d1d6c","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-05-25T22:18:31Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-05-26T12:05:20Z"},"comment":"Fix
+        the app crashing in the map view","changeCounts":{"Add":0,"Edit":6,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/4761f1926c7aa1c8bb11689b80fd557f9f3d1d6c","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/4761f1926c7aa1c8bb11689b80fd557f9f3d1d6c"},{"commitId":"ae8e880d60cd399fe0d9c514cdd69080b2199887","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-05-25T18:26:27Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-05-25T20:53:20Z"},"comment":"Update
+        the recent Leases to display FS, NNN, monthly and Annual values","changeCounts":{"Add":2,"Edit":24,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/ae8e880d60cd399fe0d9c514cdd69080b2199887","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/ae8e880d60cd399fe0d9c514cdd69080b2199887"},{"commitId":"cf948e9d155ec806bd00e7690e2dc4a2313db2d9","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-05-21T13:39:14Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-05-21T18:19:56Z"},"comment":"Bump
+        the app version to 1.0.27","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/cf948e9d155ec806bd00e7690e2dc4a2313db2d9","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/cf948e9d155ec806bd00e7690e2dc4a2313db2d9"},{"commitId":"bcdf632cba06479407ce2ef16f5e32e8ce1b299a","author":{"name":"julian.pena","email":"saudadeh@gmail.com","date":"2021-05-13T10:28:41Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-05-13T12:56:41Z"},"comment":"Fix
+        font weight in Cards","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/bcdf632cba06479407ce2ef16f5e32e8ce1b299a","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/bcdf632cba06479407ce2ef16f5e32e8ce1b299a"},{"commitId":"a3c4f47d43d0da12c1fbf4fb36cbb39a87ca1757","author":{"name":"julian.pena","email":"saudadeh@gmail.com","date":"2021-05-11T14:39:18Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-05-12T12:27:59Z"},"comment":"Fix
+        card owner alignment","changeCounts":{"Add":3,"Edit":4,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/a3c4f47d43d0da12c1fbf4fb36cbb39a87ca1757","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/a3c4f47d43d0da12c1fbf4fb36cbb39a87ca1757"},{"commitId":"2fd3c62420194f5255a242ad29679f8060b80bf0","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-05-07T21:09:25Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-05-07T21:51:51Z"},"comment":"Disable
+        hardware acceleration on the Nearmap webview for Android.","commentTruncated":true,"changeCounts":{"Add":0,"Edit":4,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/2fd3c62420194f5255a242ad29679f8060b80bf0","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/2fd3c62420194f5255a242ad29679f8060b80bf0"},{"commitId":"5bacabe7487ab9cf6acdc023f6acf2fe6887506a","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-05-07T20:51:33Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-05-07T21:51:51Z"},"comment":"Load
+        the nearmap key from the properties-api","commentTruncated":true,"changeCounts":{"Add":2,"Edit":9,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/5bacabe7487ab9cf6acdc023f6acf2fe6887506a","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/5bacabe7487ab9cf6acdc023f6acf2fe6887506a"},{"commitId":"7b85d243fb1f8e2bb16d73161862b841131cdad3","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-05-07T20:06:19Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-05-07T21:51:51Z"},"comment":"Fix
+        the webview for Nearmap on Android devices","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/7b85d243fb1f8e2bb16d73161862b841131cdad3","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/7b85d243fb1f8e2bb16d73161862b841131cdad3"},{"commitId":"ec1e07dc3044e7afe5433f72cb268cf7413b7bb1","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-05-07T00:00:58Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-05-07T16:13:09Z"},"comment":"Use
+        the lat/lon display fields to position properties on the map","changeCounts":{"Add":0,"Edit":9,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/ec1e07dc3044e7afe5433f72cb268cf7413b7bb1","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/ec1e07dc3044e7afe5433f72cb268cf7413b7bb1"},{"commitId":"de22f59055f57fcb31fc2d976185f51acb2aaf11","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-05-06T22:01:40Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-05-07T14:36:22Z"},"comment":"Fix
+        the company type ahead search","changeCounts":{"Add":0,"Edit":4,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/de22f59055f57fcb31fc2d976185f51acb2aaf11","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/de22f59055f57fcb31fc2d976185f51acb2aaf11"},{"commitId":"17955c45952fac53d666a2edb5aaaff4ce359559","author":{"name":"julian.pena","email":"saudadeh@gmail.com","date":"2021-05-06T13:52:19Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-05-07T13:34:58Z"},"comment":"Update
+        images in Nearby Properties Carousel after img change","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/17955c45952fac53d666a2edb5aaaff4ce359559","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/17955c45952fac53d666a2edb5aaaff4ce359559"},{"commitId":"e9fba5ed509ed2e0cf01ac8c38c1cc56ac17e7c9","author":{"name":"julian.pena","email":"saudadeh@gmail.com","date":"2021-05-05T09:47:49Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-05-05T20:12:04Z"},"comment":"Add
+        user info in Lease & Sale cards","changeCounts":{"Add":0,"Edit":6,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/e9fba5ed509ed2e0cf01ac8c38c1cc56ac17e7c9","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/e9fba5ed509ed2e0cf01ac8c38c1cc56ac17e7c9"},{"commitId":"24477784a2531141c72514275f3c2242099298a7","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-05-03T20:04:56Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-05-03T20:58:39Z"},"comment":"Add
+        the originWhitelist to the nearmap component","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/24477784a2531141c72514275f3c2242099298a7","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/24477784a2531141c72514275f3c2242099298a7"},{"commitId":"bc56126c2a22f137b40c8736693ff7e1ecd79433","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-05-03T19:16:58Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-05-03T20:58:39Z"},"comment":"Add
+        walkscore to the property page","changeCounts":{"Add":17,"Edit":3,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/bc56126c2a22f137b40c8736693ff7e1ecd79433","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/bc56126c2a22f137b40c8736693ff7e1ecd79433"},{"commitId":"d1b04acf04ec9dd124046e949cd7bdb31a6e096f","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-30T15:38:45Z"},"committer":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-30T15:38:45Z"},"comment":"Bump
+        the app version to 1.0.26","changeCounts":{"Add":0,"Edit":3,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/d1b04acf04ec9dd124046e949cd7bdb31a6e096f","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/d1b04acf04ec9dd124046e949cd7bdb31a6e096f"},{"commitId":"d6f4ec98bfb47b1561ac2aee24935a64db7bb1fb","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-29T18:53:22Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-29T22:33:06Z"},"comment":"Add
+        Nearmap to the property profile page","changeCounts":{"Add":5,"Edit":18,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/d6f4ec98bfb47b1561ac2aee24935a64db7bb1fb","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/d6f4ec98bfb47b1561ac2aee24935a64db7bb1fb"},{"commitId":"6ba39abc410b89bf1d3ff0c10d2db27fd850cd43","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-04-22T19:33:37Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-26T14:37:26Z"},"comment":"Fix
+        the recent leases graph according to the base rent time","changeCounts":{"Add":0,"Edit":7,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/6ba39abc410b89bf1d3ff0c10d2db27fd850cd43","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/6ba39abc410b89bf1d3ff0c10d2db27fd850cd43"},{"commitId":"91c2a3b7f2f42dcfbe900dd54f5355f10e40b0f0","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-23T21:47:19Z"},"committer":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-23T21:47:19Z"},"comment":"Fix
+        the Sentry configuration for AY","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/91c2a3b7f2f42dcfbe900dd54f5355f10e40b0f0","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/91c2a3b7f2f42dcfbe900dd54f5355f10e40b0f0"},{"commitId":"ddf8bd58764b38c3af9e9855e3d76da6e44c6c6d","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-04-23T20:00:32Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-23T21:05:48Z"},"comment":"Fix
+        the font family Open Sans","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/ddf8bd58764b38c3af9e9855e3d76da6e44c6c6d","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/ddf8bd58764b38c3af9e9855e3d76da6e44c6c6d"},{"commitId":"bfc8fdfb381ce33694eb67b869b6e11a4ebc1eb0","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-22T20:57:11Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-22T21:11:56Z"},"comment":"Add
+        the app name and environment to Sentry","changeCounts":{"Add":0,"Edit":7,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/bfc8fdfb381ce33694eb67b869b6e11a4ebc1eb0","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/bfc8fdfb381ce33694eb67b869b6e11a4ebc1eb0"},{"commitId":"c7350eb45981439f33854a7042fd44abedba7758","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-22T20:55:51Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-22T21:11:56Z"},"comment":"Bump
+        the app version to 1.0.25","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/c7350eb45981439f33854a7042fd44abedba7758","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/c7350eb45981439f33854a7042fd44abedba7758"},{"commitId":"90851e6a6133a33e620a9957c6d9968eb9b733ba","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-04-19T19:23:46Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-19T19:49:36Z"},"comment":"Add
+        the translation to the NNN Renty Type for Canada","changeCounts":{"Add":1,"Edit":12,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/90851e6a6133a33e620a9957c6d9968eb9b733ba","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/90851e6a6133a33e620a9957c6d9968eb9b733ba"},{"commitId":"9a3a8869fb403b758aeb558533e205d28a6a4881","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-04-12T15:13:18Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-12T15:20:47Z"},"comment":"Fix
+        the crash in the Activity Page Screen","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/9a3a8869fb403b758aeb558533e205d28a6a4881","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/9a3a8869fb403b758aeb558533e205d28a6a4881"},{"commitId":"4104bf0f0df86dc94ded765b4845a6a1134373a7","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-11T03:49:33Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-12T13:17:17Z"},"comment":"Add
+        an error message for errors on media uploads","changeCounts":{"Add":0,"Edit":11,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/4104bf0f0df86dc94ded765b4845a6a1134373a7","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/4104bf0f0df86dc94ded765b4845a6a1134373a7"},{"commitId":"f37cde8088042e95f835320f6843d279aa27c8d1","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-11T03:33:58Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-12T13:17:17Z"},"comment":"Add
+        the react-native-video-controls package to display video previews before uploading","changeCounts":{"Add":0,"Edit":8,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/f37cde8088042e95f835320f6843d279aa27c8d1","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/f37cde8088042e95f835320f6843d279aa27c8d1"},{"commitId":"b34a9fa9d2a5ac0cbc0953200e8c7fef17a2db01","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-11T02:12:13Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-12T13:17:17Z"},"comment":"Fix
+        the loading indicator on scoop images","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/b34a9fa9d2a5ac0cbc0953200e8c7fef17a2db01","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/b34a9fa9d2a5ac0cbc0953200e8c7fef17a2db01"},{"commitId":"9e61ae8e3849a29fe5fb1bdd4a7b641a44536c18","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-11T01:51:55Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-12T13:17:17Z"},"comment":"Fix
+        the ActivityIndicator not displaying on Android","commentTruncated":true,"changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/9e61ae8e3849a29fe5fb1bdd4a7b641a44536c18","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/9e61ae8e3849a29fe5fb1bdd4a7b641a44536c18"},{"commitId":"3473f7c6a4f4a93001e625bc07c409962e648753","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-11T01:46:50Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-12T13:17:17Z"},"comment":"Fix
+        the file upload on Android","commentTruncated":true,"changeCounts":{"Add":0,"Edit":4,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/3473f7c6a4f4a93001e625bc07c409962e648753","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/3473f7c6a4f4a93001e625bc07c409962e648753"},{"commitId":"276162f0fae412142bab25ba32858e83a35454aa","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-11T04:38:41Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-04-12T12:27:46Z"},"comment":"Update
+        the search page to have the same behavior as the web app","changeCounts":{"Add":0,"Edit":5,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/276162f0fae412142bab25ba32858e83a35454aa","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/276162f0fae412142bab25ba32858e83a35454aa"},{"commitId":"85706dfdae40210c184454faa8826292e8837670","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-09T15:33:48Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-09T15:38:33Z"},"comment":"Add
+        the NSMicrophoneUsageDescription key to the info.plist on IOS","commentTruncated":true,"changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/85706dfdae40210c184454faa8826292e8837670","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/85706dfdae40210c184454faa8826292e8837670"},{"commitId":"0c05881cb6a732aefad5893cc24af28e55a755a7","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-08T23:46:38Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-04-09T12:37:29Z"},"comment":"Add
+        option to upload videos","changeCounts":{"Add":1,"Edit":24,"Delete":1},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/0c05881cb6a732aefad5893cc24af28e55a755a7","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/0c05881cb6a732aefad5893cc24af28e55a755a7"},{"commitId":"de8704c5d3bd949ebc1281bda4ca85f8864a17bd","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-08T21:06:51Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-08T21:37:55Z"},"comment":"Display
+        video thumbnail on cards","changeCounts":{"Add":0,"Edit":23,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/de8704c5d3bd949ebc1281bda4ca85f8864a17bd","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/de8704c5d3bd949ebc1281bda4ca85f8864a17bd"},{"commitId":"f9903d63b43475fd4a51484b9b7bbc5d14eb97dd","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-04-08T20:28:32Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-08T21:37:55Z"},"comment":"Add
+        videos to the media carousel in the property page","changeCounts":{"Add":6,"Edit":18,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/f9903d63b43475fd4a51484b9b7bbc5d14eb97dd","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/f9903d63b43475fd4a51484b9b7bbc5d14eb97dd"},{"commitId":"d63652b9d032a6a59f6036a53071dd75710f397d","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-04-08T14:31:28Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-08T14:47:19Z"},"comment":"Fix
+        the company industry''s name spilling out of header on the company page","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/d63652b9d032a6a59f6036a53071dd75710f397d","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/d63652b9d032a6a59f6036a53071dd75710f397d"},{"commitId":"57a6dea8c3f88673fb43d13be58bea5ba320e044","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-04-07T16:43:02Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-04-07T17:43:21Z"},"comment":"Add
+        the company logo in the Company profile page","changeCounts":{"Add":1,"Edit":5,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/57a6dea8c3f88673fb43d13be58bea5ba320e044","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/57a6dea8c3f88673fb43d13be58bea5ba320e044"},{"commitId":"767cc1212ca0b52a27feb3b53734a475c346bdbd","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-29T18:23:28Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-29T19:04:11Z"},"comment":"Fix
+        the wizard form submit on update the users markets","changeCounts":{"Add":0,"Edit":4,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/767cc1212ca0b52a27feb3b53734a475c346bdbd","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/767cc1212ca0b52a27feb3b53734a475c346bdbd"},{"commitId":"80a2daca78db4fe22c52f87d37960ccbf4988bac","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-03-29T18:53:20Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-03-29T19:03:39Z"},"comment":"Send
+        the SSO token to avant cities for all auth providers","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/80a2daca78db4fe22c52f87d37960ccbf4988bac","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/80a2daca78db4fe22c52f87d37960ccbf4988bac"},{"commitId":"42c6fa1f9bcc8c4b5bc65224cf7c829c9e3fec79","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-03-29T18:26:35Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-29T18:42:44Z"},"comment":"Fix
+        the wizard for padding for IOS","changeCounts":{"Add":1,"Edit":3,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/42c6fa1f9bcc8c4b5bc65224cf7c829c9e3fec79","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/42c6fa1f9bcc8c4b5bc65224cf7c829c9e3fec79"},{"commitId":"9976110a013b3f28c863332f07857df23add5d88","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-03-29T18:05:00Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-29T18:42:44Z"},"comment":"Fix
+        the first sign in for Azure users","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/9976110a013b3f28c863332f07857df23add5d88","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/9976110a013b3f28c863332f07857df23add5d88"},{"commitId":"f29c12d17b2568ebb310096afbc3c4224c5e7381","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-29T14:57:50Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-29T15:11:03Z"},"comment":"Fix
+        the Sign Up with an OKTA account","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/f29c12d17b2568ebb310096afbc3c4224c5e7381","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/f29c12d17b2568ebb310096afbc3c4224c5e7381"},{"commitId":"a85f71ed2dbbe9ea433bb8960414b78921309d77","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-26T21:45:24Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-29T12:42:42Z"},"comment":"Add
+        the CostPerKWH in the Property Overview","changeCounts":{"Add":0,"Edit":4,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/a85f71ed2dbbe9ea433bb8960414b78921309d77","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/a85f71ed2dbbe9ea433bb8960414b78921309d77"},{"commitId":"fb2153caaf0470a95895663cfc5077af3cb4f369","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-26T20:58:39Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-03-26T21:51:48Z"},"comment":"Consume
+        the Data Usage Term from the users API","changeCounts":{"Add":0,"Edit":3,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/fb2153caaf0470a95895663cfc5077af3cb4f369","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/fb2153caaf0470a95895663cfc5077af3cb4f369"},{"commitId":"574b1b93993963657d84d707929d38508f0669d2","author":{"name":"julian.pena","email":"julian.pena@codelitt.com","date":"2021-03-24T16:40:52Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-24T20:54:34Z"},"comment":"Update
+        amenities in upload image section","changeCounts":{"Add":0,"Edit":9,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/574b1b93993963657d84d707929d38508f0669d2","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/574b1b93993963657d84d707929d38508f0669d2"},{"commitId":"c7a994891c53c7ce619c2df5261cade59f40f4ae","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-24T19:55:24Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-24T20:14:59Z"},"comment":"Fix
+        the markets query in the users settings page","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/c7a994891c53c7ce619c2df5261cade59f40f4ae","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/c7a994891c53c7ce619c2df5261cade59f40f4ae"},{"commitId":"d8cc4c94c991a0493ced74a6544190ff690aacf1","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-24T16:43:17Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-24T19:35:40Z"},"comment":"Add
+        the Data Center fields in the building profile overview","changeCounts":{"Add":1,"Edit":4,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/d8cc4c94c991a0493ced74a6544190ff690aacf1","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/d8cc4c94c991a0493ced74a6544190ff690aacf1"},{"commitId":"e3eaf8a4109793892207c0897e7df939d63af81d","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-24T14:05:59Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-24T19:32:33Z"},"comment":"Add
+        the ability to edit the Property Subtype","changeCounts":{"Add":0,"Edit":5,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/e3eaf8a4109793892207c0897e7df939d63af81d","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/e3eaf8a4109793892207c0897e7df939d63af81d"},{"commitId":"f0964d1d1f14f74bde6a26b0de441ffa776ca395","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-23T15:43:35Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-23T19:54:49Z"},"comment":"Add
+        the data usage terms in the Welcome Wizard page","changeCounts":{"Add":0,"Edit":3,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/f0964d1d1f14f74bde6a26b0de441ffa776ca395","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/f0964d1d1f14f74bde6a26b0de441ffa776ca395"},{"commitId":"f2a14d05324359dd75f5dbacefe5229789d111e2","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-22T22:35:44Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-23T19:54:49Z"},"comment":"Add
+        the ability to upload users profile image","changeCounts":{"Add":8,"Edit":8,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/f2a14d05324359dd75f5dbacefe5229789d111e2","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/f2a14d05324359dd75f5dbacefe5229789d111e2"},{"commitId":"c460c856d29b80419bd2a4f039de795db1a8947e","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-19T20:27:15Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-23T19:54:49Z"},"comment":"Add
+        the integration with the users API in the Welcome Wizard","changeCounts":{"Add":4,"Edit":22,"Delete":1},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/c460c856d29b80419bd2a4f039de795db1a8947e","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/c460c856d29b80419bd2a4f039de795db1a8947e"},{"commitId":"f5c9bf49512b06f874d9501060489d8981867af9","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-18T22:19:09Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-23T19:54:49Z"},"comment":"Add
+        the Profile Settings section in the Welcome Wizard Page","changeCounts":{"Add":2,"Edit":14,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/f5c9bf49512b06f874d9501060489d8981867af9","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/f5c9bf49512b06f874d9501060489d8981867af9"},{"commitId":"0f9a58310a644057f3e6bae5345eff3e4e2446cc","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-17T21:39:08Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-23T19:54:49Z"},"comment":"Add
+        the market data page in the Welcome Wizard","changeCounts":{"Add":29,"Edit":9,"Delete":1},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/0f9a58310a644057f3e6bae5345eff3e4e2446cc","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/0f9a58310a644057f3e6bae5345eff3e4e2446cc"},{"commitId":"f534b995d891c33537deb918035c38ecc931549c","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-16T20:49:34Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-23T19:54:49Z"},"comment":"Create
+        the Skeleton for the Complete Profile Page","changeCounts":{"Add":8,"Edit":9,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/f534b995d891c33537deb918035c38ecc931549c","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/f534b995d891c33537deb918035c38ecc931549c"},{"commitId":"7daf5f11d490e2fc4582b91a8236c048ce02f701","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-03-22T00:06:06Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-22T18:27:41Z"},"comment":"Update
+        demographics and the property profile page for Multifamily","changeCounts":{"Add":0,"Edit":8,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/7daf5f11d490e2fc4582b91a8236c048ce02f701","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/7daf5f11d490e2fc4582b91a8236c048ce02f701"},{"commitId":"7c419c167da916bd36cb446ed15753f117d78a14","author":{"name":"arathjz","email":"me@arathjz.com","date":"2021-03-18T18:25:29Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-18T20:25:26Z"},"comment":"Display
+        lease type assignment and licence only for leases at UK","changeCounts":{"Add":0,"Edit":4,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/7c419c167da916bd36cb446ed15753f117d78a14","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/7c419c167da916bd36cb446ed15753f117d78a14"},{"commitId":"0bcd0e2e2a2a96e7a6ebe28badf1e79d86edd81f","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-03-16T19:23:08Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-03-16T20:50:38Z"},"comment":"Add
+        the unitsZeroBad field to the property form for Multifamily","changeCounts":{"Add":0,"Edit":10,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/0bcd0e2e2a2a96e7a6ebe28badf1e79d86edd81f","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/0bcd0e2e2a2a96e7a6ebe28badf1e79d86edd81f"},{"commitId":"ab48b361e581ff59d4c37d7576bd9b0d856a6faa","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-03-16T19:05:48Z"},"committer":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-03-16T19:05:48Z"},"comment":"Bump
+        the app version to 1.0.23","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/ab48b361e581ff59d4c37d7576bd9b0d856a6faa","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/ab48b361e581ff59d4c37d7576bd9b0d856a6faa"},{"commitId":"3be5df38822ad1a9e3efe8bc80a43c25f2656acb","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-15T19:33:23Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-16T14:11:55Z"},"comment":"Fix
+        the verification if the user is using the app''s latest version","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/3be5df38822ad1a9e3efe8bc80a43c25f2656acb","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/3be5df38822ad1a9e3efe8bc80a43c25f2656acb"},{"commitId":"1b6b8137a2e36775cb9644a5996ac3aeed0dc411","author":{"name":"arathjz","email":"me@arathjz.com","date":"2021-03-12T19:40:44Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-16T14:11:55Z"},"comment":"Display
+        market data in activity cards","changeCounts":{"Add":0,"Edit":3,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/1b6b8137a2e36775cb9644a5996ac3aeed0dc411","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/1b6b8137a2e36775cb9644a5996ac3aeed0dc411"},{"commitId":"4098396bd49cf105ab735eb473ba81b4fe655329","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-11T19:43:20Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-16T14:11:55Z"},"comment":"Add
+        the verification if the App is the Latest version","changeCounts":{"Add":2,"Edit":8,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/4098396bd49cf105ab735eb473ba81b4fe655329","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/4098396bd49cf105ab735eb473ba81b4fe655329"},{"commitId":"dc9d639c3f286676f5d4e052f82e9e96d10b1d65","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-12T18:46:19Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-03-12T19:07:37Z"},"comment":"Fix
+        the Tenure Type Long Leasehold name","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/dc9d639c3f286676f5d4e052f82e9e96d10b1d65","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/dc9d639c3f286676f5d4e052f82e9e96d10b1d65"},{"commitId":"5595e92025b0aaf24c8a25b9c678373cdcf72c98","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-09T19:25:43Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-03-10T17:05:15Z"},"comment":"Add
+        the TIM Comments and Discussed Date in the Lease Form","changeCounts":{"Add":0,"Edit":5,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/5595e92025b0aaf24c8a25b9c678373cdcf72c98","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/5595e92025b0aaf24c8a25b9c678373cdcf72c98"},{"commitId":"e9426ba62fd18995b40ab24ecd7cdecd2b18f956","author":{"name":"arathjz","email":"me@arathjz.com","date":"2021-03-09T16:54:39Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-03-09T18:43:49Z"},"comment":"Add
+        TIM comments on lease cards","changeCounts":{"Add":0,"Edit":13,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/e9426ba62fd18995b40ab24ecd7cdecd2b18f956","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/e9426ba62fd18995b40ab24ecd7cdecd2b18f956"},{"commitId":"601b9c4c0a04a1c220a9160f7dbddd5d41975876","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-08T19:07:16Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-03-09T12:13:47Z"},"comment":"Fix
+        the decimal format on the lease concessions fields","changeCounts":{"Add":0,"Edit":6,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/601b9c4c0a04a1c220a9160f7dbddd5d41975876","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/601b9c4c0a04a1c220a9160f7dbddd5d41975876"},{"commitId":"80bce9f1329ba353e0141a35dce27b7be6567872","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-08T20:39:08Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-03-09T11:37:00Z"},"comment":"Add
+        the Financial Status field in the Lease Form","changeCounts":{"Add":0,"Edit":10,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/80bce9f1329ba353e0141a35dce27b7be6567872","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/80bce9f1329ba353e0141a35dce27b7be6567872"},{"commitId":"e2c542c8c8a7e791213070358dbf8b8c7a51d122","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-03-04T19:41:17Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-03-05T11:34:54Z"},"comment":"Fix
+        the crash when trying to draw the LineGraph without visible data points","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/e2c542c8c8a7e791213070358dbf8b8c7a51d122","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/e2c542c8c8a7e791213070358dbf8b8c7a51d122"},{"commitId":"fa91748317930ea852afc9b9164ac2eed0187ddc","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-03-04T19:20:34Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-03-05T11:34:54Z"},"comment":"Display
+        the Additional Concessions psf on lease cards","changeCounts":{"Add":0,"Edit":6,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/fa91748317930ea852afc9b9164ac2eed0187ddc","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/fa91748317930ea852afc9b9164ac2eed0187ddc"},{"commitId":"3812724792c61f19f4afce76c5c3c824cb08cbbd","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-03-03T21:21:54Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-03-05T11:34:54Z"},"comment":"Add
+        the additional concession fields to the lease form","changeCounts":{"Add":0,"Edit":9,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/3812724792c61f19f4afce76c5c3c824cb08cbbd","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/3812724792c61f19f4afce76c5c3c824cb08cbbd"},{"commitId":"41861ea004b44f1c32580e80a4b62678f44b5ec8","author":{"name":"arathjz","email":"me@arathjz.com","date":"2021-03-03T18:46:59Z"},"committer":{"name":"Arath
+        Jimenez","email":"me@arathjz.com","date":"2021-03-03T19:00:31Z"},"comment":"Add
+        confidential field to the lease form","changeCounts":{"Add":0,"Edit":10,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/41861ea004b44f1c32580e80a4b62678f44b5ec8","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/41861ea004b44f1c32580e80a4b62678f44b5ec8"},{"commitId":"87b4619558bd3df224c47f642ff73554c11c6212","author":{"name":"arathjz","email":"me@arathjz.com","date":"2021-03-02T18:34:57Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-02T21:17:29Z"},"comment":"Enable
+        deselect all when there are options selected","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/87b4619558bd3df224c47f642ff73554c11c6212","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/87b4619558bd3df224c47f642ff73554c11c6212"},{"commitId":"4051aa91f1d512d5d8500a1bbe55923471655f55","author":{"name":"arathjz","email":"me@arathjz.com","date":"2021-03-02T16:56:00Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-02T21:17:29Z"},"comment":"Enable
+        select and deselect markets in the market selector screen","changeCounts":{"Add":2,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/4051aa91f1d512d5d8500a1bbe55923471655f55","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/4051aa91f1d512d5d8500a1bbe55923471655f55"},{"commitId":"5703cb362be4419ab7e98d7ca7d61bd690e6a24c","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-01T19:42:49Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-02T21:17:29Z"},"comment":"Add
+        the Suite field on the Lease Form","changeCounts":{"Add":0,"Edit":6,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/5703cb362be4419ab7e98d7ca7d61bd690e6a24c","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/5703cb362be4419ab7e98d7ca7d61bd690e6a24c"},{"commitId":"d9d7ded5f1e0b590aa7bc41f242e8dcfbedf7f16","author":{"name":"julian.pena","email":"julian.pena@codelitt.com","date":"2021-02-25T15:21:27Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-02T21:17:29Z"},"comment":"Add
+        range validation to sign date","changeCounts":{"Add":0,"Edit":4,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/d9d7ded5f1e0b590aa7bc41f242e8dcfbedf7f16","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/d9d7ded5f1e0b590aa7bc41f242e8dcfbedf7f16"},{"commitId":"5a9c5050c188a637d5cd83b1cdbc3f006e7156d8","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-02-26T14:09:08Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-02T21:17:29Z"},"comment":"Add
+        translation for the NNN Lease Rent Type","changeCounts":{"Add":0,"Edit":4,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/5a9c5050c188a637d5cd83b1cdbc3f006e7156d8","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/5a9c5050c188a637d5cd83b1cdbc3f006e7156d8"},{"commitId":"d71f46e3b6347d905c5e80461b3092fb31b8a360","author":{"name":"julian.pena","email":"julian.pena@codelitt.com","date":"2021-02-25T15:21:27Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-02T21:17:29Z"},"comment":"Add
+        Lease Type Coworking into the Lease Form","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/d71f46e3b6347d905c5e80461b3092fb31b8a360","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/d71f46e3b6347d905c5e80461b3092fb31b8a360"},{"commitId":"75c7efc340c0488fb81c5597cb51d63663fab3fd","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-03-02T14:18:17Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-02T14:23:02Z"},"comment":"Bump
+        the app version to 1.0.21","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/75c7efc340c0488fb81c5597cb51d63663fab3fd","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/75c7efc340c0488fb81c5597cb51d63663fab3fd"},{"commitId":"1ce8e684fb4cc4fc688df3407bc2ee97c5f525a6","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-01T18:56:23Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-03-01T19:03:38Z"},"comment":"Fix
+        the null values on the UARN field property form","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/1ce8e684fb4cc4fc688df3407bc2ee97c5f525a6","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/1ce8e684fb4cc4fc688df3407bc2ee97c5f525a6"},{"commitId":"7b9c66f02812f6c97a65afd90312a3c23dcd4106","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-03-01T14:42:14Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-03-01T18:07:54Z"},"comment":"Avoid
+        the UARN field accept invalid values","changeCounts":{"Add":0,"Edit":3,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/7b9c66f02812f6c97a65afd90312a3c23dcd4106","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/7b9c66f02812f6c97a65afd90312a3c23dcd4106"},{"commitId":"e330f8358cea28f6113a259c09d9e4762b2299bd","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-02-25T18:21:13Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-02-25T21:25:25Z"},"comment":"Fix
+        the visibility of the Market data on the Lease Comp graph","changeCounts":{"Add":0,"Edit":8,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/e330f8358cea28f6113a259c09d9e4762b2299bd","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/e330f8358cea28f6113a259c09d9e4762b2299bd"},{"commitId":"ff30a46cb3e9066127bc699044356a26c492a035","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-02-25T18:45:18Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-02-25T19:34:30Z"},"comment":"Use
+        the new coverImageUrl for properties to optimize queries performance","changeCounts":{"Add":0,"Edit":24,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/ff30a46cb3e9066127bc699044356a26c492a035","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/ff30a46cb3e9066127bc699044356a26c492a035"},{"commitId":"804eceb3020cd823b281baf461125f9f9149768a","author":{"name":"arathjz","email":"me@arathjz.com","date":"2021-02-25T17:02:54Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-02-25T17:40:27Z"},"comment":"Include
+        healthcare fields in the get property query","changeCounts":{"Add":0,"Edit":3,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/804eceb3020cd823b281baf461125f9f9149768a","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/804eceb3020cd823b281baf461125f9f9149768a"},{"commitId":"ff8fb3f1918085fe175f6830219309f4145fb1e4","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-02-25T14:03:37Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-02-25T17:38:57Z"},"comment":"Fix
+        the App crash on Share Sales Screen","changeCounts":{"Add":0,"Edit":3,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/ff8fb3f1918085fe175f6830219309f4145fb1e4","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/ff8fb3f1918085fe175f6830219309f4145fb1e4"},{"commitId":"cd77c380d4d164d201b0b148e2f4439eb69f23e0","author":{"name":"arathjz","email":"me@arathjz.com","date":"2021-02-24T23:13:14Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-02-25T12:07:58Z"},"comment":"Avoid
+        sending architectCompany and siteNumberProviderCompany as empty objects in
+        the property form","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/cd77c380d4d164d201b0b148e2f4439eb69f23e0","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/cd77c380d4d164d201b0b148e2f4439eb69f23e0"},{"commitId":"db445bb6c7984c6036efd79c00a12dd8800b9973","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-02-24T22:16:27Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-02-24T22:26:51Z"},"comment":"Add
+        the Office fields for UK Properties","changeCounts":{"Add":0,"Edit":14,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/db445bb6c7984c6036efd79c00a12dd8800b9973","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/db445bb6c7984c6036efd79c00a12dd8800b9973"},{"commitId":"0dc6df3d30a6fecf7042f0dfe40ea8159ee3e818","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-02-24T19:19:55Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-02-24T19:37:27Z"},"comment":"Add
+        the Companies fields related to UK Properties Fields","changeCounts":{"Add":0,"Edit":7,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/0dc6df3d30a6fecf7042f0dfe40ea8159ee3e818","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/0dc6df3d30a6fecf7042f0dfe40ea8159ee3e818"},{"commitId":"032ca1f5df8cfeaea029607f0e87c1d6375f2a2d","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-02-24T18:37:22Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-02-24T19:36:32Z"},"comment":"Format
+        the postal code for buildings from the US","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/032ca1f5df8cfeaea029607f0e87c1d6375f2a2d","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/032ca1f5df8cfeaea029607f0e87c1d6375f2a2d"},{"commitId":"326843210ae20743443ccca1421faf08fd3620b6","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-02-24T14:55:03Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-02-24T15:41:04Z"},"comment":"Add
+        the UARN field for UK Properties","changeCounts":{"Add":0,"Edit":7,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/326843210ae20743443ccca1421faf08fd3620b6","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/326843210ae20743443ccca1421faf08fd3620b6"},{"commitId":"67709c4d8286581372fe8e65e89380e6017e590d","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-02-23T13:53:10Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-02-24T15:15:36Z"},"comment":"Add
+        the fields for UK Properties in the property form","changeCounts":{"Add":2,"Edit":14,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/67709c4d8286581372fe8e65e89380e6017e590d","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/67709c4d8286581372fe8e65e89380e6017e590d"},{"commitId":"c870b55b10500e06e337a1b0720f09ffcb06959f","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-02-24T14:29:04Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-02-24T14:58:57Z"},"comment":"Add
+        the total power field for Data Center","changeCounts":{"Add":0,"Edit":4,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/c870b55b10500e06e337a1b0720f09ffcb06959f","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/c870b55b10500e06e337a1b0720f09ffcb06959f"},{"commitId":"8c809afa2a3e80c6cf114c11ee947c689d64cd93","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-02-23T18:14:21Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-02-23T18:21:11Z"},"comment":"Fix
+        the Area Size to be on feet for UK","changeCounts":{"Add":0,"Edit":2,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/8c809afa2a3e80c6cf114c11ee947c689d64cd93","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/8c809afa2a3e80c6cf114c11ee947c689d64cd93"},{"commitId":"738e3a2f19ecc5ca0afdc9b74a7e47252348291f","author":{"name":"pedro","email":"pvieiraguimaraes@gmail.com","date":"2021-02-19T20:09:06Z"},"committer":{"name":"Victor
+        Carvalho","email":"vcarvalho0402@gmail.com","date":"2021-02-23T18:21:11Z"},"comment":"Add
+        the multifamily fields on the Property Form","changeCounts":{"Add":6,"Edit":15,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/738e3a2f19ecc5ca0afdc9b74a7e47252348291f","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/738e3a2f19ecc5ca0afdc9b74a7e47252348291f"},{"commitId":"cf6f5c07f4c2eb1287d7dca400f37644b7d0ed3f","author":{"name":"Victor","email":"vcarvalho0402@gmail.com","date":"2021-02-19T19:04:53Z"},"committer":{"name":"Pedro
+        Henrique","email":"pvieiraguimaraes@gmail.com","date":"2021-02-22T13:59:46Z"},"comment":"Add
+        the property name to activity cards","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/8d4b4191-8f65-46bc-8e10-86a5966927b4/commits/cf6f5c07f4c2eb1287d7dca400f37644b7d0ed3f","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-property-intelligence/commit/cf6f5c07f4c2eb1287d7dca400f37644b7d0ed3f"}]}'
+  recorded_at: Sat, 05 Jun 2021 13:28:40 GMT
+- request:
+    method: get
+    uri: https://dev.azure.com/AY-InnovationCenter/Avant/_apis/git/repositories/ay-property-intelligence/commits?api-version=6.1-preview.1&searchCriteria.fromDate=2021-06-02%2016:26:00&searchCriteria.itemVersion.version=master&searchCriteria.itemVersion.versionType=branch
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic OnRvbnJjcHB6dmVuc3Zma3Vtd2c3Zm4ybmkzcHB5bHFoYnl3aHd5empoeGZpMnRjZGgyNmE=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '1077'
+      Content-Type:
+      - application/json; charset=utf-8; api-version=6.1-preview.1
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      P3p:
+      - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
+        STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+      Set-Cookie:
+      - VstsSession=%7B%22PersistentSessionId%22%3A%2287fb6277-331e-4ee2-9ca3-7c7c7d900ee4%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Sun, 05-Jun-2022 13:28:41 GMT; path=/; secure;
+        HttpOnly
+      X-Tfs-Processid:
+      - 8d03202c-d927-4735-9101-ed0bb2b27858
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Activityid:
+      - 6f02c3af-0b51-4315-978b-145faa398c7f
+      X-Tfs-Session:
+      - 6f02c3af-0b51-4315-978b-145faa398c7f
+      X-Vss-E2eid:
+      - 6f02c3af-0b51-4315-978b-145faa398c7f
+      X-Vss-Userdata:
+      - 4d13cd81-e536-6e63-93fa-0de9cffbb868:kaio@codelitt.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Link:
+      - <e9fbe664bd5e4e9cf2b2026098384eb70cbd86da>;rel="startingCommitId"
+      Request-Context:
+      - appId=cid-v1:0c3d14cd-19b4-4eb7-9b56-c7dfb8d9a151
+      Access-Control-Expose-Headers:
+      - Request-Context
+      X-Content-Type-Options:
+      - nosniff
+      X-Cache:
+      - CONFIG_NOCACHE
+      X-Msedge-Ref:
+      - 'Ref A: 188A7C153F4F4CBDAFF5283EC5BD2B59 Ref B: RIO03EDGE0518 Ref C: 2021-06-05T13:28:40Z'
+      Date:
+      - Sat, 05 Jun 2021 13:28:40 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJjb3VudCI6NiwidmFsdWUiOlt7ImNvbW1pdElkIjoiZTlmYmU2NjRiZDVlNGU5Y2YyYjIwMjYwOTgzODRlYjcwY2JkODZkYSIsImF1dGhvciI6eyJuYW1lIjoiS2FpbyBDcmlzdGlhbiBDb3N0YSBQb3J0byBkZSBNYWdhbGjDo2VzIiwiZW1haWwiOiJrYWlvQGNvZGVsaXR0LmNvbSIsImRhdGUiOiIyMDIxLTA2LTA0VDE5OjQxOjI1WiJ9LCJjb21taXR0ZXIiOnsibmFtZSI6IkthaW8gQ3Jpc3RpYW4gQ29zdGEgUG9ydG8gZGUgTWFnYWxow6NlcyIsImVtYWlsIjoia2Fpb0Bjb2RlbGl0dC5jb20iLCJkYXRlIjoiMjAyMS0wNi0wNVQxMjoxODoxOVoifSwiY29tbWVudCI6IkFkZGVkIGFzZHNhZGFzIiwiY2hhbmdlQ291bnRzIjp7IkFkZCI6MSwiRWRpdCI6MCwiRGVsZXRlIjowfSwidXJsIjoiaHR0cHM6Ly9kZXYuYXp1cmUuY29tL0FZLUlubm92YXRpb25DZW50ZXIvZTU3YmZiOWYtYzVlYi00Zjk2LTlmODMtOGE5OGE3NmJmZGE0L19hcGlzL2dpdC9yZXBvc2l0b3JpZXMvOGQ0YjQxOTEtOGY2NS00NmJjLThlMTAtODZhNTk2NjkyN2I0L2NvbW1pdHMvZTlmYmU2NjRiZDVlNGU5Y2YyYjIwMjYwOTgzODRlYjcwY2JkODZkYSIsInJlbW90ZVVybCI6Imh0dHBzOi8vZGV2LmF6dXJlLmNvbS9BWS1Jbm5vdmF0aW9uQ2VudGVyL0F2YW50L19naXQvYXktcHJvcGVydHktaW50ZWxsaWdlbmNlL2NvbW1pdC9lOWZiZTY2NGJkNWU0ZTljZjJiMjAyNjA5ODM4NGViNzBjYmQ4NmRhIn0seyJjb21taXRJZCI6IjY0YzA4YjUzNzhmZmFkYzJmY2U0MGVmODc2ZGFkMzVmYmQzNGM1ODgiLCJhdXRob3IiOnsibmFtZSI6IkthaW8gQ3Jpc3RpYW4gQ29zdGEgUG9ydG8gZGUgTWFnYWxow6NlcyIsImVtYWlsIjoia2Fpb0Bjb2RlbGl0dC5jb20iLCJkYXRlIjoiMjAyMS0wNi0wNVQxMDozOToxMloifSwiY29tbWl0dGVyIjp7Im5hbWUiOiJLYWlvIENyaXN0aWFuIENvc3RhIFBvcnRvIGRlIE1hZ2FsaMOjZXMiLCJlbWFpbCI6ImthaW9AY29kZWxpdHQuY29tIiwiZGF0ZSI6IjIwMjEtMDYtMDVUMTA6Mzk6MTJaIn0sImNvbW1lbnQiOiJBZGRlZCB6ZGFhcyIsImNoYW5nZUNvdW50cyI6eyJBZGQiOjEsIkVkaXQiOjAsIkRlbGV0ZSI6MH0sInVybCI6Imh0dHBzOi8vZGV2LmF6dXJlLmNvbS9BWS1Jbm5vdmF0aW9uQ2VudGVyL2U1N2JmYjlmLWM1ZWItNGY5Ni05ZjgzLThhOThhNzZiZmRhNC9fYXBpcy9naXQvcmVwb3NpdG9yaWVzLzhkNGI0MTkxLThmNjUtNDZiYy04ZTEwLTg2YTU5NjY5MjdiNC9jb21taXRzLzY0YzA4YjUzNzhmZmFkYzJmY2U0MGVmODc2ZGFkMzVmYmQzNGM1ODgiLCJyZW1vdGVVcmwiOiJodHRwczovL2Rldi5henVyZS5jb20vQVktSW5ub3ZhdGlvbkNlbnRlci9BdmFudC9fZ2l0L2F5LXByb3BlcnR5LWludGVsbGlnZW5jZS9jb21taXQvNjRjMDhiNTM3OGZmYWRjMmZjZTQwZWY4NzZkYWQzNWZiZDM0YzU4OCJ9LHsiY29tbWl0SWQiOiIyOGE4MjE5NGRmMzdlZDNlM2UyNTk5NjFmNjMyN2EwMWE3N2FlMjVkIiwiYXV0aG9yIjp7Im5hbWUiOiJLYWlvIENyaXN0aWFuIENvc3RhIFBvcnRvIGRlIE1hZ2FsaMOjZXMiLCJlbWFpbCI6ImthaW9AY29kZWxpdHQuY29tIiwiZGF0ZSI6IjIwMjEtMDYtMDRUMTk6MzU6MDdaIn0sImNvbW1pdHRlciI6eyJuYW1lIjoiS2FpbyBDcmlzdGlhbiBDb3N0YSBQb3J0byBkZSBNYWdhbGjDo2VzIiwiZW1haWwiOiJrYWlvQGNvZGVsaXR0LmNvbSIsImRhdGUiOiIyMDIxLTA2LTA0VDE5OjM1OjA3WiJ9LCJjb21tZW50IjoiQWRkZWQgZmZkZHMiLCJjaGFuZ2VDb3VudHMiOnsiQWRkIjoxLCJFZGl0IjowLCJEZWxldGUiOjB9LCJ1cmwiOiJodHRwczovL2Rldi5henVyZS5jb20vQVktSW5ub3ZhdGlvbkNlbnRlci9lNTdiZmI5Zi1jNWViLTRmOTYtOWY4My04YTk4YTc2YmZkYTQvX2FwaXMvZ2l0L3JlcG9zaXRvcmllcy84ZDRiNDE5MS04ZjY1LTQ2YmMtOGUxMC04NmE1OTY2OTI3YjQvY29tbWl0cy8yOGE4MjE5NGRmMzdlZDNlM2UyNTk5NjFmNjMyN2EwMWE3N2FlMjVkIiwicmVtb3RlVXJsIjoiaHR0cHM6Ly9kZXYuYXp1cmUuY29tL0FZLUlubm92YXRpb25DZW50ZXIvQXZhbnQvX2dpdC9heS1wcm9wZXJ0eS1pbnRlbGxpZ2VuY2UvY29tbWl0LzI4YTgyMTk0ZGYzN2VkM2UzZTI1OTk2MWY2MzI3YTAxYTc3YWUyNWQifSx7ImNvbW1pdElkIjoiMjFhMjI4NDk0YmI3MTQ5NzZhNzM0YTRlYWRlMjZkZDJjMGU1ZjA0NCIsImF1dGhvciI6eyJuYW1lIjoiS2FpbyBNYWdhbGhhZXMiLCJlbWFpbCI6ImthaW8ubWFnYWxoYWVzQGF2aXNvbnlvdW5nLm9ubWljcm9zb2Z0LmNvbSIsImRhdGUiOiIyMDIxLTA2LTAzVDE4OjUwOjAzWiJ9LCJjb21taXR0ZXIiOnsibmFtZSI6IkthaW8gTWFnYWxoYWVzIiwiZW1haWwiOiJrYWlvLm1hZ2FsaGFlc0Bhdmlzb255b3VuZy5vbm1pY3Jvc29mdC5jb20iLCJkYXRlIjoiMjAyMS0wNi0wM1QxODo1MzoxN1oifSwiY29tbWVudCI6IkFkZGVkIGRhZGFzIiwiY2hhbmdlQ291bnRzIjp7IkFkZCI6MSwiRWRpdCI6MCwiRGVsZXRlIjowfSwidXJsIjoiaHR0cHM6Ly9kZXYuYXp1cmUuY29tL0FZLUlubm92YXRpb25DZW50ZXIvZTU3YmZiOWYtYzVlYi00Zjk2LTlmODMtOGE5OGE3NmJmZGE0L19hcGlzL2dpdC9yZXBvc2l0b3JpZXMvOGQ0YjQxOTEtOGY2NS00NmJjLThlMTAtODZhNTk2NjkyN2I0L2NvbW1pdHMvMjFhMjI4NDk0YmI3MTQ5NzZhNzM0YTRlYWRlMjZkZDJjMGU1ZjA0NCIsInJlbW90ZVVybCI6Imh0dHBzOi8vZGV2LmF6dXJlLmNvbS9BWS1Jbm5vdmF0aW9uQ2VudGVyL0F2YW50L19naXQvYXktcHJvcGVydHktaW50ZWxsaWdlbmNlL2NvbW1pdC8yMWEyMjg0OTRiYjcxNDk3NmE3MzRhNGVhZGUyNmRkMmMwZTVmMDQ0In0seyJjb21taXRJZCI6IjE0MmM1ZDdmZDBjZTY2ZTZjY2IwODNjNjQ4MjY4MmVjOTM5N2ZjNzgiLCJhdXRob3IiOnsibmFtZSI6IkthaW8gTWFnYWxoYWVzIiwiZW1haWwiOiJrYWlvLm1hZ2FsaGFlc0Bhdmlzb255b3VuZy5vbm1pY3Jvc29mdC5jb20iLCJkYXRlIjoiMjAyMS0wNi0wM1QxODo0NDo1NFoifSwiY29tbWl0dGVyIjp7Im5hbWUiOiJLYWlvIE1hZ2FsaGFlcyIsImVtYWlsIjoia2Fpby5tYWdhbGhhZXNAYXZpc29ueW91bmcub25taWNyb3NvZnQuY29tIiwiZGF0ZSI6IjIwMjEtMDYtMDNUMTg6NDQ6NTRaIn0sImNvbW1lbnQiOiJBZGRlZCB0ZXN0LjEiLCJjaGFuZ2VDb3VudHMiOnsiQWRkIjoxLCJFZGl0IjowLCJEZWxldGUiOjB9LCJ1cmwiOiJodHRwczovL2Rldi5henVyZS5jb20vQVktSW5ub3ZhdGlvbkNlbnRlci9lNTdiZmI5Zi1jNWViLTRmOTYtOWY4My04YTk4YTc2YmZkYTQvX2FwaXMvZ2l0L3JlcG9zaXRvcmllcy84ZDRiNDE5MS04ZjY1LTQ2YmMtOGUxMC04NmE1OTY2OTI3YjQvY29tbWl0cy8xNDJjNWQ3ZmQwY2U2NmU2Y2NiMDgzYzY0ODI2ODJlYzkzOTdmYzc4IiwicmVtb3RlVXJsIjoiaHR0cHM6Ly9kZXYuYXp1cmUuY29tL0FZLUlubm92YXRpb25DZW50ZXIvQXZhbnQvX2dpdC9heS1wcm9wZXJ0eS1pbnRlbGxpZ2VuY2UvY29tbWl0LzE0MmM1ZDdmZDBjZTY2ZTZjY2IwODNjNjQ4MjY4MmVjOTM5N2ZjNzgifSx7ImNvbW1pdElkIjoiZjU5OWRiNjYyNDMyZjU3NzhlYWYwMjBjZThkYjVkZjcwNDkzMDVhNSIsImF1dGhvciI6eyJuYW1lIjoiVmljdG9yIENhcnZhbGhvIiwiZW1haWwiOiJ2aWN0b3IuY2FydmFsaG9AYXZpc29ueW91bmcub25taWNyb3NvZnQuY29tIiwiZGF0ZSI6IjIwMjEtMDYtMDJUMTY6Mjk6MDdaIn0sImNvbW1pdHRlciI6eyJuYW1lIjoiVmljdG9yIENhcnZhbGhvIiwiZW1haWwiOiJ2aWN0b3IuY2FydmFsaG9AYXZpc29ueW91bmcub25taWNyb3NvZnQuY29tIiwiZGF0ZSI6IjIwMjEtMDYtMDJUMTY6Mjk6MDdaIn0sImNvbW1lbnQiOiJVcGRhdGUgcWFfYnJhbmNoX3VwZGF0ZS55bWwgZm9yIEF6dXJlIFBpcGVsaW5lcyIsImNoYW5nZUNvdW50cyI6eyJBZGQiOjAsIkVkaXQiOjEsIkRlbGV0ZSI6MH0sInVybCI6Imh0dHBzOi8vZGV2LmF6dXJlLmNvbS9BWS1Jbm5vdmF0aW9uQ2VudGVyL2U1N2JmYjlmLWM1ZWItNGY5Ni05ZjgzLThhOThhNzZiZmRhNC9fYXBpcy9naXQvcmVwb3NpdG9yaWVzLzhkNGI0MTkxLThmNjUtNDZiYy04ZTEwLTg2YTU5NjY5MjdiNC9jb21taXRzL2Y1OTlkYjY2MjQzMmY1Nzc4ZWFmMDIwY2U4ZGI1ZGY3MDQ5MzA1YTUiLCJyZW1vdGVVcmwiOiJodHRwczovL2Rldi5henVyZS5jb20vQVktSW5ub3ZhdGlvbkNlbnRlci9BdmFudC9fZ2l0L2F5LXByb3BlcnR5LWludGVsbGlnZW5jZS9jb21taXQvZjU5OWRiNjYyNDMyZjU3NzhlYWYwMjBjZThkYjVkZjcwNDkzMDVhNSJ9XX0=
+  recorded_at: Sat, 05 Jun 2021 13:28:41 GMT
+- request:
+    method: get
+    uri: https://dev.azure.com/AY-InnovationCenter/Avant/_apis/git/repositories/roadrunner-repository-test/commits?api-version=6.1-preview.1&searchCriteria.itemVersion.version=feat/compare-branches-roadrunner&searchCriteria.itemVersion.versionType=branch
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic OnRvbnJjcHB6dmVuc3Zma3Vtd2c3Zm4ybmkzcHB5bHFoYnl3aHd5empoeGZpMnRjZGgyNmE=
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '394'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      P3p:
+      - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
+        STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+      Set-Cookie:
+      - VstsSession=%7B%22PersistentSessionId%22%3A%221a3eeb58-e30d-488f-8346-e820a6ffa9ab%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Sun, 05-Jun-2022 13:30:50 GMT; path=/; secure;
+        HttpOnly
+      X-Tfs-Processid:
+      - e70aead8-aec6-442b-a4dc-9a0dc3764fcc
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Activityid:
+      - 355b02d2-3666-4d74-b13f-6348a7ea7487
+      X-Tfs-Session:
+      - 355b02d2-3666-4d74-b13f-6348a7ea7487
+      X-Vss-E2eid:
+      - 355b02d2-3666-4d74-b13f-6348a7ea7487
+      X-Vss-Userdata:
+      - 4d13cd81-e536-6e63-93fa-0de9cffbb868:kaio@codelitt.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Request-Context:
+      - appId=cid-v1:0c3d14cd-19b4-4eb7-9b56-c7dfb8d9a151
+      Access-Control-Expose-Headers:
+      - Request-Context
+      X-Content-Type-Options:
+      - nosniff
+      X-Cache:
+      - CONFIG_NOCACHE
+      X-Msedge-Ref:
+      - 'Ref A: 191749EE8145447BB18E7D881D8A2F21 Ref B: RIO03EDGE0615 Ref C: 2021-06-05T13:30:50Z'
+      Date:
+      - Sat, 05 Jun 2021 13:30:50 GMT
+    body:
+      encoding: UTF-8
+      string: '{"$id":"1","innerException":null,"message":"TF401175:The version descriptor
+        <Branch: feat/compare-branches-roadrunner > could not be resolved to a version
+        in the repository roadrunner-repository-test","typeName":"Microsoft.TeamFoundation.Git.Server.GitUnresolvableToCommitException,
+        Microsoft.TeamFoundation.Git.Server","typeKey":"GitUnresolvableToCommitException","errorCode":0,"eventId":3000}'
+  recorded_at: Sat, 05 Jun 2021 13:30:50 GMT
+- request:
+    method: get
+    uri: https://dev.azure.com/AY-InnovationCenter/Avant/_apis/git/repositories/roadrunner-repository-test/commits?api-version=6.1-preview.1&searchCriteria.itemVersion.version=feat/test-compase-branches&searchCriteria.itemVersion.versionType=branch
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic OnRvbnJjcHB6dmVuc3Zma3Vtd2c3Zm4ybmkzcHB5bHFoYnl3aHd5empoeGZpMnRjZGgyNmE=
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '388'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      P3p:
+      - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
+        STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+      Set-Cookie:
+      - VstsSession=%7B%22PersistentSessionId%22%3A%22a790563d-e1a4-4e93-96bd-eb15ac0b7039%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Sun, 05-Jun-2022 13:31:36 GMT; path=/; secure;
+        HttpOnly
+      X-Tfs-Processid:
+      - d7f34f7d-5aae-4059-a8d3-a3230f7d7ccb
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Activityid:
+      - 204b7579-03e0-4cf7-bede-70c8c66eb9ec
+      X-Tfs-Session:
+      - 204b7579-03e0-4cf7-bede-70c8c66eb9ec
+      X-Vss-E2eid:
+      - 204b7579-03e0-4cf7-bede-70c8c66eb9ec
+      X-Vss-Userdata:
+      - 4d13cd81-e536-6e63-93fa-0de9cffbb868:kaio@codelitt.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Request-Context:
+      - appId=cid-v1:0c3d14cd-19b4-4eb7-9b56-c7dfb8d9a151
+      Access-Control-Expose-Headers:
+      - Request-Context
+      X-Content-Type-Options:
+      - nosniff
+      X-Cache:
+      - CONFIG_NOCACHE
+      X-Msedge-Ref:
+      - 'Ref A: D9A51D1E6AD44E7FA947798AFEE8E0BC Ref B: RIO03EDGE0313 Ref C: 2021-06-05T13:31:36Z'
+      Date:
+      - Sat, 05 Jun 2021 13:31:36 GMT
+    body:
+      encoding: UTF-8
+      string: '{"$id":"1","innerException":null,"message":"TF401175:The version descriptor
+        <Branch: feat/test-compase-branches > could not be resolved to a version in
+        the repository roadrunner-repository-test","typeName":"Microsoft.TeamFoundation.Git.Server.GitUnresolvableToCommitException,
+        Microsoft.TeamFoundation.Git.Server","typeKey":"GitUnresolvableToCommitException","errorCode":0,"eventId":3000}'
+  recorded_at: Sat, 05 Jun 2021 13:31:36 GMT
+- request:
+    method: get
+    uri: https://dev.azure.com/AY-InnovationCenter/Avant/_apis/git/repositories/roadrunner-repository-test/commits?api-version=6.1-preview.1&searchCriteria.itemVersion.version=feat/test-compare-branches&searchCriteria.itemVersion.versionType=branch
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic OnRvbnJjcHB6dmVuc3Zma3Vtd2c3Zm4ybmkzcHB5bHFoYnl3aHd5empoeGZpMnRjZGgyNmE=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '717'
+      Content-Type:
+      - application/json; charset=utf-8; api-version=6.1-preview.1
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      P3p:
+      - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
+        STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+      Set-Cookie:
+      - VstsSession=%7B%22PersistentSessionId%22%3A%22ec87ca1b-ce0e-487c-b596-e9a0aa46fcd9%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Sun, 05-Jun-2022 13:47:32 GMT; path=/; secure;
+        HttpOnly
+      X-Tfs-Processid:
+      - 8d03202c-d927-4735-9101-ed0bb2b27858
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Activityid:
+      - 6f0302cc-0b51-4315-978b-145faa398c7f
+      X-Tfs-Session:
+      - 6f0302cc-0b51-4315-978b-145faa398c7f
+      X-Vss-E2eid:
+      - 6f0302cc-0b51-4315-978b-145faa398c7f
+      X-Vss-Userdata:
+      - 4d13cd81-e536-6e63-93fa-0de9cffbb868:kaio@codelitt.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Link:
+      - <b0e771a0c2483c4e3802b421ba30d2043bcd28c2>;rel="startingCommitId"
+      Request-Context:
+      - appId=cid-v1:0c3d14cd-19b4-4eb7-9b56-c7dfb8d9a151
+      Access-Control-Expose-Headers:
+      - Request-Context
+      X-Content-Type-Options:
+      - nosniff
+      X-Cache:
+      - CONFIG_NOCACHE
+      X-Msedge-Ref:
+      - 'Ref A: 63B6736CCA2444418287F2544874BE62 Ref B: RIO03EDGE0519 Ref C: 2021-06-05T13:47:32Z'
+      Date:
+      - Sat, 05 Jun 2021 13:47:32 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: '{"count":3,"value":[{"commitId":"b0e771a0c2483c4e3802b421ba30d2043bcd28c2","author":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-25T15:14:58Z"},"committer":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-25T15:14:58Z"},"comment":"commit
+        number three","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/b0e771a0c2483c4e3802b421ba30d2043bcd28c2","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/b0e771a0c2483c4e3802b421ba30d2043bcd28c2"},{"commitId":"c69a3d840ae27f07cfdcf54eca3fc65a85d3e462","author":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-22T04:16:06Z"},"committer":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-22T04:16:06Z"},"comment":"commit
+        number two","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/c69a3d840ae27f07cfdcf54eca3fc65a85d3e462","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/c69a3d840ae27f07cfdcf54eca3fc65a85d3e462"},{"commitId":"b4d53f613c4a96df13b58023055383dbe423d5bc","author":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-22T04:08:09Z"},"committer":{"name":"kaiomagalhaes","email":"me@kaiomagalhaes.com","date":"2021-05-22T04:11:26Z"},"comment":"commit
+        number one","changeCounts":{"Add":1,"Edit":0,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/b4d53f613c4a96df13b58023055383dbe423d5bc","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/b4d53f613c4a96df13b58023055383dbe423d5bc"}]}'
+  recorded_at: Sat, 05 Jun 2021 13:47:32 GMT
+- request:
+    method: get
+    uri: https://dev.azure.com/AY-InnovationCenter/Avant/_apis/git/repositories/roadrunner-repository-test/commits?api-version=6.1-preview.1&searchCriteria.fromDate=2021-05-25%2015:14:59&searchCriteria.itemVersion.version=master&searchCriteria.itemVersion.versionType=branch
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic OnRvbnJjcHB6dmVuc3Zma3Vtd2c3Zm4ybmkzcHB5bHFoYnl3aHd5empoeGZpMnRjZGgyNmE=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '822'
+      Content-Type:
+      - application/json; charset=utf-8; api-version=6.1-preview.1
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      P3p:
+      - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
+        STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+      Set-Cookie:
+      - VstsSession=%7B%22PersistentSessionId%22%3A%225b05f258-4fd3-4611-b622-778325430be4%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Sun, 05-Jun-2022 13:47:33 GMT; path=/; secure;
+        HttpOnly
+      X-Tfs-Processid:
+      - ac8dc494-0571-464a-a92a-c3f55f4aa8d7
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Activityid:
+      - c2ef0f95-46de-43b6-a37f-48b4dd15cf83
+      X-Tfs-Session:
+      - c2ef0f95-46de-43b6-a37f-48b4dd15cf83
+      X-Vss-E2eid:
+      - c2ef0f95-46de-43b6-a37f-48b4dd15cf83
+      X-Vss-Userdata:
+      - 4d13cd81-e536-6e63-93fa-0de9cffbb868:kaio@codelitt.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Link:
+      - <65a178456d7371ad23691fc30cbfef05a2f74f53>;rel="startingCommitId"
+      Request-Context:
+      - appId=cid-v1:0c3d14cd-19b4-4eb7-9b56-c7dfb8d9a151
+      Access-Control-Expose-Headers:
+      - Request-Context
+      X-Content-Type-Options:
+      - nosniff
+      X-Cache:
+      - CONFIG_NOCACHE
+      X-Msedge-Ref:
+      - 'Ref A: 4E89F2833ED04D299B10FC27F39AA7FE Ref B: RIO03EDGE0310 Ref C: 2021-06-05T13:47:33Z'
+      Date:
+      - Sat, 05 Jun 2021 13:47:33 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJjb3VudCI6NCwidmFsdWUiOlt7ImNvbW1pdElkIjoiNjVhMTc4NDU2ZDczNzFhZDIzNjkxZmMzMGNiZmVmMDVhMmY3NGY1MyIsImF1dGhvciI6eyJuYW1lIjoiS2FpbyBDcmlzdGlhbiBDb3N0YSBQb3J0byBkZSBNYWdhbGjDo2VzIiwiZW1haWwiOiJrYWlvQGNvZGVsaXR0LmNvbSIsImRhdGUiOiIyMDIxLTA2LTA1VDEyOjI2OjE3WiJ9LCJjb21taXR0ZXIiOnsibmFtZSI6IkthaW8gQ3Jpc3RpYW4gQ29zdGEgUG9ydG8gZGUgTWFnYWxow6NlcyIsImVtYWlsIjoia2Fpb0Bjb2RlbGl0dC5jb20iLCJkYXRlIjoiMjAyMS0wNi0wNVQxMjoyNjoxN1oifSwiY29tbWVudCI6ImNvbW1pdCBudW1iZXIgc2V2ZW4iLCJjaGFuZ2VDb3VudHMiOnsiQWRkIjowLCJFZGl0IjoxLCJEZWxldGUiOjB9LCJ1cmwiOiJodHRwczovL2Rldi5henVyZS5jb20vQVktSW5ub3ZhdGlvbkNlbnRlci9lNTdiZmI5Zi1jNWViLTRmOTYtOWY4My04YTk4YTc2YmZkYTQvX2FwaXMvZ2l0L3JlcG9zaXRvcmllcy8wYWM5ZGQ0My0yYTM4LTQ2YzAtYjAzMy0zYWVmZWUxOWM3MzEvY29tbWl0cy82NWExNzg0NTZkNzM3MWFkMjM2OTFmYzMwY2JmZWYwNWEyZjc0ZjUzIiwicmVtb3RlVXJsIjoiaHR0cHM6Ly9kZXYuYXp1cmUuY29tL0FZLUlubm92YXRpb25DZW50ZXIvQXZhbnQvX2dpdC9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXQvNjVhMTc4NDU2ZDczNzFhZDIzNjkxZmMzMGNiZmVmMDVhMmY3NGY1MyJ9LHsiY29tbWl0SWQiOiI3M2M0YTNlYTE3Njc2MTQ5NDQ5MTljNGE5NmM1MDJmOTQyNjA2NTE2IiwiYXV0aG9yIjp7Im5hbWUiOiJLYWlvIE1hZ2FsaGFlcyIsImVtYWlsIjoia2Fpby5tYWdhbGhhZXNAYXZpc29ueW91bmcub25taWNyb3NvZnQuY29tIiwiZGF0ZSI6IjIwMjEtMDUtMjVUMTY6MDc6MzlaIn0sImNvbW1pdHRlciI6eyJuYW1lIjoiS2FpbyBNYWdhbGhhZXMiLCJlbWFpbCI6ImthaW8ubWFnYWxoYWVzQGF2aXNvbnlvdW5nLm9ubWljcm9zb2Z0LmNvbSIsImRhdGUiOiIyMDIxLTA1LTI1VDE2OjA3OjM5WiJ9LCJjb21tZW50IjoiY29tbWl0IG51bWJlciA2IiwiY2hhbmdlQ291bnRzIjp7IkFkZCI6MCwiRWRpdCI6MSwiRGVsZXRlIjowfSwidXJsIjoiaHR0cHM6Ly9kZXYuYXp1cmUuY29tL0FZLUlubm92YXRpb25DZW50ZXIvZTU3YmZiOWYtYzVlYi00Zjk2LTlmODMtOGE5OGE3NmJmZGE0L19hcGlzL2dpdC9yZXBvc2l0b3JpZXMvMGFjOWRkNDMtMmEzOC00NmMwLWIwMzMtM2FlZmVlMTljNzMxL2NvbW1pdHMvNzNjNGEzZWExNzY3NjE0OTQ0OTE5YzRhOTZjNTAyZjk0MjYwNjUxNiIsInJlbW90ZVVybCI6Imh0dHBzOi8vZGV2LmF6dXJlLmNvbS9BWS1Jbm5vdmF0aW9uQ2VudGVyL0F2YW50L19naXQvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0LzczYzRhM2VhMTc2NzYxNDk0NDkxOWM0YTk2YzUwMmY5NDI2MDY1MTYifSx7ImNvbW1pdElkIjoiYTNiYjY2ZGYwOGZmNDUzZDdlMjg1MDFmMjY4ZDBmYjMwNTQwZTkwYSIsImF1dGhvciI6eyJuYW1lIjoiS2FpbyBNYWdhbGhhZXMiLCJlbWFpbCI6ImthaW8ubWFnYWxoYWVzQGF2aXNvbnlvdW5nLm9ubWljcm9zb2Z0LmNvbSIsImRhdGUiOiIyMDIxLTA1LTI1VDE2OjA3OjIzWiJ9LCJjb21taXR0ZXIiOnsibmFtZSI6IkthaW8gTWFnYWxoYWVzIiwiZW1haWwiOiJrYWlvLm1hZ2FsaGFlc0Bhdmlzb255b3VuZy5vbm1pY3Jvc29mdC5jb20iLCJkYXRlIjoiMjAyMS0wNS0yNVQxNjowNzoyM1oifSwiY29tbWVudCI6ImNvbW1pdCBudW1iZXIgZml2ZSIsImNoYW5nZUNvdW50cyI6eyJBZGQiOjAsIkVkaXQiOjEsIkRlbGV0ZSI6MH0sInVybCI6Imh0dHBzOi8vZGV2LmF6dXJlLmNvbS9BWS1Jbm5vdmF0aW9uQ2VudGVyL2U1N2JmYjlmLWM1ZWItNGY5Ni05ZjgzLThhOThhNzZiZmRhNC9fYXBpcy9naXQvcmVwb3NpdG9yaWVzLzBhYzlkZDQzLTJhMzgtNDZjMC1iMDMzLTNhZWZlZTE5YzczMS9jb21taXRzL2EzYmI2NmRmMDhmZjQ1M2Q3ZTI4NTAxZjI2OGQwZmIzMDU0MGU5MGEiLCJyZW1vdGVVcmwiOiJodHRwczovL2Rldi5henVyZS5jb20vQVktSW5ub3ZhdGlvbkNlbnRlci9BdmFudC9fZ2l0L3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2NvbW1pdC9hM2JiNjZkZjA4ZmY0NTNkN2UyODUwMWYyNjhkMGZiMzA1NDBlOTBhIn0seyJjb21taXRJZCI6IjQxNDI3NGQ0ZGY4MzY2MjgxMDEyMGU3MWYyODc5OTcyMjFmZjY0NTIiLCJhdXRob3IiOnsibmFtZSI6IkthaW8gTWFnYWxoYWVzIiwiZW1haWwiOiJrYWlvLm1hZ2FsaGFlc0Bhdmlzb255b3VuZy5vbm1pY3Jvc29mdC5jb20iLCJkYXRlIjoiMjAyMS0wNS0yNVQxNjowNzoxMloifSwiY29tbWl0dGVyIjp7Im5hbWUiOiJLYWlvIE1hZ2FsaGFlcyIsImVtYWlsIjoia2Fpby5tYWdhbGhhZXNAYXZpc29ueW91bmcub25taWNyb3NvZnQuY29tIiwiZGF0ZSI6IjIwMjEtMDUtMjVUMTY6MDc6MTJaIn0sImNvbW1lbnQiOiJjb21taXQgbnVtYmVyIGZvdXIiLCJjaGFuZ2VDb3VudHMiOnsiQWRkIjowLCJFZGl0IjoxLCJEZWxldGUiOjB9LCJ1cmwiOiJodHRwczovL2Rldi5henVyZS5jb20vQVktSW5ub3ZhdGlvbkNlbnRlci9lNTdiZmI5Zi1jNWViLTRmOTYtOWY4My04YTk4YTc2YmZkYTQvX2FwaXMvZ2l0L3JlcG9zaXRvcmllcy8wYWM5ZGQ0My0yYTM4LTQ2YzAtYjAzMy0zYWVmZWUxOWM3MzEvY29tbWl0cy80MTQyNzRkNGRmODM2NjI4MTAxMjBlNzFmMjg3OTk3MjIxZmY2NDUyIiwicmVtb3RlVXJsIjoiaHR0cHM6Ly9kZXYuYXp1cmUuY29tL0FZLUlubm92YXRpb25DZW50ZXIvQXZhbnQvX2dpdC9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXQvNDE0Mjc0ZDRkZjgzNjYyODEwMTIwZTcxZjI4Nzk5NzIyMWZmNjQ1MiJ9XX0=
+  recorded_at: Sat, 05 Jun 2021 13:47:33 GMT
+- request:
+    method: get
+    uri: https://dev.azure.com/AY-InnovationCenter/Avant/_apis/git/repositories/roadrunner-repository-test/commits?api-version=6.1-preview.1&searchCriteria.itemVersion.version=v1.0.0&searchCriteria.itemVersion.versionType=tag
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic OnRvbnJjcHB6dmVuc3Zma3Vtd2c3Zm4ybmkzcHB5bHFoYnl3aHd5empoeGZpMnRjZGgyNmE=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '546'
+      Content-Type:
+      - application/json; charset=utf-8; api-version=6.1-preview.1
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      P3p:
+      - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
+        STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+      Set-Cookie:
+      - VstsSession=%7B%22PersistentSessionId%22%3A%22d275f5d5-0c22-472d-8dad-afa1f5317934%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Sun, 05-Jun-2022 13:47:36 GMT; path=/; secure;
+        HttpOnly
+      X-Tfs-Processid:
+      - e70aead8-aec6-442b-a4dc-9a0dc3764fcc
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Activityid:
+      - 355c1b71-3666-4d74-b13f-6348a7ea7487
+      X-Tfs-Session:
+      - 355c1b71-3666-4d74-b13f-6348a7ea7487
+      X-Vss-E2eid:
+      - 355c1b71-3666-4d74-b13f-6348a7ea7487
+      X-Vss-Userdata:
+      - 4d13cd81-e536-6e63-93fa-0de9cffbb868:kaio@codelitt.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Link:
+      - <b4d53f613c4a96df13b58023055383dbe423d5bc>;rel="startingCommitId"
+      Request-Context:
+      - appId=cid-v1:0c3d14cd-19b4-4eb7-9b56-c7dfb8d9a151
+      Access-Control-Expose-Headers:
+      - Request-Context
+      X-Content-Type-Options:
+      - nosniff
+      X-Cache:
+      - CONFIG_NOCACHE
+      X-Msedge-Ref:
+      - 'Ref A: 6B94BB5B9C3A4F72BE32A677990CFA0F Ref B: RIO03EDGE0618 Ref C: 2021-06-05T13:47:36Z'
+      Date:
+      - Sat, 05 Jun 2021 13:47:36 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: '{"count":1,"value":[{"commitId":"b4d53f613c4a96df13b58023055383dbe423d5bc","author":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-22T04:08:09Z"},"committer":{"name":"kaiomagalhaes","email":"me@kaiomagalhaes.com","date":"2021-05-22T04:11:26Z"},"comment":"commit
+        number one","changeCounts":{"Add":1,"Edit":0,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/b4d53f613c4a96df13b58023055383dbe423d5bc","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/b4d53f613c4a96df13b58023055383dbe423d5bc"}]}'
+  recorded_at: Sat, 05 Jun 2021 13:47:36 GMT
+- request:
+    method: get
+    uri: https://dev.azure.com/AY-InnovationCenter/Avant/_apis/git/repositories/roadrunner-repository-test/commits?api-version=6.1-preview.1&searchCriteria.fromDate=2021-05-22%2004:11:27&searchCriteria.itemVersion.version=rc.1.v1.1.0&searchCriteria.itemVersion.versionType=tag
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic OnRvbnJjcHB6dmVuc3Zma3Vtd2c3Zm4ybmkzcHB5bHFoYnl3aHd5empoeGZpMnRjZGgyNmE=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '857'
+      Content-Type:
+      - application/json; charset=utf-8; api-version=6.1-preview.1
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      P3p:
+      - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
+        STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+      Set-Cookie:
+      - VstsSession=%7B%22PersistentSessionId%22%3A%22bca86012-bd53-4bbf-ba28-843c986c98ee%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Sun, 05-Jun-2022 13:47:37 GMT; path=/; secure;
+        HttpOnly
+      X-Tfs-Processid:
+      - e70aead8-aec6-442b-a4dc-9a0dc3764fcc
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Activityid:
+      - 355c18c6-3666-4d74-b13f-6348a7ea7487
+      X-Tfs-Session:
+      - 355c18c6-3666-4d74-b13f-6348a7ea7487
+      X-Vss-E2eid:
+      - 355c18c6-3666-4d74-b13f-6348a7ea7487
+      X-Vss-Userdata:
+      - 4d13cd81-e536-6e63-93fa-0de9cffbb868:kaio@codelitt.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Link:
+      - <73c4a3ea1767614944919c4a96c502f942606516>;rel="startingCommitId"
+      Request-Context:
+      - appId=cid-v1:0c3d14cd-19b4-4eb7-9b56-c7dfb8d9a151
+      Access-Control-Expose-Headers:
+      - Request-Context
+      X-Content-Type-Options:
+      - nosniff
+      X-Cache:
+      - CONFIG_NOCACHE
+      X-Msedge-Ref:
+      - 'Ref A: 4572E979AEA64D8184B422754D991060 Ref B: RIO03EDGE0421 Ref C: 2021-06-05T13:47:36Z'
+      Date:
+      - Sat, 05 Jun 2021 13:47:36 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: '{"count":5,"value":[{"commitId":"73c4a3ea1767614944919c4a96c502f942606516","author":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-25T16:07:39Z"},"committer":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-25T16:07:39Z"},"comment":"commit
+        number 6","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/73c4a3ea1767614944919c4a96c502f942606516","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/73c4a3ea1767614944919c4a96c502f942606516"},{"commitId":"a3bb66df08ff453d7e28501f268d0fb30540e90a","author":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-25T16:07:23Z"},"committer":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-25T16:07:23Z"},"comment":"commit
+        number five","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/a3bb66df08ff453d7e28501f268d0fb30540e90a","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/a3bb66df08ff453d7e28501f268d0fb30540e90a"},{"commitId":"414274d4df83662810120e71f287997221ff6452","author":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-25T16:07:12Z"},"committer":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-25T16:07:12Z"},"comment":"commit
+        number four","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/414274d4df83662810120e71f287997221ff6452","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/414274d4df83662810120e71f287997221ff6452"},{"commitId":"b0e771a0c2483c4e3802b421ba30d2043bcd28c2","author":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-25T15:14:58Z"},"committer":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-25T15:14:58Z"},"comment":"commit
+        number three","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/b0e771a0c2483c4e3802b421ba30d2043bcd28c2","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/b0e771a0c2483c4e3802b421ba30d2043bcd28c2"},{"commitId":"c69a3d840ae27f07cfdcf54eca3fc65a85d3e462","author":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-22T04:16:06Z"},"committer":{"name":"Kaio
+        Magalhaes","email":"kaio.magalhaes@avisonyoung.onmicrosoft.com","date":"2021-05-22T04:16:06Z"},"comment":"commit
+        number two","changeCounts":{"Add":0,"Edit":1,"Delete":0},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/c69a3d840ae27f07cfdcf54eca3fc65a85d3e462","remoteUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/commit/c69a3d840ae27f07cfdcf54eca3fc65a85d3e462"}]}'
+  recorded_at: Sat, 05 Jun 2021 13:47:37 GMT
+recorded_with: VCR 6.0.0

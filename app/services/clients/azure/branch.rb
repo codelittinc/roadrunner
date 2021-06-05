@@ -3,9 +3,10 @@
 module Clients
   module Azure
     class Branch < AzureBase
-      def commits(repository, branch)
+      def commits(repository, branch, from_date = nil)
         type = resource_type(branch)
         url = "#{azure_url}git/repositories/#{repository.name}/commits?searchCriteria.itemVersion.version=#{branch}&api-version=6.1-preview.1&searchCriteria.itemVersion.versionType=#{type}"
+        url = "#{url}&&searchCriteria.fromDate=#{from_date}" unless from_date.nil?
         response = Request.get(url, authorization)
         commits = response['value']
         commits.map do |commit|
@@ -15,11 +16,10 @@ module Clients
 
       def compare(repository, head, base)
         head_commits = commits(repository, head)
-        base_commits = commits(repository, base)
-
-        list = source_commits_diff(head_commits, base_commits)
-        list = source_commits_diff(base_commits, head_commits).reverse if list.empty?
-        list
+        date_last_head_commit = (head_commits.first.date.to_datetime + 1.second)
+        date_base_filter = date_last_head_commit.strftime('%Y-%m-%d %H:%M:%S')
+        comm = commits(repository, base, date_base_filter)
+        comm.reverse
       end
 
       def branch_exists?(repository, branch)
@@ -41,14 +41,6 @@ module Clients
 
       def tag?(tag)
         tag.match?(/^rc|^v/)
-      end
-
-      def source_commits_diff(source_commits_a, source_commits_b)
-        source_commits_a.filter do |source_commit_a|
-          !source_commits_b.find do |source_commit_b|
-            source_commit_a.sha == source_commit_b.sha
-          end
-        end
       end
     end
   end
