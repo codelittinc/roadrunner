@@ -1,8 +1,0 @@
-environment:
-  - PORT=5000
-services:
-  web:
-    image: <IMAGE_NAME>
-    port: 5000
-    environment:
-      - DATABASE_URL

@@ -1,11 +1,13 @@
-environment:
-  - PORT=5000
+resources:
+  database:
+    type: postgres
 services:
-  web:
-    image: kaiomagalhaes/roadrunner:<IMAGE_TAG_VERSION>
-    port: 5000
+  api:
+    build: .
+    port: 3000
+    resources:
+      - database
     environment:
-      - DATABASE_URL
       - LOG_ENV
       - LOG_HOST
       - AZURE_AUTH_KEY
@@ -13,4 +15,9 @@ services:
       - JIRA_AUTH_KEY
       - SLACK_API_KEY
       - SLACK_API_URL
-    domain: api.roadrunner.codelitt.dev
+    domain: ${HOST}
+timers:
+  servers-verification:
+    command: rake server:check_up_servers
+    schedule: "* * * * *"
+    service: api
