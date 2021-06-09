@@ -30,3 +30,4 @@
 /config/master.key
 .env
 latest.dump
+.DS_STORE
