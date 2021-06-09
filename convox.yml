@@ -16,8 +16,3 @@ services:
       - SLACK_API_KEY
       - SLACK_API_URL
     domain: ${HOST}
-timers:
-  servers-verification:
-    command: rake server:check_up_servers
-    schedule: "* * * * *"
-    service: api

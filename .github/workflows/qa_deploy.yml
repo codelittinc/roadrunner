@@ -2,7 +2,7 @@ name: QA DEPLOY
 
 on:
   push:
-    tags: [ 'rc.*' ]
+    branches: [ '*/*' ]
 
 jobs:
   deploy-convox:
