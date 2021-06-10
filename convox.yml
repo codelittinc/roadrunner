@@ -17,7 +17,7 @@ services:
       - SLACK_API_URL
       - ENVIRONMENT
       - SECRET_KEY_BASE
-    domain: ${HOST}
+    domain: api.roadrunner.codelitt.dev
 timers:
   servers-verification:
     command: rake server:check_up_servers
