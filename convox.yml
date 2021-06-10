@@ -8,16 +8,16 @@ services:
     resources:
       - database
     environment:
-      - LOG_ENV
-      - LOG_HOST
+      - LOG_ENV=
+      - LOG_HOST=
       - AZURE_AUTH_KEY
       - GIT_AUTH_KEY
       - JIRA_AUTH_KEY
       - SLACK_API_KEY
       - SLACK_API_URL
-      - ENVIRONMENT
-      - SECRET_KEY_BASE
-    domain: api.roadrunner.codelitt.dev
+      - ENVIRONMENT=development
+      - SECRET_KEY_BASE=no-value
+    domain: api.roadrunner.codelitt.dev,qa.api.roadrunner.codelitt.dev
 timers:
   servers-verification:
     command: rake server:check_up_servers

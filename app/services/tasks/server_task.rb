@@ -13,8 +13,6 @@ module Tasks
       servers.each do |server|
         link = server.link
 
-        Rails.logger.warn "Checking server #{link}"
-
         link = "#{server.link}/health" if server.supports_health_check
         response = result_request(link)
 
