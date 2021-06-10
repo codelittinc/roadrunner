@@ -8,6 +8,7 @@ services:
   api:
     build: .
     port: 3000
+    domain: ${HOST}
     resources:
       - database
       - redis
@@ -21,7 +22,6 @@ services:
       - SLACK_API_URL
       - ENVIRONMENT=development
       - SECRET_KEY_BASE=no-value
-    domain: api.roadrunner.codelitt.dev
   worker:
     build: .
     command: bundle exec sidekiq
