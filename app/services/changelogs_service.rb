@@ -76,7 +76,8 @@ class ChangelogsService
 
   def self.url_reference(url)
     regex = reference_regex(url_type(url))
+    possible_match = url[regex]
 
-    url[regex].gsub('/', '')
+    possible_match&.gsub('/', '')
   end
 end
