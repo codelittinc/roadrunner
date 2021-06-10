@@ -21,7 +21,7 @@ services:
       - SLACK_API_URL
       - ENVIRONMENT=development
       - SECRET_KEY_BASE=no-value
-    domain: api.roadrunner.codelitt.dev,qa.api.roadrunner.codelitt.dev
+    domain: api.roadrunner.codelitt.dev
   worker:
     build: .
     command: bundle exec sidekiq
