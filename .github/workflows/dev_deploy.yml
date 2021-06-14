@@ -10,7 +10,7 @@ env:
 
 on:
   push:
-    branches: [ potato ]
+    branches: [ '*/*' ]
 
 jobs:
   test-and-lint:
@@ -78,3 +78,10 @@ jobs:
         healthcheck: # optional, default is
         checkstring: # optional, default is
         procfile: # optional, default is
+        steps:
+
+    - name: Notify deployment
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: 'https://api.roadrunner.codelitt.dev/flows?deploy_type=deploy-notification&host=api.roadrunner.codelitt.dev&env=qa'
+        method: 'POST'
