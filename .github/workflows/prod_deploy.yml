@@ -16,3 +16,9 @@ jobs:
         rack: prod
         app: roadrunner
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
+
+    - name: Notify deployment
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: 'https://api.roadrunner.codelitt.dev/flows?deploy_type=deploy-notification&host=api.roadrunner.codelitt.dev&env=prod'
+        method: 'POST'
