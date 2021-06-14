@@ -211,5 +211,13 @@ RSpec.describe Clients::SourceControlClient, type: :service do
         )
       end
     end
+
+    describe '#create_hook' do
+      it 'triggers the correct action' do
+        expect_any_instance_of(Clients::Azure::Hook).to receive(:create).with(repository)
+
+        Clients::SourceControlClient.new(repository).create_hook
+      end
+    end
   end
 end
