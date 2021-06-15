@@ -37,9 +37,9 @@ class ChangelogsService
 
   def self.urls_from_description(description)
     description
-      .scan(LINK_REGEX)
-      .select { |url| [JIRA_TYPE, AZURE_TYPE, GITHUB_TYPE, TRELLO_TYPE].include? url_type(url) }
-      .map do |url|
+      &.scan(LINK_REGEX)
+      &.select { |url| [JIRA_TYPE, AZURE_TYPE, GITHUB_TYPE, TRELLO_TYPE].include? url_type(url) }
+      &.map do |url|
         {
           link: url,
           type: url_type(url),
