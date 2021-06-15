@@ -45,7 +45,7 @@ class ChangelogsService
           type: url_type(url),
           reference_code: url_reference(url)
         }
-      end
+      end || []
   end
 
   def self.url_type(url)
