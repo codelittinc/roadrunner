@@ -99,6 +99,7 @@ RSpec.describe ChangelogsService, type: :service do
       ![image](https://user-images.githubusercontent.com/68696952/115034665.png)
       ### Implementation Screenshot or GIF
       ![Property Intelligence](https://user-images.githubusercontent.com/68696952.gif)
+      https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/pullRequests/348/attachments/Screenshot
       ### Example Link:
       https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1346
       ### Notes:

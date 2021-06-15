@@ -52,7 +52,7 @@ class ChangelogsService
     case url
     when /.+atlassian.+/
       JIRA_TYPE
-    when /.+azure.+/
+    when /.+azure.*workitems.*/
       AZURE_TYPE
     when /^(?=.*\bgithub\b)(?=.*\bissues\b).*$/
       GITHUB_TYPE
