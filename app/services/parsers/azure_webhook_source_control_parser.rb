@@ -4,7 +4,6 @@ require 'ostruct'
 
 module Parsers
   class AzureWebhookSourceControlParser < BaseParser
-    delegate :body, :state, to: :review, prefix: true, allow_nil: true
     attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :review, :review_username, :state, :title, :username, :event_type
 
     def can_parse?
@@ -23,24 +22,35 @@ module Parsers
       event_type == 'git.pullrequest.merged' && @status == 'completed'
     end
 
+    def new_review_submission_flow?
+      event_type == 'ms.vss-code.git-pullrequest-comment-event'
+    end
+
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
+    # rubocop:disable Metrics/AbcSize
     def parse!
       @event_type = @json[:eventType]
-      @base = resource[:targetRefName].scan(%r{/.+/(.+$)}).flatten.first
+      @base = resource[:targetRefName]&.scan(%r{/.+/(.+$)})&.flatten&.first
       @description = resource[:description]
-      @source_control_id = resource[:pullRequestId]
+      @source_control_id = resource[:pullRequestId] || resource.dig(:pullRequest, :pullRequestId)
       @draft = resource[:isDraft]
-      @head = resource[:sourceRefName].scan(%r{/.*/(.+/.+$)}).flatten.first
-      @owner = resource.dig(:repository, :project, :name)
-      @repository_name = resource.dig(:repository, :name)
+      @head = resource[:sourceRefName]&.scan(%r{/.*/(.+/.+$)})&.flatten&.first
+      @owner = resource.dig(:repository, :project, :name) || resource.dig(:pullRequest, :repository, :project, :name)
+      @repository_name = resource.dig(:repository, :name) || resource.dig(:pullRequest, :repository, :name)
       @title = resource[:title]
       @username = resource.dig(:createdBy, :uniqueName)
       @merged = resource[:mergeStatus] == 'succeeded'
       @status = resource[:status]
-      # @TODO: implement the fields below
-      # @review = OpenStruct.new @json[:review]
-      # @review_username = review&.dig(:user, :login)
-      # @state = pull_request[:state]
+      @review = resource[:comment]
+      @review_username = @review&.dig(:author, :uniqueName)
+      @review_body = @review&.dig(:content)
+      # @TODO: check if it is even possible to have this from Azure
+      @review_state = ''
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/PerceivedComplexity
+    # rubocop:enable Metrics/AbcSize
 
     # @TODO: add tests
     def user_by_source_control

@@ -23,6 +23,10 @@ module Parsers
       action == 'closed'
     end
 
+    def new_review_submission_flow?
+      action == 'submitted'
+    end
+
     def destroy_branch!(pull_request)
       Clients::Github::Branch.new.delete(pull_request.repository, pull_request.head)
     end
