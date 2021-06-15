@@ -5,8 +5,8 @@ module Clients
     class BaseSlack
       def initialize
         @bot = 'roadrunner'
-        @key = ENV['SLACK_API_KEY']
-        @url = ENV['SLACK_API_URL']
+        @key = ENV['NOTIFICATIONS_API_KEY']
+        @url = ENV['NOTIFICATIONS_API_URL']
       end
 
       def build_params(params)

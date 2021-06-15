@@ -7,7 +7,7 @@ require 'ostruct'
 # @TODO: We need to fix the release message, it is not returning the commit messages
 RSpec.describe Flows::HotfixReleaseFlow, type: :service do
   around do |example|
-    ClimateControl.modify SLACK_API_URL: 'https://slack-api.codelitt.dev/' do
+    ClimateControl.modify NOTIFICATIONS_API_URL: 'https://slack-api.codelitt.dev/' do
       example.run
     end
   end

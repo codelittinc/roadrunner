@@ -6,7 +6,7 @@ require 'flows_helper'
 
 RSpec.describe Flows::ClosePullRequestFlow, type: :service do
   around do |example|
-    ClimateControl.modify SLACK_API_URL: 'https://slack-api.codelitt.dev' do
+    ClimateControl.modify NOTIFICATIONS_API_URL: 'https://slack-api.codelitt.dev' do
       example.run
     end
   end
