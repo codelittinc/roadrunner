@@ -6,7 +6,7 @@ env:
   POSTGRES_DB: postgres
   POSTGRES_HOST: localhost
   RAILS_ENV: test
-  SLACK_API_URL: https://slack-api.codelitt.dev
+  NOTIFICATIONS_API_URL: https://slack-api.codelitt.dev
 
 on:
   push:
