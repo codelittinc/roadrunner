@@ -17,7 +17,7 @@ module Flows
       return false unless pull_request
       return false unless slack_message
 
-      action == 'submitted'
+      parser.new_review_submission_flow?
     end
 
     private
