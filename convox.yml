@@ -18,8 +18,8 @@ services:
       - AZURE_AUTH_KEY
       - GIT_AUTH_KEY
       - JIRA_AUTH_KEY
-      - SLACK_API_KEY
-      - SLACK_API_URL
+      - NOTIFICATIONS_API_KEY
+      - NOTIFICATIONS_API_URL
       - ENVIRONMENT=development
       - SECRET_KEY_BASE=no-value
   worker:
