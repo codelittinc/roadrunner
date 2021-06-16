@@ -5,7 +5,7 @@ module Versioning
     class UpdateRelease
       def initialize(environment, releases)
         @environment = environment
-        @releases = Versioning::Sorter.new(releases).sort
+        @releases = Versioning::Sorter.new(filter_releases(releases)).sort
         @major, @minor, @patch = latest_tag_name&.scan(Versioning::RELEASE_REGEX)&.flatten
       end
 
@@ -53,6 +53,10 @@ module Versioning
 
         new_major, new_minor, new_patch = latest_qa_release&.scan(Versioning::RELEASE_REGEX)&.flatten
         "v#{new_major}.#{new_minor}.#{new_patch}"
+      end
+
+      def filter_releases(releases)
+        releases.select { |release| release.match?(/^(rc.\d+.)?v\d+.\d+.\d+$/) }
       end
     end
   end
