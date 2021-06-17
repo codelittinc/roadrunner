@@ -18,15 +18,8 @@ class FlowExecutor
       executed = true
       @flow_request.update(flow_name: object.class.name)
 
-      begin
-        object.run
-        @flow_request.update(executed: true)
-      rescue Exception => e
-        message = [e.to_s, e.backtrace].flatten.join("\n")
-        @flow_request.update(error_message: message)
-        send_exception_message! if channel_name
-        raise e
-      end
+      object.run
+      @flow_request.update(executed: true)
 
       break
     end
@@ -68,10 +61,5 @@ class FlowExecutor
   def send_no_result_message!
     message = Messages::GenericBuilder.notify_no_results_from_flow
     send_direct_message_result(message, user_name) if user_name
-  end
-
-  def send_exception_message!
-    message = Messages::GenericBuilder.notify_exception_from_flow
-    send_channel_message_result(message, channel_name)
   end
 end
