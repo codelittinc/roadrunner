@@ -1,5 +1,5 @@
 #MAINTAINER Kaio Magalhaes, Inc.
 
 touch .env
-docker-compose -f docker-compose.development.yml up -d
-docker exec -it roadrunner-project-api bash
+docker-compose up -d
+docker exec -it roadrunner-api bash
