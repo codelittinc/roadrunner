@@ -71,7 +71,7 @@ http_interactions:
   recorded_at: Sat, 22 May 2021 04:13:14 GMT
 - request:
     method: post
-    uri: https://slack-api.codelitt.dev/channel-messages
+    uri: https://slack-api.codelitt.dev/channel_messages
     body:
       encoding: UTF-8
       string: '{"bot":"roadrunner","message":"Update release to *roadrunner-repository-test*
@@ -404,7 +404,7 @@ http_interactions:
   recorded_at: Sat, 22 May 2021 04:48:17 GMT
 - request:
     method: post
-    uri: https://slack-api.codelitt.dev/channel-messages
+    uri: https://slack-api.codelitt.dev/channel_messages
     body:
       encoding: UTF-8
       string: '{"bot":"roadrunner","message":"Available in the release of *roadrunner-repository-test*:\n

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://slack-api.codelitt.dev//channel-messages
+    uri: https://slack-api.codelitt.dev//channel_messages
     body:
       encoding: UTF-8
       string: '{"bot":"roadrunner","message":"Hotfix release to *roadrunner-repository-test*

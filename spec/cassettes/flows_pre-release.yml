@@ -202,7 +202,7 @@ http_interactions:
   recorded_at: Fri, 24 Jul 2020 11:10:20 GMT
 - request:
     method: post
-    uri: https://slack-api.codelitt.dev/channel-messages
+    uri: https://slack-api.codelitt.dev/channel_messages
     body:
       encoding: UTF-8
       string: '{"bot":"roadrunner","message":"Release to *QA* triggered by @","channel":"feed-test-automations","ts":null}'
