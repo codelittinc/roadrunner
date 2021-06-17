@@ -38,10 +38,6 @@ module Messages
       'There are no results for your request. Please, check for more information using the `/roadrunner help` command.'
     end
 
-    def self.notify_exception_from_flow
-      'There was an error with your request. Hey @automations-dev can you please check this?'
-    end
-
     def self.extract_jira_codes(text)
       text.scan(%r{https?://codelitt.atlassian.net/browse/([A-Z]+-\d+)}).flatten
     end
