@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://slack-api.codelitt.dev//direct-messages
+    uri: https://slack-api.codelitt.dev//direct_messages
     body:
       encoding: UTF-8
       string: '{"bot":"roadrunner","message":":rotating_light: CI failed for pull
@@ -84,7 +84,7 @@ http_interactions:
   recorded_at: Mon, 21 Sep 2020 17:33:06 GMT
 - request:
     method: post
-    uri: https://slack-api.codelitt.dev/direct-messages
+    uri: https://slack-api.codelitt.dev/direct_messages
     body:
       encoding: UTF-8
       string: '{"bot":"roadrunner","message":":rotating_light: CI failed for pull

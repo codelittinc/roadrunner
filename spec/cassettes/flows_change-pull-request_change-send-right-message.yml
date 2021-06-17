@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: patch
-    uri: https://slack-api.codelitt.dev/channel-messages
+    uri: https://slack-api.codelitt.dev/channel_messages
     body:
       encoding: UTF-8
       string: '{"bot":"roadrunner","message":":pencil2: There is a new change!","channel":"feed-test-automations","ts":"123"}'

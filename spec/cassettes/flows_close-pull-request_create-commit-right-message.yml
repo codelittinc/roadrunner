@@ -169,7 +169,7 @@ http_interactions:
   recorded_at: Wed, 29 Jul 2020 04:24:33 GMT
 - request:
     method: post
-    uri: https://slack-api.codelitt.dev/direct-messages
+    uri: https://slack-api.codelitt.dev/direct_messages
     body:
       encoding: UTF-8
       string: '{"bot":"roadrunner","message":":merge2: Pull Request closed \u003chttps://github.com/codelittinc/roadrunner-rails/pull/13|roadrunner-rails#13\u003e","username":"kaiomagalhaes"}'
@@ -336,7 +336,7 @@ http_interactions:
   recorded_at: Tue, 18 Aug 2020 20:11:47 GMT
 - request:
     method: post
-    uri: https://slack-api.codelitt.dev//direct-messages
+    uri: https://slack-api.codelitt.dev//direct_messages
     body:
       encoding: UTF-8
       string: '{"bot":"roadrunner","message":":merge2: Pull Request closed \u003chttps://github.com/codelittinc/roadrunner-rails/pull/13|roadrunner-rails#13\u003e","username":"kaiomagalhaes"}'

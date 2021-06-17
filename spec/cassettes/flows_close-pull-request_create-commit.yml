@@ -210,7 +210,7 @@ http_interactions:
   recorded_at: Wed, 10 Mar 2021 15:21:49 GMT
 - request:
     method: post
-    uri: https://slack-api.codelitt.dev/direct-messages
+    uri: https://slack-api.codelitt.dev/direct_messages
     body:
       encoding: UTF-8
       string: '{"bot":"roadrunner","message":":merge2: Pull Request closed \u003chttps://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13\u003e","username":"kaiomagalhaes"}'

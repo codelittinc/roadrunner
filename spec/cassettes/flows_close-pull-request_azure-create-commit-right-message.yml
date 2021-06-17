@@ -122,7 +122,7 @@ http_interactions:
   recorded_at: Wed, 05 May 2021 21:55:07 GMT
 - request:
     method: post
-    uri: https://slack-api.codelitt.dev/direct-messages
+    uri: https://slack-api.codelitt.dev/direct_messages
     body:
       encoding: UTF-8
       string: '{"bot":"roadrunner","message":":merge2: Pull Request closed \u003chttps://github.com/Avant/ay-users-api-test/pull/35|ay-users-api-test#35\u003e","username":"kaiomagalhaes"}'
