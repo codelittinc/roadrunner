@@ -7,6 +7,7 @@ module Flows
         @channel_name = channel_name
         @releases = releases
         @repository = repository
+        @client = repository.project.client
       end
 
       def source_control_client
@@ -33,7 +34,7 @@ module Flows
       def notify_no_changes_between_releases!
         channel = @repository.slack_repository_info.deploy_channel
         commits_message = Messages::ReleaseBuilder.notify_no_commits_changes(environment, @repository.name)
-        Clients::Slack::ChannelMessage.new.send(commits_message, channel)
+        Clients::Slack::ChannelMessage.new(@client).send(commits_message, channel)
       end
 
       def version

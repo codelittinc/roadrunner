@@ -3,9 +3,10 @@
 module Clients
   module Slack
     class BaseSlack
-      def initialize
+      def initialize(client = nil)
+        @client = client
         @bot = 'roadrunner'
-        @key = ENV['NOTIFICATIONS_API_KEY']
+        @key = client&.slack_api_key || ENV['NOTIFICATIONS_API_KEY']
         @url = ENV['NOTIFICATIONS_API_URL']
       end
 

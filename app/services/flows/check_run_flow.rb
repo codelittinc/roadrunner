@@ -11,7 +11,7 @@ module Flows
       if state == CheckRun::FAILURE_STATE
         notify_ci_failure_message = Messages::PullRequestBuilder.notify_ci_failure(pull_request)
         if slack_username
-          Clients::Slack::DirectMessage.new.send(
+          Clients::Slack::DirectMessage.new(client).send(
             notify_ci_failure_message,
             slack_username
           )
@@ -20,7 +20,7 @@ module Flows
 
       pull_request&.update(ci_state: state)
 
-      Clients::Slack::Reactji.new.send(reaction, channel, message.ts)
+      Clients::Slack::Reactji.new(client).send(reaction, channel, message.ts)
     end
 
     def flow?

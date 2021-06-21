@@ -6,6 +6,10 @@ module Flows
       @repository ||= Repository.find_by(name: parser.repository_name, owner: parser.owner)
     end
 
+    def client
+      repository.project.client
+    end
+
     def pull_request
       @pull_request ||= PullRequest.by_repository_and_source_control_id(repository, parser.source_control_id)
     end
