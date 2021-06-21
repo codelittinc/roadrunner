@@ -22,8 +22,9 @@ User.create(slack: 'mauricio.villaalba', jira: '5e6f922e5ffd840c43a99308', githu
 User.create(slack: 'ana.marija', jira: '5ca6158010e4f967c3022b24')
 
 # ------
-project = Project.create!(name: 'Rolli')
-project_avison_young = Project.create!(name: 'Avison Young')
+client = Client.create!(name: 'Codelitt')
+project = Project.create!(name: 'Rolli', client: client)
+project_avison_young = Project.create!(name: 'Avison Young', client: client)
 
 repository = Repository.create!(
   name: 'rolli',
