@@ -51,7 +51,7 @@ group :development, :test do
   gem 'dotenv-rails', groups: %i[development test]
   gem 'factory_bot_rails'
   gem 'ffaker'
-  gem 'rspec-rails', '~> 4.0.0'
+  gem 'rspec-rails'
   gem 'rubocop-rails', require: false
   gem 'shoulda-matchers'
   gem 'vcr'
