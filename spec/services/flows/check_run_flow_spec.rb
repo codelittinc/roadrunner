@@ -2,11 +2,16 @@
 
 require 'rails_helper'
 require 'external_api_helper'
+require 'flows_helper'
 
 RSpec.describe Flows::CheckRunFlow, type: :service do
-  let(:valid_json) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'github_check_run.json'))).with_indifferent_access
+  around do |example|
+    ClimateControl.modify NOTIFICATIONS_API_URL: 'https://slack-api.codelitt.dev' do
+      example.run
+    end
   end
+
+  let(:valid_json) { load_flow_fixture('github_check_run.json') }
 
   describe '#flow?' do
     before(:each) do
