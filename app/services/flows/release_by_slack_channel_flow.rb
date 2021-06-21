@@ -7,7 +7,7 @@ module Flows
     UPDATE_ACTION = 'update'
 
     def execute
-      Clients::Slack::ChannelMessage.new.send(release_message, channel_name)
+      Clients::Slack::ChannelMessage.new(client).send(release_message, channel_name)
 
       if environment == QA_ENVIRONMENT
         call_qa_release
@@ -67,6 +67,10 @@ module Flows
 
     def channels_repositories
       @channels_repositories ||= Repository.where(slack_repository_info: slack_configs)
+    end
+
+    def client
+      channels_repositories.first.project.client
     end
 
     def call_qa_release

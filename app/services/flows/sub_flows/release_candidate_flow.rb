@@ -20,7 +20,7 @@ module Flows
           true
         )
 
-        Clients::Slack::ChannelMessage.new.send(slack_message, channel)
+        Clients::Slack::ChannelMessage.new(@client).send(slack_message, channel)
 
         update_application_version!
       end

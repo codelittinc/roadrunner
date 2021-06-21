@@ -8,7 +8,7 @@ module Flows
 
     def execute
       current_releases = source_control_client.new(repository).list_releases
-      Clients::Slack::ChannelMessage.new.send(release_message, channel_name)
+      Clients::Slack::ChannelMessage.new(client).send(release_message, channel_name)
 
       case environment
       when QA_ENVIRONMENT
@@ -70,6 +70,10 @@ module Flows
 
     def repository
       @repository ||= Repository.where(name: repository_name).first
+    end
+
+    def client
+      repository.project.client
     end
 
     def release_message
