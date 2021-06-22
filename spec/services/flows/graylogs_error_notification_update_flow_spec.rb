@@ -6,7 +6,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
   describe '#flow?' do
     context 'with a valid action' do
       it 'returns true' do
-        FactoryBot.create(:slack_message, ts: '123')
+        FactoryBot.create(:slack_message, ts: '123', text: 'Some text')
         flow = described_class.new({
                                      action: 'user-addressing-error',
                                      ts: '123'
@@ -18,7 +18,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
 
     context 'with an invalid action' do
       it 'returns false' do
-        FactoryBot.create(:slack_message, ts: '123')
+        FactoryBot.create(:slack_message, ts: '123', text: 'Some text')
         flow = described_class.new({
                                      action: 'no-action',
                                      ts: '123'
@@ -30,7 +30,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
 
     context 'with a valid ts' do
       it 'returns true' do
-        FactoryBot.create(:slack_message, ts: '123')
+        FactoryBot.create(:slack_message, ts: '123', text: 'Some text')
         flow = described_class.new({
                                      action: 'user-addressing-error',
                                      ts: '123'
@@ -76,6 +76,24 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
       )
 
       flow.execute
+    end
+
+    it 'is interrupted when slack message dont contain a text' do
+      timestamp = '123'
+      channel = 'test-channel'
+
+      FactoryBot.create(:slack_message,
+                        ts: timestamp,
+                        text: '')
+
+      flow = described_class.new({
+                                   action: 'user-addressing-error',
+                                   ts: timestamp,
+                                   username: 'kaiomagalhaes',
+                                   channel: channel
+                                 })
+
+      expect(flow.execute).to raise_error
     end
   end
 end
