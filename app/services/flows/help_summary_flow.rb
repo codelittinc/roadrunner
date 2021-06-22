@@ -6,7 +6,7 @@ module Flows
       docs_link = 'https://bit.ly/33oZSkt'
       message = "Please check our documentation here #{docs_link}"
 
-      Clients::Slack::DirectMessage.new.send(message, user_name)
+      Clients::Slack::DirectMessage.new(customer).send(message, user_name)
     end
 
     def flow?
@@ -21,6 +21,10 @@ module Flows
 
     def repositories
       @repositories ||= Repository.where(slack_repository_info: slack_configs)
+    end
+
+    def customer
+      repositories.first.project.customer unless repositories.empty?
     end
 
     def slack_configs

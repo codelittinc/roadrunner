@@ -70,7 +70,7 @@ module Flows
     end
 
     def customer
-      channels_repositories.first.project.customer
+      channels_repositories.first.project.customer unless channels_repositories.empty?
     end
 
     def call_qa_release

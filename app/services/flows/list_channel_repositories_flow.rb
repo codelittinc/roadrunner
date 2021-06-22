@@ -33,7 +33,7 @@ module Flows
     end
 
     def customer
-      repositories.first.project.customer
+      repositories.first.project.customer unless repositories.empty?
     end
   end
 end
