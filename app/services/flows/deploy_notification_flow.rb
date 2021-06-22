@@ -5,7 +5,7 @@ module Flows
     def execute
       update_release_deploy_status!
 
-      Clients::Slack::ChannelMessage.new(client).send(
+      Clients::Slack::ChannelMessage.new(customer).send(
         "The deploy of *#{repository.name}* to *#{[environment, deploy_type].reject(&:nil?).join(' - ')}* was finished with the status: #{status.capitalize}!",
         channel
       )
@@ -33,8 +33,8 @@ module Flows
       @repository ||= application.repository
     end
 
-    def client
-      repository.project.client
+    def customer
+      repository.project.customer
     end
 
     def latest_release

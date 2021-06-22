@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe ProjectsController, type: :controller do
   render_views
 
-  let(:client) { FactoryBot.create(:client) }
+  let(:customer) { FactoryBot.create(:customer) }
 
   describe '#index' do
     it 'displays all projects' do
@@ -38,12 +38,12 @@ RSpec.describe ProjectsController, type: :controller do
 
   describe '#create' do
     it 'creates a project' do
-      json = { project: { name: 'project', client_id: client } }
+      json = { project: { name: 'project', customer_id: customer } }
       expect { post :create, params: json }.to change { Project.count }.by(1)
     end
 
     it 'returns the project data as JSON' do
-      json = { project: { name: 'project', client_id: client } }
+      json = { project: { name: 'project', customer_id: customer } }
       post :create, params: json
 
       name = JSON.parse(response.body)['name']

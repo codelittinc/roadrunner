@@ -6,8 +6,8 @@ module Flows
       @repository ||= Repository.find_by(name: parser.repository_name, owner: parser.owner)
     end
 
-    def client
-      repository.project.client
+    def customer
+      repository.project.customer
     end
 
     def pull_request

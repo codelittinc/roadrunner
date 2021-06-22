@@ -11,7 +11,7 @@ module Flows
 
       message_ts = pull_request.slack_message.ts
 
-      Clients::Slack::ChannelMessage.new(client).update(close_pull_request_message, channel, message_ts)
+      Clients::Slack::ChannelMessage.new(customer).update(close_pull_request_message, channel, message_ts)
 
       parser.destroy_branch!(pull_request)
 
@@ -35,18 +35,18 @@ module Flows
     private
 
     def react_to_merge_pull_request!
-      Clients::Slack::Reactji.new(client).send('merge2', channel, pull_request.slack_message.ts)
+      Clients::Slack::Reactji.new(customer).send('merge2', channel, pull_request.slack_message.ts)
     end
 
     def react_to_cancel_pull_request!
-      Clients::Slack::Reactji.new(client).send('x', channel, pull_request.slack_message.ts)
+      Clients::Slack::Reactji.new(customer).send('x', channel, pull_request.slack_message.ts)
     end
 
     def send_close_pull_request_notification!
       return unless slack_username
 
       message = Messages::PullRequestBuilder.close_pull_request_notification(pull_request)
-      Clients::Slack::DirectMessage.new(client).send(message, slack_username)
+      Clients::Slack::DirectMessage.new(customer).send(message, slack_username)
     end
 
     def update_pull_request_state!

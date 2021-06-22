@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: clients
+# Table name: customers
 #
 #  id             :bigint           not null, primary key
 #  name           :string
@@ -14,7 +14,7 @@
 #
 require 'rails_helper'
 
-RSpec.describe Client, type: :model do
+RSpec.describe Customer, type: :model do
   describe 'associations' do
     it { should have_many(:projects).dependent(:destroy) }
   end

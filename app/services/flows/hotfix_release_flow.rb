@@ -8,7 +8,7 @@ module Flows
     RELEASE_ACTION = 'hotfix'
 
     def execute
-      Clients::Slack::ChannelMessage.new(client).send(release_message, channel_name)
+      Clients::Slack::ChannelMessage.new(customer).send(release_message, channel_name)
 
       call_subflow_by_env
     end
@@ -81,8 +81,8 @@ module Flows
       @repository ||= Repository.where(name: repository_name).first
     end
 
-    def client
-      repository.project.client
+    def customer
+      repository.project.customer
     end
 
     def release_message
