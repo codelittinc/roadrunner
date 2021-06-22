@@ -49,6 +49,10 @@ module Flows
       @repository ||= application.repository
     end
 
+    def customer
+      repository.project.customer
+    end
+
     def repository_source
       @repository_source ||= repository.source_control_type
     end
@@ -59,7 +63,7 @@ module Flows
     end
 
     def github_link
-      "https://sentry.io/organizations/codelitt-7y/issues/#{issue_id}/events/#{event_id}/?project=#{project_id}"
+      "https://sentry.io/organizations/#{customer.sentry_name}/issues/#{issue_id}/events/#{event_id}/?project=#{project_id}"
     end
   end
 end
