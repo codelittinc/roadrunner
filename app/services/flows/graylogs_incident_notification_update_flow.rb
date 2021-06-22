@@ -3,7 +3,7 @@
 module Flows
   class GraylogsIncidentNotificationUpdateFlow < BaseFlow
     def execute
-      base_text = base_message.scan(/(^.*)\n?/).first.first.strip.gsub(':fire:', ':fire_engine:').gsub(':droplet:', ':fire_engine:')
+      base_text = base_message.empty? ? 'Message text not found' : base_message.scan(/(^.*)\n?/).first.first.strip.gsub(':fire:', ':fire_engine:').gsub(':droplet:', ':fire_engine:')
       message = "#{base_text} - reviewed by @#{username}"
 
       Clients::Slack::ChannelMessage.new.update(message, channel, timestamp)

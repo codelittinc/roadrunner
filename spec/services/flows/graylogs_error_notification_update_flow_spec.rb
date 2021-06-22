@@ -77,5 +77,32 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
 
       flow.execute
     end
+
+    context 'When the slack message has no text' do
+      it 'the message will display that the text was not found' do
+        timestamp = '123'
+        channel = 'test-channel'
+
+        FactoryBot.create(:slack_message,
+                          ts: timestamp,
+                          text: '')
+
+        flow = described_class.new({
+                                     action: 'user-addressing-error',
+                                     ts: timestamp,
+                                     username: 'kaiomagalhaes',
+                                     channel: channel
+                                   })
+
+        new_message = 'Message text not found - reviewed by @kaiomagalhaes'
+        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update).with(
+          new_message,
+          channel,
+          timestamp
+        )
+
+        flow.execute
+      end
+    end
   end
 end
