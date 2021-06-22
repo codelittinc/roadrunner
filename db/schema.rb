@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_125812) do
+ActiveRecord::Schema.define(version: 2021_06_22_125950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,15 +48,6 @@ ActiveRecord::Schema.define(version: 2021_06_21_125812) do
     t.index ["branch_id"], name: "index_check_runs_on_branch_id"
   end
 
-  create_table "clients", force: :cascade do |t|
-    t.string "name"
-    t.string "slack_api_key"
-    t.string "github_api_key"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "sentry_name"
-  end
-
   create_table "commit_releases", force: :cascade do |t|
     t.bigint "commit_id"
     t.bigint "release_id"
@@ -75,6 +66,15 @@ ActiveRecord::Schema.define(version: 2021_06_21_125812) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pull_request_id"], name: "index_commits_on_pull_request_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "slack_api_key"
+    t.string "github_api_key"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "sentry_name"
   end
 
   create_table "external_identifiers", force: :cascade do |t|
@@ -116,8 +116,8 @@ ActiveRecord::Schema.define(version: 2021_06_21_125812) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
-    t.bigint "client_id"
-    t.index ["client_id"], name: "index_projects_on_client_id"
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_projects_on_customer_id"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
@@ -265,7 +265,7 @@ ActiveRecord::Schema.define(version: 2021_06_21_125812) do
   add_foreign_key "branches", "pull_requests"
   add_foreign_key "branches", "repositories"
   add_foreign_key "check_runs", "branches"
-  add_foreign_key "projects", "clients"
+  add_foreign_key "projects", "customers"
   add_foreign_key "pull_request_changes", "pull_requests"
   add_foreign_key "pull_request_reviews", "pull_requests"
   add_foreign_key "pull_requests", "repositories"

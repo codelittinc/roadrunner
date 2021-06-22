@@ -36,7 +36,7 @@ class ApplicationIncidentService
   private
 
   def notify_team!
-    response = Clients::Slack::ChannelMessage.new(client).send(slack_message, slack_channel)
+    response = Clients::Slack::ChannelMessage.new(customer).send(slack_message, slack_channel)
     obj = SlackMessage.new
     obj.ts = response['ts']
     obj.text = slack_message
@@ -46,7 +46,7 @@ class ApplicationIncidentService
     return unless error_message.size > MESSAGE_MAX_SIZE && message_type == GRAYLOG_MESSAGE_TYPE
 
     final_message = "```#{error_message}```"
-    Clients::Slack::ChannelMessage.new(client).send(
+    Clients::Slack::ChannelMessage.new(customer).send(
       final_message,
       slack_channel,
       response['ts']
@@ -85,8 +85,8 @@ class ApplicationIncidentService
     application.repository
   end
 
-  def client
-    repository.project.client
+  def customer
+    repository.project.customer
   end
 
   def short_message

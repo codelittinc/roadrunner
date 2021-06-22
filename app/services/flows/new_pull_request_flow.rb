@@ -5,11 +5,11 @@ module Flows
     def execute
       user.save unless user.persisted?
 
-      response = Clients::Slack::ChannelMessage.new(client).send(new_pull_request_message, channel)
+      response = Clients::Slack::ChannelMessage.new(customer).send(new_pull_request_message, channel)
       slack_message = SlackMessage.new(ts: response['ts'], pull_request: current_pull_request)
       slack_message.save!
 
-      Clients::Slack::Reactji.new(client).send(reaction, channel, slack_message.ts) if branch
+      Clients::Slack::Reactji.new(customer).send(reaction, channel, slack_message.ts) if branch
 
       current_pull_request&.update(ci_state: checkrun_state)
     end

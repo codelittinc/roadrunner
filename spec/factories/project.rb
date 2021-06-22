@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :project do
     name { 'My Project' }
 
-    client { association :client }
+    customer { association :customer }
   end
 end
