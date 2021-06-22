@@ -16,7 +16,7 @@ module Flows
     private
 
     def base_message
-      slack_message&.text
+      slack_message&.text || 'Message not found!'
     end
 
     def slack_message
