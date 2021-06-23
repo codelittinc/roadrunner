@@ -182,6 +182,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
           repository = FactoryBot.create(:repository, source_control_type: 'azure')
           application = FactoryBot.create(:application, :with_server, external_identifier: 'appraisal-api-qa.azurewebsites.net', repository: repository)
           FactoryBot.create(:external_identifier, application: application, text: 'spaces local')
+          repository.project.customer.update(sentry_name: 'avison-young')
 
           flow = described_class.new(valid_incident_with_app_info_by_tags)
           expected_message = "\n *_TypeError: Cannot read property 'fullName' of undefined_*\n *Type*: Uncaught"\
@@ -223,6 +224,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         it 'dont add the link to the slack message' do
           repository = FactoryBot.create(:repository, source_control_type: 'azure')
           FactoryBot.create(:application, external_identifier: 'avant', repository: repository, environment: 'qa')
+          repository.project.customer.update(sentry_name: 'avison-young')
 
           flow = described_class.new(valid_incident_of_missing_server)
 

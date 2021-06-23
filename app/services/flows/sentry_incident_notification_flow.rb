@@ -5,7 +5,7 @@ module Flows
     delegate :project_name, :issue_id, :event_id, :type, :custom_message, :custom_name, to: :parser
 
     def execute
-      notify_sentry_error_message = Messages::GenericBuilder.notify_sentry_error(title, metadata, user, browser_name, link_sentry, type, custom_message)
+      notify_sentry_error_message = Messages::GenericBuilder.notify_sentry_error(title, metadata, user, browser_name, link, type, custom_message)
       ApplicationIncidentService.new.register_incident!(application, notify_sentry_error_message, nil, ApplicationIncidentService::SENTRY_MESSAGE_TYPE)
     end
 
@@ -31,12 +31,6 @@ module Flows
       @user ||= @parser.event_user
     end
 
-    def link_sentry
-      return azure_link if repository_source == 'azure'
-
-      github_link
-    end
-
     def project_id
       @project_id ||= @parser.event_project
     end
@@ -57,12 +51,7 @@ module Flows
       @repository_source ||= repository.source_control_type
     end
 
-    def azure_link
-      # TODO: Build link without hard code for the organization, using project_name property instead avison-young
-      "https://sentry.io/organizations/avison-young/issues/#{issue_id}/events/#{event_id}/?project=#{project_id}"
-    end
-
-    def github_link
+    def link
       "https://sentry.io/organizations/#{customer.sentry_name}/issues/#{issue_id}/events/#{event_id}/?project=#{project_id}"
     end
   end
