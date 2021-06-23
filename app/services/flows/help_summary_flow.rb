@@ -16,15 +16,7 @@ module Flows
     private
 
     def user_name
-      @user_name = @params[:user_name]
-    end
-
-    def repositories
-      @repositories ||= Repository.where(slack_repository_info: slack_configs)
-    end
-
-    def slack_configs
-      @slack_configs ||= SlackRepositoryInfo.where(deploy_channel: channel_name)
+      @user_name ||= @params[:user_name]
     end
 
     def channel_name
