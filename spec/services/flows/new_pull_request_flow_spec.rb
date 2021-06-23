@@ -13,13 +13,14 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
   end
 
   context 'Github JSON' do
-    let!(:repository) do
+    let(:repository) do
       FactoryBot.create(:repository, name: 'roadrunner-rails', owner: 'codelittinc')
     end
 
     describe '#flow?' do
       context 'returns true' do
         it 'when it has the opened action and does not exist the pull request in database' do
+          repository
           github_valid_json_confirmed = github_valid_json.deep_dup
           github_valid_json_confirmed[:number] = 1
           github_valid_json_confirmed[:action] = 'opened'
@@ -28,6 +29,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
         end
 
         it 'when it has the ready_for_review action and does not exist the pull request in database' do
+          repository
           github_valid_json_confirmed = github_valid_json.deep_dup
           github_valid_json_confirmed[:number] = 1
           github_valid_json_confirmed[:action] = 'ready_for_review'
@@ -50,11 +52,17 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
           flow = described_class.new(github_valid_json)
           expect(flow.flow?).to be_falsey
         end
+
+        it 'there is no repository with the given name' do
+          flow = described_class.new(github_valid_json)
+          expect(flow.flow?).to be_falsey
+        end
       end
     end
 
     describe '#execute' do
       it 'creates a PullRequest in the database' do
+        repository
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                               'ts' => '123'
                                                                                             })
@@ -123,6 +131,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
 
       context 'when there is not a check run linked with the branch of the pull request' do
         it 'sends a pending reaction' do
+          repository
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                                 'ts' => '123'
                                                                                               })
