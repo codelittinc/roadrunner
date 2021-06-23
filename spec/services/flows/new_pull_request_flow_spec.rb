@@ -146,13 +146,14 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
   end
 
   context 'Azure JSON' do
-    let!(:repository) do
+    let(:repository) do
       FactoryBot.create(:repository, name: 'ay-users-api-test', owner: 'Avant')
     end
 
     describe '#flow?' do
       context 'returns true' do
         it 'when it has the pull request created eventType and does not exist the pull request in database' do
+          repository
           azure_valid_json_updated = azure_valid_json.deep_dup
           azure_valid_json_updated[:resource][:pullRequestId] = 1
           azure_valid_json_updated[:eventType] = 'git.pullrequest.created'
@@ -163,6 +164,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
 
       context 'return false when' do
         it 'when the eventType is different from git.pullrequest.created' do
+          repository
           azure_valid_json_updated = azure_valid_json.deep_dup
           azure_valid_json_updated[:eventType] = 'dfsdfsdf'
           flow = described_class.new(azure_valid_json_updated)
@@ -170,8 +172,14 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
         end
 
         it 'pull request already exists in database' do
+          repository
           FactoryBot.create(:pull_request, repository: repository, source_control_id: 35)
 
+          flow = described_class.new(azure_valid_json)
+          expect(flow.flow?).to be_falsey
+        end
+
+        it 'there is no repository with the given name' do
           flow = described_class.new(azure_valid_json)
           expect(flow.flow?).to be_falsey
         end
@@ -180,6 +188,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
 
     describe '#execute' do
       it 'creates a PullRequest in the database' do
+        repository
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                               'ts' => '123'
                                                                                             })
@@ -190,6 +199,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
       end
 
       it 'creates a SlackMessage in the database' do
+        repository
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                               'ts' => '123'
                                                                                             })
@@ -250,6 +260,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
 
       context 'when there is not a check run linked with the branch of the pull request' do
         it 'sends a pending reaction' do
+          repository
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                                 'ts' => '123'
                                                                                               })
