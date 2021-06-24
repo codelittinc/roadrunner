@@ -203,10 +203,19 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
 
     describe '#flow?' do
       context 'returns true when' do
-        it 'a pull request exists and it is open' do
+        it 'a pull request exists, is open and the eventType is git.pullrequest.merged' do
           FactoryBot.create(:pull_request, source_control_id: 35, repository: repository)
 
           flow = described_class.new(valid_json)
+          expect(flow.flow?).to be_truthy
+        end
+
+        it 'a pull request exists, is open and the eventType is git.pullrequest.updated' do
+          FactoryBot.create(:pull_request, source_control_id: 35, repository: repository)
+
+          azure_merge_json_update = valid_json.deep_dup
+          azure_merge_json_update[:eventType] = 'git.pullrequest.updated'
+          flow = described_class.new(azure_merge_json_update)
           expect(flow.flow?).to be_truthy
         end
       end
