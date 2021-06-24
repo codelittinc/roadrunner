@@ -44,7 +44,7 @@ services:
       - redis
 
   box:
-    container_name: roadrunner-project-bundle-box
+    container_name: roadrunner-bundle-box
     image: busybox
     volumes:
       - /box
