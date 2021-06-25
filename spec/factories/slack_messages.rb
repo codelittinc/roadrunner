@@ -14,5 +14,6 @@
 FactoryBot.define do
   factory :slack_message do
     ts { '123' }
+    text { 'Sending a message' }
   end
 end

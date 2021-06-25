@@ -32,30 +32,6 @@ module Flows
 
     private
 
-    def pull_request
-      @pull_request ||= PullRequest.find_by(repository: repository, head: branch_name, state: 'open')
-    end
-
-    def message
-      @message = pull_request.slack_message
-    end
-
-    def check_run
-      @check_run ||= @params[:check_run]
-    end
-
-    def state
-      CheckRun::SUPPORTED_STATES.find { |i| i == check_run[:conclusion] } || CheckRun::PENDING_STATE
-    end
-
-    def branch_name
-      @branch_name ||= check_run.dig(:check_suite, :head_branch)
-    end
-
-    def commit_sha
-      @commit_sha ||= check_run[:head_sha]
-    end
-
     def reaction
       reacts = { 'success' => 'white_check_mark',
                  'failure' => 'rotating_light' }

@@ -70,5 +70,21 @@ module Parsers
     def checkrun
       @json[:check_run]
     end
+
+    def message
+      @message = pull_request.slack_message
+    end
+
+    def state
+      CheckRun::SUPPORTED_STATES.find { |i| i == check_run[:conclusion] } || CheckRun::PENDING_STATE
+    end
+
+    def branch_name
+      @branch_name ||= check_run.dig(:check_suite, :head_branch)
+    end
+
+    def commit_sha
+      @commit_sha ||= check_run[:head_sha]
+    end
   end
 end
