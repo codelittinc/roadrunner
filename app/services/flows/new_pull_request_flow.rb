@@ -3,6 +3,8 @@
 module Flows
   class NewPullRequestFlow < BaseSourceControlFlow
     def execute
+      return unless pull_request.nil?
+
       user.save unless user.persisted?
 
       response = Clients::Slack::ChannelMessage.new(customer).send(new_pull_request_message, channel)

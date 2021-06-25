@@ -137,13 +137,13 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             repository = github_repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-            pr1 = FactoryBot.create(:pull_request, repository: repository)
+            pr1 = FactoryBot.create(:pull_request, repository: repository, source_control_id: 1)
 
             FactoryBot.create(:commit, message: 'commit number four', pull_request: pr1)
             FactoryBot.create(:commit, message: 'commit number five', pull_request: pr1)
             FactoryBot.create(:commit, message: 'commit number 6', pull_request: pr1)
 
-            pr2 = FactoryBot.create(:pull_request, repository: repository)
+            pr2 = FactoryBot.create(:pull_request, repository: repository, source_control_id: 2)
 
             FactoryBot.create(:commit, message: 'commit number seven', pull_request: pr2)
 
@@ -287,13 +287,13 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
             repository = azure_repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-            pr1 = FactoryBot.create(:pull_request, repository: repository)
+            pr1 = FactoryBot.create(:pull_request, repository: repository, source_control_id: 1)
 
             FactoryBot.create(:commit, message: 'commit number four', pull_request: pr1)
             FactoryBot.create(:commit, message: 'commit number five', pull_request: pr1)
             FactoryBot.create(:commit, message: 'commit number 6', pull_request: pr1)
 
-            pr2 = FactoryBot.create(:pull_request, repository: repository)
+            pr2 = FactoryBot.create(:pull_request, repository: repository, source_control_id: 2)
 
             FactoryBot.create(:commit, message: 'commit number seven', pull_request: pr2)
 

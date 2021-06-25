@@ -37,6 +37,15 @@ RSpec.describe PullRequest, type: :model do
     it { should have_many(:pull_request_reviews).dependent(:destroy) }
     it { should have_many(:pull_request_changes).dependent(:destroy) }
     it { should have_many(:check_runs).through(:branch) }
+
+    it 'validates uniqueness between repository and source control id' do
+      repository = FactoryBot.create(:repository)
+      FactoryBot.create(:pull_request, repository: repository, source_control_type: 'azure', source_control_id: 1)
+
+      expect do
+        FactoryBot.create(:pull_request, repository: repository, source_control_type: 'azure', source_control_id: 1)
+      end.to raise_error(ActiveRecord::RecordInvalid, /Repository There is a source_control_id for this repository already/)
+    end
   end
 
   describe 'state machine' do
