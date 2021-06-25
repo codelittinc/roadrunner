@@ -197,6 +197,8 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
   context 'Azure JSON' do
     let(:valid_json) { load_flow_fixture('azure_close_pull_request.json') }
 
+    let(:abandoned_json) { load_flow_fixture('azure_abandoned_pull_request.json') }
+
     let(:repository) do
       FactoryBot.create(:repository, name: 'ay-users-api-test', owner: 'Avant')
     end
@@ -216,6 +218,13 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
           azure_merge_json_update = valid_json.deep_dup
           azure_merge_json_update[:eventType] = 'git.pullrequest.updated'
           flow = described_class.new(azure_merge_json_update)
+          expect(flow.flow?).to be_truthy
+        end
+
+        it 'a pull request is abandoned' do
+          FactoryBot.create(:pull_request, source_control_id: 35, repository: repository)
+
+          flow = described_class.new(abandoned_json)
           expect(flow.flow?).to be_truthy
         end
       end
@@ -280,6 +289,21 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
             flow.run
 
             expect(pr.reload.state).to eq('merged')
+          end
+        end
+
+        it 'updates the pull request state from abandoned to canceled' do
+          VCR.use_cassette('flows#close-pull-request#azure-create-commit-right-message') do
+            slack_message = FactoryBot.create(:slack_message, ts: '123')
+            pr = FactoryBot.create(:pull_request, source_control_id: 35, repository: repository, slack_message: slack_message, head: 'fix/update-leases-brokers')
+
+            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
+
+            flow = described_class.new(abandoned_json)
+            flow.run
+
+            expect(pr.reload.state).to eq('cancelled')
           end
         end
 
