@@ -1,0 +1,99 @@
+{
+  "subscriptionId": "51df0f91-0568-42f9-a781-1d06547f1ba1",
+  "notificationId": 65,
+  "id": "5b701b7a-c4f6-483a-be6f-5ca0649866cb",
+  "eventType": "git.pullrequest.updated",
+  "publisherId": "tfs",
+  "message": {
+    "text": "Kaio Cristian Costa Porto de Magalhães abandoned pull request 447 (Updated README.md) in roadrunner-repository-test\r\nhttps://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/",
+    "html": "Kaio Cristian Costa Porto de Magalh\u0026#227;es abandoned \u003ca href=\"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/pullrequest/447\"\u003epull request 447\u003c/a\u003e (Updated README.md) in \u003ca href=\"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/\"\u003eroadrunner-repository-test\u003c/a\u003e",
+    "markdown": "Kaio Cristian Costa Porto de Magalhães abandoned [pull request 447](https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/pullrequest/447) (Updated README.md) in [roadrunner-repository-test](https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/)"
+  },
+  "detailedMessage": {
+    "text": "Kaio Cristian Costa Porto de Magalhães abandoned pull request 447 (Updated README.md) in roadrunner-repository-test\r\nhttps://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/\r\nUpdated README.md\r\n",
+    "html": "Kaio Cristian Costa Porto de Magalh\u0026#227;es abandoned \u003ca href=\"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/pullrequest/447\"\u003epull request 447\u003c/a\u003e (Updated README.md) in \u003ca href=\"https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/\"\u003eroadrunner-repository-test\u003c/a\u003e\u003cp\u003eUpdated README.md\u003c/p\u003e",
+    "markdown": "Kaio Cristian Costa Porto de Magalhães abandoned [pull request 447](https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/pullrequest/447) (Updated README.md) in [roadrunner-repository-test](https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/)\r\nUpdated README.md\r\n"
+  },
+  "resource": {
+    "repository": {
+      "id": "0ac9dd43-2a38-46c0-b033-3aefee19c731",
+      "name": "ay-users-api-test",
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731",
+      "project": {
+        "id": "e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4",
+        "name": "Avant",
+        "description": "Avant application",
+        "url": "https://dev.azure.com/AY-InnovationCenter/_apis/projects/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4",
+        "state": "wellFormed",
+        "revision": 80,
+        "visibility": "private",
+        "lastUpdateTime": "2021-06-14T15:53:17.783Z"
+      },
+      "size": 2517,
+      "remoteUrl": "https://AY-InnovationCenter@dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test",
+      "sshUrl": "git@ssh.dev.azure.com:v3/AY-InnovationCenter/Avant/roadrunner-repository-test",
+      "webUrl": "https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test",
+      "isDisabled": false
+    },
+    "pullRequestId": 35,
+    "codeReviewId": 447,
+    "status": "abandoned",
+    "createdBy": {
+      "displayName": "Kaio Cristian Costa Porto de Magalhães",
+      "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/4d13cd81-e536-6e63-93fa-0de9cffbb868",
+      "_links": {
+        "avatar": {
+          "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.NGQxM2NkODEtZTUzNi03ZTYzLTkzZmEtMGRlOWNmZmJiODY4"
+        }
+      },
+      "id": "4d13cd81-e536-6e63-93fa-0de9cffbb868",
+      "uniqueName": "kaio@codelitt.com",
+      "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=4d13cd81-e536-6e63-93fa-0de9cffbb868",
+      "descriptor": "aad.NGQxM2NkODEtZTUzNi03ZTYzLTkzZmEtMGRlOWNmZmJiODY4"
+    },
+    "creationDate": "2021-06-24T15:24:44.2528951Z",
+    "closedDate": "2021-06-24T15:25:11.4718418Z",
+    "title": "Updated README.md",
+    "description": "Updated README.md",
+    "sourceRefName": "refs/heads/fest/test",
+    "targetRefName": "refs/heads/master",
+    "isDraft": false,
+    "mergeId": "236f56f3-c6e4-45a6-b35c-be5ccb9867e2",
+    "lastMergeSourceCommit": {
+      "commitId": "136833dab33f4a05e9330c77c079acaef1f296b9",
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/136833dab33f4a05e9330c77c079acaef1f296b9"
+    },
+    "lastMergeTargetCommit": {
+      "commitId": "65a178456d7371ad23691fc30cbfef05a2f74f53",
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/commits/65a178456d7371ad23691fc30cbfef05a2f74f53"
+    },
+    "reviewers": [],
+    "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/pullRequests/447",
+    "_links": {
+      "web": {
+        "href": "https://dev.azure.com/AY-InnovationCenter/Avant/_git/roadrunner-repository-test/pullrequest/447"
+      },
+      "statuses": {
+        "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/0ac9dd43-2a38-46c0-b033-3aefee19c731/pullRequests/447/statuses"
+      }
+    },
+    "supportsIterations": true,
+    "artifactId": "vstfs:///Git/PullRequestId/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4%2f0ac9dd43-2a38-46c0-b033-3aefee19c731%2f447"
+  },
+  "resourceVersion": "1.0",
+  "resourceContainers": {
+    "collection": {
+      "id": "a121438c-5a62-4eaf-8333-7204deeb7308",
+      "baseUrl": "https://dev.azure.com/AY-InnovationCenter/"
+    },
+    "account": {
+      "id": "c713fab0-a7a4-4858-b8d7-acd0e4cae999",
+      "baseUrl": "https://dev.azure.com/AY-InnovationCenter/"
+    },
+    "project": {
+      "id": "e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4",
+      "baseUrl": "https://dev.azure.com/AY-InnovationCenter/"
+    }
+  },
+  "createdDate": "2021-06-24T15:25:18.0306832Z"
+}

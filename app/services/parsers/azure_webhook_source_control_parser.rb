@@ -19,7 +19,7 @@ module Parsers
     end
 
     def close_pull_request_flow?
-      (event_type == 'git.pullrequest.merged' || event_type == 'git.pullrequest.updated') && @status == 'completed'
+      (event_type == 'git.pullrequest.merged' || event_type == 'git.pullrequest.updated') && (@status == 'completed' || @status == 'abandoned')
     end
 
     def new_review_submission_flow?
