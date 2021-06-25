@@ -28,6 +28,13 @@ class PullRequest < ApplicationRecord
   has_one :branch, dependent: :nullify
   has_many :check_runs, through: :branch
 
+  validate :uniqueness_between_repository_and_source_control_id
+
+  def uniqueness_between_repository_and_source_control_id
+    record = PullRequest.by_repository_and_source_control_id(repository, source&.source_control_id)
+    errors.add(:repository, 'There is a source_control_id for this repository already') if record&.id != id
+  end
+
   # @TODO: rename to source_control
   belongs_to :source, polymorphic: true
 

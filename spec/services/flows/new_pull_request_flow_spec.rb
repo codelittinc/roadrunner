@@ -69,20 +69,17 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
         expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
         flow = described_class.new(github_valid_json)
 
-        expect { flow.run }.to change { PullRequest.count }.by(1)
+        expect { flow.run }.to change(PullRequest, :count).by(1)
       end
 
-      it 'pull request already exists in database' do
-        FactoryBot.create(:pull_request, repository: repository, source_control_id: 160)
+      context 'pull request already exists in database' do
+        it 'pull request already exists in database' do
+          FactoryBot.create(:pull_request, repository: repository, source_control_id: 160)
 
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
-                                                                                              'ts' => '123'
-                                                                                            })
-        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
+          flow = described_class.new(github_valid_json)
 
-        flow = described_class.new(github_valid_json)
-
-        expect { flow.run }.to change { SlackMessage.count }.by(1)
+          expect { flow.run }.to change(PullRequest, :count).by(0)
+        end
       end
 
       context 'when there is a check run linked with the branch of the pull request' do
