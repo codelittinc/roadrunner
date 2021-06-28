@@ -22,7 +22,6 @@ services:
     stdin_open: true
     build:
       context: .
-      dockerfile: Dockerfile
 
     volumes:
       - .:/share
