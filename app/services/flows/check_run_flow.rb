@@ -23,7 +23,7 @@ module Flows
       Clients::Slack::Reactji.new(customer).send(reaction, channel, message.ts)
     end
 
-    def flow?
+    def can_execute?
       return false unless check_run
       return false if branch_name.to_s.empty?
 
@@ -41,19 +41,19 @@ module Flows
     end
 
     def check_run
-      @check_run ||= @params[:check_run]
+      @check_run ||= parser.check_run
     end
 
     def state
-      CheckRun::SUPPORTED_STATES.find { |i| i == check_run[:conclusion] } || CheckRun::PENDING_STATE
+      CheckRun::SUPPORTED_STATES.find { |i| i == parser.conclusion } || CheckRun::PENDING_STATE
     end
 
     def branch_name
-      @branch_name ||= check_run.dig(:check_suite, :head_branch)
+      @branch_name ||= parser.branch_name
     end
 
     def commit_sha
-      @commit_sha ||= check_run[:head_sha]
+      @commit_sha ||= parser.commit_sha
     end
 
     def reaction
