@@ -5,7 +5,7 @@ require 'ostruct'
 module Parsers
   class GithubWebhookParser < BaseParser
     delegate :body, :state, to: :review, prefix: true, allow_nil: true
-    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :review, :review_username, :state, :title, :username, :action
+    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :review, :review_username, :state, :title, :username, :action, :commit_sha, :check_run, :conclusion
 
     def source_control_pull_request
       Clients::Github::PullRequest
@@ -33,6 +33,7 @@ module Parsers
 
     def parse!
       parse_pull_request! if pull_request
+      parse_check_run! if checkrun
 
       @owner = @json.dig(:organization, :login) || @json.dig(:pull_request, :head, :repo, :owner, :login)
       @repository_name = @json.dig(:repository, :name)
@@ -40,6 +41,7 @@ module Parsers
       @review = OpenStruct.new @json[:review]
       @review_username = review&.dig(:user, :login)
       @action = @json[:action]
+      @check_run = @json[:check_run]
     end
 
     def user_by_source_control
@@ -51,6 +53,12 @@ module Parsers
     end
 
     private
+
+    def parse_check_run!
+      @commit_sha = checkrun&.dig(:head_sha)
+      @branch_name = checkrun&.dig(:check_suite, :head_branch)
+      @conclusion = checkrun&.dig(:conclusion)
+    end
 
     def parse_pull_request!
       @base = pull_request&.dig(:base, :ref)
