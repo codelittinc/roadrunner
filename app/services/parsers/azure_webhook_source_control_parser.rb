@@ -4,7 +4,7 @@ require 'ostruct'
 
 module Parsers
   class AzureWebhookSourceControlParser < BaseParser
-    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :review, :review_username, :state, :title, :username, :event_type
+    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :review, :review_username, :state, :title, :username, :event_type, :commit_sha, :conclusion
 
     def can_parse?
       @json[:publisherId] == 'tfs'
@@ -30,6 +30,8 @@ module Parsers
     # rubocop:disable Metrics/PerceivedComplexity
     # rubocop:disable Metrics/AbcSize
     def parse!
+      parse_check_run! if check_run
+
       @event_type = @json[:eventType]
       @base = resource[:targetRefName]&.scan(%r{/.+/(.+$)})&.flatten&.first
       @description = resource[:description]
@@ -65,6 +67,16 @@ module Parsers
 
     def resource
       @json[:resource]
+    end
+
+    def check_run
+      resource[:run]
+    end
+
+    def parse_check_run!
+      @commit_sha = check_run&.dig(:resources, :repositories, :self, :version)
+      @branch_name = check_run&.dig(:resources, :repositories, :self, :refName)
+      @conclusion = check_run[:result] == 'succeeded' ? 'success' : 'failure'
     end
   end
 end
