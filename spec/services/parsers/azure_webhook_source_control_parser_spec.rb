@@ -7,6 +7,8 @@ RSpec.describe Parsers::AzureWebhookSourceControlParser, type: :service do
   let(:new_pull_request) { load_flow_fixture('azure_new_pull_request.json') }
   let(:updated_pull_request) { load_flow_fixture('azure_updated_pull_request.json') }
   let(:close_pull_request) { load_flow_fixture('azure_close_pull_request.json') }
+  let(:checkrun_flow) { load_flow_fixture('azure_checkrun_flow.json') }
+  let(:failed_checkrun_flow) { load_flow_fixture('azure_failed_checkrun_flow.json') }
 
   context 'can_parse?' do
     describe 'returns true when' do
@@ -92,6 +94,34 @@ RSpec.describe Parsers::AzureWebhookSourceControlParser, type: :service do
       flow.parse!
 
       expect(flow.title).to eql('Added test')
+    end
+
+    it 'parses the commit sha properly' do
+      flow = described_class.new(checkrun_flow)
+      flow.parse!
+
+      expect(flow.commit_sha).to eql('dd63b3141c925db679f70e13d3edc872cf860982')
+    end
+
+    it 'parses the branch name properly' do
+      flow = described_class.new(checkrun_flow)
+      flow.parse!
+
+      expect(flow.branch_name).to eql('refs/pull/465/merge')
+    end
+
+    it 'parses the conclusion properly when succeeded' do
+      flow = described_class.new(checkrun_flow)
+      flow.parse!
+
+      expect(flow.conclusion).to eql('success')
+    end
+
+    it 'parses the conclusion properly when failed' do
+      flow = described_class.new(failed_checkrun_flow)
+      flow.parse!
+
+      expect(flow.conclusion).to eql('failure')
     end
   end
 

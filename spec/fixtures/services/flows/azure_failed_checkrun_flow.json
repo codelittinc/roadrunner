@@ -1,0 +1,72 @@
+{
+  "subscriptionId": "b6cf2a23-6f33-4e41-9923-c1250e4a5caf",
+  "notificationId": 1,
+  "id": "bf7e26f9-cba9-4968-8d5b-0430b563b06b",
+  "eventType": "ms.vss-pipelines.run-state-changed-event",
+  "publisherId": "pipelines",
+  "message": {
+    "text": "Run 20210625.13 succeeded.",
+    "html": "Run \u003ca href=\"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_build/results?buildId=2092\"\u003e20210625.13\u003c/a\u003e succeeded.",
+    "markdown": "Run [20210625.13](https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_build/results?buildId=2092) succeeded."
+  },
+  "detailedMessage": {
+    "text": "Run 20210625.13 succeeded.",
+    "html": "Run \u003ca href=\"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_build/results?buildId=2092\"\u003e20210625.13\u003c/a\u003e succeeded.",
+    "markdown": "Run [20210625.13](https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_build/results?buildId=2092) succeeded."
+  },
+  "resource": {
+    "run": {
+      "_links": {
+        "self": {
+          "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/pipelines/28/runs/2092"
+        },
+        "web": {
+          "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_build/results?buildId=2092"
+        },
+        "pipeline.web": {
+          "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_build/definition?definitionId=28"
+        },
+        "pipeline": {
+          "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/pipelines/28?revision=2"
+        }
+      },
+      "pipeline": {
+        "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/pipelines/28?revision=2",
+        "id": 28,
+        "revision": 2,
+        "name": "Properties - Web - CI",
+        "folder": "\\Properties"
+      },
+      "state": "completed",
+      "result": "failed",
+      "createdDate": "2021-06-25T16:51:18.6486563Z",
+      "finishedDate": "2021-06-25T17:03:51.1963857Z",
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/pipelines/28/runs/2092",
+      "resources": {
+        "repositories": {
+          "self": {
+            "repository": {
+              "id": "93ed8322-6ef9-4c87-a458-b3d0859de666",
+              "type": "azureReposGit"
+            },
+            "refName": "refs/pull/465/merge",
+            "version": "dd63b3141c925db679f70e13d3edc872cf860982"
+          }
+        }
+      },
+      "id": 2092,
+      "name": "20210625.13"
+    },
+    "pipeline": {
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/pipelines/28?revision=2",
+      "id": 28,
+      "revision": 2,
+      "name": "Properties - Web - CI",
+      "folder": "\\Properties"
+    },
+    "runId": 2092,
+    "runUrl": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/pipelines/28/runs/2092"
+  },
+  "resourceVersion": "5.1-preview.1",
+  "createdDate": "2021-06-25T17:03:57.5598441Z"
+}
