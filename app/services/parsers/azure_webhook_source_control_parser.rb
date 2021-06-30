@@ -7,7 +7,7 @@ module Parsers
     attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :review, :review_username, :state, :title, :username, :event_type, :commit_sha, :conclusion
 
     def can_parse?
-      @json[:publisherId] == 'tfs'
+      @json[:publisherId] == 'tfs' || @json[:publisherId] == 'pipelines'
     end
 
     def source_control_pull_request
@@ -63,14 +63,14 @@ module Parsers
       AzurePullRequest.new(source_control_id: source_control_id, pull_request: pull_request)
     end
 
+    def check_run
+      resource[:run]
+    end
+
     private
 
     def resource
       @json[:resource]
-    end
-
-    def check_run
-      resource[:run]
     end
 
     def parse_check_run!

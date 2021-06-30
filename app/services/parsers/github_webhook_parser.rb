@@ -5,14 +5,14 @@ require 'ostruct'
 module Parsers
   class GithubWebhookParser < BaseParser
     delegate :body, :state, to: :review, prefix: true, allow_nil: true
-    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :review, :review_username, :state, :title, :username, :action, :commit_sha, :check_run, :conclusion
+    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :review, :review_username, :state, :title, :username, :action, :commit_sha, :conclusion
 
     def source_control_pull_request
       Clients::Github::PullRequest
     end
 
     def can_parse?
-      @json && (!!pull_request || !!checkrun)
+      @json && (!!pull_request || !!check_run)
     end
 
     def new_pull_request_flow?
@@ -33,7 +33,7 @@ module Parsers
 
     def parse!
       parse_pull_request! if pull_request
-      parse_check_run! if checkrun
+      parse_check_run! if check_run
 
       @owner = @json.dig(:organization, :login) || @json.dig(:pull_request, :head, :repo, :owner, :login)
       @repository_name = @json.dig(:repository, :name)
@@ -41,7 +41,6 @@ module Parsers
       @review = OpenStruct.new @json[:review]
       @review_username = review&.dig(:user, :login)
       @action = @json[:action]
-      @check_run = @json[:check_run]
     end
 
     def user_by_source_control
@@ -52,12 +51,16 @@ module Parsers
       GithubPullRequest.new(source_control_id: source_control_id, pull_request: pull_request)
     end
 
+    def check_run
+      @json[:check_run]
+    end
+
     private
 
     def parse_check_run!
-      @commit_sha = checkrun&.dig(:head_sha)
-      @branch_name = checkrun&.dig(:check_suite, :head_branch)
-      @conclusion = checkrun&.dig(:conclusion)
+      @commit_sha = check_run&.dig(:head_sha)
+      @branch_name = check_run&.dig(:check_suite, :head_branch)
+      @conclusion = check_run&.dig(:conclusion)
     end
 
     def parse_pull_request!
@@ -73,10 +76,6 @@ module Parsers
 
     def pull_request
       @json[:pull_request]
-    end
-
-    def checkrun
-      @json[:check_run]
     end
   end
 end
