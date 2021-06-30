@@ -211,4 +211,88 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       end
     end
   end
+
+  context 'Azure JSON' do
+    let(:valid_json) { load_flow_fixture('azure_checkrun_flow.json') }
+
+    describe '#flow?' do
+      context 'returns true when' do
+        it 'a check run contains commit sha' do
+          valid_json_with_commit = valid_json.deep_dup
+
+          valid_json_with_commit[:resource][:run][:resources][:repositories][:self][:version] = '8bdc18cc18ea9d7f4a19d2424171e8aa6e8f8f72'
+
+          flow = described_class.new(valid_json_with_commit)
+
+          expect(flow.flow?).to be_truthy
+        end
+
+        it 'a check run contains branch' do
+          valid_json_with_branches = valid_json.deep_dup
+
+          valid_json_with_branches[:resource][:run][:resources][:repositories][:self][:refName] = 'develop'
+
+          flow = described_class.new(valid_json_with_branches)
+
+          expect(flow.flow?).to be_truthy
+        end
+
+        it 'a check run contains state eqls failure' do
+          valid_json_with_state_failure = valid_json.deep_dup
+
+          valid_json_with_state_failure[:resource][:run][:result] = 'failure'
+
+          flow = described_class.new(valid_json_with_state_failure)
+
+          expect(flow.flow?).to be_truthy
+        end
+
+        it 'a check run contains state eqls pending' do
+          valid_json_with_state_pending = valid_json.deep_dup
+
+          valid_json_with_state_pending[:resource][:run][:result] = 'pending'
+
+          flow = described_class.new(valid_json_with_state_pending)
+
+          expect(flow.flow?).to be_truthy
+        end
+
+        it 'a check run contains state eqls success' do
+          valid_json_with_state_success = valid_json.deep_dup
+
+          valid_json_with_state_success[:resource][:run][:result] = 'success'
+
+          flow = described_class.new(valid_json_with_state_success)
+
+          expect(flow.flow?).to be_truthy
+        end
+
+        it 'a check run contains commit and state eqls success, failure or pending' do
+          flow = described_class.new(valid_json)
+
+          expect(flow.flow?).to be_truthy
+        end
+      end
+
+      context 'returns false when' do
+        it 'a check run doesnt contains a commit' do
+          invalid_json = valid_json.deep_dup
+          invalid_json[:resource][:run][:resources][:repositories][:self][:version] = nil
+
+          flow = described_class.new(invalid_json)
+
+          expect(flow.flow?).to be_falsey
+        end
+
+        it 'a check run doesnt contains branch name' do
+          invalid_json = valid_json.deep_dup
+          invalid_json[:resource][:run][:resources][:repositories][:self][:refName] = ''
+
+          flow = described_class.new(invalid_json)
+
+          expect(flow.flow?).to be_falsey
+        end
+      end
+    end
+  end
 end
