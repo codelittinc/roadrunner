@@ -38,8 +38,8 @@ module Parsers
       @source_control_id = resource[:pullRequestId] || resource.dig(:pullRequest, :pullRequestId)
       @draft = resource[:isDraft]
       @head = resource[:sourceRefName]&.scan(%r{/.*/(.+/.+$)})&.flatten&.first
-      @owner = resource.dig(:repository, :project, :name) || resource.dig(:pullRequest, :repository, :project, :name)
-      @repository_name = resource.dig(:repository, :name) || resource.dig(:pullRequest, :repository, :name)
+      @owner = @owner || resource.dig(:repository, :project, :name) || resource.dig(:pullRequest, :repository, :project, :name)
+      @repository_name = @repository_name || resource.dig(:repository, :name) || resource.dig(:pullRequest, :repository, :name)
       @title = resource[:title]
       @username = resource.dig(:createdBy, :uniqueName)
       @merged = resource[:mergeStatus] == 'succeeded'
@@ -47,8 +47,6 @@ module Parsers
       @review = resource[:comment]
       @review_username = @review&.dig(:author, :uniqueName)
       @review_body = @review&.dig(:content)
-      # @TODO: check if it is even possible to have this from Azure
-      @review_state = ''
     end
     # rubocop:enable Metrics/CyclomaticComplexity
     # rubocop:enable Metrics/PerceivedComplexity
@@ -67,16 +65,23 @@ module Parsers
       resource[:run]
     end
 
+    def parse_check_run!
+      @commit_sha = check_run&.dig(:resources, :repositories, :self, :version)
+      branch = check_run&.dig(:resources, :repositories, :self, :refName)
+      branch_name_regex = %r{refs/heads/(.*)}
+      @branch_name = branch.match?(branch_name_regex) ? branch.match(branch_name_regex)[1] : nil
+      @conclusion = check_run[:result] == 'succeeded' ? 'success' : 'failure'
+      repository_id = check_run&.dig(:resources, :repositories, :self, :repository, :id)
+      repository = OpenStruct.new({ name: repository_id })
+      repo = Clients::Azure::Repository.new.get_repository(repository)
+      @repository_name = repo.name
+      @owner = repo.owner
+    end
+
     private
 
     def resource
       @json[:resource]
-    end
-
-    def parse_check_run!
-      @commit_sha = check_run&.dig(:resources, :repositories, :self, :version)
-      @branch_name = check_run&.dig(:resources, :repositories, :self, :refName)
-      @conclusion = check_run[:result] == 'succeeded' ? 'success' : 'failure'
     end
   end
 end

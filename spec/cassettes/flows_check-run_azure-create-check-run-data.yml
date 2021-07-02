@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://dev.azure.com/AY-InnovationCenter/Avant/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666?api-version=4.1&includeParent=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic OnRvbnJjcHB6dmVuc3Zma3Vtd2c3Zm4ybmkzcHB5bHFoYnl3aHd5empoeGZpMnRjZGgyNmE=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '681'
+      Content-Type:
+      - application/json; charset=utf-8; api-version=4.1
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      P3p:
+      - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
+        STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+      Set-Cookie:
+      - VstsSession=%7B%22PersistentSessionId%22%3A%2222fa81f8-e403-4830-8c58-454dd1548d59%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Wed, 06-Jul-2022 12:46:11 GMT; path=/; secure;
+        HttpOnly
+      X-Tfs-Processid:
+      - 2bf58280-6af4-4504-9416-60881c407fc7
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Activityid:
+      - 15ae7b9d-5db8-4b80-9d67-cf9f4a8f0a2c
+      X-Tfs-Session:
+      - 15ae7b9d-5db8-4b80-9d67-cf9f4a8f0a2c
+      X-Vss-E2eid:
+      - 15ae7b9d-5db8-4b80-9d67-cf9f4a8f0a2c
+      X-Vss-Userdata:
+      - 4d13cd81-e536-6e63-93fa-0de9cffbb868:kaio@codelitt.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Request-Context:
+      - appId=cid-v1:0c3d14cd-19b4-4eb7-9b56-c7dfb8d9a151
+      Access-Control-Expose-Headers:
+      - Request-Context
+      X-Content-Type-Options:
+      - nosniff
+      X-Cache:
+      - CONFIG_NOCACHE
+      X-Msedge-Ref:
+      - 'Ref A: 87C12BF380744C67912CB1D2EC35C8ED Ref B: RIO03EDGE0614 Ref C: 2021-07-06T12:46:10Z'
+      Date:
+      - Tue, 06 Jul 2021 12:46:10 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"93ed8322-6ef9-4c87-a458-b3d0859de666","name":"ay-pia-web","url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666","project":{"id":"e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4","name":"Avant","description":"Avant
+        application","url":"https://dev.azure.com/AY-InnovationCenter/_apis/projects/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4","state":"wellFormed","revision":80,"visibility":"private","lastUpdateTime":"2021-06-14T15:53:17.783Z"},"defaultBranch":"refs/heads/master","size":12610374,"remoteUrl":"https://AY-InnovationCenter@dev.azure.com/AY-InnovationCenter/Avant/_git/ay-pia-web","sshUrl":"git@ssh.dev.azure.com:v3/AY-InnovationCenter/Avant/ay-pia-web","webUrl":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-pia-web","_links":{"self":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666"},"project":{"href":"vstfs:///Classification/TeamProject/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4"},"web":{"href":"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-pia-web"},"ssh":{"href":"git@ssh.dev.azure.com:v3/AY-InnovationCenter/Avant/ay-pia-web"},"commits":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/commits"},"refs":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/refs"},"pullRequests":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/pullRequests"},"items":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/items"},"pushes":{"href":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/pushes"}},"isDisabled":false}'
+  recorded_at: Tue, 06 Jul 2021 12:46:10 GMT
+recorded_with: VCR 6.0.0

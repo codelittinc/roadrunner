@@ -15,14 +15,6 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
     let(:valid_json) { load_flow_fixture('github_check_run.json') }
 
     describe '#flow?' do
-      before(:each) do
-        repository = FactoryBot.create(:repository, name: 'roadrunner-rails')
-        slack_message = FactoryBot.create(:slack_message, ts: '123')
-        user = FactoryBot.create(:user, slack: 'rheniery.mendes')
-        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'develop')
-        FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
-      end
-
       context 'returns true when' do
         it 'a check run contains commit sha' do
           valid_json_with_commit = valid_json.deep_dup
@@ -104,21 +96,19 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
     describe '#run' do
       it 'sends a message if the check run is correct' do
-        VCR.use_cassette('flows#check-run#check-run-send-message', record: :new_episodes) do
-          repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
-          slack_message = FactoryBot.create(:slack_message, ts: '123')
-          user = FactoryBot.create(:user, slack: 'rheniery.mendes')
-          pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
-          FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
+        repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
+        slack_message = FactoryBot.create(:slack_message, ts: '123')
+        user = FactoryBot.create(:user, slack: 'rheniery.mendes')
+        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
+        FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
 
-          flow = described_class.new(valid_json)
+        flow = described_class.new(valid_json)
 
-          expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send)
+        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send)
 
-          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
+        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
 
-          flow.run
-        end
+        flow.run
       end
 
       it 'sends failure message and reaction if check run state eqls failure' do
@@ -218,79 +208,115 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
     describe '#flow?' do
       context 'returns true when' do
         it 'a check run contains commit sha' do
-          valid_json_with_commit = valid_json.deep_dup
+          VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+            valid_json_with_commit = valid_json.deep_dup
 
-          valid_json_with_commit[:resource][:run][:resources][:repositories][:self][:version] = '8bdc18cc18ea9d7f4a19d2424171e8aa6e8f8f72'
+            valid_json_with_commit[:resource][:run][:resources][:repositories][:self][:version] = '8bdc18cc18ea9d7f4a19d2424171e8aa6e8f8f72'
 
-          flow = described_class.new(valid_json_with_commit)
+            flow = described_class.new(valid_json_with_commit)
 
-          expect(flow.flow?).to be_truthy
+            expect(flow.flow?).to be_truthy
+          end
         end
 
         it 'a check run contains branch' do
-          valid_json_with_branches = valid_json.deep_dup
+          VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+            valid_json_with_branches = valid_json.deep_dup
 
-          valid_json_with_branches[:resource][:run][:resources][:repositories][:self][:refName] = 'develop'
+            valid_json_with_branches[:resource][:run][:resources][:repositories][:self][:refName] = 'refs/heads/develop'
 
-          flow = described_class.new(valid_json_with_branches)
+            flow = described_class.new(valid_json_with_branches)
 
-          expect(flow.flow?).to be_truthy
+            expect(flow.flow?).to be_truthy
+          end
         end
 
-        it 'a check run contains state eqls failure' do
-          valid_json_with_state_failure = valid_json.deep_dup
+        it 'a check run contains state eqls failed' do
+          VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+            valid_json_with_state_failure = valid_json.deep_dup
 
-          valid_json_with_state_failure[:resource][:run][:result] = 'failure'
+            valid_json_with_state_failure[:resource][:run][:result] = 'failed'
 
-          flow = described_class.new(valid_json_with_state_failure)
+            flow = described_class.new(valid_json_with_state_failure)
 
-          expect(flow.flow?).to be_truthy
+            expect(flow.flow?).to be_truthy
+          end
         end
 
-        it 'a check run contains state eqls pending' do
-          valid_json_with_state_pending = valid_json.deep_dup
+        it 'a check run contains state eqls succeeded' do
+          VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+            valid_json_with_state_success = valid_json.deep_dup
 
-          valid_json_with_state_pending[:resource][:run][:result] = 'pending'
+            valid_json_with_state_success[:resource][:run][:result] = 'succeeded'
 
-          flow = described_class.new(valid_json_with_state_pending)
+            flow = described_class.new(valid_json_with_state_success)
 
-          expect(flow.flow?).to be_truthy
-        end
-
-        it 'a check run contains state eqls success' do
-          valid_json_with_state_success = valid_json.deep_dup
-
-          valid_json_with_state_success[:resource][:run][:result] = 'success'
-
-          flow = described_class.new(valid_json_with_state_success)
-
-          expect(flow.flow?).to be_truthy
-        end
-
-        it 'a check run contains commit and state eqls success, failure or pending' do
-          flow = described_class.new(valid_json)
-
-          expect(flow.flow?).to be_truthy
+            expect(flow.flow?).to be_truthy
+          end
         end
       end
 
       context 'returns false when' do
         it 'a check run doesnt contains a commit' do
-          invalid_json = valid_json.deep_dup
-          invalid_json[:resource][:run][:resources][:repositories][:self][:version] = nil
+          VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+            invalid_json = valid_json.deep_dup
+            invalid_json[:resource][:run][:resources][:repositories][:self][:version] = nil
 
-          flow = described_class.new(invalid_json)
+            flow = described_class.new(invalid_json)
 
-          expect(flow.flow?).to be_falsey
+            expect(flow.flow?).to be_falsey
+          end
         end
 
         it 'a check run doesnt contains branch name' do
-          invalid_json = valid_json.deep_dup
-          invalid_json[:resource][:run][:resources][:repositories][:self][:refName] = ''
+          VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+            invalid_json = valid_json.deep_dup
+            invalid_json[:resource][:run][:resources][:repositories][:self][:refName] = ''
 
-          flow = described_class.new(invalid_json)
+            flow = described_class.new(invalid_json)
 
-          expect(flow.flow?).to be_falsey
+            expect(flow.flow?).to be_falsey
+          end
+        end
+
+        it 'it is the check run of a tag instead of a branch' do
+          VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+            invalid_json = valid_json.deep_dup
+            invalid_json[:resource][:run][:resources][:repositories][:self][:refName] = 'refs/tags/rc.4.v0.50.0'
+
+            flow = described_class.new(invalid_json)
+
+            expect(flow.flow?).to be_falsey
+          end
+        end
+
+        it 'it is the check run of a merge instead of a branch' do
+          VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+            invalid_json = valid_json.deep_dup
+            invalid_json[:resource][:run][:resources][:repositories][:self][:refName] = 'refs/tags/rc.4.v0.50.0'
+
+            flow = described_class.new(invalid_json)
+
+            expect(flow.flow?).to be_falsey
+          end
+        end
+      end
+    end
+
+    describe '#run' do
+      it 'sends a message if the check run is correct' do
+        VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+          repository = FactoryBot.create(:repository, name: 'ay-pia-web', owner: 'Avant')
+          slack_message = FactoryBot.create(:slack_message, ts: '123')
+          user = FactoryBot.create(:user, slack: 'rheniery.mendes')
+          pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'update/new-charts-styles')
+          FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
+
+          flow = described_class.new(valid_json)
+
+          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
+
+          flow.run
         end
       end
     end

@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require 'flows_helper'
+require 'external_api_helper'
 
 RSpec.describe Parsers::AzureWebhookSourceControlParser, type: :service do
   let(:new_pull_request) { load_flow_fixture('azure_new_pull_request.json') }
@@ -97,31 +98,39 @@ RSpec.describe Parsers::AzureWebhookSourceControlParser, type: :service do
     end
 
     it 'parses the commit sha properly' do
-      flow = described_class.new(checkrun_flow)
-      flow.parse!
+      VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+        flow = described_class.new(checkrun_flow)
+        flow.parse!
 
-      expect(flow.commit_sha).to eql('dd63b3141c925db679f70e13d3edc872cf860982')
+        expect(flow.commit_sha).to eql('69d850430ee11df6420ee29f654ab0bcbc99a7ee')
+      end
     end
 
     it 'parses the branch name properly' do
-      flow = described_class.new(checkrun_flow)
-      flow.parse!
+      VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+        flow = described_class.new(checkrun_flow)
+        flow.parse!
 
-      expect(flow.branch_name).to eql('refs/pull/465/merge')
+        expect(flow.branch_name).to eql('update/new-charts-styles')
+      end
     end
 
     it 'parses the conclusion properly when succeeded' do
-      flow = described_class.new(checkrun_flow)
-      flow.parse!
+      VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+        flow = described_class.new(checkrun_flow)
+        flow.parse!
 
-      expect(flow.conclusion).to eql('success')
+        expect(flow.conclusion).to eql('success')
+      end
     end
 
     it 'parses the conclusion properly when failed' do
-      flow = described_class.new(failed_checkrun_flow)
-      flow.parse!
+      VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
+        flow = described_class.new(failed_checkrun_flow)
+        flow.parse!
 
-      expect(flow.conclusion).to eql('failure')
+        expect(flow.conclusion).to eql('failure')
+      end
     end
   end
 
