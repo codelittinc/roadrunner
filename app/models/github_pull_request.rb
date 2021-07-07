@@ -6,7 +6,6 @@
 #
 #  id                :bigint           not null, primary key
 #  source_control_id :string
-#  pull_request_id   :bigint
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #

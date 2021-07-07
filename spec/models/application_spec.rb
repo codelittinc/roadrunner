@@ -4,12 +4,11 @@
 #
 # Table name: applications
 #
-#  id                  :bigint           not null, primary key
-#  environment         :string
-#  external_identifier :string
-#  repository_id       :bigint           not null
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
+#  id            :bigint           not null, primary key
+#  environment   :string
+#  repository_id :bigint           not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 require 'rails_helper'
 

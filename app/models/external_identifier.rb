@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: external_identifier
+# Table name: external_identifiers
 #
 #  id             :bigint           not null, primary key
 #  text           :string
