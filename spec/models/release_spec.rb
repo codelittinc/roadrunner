@@ -1,5 +1,16 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: releases
+#
+#  id             :bigint           not null, primary key
+#  version        :string
+#  application_id :bigint
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  deploy_status  :string
+#
 require 'rails_helper'
 
 RSpec.describe Release, type: :model do

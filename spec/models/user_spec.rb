@@ -10,6 +10,7 @@
 #  slack      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  azure      :string
 #
 require 'rails_helper'
 

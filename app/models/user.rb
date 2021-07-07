@@ -10,11 +10,12 @@
 #  slack      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  azure      :string
 #
 class User < ApplicationRecord
   include PgSearch::Model
 
-  pg_search_scope :search_by_term, against: %i[jira slack github]
+  pg_search_scope :search_by_term, against: %i[jira slack github azure]
 
   has_many :pull_requests
 end

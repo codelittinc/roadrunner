@@ -4,12 +4,12 @@
 #
 # Table name: projects
 #
-#  id         :bigint           not null, primary key
-#  name       :string
-#  customer_id  :bigint
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  slug       :string
+#  id          :bigint           not null, primary key
+#  name        :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  slug        :string
+#  customer_id :bigint
 #
 class Project < ApplicationRecord
   extend FriendlyId

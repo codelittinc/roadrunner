@@ -4,16 +4,17 @@
 #
 # Table name: repositories
 #
-#  id              :bigint           not null, primary key
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  project_id      :bigint
-#  deploy_type     :string
-#  supports_deploy :boolean
-#  name            :string
-#  friendly_name   :string
-#  jira_project    :string
-#  owner           :string
+#  id                  :bigint           not null, primary key
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  project_id          :bigint
+#  deploy_type         :string
+#  supports_deploy     :boolean
+#  name                :string
+#  jira_project        :string
+#  owner               :string
+#  friendly_name       :string
+#  source_control_type :string
 #
 require 'rails_helper'
 

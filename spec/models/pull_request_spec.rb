@@ -7,7 +7,6 @@
 #  id            :bigint           not null, primary key
 #  head          :string
 #  base          :string
-#  source_control_id     :integer
 #  title         :string
 #  description   :string
 #  state         :string
@@ -16,6 +15,8 @@
 #  repository_id :bigint
 #  user_id       :bigint
 #  ci_state      :string
+#  source_type   :string
+#  source_id     :bigint
 #
 require 'rails_helper'
 

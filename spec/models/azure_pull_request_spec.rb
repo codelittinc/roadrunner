@@ -4,11 +4,10 @@
 #
 # Table name: azure_pull_requests
 #
-#  id              :bigint           not null, primary key
-#  azure_id        :string
-#  pull_request_id :bigint
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                :bigint           not null, primary key
+#  source_control_id :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
 #
 require 'rails_helper'
 
