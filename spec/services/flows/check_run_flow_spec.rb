@@ -16,6 +16,10 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
     describe '#flow?' do
       context 'returns true when' do
+        before do
+          FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
+        end
+
         it 'a check run contains commit sha' do
           valid_json_with_commit = valid_json.deep_dup
 
@@ -207,6 +211,10 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
     describe '#flow?' do
       context 'returns true when' do
+        before do
+          FactoryBot.create(:repository, name: 'ay-pia-web', owner: 'Avant')
+        end
+
         it 'a check run contains commit sha' do
           VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
             valid_json_with_commit = valid_json.deep_dup
