@@ -82,6 +82,17 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
         end
       end
 
+      context 'there is a racing condition and two events are triggered together' do
+        it 'does not create more than one pull request' do
+          FactoryBot.create(:pull_request, repository: repository, source_control_id: 160)
+
+          expect_any_instance_of(Flows::NewPullRequestFlow).to receive(:pull_request_already_exists?).and_return(true)
+          flow = described_class.new(github_valid_json)
+
+          expect { flow.run }.to change(PullRequest, :count).by(0)
+        end
+      end
+
       context 'when there is a check run linked with the branch of the pull request' do
         it 'and it state is success, sends a success reaction' do
           branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository: repository)
