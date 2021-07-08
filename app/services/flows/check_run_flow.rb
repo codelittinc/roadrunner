@@ -26,6 +26,7 @@ module Flows
     def can_execute?
       return false unless check_run
       return false if branch_name.to_s.empty?
+      return false unless repository
 
       commit_sha && (state == CheckRun::FAILURE_STATE || state == CheckRun::SUCCESS_STATE || state == CheckRun::PENDING_STATE)
     end
