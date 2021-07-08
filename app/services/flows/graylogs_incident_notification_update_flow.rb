@@ -10,7 +10,7 @@ module Flows
     end
 
     def flow?
-      @params[:action] == 'user-addressing-error' && slack_message
+      @params[:action] == 'user-addressing-error' && slack_message && base_message
     end
 
     private
@@ -20,7 +20,7 @@ module Flows
     end
 
     def slack_message
-      @slack_message ||= SlackMessage.where(ts: timestamp).first
+      @slack_message ||= SlackMessage.find_by(ts: timestamp)
     end
 
     def timestamp
