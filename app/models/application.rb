@@ -25,7 +25,7 @@ class Application < ApplicationRecord
   validates :environment, presence: true, inclusion: { in: [DEV, QA, PROD] }
 
   def self.by_external_identifier(*external_identifiers)
-    cleaned_identifiers = external_identifiers.flatten.map(&:downcase)
+    cleaned_identifiers = external_identifiers.flatten.reject(&:nil?).map(&:downcase)
     ExternalIdentifier.all.find do |identifier|
       cleaned_identifiers.include?(identifier.text.downcase)
     end&.application
