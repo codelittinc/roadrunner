@@ -10,6 +10,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
   let(:valid_incident_with_custom_message) { load_flow_fixture('sentry_incident_with_custom_message.json') }
   let(:invalid_incident) { load_flow_fixture('graylogs_incident_big_message.json') }
   let(:valid_incident_of_missing_server) { load_flow_fixture('sentry_incident_with_missing_server.json') }
+  let(:valid_incident_without_browser) { load_flow_fixture('sentry_incident_without_browser.json') }
 
   context 'normal flow' do
     describe '#flow?' do
@@ -46,11 +47,12 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         application = FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
 
         flow = described_class.new(valid_incident)
+        message = "\n *Error*: This shouldn't happen!\n *Type*: Uncaught Exception\n *File Name*: /static/js/27.chunk.js\n *Function*: onClickSuggestion\n"\
+                  " *User*: \n>Id - 9\n>Email - victor.carvalho@codelitt.com\n *Browser*: Chrome\n\n "\
+                  '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/1851228751/events/6e54db70e36142d4b300b3389f4ff238/?project=5388450|See issue in Sentry.io>'
         expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
           application,
-          "\n *_Error: This shouldn't happen!_*\n *Type*: Uncaught Exception\n *File Name*: /static/js/27.chunk.js\n *Function*: onClickSuggestion\n"\
-          " *User*: \n>Id - 9\n>Email - victor.carvalho@codelitt.com\n *Browser*: Chrome\n\n "\
-          '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/1851228751/events/6e54db70e36142d4b300b3389f4ff238/?project=5388450|See issue in Sentry.io>',
+          message,
           nil,
           'sentry'
         )
@@ -60,10 +62,12 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
 
       it 'update server incident and create server incident instance' do
         application = FactoryBot.create(:application, :with_server, external_identifier: 'pia-web-qa')
-        slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: "\n *_Error: This shouldn't happen!_*\n *Type*: Uncaught Exception\n *File Name*: /static/js/27.chunk.js\n"\
-          " *Function*: onClickSuggestion\n *User*: \n>Id - 9"\
-                "\n>Email - victor.carvalho@codelitt.com\n *Browser*: Chrome\n\n *Link*: <https://sentry.io/organizations/codelitt-7y/issues/1851228751/events/6e54db70e36142d4b300b3389f4ff238/?project=5388450|See issue "\
-                'in Sentry.io>')
+        slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: "\n *Error*: This shouldn't happen!\n *Type*: Uncaught Exception\n *File Name*: /static/js/27.chunk.js\n"\
+                                                                                         " *Function*: onClickSuggestion\n *User*: \n>Id - 9"\
+                                                                                         "\n>Email - victor.carvalho@codelitt.com\n"\
+                                                                                         " *Browser*: Chrome\n\n"\
+                                                                                         ' *Link*: <https://sentry.io/organizations/codelitt-7y/issues/1851228751/events/6e54db70e36142d4b300b3389f4ff238/?project=5388450|'\
+                                                                                         'See issue in Sentry.io>')
 
         FactoryBot.create(:server_incident, application: application, message: slack_message.text, slack_message: slack_message)
 
@@ -97,6 +101,25 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         end
       end
 
+      context 'when there is no browser data' do
+        it 'it does not send the browser data' do
+          application = FactoryBot.create(:application, external_identifier: 'console', environment: 'prod')
+
+          flow = described_class.new(valid_incident_without_browser)
+
+          expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
+            application,
+            "\n *Error*: *errors.withStack: exit status 1\n"\
+            " *Type*: Uncaught Exception\n *File Name*: /usr/src/console/cmd/rack/main.go\n"\
+            " *Function*: uninstall\n\n *Link*: <https://sentry.io/organizations/codelitt-7y/issues/1627504850/events/65fc9e4950ed4aa2b55d2075eedaa359/?project=1299449|See issue in Sentry.io>",
+            nil,
+            'sentry'
+          )
+
+          flow.run
+        end
+      end
+
       context 'when there is an "error caught" tag' do
         it 'it adds to the message error that it was caught by the browser' do
           application = FactoryBot.create(:application, external_identifier: 'pia-web-qa')
@@ -104,7 +127,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
           flow = described_class.new(valid_incident_with_error_caught)
           expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
             application,
-            "\n *_Error: File timeout abstracting_*\n *Type*: Caught Exception\n *File Name*: services/ErrorsMonitor.ts\n"\
+            "\n *Error*: File timeout abstracting\n *Type*: Caught Exception\n *File Name*: services/ErrorsMonitor.ts\n"\
             " *Function*: callback\n *User*: \n>Id - 38\n>Email - carl.caputo@avisonyoung.com\n *Browser*: Chrome\n\n "\
             '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/2052407554/events/25693e1886a940e7801439205bb5337f/?project=5388450|See issue in Sentry.io>',
             nil,
@@ -122,7 +145,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
           flow = described_class.new(valid_incident_with_custom_message)
           expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
             application,
-            "\n *_Error: failed to create company \"Avison Young\" (compareName: \"avison young\"). company already exists (ID..._*\n *Type*: Caught Exception\n *Displayed message*: [undefined]\n"\
+            "\n *Error*: failed to create company \"Avison Young\" (compareName: \"avison young\"). company already exists (ID...\n *Type*: Caught Exception\n *Displayed message*: [undefined]\n"\
             " *File Name*: services/ErrorLogger.ts\n"\
             " *Function*: callback\n *User*: \n>Id - \n>Email - \n *Browser*: Chrome\n\n "\
             '*Link*: <https://sentry.io/organizations/codelitt-7y/issues/2067016219/events/b10521c963414374a4e786d9ab468ade/?project=5388450|See issue in Sentry.io>',
@@ -163,10 +186,10 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
           FactoryBot.create(:external_identifier, application: application, text: 'spaces local')
 
           flow = described_class.new(valid_incident_with_app_info_by_tags)
-          expected_message = "\n *_TypeError: Cannot read property 'fullName' of undefined_*\n *Type*: Uncaught"\
-          " Exception\n *File Name*: /spaces/assets/app.js\n *Function*: Explore.PropertyExploreNew._propertyCardHtml\n"\
-          " *User*: \n>Id - \n>Email - Ivan.Trograncic@avisonyoung.com\n *Browser*: Chrome\n\n *Link*: <https://sentry.io/"\
-          'organizations/codelitt-7y/issues/2371765146/events/207cad8681564e41b6c59cde20abcaab/?project=5691309|See issue in Sentry.io>'
+          expected_message = "\n *Error*: TypeError: Cannot read property 'fullName' of undefined\n *Type*: Uncaught"\
+                             " Exception\n *File Name*: /spaces/assets/app.js\n *Function*: Explore.PropertyExploreNew._propertyCardHtml\n"\
+                             " *User*: \n>Id - \n>Email - Ivan.Trograncic@avisonyoung.com\n *Browser*: Chrome\n\n *Link*: <https://sentry.io/"\
+                             'organizations/codelitt-7y/issues/2371765146/events/207cad8681564e41b6c59cde20abcaab/?project=5691309|See issue in Sentry.io>'
 
           expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
             application,
@@ -185,10 +208,10 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
           repository.project.customer.update(sentry_name: 'avison-young')
 
           flow = described_class.new(valid_incident_with_app_info_by_tags)
-          expected_message = "\n *_TypeError: Cannot read property 'fullName' of undefined_*\n *Type*: Uncaught"\
-          " Exception\n *File Name*: /spaces/assets/app.js\n *Function*: Explore.PropertyExploreNew._propertyCardHtml\n"\
-          " *User*: \n>Id - \n>Email - Ivan.Trograncic@avisonyoung.com\n *Browser*: Chrome\n\n *Link*: <https://sentry.io/"\
-          'organizations/avison-young/issues/2371765146/events/207cad8681564e41b6c59cde20abcaab/?project=5691309|See issue in Sentry.io>'
+          expected_message = "\n *Error*: TypeError: Cannot read property 'fullName' of undefined\n *Type*: Uncaught"\
+                             " Exception\n *File Name*: /spaces/assets/app.js\n *Function*: Explore.PropertyExploreNew._propertyCardHtml\n"\
+                             " *User*: \n>Id - \n>Email - Ivan.Trograncic@avisonyoung.com\n *Browser*: Chrome\n\n *Link*: <https://sentry.io/"\
+                             'organizations/avison-young/issues/2371765146/events/207cad8681564e41b6c59cde20abcaab/?project=5691309|See issue in Sentry.io>'
 
           expect_any_instance_of(ApplicationIncidentService).to receive(:register_incident!).with(
             application,
@@ -205,10 +228,10 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         application = FactoryBot.create(:application, :with_server, external_identifier: 'appraisal-api-qa.azurewebsites.net')
         FactoryBot.create(:external_identifier, application: application, text: 'spaces local')
 
-        message = "\n *_TypeError: Cannot read property 'fullName' of undefined_*\n *Type*: Uncaught Exception\n *File Name*:"\
-        " /spaces/assets/app.js\n *Function*: Explore.PropertyExploreNew._propertyCardHtml\n *User*: \n>Id - \n>Email - Ivan.T"\
-        "rograncic@avisonyoung.com\n *Browser*: Chrome\n\n *Link*: <https://sentry.io/organizations/codelitt-7y/issues/237176514"\
-        '6/events/207cad8681564e41b6c59cde20abcaab/?project=5691309|See issue in Sentry.io>'
+        message = "\n *Error*: TypeError: Cannot read property 'fullName' of undefined\n *Type*: Uncaught Exception\n *File Name*:"\
+                  " /spaces/assets/app.js\n *Function*: Explore.PropertyExploreNew._propertyCardHtml\n *User*: \n>Id - \n>Email - Ivan.T"\
+                  "rograncic@avisonyoung.com\n *Browser*: Chrome\n\n *Link*: <https://sentry.io/organizations/codelitt-7y/issues/237176514"\
+                  '6/events/207cad8681564e41b6c59cde20abcaab/?project=5691309|See issue in Sentry.io>'
 
         slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400',
                                                           text: message)
@@ -229,9 +252,9 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
           flow = described_class.new(valid_incident_of_missing_server)
 
           slack_message = ':droplet: <https://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test> environment '\
-          ":droplet:<|QA>:droplet: \n \n *_<unknown>_*\n *Type*: Caught Exception\n *User*: \n>Id - 37\n>Email - "\
-          "john.sikaitis@avisonyoung.com\n *Browser*: \n\n *Link*: <https://sentry.io/organizations/avison-young/issues/2403853699"\
-          '/events/fc188ef59c9b46f8a6a970cfe49ac276/?project=5691309|See issue in Sentry.io>'
+                          ":droplet:<|QA>:droplet: \n \n *Error*: <unknown>\n *Type*: Caught Exception\n *User*: \n>Id - 37\n>Email - "\
+                          "john.sikaitis@avisonyoung.com\n\n *Link*: <https://sentry.io/organizations/avison-young/issues/2403853699"\
+                          '/events/fc188ef59c9b46f8a6a970cfe49ac276/?project=5691309|See issue in Sentry.io>'
 
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
             slack_message,
