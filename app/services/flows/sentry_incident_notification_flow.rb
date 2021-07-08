@@ -24,7 +24,7 @@ module Flows
     end
 
     def browser_name
-      @browser_name ||= @parser.event_contexts.dig(:browser, :name)
+      @browser_name ||= @parser.event_contexts&.dig(:browser, :name)
     end
 
     def user

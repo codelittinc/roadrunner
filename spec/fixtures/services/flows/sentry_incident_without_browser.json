@@ -1,0 +1,164 @@
+{
+  "id": "1627504850",
+  "project": "console",
+  "project_name": "Console",
+  "project_slug": "console",
+  "logger": "root",
+  "level": "error",
+  "culprit": "main.uninstall",
+  "message": "exit status 1",
+  "url": "https://sentry.io/organizations/convox/issues/1627504850/?referrer=webhooks_plugin",
+  "triggering_rules": [
+    "All Events"
+  ],
+  "event": {
+    "event_id": "65fc9e4950ed4aa2b55d2075eedaa359",
+    "level": "error",
+    "version": "4",
+    "type": "error",
+    "fingerprint": [
+      "{{default}}",
+      "exit status 1"
+    ],
+    "culprit": "main.uninstall",
+    "logentry": {
+      "formatted": "exit status 1"
+    },
+    "logger": "root",
+    "platform": "go",
+    "timestamp": 1625736945.39,
+    "received": 1625736945.5079,
+    "release": "RGAMNJUOEAV",
+    "environment": "console.convox.com",
+    "exception": {
+      "values": [
+        {
+          "type": "*errors.withStack",
+          "value": "exit status 1",
+          "stacktrace": {
+            "frames": [
+              {
+                "function": "main",
+                "module": "runtime",
+                "filename": "/usr/local/go/src/runtime/proc.go",
+                "abs_path": "/usr/local/go/src/runtime/proc.go",
+                "lineno": 203,
+                "in_app": false
+              },
+              {
+                "function": "main",
+                "module": "main",
+                "filename": "/usr/src/console/cmd/rack/main.go",
+                "abs_path": "/usr/src/console/cmd/rack/main.go",
+                "lineno": 37,
+                "in_app": true
+              },
+              {
+                "function": "run",
+                "module": "main",
+                "filename": "/usr/src/console/cmd/rack/main.go",
+                "abs_path": "/usr/src/console/cmd/rack/main.go",
+                "lineno": 55,
+                "in_app": true
+              },
+              {
+                "function": "handler",
+                "module": "main",
+                "filename": "/usr/src/console/cmd/rack/main.go",
+                "abs_path": "/usr/src/console/cmd/rack/main.go",
+                "lineno": 64,
+                "in_app": true
+              },
+              {
+                "function": "uninstall",
+                "module": "main",
+                "filename": "/usr/src/console/cmd/rack/main.go",
+                "abs_path": "/usr/src/console/cmd/rack/main.go",
+                "lineno": 155,
+                "in_app": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "tags": [
+      [
+        "environment",
+        "console.convox.com"
+      ],
+      [
+        "level",
+        "error"
+      ],
+      [
+        "logger",
+        "root"
+      ],
+      [
+        "sentry:release",
+        "RGAMNJUOEAV"
+      ],
+      [
+        "server_name",
+        "803733eb0b23"
+      ]
+    ],
+    "extra": {
+      "runtime.GOMAXPROCS": 2,
+      "runtime.NumCPU": 2,
+      "runtime.NumGoroutine": 11,
+      "runtime.Version": "go1.14.15"
+    },
+    "errors": [
+      {
+        "type": "invalid_data",
+        "name": "tags.0.1",
+        "reason": "expected a non-empty value"
+      }
+    ],
+    "key_id": "673182",
+    "project": 1299449,
+    "grouping_config": {
+      "enhancements": "eJybzDRxY3J-bm5-npWRgaGlroGxrpHxBABcYgcZ",
+      "id": "newstyle:2019-10-29"
+    },
+    "_metrics": {
+      "bytes.ingested.event": 1355,
+      "bytes.stored.event": 3668
+    },
+    "_ref": 1299449,
+    "_ref_version": 2,
+    "hashes": [
+      "8c0584518fe803d2b6033bf883585e3f",
+      "769ac9ec17e78e6caece49f5af45f188"
+    ],
+    "location": "/usr/src/console/cmd/rack/main.go",
+    "metadata": {
+      "filename": "/usr/src/console/cmd/rack/main.go",
+      "function": "uninstall",
+      "type": "*errors.withStack",
+      "value": "exit status 1"
+    },
+    "title": "*errors.withStack: exit status 1",
+    "_meta": {
+      "tags": {
+        "0": {
+          "1": {
+            "": {
+              "err": [
+                [
+                  "invalid_data",
+                  {
+                    "reason": "expected a non-empty value"
+                  }
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "id": "65fc9e4950ed4aa2b55d2075eedaa359"
+  }
+}

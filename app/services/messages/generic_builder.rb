@@ -22,13 +22,14 @@ module Messages
                        'Uncaught Exception'
                      end
 
-      message = "\n *_#{title}_*"
+      title = title.gsub(/^Error:\s/, '')
+      message = "\n *Error*: #{title}"
       message += "\n *Type*: #{type_message}"
       message += "\n *Displayed message*: #{custom_message}" if custom_message
       message += "\n *File Name*: #{metadata[:filename]}" if metadata[:filename] && metadata[:filename] != '<anonymous>'
       message += "\n *Function*: #{metadata[:function]}" if metadata[:function]
-      message += "\n *User*: \n>Id - #{user[:id]}\n>Email - #{user[:email]}"
-      message += "\n *Browser*: #{browser_name}"
+      message += "\n *User*: \n>Id - #{user[:id]}\n>Email - #{user[:email]}" if user
+      message += "\n *Browser*: #{browser_name}" if browser_name
       message += "\n\n *Link*: <#{link_sentry}|See issue in Sentry.io>"
       message
     end
