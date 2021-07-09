@@ -6,22 +6,17 @@ module Flows
       slack_message_ts = pull_request.slack_message.ts
       slack_channel = pull_request.repository.slack_repository_info.dev_channel
 
-      mentions = comment.scan(/@([a-zA-Z0-9]+)/).flatten
+      mentions = parser.direct_comment_body.scan(parser.mention_regex).flatten
+      users = mentions.map { |mention| User.search_by_term(mention).first }.compact
 
-      User.where(github: mentions).each do |user|
+      users.each do |user|
         message = Messages::GenericBuilder.new_direct_message(user)
         Clients::Slack::ChannelMessage.new(customer).send(message, slack_channel, slack_message_ts)
       end
     end
 
     def can_execute?
-      @params[:action] == 'created' && comment && pull_request
-    end
-
-    private
-
-    def comment
-      @comment ||= @params.dig(:comment, :body)
+      parser.direct_comment_body && pull_request
     end
   end
 end
