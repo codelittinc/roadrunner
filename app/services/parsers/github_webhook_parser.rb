@@ -4,15 +4,14 @@ require 'ostruct'
 
 module Parsers
   class GithubWebhookParser < BaseParser
-    delegate :body, :state, to: :review, prefix: true, allow_nil: true
-    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :review, :review_username, :state, :title, :username, :action, :commit_sha, :conclusion
+    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :state, :title, :username, :action, :commit_sha, :conclusion
 
     def source_control_pull_request
       Clients::Github::PullRequest
     end
 
     def can_parse?
-      @json && (!!pull_request || !!check_run)
+      @json && (!!pull_request || !!check_run) && !@json[:review]
     end
 
     def new_pull_request_flow?
@@ -21,10 +20,6 @@ module Parsers
 
     def close_pull_request_flow?
       action == 'closed'
-    end
-
-    def new_review_submission_flow?
-      action == 'submitted'
     end
 
     def destroy_branch!(pull_request)
@@ -38,8 +33,6 @@ module Parsers
       @owner = @json.dig(:organization, :login) || @json.dig(:pull_request, :head, :repo, :owner, :login)
       @repository_name = @json.dig(:repository, :name)
       @username = @json.dig(:sender, :login).downcase
-      @review = OpenStruct.new @json[:review]
-      @review_username = review&.dig(:user, :login)
       @action = @json[:action]
     end
 

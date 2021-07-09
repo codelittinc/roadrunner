@@ -4,18 +4,19 @@
 #
 # Table name: users
 #
-#  id         :bigint           not null, primary key
-#  github     :string
-#  jira       :string
-#  slack      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  azure      :string
+#  id                  :bigint           not null, primary key
+#  github              :string
+#  jira                :string
+#  slack               :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  azure               :string
+#  azure_devops_issues :string
 #
 class User < ApplicationRecord
   include PgSearch::Model
 
-  pg_search_scope :search_by_term, against: %i[jira slack github azure]
+  pg_search_scope :search_by_term, against: %i[jira slack github azure azure_devops_issues]
 
   has_many :pull_requests
 end

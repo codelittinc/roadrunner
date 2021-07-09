@@ -6,7 +6,7 @@ module Flows
       slack_message_ts = pull_request.slack_message.ts
       slack_channel = pull_request.repository.slack_repository_info.dev_channel
 
-      mentions = parser.direct_comment_body.scan(parser.mention_regex).flatten
+      mentions = parser.review_comment.scan(parser.mention_regex).flatten.map(&:downcase)
       users = mentions.map { |mention| User.search_by_term(mention).first }.compact
 
       users.each do |user|
@@ -16,7 +16,7 @@ module Flows
     end
 
     def can_execute?
-      parser.direct_comment_body && pull_request
+      parser.review_comment && pull_request
     end
   end
 end
