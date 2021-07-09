@@ -4,13 +4,14 @@
 #
 # Table name: users
 #
-#  id         :bigint           not null, primary key
-#  github     :string
-#  jira       :string
-#  slack      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  azure      :string
+#  id                  :bigint           not null, primary key
+#  github              :string
+#  jira                :string
+#  slack               :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  azure               :string
+#  azure_devops_issues :string
 #
 require 'rails_helper'
 

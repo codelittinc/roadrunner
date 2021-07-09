@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Parsers
   class GithubPullRequestDirectCommentParser < BaseParser
     attr_reader :direct_comment_body,

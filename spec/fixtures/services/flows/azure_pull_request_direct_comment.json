@@ -1,0 +1,178 @@
+{
+  "subscriptionId": "a910b322-fbcf-4550-ac7b-c311ad8ddc32",
+  "notificationId": 456,
+  "id": "e4aaa8a5-6ef8-4950-85a4-0aab2d7048f4",
+  "eventType": "ms.vss-code.git-pullrequest-comment-event",
+  "publisherId": "tfs",
+  "message": {
+    "text": "Victor Carvalho has commented on a pull request",
+    "html": "Victor Carvalho has \u003ca href=\"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-pia-web/pullrequest/608?discussionId=2939\"\u003ecommented\u003c/a\u003e on a pull request",
+    "markdown": "Victor Carvalho has [commented](https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-pia-web/pullrequest/608?discussionId=2939) on a pull request"
+  },
+  "detailedMessage": {
+    "text": "Victor Carvalho has commented on a pull request\r\n@\u003cE44D997C-D727-6BEC-A3DB-8BC537D4B723\u003e the screenshots in the PR description are missing. Please update it\r\n",
+    "html": "Victor Carvalho has \u003ca href=\"https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-pia-web/pullrequest/608?discussionId=2939\"\u003ecommented\u003c/a\u003e on a pull request\u003cp\u003e@\u0026lt;E44D997C-D727-6BEC-A3DB-8BC537D4B723\u0026gt; the screenshots in the PR description are missing. Please update it\u003c/p\u003e",
+    "markdown": "Victor Carvalho has [commented](https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-pia-web/pullrequest/608?discussionId=2939) on a pull request\r\n@\u003cE44D997C-D727-6BEC-A3DB-8BC537D4B723\u003e the screenshots in the PR description are missing. Please update it\r\n"
+  },
+  "resource": {
+    "comment": {
+      "id": 1,
+      "parentCommentId": 0,
+      "author": {
+        "displayName": "Victor Carvalho",
+        "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/66e098d8-9ee9-6863-8899-3fb875579c5b",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.NjZlMDk4ZDgtOWVlOS03ODYzLTg4OTktM2ZiODc1NTc5YzVi"
+          }
+        },
+        "id": "66e098d8-9ee9-6863-8899-3fb875579c5b",
+        "uniqueName": "victor.carvalho@codelitt.com",
+        "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.NjZlMDk4ZDgtOWVlOS03ODYzLTg4OTktM2ZiODc1NTc5YzVi",
+        "descriptor": "aad.NjZlMDk4ZDgtOWVlOS03ODYzLTg4OTktM2ZiODc1NTc5YzVi"
+      },
+      "content": "@\u003cE44D997C-D727-6BEC-A3DB-8BC537D4B723\u003e the screenshots in the PR description are missing. Please update it",
+      "publishedDate": "2021-07-09T12:51:03.83Z",
+      "lastUpdatedDate": "2021-07-09T12:51:03.83Z",
+      "lastContentUpdatedDate": "2021-07-09T12:51:03.83Z",
+      "commentType": "text",
+      "usersLiked": [],
+      "_links": {
+        "self": {
+          "href": "https://dev.azure.com/AY-InnovationCenter/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/pullRequests/608/threads/2939/comments/1"
+        },
+        "repository": {
+          "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666"
+        },
+        "threads": {
+          "href": "https://dev.azure.com/AY-InnovationCenter/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/pullRequests/608/threads/2939"
+        },
+        "pullRequests": {
+          "href": "https://dev.azure.com/AY-InnovationCenter/_apis/git/pullRequests/608"
+        }
+      }
+    },
+    "pullRequest": {
+      "repository": {
+        "id": "93ed8322-6ef9-4c87-a458-b3d0859de666",
+        "name": "ay-pia-web",
+        "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666",
+        "project": {
+          "id": "e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4",
+          "name": "Avant",
+          "description": "Avant application",
+          "url": "https://dev.azure.com/AY-InnovationCenter/_apis/projects/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4",
+          "state": "wellFormed",
+          "revision": 80,
+          "visibility": "private",
+          "lastUpdateTime": "2021-06-14T15:53:17.783Z"
+        },
+        "size": 12758850,
+        "remoteUrl": "https://AY-InnovationCenter@dev.azure.com/AY-InnovationCenter/Avant/_git/ay-pia-web",
+        "sshUrl": "git@ssh.dev.azure.com:v3/AY-InnovationCenter/Avant/ay-pia-web",
+        "webUrl": "https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-pia-web",
+        "isDisabled": false
+      },
+      "pullRequestId": 608,
+      "codeReviewId": 608,
+      "status": "active",
+      "createdBy": {
+        "displayName": "pedro.guimaraes",
+        "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/e44d997c-d727-6bec-a3db-8bc537d4b723",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.ZTQ0ZDk5N2MtZDcyNy03YmVjLWEzZGItOGJjNTM3ZDRiNzIz"
+          }
+        },
+        "id": "e44d997c-d727-6bec-a3db-8bc537d4b723",
+        "uniqueName": "pedro.guimaraes@codelitt.com",
+        "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=e44d997c-d727-6bec-a3db-8bc537d4b723",
+        "descriptor": "aad.ZTQ0ZDk5N2MtZDcyNy03YmVjLWEzZGItOGJjNTM3ZDRiNzIz"
+      },
+      "creationDate": "2021-07-08T21:55:17.7201043Z",
+      "title": "Add the Submarket Historical Availability query",
+      "description": "If applied, this pull request will Add the Submarket Historical Availability query\n\n\n### Card Link:\nhttps://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1684/\n\n### Design Expected Screenshot\n![Screenshot from 2021-07-08 11-38-04.png](blob:https://dev.azure.com/131eb6a2-8a1c-459f-a769-9aa59303d579) \n\n### Implementation Screenshot or GIF\n![Screenshot from 2021-07-08 18-50-32.png](blob:https://dev.azure.com/80bca989-8cfa-45c3-9c15-911d2a325dae) \n",
+      "sourceRefName": "refs/heads/update/integrate-area-chart-api",
+      "targetRefName": "refs/heads/feature/submarket-historical-availability",
+      "mergeStatus": "succeeded",
+      "isDraft": false,
+      "mergeId": "c7e4f43e-bdab-49ba-9d08-8dbcb43dd69d",
+      "lastMergeSourceCommit": {
+        "commitId": "d4593a6a15cddb39aea74d7ec5b2fcb03d08b39f",
+        "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/commits/d4593a6a15cddb39aea74d7ec5b2fcb03d08b39f"
+      },
+      "lastMergeTargetCommit": {
+        "commitId": "a4ee58a683a613c5c6766846ccbd2bf7ee6edfed",
+        "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/commits/a4ee58a683a613c5c6766846ccbd2bf7ee6edfed"
+      },
+      "lastMergeCommit": {
+        "commitId": "baf83546c20a5687b6bd135559b21dad971344a2",
+        "author": {
+          "name": "pedro.guimaraes",
+          "email": "pedro.guimaraes@codelitt.com",
+          "date": "2021-07-09T11:19:11Z"
+        },
+        "committer": {
+          "name": "pedro.guimaraes",
+          "email": "pedro.guimaraes@codelitt.com",
+          "date": "2021-07-09T11:19:11Z"
+        },
+        "comment": "Merge pull request 608 from update/integrate-area-chart-api into feature/submarket-historical-availability",
+        "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/commits/baf83546c20a5687b6bd135559b21dad971344a2"
+      },
+      "reviewers": [
+        {
+          "reviewerUrl": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/pullRequests/608/reviewers/66e098d8-9ee9-6863-8899-3fb875579c5b",
+          "vote": -5,
+          "hasDeclined": false,
+          "isFlagged": false,
+          "displayName": "Victor Carvalho",
+          "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/66e098d8-9ee9-6863-8899-3fb875579c5b",
+          "_links": {
+            "avatar": {
+              "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.NjZlMDk4ZDgtOWVlOS03ODYzLTg4OTktM2ZiODc1NTc5YzVi"
+            }
+          },
+          "id": "66e098d8-9ee9-6863-8899-3fb875579c5b",
+          "uniqueName": "victor.carvalho@codelitt.com",
+          "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=66e098d8-9ee9-6863-8899-3fb875579c5b"
+        },
+        {
+          "reviewerUrl": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/pullRequests/608/reviewers/301dbe82-b4fa-66e4-84c9-64127ab3b7e0",
+          "vote": 10,
+          "hasDeclined": false,
+          "isFlagged": false,
+          "displayName": "Julian Peña",
+          "url": "https://spsprodcus4.vssps.visualstudio.com/Ac713fab0-a7a4-4858-b8d7-acd0e4cae999/_apis/Identities/301dbe82-b4fa-66e4-84c9-64127ab3b7e0",
+          "_links": {
+            "avatar": {
+              "href": "https://dev.azure.com/AY-InnovationCenter/_apis/GraphProfile/MemberAvatars/aad.MzAxZGJlODItYjRmYS03NmU0LTg0YzktNjQxMjdhYjNiN2Uw"
+            }
+          },
+          "id": "301dbe82-b4fa-66e4-84c9-64127ab3b7e0",
+          "uniqueName": "julian.pena@codelitt.com",
+          "imageUrl": "https://dev.azure.com/AY-InnovationCenter/_api/_common/identityImage?id=301dbe82-b4fa-66e4-84c9-64127ab3b7e0"
+        }
+      ],
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/pullRequests/608",
+      "supportsIterations": true,
+      "artifactId": "vstfs:///Git/PullRequestId/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4%2f93ed8322-6ef9-4c87-a458-b3d0859de666%2f608"
+    }
+  },
+  "resourceVersion": "2.0",
+  "resourceContainers": {
+    "collection": {
+      "id": "a121438c-5a62-4eaf-8333-7204deeb7308",
+      "baseUrl": "https://dev.azure.com/AY-InnovationCenter/"
+    },
+    "account": {
+      "id": "c713fab0-a7a4-4858-b8d7-acd0e4cae999",
+      "baseUrl": "https://dev.azure.com/AY-InnovationCenter/"
+    },
+    "project": {
+      "id": "e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4",
+      "baseUrl": "https://dev.azure.com/AY-InnovationCenter/"
+    }
+  },
+  "createdDate": "2021-07-09T12:51:10.2303349Z"
+}
