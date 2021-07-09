@@ -5,7 +5,7 @@ class FlowController < ApplicationController
     json = (params[:flow] || params).merge(request.GET).to_json
     flow_request = FlowRequest.create!(json: json)
 
-    HardWorker.perform_async(flow_request.id)
+    FlowExecutor.new(flow_request).execute! if flow_request
 
     render json: { text: 'Roadrunner is processing your request.' }, status: :ok
   end

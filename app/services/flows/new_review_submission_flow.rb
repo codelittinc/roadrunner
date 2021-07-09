@@ -13,7 +13,7 @@ module Flows
     end
 
     def can_execute?
-      return false unless parser.review
+      return false unless parser.review_comment
       return false unless pull_request
       return false unless slack_message
 
@@ -39,7 +39,7 @@ module Flows
       if parser.review_state == PullRequestReview::REVIEW_STATE_CHANGES_REQUESTED
         message = Messages::PullRequestBuilder.notify_changes_request
         Clients::Slack::ChannelMessage.new(customer).send(message, channel, slack_ts)
-      elsif parser.review_body != ''
+      elsif parser.review_comment != ''
         message = Messages::PullRequestBuilder.notify_new_message
         Clients::Slack::ChannelMessage.new(customer).send(message, channel, slack_ts)
       elsif !github_pull_request.mergeable && github_pull_request.mergeable_state == 'dirty' && pull_request.user.slack

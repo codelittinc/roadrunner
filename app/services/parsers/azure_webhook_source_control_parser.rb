@@ -4,7 +4,7 @@ require 'ostruct'
 
 module Parsers
   class AzureWebhookSourceControlParser < BaseParser
-    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :review, :review_username, :state, :title, :username, :event_type, :commit_sha, :conclusion
+    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :state, :title, :username, :event_type, :commit_sha, :conclusion
 
     def can_parse?
       @json[:publisherId] == 'tfs' || @json[:publisherId] == 'pipelines'
@@ -20,10 +20,6 @@ module Parsers
 
     def close_pull_request_flow?
       (event_type == 'git.pullrequest.merged' || event_type == 'git.pullrequest.updated') && (@status == 'completed' || @status == 'abandoned')
-    end
-
-    def new_review_submission_flow?
-      event_type == 'ms.vss-code.git-pullrequest-comment-event'
     end
 
     # rubocop:disable Metrics/CyclomaticComplexity
@@ -44,9 +40,6 @@ module Parsers
       @username = resource.dig(:createdBy, :uniqueName)
       @merged = resource[:mergeStatus] == 'succeeded'
       @status = resource[:status]
-      @review = resource[:comment]
-      @review_username = @review&.dig(:author, :uniqueName)
-      @review_body = @review&.dig(:content)
     end
     # rubocop:enable Metrics/CyclomaticComplexity
     # rubocop:enable Metrics/PerceivedComplexity
