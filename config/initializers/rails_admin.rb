@@ -15,6 +15,13 @@ RailsAdmin.config do |config|
     end
   end
 
+  RailsAdmin.config User do
+    list do
+      # simply adding fields by their names (order will be maintained)
+      include_fields :github, :jira, :slack, :azure, :id
+    end
+  end
+
   ## == CancanCan ==
   # config.authorize_with :cancancan
 
