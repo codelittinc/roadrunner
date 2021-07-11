@@ -3,6 +3,7 @@
 require 'nested_form/engine'
 require 'nested_form/builder_mixin'
 
+# rubocop:disable Metrics/BlockLength
 RailsAdmin.config do |config|
   ### Popular gems integration
 
@@ -17,8 +18,13 @@ RailsAdmin.config do |config|
 
   RailsAdmin.config User do
     list do
-      # simply adding fields by their names (order will be maintained)
       include_fields :github, :jira, :slack, :azure, :id
+    end
+  end
+
+  RailsAdmin.config FlowRequest do
+    list do
+      include_fields :json, :executed, :flow_name, :error_message, :created_at
     end
   end
 
@@ -54,3 +60,4 @@ RailsAdmin.config do |config|
     # history_show
   end
 end
+# rubocop:enable Metrics/BlockLength
