@@ -18,7 +18,7 @@ RailsAdmin.config do |config|
 
   RailsAdmin.config User do
     list do
-      include_fields :github, :jira, :slack, :azure, :id
+      include_fields :github, :azure_devops_issues, :slack, :azure, :jira, :id
     end
   end
 
