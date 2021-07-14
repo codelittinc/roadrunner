@@ -15,11 +15,11 @@ module Flows
     end
 
     def can_execute?
-      return false unless @params[:pull_request]
+      return false unless pull_request
 
       reserved_branch = %w[master development develop qa].include? parser.head
 
-      action == 'synchronize' && !reserved_branch && pull_request&.open?
+      parser.new_change_pull_request_code_flow? && !reserved_branch && pull_request&.open?
     end
   end
 end

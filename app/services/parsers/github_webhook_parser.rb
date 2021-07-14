@@ -11,7 +11,7 @@ module Parsers
     end
 
     def can_parse?
-      @json && (!!pull_request || !!check_run) && !@json[:review]
+      @json && (!!pull_request || !!check_run) && !@json[:review] && @json[:action] != 'synchronize'
     end
 
     def new_pull_request_flow?
