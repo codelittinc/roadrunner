@@ -21,5 +21,11 @@ module Flows
 
       parser.new_change_pull_request_code_flow? && !reserved_branch && pull_request&.open?
     end
+
+    private
+
+    def pull_request
+      @pull_request ||= PullRequest.find_by(repository: repository, head: parser.head, state: 'open')
+    end
   end
 end
