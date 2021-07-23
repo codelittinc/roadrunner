@@ -4,7 +4,7 @@ services:
     image: postgres
     container_name: roadrunner-db
     volumes:
-      - .:/share
+      - .:/app
     env_file:
       - .env
     ports:
@@ -22,10 +22,10 @@ services:
     stdin_open: true
     build:
       context: .
-      dockerfile: Dockerfile.development
+      target: development
 
     volumes:
-      - .:/share
+      - .:/app
 
     env_file:
       - .env
