@@ -15,7 +15,7 @@ module Parsers
     end
 
     def new_review_submission_flow?
-      @json[:action] == 'submitted'
+      @json[:action] == 'submitted' || @json[:action] == 'created'
     end
 
     def parse!
