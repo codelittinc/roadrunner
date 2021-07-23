@@ -2,7 +2,6 @@
 
 class HardWorker
   include Sidekiq::Worker
-  sidekiq_options concurrency: 1
 
   def perform(flow_request_id)
     flow_request = FlowRequest.find_by(id: flow_request_id)
