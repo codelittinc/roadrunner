@@ -2,6 +2,8 @@
 
 module Flows
   class CheckRunFlow < BaseSourceControlFlow
+    delegate :check_run, :branch_name, :commit_sha, :conclusion, to: :parser
+
     def execute
       branch = Branch.where(name: branch_name, repository: repository).first_or_create!(pull_request: pull_request)
       CheckRun.create(commit_sha: commit_sha, state: state, branch: branch)
@@ -41,20 +43,8 @@ module Flows
       @message = pull_request.slack_message
     end
 
-    def check_run
-      @check_run ||= parser.check_run
-    end
-
     def state
-      CheckRun::SUPPORTED_STATES.find { |i| i == parser.conclusion } || CheckRun::PENDING_STATE
-    end
-
-    def branch_name
-      @branch_name ||= parser.branch_name
-    end
-
-    def commit_sha
-      @commit_sha ||= parser.commit_sha
+      CheckRun::SUPPORTED_STATES.find { |i| i == conclusion } || CheckRun::PENDING_STATE
     end
 
     def reaction
