@@ -5,8 +5,13 @@ module Flows
     delegate :check_run, :branch_name, :commit_sha, :conclusion, to: :parser
 
     def execute
-      branch = Branch.where(name: branch_name, repository: repository).first_or_create!(pull_request: pull_request)
-      CheckRun.create(commit_sha: commit_sha, state: state, branch: branch)
+      # Necessary to avoid racing condition errors in repositories that have many check runs at the same time
+      begin
+        branch = Branch.where(name: branch_name, repository: repository).first_or_create!(pull_request: pull_request)
+        CheckRun.create(commit_sha: commit_sha, state: state, branch: branch)
+      rescue StandardError
+        return
+      end
 
       return unless pull_request
 
