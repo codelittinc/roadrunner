@@ -2,6 +2,8 @@
 
 module Flows
   class DeployNotificationFlow < BaseFlow
+    delegate :environment, :source, :deploy_type, :status, to: :parser
+
     def execute
       update_release_deploy_status!
 
@@ -11,18 +13,16 @@ module Flows
       )
     end
 
-    def flow?
-      @params[:deploy_type] == 'deploy-notification' && environment.downcase != Application::DEV
+    def can_execute?
+      @params[:deploy_type] == 'deploy-notification' &&
+        environment.downcase != Application::DEV &&
+        application
     end
 
     private
 
     def update_release_deploy_status!
       latest_release&.update(deploy_status: status)
-    end
-
-    def source
-      @params[:host]
     end
 
     def channel
@@ -43,18 +43,6 @@ module Flows
 
     def application
       @application ||= Application.by_external_identifier(source)
-    end
-
-    def environment
-      @params[:env].upcase
-    end
-
-    def status
-      @status ||= @params[:status] || 'success'
-    end
-
-    def deploy_type
-      @deploy_type ||= @params[:type]&.upcase
     end
   end
 end
