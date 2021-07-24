@@ -5,10 +5,16 @@ require 'rails_helper'
 RSpec.describe Flows::DeployNotificationFlow, type: :service do
   describe '#flow?' do
     context 'returns true' do
+      before do
+        repository = FactoryBot.create(:repository, name: 'pia-web-mobile')
+        FactoryBot.create(:application, :with_server, repository: repository, external_identifier: 'pia.web.com')
+      end
+
       it 'when deploy type is deploy-notification' do
         flow = described_class.new({
                                      deploy_type: 'deploy-notification',
-                                     env: 'qa'
+                                     env: 'qa',
+                                     host: 'pia.web.com'
                                    })
         expect(flow.flow?).to be_truthy
       end
@@ -16,7 +22,8 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
       it 'when environment is not equals DEV' do
         flow = described_class.new({
                                      deploy_type: 'deploy-notification',
-                                     env: 'qa'
+                                     env: 'qa',
+                                     host: 'pia.web.com'
                                    })
         expect(flow.flow?).to be_truthy
       end
@@ -40,7 +47,7 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
     end
   end
 
-  describe '#execute' do
+  describe '#run' do
     context 'sends a channel message' do
       it 'when host is the application external identifier' do
         repository = FactoryBot.create(:repository, name: 'pia-web-mobile')
@@ -56,7 +63,7 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
           'The deploy of *pia-web-mobile* to *PROD* was finished with the status: Success!',
           'feed-test-automations'
         )
-        flow.execute
+        flow.run
       end
 
       it 'updated the latest release deploy status' do
@@ -71,7 +78,7 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
                                    })
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
-        flow.execute
+        flow.run
 
         release.reload
 
