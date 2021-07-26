@@ -12,7 +12,7 @@ module Parsers
     end
 
     def new_change_pull_request_code_flow?
-      true
+      @json[:eventType] == 'git.push'
     end
 
     def parse!
