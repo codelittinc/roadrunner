@@ -11,7 +11,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
     context 'returns true when' do
       it 'action is added-incident-update-reaction' do
         slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: ':fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<https://codelitt.dev|>:fire: ```'\
-            'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
+                                                                                         'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
         application = FactoryBot.create(:application, external_identifier: 'codelitt-v2')
         FactoryBot.create(:server_incident, application: application, slack_message: slack_message)
 
@@ -21,7 +21,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
 
       it 'there is a slack message' do
         slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: ':fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<https://codelitt.dev|>:fire: ```'\
-            'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
+                                                                                         'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
         application = FactoryBot.create(:application, external_identifier: 'codelitt-v2')
         FactoryBot.create(:server_incident, application: application, slack_message: slack_message)
 
@@ -31,7 +31,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
 
       it 'there is a server incident' do
         slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: ':fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<https://codelitt.dev|>:fire: ```'\
-            'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
+                                                                                         'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
         application = FactoryBot.create(:application, external_identifier: 'codelitt-v2')
         FactoryBot.create(:server_incident, application: application, slack_message: slack_message)
 
@@ -41,7 +41,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
 
       it 'reaction is equals a white_check_mark' do
         slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: ':fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<https://codelitt.dev|>:fire: ```'\
-            'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
+                                                                                         'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
         application = FactoryBot.create(:application, external_identifier: 'codelitt-v2')
         FactoryBot.create(:server_incident, application: application, slack_message: slack_message)
 
@@ -51,7 +51,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
 
       it 'reaction is equals a heavy_check_mark' do
         slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: ':fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<https://codelitt.dev|>:fire: ```'\
-            'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
+                                                                                         'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
         application = FactoryBot.create(:application, external_identifier: 'codelitt-v2')
         FactoryBot.create(:server_incident, application: application, slack_message: slack_message)
 
@@ -72,7 +72,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
 
       it 'there is no service incident' do
         FactoryBot.create(:slack_message, ts: '1598981604.000400', text: ':fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<https://codelitt.dev|>:fire: ```'\
-            'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
+                                                                         'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
         flow = described_class.new(
           {
             action: 'added-incident-update-reaction',
@@ -84,7 +84,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
 
       it 'there is no reaction' do
         slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: ':fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<https://codelitt.dev|>:fire: ```'\
-            'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
+                                                                                         'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
         application = FactoryBot.create(:application, external_identifier: 'codelitt-v2')
         FactoryBot.create(:server_incident, application: application, slack_message: slack_message)
         flow = described_class.new(
@@ -99,7 +99,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
 
       it 'the reaction is different from white_check_mark or heavy_check_mark' do
         slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: ':fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<https://codelitt.dev|>:fire: ```'\
-            'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
+                                                                                         'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
         application = FactoryBot.create(:application, external_identifier: 'codelitt-v2')
         FactoryBot.create(:server_incident, application: application, slack_message: slack_message)
         flow = described_class.new(
@@ -115,7 +115,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
 
       it 'there is no action' do
         slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: ':fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<https://codelitt.dev|>:fire: ```'\
-            'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
+                                                                                         'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
         application = FactoryBot.create(:application, external_identifier: 'codelitt-v2')
         FactoryBot.create(:server_incident, application: application, slack_message: slack_message)
         flow = described_class.new(
@@ -133,7 +133,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
   describe '#run' do
     it 'update server incident to status white_check_mark' do
       slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: ':fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<https://codelitt.dev|>:fire: ```'\
-          'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
+                                                                                       'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
       application = FactoryBot.create(:application, external_identifier: 'codelitt-v2')
       server_incident = FactoryBot.create(:server_incident, application: application, message: slack_message.text, slack_message: slack_message)
 
@@ -144,7 +144,7 @@ RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
 
     it 'update server incident to status heavy_check_mark' do
       slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400', text: ':fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<https://codelitt.dev|>:fire: ```'\
-          'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
+                                                                                       'Roadrunner is trying to reach https://codelitt.dev, and is receiving: code: 302 message: <!DOCTYPE html> <html> <head> <meta charset="UTF-```')
       application = FactoryBot.create(:application, external_identifier: 'codelitt-v2')
       server_incident = FactoryBot.create(:server_incident, application: application, message: slack_message.text, slack_message: slack_message)
 
