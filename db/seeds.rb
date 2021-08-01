@@ -33,7 +33,8 @@ repository = Repository.create!(
   deploy_type: Repository::TAG_DEPLOY_TYPE,
   project: project,
   source_control_type: 'github',
-  slack_repository_info: SlackRepositoryInfo.new(dev_group: '@rolli-devs', dev_channel: 'team-rolli-dev', deploy_channel: 'team-rolli-deploy')
+  slack_repository_info: SlackRepositoryInfo.new(dev_group: '@rolli-devs', dev_channel: 'team-rolli-dev',
+                                                 deploy_channel: 'team-rolli-deploy')
 )
 
 Repository.create(
@@ -43,7 +44,8 @@ Repository.create(
   deploy_type: Repository::TAG_DEPLOY_TYPE,
   project: project_avison_young,
   source_control_type: 'azure',
-  slack_repository_info: SlackRepositoryInfo.new(dev_group: 'feed-test-automation', dev_channel: 'feed-test-automation', deploy_channel: 'feed-test-automation')
+  slack_repository_info: SlackRepositoryInfo.new(dev_group: 'feed-test-automation',
+                                                 dev_channel: 'feed-test-automation', deploy_channel: 'feed-test-automation')
 )
 
 application = Application.create!(environment: 'prod', repository: repository)

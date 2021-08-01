@@ -5,11 +5,13 @@ require 'external_api_helper'
 
 RSpec.describe Flows::NewPullRequestFlow, type: :service do
   let(:github_valid_json) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'github_new_pull_request.json'))).with_indifferent_access
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
+                                   'github_new_pull_request.json'))).with_indifferent_access
   end
 
   let(:azure_valid_json) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'azure_new_pull_request.json'))).with_indifferent_access
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
+                                   'azure_new_pull_request.json'))).with_indifferent_access
   end
 
   context 'Github JSON' do
@@ -101,7 +103,8 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                                 'ts' => '123'
                                                                                               })
-          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('white_check_mark', 'feed-test-automations', '123')
+          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('white_check_mark',
+                                                                                 'feed-test-automations', '123')
 
           flow = described_class.new(github_valid_json)
 
@@ -115,7 +118,8 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                                 'ts' => '123'
                                                                                               })
-          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light', 'feed-test-automations', '123')
+          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light',
+                                                                                 'feed-test-automations', '123')
 
           flow = described_class.new(github_valid_json)
 
@@ -129,7 +133,8 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                                 'ts' => '123'
                                                                                               })
-          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations', '123')
+          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations',
+                                                                                 '123')
 
           flow = described_class.new(github_valid_json)
 
@@ -143,7 +148,8 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                                 'ts' => '123'
                                                                                               })
-          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations', '123')
+          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations',
+                                                                                 '123')
 
           flow = described_class.new(github_valid_json)
 
@@ -272,7 +278,8 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                                 'ts' => '123'
                                                                                               })
-          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations', '123')
+          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations',
+                                                                                 '123')
 
           flow = described_class.new(azure_valid_json)
 

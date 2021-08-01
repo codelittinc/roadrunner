@@ -50,7 +50,9 @@ class PullRequest < ApplicationRecord
   DEPLOY_PROD_BRANCH = 'master'
 
   def self.deployment_branches?(base, head)
-    (base == DEPLOY_QA_BRANCH || base == DEPLOY_PROD_BRANCH) && (head == DEPLOY_DEV_BRANCH || head == DEPLOY_QA_BRANCH || head == DEPLOY_DEV_BRANCH_LEGACY)
+    [DEPLOY_QA_BRANCH,
+     DEPLOY_PROD_BRANCH].include?(base) && [DEPLOY_DEV_BRANCH, DEPLOY_QA_BRANCH,
+                                            DEPLOY_DEV_BRANCH_LEGACY].include?(head)
   end
 
   delegate :link, to: :source
@@ -58,7 +60,8 @@ class PullRequest < ApplicationRecord
 
   def self.by_repository_and_source_control_id(repository, source_control_id)
     [GithubPullRequest, AzurePullRequest].lazy.map do |clazz|
-      clazz.joins(:pull_request).find_by(source_control_id: source_control_id, pull_request: { repository_id: repository&.id })
+      clazz.joins(:pull_request).find_by(source_control_id: source_control_id,
+                                         pull_request: { repository_id: repository&.id })
     end.find(&:itself)&.pull_request
   end
 

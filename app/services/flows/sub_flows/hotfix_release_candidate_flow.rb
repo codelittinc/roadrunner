@@ -62,7 +62,8 @@ module Flows
         @source_control_release_commits ||= if first_pre_release?
                                               source_control_client.list_branch_commits(branch).reverse
                                             else
-                                              source_control_client.compare_commits(version_resolver.latest_tag_name, branch)
+                                              source_control_client.compare_commits(version_resolver.latest_tag_name,
+                                                                                    branch)
                                             end
       end
     end

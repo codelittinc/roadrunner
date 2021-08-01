@@ -77,7 +77,8 @@ module Flows
     end
 
     def release_message
-      @release_message ||= Messages::ReleaseBuilder.notify_release_action(RELEASE_ACTION, environment, user_name, repository_name)
+      @release_message ||= Messages::ReleaseBuilder.notify_release_action(RELEASE_ACTION, environment, user_name,
+                                                                          repository_name)
     end
   end
 end

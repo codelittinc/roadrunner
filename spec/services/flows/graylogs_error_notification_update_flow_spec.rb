@@ -6,7 +6,8 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
   describe '#flow?' do
     context 'with a valid action' do
       it 'returns true' do
-        FactoryBot.create(:slack_message, ts: '123', text: ':droplet: ay-excel-import-api environment :droplet:QA:droplet:')
+        FactoryBot.create(:slack_message, ts: '123',
+                                          text: ':droplet: ay-excel-import-api environment :droplet:QA:droplet:')
         flow = described_class.new({
                                      action: 'user-addressing-error',
                                      ts: '123'
@@ -30,7 +31,8 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
 
     context 'with a valid ts' do
       it 'returns true' do
-        FactoryBot.create(:slack_message, ts: '123', text: ':droplet: ay-excel-import-api environment :droplet:QA:droplet:')
+        FactoryBot.create(:slack_message, ts: '123',
+                                          text: ':droplet: ay-excel-import-api environment :droplet:QA:droplet:')
         flow = described_class.new({
                                      action: 'user-addressing-error',
                                      ts: '123'

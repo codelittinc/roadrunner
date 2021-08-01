@@ -45,7 +45,8 @@ RSpec.describe PullRequest, type: :model do
 
       expect do
         FactoryBot.create(:pull_request, repository: repository, source_control_type: 'azure', source_control_id: 1)
-      end.to raise_error(ActiveRecord::RecordInvalid, /Repository There is a source_control_id for this repository already/)
+      end.to raise_error(ActiveRecord::RecordInvalid,
+                         /Repository There is a source_control_id for this repository already/)
     end
   end
 

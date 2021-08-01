@@ -5,8 +5,10 @@ module Flows
     delegate :project_name, :issue_id, :event_id, :type, :custom_message, :custom_name, to: :parser
 
     def execute
-      notify_sentry_error_message = Messages::GenericBuilder.notify_sentry_error(title, metadata, user, browser_name, link, type, custom_message)
-      ApplicationIncidentService.new.register_incident!(application, notify_sentry_error_message, nil, ApplicationIncidentService::SENTRY_MESSAGE_TYPE)
+      notify_sentry_error_message = Messages::GenericBuilder.notify_sentry_error(title, metadata, user, browser_name,
+                                                                                 link, type, custom_message)
+      ApplicationIncidentService.new.register_incident!(application, notify_sentry_error_message, nil,
+                                                        ApplicationIncidentService::SENTRY_MESSAGE_TYPE)
     end
 
     def can_execute?

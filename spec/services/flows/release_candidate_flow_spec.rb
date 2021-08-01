@@ -23,7 +23,8 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
     describe '#run' do
       context 'When the repository belongs to Github' do
         let(:github_repository_with_applications) do
-          repository = FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test', source_control_type: 'github')
+          repository = FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test',
+                                                      source_control_type: 'github')
           repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
           repository
         end
@@ -140,7 +141,8 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
       context 'When the repository belongs to Azure' do
         let(:azure_repository_with_applications) do
-          repository = FactoryBot.create(:repository, owner: 'Avant', name: 'roadrunner-repository-test', source_control_type: 'azure')
+          repository = FactoryBot.create(:repository, owner: 'Avant', name: 'roadrunner-repository-test',
+                                                      source_control_type: 'azure')
           repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
           repository
         end

@@ -21,7 +21,10 @@ FactoryBot.define do
     end
 
     before(:create) do |obj, evaluator|
-      obj.external_identifiers << ExternalIdentifier.create(text: evaluator.external_identifier, application: obj) if obj.external_identifiers.size.zero?
+      if obj.external_identifiers.size.zero?
+        obj.external_identifiers << ExternalIdentifier.create(text: evaluator.external_identifier,
+                                                              application: obj)
+      end
     end
 
     trait :with_server do

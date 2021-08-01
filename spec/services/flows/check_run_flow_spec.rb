@@ -103,7 +103,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
         user = FactoryBot.create(:user, slack: 'rheniery.mendes')
-        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
+        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository,
+                                                        slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
         FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
 
         flow = described_class.new(valid_json)
@@ -119,16 +120,20 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
         user = FactoryBot.create(:user, slack: 'rheniery.mendes')
-        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
+        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository,
+                                                        slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
         FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
-        branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository: repository, pull_request: pull_request)
+        branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository: repository,
+                                            pull_request: pull_request)
         FactoryBot.create(:check_run, state: 'failure', branch: branch)
 
         flow = described_class.new(valid_json)
 
         expected_message = ':rotating_light: CI failed for pull request: <https://github.com/codelittinc/gh-hooks-repo-test/pull/1|gh-hooks-repo-test#1>'
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message, 'rheniery.mendes')
-        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light', 'feed-test-automations', '123')
+        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message,
+                                                                                     'rheniery.mendes')
+        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light',
+                                                                               'feed-test-automations', '123')
 
         flow.run
       end
@@ -137,15 +142,18 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
         user = FactoryBot.create(:user, slack: nil)
-        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
+        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository,
+                                                        slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
         FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
-        branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository: repository, pull_request: pull_request)
+        branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository: repository,
+                                            pull_request: pull_request)
         FactoryBot.create(:check_run, state: 'failure', branch: branch)
 
         flow = described_class.new(valid_json)
 
         expect_any_instance_of(Clients::Slack::DirectMessage).to_not receive(:send)
-        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light', 'feed-test-automations', '123')
+        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light',
+                                                                               'feed-test-automations', '123')
 
         flow.run
       end
@@ -154,9 +162,11 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
         user = FactoryBot.create(:user, slack: 'rheniery.mendes')
-        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
+        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository,
+                                                        slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
         FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
-        branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository: repository, pull_request: pull_request)
+        branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository: repository,
+                                            pull_request: pull_request)
         FactoryBot.create(:check_run, state: 'success', branch: branch)
 
         valid_json_with_state_success = valid_json.deep_dup
@@ -165,7 +175,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
         flow = described_class.new(valid_json_with_state_success)
 
-        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('white_check_mark', 'feed-test-automations', '123')
+        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('white_check_mark',
+                                                                               'feed-test-automations', '123')
 
         flow.run
       end
@@ -174,9 +185,11 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
         user = FactoryBot.create(:user, slack: 'rheniery.mendes')
-        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
+        pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository,
+                                                        slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
         FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
-        branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository: repository, pull_request: pull_request)
+        branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository: repository,
+                                            pull_request: pull_request)
         FactoryBot.create(:check_run, state: 'pending', branch: branch)
 
         valid_json_with_random_state = valid_json.deep_dup
@@ -185,7 +198,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
         flow = described_class.new(valid_json_with_random_state)
 
-        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations', '123')
+        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations',
+                                                                               '123')
 
         flow.run
       end
@@ -195,7 +209,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
           repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
           slack_message = FactoryBot.create(:slack_message, ts: '123')
           user = FactoryBot.create(:user, slack: 'rheniery.mendes')
-          pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
+          pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository,
+                                                          slack_message: slack_message, user: user, state: 'open', head: 'Rheniery-patch-9')
           FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
 
           flow = described_class.new(valid_json)
@@ -219,7 +234,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
           VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
             valid_json_with_commit = valid_json.deep_dup
 
-            valid_json_with_commit[:resource][:run][:resources][:repositories][:self][:version] = '8bdc18cc18ea9d7f4a19d2424171e8aa6e8f8f72'
+            valid_json_with_commit[:resource][:run][:resources][:repositories][:self][:version] =
+              '8bdc18cc18ea9d7f4a19d2424171e8aa6e8f8f72'
 
             flow = described_class.new(valid_json_with_commit)
 
@@ -317,7 +333,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
           repository = FactoryBot.create(:repository, name: 'ay-pia-web', owner: 'Avant')
           slack_message = FactoryBot.create(:slack_message, ts: '123')
           user = FactoryBot.create(:user, slack: 'rheniery.mendes')
-          pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message, user: user, state: 'open', head: 'update/new-charts-styles')
+          pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository: repository,
+                                                          slack_message: slack_message, user: user, state: 'open', head: 'update/new-charts-styles')
           FactoryBot.create(:commit, sha: '1', pull_request: pull_request)
 
           flow = described_class.new(valid_json)

@@ -5,7 +5,8 @@ require 'external_api_helper'
 
 RSpec.describe Flows::ListChannelRepositoriesFlow, type: :service do
   let(:valid_json) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'list_repositories.json'))).with_indifferent_access
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
+                                   'list_repositories.json'))).with_indifferent_access
   end
 
   describe '#flow?' do

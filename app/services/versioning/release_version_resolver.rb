@@ -12,7 +12,14 @@ module Versioning
     ACTION_UPDATE = 'update'
 
     def initialize(environment, releases, action)
-      @resolver = action == ACTION_UPDATE ? Versioning::Resolvers::UpdateRelease.new(environment, releases) : Versioning::Resolvers::HotfixRelease.new(environment, releases)
+      @resolver = if action == ACTION_UPDATE
+                    Versioning::Resolvers::UpdateRelease.new(environment,
+                                                             releases)
+                  else
+                    Versioning::Resolvers::HotfixRelease.new(
+                      environment, releases
+                    )
+                  end
     end
   end
 end

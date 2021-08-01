@@ -23,7 +23,11 @@ class ProjectsStatusController < ApplicationController
       report = days.map do |day|
         {
           date: day,
-          incidents: (incidents_by_date[day] || []).map { |incident| format_incident(incident) } + (health_checks_by_date[day] || []).map { |incident| format_health_check(incident) }
+          incidents: (incidents_by_date[day] || []).map do |incident|
+                       format_incident(incident)
+                     end + (health_checks_by_date[day] || []).map do |incident|
+                             format_health_check(incident)
+                           end
         }
       end
 

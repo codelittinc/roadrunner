@@ -11,7 +11,8 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
   end
 
   let(:valid_json) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'release_by_slack_channel.json'))).with_indifferent_access
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
+                                   'release_by_slack_channel.json'))).with_indifferent_access
   end
 
   describe '#flow?' do
