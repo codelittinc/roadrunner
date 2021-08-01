@@ -1,4 +1,4 @@
-FROM ruby:3.0.0-buster as development
+FROM ruby:3.0.2-buster as development
 
 RUN echo "Running Dockerfile with the environment: DEVELOPMENT"
 
