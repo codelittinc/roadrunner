@@ -11,7 +11,7 @@ module Flows
 
       return unless @current_pull_request.persisted?
 
-      response = Clients::Slack::ChannelMessage.new(customer).send(new_pull_request_message, channel, true)
+      response = Clients::Slack::ChannelMessage.new(customer).send(new_pull_request_message, channel, nil, true)
       slack_message = SlackMessage.new(ts: response['ts'], pull_request: @current_pull_request)
       slack_message.save!
 
