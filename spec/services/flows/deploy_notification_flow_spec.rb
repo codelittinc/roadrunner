@@ -68,7 +68,8 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
 
       it 'updated the latest release deploy status' do
         repository = FactoryBot.create(:repository, name: 'pia-web-mobile')
-        application = FactoryBot.create(:application, :with_server, repository: repository, external_identifier: 'pia.web.com')
+        application = FactoryBot.create(:application, :with_server, repository: repository,
+                                                                    external_identifier: 'pia.web.com')
         release = FactoryBot.create(:release, application: application, version: '3.0.0', deploy_status: nil)
 
         flow = described_class.new({

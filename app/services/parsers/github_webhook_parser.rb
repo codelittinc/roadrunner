@@ -4,7 +4,8 @@ require 'ostruct'
 
 module Parsers
   class GithubWebhookParser < BaseParser
-    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :state, :title, :username, :action, :commit_sha, :conclusion
+    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner,
+                :repository_name, :state, :title, :username, :action, :commit_sha, :conclusion
 
     def source_control_pull_request
       Clients::Github::PullRequest

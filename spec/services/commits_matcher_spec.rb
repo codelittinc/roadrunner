@@ -11,7 +11,8 @@ RSpec.describe CommitsMatcher, type: :service do
     VCR.use_cassette('services#commits-matcher#list-commits') do
       github_commits = Clients::Github::Branch.new.commits(repository, 'master').reverse
       commits = [
-        FactoryBot.create(:commit, :with_pull_request, message: 'update rails admin to use master while they release a version compatible with ruby 3'),
+        FactoryBot.create(:commit, :with_pull_request,
+                          message: 'update rails admin to use master while they release a version compatible with ruby 3'),
         FactoryBot.create(:commit, :with_pull_request, message: 'add rails admin dependencies'),
         FactoryBot.create(:commit, :with_pull_request, message: 'fix rubocop issues after rubocop update')
       ]

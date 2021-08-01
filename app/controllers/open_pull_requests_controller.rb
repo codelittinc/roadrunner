@@ -7,7 +7,9 @@ class OpenPullRequestsController < ApplicationController
       reviews = pull_request.pull_request_reviews.order(:updated_at)
       approved_by = reviews.where(state: 'approved').pluck(:username)
       reproved_by = reviews.where(state: 'changes_requested').pluck(:username)
-      changes_after_reviews = pull_request.pull_request_changes.where(created_at: reviews.last.updated_at..Time.zone.now).any? if reviews.any?
+      if reviews.any?
+        changes_after_reviews = pull_request.pull_request_changes.where(created_at: reviews.last.updated_at..Time.zone.now).any?
+      end
 
       {
         title: pull_request.title,

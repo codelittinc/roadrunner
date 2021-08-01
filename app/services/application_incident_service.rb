@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationIncidentService
-  attr_reader :current_server_incident, :error_message, :message_type, :recurrent_server_incident, :application, :server, :environment
+  attr_reader :current_server_incident, :error_message, :message_type, :recurrent_server_incident, :application,
+              :server, :environment
 
   ICONS = {
     qa: ':droplet:',

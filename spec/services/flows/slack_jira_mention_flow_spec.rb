@@ -4,7 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Flows::SlackJiraMentionFlow, type: :service do
   let(:jira_mention) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'jira_mention.json'))).with_indifferent_access
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
+                                   'jira_mention.json'))).with_indifferent_access
   end
 
   describe '#flow?' do

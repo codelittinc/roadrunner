@@ -4,7 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Parsers::AzureAlertsDatabaseParser, type: :service do
   let(:alert) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'azure_alerts_database.json'))).with_indifferent_access
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
+                                   'azure_alerts_database.json'))).with_indifferent_access
   end
 
   describe 'returns true when' do

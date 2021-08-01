@@ -46,7 +46,7 @@ module Flows
       return unless slack_username
 
       message = Messages::PullRequestBuilder.close_pull_request_notification(pull_request)
-      Clients::Slack::DirectMessage.new(customer).send(message, slack_username)
+      Clients::Slack::DirectMessage.new(customer).send(message, slack_username, true)
     end
 
     def update_pull_request_state!

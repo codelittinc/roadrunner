@@ -8,7 +8,8 @@ module Messages
 
       link = pull_request.link
 
-      format(Templates::PullRequest::NEW_PULL_REQUEST, slack_group, link, repository.name, pull_request.source_control_id)
+      format(Templates::PullRequest::NEW_PULL_REQUEST, slack_group, link, repository.name,
+             pull_request.source_control_id)
     end
 
     def self.close_pull_request_message(pull_request)
@@ -19,7 +20,8 @@ module Messages
       repository = pull_request.repository
       link = pull_request.link
 
-      format(Templates::PullRequest::CLOSE_PULL_REQUEST_NOTIFICATION, link, repository.name, pull_request.source_control_id)
+      format(Templates::PullRequest::CLOSE_PULL_REQUEST_NOTIFICATION, link, repository.name,
+             pull_request.source_control_id)
     end
 
     def self.change_pull_request_message

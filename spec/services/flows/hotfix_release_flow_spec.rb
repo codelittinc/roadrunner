@@ -13,11 +13,13 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
   end
 
   let(:valid_json_qa) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'release_hotfix_qa.json'))).with_indifferent_access
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
+                                   'release_hotfix_qa.json'))).with_indifferent_access
   end
 
   let(:valid_json_prod) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'release_hotfix_prod.json'))).with_indifferent_access
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
+                                   'release_hotfix_prod.json'))).with_indifferent_access
   end
 
   let(:repository_with_applications) do

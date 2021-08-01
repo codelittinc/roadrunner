@@ -6,7 +6,8 @@ module Flows
       if pull_request_review
         pull_request_review.update(state: parser.review_state)
       else
-        PullRequestReview.create(pull_request: pull_request, username: parser.review_username, state: parser.review_state)
+        PullRequestReview.create(pull_request: pull_request, username: parser.review_username,
+                                 state: parser.review_state)
       end
 
       send_message

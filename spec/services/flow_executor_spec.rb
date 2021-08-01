@@ -19,7 +19,8 @@ RSpec.describe FlowExecutor, type: :service do
 
           expected_message = 'There was an error with your request. Hey @automations-dev can you please check this?'
           allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
-          allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(expected_message, 'feed-test-automations')
+          allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(expected_message,
+                                                                                       'feed-test-automations')
           flow_executor.execute!
         end
       end
@@ -35,7 +36,8 @@ RSpec.describe FlowExecutor, type: :service do
         flow_executor = described_class.new(flow_request)
 
         expected_message = 'There are no results for your request. Please, check for more information using the `/roadrunner help` command.'
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message, 'rheniery.mendes')
+        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message,
+                                                                                     'rheniery.mendes')
 
         flow_executor.execute!
       end
@@ -49,7 +51,8 @@ RSpec.describe FlowExecutor, type: :service do
         flow_executor = described_class.new(flow_request)
 
         expected_message = 'There are no results for your request. Please, check for more information using the `/roadrunner help` command.'
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message, 'rheniery.mendes')
+        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message,
+                                                                                     'rheniery.mendes')
 
         flow_executor.execute!
       end

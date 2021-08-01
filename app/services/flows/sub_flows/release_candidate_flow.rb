@@ -41,7 +41,8 @@ module Flows
         @source_control_release_commits = if @releases.empty?
                                             source_control_client.list_branch_commits('master').reverse
                                           else
-                                            source_control_client.compare_commits(version_resolver.latest_tag_name, 'master')
+                                            source_control_client.compare_commits(version_resolver.latest_tag_name,
+                                                                                  'master')
                                           end
       end
 

@@ -4,7 +4,8 @@ require 'ostruct'
 
 module Parsers
   class AzureWebhookSourceControlParser < BaseParser
-    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner, :repository_name, :state, :title, :username, :event_type, :commit_sha, :conclusion
+    attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner,
+                :repository_name, :state, :title, :username, :event_type, :commit_sha, :conclusion
 
     def can_parse?
       @json[:publisherId] == 'tfs' || @json[:publisherId] == 'pipelines'
@@ -34,8 +35,10 @@ module Parsers
       @source_control_id = resource[:pullRequestId] || resource.dig(:pullRequest, :pullRequestId)
       @draft = resource[:isDraft]
       @head = resource[:sourceRefName]&.scan(%r{/.*/(.+/.+$)})&.flatten&.first
-      @owner = @owner || resource.dig(:repository, :project, :name) || resource.dig(:pullRequest, :repository, :project, :name)
-      @repository_name = @repository_name || resource.dig(:repository, :name) || resource.dig(:pullRequest, :repository, :name)
+      @owner = @owner || resource.dig(:repository, :project,
+                                      :name) || resource.dig(:pullRequest, :repository, :project, :name)
+      @repository_name = @repository_name || resource.dig(:repository,
+                                                          :name) || resource.dig(:pullRequest, :repository, :name)
       @title = resource[:title]
       @username = resource.dig(:createdBy, :uniqueName)
       @merged = resource[:mergeStatus] == 'succeeded'
