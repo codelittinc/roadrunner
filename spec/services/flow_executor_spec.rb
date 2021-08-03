@@ -1,9 +1,24 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'flows_helper'
 
 RSpec.describe FlowExecutor, type: :service do
   describe '#execute' do
+    context 'when it has a json for a valid flow' do
+      it 'executes the flow' do
+        json = load_flow_fixture('github_new_pull_request.json')
+        FactoryBot.create(:repository, name: 'roadrunner-rails', owner: 'codelittinc')
+
+        flow_request = FlowRequest.create!(json: json.to_json)
+        flow_executor = described_class.new(flow_request)
+
+        expect_any_instance_of(Flows::SourceControl::NewPullRequestFlow).to receive(:run)
+
+        flow_executor.execute!
+      end
+    end
+
     context 'when there is an exception' do
       it 'sends an exception message' do
         VCR.use_cassette('services#flowexecutor#handle-exception') do
@@ -42,6 +57,7 @@ RSpec.describe FlowExecutor, type: :service do
         flow_executor.execute!
       end
     end
+
     context 'when there is no results from flows and the command was sent through Direct Message' do
       it 'sends a direct no results message' do
         flow_request = FlowRequest.create!(json: {

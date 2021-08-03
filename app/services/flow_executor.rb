@@ -10,10 +10,15 @@ class FlowExecutor
     executed = true
 
     classnames.each do |classname|
-      classConst = Object.const_get("Flows::#{classname}")
+      begin
+        classConst = Object.const_get("Flows::#{classname}")
+      rescue StandardError
+        next
+      end
       object = classConst.new(@params)
       executed = false
-      next unless object.flow?
+      is_flow = classConst.ancestors.include?(Flows::BaseFlow)
+      next unless is_flow && object.flow?
 
       executed = true
       @flow_request.update(flow_name: object.class.name)
@@ -30,16 +35,21 @@ class FlowExecutor
   private
 
   def files
-    @files ||= Dir['./app/services/flows/*'].reject do |file|
+    @files ||= Dir['./app/services/flows/**/*'].reject do |file|
       file.include?('base')
     end
   end
 
   def classnames
     @classnames ||= files.map do |file|
-      regex = %r{/([a-z_]+).rb}
-      file.match(regex)[1].split('_').map(&:capitalize).join if file.match?(regex)
-    end.compact
+      regex = %r{flows/?(.+)?/([a-z_]+).rb}
+
+      matches = file.match(regex)
+      matches = matches.to_a.reject { |m| m.nil? || m&.include?('flows') }
+      matches.map do |mat|
+        mat.split('_').map(&:capitalize).join
+      end.join('::')
+    end.compact.reject(&:blank?)
   end
 
   def send_channel_message_result(message, channel)
