@@ -29,12 +29,12 @@ services:
       - redis
 
 timers:
-  servers-verification:
-    command: rake server:check_up_servers
+  servers-downtime-verification:
+    command: rails server:check_up_servers
     schedule: "* * * * *"
     service: api
 
   delete-old-data:
-    command: rake cleanup:delete_old_data
-    schedule: "* 12 * * *"
+    command: rails cleanup:delete_old_data
+    schedule: "* * * * *"
     service: api
