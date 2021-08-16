@@ -19,6 +19,4 @@ class Commit < ApplicationRecord
   has_many :releases, through: :commit_releases
 
   validates :sha, presence: true
-  validates :author_name, presence: true
-  validates :author_email, presence: true
 end
