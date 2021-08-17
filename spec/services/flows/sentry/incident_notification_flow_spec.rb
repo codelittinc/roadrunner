@@ -3,7 +3,7 @@
 require 'rails_helper'
 require 'flows_helper'
 
-RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
+RSpec.describe Flows::Sentry::IncidentNotificationFlow, type: :service do
   let(:valid_incident) { load_flow_fixture('sentry_incident.json') }
   let(:valid_incident_with_app_info_by_tags) { load_flow_fixture('sentry_incident_with_app_info_by_tags.json') }
   let(:valid_incident_with_error_caught) { load_flow_fixture('sentry_incident_with_error_caught_tag.json') }

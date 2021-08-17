@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Flows::ServerIncidentUpdateFlow, type: :service do
+RSpec.describe Flows::Slack::ServerIncidentUpdateFlow, type: :service do
   let(:valid_json) do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
                                    'server_incident_update.json'))).with_indifferent_access

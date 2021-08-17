@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Flows::AzureAlertsDatabaseProcessorFlow, type: :service do
+RSpec.describe Flows::Azure::AlertsDatabaseProcessorFlow, type: :service do
   let(:source) do
     'my_host.com'
   end

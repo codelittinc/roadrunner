@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Flows::DeployNotificationFlow, type: :service do
+RSpec.describe Flows::Notifications::DeployNotificationFlow, type: :service do
   describe '#flow?' do
     context 'returns true' do
       before do

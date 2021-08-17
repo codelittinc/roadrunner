@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Flows::HelpSummaryFlow, type: :service do
+RSpec.describe Flows::Slack::HelpSummaryFlow, type: :service do
   describe '#flow?' do
     context 'returns true' do
       it 'with a valid json' do
