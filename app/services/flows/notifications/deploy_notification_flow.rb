@@ -21,6 +21,10 @@ module Flows
           application
       end
 
+      def parser
+        @parser ||= Parsers::Notifications::DeployNotificationParser.new(@params)
+      end
+
       private
 
       def update_release_deploy_status!
