@@ -3,7 +3,7 @@
 require 'rails_helper'
 require 'external_api_helper'
 
-RSpec.describe Flows::ListChannelRepositoriesFlow, type: :service do
+RSpec.describe Flows::Slack::ListChannelRepositoriesFlow, type: :service do
   let(:valid_json) do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
                                    'list_repositories.json'))).with_indifferent_access
