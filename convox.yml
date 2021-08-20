@@ -33,8 +33,3 @@ timers:
     command: rails server:check_up_servers
     schedule: "* * * * *"
     service: roadrunner-api
-
-  delete-old-data:
-    command: rails cleanup:delete_old_data
-    schedule: "* * * * *"
-    service: roadrunner-api
