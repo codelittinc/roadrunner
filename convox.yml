@@ -5,7 +5,7 @@ resources:
     type: redis
 
 services:
-  api:
+  roadrunner-api:
     build: .
     port: 3000
     domain: ${HOST}
@@ -32,9 +32,9 @@ timers:
   servers-downtime-verification:
     command: rails server:check_up_servers
     schedule: "* * * * *"
-    service: api
+    service: roadrunner-api
 
   delete-old-data:
     command: rails cleanup:delete_old_data
     schedule: "* * * * *"
-    service: api
+    service: roadrunner-api
