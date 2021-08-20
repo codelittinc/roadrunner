@@ -13,7 +13,7 @@ jobs:
     - uses: convox/action-deploy@v1
       name: Deploy to Convox
       with:
-        rack: prod
+        rack: prod-internal
         app: roadrunner
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
 
