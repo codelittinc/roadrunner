@@ -33,8 +33,3 @@ timers:
     command: rake server:check_up_servers
     schedule: "* * * * *"
     service: api
-
-  delete-old-data:
-    command: rake cleanup:delete_old_data
-    schedule: "* 12 * * *"
-    service: api
