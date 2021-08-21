@@ -5,7 +5,7 @@ resources:
     type: redis
 
 services:
-  api:
+  roadrunner-api:
     build: .
     port: 3000
     domain: ${HOST}
@@ -32,4 +32,4 @@ timers:
   servers-verification:
     command: rake server:check_up_servers
     schedule: "* * * * *"
-    service: api
+    service: roadrunner-api
