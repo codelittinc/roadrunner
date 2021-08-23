@@ -4,7 +4,7 @@ require 'net/http'
 
 module Tasks
   class ServerTask
-    VALID_STATUS_CODE = %w[401 200].freeze
+    VALID_STATUS_CODE = %w[401 200 302].freeze
 
     def self.check_up_servers!
       servers = Server.where(active: true)
