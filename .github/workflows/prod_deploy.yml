@@ -18,7 +18,7 @@ jobs:
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
 
     - name: Notify deployment
-      uses: codelittinc/action-roadrunner-notify-deploy
+      uses: codelittinc/action-roadrunner-notify-deploy@master
       with:
         domain: api.roadrunner.codelitt.dev
         environment: prod
