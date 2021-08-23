@@ -9,7 +9,6 @@ module Tasks
     def self.check_up_servers!
       servers = Server.where(active: true)
 
-      Rails.logger.warn 'Starting to review the servers!'
       servers.each do |server|
         link = server.link
 
@@ -29,7 +28,6 @@ module Tasks
           status_check
         )
       end
-      Rails.logger.warn 'Finished to review the servers!'
     end
 
     def self.result_request(link, retries = 0)
