@@ -57,5 +57,9 @@ module Messages
       end
       message + "\n\n\n Click <#{azure_link}|here> to see this application on Azure."
     end
+
+    def self.azure_devops_isssues_mention(issue_link, issue_number)
+      "You've been mentioned in the Azure Devops Issue #<#{issue_number}|#{issue_link}>"
+    end
   end
 end
