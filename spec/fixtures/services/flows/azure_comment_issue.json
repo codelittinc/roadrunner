@@ -1,0 +1,147 @@
+{
+  "subscriptionId": "f9ea1b29-d9ad-476f-8cf7-820ff0ccced6",
+  "notificationId": 703,
+  "id": "6b8c08d2-3035-4a62-8dd0-91cc9d2713be",
+  "eventType": "workitem.commented",
+  "publisherId": "tfs",
+  "message": {
+    "text": "User Story #2988 (FE only - Lease Analytics - Create new tab on Find Comps) commented on by Kaio Magalhaes\r\n(https://dev.azure.com/AY-InnovationCenter/web/wi.aspx?pcguid=a121438c-5a62-4eaf-8333-7204deeb7308\u0026id=2988)",
+    "html": "\u003ca href=\"https://dev.azure.com/AY-InnovationCenter/web/wi.aspx?pcguid=a121438c-5a62-4eaf-8333-7204deeb7308\u0026amp;id=2988\"\u003eUser Story #2988\u003c/a\u003e (FE only - Lease Analytics - Create new tab on Find Comps) commented on by Kaio Magalhaes",
+    "markdown": "[User Story #2988](https://dev.azure.com/AY-InnovationCenter/web/wi.aspx?pcguid=a121438c-5a62-4eaf-8333-7204deeb7308\u0026id=2988) (FE only - Lease Analytics - Create new tab on Find Comps) commented on by Kaio Magalhaes"
+  },
+  "detailedMessage": {
+    "text": "User Story #2988 (FE only - Lease Analytics - Create new tab on Find Comps) commented on by Kaio Magalhaes\r\n(https://dev.azure.com/AY-InnovationCenter/web/wi.aspx?pcguid=a121438c-5a62-4eaf-8333-7204deeb7308\u0026id=2988)\r\n\r\nhey @Kaio Magalhaes(#) I'm doing a test with Azure DevopsNotifications. Please ignore this message\r\n",
+    "html": "\u003ca href=\"https://dev.azure.com/AY-InnovationCenter/web/wi.aspx?pcguid=a121438c-5a62-4eaf-8333-7204deeb7308\u0026amp;id=2988\"\u003eUser Story #2988\u003c/a\u003e (FE only - Lease Analytics - Create new tab on Find Comps) commented on by Kaio Magalhaes\u003cbr/\u003e\u003cdiv\u003ehey \u003ca href=\"#\" data-vss-mention=\"version:2.0,4d13cd81-e536-6e63-93fa-0de9cffbb868\"\u003e@Kaio Magalhaes\u003c/a\u003e\u0026nbsp;I'm doing a test with Azure DevopsNotifications. Please ignore this message\u003c/div\u003e",
+    "markdown": "[User Story #2988](https://dev.azure.com/AY-InnovationCenter/web/wi.aspx?pcguid=a121438c-5a62-4eaf-8333-7204deeb7308\u0026id=2988) (FE only - Lease Analytics - Create new tab on Find Comps) commented on by Kaio Magalhaes\r\n\r\nhey [@Kaio Magalhaes](#) I'm doing a test with Azure DevopsNotifications. Please ignore this message\r\n"
+  },
+  "resource": {
+    "id": 2988,
+    "rev": 22,
+    "fields": {
+      "System.AreaPath": "Avant\\Geographies",
+      "System.TeamProject": "Avant",
+      "System.IterationPath": "Avant\\Geographies\\Sprint 36 (8-10 to 8-30)",
+      "System.WorkItemType": "User Story",
+      "System.State": "Active",
+      "System.Reason": "Implementation started",
+      "System.AssignedTo": "René Monroy \u003crene.monroy@codelitt.com\u003e",
+      "System.CreatedDate": "2021-08-05T16:11:13.287Z",
+      "System.CreatedBy": "Caitlin Jakubowski \u003ccaitlin.jakubowski@codelitt.com\u003e",
+      "System.ChangedDate": "2021-08-24T16:10:09.483Z",
+      "System.ChangedBy": "Kaio Magalhaes \u003ckaio@codelitt.com\u003e",
+      "System.CommentCount": 3,
+      "System.Title": "FE only - Lease Analytics - Create new tab on Find Comps",
+      "System.BoardColumn": "In Review",
+      "System.BoardColumnDone": false,
+      "Microsoft.VSTS.Scheduling.StoryPoints": 3.0,
+      "Microsoft.VSTS.Common.StateChangeDate": "2021-08-18T14:36:46.16Z",
+      "Microsoft.VSTS.Common.ActivatedDate": "2021-08-18T14:36:46.16Z",
+      "Microsoft.VSTS.Common.ActivatedBy": "René Monroy \u003crene.monroy@codelitt.com\u003e",
+      "Microsoft.VSTS.Common.Priority": 2,
+      "Microsoft.VSTS.Common.StackRank": 999687722.0,
+      "Microsoft.VSTS.Common.ValueArea": "Business",
+      "Custom.DesignLink": "https://www.figma.com/file/F59diWk4JzAYk2UHSCqHsK/05-Find-Comps?node-id=2174%3A20519",
+      "WEF_729C8EB8B25845A9B51EB2565D26099E_Kanban.Column": "In Review",
+      "WEF_729C8EB8B25845A9B51EB2565D26099E_Kanban.Column.Done": false,
+      "System.Description": "\u003cdiv\u003eA a user, I want to view Lease Analytics data in order to have more information on a set of Lease comps.\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003eThe Lease Analytics feature should be added in a new tab on the Find Comps (Leases) page\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003e\u003cimg src=\"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/wit/attachments/8fecb5bc-5b29-4c80-bc22-0dc52f029f05?fileName=image.png\" alt=Image\u003e\u003cbr\u003e\u003c/div\u003e",
+      "System.History": "\u003cdiv\u003ehey \u003ca href=\"#\" data-vss-mention=\"version:2.0,4d13cd81-e536-6e63-93fa-0de9cffbb868\"\u003e@Kaio Magalhaes\u003c/a\u003e\u0026nbsp;I'm doing a test with Azure DevopsNotifications. Please ignore this message\u003c/div\u003e",
+      "Microsoft.VSTS.Common.AcceptanceCriteria": "\u003cdiv\u003e\u003cul style=\"color:rgb(243, 144, 29);\"\u003e\u003cli\u003e\u003cspan\u003e\u003cspan style=\"color:rgb(0, 0, 0);\"\u003eAdd “Analytics” link (separate section divided by divider)\u003c/span\u003e\u003c/span\u003e\u003c/li\u003e\u003cli\u003e\u003cspan style=\"color:rgb(0, 0, 0);\"\u003eAdd “List” link\u003c/span\u003e\u003c/li\u003e\u003cli\u003e\u003cspan style=\"color:rgb(0, 0, 0);\"\u003eDisable Analytics link when in Properties view\u003c/span\u003e\u003c/li\u003e\u003cli\u003e\u003cspan style=\"color:rgb(0, 0, 0);\"\u003eAdd them to the rest of the pages\u003c/span\u003e\u003c/li\u003e\u003cul\u003e\u003cli\u003e\u003cspan style=\"color:rgb(0, 0, 0);\"\u003eLink from Property, Company and Submarket pages to View in List should default to List tab\u003c/span\u003e\u003c/li\u003e\u003cli\u003e\u003cspan style=\"color:rgb(0, 0, 0);\"\u003eWhen going to Lease Comps via other page, Analytics tab should be default view (except for Property as it should be disabled)\u003c/span\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/ul\u003e\u003cdiv\u003eThe way these links should work:\u0026nbsp;\u003cbr\u003eLeases and Properties would be \u0026quot;What data am looking at\u0026quot; and Analytics and List would be \u0026quot;What view am I seeing\u0026quot;.\u0026nbsp;\u003cspan style=\"display:inline !important;\"\u003eThe Leases and Properties links will toggle the type of data shown and Analytics and List will toggle the view.\u003c/span\u003e\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003eThis means that you can essentially choose Lease + Analytics, Lease + List, or Properties + Analytics, Properties + Sales.\u0026nbsp;\u003c/div\u003e\u003c/div\u003e\u003cdiv\u003e\u003cbr\u003e\u003c/div\u003e\u003cdiv\u003eFor the first iteration Properties will only have the List view. Until we build out the Analytics page. So we need to disable the Analytics link when Properties are selected.\u0026nbsp;\u003c/div\u003e",
+      "System.Tags": "Frontend"
+    },
+    "relations": [
+      {
+        "rel": "ArtifactLink",
+        "url": "vstfs:///Git/PullRequestId/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4%2F93ed8322-6ef9-4c87-a458-b3d0859de666%2F1060",
+        "attributes": {
+          "authorizedDate": "2021-08-23T17:53:06.163Z",
+          "id": 12537200,
+          "resourceCreatedDate": "2021-08-23T17:53:06.163Z",
+          "resourceModifiedDate": "2021-08-23T17:53:06.163Z",
+          "revisedDate": "9999-01-01T00:00:00Z",
+          "name": "Pull Request"
+        }
+      },
+      {
+        "rel": "ArtifactLink",
+        "url": "vstfs:///Git/PullRequestId/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4%2F93ed8322-6ef9-4c87-a458-b3d0859de666%2F1066",
+        "attributes": {
+          "authorizedDate": "2021-08-23T21:14:19.477Z",
+          "id": 12538821,
+          "resourceCreatedDate": "2021-08-23T21:14:19.477Z",
+          "resourceModifiedDate": "2021-08-23T21:14:19.477Z",
+          "revisedDate": "9999-01-01T00:00:00Z",
+          "name": "Pull Request"
+        }
+      },
+      {
+        "rel": "ArtifactLink",
+        "url": "vstfs:///Git/Commit/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4%2f93ed8322-6ef9-4c87-a458-b3d0859de666%2f5923480fbd6874f66e7d6fa4827b89dbf32ee503",
+        "attributes": {
+          "authorizedDate": "2021-08-23T20:23:06.443Z",
+          "id": 12538092,
+          "resourceCreatedDate": "2021-08-23T20:23:06.443Z",
+          "resourceModifiedDate": "2021-08-23T20:23:06.443Z",
+          "revisedDate": "9999-01-01T00:00:00Z",
+          "name": "Fixed in Commit"
+        }
+      },
+      {
+        "rel": "ArtifactLink",
+        "url": "vstfs:///Git/Commit/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4%2f93ed8322-6ef9-4c87-a458-b3d0859de666%2f23f60fa5528f60245b0f7d6b82da6c731b39183b",
+        "attributes": {
+          "authorizedDate": "2021-08-24T15:47:13.37Z",
+          "id": 12541873,
+          "resourceCreatedDate": "2021-08-24T15:47:13.37Z",
+          "resourceModifiedDate": "2021-08-24T15:47:13.37Z",
+          "revisedDate": "9999-01-01T00:00:00Z",
+          "name": "Fixed in Commit"
+        }
+      }
+    ],
+    "commentVersionRef": {
+      "commentId": 2244878,
+      "version": 1,
+      "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/wit/workItems/2988/comments/2244878/versions/1"
+    },
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/wit/workItems/2988"
+      },
+      "workItemUpdates": {
+        "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/wit/workItems/2988/updates"
+      },
+      "workItemRevisions": {
+        "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/wit/workItems/2988/revisions"
+      },
+      "workItemComments": {
+        "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/wit/workItems/2988/comments"
+      },
+      "html": {
+        "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_workitems/edit/2988"
+      },
+      "workItemType": {
+        "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/wit/workItemTypes/User%20Story"
+      },
+      "fields": {
+        "href": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/wit/fields"
+      }
+    },
+    "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/wit/workItems/2988"
+  },
+  "resourceVersion": "1.0",
+  "resourceContainers": {
+    "collection": {
+      "id": "a121438c-5a62-4eaf-8333-7204deeb7308",
+      "baseUrl": "https://dev.azure.com/AY-InnovationCenter/"
+    },
+    "account": {
+      "id": "c713fab0-a7a4-4858-b8d7-acd0e4cae999",
+      "baseUrl": "https://dev.azure.com/AY-InnovationCenter/"
+    },
+    "project": {
+      "id": "e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4",
+      "baseUrl": "https://dev.azure.com/AY-InnovationCenter/"
+    }
+  },
+  "createdDate": "2021-08-24T16:10:15.9642253Z"
+}
