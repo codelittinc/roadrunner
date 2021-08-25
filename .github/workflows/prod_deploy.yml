@@ -17,12 +17,17 @@ jobs:
         app: roadrunner
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
 
+    - name: login
+      id: login
+      uses: convox/action-login@v1
+      with:
+        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
+
     - uses: convox/action-run@v1
       name: Run migrations
       with:
         rack: prod-internal
         app: roadrunner
-        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
         command: 'rails db:migrate && rails datab:migrate'
 
 
