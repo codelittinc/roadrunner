@@ -7,7 +7,7 @@ module Flows
     end
 
     def customer
-      repository.project.customer
+      @customer ||= repository.project.customer
     end
 
     def pull_request

@@ -2,17 +2,11 @@
 
 require 'rails_helper'
 require 'external_api_helper'
+require 'flows_helper'
 
 RSpec.describe Flows::NewPullRequestFlow, type: :service do
-  let(:github_valid_json) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
-                                   'github_new_pull_request.json'))).with_indifferent_access
-  end
-
-  let(:azure_valid_json) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
-                                   'azure_new_pull_request.json'))).with_indifferent_access
-  end
+  let(:github_valid_json) { load_flow_fixture('github_new_pull_request.json') }
+  let(:azure_valid_json) { load_flow_fixture('azure_new_pull_request.json') }
 
   context 'Github JSON' do
     let(:repository) do

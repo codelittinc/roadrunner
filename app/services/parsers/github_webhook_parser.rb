@@ -37,8 +37,8 @@ module Parsers
       @action = @json[:action]
     end
 
-    def user_by_source_control
-      User.find_or_initialize_by(github: username)
+    def user_by_source_control(customer)
+      User.find_or_initialize_by(github: username, customer: customer)
     end
 
     def build_source(pull_request)

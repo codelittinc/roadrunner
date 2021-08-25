@@ -49,8 +49,8 @@ module Parsers
     # rubocop:enable Metrics/AbcSize
 
     # @TODO: add tests
-    def user_by_source_control
-      User.find_or_initialize_by(azure: username)
+    def user_by_source_control(customer)
+      User.find_or_initialize_by(azure: username, customer: customer)
     end
 
     def build_source(pull_request)

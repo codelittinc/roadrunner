@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_200810) do
+ActiveRecord::Schema.define(version: 2021_08_25_112134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,9 @@ ActiveRecord::Schema.define(version: 2021_07_12_200810) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "sentry_name"
+  end
+
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
   create_table "external_identifiers", force: :cascade do |t|
@@ -260,6 +263,8 @@ ActiveRecord::Schema.define(version: 2021_07_12_200810) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "azure"
     t.string "azure_devops_issues"
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_users_on_customer_id"
   end
 
   add_foreign_key "applications", "repositories"
@@ -275,4 +280,5 @@ ActiveRecord::Schema.define(version: 2021_07_12_200810) do
   add_foreign_key "server_incident_instances", "server_incidents"
   add_foreign_key "servers", "applications"
   add_foreign_key "slack_repository_infos", "repositories"
+  add_foreign_key "users", "customers"
 end
