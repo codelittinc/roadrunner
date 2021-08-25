@@ -19,7 +19,7 @@ jobs:
 
     - name: login
       id: login
-      uses: convox/action-login@v1
+      uses: convox/action-login@v2
       with:
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
 
