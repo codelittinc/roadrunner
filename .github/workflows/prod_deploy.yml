@@ -17,6 +17,15 @@ jobs:
         app: roadrunner
         password: ${{ secrets.CONVOX_DEPLOY_KEY }}
 
+    - uses: convox/action-run@v1
+      name: Run migrations
+      with:
+        rack: prod-internal
+        app: roadrunner
+        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
+        command: 'rails db:migrate && rails datab:migrate'
+
+
     - name: Notify deployment
       uses: codelittinc/action-roadrunner-notify-deploy@master
       with:
