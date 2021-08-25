@@ -21,7 +21,7 @@ jobs:
         rack: prod-internal
         app: roadrunner
 
-    - uses: convox/action-run@update-release
+    - uses: convox/action-run@v1.1.0
       name: Run schema migrations
       with:
         rack: prod-internal
@@ -29,7 +29,7 @@ jobs:
         command: 'rails db:migrate'
         service: 'roadrunner-api'
 
-    - uses: convox/action-run@update-release
+    - uses: convox/action-run@v1.1.0
       name: Run data migrations
       with:
         rack: prod-internal
