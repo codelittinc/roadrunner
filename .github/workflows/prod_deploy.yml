@@ -10,29 +10,35 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - uses: convox/action-login@v2
+      name: Convox login
+      with:
+        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
+
     - uses: convox/action-deploy@v1
       name: Deploy to Convox
       with:
         rack: prod-internal
         app: roadrunner
-        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
 
-    - name: login
-      id: login
-      uses: convox/action-login@v2
-      with:
-        password: ${{ secrets.CONVOX_DEPLOY_KEY }}
-
-    - uses: convox/action-run@v1
-      name: Run migrations
+    - uses: convox/action-run@update-release
+      name: Run schema migrations
       with:
         rack: prod-internal
         app: roadrunner
-        command: 'rails db:migrate && rails datab:migrate'
+        command: 'rails db:migrate'
+        service: 'roadrunner-api'
 
+    - uses: convox/action-run@update-release
+      name: Run data migrations
+      with:
+        rack: prod-internal
+        app: roadrunner
+        command: 'rails data:migrate'
+        service: 'roadrunner-api'
 
-    - name: Notify deployment
-      uses: codelittinc/action-roadrunner-notify-deploy@master
+    - uses: codelittinc/action-roadrunner-notify-deploy@master
+      name: Notify deployment
       with:
         domain: api.roadrunner.codelitt.dev
         environment: prod
