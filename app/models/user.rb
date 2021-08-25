@@ -12,6 +12,7 @@
 #  updated_at          :datetime         not null
 #  azure               :string
 #  azure_devops_issues :string
+#  customer_id         :bigint
 #
 class User < ApplicationRecord
   include PgSearch::Model
@@ -19,4 +20,5 @@ class User < ApplicationRecord
   pg_search_scope :search_by_term, against: %i[jira slack github azure azure_devops_issues]
 
   has_many :pull_requests
+  belongs_to :customer
 end
