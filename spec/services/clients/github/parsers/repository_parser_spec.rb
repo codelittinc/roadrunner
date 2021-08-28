@@ -16,5 +16,9 @@ RSpec.describe Clients::Github::Parsers::RepositoryParser, type: :service do
     it 'returns the name' do
       expect(repository.name).to eql('gh-hooks-repo-test')
     end
+
+    it 'returns the owner' do
+      expect(repository.owner).to eql('codelittinc')
+    end
   end
 end
