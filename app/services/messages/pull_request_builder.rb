@@ -27,7 +27,7 @@ module Messages
 
       urls_message = 'Please update the status of the cards:'
       links = issue_mentions.map do |issue_mention|
-        "<#{issue_mention[:reference_code]}|#{issue_mention[:link]}>"
+        "<#{issue_mention[:link]}|##{issue_mention[:reference_code]}>"
       end
       "#{base_message}. #{urls_message} #{links.join(',')}."
     end
