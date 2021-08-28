@@ -193,7 +193,9 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
 
           expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
-            ':merge2: Pull Request closed <https://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13>', 'kaiomagalhaes', true
+            ':merge2: Pull Request closed <https://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13>.'\
+            ' Please update the status of the cards: <AYAPI-254|https://codelitt.atlassian.net/browse/AYAPI-254>,<AYAPI-255|https://codelitt.atlassian.net/browse/AYAPI-255>.',
+            'kaiomagalhaes', true
           )
 
           flow = described_class.new(valid_json)
@@ -377,6 +379,41 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
 
           expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
             ':merge2: Pull Request closed <https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35|ay-users-api-test#35>',
+            'kaiomagalhaes',
+            true
+          )
+
+          flow = described_class.new(valid_json)
+          flow.run
+        end
+      end
+
+      it 'sends a direct message to the owner of the pull request asking him to update the card' do
+        VCR.use_cassette('flows#close-pull-request#azure-create-commit-right-message') do
+          pr_description = '### Other minor changes:
+            - Move files out to a utils file in UploadSection to shorten the file size and improve readability.
+          ### Card Link:
+          https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1427/
+          ### Design Expected Screenshot
+          ![image](https://user-images.githubusercontent.com/68696952/115034665.png)
+          ### Implementation Screenshot or GIF
+          ![Property Intelligence](https://user-images.githubusercontent.com/68696952.gif)
+          https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/93ed8322-6ef9-4c87-a458-b3d0859de666/pullRequests/348/attachments/Screenshot
+          ### Example Link:
+          https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1346
+          ### Notes:
+          Still WIP'
+
+          slack_message = FactoryBot.create(:slack_message, ts: '123')
+          FactoryBot.create(:pull_request, source_control_id: 35, repository: repository, slack_message: slack_message,
+                                           source_control_type: 'azure')
+
+          expect_any_instance_of(Parsers::AzureWebhookSourceControlParser).to receive(:description).and_return(pr_description)
+          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+
+          expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
+            ':merge2: Pull Request closed <https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35|ay-users-api-test#35>.'\
+            ' Please update the status of the cards: <1427|https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1427/>,<1346|https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1346>.',
             'kaiomagalhaes',
             true
           )

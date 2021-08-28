@@ -2,21 +2,14 @@
 
 module Flows
   class ClosePullRequestFlow < BaseSourceControlFlow
-    JIRA_CARD_REGEX = %r{https?://codelitt.atlassian.net/browse/[a-zA-Z0-9-]+}
-
     def execute
       update_pull_request_state!
-
-      close_pull_request_message = Messages::PullRequestBuilder.close_pull_request_message(pull_request)
-
-      message_ts = pull_request.slack_message.ts
 
       Clients::Slack::ChannelMessage.new(customer).update(close_pull_request_message, channel, message_ts)
 
       parser.destroy_branch!(pull_request)
 
-      pull_request_description = parser.description
-      pull_request.update(description: pull_request_description)
+      pull_request.update(description: parser.description)
 
       if pull_request.merged?
         react_to_merge_pull_request!
@@ -45,8 +38,17 @@ module Flows
     def send_close_pull_request_notification!
       return unless slack_username
 
-      message = Messages::PullRequestBuilder.close_pull_request_notification(pull_request)
+      urls_from_description = ChangelogsService.urls_from_description(pull_request.description)
+      message = Messages::PullRequestBuilder.close_pull_request_notification(pull_request, urls_from_description)
       Clients::Slack::DirectMessage.new(customer).send(message, slack_username, true)
+    end
+
+    def close_pull_request_message
+      Messages::PullRequestBuilder.close_pull_request_message(pull_request)
+    end
+
+    def message_ts
+      pull_request.slack_message.ts
     end
 
     def update_pull_request_state!

@@ -16,12 +16,20 @@ module Messages
       "~#{new_pull_request_message(pull_request)}~"
     end
 
-    def self.close_pull_request_notification(pull_request)
+    def self.close_pull_request_notification(pull_request, issue_mentions)
       repository = pull_request.repository
       link = pull_request.link
 
-      format(Templates::PullRequest::CLOSE_PULL_REQUEST_NOTIFICATION, link, repository.name,
-             pull_request.source_control_id)
+      base_message = format(Templates::PullRequest::CLOSE_PULL_REQUEST_NOTIFICATION, link, repository.name,
+                            pull_request.source_control_id)
+
+      return base_message if issue_mentions.empty?
+
+      urls_message = 'Please update the status of the cards:'
+      links = issue_mentions.map do |issue_mention|
+        "<#{issue_mention[:reference_code]}|#{issue_mention[:link]}>"
+      end
+      "#{base_message}. #{urls_message} #{links.join(',')}."
     end
 
     def self.change_pull_request_message
