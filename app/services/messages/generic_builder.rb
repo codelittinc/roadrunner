@@ -59,7 +59,7 @@ module Messages
     end
 
     def self.azure_devops_isssues_mention(issue_link, issue_number)
-      "You've been mentioned in the Azure Devops Issue #<#{issue_number}|#{issue_link}>"
+      "You've been mentioned in the Azure Devops Issue <#{issue_link}|##{issue_number}>"
     end
   end
 end

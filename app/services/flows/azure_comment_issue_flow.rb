@@ -25,7 +25,7 @@ module Flows
 
       return [] if matches.empty?
 
-      User.where(azure_devops_issues: matches)
+      User.where('lower(azure_devops_issues) = ?', matches)
     end
 
     def customer; end
