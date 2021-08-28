@@ -54,7 +54,7 @@
     "creationDate": "2021-04-28T19:52:20.5886326Z",
     "title": "Added test",
     "description": "Added test",
-    "sourceRefName": "refs/heads/feat/test1",
+    "sourceRefName": "refs/heads/feat/1870/pricing-quotes",
     "targetRefName": "refs/heads/main",
     "mergeStatus": "succeeded",
     "isDraft": false,
@@ -82,9 +82,7 @@
       "comment": "Merge pull request 35 from feat/test1 into main",
       "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/commits/aac99021cf479354249cd54e1e0df08782ce7542"
     },
-    "reviewers": [
-
-    ],
+    "reviewers": [],
     "url": "https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_apis/git/repositories/89287597-fb30-419a-b728-2a84a5cf1b34/pullRequests/35",
     "_links": {
       "web": {

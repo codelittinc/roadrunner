@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Parsers
-  class AzureNewChangePullRequestCodeParser < BaseParser
+  class AzureNewChangePullRequestCodeParser < BaseAzureParser
     attr_reader :head,
                 :repository_name,
                 :owner,
@@ -18,9 +18,8 @@ module Parsers
     def parse!
       @repository_name = @json.dig(:resource, :repository, :name)
       @owner = @json.dig(:resource, :repository, :project, :name)
-      branch = @json.dig(:resource, :refUpdates).first[:name]
-      branch_name_regex = %r{refs/heads/(.*)}
-      @head = branch.match?(branch_name_regex) ? branch.match(branch_name_regex)[1] : nil
+      full_branch_name = @json.dig(:resource, :refUpdates).first[:name]
+      @head = real_branch_name(full_branch_name)
     end
   end
 end

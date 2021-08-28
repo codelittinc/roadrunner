@@ -3,7 +3,7 @@
 require 'ostruct'
 
 module Parsers
-  class AzureWebhookSourceControlParser < BaseParser
+  class AzureWebhookSourceControlParser < BaseAzureParser
     attr_reader :base, :branch_name, :description, :draft, :source_control_id, :head, :merged, :owner,
                 :repository_name, :state, :title, :username, :event_type, :commit_sha, :conclusion
 
@@ -23,18 +23,15 @@ module Parsers
       (event_type == 'git.pullrequest.merged' || event_type == 'git.pullrequest.updated') && (@status == 'completed' || @status == 'abandoned')
     end
 
-    # rubocop:disable Metrics/CyclomaticComplexity
-    # rubocop:disable Metrics/PerceivedComplexity
-    # rubocop:disable Metrics/AbcSize
     def parse!
       parse_check_run! if check_run
 
       @event_type = @json[:eventType]
-      @base = resource[:targetRefName]&.scan(%r{/.+/(.+$)})&.flatten&.first
+      @base = real_branch_name(resource[:targetRefName])
       @description = resource[:description]
       @source_control_id = resource[:pullRequestId] || resource.dig(:pullRequest, :pullRequestId)
       @draft = resource[:isDraft]
-      @head = resource[:sourceRefName]&.scan(%r{/.*/(.+/.+$)})&.flatten&.first
+      @head = real_branch_name(resource[:sourceRefName])
       @owner = @owner || resource.dig(:repository, :project,
                                       :name) || resource.dig(:pullRequest, :repository, :project, :name)
       @repository_name = @repository_name || resource.dig(:repository,
@@ -44,9 +41,6 @@ module Parsers
       @merged = resource[:mergeStatus] == 'succeeded'
       @status = resource[:status]
     end
-    # rubocop:enable Metrics/CyclomaticComplexity
-    # rubocop:enable Metrics/PerceivedComplexity
-    # rubocop:enable Metrics/AbcSize
 
     # @TODO: add tests
     def user_by_source_control(customer)
