@@ -64,7 +64,7 @@ class CreateRepositoryService
   end
 
   def slack_repository_info_attributes
-    @params[:slack_repository_info_attributes]
+    @params[:slack_repository_info_attributes]&.to_h&.with_indifferent_access
   end
 
   def source_control_type
