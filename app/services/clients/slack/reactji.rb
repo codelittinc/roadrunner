@@ -8,7 +8,7 @@ module Clients
         Request.post(url, authorization, build_params({
                                                         reaction: reaction,
                                                         channel: channel,
-                                                        ts: timestamp
+                                                        notification_id: timestamp
                                                       }))
       end
     end
