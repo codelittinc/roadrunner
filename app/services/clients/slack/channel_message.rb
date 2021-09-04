@@ -8,7 +8,7 @@ module Clients
         response = Request.post(url, authorization, build_params({
                                                                    message: message,
                                                                    channel: channel,
-                                                                   ts: timestamp,
+                                                                   notification_id: timestamp,
                                                                    uniq: uniq
                                                                  }))
         JSON.parse(response.body)
@@ -19,7 +19,7 @@ module Clients
         response = Request.patch(url, authorization, build_params({
                                                                     message: message,
                                                                     channel: channel,
-                                                                    ts: timestamp
+                                                                    notification_id: timestamp
                                                                   }))
         JSON.parse(response.body)
       end
