@@ -268,7 +268,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
             slack_message,
             'feed-test-automations'
           ).and_return(
-            { 'ts' => '123' }
+            { 'notification_id' => '123' }
           )
 
           flow.run

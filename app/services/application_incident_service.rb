@@ -39,7 +39,7 @@ class ApplicationIncidentService
   def notify_team!
     response = Clients::Slack::ChannelMessage.new(customer).send(slack_message, slack_channel)
     obj = SlackMessage.new
-    obj.ts = response['ts']
+    obj.ts = response['notification_id']
     obj.text = slack_message
     obj.save
     current_server_incident.update(slack_message_id: obj.id)
@@ -50,7 +50,7 @@ class ApplicationIncidentService
     Clients::Slack::ChannelMessage.new(customer).send(
       final_message,
       slack_channel,
-      response['ts']
+      response['notification_id']
     )
   end
 
