@@ -87,7 +87,7 @@ http_interactions:
     uri: https://slack-api.codelitt.dev/reactions
     body:
       encoding: UTF-8
-      string: '{"bot":"roadrunner","reaction":"merge2","channel":"feed-test-automations","ts":"123"}'
+      string: '{"bot":"roadrunner","reaction":"airplane_departure","channel":"feed-test-automations","ts":"123"}'
     headers:
       Content-Type:
       - application/json
@@ -213,7 +213,7 @@ http_interactions:
     uri: https://slack-api.codelitt.dev/direct_messages
     body:
       encoding: UTF-8
-      string: '{"bot":"roadrunner","message":":merge2: Pull Request closed \u003chttps://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13\u003e","username":"kaiomagalhaes"}'
+      string: '{"bot":"roadrunner","message":":airplane_departure: Pull Request closed \u003chttps://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13\u003e","username":"kaiomagalhaes"}'
     headers:
       Content-Type:
       - application/json
@@ -246,7 +246,7 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"ok":true,"channel":"DSKK0U6EP","ts":"1615389710.000500","message":{"bot_id":"BSW6NEU5N","type":"message","text":":merge2:
+      string: '{"ok":true,"channel":"DSKK0U6EP","ts":"1615389710.000500","message":{"bot_id":"BSW6NEU5N","type":"message","text":":airplane_departure:
         Pull Request closed <https://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13>","user":"USYCS7QHL","ts":"1615389710.000500","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
   recorded_at: Wed, 10 Mar 2021 15:21:50 GMT
 recorded_with: VCR 6.0.0

@@ -28,7 +28,7 @@ module Flows
     private
 
     def react_to_merge_pull_request!
-      Clients::Slack::Reactji.new(customer).send('merge2', channel, pull_request.slack_message.ts)
+      Clients::Slack::Reactji.new(customer).send('airplane_departure', channel, pull_request.slack_message.ts)
     end
 
     def react_to_cancel_pull_request!

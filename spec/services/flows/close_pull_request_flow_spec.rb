@@ -108,7 +108,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
 
             flow = described_class.new(valid_json)
 
-            expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('merge2', 'feed-test-automations',
+            expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('airplane_departure', 'feed-test-automations',
                                                                                    '123')
 
             flow.run
@@ -193,7 +193,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
 
           expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
-            ':merge2: Pull Request closed <https://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13>.'\
+            ':airplane_departure: Pull Request closed <https://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13>.'\
             ' Please update the status of the cards: <https://codelitt.atlassian.net/browse/AYAPI-254|#AYAPI-254>,<https://codelitt.atlassian.net/browse/AYAPI-255|#AYAPI-255>.',
             'kaiomagalhaes', true
           )
@@ -332,7 +332,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
 
             flow = described_class.new(valid_json)
 
-            expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('merge2', 'feed-test-automations',
+            expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('airplane_departure', 'feed-test-automations',
                                                                                    '123')
 
             flow.run
@@ -378,7 +378,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
 
           expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
-            ':merge2: Pull Request closed <https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35|ay-users-api-test#35>',
+            ':airplane_departure: Pull Request closed <https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35|ay-users-api-test#35>',
             'kaiomagalhaes',
             true
           )
@@ -412,7 +412,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
 
           expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
-            ':merge2: Pull Request closed <https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35|ay-users-api-test#35>.'\
+            ':airplane_departure: Pull Request closed <https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35|ay-users-api-test#35>.'\
             ' Please update the status of the cards: <https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1427/|#1427>,<https://dev.azure.com/AY-InnovationCenter/Avant/_workitems/edit/1346|#1346>.',
             'kaiomagalhaes',
             true
