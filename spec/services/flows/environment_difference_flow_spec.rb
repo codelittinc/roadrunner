@@ -5,9 +5,9 @@ require 'rails_helper'
 RSpec.describe Flows::EnvironmentDifferenceFlow, type: :service do
   let(:repository) { FactoryBot.create(:repository) }
   let(:qa_application) { FactoryBot.create(:application, repository: repository) }
-  let(:prod_application) { FactoryBot.create(:application, repository: repository) }
+  let(:pro_application) { FactoryBot.create(:application, repository: repository) }
   let(:qa_release) { FactoryBot.create(:release, application: qa_application) }
-  let(:prod_release) { FactoryBot.create(:release, application: prod_application) }
+  let(:prod_release) { FactoryBot.create(:release, application: pro_application) }
 
   let(:commits) do
     FactoryBot.create(:commit, :with_pull_request,
@@ -21,7 +21,7 @@ RSpec.describe Flows::EnvironmentDifferenceFlow, type: :service do
     context 'returns true' do
       it 'with a valid json' do
         flow = described_class.new({
-                                     text: "env diff #{repository.name} #{prod_application.environment} #{qa_application.environment}",
+                                     text: "env diff #{repository.name} #{qa_application.environment} #{pro_application.environment}",
                                      channel_name: 'cool-channel'
                                    })
         expect(flow.can_execute?).to be_truthy
@@ -38,7 +38,7 @@ RSpec.describe Flows::EnvironmentDifferenceFlow, type: :service do
 
       it 'when an environment does not exists' do
         flow = described_class.new({
-                                     text: "env diff #{repository.name} #{prod_application.environment} fake_env",
+                                     text: "env diff #{repository.name} #{qa_application.environment} fake_env",
                                      channel_name: 'cool-channel'
                                    })
         expect(flow.can_execute?).to be_falsey
@@ -46,7 +46,7 @@ RSpec.describe Flows::EnvironmentDifferenceFlow, type: :service do
 
       it 'when a repository does not exists' do
         flow = described_class.new({
-                                     text: "env diff fake_repository #{prod_application.environment} #{qa_application.environment}",
+                                     text: "env diff fake_repository #{qa_application.environment} #{pro_application.environment}",
                                      channel_name: 'cool-channel'
                                    })
         expect(flow.can_execute?).to be_falsey
