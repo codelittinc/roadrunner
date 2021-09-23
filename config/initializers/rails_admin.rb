@@ -3,6 +3,8 @@
 require 'nested_form/engine'
 require 'nested_form/builder_mixin'
 
+require Rails.root.join('app/services/admin/actions/replay_flow.rb')
+
 # rubocop:disable Metrics/BlockLength
 RailsAdmin.config do |config|
   ### Popular gems integration
@@ -55,6 +57,7 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
+    replay_flow
     ## With an audit adapter, you can add:
     # history_index
     # history_show
