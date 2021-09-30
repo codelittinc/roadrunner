@@ -5,7 +5,8 @@ module Flows
     def execute; end
 
     def can_execute?
-      text.split.size == 5 &&
+      text.present? &&
+        text.split.size == 5 &&
         text.include?('env diff') &&
         repository.present? &&
         head_env.present? &&

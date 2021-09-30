@@ -23,7 +23,9 @@ module Flows
     end
 
     def can_execute?
-      text.include?('release diff') && text.split.size == 5
+      text.present? &&
+        text.include?('release diff') &&
+        text.split.size == 5
     end
 
     private

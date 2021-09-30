@@ -17,8 +17,15 @@ RSpec.describe Flows::ReleaseDifferenceFlow, type: :service do
       end
     end
 
-    context 'with an invalid json' do
-      it 'returns false' do
+    context 'returns false when' do
+      it 'there is no text' do
+        flow = described_class.new({
+                                     channel_name: 'cool-channel'
+                                   })
+        expect(flow.can_execute?).to be_falsey
+      end
+
+      it 'text is incorrect' do
         flow = described_class.new({
                                      text: 'not release diff',
                                      channel_name: 'cool-channel'

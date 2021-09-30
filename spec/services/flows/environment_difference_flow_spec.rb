@@ -29,6 +29,13 @@ RSpec.describe Flows::EnvironmentDifferenceFlow, type: :service do
     end
 
     context 'returns false' do
+      it 'when there is no text' do
+        flow = described_class.new({
+                                     channel_name: 'cool-channel'
+                                   })
+        expect(flow.can_execute?).to be_falsey
+      end
+
       it 'when an environment does not exists' do
         flow = described_class.new({
                                      text: "env diff #{repository.name} #{prod_application.environment} fake_env",
