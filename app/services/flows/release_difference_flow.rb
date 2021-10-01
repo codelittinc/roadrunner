@@ -2,11 +2,7 @@
 
 module Flows
   class ReleaseDifferenceFlow < BaseFlow
-    RELESES_NOT_FOUND_MESSAGE = "I couldn't compare your releases. There is possibly a typo in their names or they are missing."
-
     def execute
-      return Clients::Slack::DirectMessage.new.send(RELESES_NOT_FOUND_MESSAGE, user_name) unless base_release.present? && head_release.present?
-
       differences = head_release.commits.where("NOT EXISTS (
           SELECT 1 FROM commit_releases
           WHERE commit_releases.commit_id = commits.id
@@ -24,8 +20,10 @@ module Flows
 
     def can_execute?
       text.present? &&
+        text.split.size == 5 &&
         text.include?('release diff') &&
-        text.split.size == 5
+        base_release.present? &&
+        head_release.present?
     end
 
     private
