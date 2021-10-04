@@ -35,8 +35,8 @@ module Messages
     end
     # rubocop:enable Metrics/ParameterLists
 
-    def self.notify_no_results_from_flow
-      'There are no results for your request. Please, check for more information using the `/roadrunner help` command.'
+    def self.notify_no_results_from_flow(text)
+      "There are no results for *#{text}*. Please, check for more information using the `/roadrunner help` command."
     end
 
     def self.extract_jira_codes(text)

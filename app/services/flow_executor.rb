@@ -59,7 +59,7 @@ class FlowExecutor
   end
 
   def send_no_result_message!
-    message = Messages::GenericBuilder.notify_no_results_from_flow
+    message = Messages::GenericBuilder.notify_no_results_from_flow(@params[:text])
     send_direct_message_result(message, user_name) if user_name
   end
 end
