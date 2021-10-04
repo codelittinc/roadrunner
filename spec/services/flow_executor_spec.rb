@@ -28,14 +28,15 @@ RSpec.describe FlowExecutor, type: :service do
 
     context 'when there is no results from flows and the command was sent through Channel' do
       it 'sends a channel no results message' do
+        flow_request_text = 'hotfix qa roadrunner-repository-test hotfix/test-hotfix-octtefdhh'
         flow_request = FlowRequest.create!(json: {
-          text: 'hotfix qa roadrunner-repository-test hotfix/test-hotfix-octtefdhh',
+          text: flow_request_text,
           channel_name: 'feed-test-automations',
           user_name: 'rheniery.mendes'
         }.to_json)
         flow_executor = described_class.new(flow_request)
 
-        expected_message = 'There are no results for your request. Please, check for more information using the `/roadrunner help` command.'
+        expected_message = "There are no results for *#{flow_request_text}*. Please, check for more information using the `/roadrunner help` command."
         expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message,
                                                                                      'rheniery.mendes')
 
@@ -44,13 +45,14 @@ RSpec.describe FlowExecutor, type: :service do
     end
     context 'when there is no results from flows and the command was sent through Direct Message' do
       it 'sends a direct no results message' do
+        flow_request_text = 'test'
         flow_request = FlowRequest.create!(json: {
-          text: 'test',
+          text: flow_request_text,
           user_name: 'rheniery.mendes'
         }.to_json)
         flow_executor = described_class.new(flow_request)
 
-        expected_message = 'There are no results for your request. Please, check for more information using the `/roadrunner help` command.'
+        expected_message = "There are no results for *#{flow_request_text}*. Please, check for more information using the `/roadrunner help` command."
         expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message,
                                                                                      'rheniery.mendes')
 
