@@ -63,7 +63,7 @@ module Parsers
       @draft = pull_request&.dig(:draft)
       @source_control_id = pull_request&.dig(:number)
       @head = pull_request&.dig(:head, :ref)
-      @merged = !pull_request[:merged_at]&.empty?
+      @merged = pull_request[:merged]
       @state = pull_request&.dig(:state)
       @title = pull_request&.dig(:title)
     end
