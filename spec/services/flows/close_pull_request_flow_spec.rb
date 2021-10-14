@@ -97,6 +97,23 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
           end
         end
 
+        it 'updates the pull request merged_at attr' do
+          VCR.use_cassette('flows#close-pull-request#create-commit-right-message', record: :new_episodes) do
+            slack_message = FactoryBot.create(:slack_message, ts: '123')
+            pr = FactoryBot.create(:pull_request, source_control_id: 13, repository: repository,
+                                                  slack_message: slack_message, head: 'fix/update-leases-brokers')
+
+            expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
+            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
+
+            flow = described_class.new(valid_json)
+            flow.run
+
+            expect(pr.reload.merged_at).to_not be_nil
+          end
+        end
+
         it 'sends a merge reaction to the slack message' do
           VCR.use_cassette('flows#close-pull-request#create-commit-right-message', record: :new_episodes) do
             slack_message = FactoryBot.create(:slack_message, ts: '123')

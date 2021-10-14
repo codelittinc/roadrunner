@@ -17,6 +17,7 @@
 #  ci_state      :string
 #  source_type   :string
 #  source_id     :bigint
+#  merged_at     :datetime
 #
 require 'rails_helper'
 
