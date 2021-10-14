@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://dev.azure.com/AY-InnovationCenter/Avant/Visualization/_apis/work/teamsettings/iterations?api-version=6.0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic OnRvbnJjcHB6dmVuc3Zma3Vtd2c3Zm4ybmkzcHB5bHFoYnl3aHd5empoeGZpMnRjZGgyNmE=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '1194'
+      Content-Type:
+      - application/json; charset=utf-8; api-version=6.0
+      Expires:
+      - "-1"
+      Vary:
+      - Accept-Encoding
+      P3p:
+      - CP="CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV
+        STA UNI COM INT PHY ONL FIN PUR LOC CNT"
+      Set-Cookie:
+      - VstsSession=%7B%22PersistentSessionId%22%3A%2247492578-a490-43ec-9667-7278f2b09b97%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None;
+        domain=.dev.azure.com; expires=Fri, 14-Oct-2022 19:48:59 GMT; path=/; secure;
+        HttpOnly
+      X-Tfs-Processid:
+      - 3ef9ec3f-e435-48bb-b5ef-4422b1565052
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Activityid:
+      - 97250315-c05c-4446-b33b-34948e9b2b24
+      X-Tfs-Session:
+      - 97250315-c05c-4446-b33b-34948e9b2b24
+      X-Vss-E2eid:
+      - 97250315-c05c-4446-b33b-34948e9b2b24
+      X-Vss-Senderdeploymentid:
+      - bf2d63eb-b587-21d6-1b58-7c60ee08ad2d
+      X-Vss-Userdata:
+      - 4d13cd81-e536-6e63-93fa-0de9cffbb868:kaio@codelitt.com
+      X-Frame-Options:
+      - SAMEORIGIN
+      Request-Context:
+      - appId=cid-v1:0c3d14cd-19b4-4eb7-9b56-c7dfb8d9a151
+      Access-Control-Expose-Headers:
+      - Request-Context
+      X-Content-Type-Options:
+      - nosniff
+      X-Cache:
+      - CONFIG_NOCACHE
+      X-Msedge-Ref:
+      - 'Ref A: 13D80E8E337F4F4CB89A6D110EFAC9F1 Ref B: RIO03EDGE0511 Ref C: 2021-10-14T19:48:59Z'
+      Date:
+      - Thu, 14 Oct 2021 19:48:59 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: '{"count":11,"value":[{"id":"115b47f1-59ef-4b20-99f5-d29f0bb06359","name":"Sprint
+        30 - June 8","path":"Avant\\Visualization\\Sprint 30 - June 8","attributes":{"startDate":"2021-05-18T00:00:00Z","finishDate":"2021-05-31T00:00:00Z","timeFrame":"past"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/ac66e962-f0ae-45ec-94fa-65acb38c8902/_apis/work/teamsettings/iterations/115b47f1-59ef-4b20-99f5-d29f0bb06359"},{"id":"15094841-e8ea-451a-b8e5-b4d647e662c9","name":"Sprint
+        31 - June 22","path":"Avant\\Visualization\\Sprint 31 - June 22","attributes":{"startDate":"2021-06-01T00:00:00Z","finishDate":"2021-06-14T00:00:00Z","timeFrame":"past"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/ac66e962-f0ae-45ec-94fa-65acb38c8902/_apis/work/teamsettings/iterations/15094841-e8ea-451a-b8e5-b4d647e662c9"},{"id":"c935aa08-af7d-425c-a921-5dcb41d7f518","name":"Sprint
+        32 - July 6ish","path":"Avant\\Visualization\\Sprint 32 - July 6ish","attributes":{"startDate":"2021-06-15T00:00:00Z","finishDate":"2021-06-28T00:00:00Z","timeFrame":"past"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/ac66e962-f0ae-45ec-94fa-65acb38c8902/_apis/work/teamsettings/iterations/c935aa08-af7d-425c-a921-5dcb41d7f518"},{"id":"72ee0d72-dfeb-484a-bc38-3b4b0f0c7467","name":"Sprint
+        33","path":"Avant\\Visualization\\Sprint 33","attributes":{"startDate":"2021-06-29T00:00:00Z","finishDate":"2021-07-12T00:00:00Z","timeFrame":"past"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/ac66e962-f0ae-45ec-94fa-65acb38c8902/_apis/work/teamsettings/iterations/72ee0d72-dfeb-484a-bc38-3b4b0f0c7467"},{"id":"38e29a49-74a4-44ab-b4d9-aab08ef65091","name":"Sprint
+        34","path":"Avant\\Visualization\\Sprint 34","attributes":{"startDate":"2021-07-13T00:00:00Z","finishDate":"2021-08-02T00:00:00Z","timeFrame":"past"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/ac66e962-f0ae-45ec-94fa-65acb38c8902/_apis/work/teamsettings/iterations/38e29a49-74a4-44ab-b4d9-aab08ef65091"},{"id":"2ef23473-1392-4832-8719-0417d8b43f51","name":"Sprint
+        35 (7-27 to 8-16)","path":"Avant\\Visualization\\Sprint 35 (7-27 to 8-16)","attributes":{"startDate":"2021-07-27T00:00:00Z","finishDate":"2021-08-16T00:00:00Z","timeFrame":"past"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/ac66e962-f0ae-45ec-94fa-65acb38c8902/_apis/work/teamsettings/iterations/2ef23473-1392-4832-8719-0417d8b43f51"},{"id":"b0db189c-c9b6-460b-bad8-40972ef9652d","name":"Sprint
+        36 (8-10 to 8-30)","path":"Avant\\Visualization\\Sprint 36 (8-10 to 8-30)","attributes":{"startDate":"2021-08-10T00:00:00Z","finishDate":"2021-08-30T00:00:00Z","timeFrame":"past"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/ac66e962-f0ae-45ec-94fa-65acb38c8902/_apis/work/teamsettings/iterations/b0db189c-c9b6-460b-bad8-40972ef9652d"},{"id":"c42e2f8f-355e-4bf0-9743-c406f371e2c2","name":"Sprint
+        37 (8-24 to 9-13)","path":"Avant\\Visualization\\Sprint 37 (8-24 to 9-13)","attributes":{"startDate":"2021-08-31T00:00:00Z","finishDate":"2021-09-20T00:00:00Z","timeFrame":"past"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/ac66e962-f0ae-45ec-94fa-65acb38c8902/_apis/work/teamsettings/iterations/c42e2f8f-355e-4bf0-9743-c406f371e2c2"},{"id":"842959a9-1cb2-4000-a357-6e3bb95fb3b9","name":"Sprint
+        38 (9-7 to 9-28)","path":"Avant\\Visualization\\Sprint 38 (9-7 to 9-28)","attributes":{"startDate":"2021-09-07T00:00:00Z","finishDate":"2021-09-28T00:00:00Z","timeFrame":"past"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/ac66e962-f0ae-45ec-94fa-65acb38c8902/_apis/work/teamsettings/iterations/842959a9-1cb2-4000-a357-6e3bb95fb3b9"},{"id":"33fba265-daa3-46b0-bc09-fab9b6602e4a","name":"Sprint
+        39 (9-21 to 10-11)","path":"Avant\\Visualization\\Sprint 39 (9-21 to 10-11)","attributes":{"startDate":"2021-09-21T00:00:00Z","finishDate":"2021-10-11T00:00:00Z","timeFrame":"past"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/ac66e962-f0ae-45ec-94fa-65acb38c8902/_apis/work/teamsettings/iterations/33fba265-daa3-46b0-bc09-fab9b6602e4a"},{"id":"646f9f98-4023-4b4a-927b-85ddcfe19414","name":"Sprint
+        40 (10-5 to 10-25)","path":"Avant\\Visualization\\Sprint 40 (10-5 to 10-25)","attributes":{"startDate":"2021-10-05T00:00:00Z","finishDate":"2021-10-25T00:00:00Z","timeFrame":"current"},"url":"https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/ac66e962-f0ae-45ec-94fa-65acb38c8902/_apis/work/teamsettings/iterations/646f9f98-4023-4b4a-927b-85ddcfe19414"}]}'
+  recorded_at: Thu, 14 Oct 2021 19:48:59 GMT
+recorded_with: VCR 6.0.0
