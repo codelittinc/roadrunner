@@ -54,6 +54,7 @@ module Flows
     def update_pull_request_state!
       if parser.merged
         pull_request.merge!
+        pull_request.update!(merged_at: DateTime.now)
       else
         pull_request.cancel!
       end
