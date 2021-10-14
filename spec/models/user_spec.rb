@@ -13,6 +13,7 @@
 #  azure               :string
 #  azure_devops_issues :string
 #  customer_id         :bigint
+#  name                :string
 #
 require 'rails_helper'
 

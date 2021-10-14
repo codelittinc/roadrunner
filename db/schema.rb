@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_004451) do
+ActiveRecord::Schema.define(version: 2021_10_14_005354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -265,6 +265,7 @@ ActiveRecord::Schema.define(version: 2021_10_14_004451) do
     t.string "azure"
     t.string "azure_devops_issues"
     t.bigint "customer_id"
+    t.string "name"
     t.index ["customer_id"], name: "index_users_on_customer_id"
   end
 
