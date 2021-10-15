@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_005354) do
+ActiveRecord::Schema.define(version: 2021_10_15_033224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,19 @@ ActiveRecord::Schema.define(version: 2021_10_14_005354) do
     t.string "source_control_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "issues", force: :cascade do |t|
+    t.string "story_type"
+    t.string "state"
+    t.string "title"
+    t.decimal "story_points"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "sprint_id"
+    t.bigint "user_id"
+    t.index ["sprint_id"], name: "index_issues_on_sprint_id"
+    t.index ["user_id"], name: "index_issues_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -248,6 +261,15 @@ ActiveRecord::Schema.define(version: 2021_10_14_005354) do
     t.index ["repository_id"], name: "index_slack_repository_infos_on_repository_id"
   end
 
+  create_table "sprints", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "name"
+    t.string "time_frame"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "user_admins", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -273,6 +295,8 @@ ActiveRecord::Schema.define(version: 2021_10_14_005354) do
   add_foreign_key "branches", "pull_requests"
   add_foreign_key "branches", "repositories"
   add_foreign_key "check_runs", "branches"
+  add_foreign_key "issues", "sprints"
+  add_foreign_key "issues", "users"
   add_foreign_key "projects", "customers"
   add_foreign_key "pull_request_changes", "pull_requests"
   add_foreign_key "pull_request_reviews", "pull_requests"

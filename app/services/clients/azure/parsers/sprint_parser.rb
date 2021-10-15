@@ -4,7 +4,7 @@ module Clients
   module Azure
     module Parsers
       class SprintParser
-        attr_reader :id, :start_date, :end_date, :name
+        attr_reader :id, :start_date, :end_date, :name, :time_frame
 
         def initialize(json)
           @json = json.with_indifferent_access
@@ -12,10 +12,12 @@ module Clients
         end
 
         def parse!
-          @name = @json[:name]
           @id = @json[:id]
-          @start_date = @json.dig(:attributes, :start_date)
-          @end_date = @json.dig(:attributes, :end_date)
+          @name = @json[:name]
+          @start_date = @json.dig(:attributes, :startDate)
+          @end_date = @json.dig(:attributes, :finishDate)
+          @time_frame = @json.dig(:attributes, :timeFrame)
+          @json = nil
         end
       end
     end
