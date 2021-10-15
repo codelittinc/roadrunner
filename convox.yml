@@ -36,5 +36,5 @@ timers:
 
   update-sprint-data:
     command: rake sprints:update_sprints_state_azure
-    schedule: "*/20 * * * *"
+    schedule: "0 * * * *"
     service: roadrunner-api
