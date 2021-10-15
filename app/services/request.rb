@@ -5,7 +5,7 @@ require 'json'
 
 class Request
   def self.get(url, authorization = nil)
-    uri = URI.parse(url)
+    uri = URI.parse(clean_url(url))
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = use_ssl?(url)
     req = Net::HTTP::Get.new(uri.request_uri)
@@ -15,7 +15,7 @@ class Request
 
   def self.post(url, authorization, body)
     use_ssl = url.match?(/^https/)
-    uri = URI.parse(url)
+    uri = URI.parse(clean_url(url))
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = use_ssl?(url)
 
@@ -28,7 +28,7 @@ class Request
   end
 
   def self.patch(url, authorization, body)
-    uri = URI.parse(url)
+    uri = URI.parse(clean_url(url))
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = use_ssl?(url)
 
@@ -42,5 +42,9 @@ class Request
 
   def self.use_ssl?(url)
     url.match?(/^https/)
+  end
+
+  def self.clean_url(url)
+    url.gsub(' ', '%20')
   end
 end
