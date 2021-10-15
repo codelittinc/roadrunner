@@ -8,7 +8,7 @@ namespace :sprints do
     Sprint.delete_all
 
     # pull latest data
-    teams = ['Visualization', 'Appraisal', 'Data%20Team', 'Mobile%20Team']
+    teams = ['Visualization', 'Appraisal', 'Data Team', 'Mobile Team']
 
     sprints_per_team = teams.map { |team| [team, Clients::Azure::Sprint.new.list(team)] }
 
