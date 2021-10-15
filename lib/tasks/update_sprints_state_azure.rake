@@ -18,7 +18,7 @@ namespace :sprints do
           start_date: Date.parse(sprint.start_date),
           end_date: Date.parse(sprint.end_date),
           name: sprint.name,
-          time_frame: sprint.time_frame
+          time_frame: sprint.time_frame, team: team
         )
         sprint_obj.save!
         Clients::Azure::Sprint.new.work_items(team, sprint.id).each do |issue|

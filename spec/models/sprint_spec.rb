@@ -11,6 +11,7 @@
 #  time_frame :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  team       :string
 #
 require 'rails_helper'
 
