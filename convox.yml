@@ -33,8 +33,3 @@ timers:
     command: rake server:check_up_servers
     schedule: "* * * * *"
     service: roadrunner-api
-
-  update-sprint-data:
-    command: rake sprints:update_sprints_state_azure
-    schedule: "0 * * * *"
-    service: roadrunner-api
