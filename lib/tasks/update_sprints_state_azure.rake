@@ -7,6 +7,8 @@ namespace :sprints do
     Issue.delete_all
     Sprint.delete_all
 
+    customer = Customer.find_by(name: 'Codelitt')
+
     # pull latest data
     teams = ['Visualization', 'Appraisal', 'Data Team', 'Mobile Team', 'Properties', 'Appraisal']
 
@@ -22,9 +24,13 @@ namespace :sprints do
         )
         sprint_obj.save!
         Clients::Azure::Sprint.new.work_items(team, sprint.id).each do |issue|
-          user = User.search_by_term(issue.assigned_to).first
+          next unless issue.assigned_to
 
-          next unless user
+          user = User.search_by_term(issue.assigned_to).first
+          user ||= User.new(azure_devops_issues: issue.assigned_to)
+          user.name = issue.display_name
+          user.customer = customer
+          user.save!
 
           Issue.new(
             story_type: issue.story_type,

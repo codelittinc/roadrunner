@@ -5,7 +5,6 @@ require 'nested_form/builder_mixin'
 
 require Rails.root.join('app/services/admin/actions/replay_flow.rb')
 
-# rubocop:disable Metrics/BlockLength
 RailsAdmin.config do |config|
   ### Popular gems integration
 
@@ -20,7 +19,7 @@ RailsAdmin.config do |config|
 
   RailsAdmin.config User do
     list do
-      include_fields :github, :azure_devops_issues, :slack, :azure, :jira, :id
+      include_fields :github, :azure_devops_issues, :slack, :azure, :jira, :id, :name
     end
   end
 
@@ -63,4 +62,3 @@ RailsAdmin.config do |config|
     # history_show
   end
 end
-# rubocop:enable Metrics/BlockLength
