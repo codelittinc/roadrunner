@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+DEFAULT_NO_DEVOPS_CODE = 'Not assigned'
+
 namespace :sprints do
   desc 'update the state of the sprints in azure'
   task update_sprints_state_azure: :environment do
@@ -24,10 +26,9 @@ namespace :sprints do
         )
         sprint_obj.save!
         Clients::Azure::Sprint.new.work_items(team, sprint.id).each do |issue|
-          next unless issue.assigned_to
-
-          user = User.search_by_term(issue.assigned_to).first
-          user ||= User.new(azure_devops_issues: issue.assigned_to)
+          assigned_to =  issue.assigned_to || DEFAULT_NO_DEVOPS_CODE
+          user = User.search_by_term(assigned_to).first
+          user ||= User.new(azure_devops_issues: assigned_to)
           user.name = issue.display_name
           user.customer = customer
           user.save!
