@@ -14,6 +14,7 @@
 #  azure_devops_issues :string
 #  customer_id         :bigint
 #  name                :string
+#  active              :boolean          default(TRUE)
 #
 class User < ApplicationRecord
   include PgSearch::Model
