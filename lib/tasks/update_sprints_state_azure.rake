@@ -2,6 +2,7 @@
 
 DEFAULT_NO_DEVOPS_CODE = 'Not assigned'
 
+# rubocop:disable Metrics/BlockLength
 namespace :sprints do
   desc 'update the state of the sprints in azure'
   task update_sprints_state_azure: :environment do
@@ -39,10 +40,12 @@ namespace :sprints do
             title: issue.title,
             user: user,
             sprint: sprint_obj,
-            story_points: issue.story_points
+            story_points: issue.story_points,
+            tags: issue.tags
           ).save!
         end
       end
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

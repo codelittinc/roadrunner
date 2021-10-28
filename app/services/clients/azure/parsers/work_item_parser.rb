@@ -4,7 +4,7 @@ module Clients
   module Azure
     module Parsers
       class WorkItemParser
-        attr_reader :story_type, :state, :title, :assigned_to, :story_points, :display_name
+        attr_reader :story_type, :state, :title, :assigned_to, :story_points, :display_name, :tags
 
         def initialize(json)
           @json = json.with_indifferent_access
@@ -19,7 +19,7 @@ module Clients
           @state = fields['System.BoardColumn']
           @title = fields['System.Title']
           @story_points = fields['Microsoft.VSTS.Scheduling.StoryPoints']
-
+          @tags = fields['System.Tags']
           @json = nil
         end
       end

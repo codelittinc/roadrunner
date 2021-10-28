@@ -13,6 +13,7 @@
 #  updated_at   :datetime         not null
 #  sprint_id    :bigint
 #  user_id      :bigint
+#  tags         :string
 #
 class Issue < ApplicationRecord
   belongs_to :user, optional: true
