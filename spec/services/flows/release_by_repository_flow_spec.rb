@@ -19,6 +19,7 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
     repository = FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test')
     repository.applications << FactoryBot.create(:application, repository: repository, environment: 'prod')
     repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
+    repository.applications << FactoryBot.create(:application, repository: repository, environment: 'uat')
     repository
   end
 
@@ -31,10 +32,24 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
         flow = described_class.new(valid_json)
         expect(flow.flow?).to be_truthy
       end
+
+      it 'when the environment is qa, uat or prod' do
+        repository_with_applications
+        FactoryBot.create(:repository)
+
+        %w[qa uat prod].each do |env|
+          flow = described_class.new({
+                                       text: "update roadrunner-repository-test #{env}",
+                                       channel_name: 'feed-test-automations'
+                                     })
+
+          expect(flow.flow?).to be_truthy
+        end
+      end
     end
 
     context 'returns false' do
-      it 'when the environment is different from qa or prod' do
+      it 'when the environment is different from qa, uat or prod' do
         repository_with_applications
 
         flow = described_class.new({

@@ -29,10 +29,6 @@ module Flows
 
       private
 
-      def environment
-        Application::PROD
-      end
-
       def version_resolver
         @version_resolver ||= Versioning::ReleaseVersionResolver.new(environment, tag_names, 'hotfix')
       end

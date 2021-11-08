@@ -26,7 +26,7 @@ RSpec.describe Application, type: :model do
 
     it 'only accepts valid values in the environment' do
       app = FactoryBot.build(:application)
-      expect(app).to validate_inclusion_of(:environment).in_array(%w[dev qa prod])
+      expect(app).to validate_inclusion_of(:environment).in_array(%w[dev qa uat prod])
     end
   end
 

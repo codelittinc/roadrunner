@@ -10,11 +10,10 @@ module Versioning
       end
 
       def next_version
-        case environment
-        when Versioning::QA_ENVIRONMENT
-          mount_qa_version
-        when Versioning::PROD_ENVIRONMENT
-          mount_prod_version
+        if Versioning.release_candidate_env? environment
+          mount_rc_version
+        elsif Versioning.release_stable_env? environment
+          mount_stable_version
         end
       end
 
@@ -34,7 +33,7 @@ module Versioning
         @releases.find { |r| !Versioning.stable?(r) && Versioning.normal?(r) }
       end
 
-      def mount_qa_version
+      def mount_rc_version
         rc_version = (Versioning.release_candidate_version(latest_tag_name) || 0) + 1
         new_minor = minor.to_i
         new_major = major.to_i
@@ -48,7 +47,7 @@ module Versioning
         "rc.#{rc_version}.v#{new_major}.#{new_minor}.#{patch || 0}"
       end
 
-      def mount_prod_version
+      def mount_stable_version
         return if latest_qa_release.nil?
 
         new_major, new_minor, new_patch = latest_qa_release&.scan(Versioning::RELEASE_REGEX)&.flatten

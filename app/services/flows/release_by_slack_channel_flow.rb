@@ -2,16 +2,14 @@
 
 module Flows
   class ReleaseBySlackChannelFlow < BaseFlow
-    QA_ENVIRONMENT = 'qa'
-    PRODUCTION_ENVIRONMENT = 'prod'
     UPDATE_ACTION = 'update'
 
     def execute
       Clients::Slack::ChannelMessage.new(customer).send(release_message, channel_name)
 
-      if environment == QA_ENVIRONMENT
+      if Versioning.release_candidate_env? environment
         call_qa_release
-      else
+      elsif Versioning.release_stable_env? environment
         call_prod_release
       end
     end
@@ -22,7 +20,7 @@ module Flows
       return false unless action == UPDATE_ACTION
 
       return false unless slack_configs
-      return false unless environment == QA_ENVIRONMENT || environment == PRODUCTION_ENVIRONMENT
+      return false unless Versioning.valid_env? environment
 
       words.size == 3
     end
@@ -79,7 +77,7 @@ module Flows
         next if repository.deploy_type != Repository::TAG_DEPLOY_TYPE
 
         current_releases = source_control_client.new(repository).list_releases
-        Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository).execute
+        Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository, environment).execute
       end
     end
 
@@ -88,7 +86,7 @@ module Flows
         next if repository.deploy_type != Repository::TAG_DEPLOY_TYPE
 
         current_releases = source_control_client.new(repository).list_releases
-        Flows::SubFlows::ReleaseStableFlow.new(channel_name, current_releases, repository).execute
+        Flows::SubFlows::ReleaseStableFlow.new(channel_name, current_releases, repository, environment).execute
       end
     end
   end

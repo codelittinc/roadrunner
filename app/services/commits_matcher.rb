@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CommitsMatcher
+  # @TODO Receive project
+  # @TODO Do not use message as a unique key to get commits
   def initialize(github_commits)
     @github_commits = github_commits
   end

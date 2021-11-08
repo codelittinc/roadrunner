@@ -10,11 +10,10 @@ module Versioning
       end
 
       def next_version
-        case environment
-        when Versioning::QA_ENVIRONMENT
-          mount_qa_version
-        when Versioning::PROD_ENVIRONMENT
-          mount_prod_version
+        if Versioning.release_candidate_env? environment
+          mount_rc_version
+        elsif Versioning.release_stable_env? environment
+          mount_stable_version
         end
       end
 
@@ -38,7 +37,7 @@ module Versioning
 
       attr_reader :environment, :releases, :patch, :minor, :major
 
-      def mount_qa_version
+      def mount_rc_version
         return nil if Versioning.first_pre_release?(latest_tag_name)
 
         rc_version = (Versioning.release_candidate_version(latest_tag_name) || 0) + 1
@@ -53,7 +52,7 @@ module Versioning
         "rc.#{rc_version}.v#{major}.#{minor}.#{new_patch}"
       end
 
-      def mount_prod_version
+      def mount_stable_version
         return nil unless hotfix_release_is_after_stable?
 
         "v#{major}.#{minor}.#{patch}"

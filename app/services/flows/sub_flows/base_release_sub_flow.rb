@@ -3,11 +3,14 @@
 module Flows
   module SubFlows
     class BaseReleaseSubFlow
-      def initialize(channel_name, releases, repository)
+      attr_reader :environment
+
+      def initialize(channel_name, releases, repository, environment)
         @channel_name = channel_name
         @releases = releases
         @repository = repository
         @customer = repository.project.customer
+        @environment = environment
       end
 
       def source_control_client
@@ -61,10 +64,6 @@ module Flows
 
       def tag_names
         @tag_names ||= @releases.map(&:tag_name)
-      end
-
-      def environment
-        throw Error.new('Implement this method!')
       end
 
       def source_control_release_commits
