@@ -2,37 +2,30 @@
 
 module Flows
   class ReleaseByRepositoryFlow < BaseFlow
-    QA_ENVIRONMENT = 'qa'
-    PRODUCTION_ENVIRONMENT = 'prod'
     RELEASE_ACTION = 'update'
 
     def execute
       current_releases = source_control_client.new(repository).list_releases
       Clients::Slack::ChannelMessage.new(customer).send(release_message, channel_name)
 
-      case environment
-      when QA_ENVIRONMENT
-        Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository).execute
-      when PRODUCTION_ENVIRONMENT
-        Flows::SubFlows::ReleaseStableFlow.new(channel_name, current_releases, repository).execute
+      if Versioning.release_candidate_env? environment
+        Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository, environment).execute
+      elsif Versioning.release_stable_env? environment
+        Flows::SubFlows::ReleaseStableFlow.new(channel_name, current_releases, repository, environment).execute
       end
     end
 
-    # rubocop:disable Metrics/CyclomaticComplexity
-    # rubocop:disable Metrics/PerceivedComplexity
     def flow?
       return false if text.nil? || text.blank?
       return false unless action == 'update'
 
       return false unless slack_config
-      return false unless environment == QA_ENVIRONMENT || environment == PRODUCTION_ENVIRONMENT
+      return false unless Versioning.valid_env? environment
       return false if SlackRepositoryInfo.where(deploy_channel: channel_name).count == 1
       return false if words.size != 3
 
       repository&.deploy_type == Repository::TAG_DEPLOY_TYPE
     end
-    # rubocop:enable Metrics/PerceivedComplexity
-    # rubocop:enable Metrics/CyclomaticComplexity
 
     private
 

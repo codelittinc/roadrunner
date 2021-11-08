@@ -6,6 +6,8 @@
 
 # ide files
 .idea
+.generators
+.rakeTasks
 
 # Ignore bundler config.
 /.bundle

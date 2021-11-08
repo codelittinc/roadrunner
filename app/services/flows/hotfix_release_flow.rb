@@ -3,8 +3,6 @@
 # @TODO: We need to fix the release message, it is not returning the commit messages
 module Flows
   class HotfixReleaseFlow < BaseFlow
-    QA_ENVIRONMENT = 'qa'
-    PRODUCTION_ENVIRONMENT = 'prod'
     RELEASE_ACTION = 'hotfix'
 
     def execute
@@ -21,10 +19,10 @@ module Flows
 
       return false unless slack_config
 
-      return false unless environment == QA_ENVIRONMENT || environment == PRODUCTION_ENVIRONMENT
+      return false unless Versioning.valid_env? environment
       return false if SlackRepositoryInfo.where(deploy_channel: channel_name, repository: repository).count != 1
-      return false if words.size != 4 && environment == QA_ENVIRONMENT
-      return false if words.size != 3 && environment == PRODUCTION_ENVIRONMENT
+      return false if words.size != 4 && Versioning.release_candidate_env?(environment)
+      return false if words.size != 3 && Versioning.release_stable_env?(environment)
 
       repository&.deploy_type == Repository::TAG_DEPLOY_TYPE
     end
@@ -34,10 +32,10 @@ module Flows
     private
 
     def call_subflow_by_env
-      if environment == QA_ENVIRONMENT
-        Flows::SubFlows::HotfixReleaseCandidateFlow.new(channel_name, current_releases, repository, branch_name).execute
-      else
-        Flows::SubFlows::HotfixReleaseStableFlow.new(channel_name, current_releases, repository).execute
+      if Versioning.release_candidate_env? environment
+        Flows::SubFlows::HotfixReleaseCandidateFlow.new(channel_name, current_releases, repository, branch_name, environment).execute
+      elsif Versioning.release_stable_env? environment
+        Flows::SubFlows::HotfixReleaseStableFlow.new(channel_name, current_releases, repository, environment).execute
       end
     end
 
@@ -70,7 +68,7 @@ module Flows
     end
 
     def branch_name
-      @branch_name ||= environment == QA_ENVIRONMENT ? words.last : ''
+      @branch_name ||= Versioning.release_candidate_env?(environment) ? words.last : ''
     end
 
     def slack_config

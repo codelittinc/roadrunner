@@ -26,10 +26,6 @@ module Flows
 
       private
 
-      def environment
-        Application::PROD
-      end
-
       def release_commits
         CommitsMatcher.new(source_control_release_commits).commits
       end

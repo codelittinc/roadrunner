@@ -20,9 +20,10 @@ class Application < ApplicationRecord
 
   DEV = 'dev'
   QA = 'qa'
+  UAT = 'uat'
   PROD = 'prod'
 
-  validates :environment, presence: true, inclusion: { in: [DEV, QA, PROD] }
+  validates :environment, presence: true, inclusion: { in: [DEV, QA, UAT, PROD] }
 
   def self.by_external_identifier(*external_identifiers)
     cleaned_identifiers = external_identifiers.flatten.reject(&:nil?).map(&:downcase)

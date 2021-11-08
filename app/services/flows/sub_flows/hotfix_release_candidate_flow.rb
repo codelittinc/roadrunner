@@ -9,8 +9,8 @@ module Flows
 
       attr_reader :branch, :channel_name, :releases
 
-      def initialize(channel_name, releases, repository, branch)
-        super(channel_name, releases, repository)
+      def initialize(channel_name, releases, repository, branch, environment)
+        super(channel_name, releases, repository, environment)
         @branch = branch
       end
 
@@ -39,10 +39,6 @@ module Flows
       end
 
       private
-
-      def environment
-        Application::QA
-      end
 
       def branch_exists
         @branch_exists ||= source_control_client.branch_exists?(branch)
