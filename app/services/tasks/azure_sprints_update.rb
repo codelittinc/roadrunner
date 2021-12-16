@@ -3,7 +3,7 @@
 module Tasks
   class AzureSprintsUpdate
     DEFAULT_NO_DEVOPS_CODE = 'Not assigned'
-    TEAMS = ['Visualization', 'Appraisal', 'Data Team', 'Mobile Team', 'Properties', 'Appraisal'].freeze
+    TEAMS = ['Visualization', 'Appraisal', 'Data Team', 'Mobile Team', 'Properties', 'Appraisal', 'Skyline'].freeze
 
     def self.update!
       update_info!
