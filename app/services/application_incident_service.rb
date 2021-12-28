@@ -25,7 +25,7 @@ class ApplicationIncidentService
 
     @recurrent_server_incident ||= ServerIncident.find_by(
       application: application,
-      created_at: (Time.zone.now - 1.day)..Time.zone.now,
+      created_at: (1.day.ago)..Time.zone.now,
       message: error_message
     )
 

@@ -22,7 +22,6 @@ RSpec.describe Server, type: :model do
 
   describe 'validations' do
     it { should validate_presence_of(:link) }
-    it { should validate_presence_of(:application) }
   end
 
   describe 'status' do

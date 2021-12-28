@@ -17,7 +17,6 @@ class Server < ApplicationRecord
   belongs_to :application
 
   validates :link, presence: true
-  validates :application, presence: true
 
   has_many :server_incidents, through: :application
   has_many :server_status_checks
@@ -46,7 +45,7 @@ class Server < ApplicationRecord
   end
 
   def status_interval
-    before = Time.zone.now - 1.hour
+    before = 1.hour.ago
     before..Time.zone.now
   end
 end
