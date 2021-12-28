@@ -100,7 +100,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Bearer eyJhbGciOiJIUzI1NiJ9.cm9hZHJ1bm5lcg.2RCJIS5rW7oggjzgCvu1xGrx3e0hBE-3zSraiLUa1eY
+      - Bearer <SENSITIVE_DATA>
   response:
     status:
       code: 200
@@ -143,7 +143,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Bearer eyJhbGciOiJIUzI1NiJ9.cm9hZHJ1bm5lcg.2RCJIS5rW7oggjzgCvu1xGrx3e0hBE-3zSraiLUa1eY
+      - Bearer <SENSITIVE_DATA>
   response:
     status:
       code: 200
@@ -183,7 +183,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Bearer eyJhbGciOiJIUzI1NiJ9.cm9hZHJ1bm5lcg.2RCJIS5rW7oggjzgCvu1xGrx3e0hBE-3zSraiLUa1eY
+      - Bearer <SENSITIVE_DATA>
   response:
     status:
       code: 200
@@ -224,7 +224,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Bearer eyJhbGciOiJIUzI1NiJ9.cm9hZHJ1bm5lcg.2RCJIS5rW7oggjzgCvu1xGrx3e0hBE-3zSraiLUa1eY
+      - Bearer <SENSITIVE_DATA>
   response:
     status:
       code: 200
@@ -267,7 +267,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Bearer eyJhbGciOiJIUzI1NiJ9.cm9hZHJ1bm5lcg.2RCJIS5rW7oggjzgCvu1xGrx3e0hBE-3zSraiLUa1eY
+      - Bearer <SENSITIVE_DATA>
   response:
     status:
       code: 200
@@ -310,7 +310,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Bearer eyJhbGciOiJIUzI1NiJ9.cm9hZHJ1bm5lcg.2RCJIS5rW7oggjzgCvu1xGrx3e0hBE-3zSraiLUa1eY
+      - Bearer <SENSITIVE_DATA>
   response:
     status:
       code: 200
@@ -350,7 +350,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Bearer eyJhbGciOiJIUzI1NiJ9.cm9hZHJ1bm5lcg.2RCJIS5rW7oggjzgCvu1xGrx3e0hBE-3zSraiLUa1eY
+      - Bearer <SENSITIVE_DATA>
   response:
     status:
       code: 200
