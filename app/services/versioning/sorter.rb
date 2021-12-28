@@ -16,11 +16,10 @@ module Versioning
 
     # rubocop:disable Metrics/CyclomaticComplexity
     # rubocop:disable Metrics/PerceivedComplexity
-    # rubocop:disable Metrics/AbcSize
     def sort_tag_names(tag_names)
-      valid_tags = tag_names.select { |tag_name| tag_name.match?(/(rc\.\d+\.)?v\d+\.\d+\.\d+$/) }
+      valid_tags = tag_names.grep(/(rc\.\d+\.)?v\d+\.\d+\.\d+$/)
 
-      invalid_tags = tag_names.reject { |tag_name| tag_name.match?(/(rc\.\d+\.)?v\d+\.\d+\.\d+$/) }
+      invalid_tags = tag_names.grep_v(/(rc\.\d+\.)?v\d+\.\d+\.\d+$/)
 
       sorted = valid_tags.sort do |a, b|
         is_a_pre_release = a.match?(/^rc/)
@@ -44,7 +43,7 @@ module Versioning
                    end
         elsif is_a_major_release && is_b_major_release
           result = a_stable_version <=> b_stable_version
-        elsif is_a_pre_release && is_b_major_release || is_a_major_release && is_b_pre_release
+        elsif (is_a_pre_release && is_b_major_release) || (is_a_major_release && is_b_pre_release)
           if a_stable_version == b_stable_version
             -1
           else
@@ -57,10 +56,9 @@ module Versioning
 
       sorted + invalid_tags
     end
+
     # rubocop:enable Metrics/CyclomaticComplexity
     # rubocop:enable Metrics/PerceivedComplexity
-    # rubocop:enable Metrics/AbcSize
-
     def sort_releases(releases)
       tag_names = releases.map(&:tag_name)
       sorted_tags = sort_tag_names(tag_names)

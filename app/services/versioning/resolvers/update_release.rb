@@ -55,7 +55,7 @@ module Versioning
       end
 
       def filter_releases(releases)
-        releases.select { |release| release.match?(/^(rc.\d+.)?v\d+.\d+.\d+$/) }
+        releases.grep(/^(rc.\d+.)?v\d+.\d+.\d+$/)
       end
     end
   end

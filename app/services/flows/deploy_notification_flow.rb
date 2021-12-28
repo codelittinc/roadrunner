@@ -9,7 +9,7 @@ module Flows
 
       Clients::Slack::ChannelMessage.new(customer).send(
         "The deploy of *#{repository.name}* to *#{[environment,
-                                                   deploy_type].reject(&:nil?).join(' - ')}* was finished with the status: #{status.capitalize}!",
+                                                   deploy_type].compact.join(' - ')}* was finished with the status: #{status.capitalize}!",
         channel
       )
     end

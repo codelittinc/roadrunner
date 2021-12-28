@@ -18,6 +18,5 @@ class Branch < ApplicationRecord
   has_many :check_runs, dependent: :destroy
 
   validates :name, presence: true
-  validates :repository, presence: true
   validates :pull_request, uniqueness: true, allow_nil: true
 end
