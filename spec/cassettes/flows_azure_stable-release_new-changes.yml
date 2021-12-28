@@ -14,7 +14,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Basic OjJzdGJ2MmRlYWE0YWlzaHJsZ3h2ZmNkazQ3ajVvbWRmdjMyYTV4djU0bDd5YXB1a3VmY3E=
+      - Basic <SENSITIVE_DATA>
   response:
     status:
       code: 200
@@ -83,7 +83,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Basic OjJzdGJ2MmRlYWE0YWlzaHJsZ3h2ZmNkazQ3ajVvbWRmdjMyYTV4djU0bDd5YXB1a3VmY3E=
+      - Basic <SENSITIVE_DATA>
   response:
     status:
       code: 200
@@ -152,7 +152,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Basic OjJzdGJ2MmRlYWE0YWlzaHJsZ3h2ZmNkazQ3ajVvbWRmdjMyYTV4djU0bDd5YXB1a3VmY3E=
+      - Basic <SENSITIVE_DATA>
   response:
     status:
       code: 200
@@ -225,7 +225,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Basic OjJzdGJ2MmRlYWE0YWlzaHJsZ3h2ZmNkazQ3ajVvbWRmdjMyYTV4djU0bDd5YXB1a3VmY3E=
+      - Basic <SENSITIVE_DATA>
   response:
     status:
       code: 200
@@ -294,7 +294,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Basic OjJzdGJ2MmRlYWE0YWlzaHJsZ3h2ZmNkazQ3ajVvbWRmdjMyYTV4djU0bDd5YXB1a3VmY3E=
+      - Basic <SENSITIVE_DATA>
   response:
     status:
       code: 200
@@ -363,7 +363,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Basic OjJzdGJ2MmRlYWE0YWlzaHJsZ3h2ZmNkazQ3ajVvbWRmdjMyYTV4djU0bDd5YXB1a3VmY3E=
+      - Basic <SENSITIVE_DATA>
   response:
     status:
       code: 200
@@ -436,7 +436,7 @@ http_interactions:
       User-Agent:
       - Ruby
       Authorization:
-      - Basic OjJzdGJ2MmRlYWE0YWlzaHJsZ3h2ZmNkazQ3ajVvbWRmdjMyYTV4djU0bDd5YXB1a3VmY3E=
+      - Basic <SENSITIVE_DATA>
   response:
     status:
       code: 200
