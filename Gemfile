@@ -39,7 +39,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
-gem 'octokit', '~> 4.0'
+# Use ybiquitous until we get a fix for https://github.com/octokit/octokit.rb/issues/1357
+gem 'octokit', github: 'ybiquitous/octokit.rb', branch: 'issue-1357'
+# gem 'octokit', '~> 4.0'
 gem 'state_machines'
 gem 'state_machines-activerecord'
 
