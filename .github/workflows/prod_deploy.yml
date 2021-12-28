@@ -3,6 +3,7 @@ name: PROD DEPLOY
 on:
   push:
     tags: [ 'v*' ]
+  workflow_dispatch:
 
 jobs:
   deploy-convox:
