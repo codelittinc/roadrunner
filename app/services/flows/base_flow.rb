@@ -9,7 +9,7 @@ module Flows
     end
 
     def pre_run
-      Rails.logger.warn "Starting #{self.class.name}"
+      Rails.logger.debug { "Starting #{self.class.name}" }
     end
 
     def run
@@ -20,7 +20,7 @@ module Flows
     end
 
     def pos_run
-      Rails.logger.warn "Finishing #{self.class.name}"
+      Rails.logger.debug { "Finishing #{self.class.name}" }
     end
 
     def execute
