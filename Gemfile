@@ -21,8 +21,9 @@ gem 'sidekiq'
 
 gem 'gelf'
 
-gem 'net-smtp'
+gem 'net-imap'
 gem 'net-pop'
+gem 'net-smtp'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
