@@ -46,15 +46,14 @@ RailsAdmin.config do |config|
   # config.show_gravatar = true
 
   config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
+    dashboard do
+      statistics false
+    end
+    index # mandatory
     new
-    export
-    bulk_delete
     show
     edit
     delete
-    show_in_app
 
     replay_flow
     ## With an audit adapter, you can add:
