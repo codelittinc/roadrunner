@@ -1,15 +1,4 @@
 GIT
-  remote: https://github.com/sferik/rails_admin.git
-  revision: e4ef65259dae64f76253fb3e2d8e4115f4379b46
-  specs:
-    rails_admin (3.0.0.beta2)
-      activemodel-serializers-xml (>= 1.0)
-      kaminari (>= 0.14, < 2.0)
-      nested_form (~> 0.3)
-      rack-pjax (>= 0.7)
-      rails (>= 6.0, < 8)
-
-GIT
   remote: https://github.com/ybiquitous/octokit.rb.git
   revision: 23b4a5e4beffd01888430c2cddd1f90fc587ed52
   branch: issue-1357
@@ -236,8 +225,12 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
-    rails_admin_material (0.2.1)
-      rails_admin (>= 0.8.1)
+    rails_admin (3.0.0.beta2)
+      activemodel-serializers-xml (>= 1.0)
+      kaminari (>= 0.14, < 2.0)
+      nested_form (~> 0.3)
+      rack-pjax (>= 0.7)
+      rails (>= 6.0, < 8)
     railties (6.1.4.4)
       actionpack (= 6.1.4.4)
       activesupport (= 6.1.4.4)
@@ -286,6 +279,14 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
@@ -315,6 +316,7 @@ GEM
       state_machines-activemodel (>= 0.8.0)
     strscan (3.0.1)
     thor (1.1.0)
+    tilt (2.0.10)
     timeout (0.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -355,10 +357,10 @@ DEPENDENCIES
   puma (~> 4.1)
   rack-cors
   rails (~> 6.1.0)
-  rails_admin!
-  rails_admin_material
+  rails_admin (>= 3.0.0.beta)
   rspec-rails
   rubocop-rails
+  sassc-rails
   shoulda-matchers
   sidekiq
   spring
