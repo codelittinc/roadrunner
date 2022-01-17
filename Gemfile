@@ -42,7 +42,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
 
 # Use ybiquitous until we get a fix for https://github.com/octokit/octokit.rb/issues/1357
-gem 'octokit', github: 'ybiquitous/octokit.rb', branch: 'issue-1357'
+gem 'octokit'
 # gem 'octokit', '~> 4.0'
 gem 'state_machines'
 gem 'state_machines-activerecord'

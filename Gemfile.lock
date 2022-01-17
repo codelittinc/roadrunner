@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/ybiquitous/octokit.rb.git
-  revision: 23b4a5e4beffd01888430c2cddd1f90fc587ed52
-  branch: issue-1357
-  specs:
-    octokit (4.21.0)
-      faraday (>= 0.9)
-      sawyer (~> 0.8.0, >= 0.5.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -186,6 +177,9 @@ GEM
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
+    octokit (4.21.0)
+      faraday (>= 0.9)
+      sawyer (~> 0.8.0, >= 0.5.3)
     parallel (1.21.0)
     parser (3.0.3.2)
       ast (~> 2.4.1)
@@ -351,7 +345,7 @@ DEPENDENCIES
   net-imap
   net-pop
   net-smtp
-  octokit!
+  octokit
   pg (~> 1.2)
   pg_search
   puma (~> 4.1)

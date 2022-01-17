@@ -9,7 +9,7 @@ RSpec.describe Clients::Slack::DirectMessage, type: :service do
       it 'has less than 3 characters' do
         expect(Request).to_not receive(:post)
 
-        repo = described_class.new.send('message', 'ab', false)
+        described_class.new.send('message', 'ab', false)
       end
 
       it 'is nil' do
