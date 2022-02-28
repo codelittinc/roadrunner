@@ -36,6 +36,12 @@ RailsAdmin.config do |config|
     end
   end
 
+  RailsAdmin.config Server do
+    list do
+      include_fields :id, :link, :active, :environment
+    end
+  end
+
   ## == CancanCan ==
   # config.authorize_with :cancancan
 
