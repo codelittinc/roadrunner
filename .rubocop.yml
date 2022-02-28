@@ -11,3 +11,4 @@ Metrics/BlockLength:
   Enabled: true
   Exclude:
     - spec/**/*
+    - config/initializers/*

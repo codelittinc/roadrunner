@@ -6,6 +6,7 @@ require 'nested_form/builder_mixin'
 require Rails.root.join('app/services/admin/actions/replay_flow.rb')
 
 RailsAdmin.config do |config|
+  config.asset_source = :sprockets
   ### Popular gems integration
 
   if ENV['ENABLE_AUTH'] == 'true'
@@ -26,6 +27,12 @@ RailsAdmin.config do |config|
   RailsAdmin.config FlowRequest do
     list do
       include_fields :json, :executed, :flow_name, :error_message, :created_at
+    end
+  end
+
+  RailsAdmin.config Application do
+    list do
+      include_fields :id, :environment, :repository
     end
   end
 
