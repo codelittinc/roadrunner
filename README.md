@@ -31,3 +31,5 @@ rails s -b `hostname -i`
     ```rake server:check_up_servers```
     3. Save the job and it's done.
 6. You can also know about it here: [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler)
+
+asdds
