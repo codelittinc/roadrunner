@@ -17,7 +17,8 @@ User.create(slack: 'vincent.gschwend', jira: '5cc06a9f2f51be0e56a1b2b8', github:
 User.create(slack: 'denys.zayets', jira: '5e54a16d4befbd0c96c9eca5', customer: customer)
 User.create(slack: 'anthony.scinocco', jira: '5e53d6192a59dc0c8fe5e055', github: 'ascinocco', customer: customer)
 User.create(slack: 'divjot.mehton', jira: '5e4bef0f052b790c975095e0', customer: customer)
-User.create(slack: 'alessandro.alves', jira: '5b167e5dc2fc1b1bc37bb16c', github: 'alessandromontividiu03', customer: customer)
+User.create(slack: 'alessandro.alves', jira: '5b167e5dc2fc1b1bc37bb16c', github: 'alessandromontividiu03',
+            customer: customer)
 User.create(slack: 'manuel.lajo', jira: '5e6aa4e72a0bb00ce03419be', github: 'Manuel-Lajo-Salazar', customer: customer)
 User.create(slack: 'mauricio.villaalba', jira: '5e6f922e5ffd840c43a99308', github: 'mvillalba2016', customer: customer)
 User.create(slack: 'ana.marija', jira: '5ca6158010e4f967c3022b24', customer: customer)

@@ -6,8 +6,8 @@ module Clients
       def initialize(customer = nil)
         @customer = customer
         @bot = 'roadrunner'
-        @key = customer&.slack_api_key || ENV['NOTIFICATIONS_API_KEY']
-        @url = ENV['NOTIFICATIONS_API_URL']
+        @key = customer&.slack_api_key || ENV.fetch('NOTIFICATIONS_API_KEY', nil)
+        @url = ENV.fetch('NOTIFICATIONS_API_URL', nil)
       end
 
       def build_params(params)

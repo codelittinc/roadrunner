@@ -11,9 +11,12 @@ RSpec.describe Flows::ReleaseDifferenceFlow, type: :service do
   let(:commits) do
     FactoryBot.create(:commit, :with_pull_request,
                       message: 'commit on Base Release', release_ids: [base_release.id])
-    FactoryBot.create(:commit, :with_pull_request, message: 'commit on both releases', release_ids: [base_release.id, head_release.id])
-    FactoryBot.create(:commit, :with_pull_request, message: 'first commit on Head Release', release_ids: [head_release.id])
-    FactoryBot.create(:commit, :with_pull_request, message: 'second commit on Head Release', release_ids: [head_release.id])
+    FactoryBot.create(:commit, :with_pull_request, message: 'commit on both releases',
+                                                   release_ids: [base_release.id, head_release.id])
+    FactoryBot.create(:commit, :with_pull_request, message: 'first commit on Head Release',
+                                                   release_ids: [head_release.id])
+    FactoryBot.create(:commit, :with_pull_request, message: 'second commit on Head Release',
+                                                   release_ids: [head_release.id])
   end
 
   describe '#can_execute?' do
