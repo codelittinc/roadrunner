@@ -33,7 +33,8 @@ module Flows
 
     def call_subflow_by_env
       if Versioning.release_candidate_env? environment
-        Flows::SubFlows::HotfixReleaseCandidateFlow.new(channel_name, current_releases, repository, branch_name, environment).execute
+        Flows::SubFlows::HotfixReleaseCandidateFlow.new(channel_name, current_releases, repository, branch_name,
+                                                        environment).execute
       elsif Versioning.release_stable_env? environment
         Flows::SubFlows::HotfixReleaseStableFlow.new(channel_name, current_releases, repository, environment).execute
       end

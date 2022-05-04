@@ -12,7 +12,7 @@ module Clients
       end
 
       def authorization
-        key = ":#{ENV['AZURE_AUTH_KEY']}"
+        key = ":#{ENV.fetch('AZURE_AUTH_KEY', nil)}"
         base64_key = Base64.urlsafe_encode64(key)
         "Basic #{base64_key}"
       end

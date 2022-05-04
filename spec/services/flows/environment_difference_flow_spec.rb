@@ -12,9 +12,12 @@ RSpec.describe Flows::EnvironmentDifferenceFlow, type: :service do
   let(:commits) do
     FactoryBot.create(:commit, :with_pull_request,
                       message: 'commit on Prod Environment', release_ids: [prod_release.id])
-    FactoryBot.create(:commit, :with_pull_request, message: 'commit on both environments', release_ids: [prod_release.id, qa_release.id])
-    FactoryBot.create(:commit, :with_pull_request, message: 'first commit on QA Environment', release_ids: [qa_release.id])
-    FactoryBot.create(:commit, :with_pull_request, message: 'second commit on QA Environment', release_ids: [qa_release.id])
+    FactoryBot.create(:commit, :with_pull_request, message: 'commit on both environments',
+                                                   release_ids: [prod_release.id, qa_release.id])
+    FactoryBot.create(:commit, :with_pull_request, message: 'first commit on QA Environment',
+                                                   release_ids: [qa_release.id])
+    FactoryBot.create(:commit, :with_pull_request, message: 'second commit on QA Environment',
+                                                   release_ids: [qa_release.id])
   end
 
   describe '#can_execute?' do
