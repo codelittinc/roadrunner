@@ -16,7 +16,7 @@ bundle exec rails data:migrate
 
 rails s -b `hostname -i`
 ```
-
+asddas
 8. Go to your browser and access `http://localhost:3000`
 
 ## Configuring Tasks on Heroku
