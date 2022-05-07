@@ -8,7 +8,7 @@
 6. Inside the project folder run `sh bin/dev`
 7. Inside the docker console run:
 
-```
+```asd
 bundle exec rails db:create
 bundle exec rails db:migrate
 SEED_CREATE_PROJECTS=true SEED_CREATE_USERS=true bundle exec rails db:seed
