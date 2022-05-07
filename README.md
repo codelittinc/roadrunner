@@ -12,7 +12,7 @@
 bundle exec rails db:create
 bundle exec rails db:migrate
 SEED_CREATE_PROJECTS=true SEED_CREATE_USERS=true bundle exec rails db:seed
-bundle exec rails data:migrate
+bundle exec rails data:migratesad
 
 rails s -b `hostname -i`
 ```
