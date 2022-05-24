@@ -5,32 +5,38 @@ module Tasks
     DEFAULT_NO_DEVOPS_CODE = 'Not assigned'
     TEAMS = ['Visualization', 'Appraisal', 'Data Team', 'Mobile Team', 'Properties', 'Skyline'].freeze
 
-    def self.update!
+    def update!
       update_info!
-    rescue StandardError => e
+    rescue StandardError
       update!
     end
 
-    def self.update_info!
-      customer = Customer.find_or_initialize_by(name: 'Avison Young')
-      customer.save
-      customer.sprints.destroy_all
+    def customer
+      return @customer if @customer
 
-      # pull latest data
-      sprints_per_team = TEAMS.map { |team| [team, Clients::Azure::Sprint.new.list(team)] }
+      @customer ||= Customer.find_or_initialize_by(name: 'Avison Young')
+      @customer.save
+      @customer
+    end
+
+    def sprints_per_team
+      @sprints_per_team ||= TEAMS.map { |team| [team, Clients::Azure::Sprint.new.list(team)] }
+    end
+
+    def update_info!
+      customer.sprints.destroy_all
 
       sprints_per_team.map do |team, sprints|
         sprints.map do |sprint|
           sprint_obj = Sprint.new(
             start_date: Date.parse(sprint.start_date),
             end_date: Date.parse(sprint.end_date),
-            name: sprint.name,
-            time_frame: sprint.time_frame, team: team,
-            customer: customer
+            name: sprint.name, time_frame: sprint.time_frame,
+            team: team, customer: customer
           )
           sprint_obj.save!
           Clients::Azure::Sprint.new.work_items(team, sprint.id).each do |issue|
-            assigned_to =  issue.assigned_to || DEFAULT_NO_DEVOPS_CODE
+            assigned_to = issue.assigned_to || DEFAULT_NO_DEVOPS_CODE
             user = User.search_by_term(assigned_to).first
             user ||= User.new(azure_devops_issues: assigned_to)
             user.name = issue.display_name
