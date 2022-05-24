@@ -7,15 +7,14 @@ module Tasks
 
     def self.update!
       update_info!
-    rescue StandardError
+    rescue StandardError => e
       update!
     end
 
     def self.update_info!
-      Issue.delete_all
-      Sprint.delete_all
-
-      customer = Customer.find_by(name: 'Codelitt')
+      customer = Customer.find_or_initialize_by(name: 'Avison Young')
+      customer.save
+      customer.sprints.destroy_all
 
       # pull latest data
       sprints_per_team = TEAMS.map { |team| [team, Clients::Azure::Sprint.new.list(team)] }
@@ -26,7 +25,8 @@ module Tasks
             start_date: Date.parse(sprint.start_date),
             end_date: Date.parse(sprint.end_date),
             name: sprint.name,
-            time_frame: sprint.time_frame, team: team
+            time_frame: sprint.time_frame, team: team,
+            customer: customer
           )
           sprint_obj.save!
           Clients::Azure::Sprint.new.work_items(team, sprint.id).each do |issue|
