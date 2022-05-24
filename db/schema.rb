@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_140950) do
+ActiveRecord::Schema.define(version: 2022_05_24_194409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -270,6 +270,8 @@ ActiveRecord::Schema.define(version: 2021_10_28_140950) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "team"
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_sprints_on_customer_id"
   end
 
   create_table "user_admins", force: :cascade do |t|
@@ -309,5 +311,6 @@ ActiveRecord::Schema.define(version: 2021_10_28_140950) do
   add_foreign_key "server_incident_instances", "server_incidents"
   add_foreign_key "servers", "applications"
   add_foreign_key "slack_repository_infos", "repositories"
+  add_foreign_key "sprints", "customers"
   add_foreign_key "users", "customers"
 end
