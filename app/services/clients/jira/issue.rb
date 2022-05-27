@@ -6,7 +6,7 @@ module Clients
       def list_sprint_issues(sprint_id)
         issues_url = build_agile_url("/sprint/#{sprint_id}/issue")
         body = Request.get(issues_url, authorization)
-        body['values']
+        body['issues'] || []
       end
 
       def list(project_id, status_name)

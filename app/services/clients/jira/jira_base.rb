@@ -5,7 +5,7 @@ module Clients
     class JiraBase
       BASE_API_URL = 'https://codelitt.atlassian.net/rest/api/3'
       BASE_BROWSER_URL = 'https://codelitt.atlassian.net/browse/'
-      BASE_AGILE_API = 'https://codelitt.atlassian.net/rest/agile'
+      BASE_AGILE_API = 'https://codelitt.atlassian.net/rest/agile/1.0'
 
       def initialize
         @auth_key = 'a2Fpb0Bjb2RlbGl0dC5jb206UHpuRkJIQUhPRENDc01kelVHbEU4MTFB'
