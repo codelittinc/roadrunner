@@ -56,16 +56,16 @@ module Tasks
         end
       end
     end
-  end
 
-  def new_sprint(sprint, customer, team)
-    Sprint.new(
-      start_date: sprint['startDate'].nil? ? nil : Date.parse(sprint['startDate']),
-      end_date: sprint['endDate'].nil? ? nil : Date.parse(sprint['endDate']),
-      name: sprint['name'],
-      team: team['name'],
-      customer: customer,
-      time_frame: sprint['state']
-    )
+    def new_sprint(sprint, customer, team)
+      Sprint.new(
+        start_date: sprint['startDate'].nil? ? nil : Date.parse(sprint['startDate']),
+        end_date: sprint['endDate'].nil? ? nil : Date.parse(sprint['endDate']),
+        name: sprint['name'],
+        team: team['name'],
+        customer: customer,
+        time_frame: sprint['state']
+      )
+    end
   end
 end
