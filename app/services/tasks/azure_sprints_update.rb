@@ -37,7 +37,7 @@ module Tasks
           sprint_obj.save!
           Clients::Azure::Sprint.new.work_items(team, sprint.id).each do |issue|
             assigned_to = issue.assigned_to || DEFAULT_NO_DEVOPS_CODE
-            user = User.search_by_term(assigned_to).first
+            user = User.search_by_term(assigned_to).first || User.find_by(name: issue.display_name)
             user ||= User.new(azure_devops_issues: assigned_to)
             user.name = issue.display_name
             user.customer = customer
