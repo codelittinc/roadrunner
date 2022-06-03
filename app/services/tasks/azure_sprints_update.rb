@@ -23,6 +23,15 @@ module Tasks
       @sprints_per_team ||= TEAMS.map { |team| [team, Clients::Azure::Sprint.new.list(team)] }
     end
 
+    def find_user(assigned_to, display_name, customer)
+      user = User.search_by_term(assigned_to).first || User.find_by(name: display_name)
+      user ||= User.new(azure_devops_issues: assigned_to)
+      user.name = display_name
+      user.customer = customer
+      user.save!
+      user
+    end
+
     def update_info!
       customer.sprints.destroy_all
 
@@ -37,11 +46,7 @@ module Tasks
           sprint_obj.save!
           Clients::Azure::Sprint.new.work_items(team, sprint.id).each do |issue|
             assigned_to = issue.assigned_to || DEFAULT_NO_DEVOPS_CODE
-            user = User.search_by_term(assigned_to).first || User.find_by(name: issue.display_name)
-            user ||= User.new(azure_devops_issues: assigned_to)
-            user.name = issue.display_name
-            user.customer = customer
-            user.save!
+            user = find_user(assigned_to, issue.display_name, customer)
 
             Issue.new(
               story_type: issue.story_type,

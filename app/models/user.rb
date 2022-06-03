@@ -22,5 +22,6 @@ class User < ApplicationRecord
   pg_search_scope :search_by_term, against: %i[jira slack github azure azure_devops_issues]
 
   has_many :pull_requests
+  has_many :issues
   belongs_to :customer
 end
