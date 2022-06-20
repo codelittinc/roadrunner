@@ -6,8 +6,8 @@ module Clients
       def send(reaction, channel, timestamp)
         url = build_url('/reactions')
         Request.post(url, authorization, build_params({
-                                                        reaction: reaction,
-                                                        channel: channel,
+                                                        reaction:,
+                                                        channel:,
                                                         notification_id: timestamp
                                                       }))
       end

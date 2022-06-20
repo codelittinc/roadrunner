@@ -12,7 +12,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
       context 'returns true' do
         it 'with a valid json' do
           repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
-          FactoryBot.create(:pull_request, repository: repository, source_control_id: 151)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 151)
 
           flow = described_class.new(valid_json)
           expect(flow.flow?).to be_truthy
@@ -20,7 +20,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
 
         it 'when the pull request exists' do
           repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
-          FactoryBot.create(:pull_request, repository: repository, source_control_id: 151)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 151)
 
           flow = described_class.new(valid_json)
           expect(flow.flow?).to be_truthy
@@ -58,7 +58,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
           FactoryBot.create(:user, github: 'kaiomagalhaes')
           FactoryBot.create(:user, github: 'victor0402')
           repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
-          FactoryBot.create(:pull_request, repository: repository, source_control_id: 151)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 151)
 
           flow = described_class.new(valid_json)
 
@@ -74,7 +74,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
         it 'sends one slack message' do
           FactoryBot.create(:user, github: 'kaiomagalhaes', slack: 'batman')
           repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
-          FactoryBot.create(:pull_request, repository: repository, source_control_id: 151)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 151)
 
           flow = described_class.new(valid_json)
 
@@ -97,7 +97,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
       context 'returns true' do
         it 'with a valid json' do
           repository = FactoryBot.create(:repository, name: 'ay-pia-web', owner: 'Avant')
-          FactoryBot.create(:pull_request, repository: repository, source_control_id: 608)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 608)
 
           flow = described_class.new(valid_json)
           expect(flow.flow?).to be_truthy
@@ -105,7 +105,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
 
         it 'when the pull request exists' do
           repository = FactoryBot.create(:repository, name: 'ay-pia-web', owner: 'Avant')
-          FactoryBot.create(:pull_request, repository: repository, source_control_id: 608)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 608)
 
           flow = described_class.new(valid_json)
           expect(flow.flow?).to be_truthy
@@ -142,7 +142,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
         it 'sends one slack message' do
           FactoryBot.create(:user, azure_devops_issues: 'E44D997C-D727-6BEC-A3DB-8BC537D4B723', slack: 'batman')
           repository = FactoryBot.create(:repository, name: 'ay-pia-web', owner: 'Avant')
-          FactoryBot.create(:pull_request, repository: repository, source_control_id: 608)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 608)
 
           flow = described_class.new(valid_json)
 

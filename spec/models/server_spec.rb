@@ -29,7 +29,7 @@ RSpec.describe Server, type: :model do
       it 'returns normal' do
         server = FactoryBot.create(:server)
 
-        FactoryBot.create(:server_status_check, server: server)
+        FactoryBot.create(:server_status_check, server:)
         expect(server.reload.status).to eql('normal')
       end
     end
@@ -38,7 +38,7 @@ RSpec.describe Server, type: :model do
       it 'returns unstable' do
         server = FactoryBot.create(:server)
         FactoryBot.create(:server_incident, application: server.application)
-        FactoryBot.create(:server_status_check, server: server)
+        FactoryBot.create(:server_status_check, server:)
 
         expect(server.reload.status).to eql('unstable')
       end
@@ -47,7 +47,7 @@ RSpec.describe Server, type: :model do
     context 'when there is a health check incident' do
       it 'returns unavailable' do
         server = FactoryBot.create(:server)
-        FactoryBot.create(:server_status_check, server: server, code: 500)
+        FactoryBot.create(:server_status_check, server:, code: 500)
 
         expect(server.reload.status).to eql('unavailable')
       end

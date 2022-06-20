@@ -9,7 +9,7 @@ RSpec.describe ApplicationIncidentService, type: :service do
     context 'when the environment is qa or prod' do
       it 'sends a correct message to the channel' do
         application = FactoryBot.create(:application, :with_server, external_identifier: 'codelitt.com',
-                                                                    repository: repository, environment: 'prod')
+                                                                    repository:, environment: 'prod')
 
         server_incident_service = described_class.new
         error_message = 'we did not start the fire'
@@ -25,7 +25,7 @@ RSpec.describe ApplicationIncidentService, type: :service do
 
       it 'creates a new ServerIncident record' do
         application = FactoryBot.create(:application, :with_server, external_identifier: 'codelitt.com',
-                                                                    repository: repository, environment: 'qa')
+                                                                    repository:, environment: 'qa')
 
         server_incident_service = described_class.new
         error_message = 'test'
@@ -39,7 +39,7 @@ RSpec.describe ApplicationIncidentService, type: :service do
 
       it 'sends multiple messages to the channel when it has more than 150 characters' do
         application = FactoryBot.create(:application, :with_server, external_identifier: 'codelitt.com',
-                                                                    repository: repository, environment: 'prod')
+                                                                    repository:, environment: 'prod')
 
         server_incident_service = described_class.new
         first_half = 'a' * 150
@@ -58,7 +58,7 @@ RSpec.describe ApplicationIncidentService, type: :service do
 
     context 'when it is a dev server incident' do
       it 'it does not send server incident notification to slack' do
-        application = FactoryBot.create(:application, external_identifier: 'codelitt.com', repository: repository,
+        application = FactoryBot.create(:application, external_identifier: 'codelitt.com', repository:,
                                                       environment: 'dev')
 
         server_incident_service = described_class.new

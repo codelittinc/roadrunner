@@ -7,7 +7,7 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
     context 'returns true' do
       before do
         repository = FactoryBot.create(:repository, name: 'pia-web-mobile')
-        FactoryBot.create(:application, :with_server, repository: repository, external_identifier: 'pia.web.com')
+        FactoryBot.create(:application, :with_server, repository:, external_identifier: 'pia.web.com')
       end
 
       it 'when deploy type is deploy-notification' do
@@ -51,7 +51,7 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
     context 'sends a channel message' do
       it 'when host is the application external identifier' do
         repository = FactoryBot.create(:repository, name: 'pia-web-mobile')
-        FactoryBot.create(:application, :with_server, repository: repository, external_identifier: 'pia.web.com')
+        FactoryBot.create(:application, :with_server, repository:, external_identifier: 'pia.web.com')
 
         flow = described_class.new({
                                      deploy_type: 'deploy-notification',
@@ -68,9 +68,9 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
 
       it 'updated the latest release deploy status' do
         repository = FactoryBot.create(:repository, name: 'pia-web-mobile')
-        application = FactoryBot.create(:application, :with_server, repository: repository,
+        application = FactoryBot.create(:application, :with_server, repository:,
                                                                     external_identifier: 'pia.web.com')
-        release = FactoryBot.create(:release, application: application, version: '3.0.0', deploy_status: nil)
+        release = FactoryBot.create(:release, application:, version: '3.0.0', deploy_status: nil)
 
         flow = described_class.new({
                                      deploy_type: 'deploy-notification',

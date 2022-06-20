@@ -13,7 +13,7 @@ class CommitsMatcher
       message = commit.message
       c = Commit.order(created_at: :desc)
                 .where.not(id: commits&.map(&:id))
-                .where(message: message).first
+                .where(message:).first
 
       commits << c if c
     end

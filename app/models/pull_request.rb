@@ -61,7 +61,7 @@ class PullRequest < ApplicationRecord
 
   def self.by_repository_and_source_control_id(repository, source_control_id)
     [GithubPullRequest, AzurePullRequest].lazy.map do |clazz|
-      clazz.joins(:pull_request).find_by(source_control_id: source_control_id,
+      clazz.joins(:pull_request).find_by(source_control_id:,
                                          pull_request: { repository_id: repository&.id })
     end.find(&:itself)&.pull_request
   end

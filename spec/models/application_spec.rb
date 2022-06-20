@@ -34,9 +34,9 @@ RSpec.describe Application, type: :model do
     context 'when there are multiple releases' do
       it 'returns the newest one' do
         application = FactoryBot.create(:application)
-        FactoryBot.create(:release, application: application)
-        FactoryBot.create(:release, application: application)
-        latest_release = FactoryBot.create(:release, application: application)
+        FactoryBot.create(:release, application:)
+        FactoryBot.create(:release, application:)
+        latest_release = FactoryBot.create(:release, application:)
 
         expect(application.latest_release).to eq(latest_release)
       end

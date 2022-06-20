@@ -3,7 +3,7 @@
 class FlowController < ApplicationController
   def create
     json = (params[:flow] || params).merge(request.GET).to_json
-    flow_request = FlowRequest.create!(json: json)
+    flow_request = FlowRequest.create!(json:)
 
     if Rails.env.production?
       HardWorker.perform_async(flow_request.id)

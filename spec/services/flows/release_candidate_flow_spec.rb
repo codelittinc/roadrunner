@@ -25,7 +25,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
         let(:github_repository_with_applications) do
           repository = FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test',
                                                       source_control_type: 'github')
-          repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
+          repository.applications << FactoryBot.create(:application, repository:, environment: 'qa')
           repository
         end
         context 'when it is the first pre-release' do
@@ -34,16 +34,16 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               repository = github_repository_with_applications
               repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-              pull_request = FactoryBot.create(:pull_request, repository: repository)
+              pull_request = FactoryBot.create(:pull_request, repository:)
 
               FactoryBot.create(:commit, {
                                   message: 'commit number one',
-                                  pull_request: pull_request
+                                  pull_request:
                                 })
 
               FactoryBot.create(:commit, {
                                   message: 'commit number two',
-                                  pull_request: pull_request
+                                  pull_request:
                                 })
 
               flow = described_class.new(valid_json)
@@ -84,11 +84,11 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               repository = github_repository_with_applications
               repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-              pull_request = FactoryBot.create(:pull_request, repository: repository)
+              pull_request = FactoryBot.create(:pull_request, repository:)
 
               FactoryBot.create(:commit, {
                                   message: 'commit number three',
-                                  pull_request: pull_request
+                                  pull_request:
                                 })
 
               flow = described_class.new(valid_json)
@@ -115,12 +115,12 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               pull_request = FactoryBot.create(:pull_request, {
                                                  title: 'PR: Update .env 4',
                                                  description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
-                                                 repository: repository
+                                                 repository:
                                                })
 
               FactoryBot.create(:commit, {
                                   message: 'commit number three',
-                                  pull_request: pull_request
+                                  pull_request:
                                 })
 
               flow = described_class.new(valid_json)
@@ -143,7 +143,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
         let(:azure_repository_with_applications) do
           repository = FactoryBot.create(:repository, owner: 'Avant', name: 'roadrunner-repository-test',
                                                       source_control_type: 'azure')
-          repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
+          repository.applications << FactoryBot.create(:application, repository:, environment: 'qa')
           repository
         end
 
@@ -153,16 +153,16 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               repository = azure_repository_with_applications
               repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-              pull_request = FactoryBot.create(:pull_request, repository: repository)
+              pull_request = FactoryBot.create(:pull_request, repository:)
 
               FactoryBot.create(:commit, {
                                   message: 'commit number one',
-                                  pull_request: pull_request
+                                  pull_request:
                                 })
 
               FactoryBot.create(:commit, {
                                   message: 'commit number two',
-                                  pull_request: pull_request
+                                  pull_request:
                                 })
 
               flow = described_class.new(valid_json)
@@ -203,11 +203,11 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               repository = azure_repository_with_applications
               repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
 
-              pull_request = FactoryBot.create(:pull_request, repository: repository)
+              pull_request = FactoryBot.create(:pull_request, repository:)
 
               FactoryBot.create(:commit, {
                                   message: 'commit number seven',
-                                  pull_request: pull_request
+                                  pull_request:
                                 })
 
               flow = described_class.new(valid_json)
@@ -234,12 +234,12 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               pull_request = FactoryBot.create(:pull_request, {
                                                  title: 'PR: Update .env 4',
                                                  description: 'Card: https://codelitt.atlassian.net/browse/AYAPI-274',
-                                                 repository: repository
+                                                 repository:
                                                })
 
               FactoryBot.create(:commit, {
                                   message: 'commit number seven',
-                                  pull_request: pull_request
+                                  pull_request:
                                 })
 
               flow = described_class.new(valid_json)

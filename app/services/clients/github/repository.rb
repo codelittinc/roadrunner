@@ -38,7 +38,7 @@ module Clients
       private
 
       def list_repositories(page)
-        @client.repositories({}, query: { per_page: 100, page: page })
+        @client.repositories({}, query: { per_page: 100, page: })
       end
     end
   end

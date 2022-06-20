@@ -27,7 +27,7 @@ module Flows
 
           c = Commit
               .where.not(id: @commits.map(&:id))
-              .where(message: message).first
+              .where(message:).first
           @commits << c if c
         end
 
@@ -50,7 +50,7 @@ module Flows
 
       def update_application_version!
         app = @repository.application_by_environment(environment)
-        Release.create(application: app, version: version, commits: release_commits) if app
+        Release.create(application: app, version:, commits: release_commits) if app
       end
 
       def create_release!(target, prerelease)

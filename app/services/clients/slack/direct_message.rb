@@ -8,9 +8,9 @@ module Clients
         return if !username || username.size < 3
 
         Request.post(url, authorization, build_params({
-                                                        message: message,
-                                                        username: username,
-                                                        uniq: uniq
+                                                        message:,
+                                                        username:,
+                                                        uniq:
                                                       }))
       end
     end

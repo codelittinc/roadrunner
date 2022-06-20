@@ -7,8 +7,8 @@ module Flows
     def execute
       # Necessary to avoid racing condition errors in repositories that have many check runs at the same time
       begin
-        branch = Branch.where(name: branch_name, repository: repository).first_or_create!(pull_request: pull_request)
-        CheckRun.create(commit_sha: commit_sha, state: state, branch: branch)
+        branch = Branch.where(name: branch_name, repository:).first_or_create!(pull_request:)
+        CheckRun.create(commit_sha:, state:, branch:)
       rescue StandardError
         return
       end
@@ -41,7 +41,7 @@ module Flows
     private
 
     def pull_request
-      @pull_request ||= PullRequest.find_by(repository: repository, head: branch_name, state: 'open')
+      @pull_request ||= PullRequest.find_by(repository:, head: branch_name, state: 'open')
     end
 
     def message

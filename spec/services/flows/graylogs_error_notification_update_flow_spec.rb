@@ -67,7 +67,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
                                    action: 'user-addressing-error',
                                    ts: timestamp,
                                    username: 'kaiomagalhaes',
-                                   channel: channel
+                                   channel:
                                  })
 
       new_message = ':fire_engine: ay-excel-import-api environment :fire_engine:QA:fire_engine: - reviewed by @kaiomagalhaes'

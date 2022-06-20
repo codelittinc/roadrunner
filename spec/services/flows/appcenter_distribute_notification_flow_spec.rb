@@ -7,7 +7,7 @@ RSpec.describe Flows::AppcenterDistributeNotificationFlow, type: :service do
     context 'returns true' do
       before do
         repository = FactoryBot.create(:repository, name: 'pia-web-mobile')
-        FactoryBot.create(:application, :with_server, repository: repository, external_identifier: 'pia.web.com')
+        FactoryBot.create(:application, :with_server, repository:, external_identifier: 'pia.web.com')
       end
 
       it 'when deploy type is appcenter-distribute-notification' do
@@ -54,7 +54,7 @@ RSpec.describe Flows::AppcenterDistributeNotificationFlow, type: :service do
     context 'sends a channel message' do
       it 'when host is the application external identifier' do
         repository = FactoryBot.create(:repository, name: 'pia-web-mobile')
-        FactoryBot.create(:application, :with_server, repository: repository, external_identifier: 'pia.web.com')
+        FactoryBot.create(:application, :with_server, repository:, external_identifier: 'pia.web.com')
 
         flow = described_class.new({
                                      deploy_type: 'appcenter-distribute-notification',
