@@ -16,12 +16,12 @@ class OpenPullRequestsController < ApplicationController
         link: pull_request.link,
         user: pull_request.user&.slack,
         state: pull_request.check_runs.last&.state,
-        approved_by: approved_by,
-        reproved_by: reproved_by,
-        changes_after_reviews: changes_after_reviews
+        approved_by:,
+        reproved_by:,
+        changes_after_reviews:
       }
     end
 
-    render json: json
+    render json:
   end
 end

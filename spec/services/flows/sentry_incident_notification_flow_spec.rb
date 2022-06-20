@@ -69,8 +69,8 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
                                                                                          ' *Link*: <https://sentry.io/organizations/codelitt-7y/issues/1851228751/events/6e54db70e36142d4b300b3389f4ff238/?project=5388450|'\
                                                                                          'See issue in Sentry.io>')
 
-        FactoryBot.create(:server_incident, application: application, message: slack_message.text,
-                                            slack_message: slack_message)
+        FactoryBot.create(:server_incident, application:, message: slack_message.text,
+                                            slack_message:)
 
         flow = described_class.new(valid_incident)
 
@@ -167,7 +167,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         it 'with a valid json' do
           application = FactoryBot.create(:application, :with_server,
                                           external_identifier: 'appraisal-api-qa.azurewebsites.net')
-          FactoryBot.create(:external_identifier, application: application, text: 'spaces local')
+          FactoryBot.create(:external_identifier, application:, text: 'spaces local')
 
           flow = described_class.new(valid_incident_with_app_info_by_tags)
           expect(flow.flow?).to be_truthy
@@ -176,7 +176,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         it 'when there is a server with an external_identifier with the same project_name' do
           application = FactoryBot.create(:application, :with_server,
                                           external_identifier: 'appraisal-api-qa.azurewebsites.net')
-          FactoryBot.create(:external_identifier, application: application, text: 'spaces local')
+          FactoryBot.create(:external_identifier, application:, text: 'spaces local')
           flow = described_class.new(valid_incident_with_app_info_by_tags)
           expect(flow.flow?).to be_truthy
         end
@@ -188,7 +188,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         it 'with a repo from Github' do
           application = FactoryBot.create(:application, :with_server,
                                           external_identifier: 'appraisal-api-qa.azurewebsites.net')
-          FactoryBot.create(:external_identifier, application: application, text: 'spaces local')
+          FactoryBot.create(:external_identifier, application:, text: 'spaces local')
 
           flow = described_class.new(valid_incident_with_app_info_by_tags)
           expected_message = "\n *Error*: TypeError: Cannot read property 'fullName' of undefined\n *Type*: Uncaught"\
@@ -209,8 +209,8 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         it 'with a repo from Azure' do
           repository = FactoryBot.create(:repository, source_control_type: 'azure')
           application = FactoryBot.create(:application, :with_server,
-                                          external_identifier: 'appraisal-api-qa.azurewebsites.net', repository: repository)
-          FactoryBot.create(:external_identifier, application: application, text: 'spaces local')
+                                          external_identifier: 'appraisal-api-qa.azurewebsites.net', repository:)
+          FactoryBot.create(:external_identifier, application:, text: 'spaces local')
           repository.project.customer.update(sentry_name: 'avison-young')
 
           flow = described_class.new(valid_incident_with_app_info_by_tags)
@@ -233,7 +233,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
       it 'update server incident and create server incident instance' do
         application = FactoryBot.create(:application, :with_server,
                                         external_identifier: 'appraisal-api-qa.azurewebsites.net')
-        FactoryBot.create(:external_identifier, application: application, text: 'spaces local')
+        FactoryBot.create(:external_identifier, application:, text: 'spaces local')
 
         message = "\n *Error*: TypeError: Cannot read property 'fullName' of undefined\n *Type*: Uncaught Exception\n *File Name*:"\
                   " /spaces/assets/app.js\n *Function*: Explore.PropertyExploreNew._propertyCardHtml\n *User*: \n>Id - \n>Email - Ivan.T"\
@@ -243,8 +243,8 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
         slack_message = FactoryBot.create(:slack_message, ts: '1598981604.000400',
                                                           text: message)
 
-        FactoryBot.create(:server_incident, application: application, message: slack_message.text,
-                                            slack_message: slack_message)
+        FactoryBot.create(:server_incident, application:, message: slack_message.text,
+                                            slack_message:)
 
         flow = described_class.new(valid_incident_with_app_info_by_tags)
 
@@ -254,7 +254,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
       context 'when there is no server' do
         it 'dont add the link to the slack message' do
           repository = FactoryBot.create(:repository, source_control_type: 'azure')
-          FactoryBot.create(:application, external_identifier: 'avant', repository: repository, environment: 'qa')
+          FactoryBot.create(:application, external_identifier: 'avant', repository:, environment: 'qa')
           repository.project.customer.update(sentry_name: 'avison-young')
 
           flow = described_class.new(valid_incident_of_missing_server)

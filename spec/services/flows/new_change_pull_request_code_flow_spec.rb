@@ -15,7 +15,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
 
     let(:pull_request) do
       slack_message = FactoryBot.create(:slack_message, ts: '123')
-      FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message,
+      FactoryBot.create(:pull_request, source_control_id: 1, repository:, slack_message:,
                                        head: 'DESENV')
     end
 
@@ -116,7 +116,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
 
     let(:pull_request) do
       slack_message = FactoryBot.create(:slack_message, ts: '123')
-      FactoryBot.create(:pull_request, source_control_id: 1, repository: repository, slack_message: slack_message,
+      FactoryBot.create(:pull_request, source_control_id: 1, repository:, slack_message:,
                                        head: 'update/add-extra-logic-to-multiple-charts')
     end
 

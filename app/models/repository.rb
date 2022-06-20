@@ -46,6 +46,6 @@ class Repository < ApplicationRecord
   end
 
   def application_by_environment(environment)
-    applications.find_by(environment: environment)
+    applications.find_by(environment:)
   end
 end

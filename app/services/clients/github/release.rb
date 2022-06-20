@@ -15,8 +15,8 @@ module Clients
       def create(repository, tag_name, target, body, prerelease)
         release = @client.create_release(repository.full_name, tag_name, {
                                            target_commitish: target,
-                                           body: body,
-                                           prerelease: prerelease
+                                           body:,
+                                           prerelease:
                                          })
         Clients::Github::Parsers::ReleaseParser.new(release)
       end

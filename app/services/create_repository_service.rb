@@ -7,19 +7,19 @@ class CreateRepositoryService
 
   def create
     repository = Repository.create(
-      name: name,
-      friendly_name: friendly_name,
-      project_id: project_id,
-      owner: owner,
-      deploy_type: deploy_type,
-      supports_deploy: supports_deploy,
-      jira_project: jira_project,
-      source_control_type: source_control_type
+      name:,
+      friendly_name:,
+      project_id:,
+      owner:,
+      deploy_type:,
+      supports_deploy:,
+      jira_project:,
+      source_control_type:
     )
 
     if repository && slack_repository_info_attributes
       SlackRepositoryInfo.create(
-        repository: repository,
+        repository:,
         deploy_channel: slack_repository_info_attributes['deploy_channel'],
         dev_channel: slack_repository_info_attributes['dev_channel'],
         dev_group: slack_repository_info_attributes['dev_group'],

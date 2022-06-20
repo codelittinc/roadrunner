@@ -10,31 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_24_194409) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_05_24_194409) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "applications", force: :cascade do |t|
     t.string "environment"
     t.bigint "repository_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["repository_id"], name: "index_applications_on_repository_id"
   end
 
   create_table "azure_pull_requests", force: :cascade do |t|
     t.string "source_control_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "branches", force: :cascade do |t|
     t.string "name"
     t.bigint "repository_id", null: false
     t.bigint "pull_request_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["pull_request_id"], name: "index_branches_on_pull_request_id", unique: true
     t.index ["repository_id"], name: "index_branches_on_repository_id"
   end
@@ -42,8 +41,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
   create_table "check_runs", force: :cascade do |t|
     t.string "state"
     t.string "commit_sha"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "branch_id"
     t.index ["branch_id"], name: "index_check_runs_on_branch_id"
   end
@@ -51,8 +50,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
   create_table "commit_releases", force: :cascade do |t|
     t.bigint "commit_id"
     t.bigint "release_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["commit_id"], name: "index_commit_releases_on_commit_id"
     t.index ["release_id"], name: "index_commit_releases_on_release_id"
   end
@@ -63,8 +62,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
     t.string "author_name"
     t.string "author_email"
     t.bigint "pull_request_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["pull_request_id"], name: "index_commits_on_pull_request_id"
   end
 
@@ -72,19 +71,16 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
     t.string "name"
     t.string "slack_api_key"
     t.string "github_api_key"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "sentry_name"
-  end
-
-  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
   create_table "external_identifiers", force: :cascade do |t|
     t.string "text"
     t.bigint "application_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["application_id"], name: "index_external_identifiers_on_application_id"
   end
 
@@ -92,8 +88,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
     t.string "json"
     t.string "flow_name"
     t.boolean "executed"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "error_message"
   end
 
@@ -110,8 +106,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
 
   create_table "github_pull_requests", force: :cascade do |t|
     t.string "source_control_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "issues", force: :cascade do |t|
@@ -119,8 +115,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
     t.string "state"
     t.string "title"
     t.decimal "story_points"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "sprint_id"
     t.bigint "user_id"
     t.string "tags"
@@ -130,8 +126,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "slug"
     t.bigint "customer_id"
     t.index ["customer_id"], name: "index_projects_on_customer_id"
@@ -140,8 +136,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
 
   create_table "pull_request_changes", force: :cascade do |t|
     t.bigint "pull_request_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["pull_request_id"], name: "index_pull_request_changes_on_pull_request_id"
   end
 
@@ -149,8 +145,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
     t.string "state"
     t.string "username"
     t.bigint "pull_request_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["pull_request_id"], name: "index_pull_request_reviews_on_pull_request_id"
   end
 
@@ -160,14 +156,14 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
     t.string "title"
     t.string "description"
     t.string "state"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "repository_id"
     t.bigint "user_id"
     t.string "ci_state"
     t.string "source_type"
     t.bigint "source_id"
-    t.datetime "merged_at"
+    t.datetime "merged_at", precision: nil
     t.index ["repository_id"], name: "index_pull_requests_on_repository_id"
     t.index ["source_type", "source_id"], name: "index_pull_requests_on_source"
     t.index ["user_id"], name: "index_pull_requests_on_user_id"
@@ -176,15 +172,15 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
   create_table "releases", force: :cascade do |t|
     t.string "version"
     t.bigint "application_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "deploy_status"
     t.index ["application_id"], name: "index_releases_on_application_id"
   end
 
   create_table "repositories", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "project_id"
     t.string "deploy_type"
     t.boolean "supports_deploy"
@@ -199,23 +195,23 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
 
   create_table "server_incident_instances", force: :cascade do |t|
     t.bigint "server_incident_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["server_incident_id"], name: "index_server_incident_instances_on_server_incident_id"
   end
 
   create_table "server_incident_types", force: :cascade do |t|
     t.string "name"
     t.string "regex_identifier"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "server_incidents", force: :cascade do |t|
     t.string "message"
     t.bigint "server_status_check_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "state"
     t.bigint "slack_message_id"
     t.integer "application_id"
@@ -226,16 +222,16 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
   create_table "server_status_checks", force: :cascade do |t|
     t.integer "code"
     t.bigint "server_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["server_id"], name: "index_server_status_checks_on_server_id"
   end
 
   create_table "servers", force: :cascade do |t|
     t.string "link"
     t.boolean "supports_health_check"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "active", default: true
     t.string "environment"
     t.bigint "application_id"
@@ -245,8 +241,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
   create_table "slack_messages", force: :cascade do |t|
     t.string "ts"
     t.bigint "pull_request_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "text"
     t.index ["pull_request_id"], name: "index_slack_messages_on_pull_request_id"
   end
@@ -254,8 +250,8 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
   create_table "slack_repository_infos", force: :cascade do |t|
     t.string "deploy_channel"
     t.bigint "repository_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "dev_channel"
     t.string "dev_group"
     t.string "feed_channel"
@@ -263,12 +259,12 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
   end
 
   create_table "sprints", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.datetime "start_date", precision: nil
+    t.datetime "end_date", precision: nil
     t.string "name"
     t.string "time_frame"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "team"
     t.bigint "customer_id"
     t.index ["customer_id"], name: "index_sprints_on_customer_id"
@@ -278,16 +274,16 @@ ActiveRecord::Schema.define(version: 2022_05_24_194409) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "github"
     t.string "jira"
     t.string "slack"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "azure"
     t.string "azure_devops_issues"
     t.bigint "customer_id"

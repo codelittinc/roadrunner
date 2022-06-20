@@ -3,7 +3,7 @@
 module Flows
   class NewChangePullRequestCodeFlow < BaseSourceControlFlow
     def execute
-      PullRequestChange.create!(pull_request: pull_request)
+      PullRequestChange.create!(pull_request:)
 
       change_pull_request_message = Messages::PullRequestBuilder.change_pull_request_message
 
@@ -25,7 +25,7 @@ module Flows
     private
 
     def pull_request
-      @pull_request ||= PullRequest.find_by(repository: repository, head: parser.head, state: 'open')
+      @pull_request ||= PullRequest.find_by(repository:, head: parser.head, state: 'open')
     end
   end
 end

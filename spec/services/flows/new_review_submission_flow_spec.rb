@@ -13,8 +13,8 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
       context 'returns true when' do
         it 'contains a review' do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, source_control_id: 180, slack_message: slack_message,
-                                           repository: repository, head: 'kaiomagalhaes-patch-121')
+          FactoryBot.create(:pull_request, source_control_id: 180, slack_message:,
+                                           repository:, head: 'kaiomagalhaes-patch-121')
 
           flow = described_class.new(valid_json)
           expect(flow.flow?).to be_truthy
@@ -22,8 +22,8 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
         it 'a pull request exists, slack_message exists and action is submitted' do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, source_control_id: 180, slack_message: slack_message,
-                                           repository: repository, head: 'kaiomagalhaes-patch-121')
+          FactoryBot.create(:pull_request, source_control_id: 180, slack_message:,
+                                           repository:, head: 'kaiomagalhaes-patch-121')
 
           flow = described_class.new(valid_json)
           expect(flow.flow?).to be_truthy
@@ -50,7 +50,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
         end
 
         it 'a pull request exists but a slack_message does not' do
-          FactoryBot.create(:pull_request, source_control_id: 1, repository: repository)
+          FactoryBot.create(:pull_request, source_control_id: 1, repository:)
 
           flow = described_class.new(valid_json)
           expect(flow.flow?).to be_falsey
@@ -58,7 +58,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
         it 'a pull request exists but an action is not submitted' do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, source_control_id: 1, slack_message: slack_message, repository: repository)
+          FactoryBot.create(:pull_request, source_control_id: 1, slack_message:, repository:)
           invalid_json = valid_json.deep_dup
           invalid_json[:action] = 'test'
 
@@ -80,8 +80,8 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
       it 'sends a message if there is a new review submission' do
         VCR.use_cassette('flows#new-review-submission-request#new-review-send-message', record: :new_episodes) do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, source_control_id: 180, repository: repository,
-                                           slack_message: slack_message, head: 'kaiomagalhaes-patch-121')
+          FactoryBot.create(:pull_request, source_control_id: 180, repository:,
+                                           slack_message:, head: 'kaiomagalhaes-patch-121')
 
           flow = described_class.new(valid_json)
 
@@ -95,8 +95,8 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
         VCR.use_cassette('flows#new-review-submission-request#new-review-send-direct-message', record: :new_episodes) do
           user = FactoryBot.create(:user, slack: 'rheniery.mendes')
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, source_control_id: 180, slack_message: slack_message, user: user,
-                                           repository: repository, head: 'kaiomagalhaes-patch-121')
+          FactoryBot.create(:pull_request, source_control_id: 180, slack_message:, user:,
+                                           repository:, head: 'kaiomagalhaes-patch-121')
           valid_json_direct_message = valid_json.deep_dup
           valid_json_direct_message[:review][:state] = 'test'
           valid_json_direct_message[:review][:body] = ''
@@ -115,8 +115,8 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
         VCR.use_cassette('flows#new-review-submission-request#new-review-send-direct-message', record: :new_episodes) do
           user = FactoryBot.create(:user, slack: nil)
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, source_control_id: 180, slack_message: slack_message, user: user,
-                                           repository: repository, head: 'kaiomagalhaes-patch-121')
+          FactoryBot.create(:pull_request, source_control_id: 180, slack_message:, user:,
+                                           repository:, head: 'kaiomagalhaes-patch-121')
           valid_json_direct_message = valid_json.deep_dup
           valid_json_direct_message[:review][:state] = 'test'
           valid_json_direct_message[:review][:body] = ''
@@ -133,8 +133,8 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
         VCR.use_cassette('flows#new-review-submission-request#new-review-send-channel-message',
                          record: :new_episodes) do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, source_control_id: 180, repository: repository,
-                                           slack_message: slack_message, head: 'kaiomagalhaes-patch-121')
+          FactoryBot.create(:pull_request, source_control_id: 180, repository:,
+                                           slack_message:, head: 'kaiomagalhaes-patch-121')
           valid_json_channel_changes = valid_json.deep_dup
           valid_json_channel_changes[:review][:state] = 'changes_requested'
 
@@ -152,8 +152,8 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
         VCR.use_cassette('flows#new-review-submission-request#new-review-send-channel-message-with-message',
                          record: :new_episodes) do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, source_control_id: 180, repository: repository,
-                                           slack_message: slack_message, head: 'kaiomagalhaes-patch-121')
+          FactoryBot.create(:pull_request, source_control_id: 180, repository:,
+                                           slack_message:, head: 'kaiomagalhaes-patch-121')
           valid_json_channel_message = valid_json.deep_dup
           valid_json_channel_message[:review][:state] = 'test'
           valid_json_channel_message[:review][:message] = 'I sent a message'
@@ -178,8 +178,8 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
       context 'returns true when' do
         it 'contains a review' do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, source_control_id: 357, slack_message: slack_message,
-                                           repository: repository, head: 'kaiomagalhaes-patch-121')
+          FactoryBot.create(:pull_request, source_control_id: 357, slack_message:,
+                                           repository:, head: 'kaiomagalhaes-patch-121')
 
           flow = described_class.new(valid_json)
           expect(flow.flow?).to be_truthy
@@ -206,7 +206,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
         end
 
         it 'a pull request exists but a slack_message does not' do
-          pull_request = FactoryBot.create(:pull_request, source_control_id: 357, repository: repository)
+          pull_request = FactoryBot.create(:pull_request, source_control_id: 357, repository:)
           pull_request.slack_message.destroy!
 
           flow = described_class.new(valid_json)
@@ -215,7 +215,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
         it 'a pull request exists but the event type is invalid' do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, source_control_id: 357, slack_message: slack_message, repository: repository)
+          FactoryBot.create(:pull_request, source_control_id: 357, slack_message:, repository:)
           invalid_json = valid_json.deep_dup
           invalid_json[:eventType] = 'test'
 
@@ -236,8 +236,8 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
       it 'sends a message if there is a new review submission' do
         VCR.use_cassette('flows#new-review-submission-request#azure#new-review-send-message', record: :new_episodes) do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, source_control_id: 357, repository: repository,
-                                           slack_message: slack_message, head: 'kaiomagalhaes-patch-121', source_control_type: 'azure')
+          FactoryBot.create(:pull_request, source_control_id: 357, repository:,
+                                           slack_message:, head: 'kaiomagalhaes-patch-121', source_control_type: 'azure')
 
           flow = described_class.new(valid_json)
 

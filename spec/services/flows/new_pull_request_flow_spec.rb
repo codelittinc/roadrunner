@@ -43,7 +43,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
         end
 
         it 'pull request already exists in database' do
-          FactoryBot.create(:pull_request, repository: repository, source_control_id: 160)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 160)
 
           flow = described_class.new(github_valid_json)
           expect(flow.flow?).to be_falsey
@@ -70,7 +70,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
 
       context 'pull request already exists in database' do
         it 'pull request already exists in database' do
-          FactoryBot.create(:pull_request, repository: repository, source_control_id: 160)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 160)
 
           flow = described_class.new(github_valid_json)
 
@@ -80,7 +80,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
 
       context 'there is a racing condition and two events are triggered together' do
         it 'does not create more than one pull request' do
-          FactoryBot.create(:pull_request, repository: repository, source_control_id: 160)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 160)
 
           expect_any_instance_of(Flows::NewPullRequestFlow).to receive(:pull_request_already_exists?).and_return(true)
           flow = described_class.new(github_valid_json)
@@ -91,8 +91,8 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
 
       context 'when there is a check run linked with the branch of the pull request' do
         it 'and it state is success, sends a success reaction' do
-          branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository: repository)
-          FactoryBot.create(:check_run, state: 'success', branch: branch)
+          branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository:)
+          FactoryBot.create(:check_run, state: 'success', branch:)
 
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                                 'notification_id' => '123'
@@ -106,8 +106,8 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
         end
 
         it 'and it state is failure, sends a failure reaction' do
-          branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository: repository)
-          FactoryBot.create(:check_run, state: 'failure', branch: branch)
+          branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository:)
+          FactoryBot.create(:check_run, state: 'failure', branch:)
 
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                                 'notification_id' => '123'
@@ -121,8 +121,8 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
         end
 
         it 'and it state is pending, sends a pending reaction' do
-          branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository: repository)
-          FactoryBot.create(:check_run, state: 'pending', branch: branch)
+          branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository:)
+          FactoryBot.create(:check_run, state: 'pending', branch:)
 
           expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({
                                                                                                 'notification_id' => '123'
@@ -181,7 +181,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
 
         it 'pull request already exists in database' do
           repository
-          FactoryBot.create(:pull_request, repository: repository, source_control_id: 35)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 35)
 
           flow = described_class.new(azure_valid_json)
           expect(flow.flow?).to be_falsey

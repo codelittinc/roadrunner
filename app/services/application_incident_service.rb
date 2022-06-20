@@ -24,7 +24,7 @@ class ApplicationIncidentService
     return if ignore_incident?
 
     @recurrent_server_incident ||= ServerIncident.find_by(
-      application: application,
+      application:,
       created_at: (1.day.ago)..Time.zone.now,
       message: error_message
     )
@@ -61,9 +61,9 @@ class ApplicationIncidentService
   def create_incident(server_status_check)
     if create_new_recurrent_incident?
       @current_server_incident = ServerIncident.create!(
-        application: application,
+        application:,
         message: error_message,
-        server_status_check: server_status_check
+        server_status_check:
       )
     else
       ServerIncidentInstance.create!(server_incident: recurrent_server_incident)

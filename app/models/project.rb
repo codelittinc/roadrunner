@@ -12,9 +12,6 @@
 #  customer_id :bigint
 #
 class Project < ApplicationRecord
-  extend FriendlyId
-  friendly_id :name, use: :slugged
-
   belongs_to :customer
   has_many :repositories
 end

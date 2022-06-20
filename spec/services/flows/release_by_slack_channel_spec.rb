@@ -19,7 +19,7 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
     context 'returns true' do
       it 'when the json is valid' do
         repository = FactoryBot.create(:repository)
-        FactoryBot.create(:slack_repository_info, repository: repository)
+        FactoryBot.create(:slack_repository_info, repository:)
 
         flow = described_class.new(valid_json)
         expect(flow.flow?).to be_truthy

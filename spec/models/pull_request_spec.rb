@@ -42,10 +42,10 @@ RSpec.describe PullRequest, type: :model do
 
     it 'validates uniqueness between repository and source control id' do
       repository = FactoryBot.create(:repository)
-      FactoryBot.create(:pull_request, repository: repository, source_control_type: 'azure', source_control_id: 1)
+      FactoryBot.create(:pull_request, repository:, source_control_type: 'azure', source_control_id: 1)
 
       expect do
-        FactoryBot.create(:pull_request, repository: repository, source_control_type: 'azure', source_control_id: 1)
+        FactoryBot.create(:pull_request, repository:, source_control_type: 'azure', source_control_id: 1)
       end.to raise_error(ActiveRecord::RecordInvalid,
                          /Repository There is a source_control_id for this repository already/)
     end
@@ -85,7 +85,7 @@ RSpec.describe PullRequest, type: :model do
     describe '#link' do
       it 'returns a valid github link' do
         repository = FactoryBot.create(:repository, owner: 'repo-owner', name: 'repo-name')
-        pr = FactoryBot.create(:pull_request, repository: repository, source_control_id: 1)
+        pr = FactoryBot.create(:pull_request, repository:, source_control_id: 1)
         expect(pr.link).to eql('https://github.com/repo-owner/repo-name/pull/1')
       end
     end

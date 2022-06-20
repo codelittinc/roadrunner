@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Flows::EnvironmentDifferenceFlow, type: :service do
   let(:repository) { FactoryBot.create(:repository) }
-  let(:qa_application) { FactoryBot.create(:application, environment: 'qa', repository: repository) }
-  let(:prod_application) { FactoryBot.create(:application, environment: 'prod', repository: repository) }
+  let(:qa_application) { FactoryBot.create(:application, environment: 'qa', repository:) }
+  let(:prod_application) { FactoryBot.create(:application, environment: 'prod', repository:) }
   let(:qa_release) { FactoryBot.create(:release, application: qa_application) }
   let(:prod_release) { FactoryBot.create(:release, application: prod_application) }
 

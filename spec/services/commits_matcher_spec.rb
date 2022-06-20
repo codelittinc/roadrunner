@@ -27,8 +27,8 @@ RSpec.describe CommitsMatcher, type: :service do
     VCR.use_cassette('services#commits-matcher#list-commits') do
       github_commits = Clients::Github::Branch.new.commits(repository, 'master').reverse
       message = 'update rails admin to use master while they release a version compatible with ruby 3'
-      FactoryBot.create(:commit, :with_pull_request, message: message, created_at: 5.days.ago, author_name: 'robin')
-      FactoryBot.create(:commit, :with_pull_request, message: message, created_at: 2.days.ago, author_name: 'batman')
+      FactoryBot.create(:commit, :with_pull_request, message:, created_at: 5.days.ago, author_name: 'robin')
+      FactoryBot.create(:commit, :with_pull_request, message:, created_at: 2.days.ago, author_name: 'batman')
 
       matched_commits = CommitsMatcher.new(github_commits).commits
 
