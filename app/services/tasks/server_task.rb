@@ -18,7 +18,7 @@ module Tasks
         next if VALID_STATUS_CODE.include?(response.code)
 
         status_check = ServerStatusCheck.create!(
-          server: server,
+          server:,
           code: response.code
         )
 

@@ -4,9 +4,9 @@ require 'rails_helper'
 
 RSpec.describe Flows::ReleaseDifferenceFlow, type: :service do
   let(:repository) { FactoryBot.create(:repository) }
-  let(:application) { FactoryBot.create(:application, repository: repository) }
-  let(:base_release) { FactoryBot.create(:release, application: application) }
-  let(:head_release) { FactoryBot.create(:release, application: application) }
+  let(:application) { FactoryBot.create(:application, repository:) }
+  let(:base_release) { FactoryBot.create(:release, application:) }
+  let(:head_release) { FactoryBot.create(:release, application:) }
 
   let(:commits) do
     FactoryBot.create(:commit, :with_pull_request,

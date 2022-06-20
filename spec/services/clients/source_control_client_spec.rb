@@ -9,11 +9,11 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     end
 
     let(:branch) do
-      FactoryBot.create(:branch, repository: repository)
+      FactoryBot.create(:branch, repository:)
     end
 
     let(:pull_request) do
-      FactoryBot.create(:pull_request, repository: repository)
+      FactoryBot.create(:pull_request, repository:)
     end
 
     describe '#list_releases' do
@@ -133,11 +133,11 @@ RSpec.describe Clients::SourceControlClient, type: :service do
     end
 
     let(:branch) do
-      FactoryBot.create(:branch, repository: repository)
+      FactoryBot.create(:branch, repository:)
     end
 
     let(:pull_request) do
-      FactoryBot.create(:pull_request, repository: repository)
+      FactoryBot.create(:pull_request, repository:)
     end
 
     describe '#list_releases' do

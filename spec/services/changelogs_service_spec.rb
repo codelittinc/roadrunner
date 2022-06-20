@@ -5,15 +5,15 @@ require 'rails_helper'
 RSpec.describe ChangelogsService, type: :service do
   let(:repository) { FactoryBot.create(:repository) }
   let(:release) do
-    application = FactoryBot.create(:application, repository: repository)
-    FactoryBot.create(:release, application: application, version: '1.0.0')
+    application = FactoryBot.create(:application, repository:)
+    FactoryBot.create(:release, application:, version: '1.0.0')
   end
 
   it 'returns the jira type changelogs' do
     pull_request = FactoryBot.create(
       :pull_request,
       title: 'This is a cool PR',
-      repository: repository,
+      repository:,
       description: '### Other minor changes:
         - Move files out to a utils file in UploadSection to shorten the file size and improve readability.
       ### Card Link:
@@ -30,13 +30,13 @@ RSpec.describe ChangelogsService, type: :service do
     FactoryBot.create(
       :commit,
       releases: [release],
-      pull_request: pull_request,
+      pull_request:,
       message: 'Create form component'
     )
     FactoryBot.create(
       :commit,
       releases: [release],
-      pull_request: pull_request,
+      pull_request:,
       message: 'Create input component'
     )
     commits = release.commits
@@ -90,7 +90,7 @@ RSpec.describe ChangelogsService, type: :service do
     pull_request = FactoryBot.create(
       :pull_request,
       title: 'This is a cool PR',
-      repository: repository,
+      repository:,
       description: '### Other minor changes:
         - Move files out to a utils file in UploadSection to shorten the file size and improve readability.
       ### Card Link:
@@ -108,13 +108,13 @@ RSpec.describe ChangelogsService, type: :service do
     FactoryBot.create(
       :commit,
       releases: [release],
-      pull_request: pull_request,
+      pull_request:,
       message: 'Create form component'
     )
     FactoryBot.create(
       :commit,
       releases: [release],
-      pull_request: pull_request,
+      pull_request:,
       message: 'Create input component'
     )
     commits = release.commits
@@ -168,7 +168,7 @@ RSpec.describe ChangelogsService, type: :service do
     pull_request = FactoryBot.create(
       :pull_request,
       title: 'This is a cool PR',
-      repository: repository,
+      repository:,
       description: '### Other minor changes:
         - Move files out to a utils file in UploadSection to shorten the file size and improve readability.
       ### Card Link:
@@ -185,13 +185,13 @@ RSpec.describe ChangelogsService, type: :service do
     FactoryBot.create(
       :commit,
       releases: [release],
-      pull_request: pull_request,
+      pull_request:,
       message: 'Create form component'
     )
     FactoryBot.create(
       :commit,
       releases: [release],
-      pull_request: pull_request,
+      pull_request:,
       message: 'Create input component'
     )
     commits = release.commits
@@ -245,7 +245,7 @@ RSpec.describe ChangelogsService, type: :service do
     pull_request = FactoryBot.create(
       :pull_request,
       title: 'This is a cool PR',
-      repository: repository,
+      repository:,
       description: '### Other minor changes:
         - Move files out to a utils file in UploadSection to shorten the file size and improve readability.
       ### Card Link:
@@ -262,13 +262,13 @@ RSpec.describe ChangelogsService, type: :service do
     FactoryBot.create(
       :commit,
       releases: [release],
-      pull_request: pull_request,
+      pull_request:,
       message: 'Create form component'
     )
     FactoryBot.create(
       :commit,
       releases: [release],
-      pull_request: pull_request,
+      pull_request:,
       message: 'Create input component'
     )
     commits = release.commits

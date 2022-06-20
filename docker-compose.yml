@@ -43,6 +43,29 @@ services:
       - box
       - redis
 
+  sidekiq:
+    container_name: roadrunner-sidekiq
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      target: development
+    command: bundle exec sidekiq
+
+    volumes:
+      - .:/app
+
+    env_file:
+      - .env
+
+    depends_on:
+      - box
+      - redis
+
+    links:
+      - box
+      - redis
+
   box:
     container_name: roadrunner-bundle-box
     image: busybox

@@ -12,7 +12,7 @@ RailsAdmin.config do |config|
   if ENV.fetch('ENABLE_AUTH', nil) == 'true'
     config.authenticate_with do
       authenticate_or_request_with_http_basic('Login required') do |username, password|
-        user = UserAdmin.where(username: username).or(UserAdmin.where(email: username)).first
+        user = UserAdmin.where(username:).or(UserAdmin.where(email: username)).first
         user&.authenticate(password) if user
       end
     end
@@ -60,7 +60,7 @@ RailsAdmin.config do |config|
 
   config.actions do
     dashboard do
-      statistics false
+      statistics true
     end
     index # mandatory
     new

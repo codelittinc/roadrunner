@@ -4,7 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Parsers::AppcenterDistributeNotificationParser, type: :service do
   let(:distribute_response) do
-    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows', 'appcenter_distribute_notification.json'))).with_indifferent_access
+    JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
+                                   'appcenter_distribute_notification.json'))).with_indifferent_access
   end
 
   describe 'returns true when' do

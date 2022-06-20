@@ -6,10 +6,10 @@ module Clients
       def send(message, channel, timestamp = nil, uniq = false)
         url = build_url('/channel_messages')
         response = Request.post(url, authorization, build_params({
-                                                                   message: message,
-                                                                   channel: channel,
+                                                                   message:,
+                                                                   channel:,
                                                                    notification_id: timestamp,
-                                                                   uniq: uniq
+                                                                   uniq:
                                                                  }))
         JSON.parse(response.body)
       end
@@ -17,8 +17,8 @@ module Clients
       def update(message, channel, timestamp)
         url = build_url("/channel_messages/#{timestamp}")
         response = Request.patch(url, authorization, build_params({
-                                                                    message: message,
-                                                                    channel: channel,
+                                                                    message:,
+                                                                    channel:,
                                                                     notification_id: timestamp
                                                                   }))
         JSON.parse(response.body)

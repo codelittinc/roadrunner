@@ -17,9 +17,9 @@ RSpec.describe Flows::ReleaseByRepositoryFlow, type: :service do
 
   let(:repository_with_applications) do
     repository = FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test')
-    repository.applications << FactoryBot.create(:application, repository: repository, environment: 'prod')
-    repository.applications << FactoryBot.create(:application, repository: repository, environment: 'qa')
-    repository.applications << FactoryBot.create(:application, repository: repository, environment: 'uat')
+    repository.applications << FactoryBot.create(:application, repository:, environment: 'prod')
+    repository.applications << FactoryBot.create(:application, repository:, environment: 'qa')
+    repository.applications << FactoryBot.create(:application, repository:, environment: 'uat')
     repository
   end
 

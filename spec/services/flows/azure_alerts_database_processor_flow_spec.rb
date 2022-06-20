@@ -11,7 +11,7 @@ RSpec.describe Flows::AzureAlertsDatabaseProcessorFlow, type: :service do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
                                    'azure_alerts_database.json'))).with_indifferent_access
         .merge({
-                 source: source
+                 source:
                })
   end
 

@@ -6,7 +6,7 @@ module Flows
       if pull_request_review
         pull_request_review.update(state: parser.review_state)
       else
-        PullRequestReview.create(pull_request: pull_request, username: parser.review_username,
+        PullRequestReview.create(pull_request:, username: parser.review_username,
                                  state: parser.review_state)
       end
 
@@ -24,7 +24,7 @@ module Flows
     private
 
     def pull_request_review
-      @pull_request_review ||= PullRequestReview.find_by(pull_request: pull_request, username: parser.review_username)
+      @pull_request_review ||= PullRequestReview.find_by(pull_request:, username: parser.review_username)
     end
 
     def slack_message

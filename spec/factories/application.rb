@@ -29,7 +29,7 @@ FactoryBot.define do
 
     trait :with_server do
       after :create do |application|
-        create :server, application: application
+        create :server, application:
       end
     end
   end

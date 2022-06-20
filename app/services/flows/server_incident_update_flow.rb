@@ -60,7 +60,7 @@ module Flows
     def server_incident
       return @server_incident if @server_incident
 
-      @server_incident = ServerIncident.where(application: application,
+      @server_incident = ServerIncident.where(application:,
                                               slack_message_id: slack_message).open_incidents.last
     end
   end

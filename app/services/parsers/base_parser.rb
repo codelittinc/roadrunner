@@ -12,6 +12,6 @@ module Parsers
 
     def parse!; end
 
-    def method_missing(m, *args, &block); end
+    def method_missing(m, *args, &); end
   end
 end
