@@ -1,0 +1,4 @@
+azure:
+  cron: "0 23 * * *"
+  class: "AzureDataLoaderWorker"
+  queue: default
