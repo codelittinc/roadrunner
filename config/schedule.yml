@@ -2,3 +2,8 @@ azure:
   cron: "0 23 * * *"
   class: "AzureDataLoaderWorker"
   queue: default
+
+ping_servers:
+  cron: "* * * * *"
+  class: "PingServersWorker"
+  queue: default
