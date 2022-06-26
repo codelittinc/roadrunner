@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy-qa:
+  deploy-prod:
     runs-on: ubuntu-latest
 
     steps:
