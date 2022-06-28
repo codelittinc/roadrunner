@@ -6,9 +6,7 @@ module Tasks
 
     def update!
       update_info!
-    rescue StandardError
-      update!
-    end
+   end
 
     def customer
       return @customer if @customer

@@ -7,8 +7,6 @@ module Tasks
 
     def update!
       update_info!
-    rescue StandardError
-      update!
     end
 
     def customer
