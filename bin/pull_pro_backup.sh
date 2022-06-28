@@ -1,6 +1,7 @@
 rm latest.dump
 docker-compose up -d
 docker stop roadrunner-api
+docker stop roadrunner-sidekiq
 heroku pg:backups:capture --app prod-roadrunner
 heroku pg:backups:download --app prod-roadrunner
 docker exec -it roadrunner-db psql -U postgres -c 'DROP DATABASE IF EXISTS roadrunner_development'

@@ -3,6 +3,11 @@ azure:
   class: "AzureDataLoaderWorker"
   queue: default
 
+jira:
+  cron: "0 22 * * *"
+  class: "JiraDataLoaderWorker"
+  queue: default
+
 ping_servers:
   cron: "* * * * *"
   class: "PingServersWorker"
