@@ -6,7 +6,7 @@ module Tasks
 
     def update!
       update_info!
-   end
+    end
 
     def customer
       return @customer if @customer
