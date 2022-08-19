@@ -70,7 +70,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
 
         flow = described_class.new(incident_small_message)
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
-          ":fire: <https://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test> environment :fire:<roadrunner.codelitt.dev|PROD>:fire: \n "\
+          ":fire: <https://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test> environment :fire:<roadrunner.codelitt.dev|PROD>:fire: \n " \
           '```{ [GraphQLasdEsrraoar: Variable "$propearty" got invalid value { id: 520 } }```',
           'feed-test-automations'
         ).and_return({
@@ -106,7 +106,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
         flow = described_class.new(incident_small_message)
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
-          ":fire: <https://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test> environment :fire:<roadrunner.codelitt.dev|PROD>:fire: \n "\
+          ":fire: <https://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test> environment :fire:<roadrunner.codelitt.dev|PROD>:fire: \n " \
           '```{ [GraphQLasdEsrraoar: Variable "$propearty" got invalid value { id: 520 } }```',
           'my-cool-feed-repository-channel'
         ).and_return({
@@ -129,7 +129,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
         flow = described_class.new(incident_small_message)
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
-          ":fire: <https://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test> environment :fire:<roadrunner.codelitt.dev|PROD>:fire: \n "\
+          ":fire: <https://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test> environment :fire:<roadrunner.codelitt.dev|PROD>:fire: \n " \
           '```{ [GraphQLasdEsrraoar: Variable "$propearty" got invalid value { id: 520 } }```',
           'deploy-channel'
         ).and_return({

@@ -15,7 +15,7 @@ RSpec.describe ApplicationIncidentService, type: :service do
         error_message = 'we did not start the fire'
 
         expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
-          ":fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<roadrunner.codelitt.dev|PROD>:fire: \n "\
+          ":fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<roadrunner.codelitt.dev|PROD>:fire: \n " \
           '```we did not start the fire```',
           'feed-test-automations'
         ).and_return({ ts: 1 })
