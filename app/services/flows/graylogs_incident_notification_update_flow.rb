@@ -7,7 +7,7 @@ module Flows
                                                                                                        ':fire_engine:')
       message = "#{base_text} - reviewed by @#{username}"
 
-      Clients::Slack::ChannelMessage.new.update(message, channel, timestamp)
+      Clients::Slack::Channel.new.update(message, channel, timestamp)
     end
 
     def flow?

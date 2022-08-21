@@ -85,7 +85,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
 
           flow = described_class.new(valid_json)
 
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+          expect_any_instance_of(Clients::Slack::Channel).to receive(:send)
 
           expect { flow.run }.to change { pull_request.pull_request_changes.count }.by(1)
         end
@@ -97,7 +97,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
 
           flow = described_class.new(valid_json)
 
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
             ':pencil2: There is a new change!', 'feed-test-automations', '123'
           )
 
@@ -179,7 +179,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
 
           flow = described_class.new(valid_json)
 
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+          expect_any_instance_of(Clients::Slack::Channel).to receive(:send)
 
           expect { flow.run }.to change { pull_request.pull_request_changes.count }.by(1)
         end
@@ -191,7 +191,7 @@ RSpec.describe Flows::NewChangePullRequestCodeFlow, type: :service do
 
           flow = described_class.new(valid_json)
 
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
             ':pencil2: There is a new change!', 'feed-test-automations', '123'
           )
 

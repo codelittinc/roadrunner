@@ -66,7 +66,7 @@ RSpec.describe Flows::AppcenterDistributeNotificationFlow, type: :service do
                                      install_link: 'link_to_download'
                                    })
 
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+        expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
           'Distribution of *pia-web-mobile* to *PROD - Android* was finished with Success, version: <link_to_download|1.0.42(350)>',
           'feed-test-automations'
         )

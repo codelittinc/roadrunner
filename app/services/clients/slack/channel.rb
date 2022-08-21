@@ -2,7 +2,7 @@
 
 module Clients
   module Slack
-    class ChannelMessage < Client
+    class Channel < Client
       def send(message, channel, timestamp = nil, uniq = false)
         request('/channel_messages', {
                   message:,

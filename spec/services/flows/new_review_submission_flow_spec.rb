@@ -85,7 +85,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
           flow = described_class.new(valid_json)
 
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+          expect_any_instance_of(Clients::Slack::Channel).to receive(:send)
 
           flow.run
         end
@@ -140,7 +140,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
           flow = described_class.new(valid_json_channel_changes)
 
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
             ':warning: changes requested!', 'feed-test-automations', '123'
           )
 
@@ -160,7 +160,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
           flow = described_class.new(valid_json_channel_message)
 
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
             ':speech_balloon: There is a new message!', 'feed-test-automations', '123'
           )
 
@@ -241,7 +241,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
           flow = described_class.new(valid_json)
 
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
             ':speech_balloon: There is a new message!', 'feed-test-automations', '123'
           )
 
@@ -258,7 +258,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
       #    flow = described_class.new(valid_json_channel_changes)
 
-      #    expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+      #    expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
       #      ':warning: changes requested!', 'feed-test-automations', '123'
       #    )
 
@@ -276,7 +276,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
       #    flow = described_class.new(valid_json_channel_message)
 
-      #    expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+      #    expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
       #      ':speech_balloon: There is a new message!', 'feed-test-automations', '123'
       #    )
 

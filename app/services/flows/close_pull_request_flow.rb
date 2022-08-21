@@ -5,7 +5,7 @@ module Flows
     def execute
       update_pull_request_state!
 
-      Clients::Slack::ChannelMessage.new(customer).update(close_pull_request_message, channel, message_ts)
+      Clients::Slack::Channel.new(customer).update(close_pull_request_message, channel, message_ts)
 
       parser.destroy_branch!(pull_request)
 

@@ -7,7 +7,7 @@ module Flows
     def execute
       update_release_deploy_status!
 
-      Clients::Slack::ChannelMessage.new(customer).send(
+      Clients::Slack::Channel.new(customer).send(
         "The deploy of *#{repository.name}* to *#{[environment,
                                                    deploy_type].compact.join(' - ')}* was finished with the status: #{status.capitalize}!",
         channel

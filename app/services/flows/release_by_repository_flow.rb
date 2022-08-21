@@ -6,7 +6,7 @@ module Flows
 
     def execute
       current_releases = source_control_client.new(repository).list_releases
-      Clients::Slack::ChannelMessage.new(customer).send(release_message, channel_name)
+      Clients::Slack::Channel.new(customer).send(release_message, channel_name)
 
       if Versioning.release_candidate_env? environment
         Flows::SubFlows::ReleaseCandidateFlow.new(channel_name, current_releases, repository, environment).execute

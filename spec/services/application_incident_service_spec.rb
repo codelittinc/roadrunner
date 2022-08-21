@@ -14,7 +14,7 @@ RSpec.describe ApplicationIncidentService, type: :service do
         server_incident_service = described_class.new
         error_message = 'we did not start the fire'
 
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+        expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
           ":fire: <https://github.com/codelittinc/codelitt-v2|codelitt-v2> environment :fire:<roadrunner.codelitt.dev|PROD>:fire: \n " \
           '```we did not start the fire```',
           'feed-test-automations'
@@ -30,7 +30,7 @@ RSpec.describe ApplicationIncidentService, type: :service do
         server_incident_service = described_class.new
         error_message = 'test'
 
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).and_return({ ts: 1 })
+        expect_any_instance_of(Clients::Slack::Channel).to receive(:send).and_return({ ts: 1 })
 
         expect { server_incident_service.register_incident!(application, error_message) }.to change {
                                                                                                ServerIncident.count
@@ -47,7 +47,7 @@ RSpec.describe ApplicationIncidentService, type: :service do
         error_message = "#{first_half}#{second_half}"
 
         receive_count = 0
-        allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send) {
+        allow_any_instance_of(Clients::Slack::Channel).to receive(:send) {
                                                                    receive_count += 1
                                                                  }.and_return({ ts: 1 })
         server_incident_service.register_incident!(application, error_message)
@@ -64,7 +64,7 @@ RSpec.describe ApplicationIncidentService, type: :service do
         server_incident_service = described_class.new
         error_message = 'test'
 
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to_not receive(:send)
+        expect_any_instance_of(Clients::Slack::Channel).to_not receive(:send)
 
         expect { server_incident_service.register_incident!(application, error_message) }.to change {
                                                                                                ServerIncident.count

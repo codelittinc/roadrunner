@@ -97,7 +97,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
 
           flow = described_class.new(valid_incident)
 
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to_not receive(:send)
+          expect_any_instance_of(Clients::Slack::Channel).to_not receive(:send)
 
           expect { flow.run }.to change { ServerIncident.count }.by(1)
         end
@@ -264,7 +264,7 @@ RSpec.describe Flows::SentryIncidentNotificationFlow, type: :service do
                           "john.sikaitis@avisonyoung.com\n\n *Link*: <https://sentry.io/organizations/avison-young/issues/2403853699" \
                           '/events/fc188ef59c9b46f8a6a970cfe49ac276/?project=5691309|See issue in Sentry.io>'
 
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
             slack_message,
             'feed-test-automations'
           ).and_return(
