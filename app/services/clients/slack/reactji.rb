@@ -2,14 +2,13 @@
 
 module Clients
   module Slack
-    class Reactji < BaseSlack
+    class Reactji < Client
       def send(reaction, channel, timestamp)
-        url = build_url('/reactions')
-        Request.post(url, authorization, build_params({
-                                                        reaction:,
-                                                        channel:,
-                                                        notification_id: timestamp
-                                                      }))
+        request('/reactions', {
+                  reaction:,
+                  channel:,
+                  notification_id: timestamp
+                })
       end
     end
   end

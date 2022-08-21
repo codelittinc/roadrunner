@@ -2,18 +2,11 @@
 
 module Clients
   module Slack
-    class BaseSlack
+    class Client
       def initialize(customer = nil)
         @customer = customer
-        @bot = 'roadrunner'
         @key = customer&.slack_api_key || ENV.fetch('NOTIFICATIONS_API_KEY', nil)
         @url = ENV.fetch('NOTIFICATIONS_API_URL', nil)
-      end
-
-      def build_params(params)
-        {
-          bot: @bot
-        }.merge(params)
       end
 
       def authorization
@@ -22,6 +15,12 @@ module Clients
 
       def build_url(path)
         "#{@url}#{path}"
+      end
+
+      def request(path, body)
+        url = build_url(path)
+        response = Request.post(url, authorization, body)
+        JSON.parse(response.body) if response&.body
       end
     end
   end
