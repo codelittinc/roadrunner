@@ -48,7 +48,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 gem 'pg_search'
-gem 'sidekiq'
 gem 'state_machines'
 gem 'state_machines-activerecord'
 
