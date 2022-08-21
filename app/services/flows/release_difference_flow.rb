@@ -15,7 +15,7 @@ module Flows
 
       message = "The differente between #{base_release.version} and #{head_release.version} is:\n#{changelog}".strip
 
-      Clients::Slack::Direct.new.send(message, user_name)
+      Clients::Notifications::Direct.new.send(message, user_name)
     end
 
     def can_execute?

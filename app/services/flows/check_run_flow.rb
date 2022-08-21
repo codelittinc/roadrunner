@@ -18,7 +18,7 @@ module Flows
       if state == CheckRun::FAILURE_STATE
         notify_ci_failure_message = Messages::PullRequestBuilder.notify_ci_failure(pull_request)
         if slack_username
-          Clients::Slack::Direct.new(customer).send(
+          Clients::Notifications::Direct.new(customer).send(
             notify_ci_failure_message,
             slack_username
           )
@@ -27,7 +27,7 @@ module Flows
 
       pull_request&.update(ci_state: state)
 
-      Clients::Slack::Reactji.new(customer).send(reaction, channel, message.ts)
+      Clients::Notifications::Reactji.new(customer).send(reaction, channel, message.ts)
     end
 
     def can_execute?

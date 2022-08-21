@@ -71,7 +71,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
                                  })
 
       new_message = ':fire_engine: ay-excel-import-api environment :fire_engine:QA:fire_engine: - reviewed by @kaiomagalhaes'
-      expect_any_instance_of(Clients::Slack::Channel).to receive(:update).with(
+      expect_any_instance_of(Clients::Notifications::Channel).to receive(:update).with(
         new_message,
         channel,
         timestamp

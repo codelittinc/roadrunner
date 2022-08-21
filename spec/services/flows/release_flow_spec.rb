@@ -71,7 +71,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                      channel_name: 'feed-test-automations'
                                    })
 
-        expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
+        expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
           'Update release to *roadrunner-repository-test* *QA* triggered by @', 'feed-test-automations'
         )
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
@@ -88,7 +88,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                      channel_name: 'feed-test-automations'
                                    })
 
-        expect_any_instance_of(Clients::Slack::Channel).to receive(:send)
+        expect_any_instance_of(Clients::Notifications::Channel).to receive(:send)
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
         expect_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute)
 
@@ -105,7 +105,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                      channel_name: 'feed-test-automations'
                                    })
 
-        expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
+        expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
           'Update release to *roadrunner-repository-test* *PROD* triggered by @', 'feed-test-automations'
         )
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
@@ -122,7 +122,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                      channel_name: 'feed-test-automations'
                                    })
 
-        expect_any_instance_of(Clients::Slack::Channel).to receive(:send)
+        expect_any_instance_of(Clients::Notifications::Channel).to receive(:send)
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
         expect_any_instance_of(Flows::SubFlows::ReleaseStableFlow).to receive(:execute)
 

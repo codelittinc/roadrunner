@@ -6,7 +6,7 @@ module Flows
     RELEASE_ACTION = 'hotfix'
 
     def execute
-      Clients::Slack::Channel.new(customer).send(release_message, channel_name)
+      Clients::Notifications::Channel.new(customer).send(release_message, channel_name)
 
       call_subflow_by_env
     end

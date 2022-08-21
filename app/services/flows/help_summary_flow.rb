@@ -6,7 +6,7 @@ module Flows
       docs_link = 'https://bit.ly/33oZSkt'
       message = "Please check our documentation here #{docs_link}"
 
-      Clients::Slack::Direct.new.send(message, user_name)
+      Clients::Notifications::Direct.new.send(message, user_name)
     end
 
     def flow?

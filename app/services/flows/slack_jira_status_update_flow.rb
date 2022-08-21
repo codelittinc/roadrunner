@@ -13,7 +13,7 @@ module Flows
 
       message = "#{issue_key} was moved to *#{status_name.upcase}*"
 
-      Clients::Slack::Direct.new.send(
+      Clients::Notifications::Direct.new.send(
         message,
         username
       )

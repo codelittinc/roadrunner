@@ -5,7 +5,7 @@ module Flows
     def execute
       update_pull_request_state!
 
-      Clients::Slack::Channel.new(customer).update(close_pull_request_message, channel, message_ts)
+      Clients::Notifications::Channel.new(customer).update(close_pull_request_message, channel, message_ts)
 
       parser.destroy_branch!(pull_request)
 
@@ -28,11 +28,11 @@ module Flows
     private
 
     def react_to_merge_pull_request!
-      Clients::Slack::Reactji.new(customer).send('airplane_departure', channel, pull_request.slack_message.ts)
+      Clients::Notifications::Reactji.new(customer).send('airplane_departure', channel, pull_request.slack_message.ts)
     end
 
     def react_to_cancel_pull_request!
-      Clients::Slack::Reactji.new(customer).send('x', channel, pull_request.slack_message.ts)
+      Clients::Notifications::Reactji.new(customer).send('x', channel, pull_request.slack_message.ts)
     end
 
     def send_close_pull_request_notification!
@@ -40,7 +40,7 @@ module Flows
 
       urls_from_description = ChangelogsService.urls_from_description(pull_request.description)
       message = Messages::PullRequestBuilder.close_pull_request_notification(pull_request, urls_from_description)
-      Clients::Slack::Direct.new(customer).send(message, slack_username, true)
+      Clients::Notifications::Direct.new(customer).send(message, slack_username, true)
     end
 
     def close_pull_request_message

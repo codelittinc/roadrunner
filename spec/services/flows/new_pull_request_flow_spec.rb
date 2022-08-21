@@ -59,10 +59,10 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
     describe '#execute' do
       it 'creates a PullRequest in the database' do
         repository
-        expect_any_instance_of(Clients::Slack::Channel).to receive(:send).and_return({
+        expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
                                                                                               'notification_id' => '123'
                                                                                             })
-        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
+        expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send)
         flow = described_class.new(github_valid_json)
 
         expect { flow.run }.to change(PullRequest, :count).by(1)
@@ -94,10 +94,10 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
           branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository:)
           FactoryBot.create(:check_run, state: 'success', branch:)
 
-          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).and_return({
+          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
                                                                                                 'notification_id' => '123'
                                                                                               })
-          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('white_check_mark',
+          expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('white_check_mark',
                                                                                  'feed-test-automations', '123')
 
           flow = described_class.new(github_valid_json)
@@ -109,10 +109,10 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
           branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository:)
           FactoryBot.create(:check_run, state: 'failure', branch:)
 
-          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).and_return({
+          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
                                                                                                 'notification_id' => '123'
                                                                                               })
-          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light',
+          expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('rotating_light',
                                                                                  'feed-test-automations', '123')
 
           flow = described_class.new(github_valid_json)
@@ -124,10 +124,10 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
           branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository:)
           FactoryBot.create(:check_run, state: 'pending', branch:)
 
-          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).and_return({
+          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
                                                                                                 'notification_id' => '123'
                                                                                               })
-          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations',
+          expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('hourglass', 'feed-test-automations',
                                                                                  '123')
 
           flow = described_class.new(github_valid_json)
@@ -139,10 +139,10 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
       context 'when there is not a check run linked with the branch of the pull request' do
         it 'sends a pending reaction' do
           repository
-          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).and_return({
+          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
                                                                                                 'notification_id' => '123'
                                                                                               })
-          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations',
+          expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('hourglass', 'feed-test-automations',
                                                                                  '123')
 
           flow = described_class.new(github_valid_json)
@@ -197,10 +197,10 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
     describe '#execute' do
       it 'creates a PullRequest in the database' do
         repository
-        expect_any_instance_of(Clients::Slack::Channel).to receive(:send).and_return({
+        expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
                                                                                               'notification_id' => '123'
                                                                                             })
-        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
+        expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send)
         flow = described_class.new(azure_valid_json)
 
         expect { flow.run }.to change { PullRequest.count }.by(1)
@@ -208,10 +208,10 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
 
       it 'creates a SlackMessage in the database' do
         repository
-        expect_any_instance_of(Clients::Slack::Channel).to receive(:send).and_return({
+        expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
                                                                                               'notification_id' => '123'
                                                                                             })
-        expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
+        expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send)
 
         flow = described_class.new(azure_valid_json)
 
@@ -225,10 +225,10 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
       #     branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository: repository)
       #     FactoryBot.create(:check_run, state: 'success', branch: branch)
 
-      #     expect_any_instance_of(Clients::Slack::Channel).to receive(:send).and_return({
+      #     expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
       #                                                                                           'notification_id' => '123'
       #                                                                                         })
-      #     expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('white_check_mark', 'feed-test-automations', '123')
+      #     expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('white_check_mark', 'feed-test-automations', '123')
 
       #     flow = described_class.new(azure_valid_json)
 
@@ -240,10 +240,10 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
       #     branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository: repository)
       #     FactoryBot.create(:check_run, state: 'failure', branch: branch)
 
-      #     expect_any_instance_of(Clients::Slack::Channel).to receive(:send).and_return({
+      #     expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
       #                                                                                           'notification_id' => '123'
       #                                                                                         })
-      #     expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light', 'feed-test-automations', '123')
+      #     expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('rotating_light', 'feed-test-automations', '123')
 
       #     flow = described_class.new(azure_valid_json)
 
@@ -255,10 +255,10 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
       #     branch = FactoryBot.create(:branch, name: 'kaiomagalhaes-patch-111', repository: repository)
       #     FactoryBot.create(:check_run, state: 'pending', branch: branch)
 
-      #     expect_any_instance_of(Clients::Slack::Channel).to receive(:send).and_return({
+      #     expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
       #                                                                                           'notification_id' => '123'
       #                                                                                         })
-      #     expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations', '123')
+      #     expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('hourglass', 'feed-test-automations', '123')
 
       #     flow = described_class.new(azure_valid_json)
 
@@ -269,10 +269,10 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
       context 'when there is not a check run linked with the branch of the pull request' do
         it 'sends a pending reaction' do
           repository
-          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).and_return({
+          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
                                                                                                 'notification_id' => '123'
                                                                                               })
-          expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('hourglass', 'feed-test-automations',
+          expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('hourglass', 'feed-test-automations',
                                                                                  '123')
 
           flow = described_class.new(azure_valid_json)

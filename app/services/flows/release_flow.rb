@@ -5,7 +5,7 @@ module Flows
     RELEASE_ACTION = 'update'
 
     def execute
-      Clients::Slack::Channel.new(customer).send(release_message, channel_name)
+      Clients::Notifications::Channel.new(customer).send(release_message, channel_name)
 
       subflow = Versioning.release_candidate_env?(environment) ? Flows::SubFlows::ReleaseCandidateFlow : Flows::SubFlows::ReleaseStableFlow
       @flow = subflow.new(channel_name, current_releases, repository, environment)

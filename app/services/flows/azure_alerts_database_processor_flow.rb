@@ -5,7 +5,7 @@ module Flows
     delegate :threshold, :azure_link, :severity, to: :parser
 
     def execute
-      Clients::Slack::Channel.new(customer).send(message, channel)
+      Clients::Notifications::Channel.new(customer).send(message, channel)
     end
 
     def can_execute?

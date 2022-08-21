@@ -36,7 +36,7 @@ RSpec.describe Flows::AzureAlertsDatabaseProcessorFlow, type: :service do
                 'Click <https://portal.azure.com/#resource/subscriptions/c297ae5b-f67a-438f-b5aa-f1954ed4831e/resourceGroups/rg-innovations/providers/' \
                 'Microsoft.DBforPostgreSQL/servers/properties-api-db-prod|here> to see this application on Azure.'
 
-      expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
+      expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
         message,
         application.repository.slack_repository_info.feed_channel
       )

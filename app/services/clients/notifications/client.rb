@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Clients
-  module Slack
+  module Notifications
     class Client
       def initialize(customer = nil)
         @customer = customer
