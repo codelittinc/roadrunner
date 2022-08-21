@@ -3,20 +3,20 @@
 module Clients
   module Notifications
     class Channel < Client
-      def send(message, channel, timestamp = nil, uniq = false)
+      def send(message, channel, notification_id = nil, uniq = false)
         request('/channel_messages', {
                   message:,
                   channel:,
-                  notification_id: timestamp,
+                  notification_id:,
                   uniq:
                 })
       end
 
-      def update(message, channel, timestamp)
+      def update(message, channel, notification_id)
         request("/channel_messages/#{timestamp}", {
                   message:,
                   channel:,
-                  notification_id: timestamp
+                  notification_id:
                 })
       end
     end

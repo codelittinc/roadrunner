@@ -126,7 +126,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
             flow = described_class.new(valid_json)
 
             expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('airplane_departure', 'feed-test-automations',
-                                                                                   '123')
+                                                                                           '123')
 
             flow.run
           end
@@ -350,7 +350,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
             flow = described_class.new(valid_json)
 
             expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('airplane_departure', 'feed-test-automations',
-                                                                                   '123')
+                                                                                           '123')
 
             flow.run
           end

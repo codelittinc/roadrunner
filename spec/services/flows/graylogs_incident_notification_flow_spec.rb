@@ -59,8 +59,8 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
 
         flow = described_class.new(incident_small_message)
         expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
-                                                                                              ts: 1
-                                                                                            })
+                                                                                               ts: 1
+                                                                                             })
         expect { flow.execute }.to change { ServerIncident.count }.by(1)
       end
 
@@ -87,8 +87,8 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
         flow = described_class.new(incident_small_message)
 
         expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
-                                                                                              ts: 1
-                                                                                            })
+                                                                                               ts: 1
+                                                                                             })
 
         flow.run
       end
