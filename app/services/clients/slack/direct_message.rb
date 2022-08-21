@@ -2,16 +2,15 @@
 
 module Clients
   module Slack
-    class DirectMessage < BaseSlack
+    class DirectMessage < Client
       def send(message, username, uniq = false)
-        url = build_url('/direct_messages')
         return if !username || username.size < 3
 
-        Request.post(url, authorization, build_params({
-                                                        message:,
-                                                        username:,
-                                                        uniq:
-                                                      }))
+        request('/direct_messages', {
+                  message:,
+                  username:,
+                  uniq:
+                })
       end
     end
   end
