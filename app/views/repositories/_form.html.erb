@@ -1,0 +1,70 @@
+<%= form_with(model: repository) do |form| %>
+  <% if repository.errors.any? %>
+    <div style="color: red">
+     <h2><%= pluralize(repository.errors.count, "error") %> prohibited this repository from being saved:</h2>
+
+      <ul>
+        <% repository.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%= form.label :name, "Name" %>
+  <%= form.text_field :name %>
+
+  <div>
+    <%= form.label :name, "Project" %>
+    <%= form.select :project_id, Project.all.pluck(:name, :id),  selected: repository.project&.id %>
+  </div>
+
+  <%= form.label :friendly_name, "Friendly name:" %>
+  <%= form.text_field :friendly_name %>
+
+  <div>
+    <%= form.label :owner, "Owner:" %>
+    <%= form.text_field :owner %>
+  </div>
+
+  <%= form.label :supports_deploy do %>
+    <%= form.check_box :supports_deploy %>
+    <span>Supports Deploy</span>
+  <% end %>
+
+<div>
+  <%= form.label :jira_project, "Jira project:" %>
+  <%= form.text_field :jira_project %>
+  </div>
+
+  <label>
+      <%= form.radio_button :source_control_type, :github %>
+      <span>Github</span>
+      </label>
+
+  <label>
+      <%= form.radio_button :source_control_type, :azure %>
+      <span>Azure</span>
+  </label>
+
+<div>
+ <%= form.fields_for :slack_repository_info_attributes do |f|%>
+   <%= f.label :deploy_channel, "deploy channel:" %>
+   <%= f.text_field :deploy_channel, value: repository.slack_repository_info&.deploy_channel %>
+
+   <%= f.label :deploy_channel, "dev channel:" %>
+   <%= f.text_field :dev_channel, value: repository.slack_repository_info&.dev_channel %>
+
+   <%= f.label :dev_group, "dev group:" %>
+   <%= f.text_field :dev_group, value: repository.slack_repository_info&.dev_group %>
+
+   <%= f.label :feed_channel, "feed channel:" %>
+   <%= f.text_field :feed_channel, value: repository.slack_repository_info&.feed_channel %>
+ <% end %>
+ </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
