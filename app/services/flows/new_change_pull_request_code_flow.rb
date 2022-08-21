@@ -11,7 +11,7 @@ module Flows
 
       return unless message_ts
 
-      Clients::Slack::Channel.new(customer).send(change_pull_request_message, channel, message_ts)
+      Clients::Notifications::Channel.new(customer).send(change_pull_request_message, channel, message_ts)
     end
 
     def can_execute?

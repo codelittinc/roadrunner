@@ -6,7 +6,7 @@ module Flows
 
     def execute
       release = "#{version}(#{build})"
-      Clients::Slack::Channel.new(customer).send(
+      Clients::Notifications::Channel.new(customer).send(
         "Distribution of *#{repository.name}* to *#{[environment,
                                                      platform].compact.join(' - ')}* was finished with #{status.capitalize}, version: <#{install_link}|#{release}>",
         channel

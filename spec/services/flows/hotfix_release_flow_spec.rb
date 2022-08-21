@@ -80,7 +80,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
                                      channel_name: 'feed-test-automations'
                                    })
 
-        expect_any_instance_of(Clients::Slack::Channel).to receive(:send)
+        expect_any_instance_of(Clients::Notifications::Channel).to receive(:send)
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
         expect_any_instance_of(Flows::SubFlows::HotfixReleaseCandidateFlow).to receive(:execute)
 
@@ -99,9 +99,9 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
           allow_any_instance_of(Clients::Github::Branch).to receive(:compare).and_return([])
           allow_any_instance_of(Clients::Github::Release).to receive(:list).and_return([OpenStruct.new({ tag_name: 'rc.1.v1.1.1' })])
           allow_any_instance_of(Clients::Github::Branch).to receive(:branch_exists?).and_return(true)
-          allow_any_instance_of(Clients::Slack::Channel).to receive(:send)
+          allow_any_instance_of(Clients::Notifications::Channel).to receive(:send)
 
-          allow_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
+          allow_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
             'Hey the *QA* environment already has all the latest changes', 'feed-test-automations', '123'
           )
 
@@ -172,7 +172,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
                                        })
 
             message_count = 0
-            allow_any_instance_of(Clients::Slack::Channel).to receive(:send) { |_arg| message_count += 1 }
+            allow_any_instance_of(Clients::Notifications::Channel).to receive(:send) { |_arg| message_count += 1 }
 
             flow.execute
             expect(message_count).to eql(2)
@@ -195,7 +195,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
             flow = described_class.new(valid_json_qa)
 
             message_count = 0
-            allow_any_instance_of(Clients::Slack::Channel).to receive(:send) { |_arg| message_count += 1 }
+            allow_any_instance_of(Clients::Notifications::Channel).to receive(:send) { |_arg| message_count += 1 }
 
             flow.execute
             expect(message_count).to eql(2)
@@ -213,7 +213,7 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
                                      channel_name: 'feed-test-automations'
                                    })
 
-        expect_any_instance_of(Clients::Slack::Channel).to receive(:send)
+        expect_any_instance_of(Clients::Notifications::Channel).to receive(:send)
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
         expect_any_instance_of(Flows::SubFlows::HotfixReleaseStableFlow).to receive(:execute)
 

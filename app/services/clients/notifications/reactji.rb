@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Clients
-  module Slack
+  module Notifications
     class Reactji < Client
       def send(reaction, channel, timestamp)
         request('/reactions', {

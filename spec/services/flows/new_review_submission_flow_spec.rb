@@ -85,7 +85,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
           flow = described_class.new(valid_json)
 
-          expect_any_instance_of(Clients::Slack::Channel).to receive(:send)
+          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send)
 
           flow.run
         end
@@ -103,7 +103,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
           flow = described_class.new(valid_json_direct_message)
 
-          expect_any_instance_of(Clients::Slack::Direct).to receive(:send).with(
+          expect_any_instance_of(Clients::Notifications::Direct).to receive(:send).with(
             ':boom: there are conflicts on this Pull Request: <https://github.com/codelittinc/gh-hooks-repo-test/pull/180|gh-hooks-repo-test#180>', 'rheniery.mendes'
           )
 
@@ -123,7 +123,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
           flow = described_class.new(valid_json_direct_message)
 
-          expect_any_instance_of(Clients::Slack::Direct).to_not receive(:send)
+          expect_any_instance_of(Clients::Notifications::Direct).to_not receive(:send)
 
           flow.run
         end
@@ -140,7 +140,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
           flow = described_class.new(valid_json_channel_changes)
 
-          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
+          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
             ':warning: changes requested!', 'feed-test-automations', '123'
           )
 
@@ -160,7 +160,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
           flow = described_class.new(valid_json_channel_message)
 
-          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
+          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
             ':speech_balloon: There is a new message!', 'feed-test-automations', '123'
           )
 
@@ -241,7 +241,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
           flow = described_class.new(valid_json)
 
-          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
+          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
             ':speech_balloon: There is a new message!', 'feed-test-automations', '123'
           )
 
@@ -258,7 +258,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
       #    flow = described_class.new(valid_json_channel_changes)
 
-      #    expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
+      #    expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
       #      ':warning: changes requested!', 'feed-test-automations', '123'
       #    )
 
@@ -276,7 +276,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
       #    flow = described_class.new(valid_json_channel_message)
 
-      #    expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
+      #    expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
       #      ':speech_balloon: There is a new message!', 'feed-test-automations', '123'
       #    )
 

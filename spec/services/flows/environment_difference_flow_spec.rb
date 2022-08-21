@@ -77,7 +77,7 @@ RSpec.describe Flows::EnvironmentDifferenceFlow, type: :service do
                                        user_name: 'sattler'
                                      })
 
-          expect_any_instance_of(Clients::Slack::Direct).to receive(:send).with(
+          expect_any_instance_of(Clients::Notifications::Direct).to receive(:send).with(
             "The differente between #{prod_application.environment} and #{qa_application.environment} is:\n - first commit on QA Environment\n - second commit on QA Environment", 'sattler'
           )
 

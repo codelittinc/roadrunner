@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Clients
-  module Slack
+  module Notifications
     class Channel < Client
       def send(message, channel, timestamp = nil, uniq = false)
         request('/channel_messages', {

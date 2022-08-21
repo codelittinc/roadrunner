@@ -63,7 +63,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
           flow = described_class.new(valid_json)
 
           message_count = 0
-          allow_any_instance_of(Clients::Slack::Channel).to receive(:send) { |_arg| message_count += 1 }
+          allow_any_instance_of(Clients::Notifications::Channel).to receive(:send) { |_arg| message_count += 1 }
 
           flow.run
           expect(message_count).to eql(2)
@@ -78,7 +78,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
 
           flow = described_class.new(valid_json)
 
-          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
+          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
             'Hey @batman, there is a new message for you!',
             'feed-test-automations',
             '123'
@@ -146,7 +146,7 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
 
           flow = described_class.new(valid_json)
 
-          expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
+          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
             'Hey @batman, there is a new message for you!',
             'feed-test-automations',
             '123'

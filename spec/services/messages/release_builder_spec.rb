@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Messages::ReleaseBuilder, type: :service do
   describe '.branch_compare_message' do
-    describe 'with the Slack format' do
+    describe 'with the Notifications format' do
       it 'returns a formatted message' do
         pr1 = FactoryBot.create(:pull_request, {
                                   title: 'Add leaseExpirationSized rest of expirations value',
