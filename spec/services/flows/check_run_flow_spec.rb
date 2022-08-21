@@ -131,9 +131,9 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
         expected_message = ':rotating_light: CI failed for pull request: <https://github.com/codelittinc/gh-hooks-repo-test/pull/1|gh-hooks-repo-test#1>'
         expect_any_instance_of(Clients::Notifications::Direct).to receive(:send).with(expected_message,
-                                                                                     'rheniery.mendes')
+                                                                                      'rheniery.mendes')
         expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('rotating_light',
-                                                                               'feed-test-automations', '123')
+                                                                                       'feed-test-automations', '123')
 
         flow.run
       end
@@ -153,7 +153,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
         expect_any_instance_of(Clients::Notifications::Direct).to_not receive(:send)
         expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('rotating_light',
-                                                                               'feed-test-automations', '123')
+                                                                                       'feed-test-automations', '123')
 
         flow.run
       end
@@ -176,7 +176,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         flow = described_class.new(valid_json_with_state_success)
 
         expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('white_check_mark',
-                                                                               'feed-test-automations', '123')
+                                                                                       'feed-test-automations', '123')
 
         flow.run
       end
@@ -199,7 +199,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         flow = described_class.new(valid_json_with_random_state)
 
         expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('hourglass', 'feed-test-automations',
-                                                                               '123')
+                                                                                       '123')
 
         flow.run
       end

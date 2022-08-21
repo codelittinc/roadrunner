@@ -48,8 +48,8 @@ RSpec.describe ApplicationIncidentService, type: :service do
 
         receive_count = 0
         allow_any_instance_of(Clients::Notifications::Channel).to receive(:send) {
-                                                                   receive_count += 1
-                                                                 }.and_return({ ts: 1 })
+                                                                    receive_count += 1
+                                                                  }.and_return({ ts: 1 })
         server_incident_service.register_incident!(application, error_message)
 
         expect(receive_count).to be > 0

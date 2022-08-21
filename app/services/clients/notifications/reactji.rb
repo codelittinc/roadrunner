@@ -3,11 +3,11 @@
 module Clients
   module Notifications
     class Reactji < Client
-      def send(reaction, channel, timestamp)
+      def send(reaction, channel, notification_id)
         request('/reactions', {
                   reaction:,
                   channel:,
-                  notification_id: timestamp
+                  notification_id:
                 })
       end
     end
