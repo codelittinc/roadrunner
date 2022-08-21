@@ -18,7 +18,7 @@ module Flows
       if state == CheckRun::FAILURE_STATE
         notify_ci_failure_message = Messages::PullRequestBuilder.notify_ci_failure(pull_request)
         if slack_username
-          Clients::Slack::DirectMessage.new(customer).send(
+          Clients::Slack::Direct.new(customer).send(
             notify_ci_failure_message,
             slack_username
           )

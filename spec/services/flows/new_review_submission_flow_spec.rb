@@ -103,7 +103,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
           flow = described_class.new(valid_json_direct_message)
 
-          expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
+          expect_any_instance_of(Clients::Slack::Direct).to receive(:send).with(
             ':boom: there are conflicts on this Pull Request: <https://github.com/codelittinc/gh-hooks-repo-test/pull/180|gh-hooks-repo-test#180>', 'rheniery.mendes'
           )
 
@@ -123,7 +123,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
           flow = described_class.new(valid_json_direct_message)
 
-          expect_any_instance_of(Clients::Slack::DirectMessage).to_not receive(:send)
+          expect_any_instance_of(Clients::Slack::Direct).to_not receive(:send)
 
           flow.run
         end

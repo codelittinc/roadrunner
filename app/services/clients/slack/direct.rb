@@ -2,7 +2,7 @@
 
 module Clients
   module Slack
-    class DirectMessage < Client
+    class Direct < Client
       def send(message, username, uniq = false)
         return if !username || username.size < 3
 

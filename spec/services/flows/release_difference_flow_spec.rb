@@ -83,7 +83,7 @@ RSpec.describe Flows::ReleaseDifferenceFlow, type: :service do
                                      user_name: 'sattler'
                                    })
 
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
+        expect_any_instance_of(Clients::Slack::Direct).to receive(:send).with(
           "The differente between #{base_release.version} and #{head_release.version} is:\n - first commit on Head Release\n - second commit on Head Release", 'sattler'
         )
 

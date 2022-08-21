@@ -3,7 +3,7 @@
 require 'rails_helper'
 require 'external_api_helper'
 
-RSpec.describe Clients::Slack::DirectMessage, type: :service do
+RSpec.describe Clients::Slack::Direct, type: :service do
   describe '#send' do
     context 'the username is invalid when' do
       it 'has less than 3 characters' do

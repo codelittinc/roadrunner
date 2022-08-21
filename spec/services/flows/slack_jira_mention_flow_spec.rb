@@ -23,7 +23,7 @@ RSpec.describe Flows::SlackJiraMentionFlow, type: :service do
 
       flow = described_class.new(jira_mention)
 
-      expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
+      expect_any_instance_of(Clients::Slack::Direct).to receive(:send).with(
         'Hey there is a new mention for you on Jira https://codelitt.atlassian.net/browse/HUB-893',
         user.slack
       )

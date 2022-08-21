@@ -45,7 +45,7 @@ module Flows
         Clients::Slack::Channel.new(customer).send(message, channel, slack_ts)
       elsif !github_pull_request.mergeable && github_pull_request.mergeable_state == 'dirty' && pull_request.user.slack
         message = Messages::PullRequestBuilder.notify_pr_conflicts(pull_request)
-        Clients::Slack::DirectMessage.new(customer).send(message, pull_request.user.slack)
+        Clients::Slack::Direct.new(customer).send(message, pull_request.user.slack)
       end
     end
   end
