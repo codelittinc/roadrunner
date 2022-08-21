@@ -37,7 +37,7 @@ RSpec.describe FlowExecutor, type: :service do
         flow_executor = described_class.new(flow_request)
 
         expected_message = "There are no results for *#{flow_request_text}*. Please, check for more information using the `/roadrunner help` command."
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message,
+        expect_any_instance_of(Clients::Slack::Direct).to receive(:send).with(expected_message,
                                                                                      'rheniery.mendes')
 
         flow_executor.execute!
@@ -53,7 +53,7 @@ RSpec.describe FlowExecutor, type: :service do
         flow_executor = described_class.new(flow_request)
 
         expected_message = "There are no results for *#{flow_request_text}*. Please, check for more information using the `/roadrunner help` command."
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message,
+        expect_any_instance_of(Clients::Slack::Direct).to receive(:send).with(expected_message,
                                                                                      'rheniery.mendes')
 
         flow_executor.execute!

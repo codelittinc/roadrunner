@@ -40,7 +40,7 @@ module Flows
 
       urls_from_description = ChangelogsService.urls_from_description(pull_request.description)
       message = Messages::PullRequestBuilder.close_pull_request_notification(pull_request, urls_from_description)
-      Clients::Slack::DirectMessage.new(customer).send(message, slack_username, true)
+      Clients::Slack::Direct.new(customer).send(message, slack_username, true)
     end
 
     def close_pull_request_message

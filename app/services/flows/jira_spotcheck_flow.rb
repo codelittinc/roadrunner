@@ -25,7 +25,7 @@ module Flows
       end.join
       message = "#{message}#{formatted_urls}"
 
-      Clients::Slack::DirectMessage.new.send(
+      Clients::Slack::Direct.new.send(
         message,
         username
       )

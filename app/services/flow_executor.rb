@@ -47,7 +47,7 @@ class FlowExecutor
   end
 
   def send_direct_message_result(message, username)
-    Clients::Slack::DirectMessage.new.send(message, username)
+    Clients::Slack::Direct.new.send(message, username)
   end
 
   def channel_name

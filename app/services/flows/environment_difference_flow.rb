@@ -15,7 +15,7 @@ module Flows
 
       message = "The differente between #{base_env.environment} and #{head_env.environment} is:\n#{changelog}".strip
 
-      Clients::Slack::DirectMessage.new.send(message, user_name)
+      Clients::Slack::Direct.new.send(message, user_name)
     end
 
     def can_execute?

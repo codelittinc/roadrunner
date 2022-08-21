@@ -109,7 +109,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
         flow = described_class.new(valid_json)
 
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send)
+        expect_any_instance_of(Clients::Slack::Direct).to receive(:send)
 
         expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
 
@@ -130,7 +130,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         flow = described_class.new(valid_json)
 
         expected_message = ':rotating_light: CI failed for pull request: <https://github.com/codelittinc/gh-hooks-repo-test/pull/1|gh-hooks-repo-test#1>'
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(expected_message,
+        expect_any_instance_of(Clients::Slack::Direct).to receive(:send).with(expected_message,
                                                                                      'rheniery.mendes')
         expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light',
                                                                                'feed-test-automations', '123')
@@ -151,7 +151,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
         flow = described_class.new(valid_json)
 
-        expect_any_instance_of(Clients::Slack::DirectMessage).to_not receive(:send)
+        expect_any_instance_of(Clients::Slack::Direct).to_not receive(:send)
         expect_any_instance_of(Clients::Slack::Reactji).to receive(:send).with('rotating_light',
                                                                                'feed-test-automations', '123')
 

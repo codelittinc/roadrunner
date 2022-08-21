@@ -6,7 +6,7 @@ module Flows
 
     def execute
       users.each do |user|
-        Clients::Slack::DirectMessage.new(user.customer).send(message, user.slack)
+        Clients::Slack::Direct.new(user.customer).send(message, user.slack)
       end
     end
 

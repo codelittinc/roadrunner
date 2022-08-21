@@ -34,7 +34,7 @@ RSpec.describe Flows::HelpSummaryFlow, type: :service do
                                      user_name: 'kaiomagalhaes'
                                    })
 
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
+        expect_any_instance_of(Clients::Slack::Direct).to receive(:send).with(
           'Please check our documentation here https://bit.ly/33oZSkt', 'kaiomagalhaes'
         )
 

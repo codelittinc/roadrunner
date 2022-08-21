@@ -23,7 +23,7 @@ RSpec.describe Flows::AzureCommentIssueFlow, type: :service do
       FactoryBot.create(:user, azure_devops_issues: '4d13cd81-e536-6e63-93fa-0de9cffbb868', slack: 'batman')
       message = "You've been mentioned in the Azure Devops Issue <https://dev.azure.com/AY-InnovationCenter/e57bfb9f-c5eb-4f96-9f83-8a98a76bfda4/_workitems/edit/2988|#2988>"
 
-      expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
+      expect_any_instance_of(Clients::Slack::Direct).to receive(:send).with(
         message,
         'batman'
       )

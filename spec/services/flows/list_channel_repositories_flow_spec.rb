@@ -56,7 +56,7 @@ RSpec.describe Flows::ListChannelRepositoriesFlow, type: :service do
                                      user_name: 'kaio.magalhaes'
                                    })
 
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
+        expect_any_instance_of(Clients::Slack::Direct).to receive(:send).with(
           "You can deploy the following repositories on the channel: *feed-test-automations*\n - roadrunner-repository-test",
           'kaio.magalhaes'
         )
@@ -74,7 +74,7 @@ RSpec.describe Flows::ListChannelRepositoriesFlow, type: :service do
                                      user_name: 'kaio.magalhaes'
                                    })
 
-        expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
+        expect_any_instance_of(Clients::Slack::Direct).to receive(:send).with(
           "You can deploy the following repositories on the channel: *feed-test-automations*\n - roadrunner-repository-test\n - roadrunner-rails",
           'kaio.magalhaes'
         )

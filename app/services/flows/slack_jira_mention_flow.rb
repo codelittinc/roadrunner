@@ -10,7 +10,7 @@ module Flows
         user = User.find_by(jira: mention)
         message = "Hey there is a new mention for you on Jira https://codelitt.atlassian.net/browse/#{issue_key}"
 
-        Clients::Slack::DirectMessage.new.send(
+        Clients::Slack::Direct.new.send(
           message,
           user.slack
         )
