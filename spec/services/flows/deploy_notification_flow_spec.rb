@@ -59,7 +59,7 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
                                      env: 'prod'
                                    })
 
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+        expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
           'The deploy of *pia-web-mobile* to *PROD* was finished with the status: Success!',
           'feed-test-automations'
         )
@@ -78,7 +78,7 @@ RSpec.describe Flows::DeployNotificationFlow, type: :service do
                                      env: 'prod'
                                    })
 
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+        expect_any_instance_of(Clients::Slack::Channel).to receive(:send)
         flow.run
 
         release.reload

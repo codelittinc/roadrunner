@@ -5,7 +5,7 @@ module Flows
     UPDATE_ACTION = 'update'
 
     def execute
-      Clients::Slack::ChannelMessage.new(customer).send(release_message, channel_name)
+      Clients::Slack::Channel.new(customer).send(release_message, channel_name)
 
       if Versioning.release_candidate_env? environment
         call_qa_release

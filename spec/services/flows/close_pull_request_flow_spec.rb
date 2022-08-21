@@ -69,7 +69,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
                                                slack_message: slack_message2, head: 'feature/create_feature')
 
               expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
-              expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+              expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
               expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
 
               flow = described_class.new(valid_json)
@@ -87,7 +87,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
                                                   slack_message:, head: 'fix/update-leases-brokers')
 
             expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
-            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
             expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
 
             flow = described_class.new(valid_json)
@@ -104,7 +104,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
                                                   slack_message:, head: 'fix/update-leases-brokers')
 
             expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
-            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
             expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
 
             flow = described_class.new(valid_json)
@@ -121,7 +121,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
                                              slack_message:, head: 'fix/update-leases-brokers')
 
             expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
-            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
 
             flow = described_class.new(valid_json)
 
@@ -141,7 +141,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
             flow = described_class.new(valid_json)
 
             expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
-            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
 
             expect { flow.run }.to change { Commit.count }.by(1)
           end
@@ -154,7 +154,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
                                              slack_message:)
 
             expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
-            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
 
             flow = described_class.new(valid_json)
             flow.run
@@ -172,7 +172,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
                                              slack_message:)
 
             expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
-            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
 
             flow = described_class.new(cancelled_json)
             message_count = 0
@@ -190,7 +190,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
                                              slack_message:)
 
             expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
-            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
 
             flow = described_class.new(cancelled_json)
 
@@ -207,7 +207,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
           FactoryBot.create(:pull_request, source_control_id: 13, repository:, slack_message:)
 
           expect_any_instance_of(Clients::Github::Branch).to receive(:delete)
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+          expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
 
           expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
             ':airplane_departure: Pull Request closed <https://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13>.' \
@@ -296,7 +296,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
               FactoryBot.create(:pull_request, source_control_id: 35, repository: repository2,
                                                slack_message: slack_message2, head: 'feature/create_feature')
 
-              expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+              expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
               expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
 
               flow = described_class.new(valid_json)
@@ -313,7 +313,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
             pr = FactoryBot.create(:pull_request, source_control_id: 35, repository:,
                                                   slack_message:, head: 'fix/update-leases-brokers')
 
-            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
             expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
 
             flow = described_class.new(valid_json)
@@ -329,7 +329,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
             pr = FactoryBot.create(:pull_request, source_control_id: 35, repository:,
                                                   slack_message:, head: 'fix/update-leases-brokers')
 
-            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
             expect_any_instance_of(Clients::Slack::Reactji).to receive(:send)
 
             flow = described_class.new(abandoned_json)
@@ -345,7 +345,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
             FactoryBot.create(:pull_request, source_control_id: 35, repository:,
                                              slack_message:, head: 'fix/update-leases-brokers')
 
-            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
 
             flow = described_class.new(valid_json)
 
@@ -364,7 +364,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
 
             flow = described_class.new(valid_json)
 
-            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
 
             expect { flow.run }.to change { Commit.count }.by(1)
           end
@@ -376,7 +376,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
             FactoryBot.create(:pull_request, source_control_id: 35, repository:,
                                              slack_message:)
 
-            expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+            expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
 
             flow = described_class.new(valid_json)
             flow.run
@@ -392,7 +392,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
           FactoryBot.create(:pull_request, source_control_id: 35, repository:, slack_message:,
                                            source_control_type: 'azure')
 
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+          expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
 
           expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
             ':airplane_departure: Pull Request closed <https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35|ay-users-api-test#35>',
@@ -426,7 +426,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
                                            source_control_type: 'azure')
 
           expect_any_instance_of(Parsers::AzureWebhookSourceControlParser).to receive(:description).and_return(pr_description)
-          expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:update)
+          expect_any_instance_of(Clients::Slack::Channel).to receive(:update)
 
           expect_any_instance_of(Clients::Slack::DirectMessage).to receive(:send).with(
             ':airplane_departure: Pull Request closed <https://dev.azure.com/AY-InnovationCenter/Avant/_git/ay-users-api-test/pullrequest/35|ay-users-api-test#35>.' \

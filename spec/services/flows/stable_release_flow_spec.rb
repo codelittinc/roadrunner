@@ -53,7 +53,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               false
             )
 
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+            allow_any_instance_of(Clients::Slack::Channel).to receive(:send)
 
             flow.run
           end
@@ -75,7 +75,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create)
 
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+            allow_any_instance_of(Clients::Slack::Channel).to receive(:send)
 
             prod_application = repository.application_by_environment('prod').reload
 
@@ -102,7 +102,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             expect_any_instance_of(Clients::Github::Release).to receive(:create)
 
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+            allow_any_instance_of(Clients::Slack::Channel).to receive(:send)
 
             flow.run
             prod_application = repository.application_by_environment('prod').reload
@@ -124,7 +124,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                        })
 
             message_count = 0
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send) { |_arg| message_count += 1 }
+            allow_any_instance_of(Clients::Slack::Channel).to receive(:send) { |_arg| message_count += 1 }
 
             flow.run
             expect(message_count).to eql(2)
@@ -161,7 +161,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               false
             )
 
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+            allow_any_instance_of(Clients::Slack::Channel).to receive(:send)
 
             flow.run
           end
@@ -204,7 +204,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               false
             )
 
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+            allow_any_instance_of(Clients::Slack::Channel).to receive(:send)
 
             flow.run
           end
@@ -226,7 +226,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             expect_any_instance_of(Clients::Azure::Release).to receive(:create)
 
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+            allow_any_instance_of(Clients::Slack::Channel).to receive(:send)
 
             prod_application = repository.application_by_environment('prod').reload
 
@@ -253,7 +253,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
             expect_any_instance_of(Clients::Azure::Release).to receive(:create)
 
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+            allow_any_instance_of(Clients::Slack::Channel).to receive(:send)
 
             flow.run
             prod_application = repository.application_by_environment('prod').reload
@@ -275,7 +275,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
                                        })
 
             message_count = 0
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send) { |_arg| message_count += 1 }
+            allow_any_instance_of(Clients::Slack::Channel).to receive(:send) { |_arg| message_count += 1 }
 
             flow.run
             expect(message_count).to eql(2)
@@ -312,7 +312,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
               false
             )
 
-            allow_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+            allow_any_instance_of(Clients::Slack::Channel).to receive(:send)
 
             flow.run
           end

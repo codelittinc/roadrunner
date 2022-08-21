@@ -17,7 +17,7 @@ module Flows
       def execute
         unless branch_exists
           branch_message = Messages::ReleaseBuilder.notify_branch_existence(branch, false)
-          Clients::Slack::ChannelMessage.new(@customer).send(branch_message, channel)
+          Clients::Slack::Channel.new(@customer).send(branch_message, channel)
           return
         end
 
@@ -33,7 +33,7 @@ module Flows
           true
         )
 
-        Clients::Slack::ChannelMessage.new(@customer).send(slack_message, channel)
+        Clients::Slack::Channel.new(@customer).send(slack_message, channel)
 
         update_application_version!
       end

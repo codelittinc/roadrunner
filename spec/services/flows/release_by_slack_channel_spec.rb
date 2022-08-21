@@ -69,7 +69,7 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
                                      channel_name: 'feed-test-automations'
                                    })
 
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+        expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
           'Update release to *roadrunner-repository-test* *QA* triggered by @', 'feed-test-automations'
         )
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
@@ -89,7 +89,7 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
                                      channel_name: 'feed-test-automations'
                                    })
 
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send).with(
+        expect_any_instance_of(Clients::Slack::Channel).to receive(:send).with(
           'Update release to *roadrunner-repository-test, cool-repository* *QA* triggered by @', 'feed-test-automations'
         )
         allow_any_instance_of(Clients::Github::Release).to receive(:list)
@@ -106,7 +106,7 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
                                      text: 'update all qa',
                                      channel_name: 'feed-test-automations'
                                    })
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+        expect_any_instance_of(Clients::Slack::Channel).to receive(:send)
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
         expect_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute)
 
@@ -124,7 +124,7 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
                                      channel_name: 'feed-test-automations'
                                    })
 
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+        expect_any_instance_of(Clients::Slack::Channel).to receive(:send)
 
         allow_any_instance_of(Clients::Github::Release).to receive(:list)
         allow_any_instance_of(Flows::SubFlows::ReleaseCandidateFlow).to receive(:execute)
@@ -146,7 +146,7 @@ RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
                                      channel_name: 'feed-test-automations'
                                    })
 
-        expect_any_instance_of(Clients::Slack::ChannelMessage).to receive(:send)
+        expect_any_instance_of(Clients::Slack::Channel).to receive(:send)
         expect_any_instance_of(Clients::Github::Release).to receive(:list)
         expect_any_instance_of(Flows::SubFlows::ReleaseStableFlow).to receive(:execute)
 

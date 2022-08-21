@@ -10,7 +10,7 @@ module Flows
 
       users.each do |user|
         message = Messages::GenericBuilder.new_direct_message(user)
-        Clients::Slack::ChannelMessage.new(customer).send(message, slack_channel, slack_message_ts)
+        Clients::Slack::Channel.new(customer).send(message, slack_channel, slack_message_ts)
       end
     end
 
