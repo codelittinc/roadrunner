@@ -35,4 +35,6 @@ class Application < ApplicationRecord
   def latest_release
     releases.last
   end
+
+  scope :with_server, -> { joins(:server) }
 end

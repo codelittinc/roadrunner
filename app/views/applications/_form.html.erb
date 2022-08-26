@@ -1,0 +1,27 @@
+  <div>
+    <%= form.label :environment, "Environment" %>
+    <%= form.select :environment, [["QA", "qa"], ["Development", "dev"], ["Production", "prod"]], selected: application.environment %>
+  </div>
+
+  <div>
+    <%= form.label :link, "Link:" %>
+    <%= form.text_field :link, value: @application.server&.link %>
+  </div>
+
+  <div>
+    <%= form.label :supports_health_check do %>
+      <%= form.check_box :supports_health_check, checked: @application.server&.supports_health_check %>
+      <span>Supports Healthcheck</span>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :active do %>
+      <%= form.check_box :active, checked: @application.server&.supports_health_check %>
+      <span>Active</span>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit class: 'waves-effect waves-light btn btn-small green' %>
+  </div>

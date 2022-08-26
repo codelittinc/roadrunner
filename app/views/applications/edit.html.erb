@@ -1,0 +1,11 @@
+<h1>Editing application</h1>
+
+<%= form_with url: "/repositories/#{@repository.id}/applications/#{@application.id}", method: :put  do |form| %>
+  <%= render "form", form: form, application: @application ,repository: @repository %>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to repository", url_for(:back) %>
+</div>

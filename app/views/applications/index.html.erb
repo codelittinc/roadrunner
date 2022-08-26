@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Applications</h1>
+
+<div id="applications">
+  <% @applications.each do |application| %>
+    <p>
+      <%= link_to "#{application.environment} | #{application.repository.name}", application %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New application", new_application_path %> 

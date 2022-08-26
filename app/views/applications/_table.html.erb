@@ -1,0 +1,26 @@
+<table>
+    <thead>
+    <tr>
+    <th>Environment</th>
+    <th>Link</th>
+    <th>Active</th>
+    <th>Supports Healthcheck</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% repository.applications.with_server.each do |application| %>
+    <tr>
+        <td> <%= application.environment  %> </td>
+        <td> <%= application.server.link  %> </td>
+        <td> <%= (if application.server.active then 'Yes' else 'No' end)  %> </td>
+        <td> <%= (if application.server.supports_health_check then 'Yes' else 'No' end)  %> </td>
+        <td>
+        <%= link_to 'Edit', edit_repository_application_url(repository.id, application.id), class: 'waves-effect waves-light btn btn-small blue' %> |
+        <%= link_to 'Remove', "applications/#{application.id}", class: 'waves-effect waves-light btn btn-small red' , data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+        </td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>
