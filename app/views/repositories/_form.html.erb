@@ -62,9 +62,21 @@
    <%= f.label :feed_channel, "feed channel:" %>
    <%= f.text_field :feed_channel, value: repository.slack_repository_info&.feed_channel %>
  <% end %>
- </div>
+</div>
 
   <div>
-    <%= form.submit %>
+    <%= link_to 'Add Application', 'applications/new', class: 'waves-effect waves-light btn btn-small blue' %>
+  </div>
+
+  <% if repository.applications.present? %>
+  <div>  
+    <%= render "applications/table", repository: @repository %>  
+  </div>
+  <% end %>
+
+  <br>
+
+  <div>
+     <%= form.submit class: 'waves-effect waves-light btn btn-small green' %>
   </div>
 <% end %>
