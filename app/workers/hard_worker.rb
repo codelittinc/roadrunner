@@ -11,6 +11,7 @@ class HardWorker
       message = [e.to_s, e.backtrace].flatten.join("\n")
       Rails.logger.error "ERROR: #{message}"
       flow_request.update(error_message: message)
+      throw e
     end
   end
 end
