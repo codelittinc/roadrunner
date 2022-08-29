@@ -13,7 +13,7 @@ module Clients
       end
 
       def update(message, channel, notification_id)
-        request("/channel_messages/#{timestamp}", {
+        request("/channel_messages/#{notification_id}", {
                   message:,
                   channel:,
                   notification_id:
