@@ -13,11 +13,13 @@ module Clients
       end
 
       def update(message, channel, notification_id)
-        request("/channel_messages/#{notification_id}", {
-                  message:,
-                  channel:,
-                  notification_id:
-                })
+        url = build_url("/channel_messages/#{notification_id}")
+        response = Request.patch(url, authorization, {
+                                                                    message:,
+                                                                    channel:,
+                                                                    notification_id:
+                                                                  })
+        JSON.parse(response.body)
       end
     end
   end
