@@ -25,7 +25,7 @@
 
   <div>
     <%= form.label :owner, "Owner:" %>
-    <%= form.text_field :owner %>
+    <%= form.select :owner, [["Codelitt", "codelittinc"], ["Avant", "Avant"], ["Production", "prod"]], selected: 'codelittinc' %>
   </div>
 
   <%= form.label :supports_deploy do %>
