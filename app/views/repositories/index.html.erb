@@ -2,6 +2,7 @@
 
 <h1>Repositories</h1>
 
+<%= link_to "New repository", new_repository_path %>
 <div id="repositories">
   <% @repositories.each do |repository| %>
     <%= render repository %>
@@ -10,5 +11,3 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "New repository", new_repository_path %>

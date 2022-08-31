@@ -23,10 +23,10 @@ class RepositoriesController < ApplicationController
 
   # POST /repositories or /repositories.json
   def create
-    @repository = Repository.new(repository_params)
+    @repository = CreateRepositoryService.call(repository_params)
 
     respond_to do |format|
-      if @repository.save
+      if @repository.errors.size.zero?
         format.html { redirect_to repository_url(@repository), notice: 'Repository was successfully created.' }
         format.json { render :show, status: :created, location: @repository }
       else
