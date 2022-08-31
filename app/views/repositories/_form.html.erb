@@ -64,14 +64,16 @@
  <% end %>
 </div>
 
-  <div>
-    <%= link_to 'Add Application', 'applications/new', class: 'waves-effect waves-light btn btn-small blue' %>
-  </div>
+  <% if repository.id? %>
+    <div>
+      <%= link_to 'Add Application', 'applications/new', class: 'waves-effect waves-light btn btn-small blue' %>
+    </div>
+  <% end %>
 
   <% if repository.applications.present? %>
-  <div>  
-    <%= render "applications/table", repository: @repository %>  
-  </div>
+    <div>  
+      <%= render "applications/table", repository: @repository %>  
+    </div>
   <% end %>
 
   <br>
