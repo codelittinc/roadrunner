@@ -69,6 +69,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'vcr'
   gem 'webmock'
+  gem "buildkite-test_collector"
 end
 
 group :development do
