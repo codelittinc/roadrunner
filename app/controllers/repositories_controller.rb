@@ -27,7 +27,7 @@ class RepositoriesController < ApplicationController
 
     respond_to do |format|
       if @repository.errors.size.zero?
-        format.html { redirect_to repository_url(@repository), notice: 'Repository was successfully created.' }
+        format.html { redirect_to edit_repository_url(@repository.id), notice: 'Repository was successfully created.' }
         format.json { render :show, status: :created, location: @repository }
       else
         format.html { render :new, status: :unprocessable_entity }
