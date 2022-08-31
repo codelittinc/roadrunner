@@ -13,7 +13,7 @@ RailsAdmin.config do |config|
     config.authenticate_with do
       authenticate_or_request_with_http_basic('Login required') do |username, password|
         user = UserAdmin.where(username:).or(UserAdmin.where(email: username)).first
-        user&.authenticate(password) if user
+        user&.authenticate(password)
       end
     end
   end
