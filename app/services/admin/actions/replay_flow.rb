@@ -25,9 +25,11 @@ module Admin
       register_instance_option :controller do
         proc do
           flash[:success] = "We're replaying this flow right now!"
-
-          HardWorker.perform_async(@object.id)
-
+          if Rails.env.production?
+            HardWorker.perform_async(@object.id)
+          else
+            FlowExecutor.new(@object).execute!
+          end
           redirect_to back_or_index
         end
       end

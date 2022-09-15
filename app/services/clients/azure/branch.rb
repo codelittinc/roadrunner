@@ -36,7 +36,7 @@ module Clients
       end
 
       def sha?(sha)
-        sha.match?(/\b[0-9a-f]{5,40}\b/)
+        sha.match?(/\b[0-9a-f]{40}\b/)
       end
 
       def tag?(tag)
