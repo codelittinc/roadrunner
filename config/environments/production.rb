@@ -80,15 +80,28 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  if !ENV['LOG_HOST'] || !ENV['LOG_ENV']
+    raise StandardError,
+          'The LOG_HOST and LOG_ENV environment variables are missing!'
+  end
+
+  config.logger = GELF::Logger.new(
+    'logs.codelitt.dev',
+    12_201,
+    'WAN',
+    { host: ENV.fetch('LOG_HOST', nil), environment: ENV.fetch('LOG_ENV', nil) }
+  )
+
+
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
 
-  if ENV['RAILS_LOG_TO_STDOUT'].present?
-    logger           = ActiveSupport::Logger.new($stdout)
-    logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
-  end
+#  if ENV['RAILS_LOG_TO_STDOUT'].present?
+#    logger           = ActiveSupport::Logger.new($stdout)
+#    logger.formatter = config.log_formatter
+#    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+#  end
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
