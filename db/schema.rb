@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_24_194409) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_09_120627) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -122,6 +122,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_194409) do
     t.string "tags"
     t.index ["sprint_id"], name: "index_issues_on_sprint_id"
     t.index ["user_id"], name: "index_issues_on_user_id"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "notifications_id"
+    t.string "name"
+    t.string "notifications_key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|
