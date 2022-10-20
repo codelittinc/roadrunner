@@ -81,7 +81,9 @@ RSpec.describe CreateRepositoryService, type: :service do
 
         expect_any_instance_of(Clients::Github::Repository).to receive(:get_repository).and_raise(ActiveRecord::StaleObjectError)
 
-        expect { described_class.call(params_with_wrong_name_on_source_control) }.to change { SlackRepositoryInfo.count }.by(0)
+        expect { described_class.call(params_with_wrong_name_on_source_control) }.to change {
+                                                                                       SlackRepositoryInfo.count
+                                                                                     }.by(0)
       end
 
       it 'returns a repository with errors if there is an error with the source control' do
