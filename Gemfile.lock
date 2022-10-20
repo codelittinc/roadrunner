@@ -123,6 +123,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.6.2)
+    jwt (2.5.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -333,6 +334,7 @@ DEPENDENCIES
   gelf
   importmap-rails
   jbuilder
+  jwt
   octokit
   pg (~> 1.1)
   pg_search
