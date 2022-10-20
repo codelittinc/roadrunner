@@ -194,7 +194,8 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
 
             flow = described_class.new(cancelled_json)
 
-            expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('x', 'feed-test-automations', '123')
+            expect_any_instance_of(Clients::Notifications::Reactji).to receive(:send).with('x',
+                                                                                           'feed-test-automations', '123')
 
             flow.run
           end
