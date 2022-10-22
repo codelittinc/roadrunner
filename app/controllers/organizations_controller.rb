@@ -3,7 +3,12 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: %i[show]
 
-  def show; end
+  def show
+    @installations = @organization.github_installations
+    @repositories = @installations.map do |installation|
+      Clients::ApplicationGithub::Repository.new(installation.installation_id).list
+    end.flatten
+  end
 
   def create
     @organization = Organization.find_or_initialize_by(notifications_id:)

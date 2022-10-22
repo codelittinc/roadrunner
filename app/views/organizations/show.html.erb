@@ -2,9 +2,22 @@
 
 <%= render @organization %>
 
-<a href=<%= github_url(@organization)%>>
-  Setup Github
-</a>
+<% if @installations.size.zero? %>
+  <a href=<%= github_url(@organization)%>>
+    Setup Github
+  </a>
+<% end %>
+
+<% unless @installations.size.zero? %>
+  <a href=<%= github_url(@organization)%>>
+    Update Github
+  </a>
+<% end %>
+
+<% @repositories.each do |repository|%>
+  <span><%= "#{repository.owner}  -  #{repository.name}" %></span>
+<% end%>
+
 
 <div>
   <%= link_to "Edit this organization", edit_organization_path(@organization) %> |
