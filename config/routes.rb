@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   post 'flows', to: 'flow#create'
+  get 'api/oauth/github', to: 'api/oauth/github#create'
 
   root 'application#index'
 end
