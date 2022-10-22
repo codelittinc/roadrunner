@@ -10,8 +10,6 @@ module Clients
         @client = Octokit::Client.new(access_token:)
       end
 
-      private
-
       def access_token
         accept = 'application/vnd.github.machine-man-preview+json'
 
@@ -31,7 +29,7 @@ module Clients
         payload = {
           iat: now, # Issued at time.
           exp: now + (10 * 60), # JWT expiration time.
-          iss: ENV.fetch('GITHUB_APP_ID', nil) # Integration's GitHub identifier.
+          iss: ENV.fetch('GITHUB_APP_ID', nil).to_s # Integration's GitHub identifier.
         }
         JWT.encode(payload, private_key, 'RS256')
       end

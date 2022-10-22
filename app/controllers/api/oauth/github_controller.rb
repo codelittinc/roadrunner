@@ -5,9 +5,11 @@ module Api
     class GithubController < ApplicationController
       def create
         organization = Organization.find(params['state'])
-        GithubInstallation.find_or_create_by(organization:, installation_id:)
+        installation = GithubInstallation.find_or_initialize_by(organization:, installation_id:)
+        installation.name = Clients::ApplicationGithub::Organization.new(installation_id).get['login']
+        installation.save!
 
-        render json: { params: }, status: :ok
+        redirect_to organization_path(organization)
       end
 
       private
