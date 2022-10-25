@@ -31,6 +31,14 @@ class UserDuplicatesService
       issue.user = stays_user
       issue.save(validate: false)
     end
+
+    stays_user.github ||= go_user.github
+    stays_user.azure ||= go_user.azure
+    stays_user.azure_devops_issues ||= go_user.azure_devops_issues
+    stays_user.jira ||= go_user.jira
+    stays_user.name ||= go_user.name
+
+    stays_user.save
   end
 
   def delete_users(ids)

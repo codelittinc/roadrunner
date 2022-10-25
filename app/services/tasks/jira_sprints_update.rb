@@ -36,9 +36,9 @@ module Tasks
             fields = issue['fields']
             assigned_to = fields.dig('assignee', 'accountId') || DEFAULT_NO_DEVOPS_CODE
 
-            new_user = User.new(jira: assigned_to, name: fields.dig('assignee', 'displayName'), customer: customer)
+            new_user = User.new(jira: assigned_to, name: fields.dig('assignee', 'displayName'), customer:)
             user = User.find_existing_user(new_user)
-            user = user || new_user
+            user ||= new_user
             user.save!
 
             Issue.new(
