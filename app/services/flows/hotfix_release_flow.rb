@@ -11,8 +11,6 @@ module Flows
       call_subflow_by_env
     end
 
-    # rubocop:disable Metrics/CyclomaticComplexity
-    # rubocop:disable Metrics/PerceivedComplexity
     def flow?
       return false if text.nil? || text.blank?
       return false unless action == RELEASE_ACTION
@@ -26,8 +24,6 @@ module Flows
 
       repository&.deploy_type == Repository::TAG_DEPLOY_TYPE
     end
-    # rubocop:enable Metrics/PerceivedComplexity
-    # rubocop:enable Metrics/CyclomaticComplexity
 
     private
 

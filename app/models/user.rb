@@ -31,8 +31,8 @@ class User < ApplicationRecord
 
   def self.find_duplicates(user)
     User.all.select do |curr_user|
-      user_clean_name = user.name&.split(/[\s, \.]/)&.map(&:capitalize)&.join(" ")
-      curr_user_clean_name = curr_user.name&.split(/[\s, \.]/)&.map(&:capitalize)&.join(" ")
+      user_clean_name = user.name&.split(/[\s, .]/)&.map(&:capitalize)&.join(' ')
+      curr_user_clean_name = curr_user.name&.split(/[\s, .]/)&.map(&:capitalize)&.join(' ')
 
       result = (
         (user.github.present? && user.github == curr_user.github) ||

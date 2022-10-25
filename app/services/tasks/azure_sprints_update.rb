@@ -22,9 +22,9 @@ module Tasks
     end
 
     def find_user(assigned_to, name, customer)
-      new_user = User.new(azure_devops_issues: assigned_to, name: name, customer: customer)
+      new_user = User.new(azure_devops_issues: assigned_to, name:, customer:)
       user = User.find_existing_user(new_user)
-      user = user || new_user
+      user ||= new_user
 
       user.save!
       user
