@@ -35,10 +35,10 @@ module Tasks
           Clients::Jira::Issue.new.list_sprint_issues(sprint['id']).each do |issue|
             fields = issue['fields']
             assigned_to = fields.dig('assignee', 'accountId') || DEFAULT_NO_DEVOPS_CODE
-            user = User.search_by_term(assigned_to).first
-            user ||= User.new(jira: assigned_to)
-            user.name = fields.dig('assignee', 'displayName')
-            user.customer = customer
+
+            new_user = User.new(jira: assigned_to, name: fields.dig('assignee', 'displayName'), customer: customer)
+            user = User.find_existing_user(new_user)
+            user = user || new_user
             user.save!
 
             Issue.new(

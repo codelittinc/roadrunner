@@ -21,11 +21,11 @@ module Tasks
       @sprints_per_team ||= TEAMS.map { |team| [team, Clients::Azure::Sprint.new.list(team)] }
     end
 
-    def find_user(assigned_to, display_name, customer)
-      user = User.search_by_term(assigned_to).first || User.find_by(name: display_name)
-      user ||= User.new(azure_devops_issues: assigned_to)
-      user.name = display_name
-      user.customer = customer
+    def find_user(assigned_to, name, customer)
+      new_user = User.new(azure_devops_issues: assigned_to, name: name, customer: customer)
+      user = User.find_existing_user(new_user)
+      user = user || new_user
+
       user.save!
       user
     end
