@@ -14,7 +14,6 @@ module Versioning
 
     private
 
-    # rubocop:disable Metrics/PerceivedComplexity
     def sort_tag_names(tag_names)
       valid_tags = tag_names.grep(/(rc\.\d+\.)?v\d+\.\d+\.\d+$/)
 
@@ -56,7 +55,6 @@ module Versioning
       sorted + invalid_tags
     end
 
-    # rubocop:enable Metrics/PerceivedComplexity
     def sort_releases(releases)
       tag_names = releases.map(&:tag_name)
       sorted_tags = sort_tag_names(tag_names)
