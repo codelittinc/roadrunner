@@ -32,7 +32,6 @@ class Repository < ApplicationRecord
   validates :deploy_type, inclusion: { in: [TAG_DEPLOY_TYPE, BRANCH_DEPLOY_TYPE, nil] }
   validates :friendly_name, presence: true, uniqueness: true
   validates :source_control_type, presence: true, inclusion: { in: %w[github azure] }
-  validates :name, uniqueness: { scope: [:owner] }
 
   def full_name
     "#{owner}/#{name}"
