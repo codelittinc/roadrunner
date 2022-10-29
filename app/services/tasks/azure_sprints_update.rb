@@ -8,10 +8,6 @@ module Tasks
       'azure'
     end
 
-    def customer_name
-      'Avison Young'
-    end
-
     def update_info!
       sprints_per_team.map do |team, sprints|
         sprints.map do |sprint|

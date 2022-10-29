@@ -6,10 +6,6 @@ module Tasks
       'jira'
     end
 
-    def customer_name
-      'Codelitt'
-    end
-
     def update_info!
       sprints_per_team.each do |team, sprints|
         sprints.each do |sprint|
