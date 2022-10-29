@@ -6,7 +6,7 @@ class OrganizationsController < ApplicationController
   def show
     @installations = @organization.github_installations
     @repositories = @installations.map do |installation|
-      Clients::ApplicationGithub::Repository.new(installation.installation_id).list
+      Repository.where(owner: installation.name)
     end.flatten
   end
 

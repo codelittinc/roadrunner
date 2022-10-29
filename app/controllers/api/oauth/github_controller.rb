@@ -9,6 +9,8 @@ module Api
         installation.name = Clients::ApplicationGithub::Organization.new(installation_id).get['login']
         installation.save!
 
+        InstallationRepositoriesCreator.new(installation.id).call
+
         redirect_to organization_path(organization)
       end
 

@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :github_installation do
-    installation_id { 'MyString' }
+    organization { association :organization }
+    installation_id { '30421922' }
   end
 end

@@ -20,7 +20,7 @@ require 'rails_helper'
 
 RSpec.describe Repository, type: :model do
   describe 'associations' do
-    it { should belong_to(:project) }
+    it { should belong_to(:project).optional(true) }
     it { should have_one(:slack_repository_info).dependent(:destroy) }
     it { should have_many(:pull_requests) }
     it { should have_many(:branches) }
@@ -35,7 +35,7 @@ RSpec.describe Repository, type: :model do
     it { should validate_presence_of(:source_control_type) }
     it { should validate_uniqueness_of(:friendly_name) }
     it 'name and owner should be unique' do
-      rep1 = FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner')
+      FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner')
       rep2 = FactoryBot.build(:repository, owner: 'codelittinc', name: 'roadrunner')
 
       expect(rep2.valid?).to be_falsy
