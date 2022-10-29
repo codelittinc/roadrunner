@@ -6,6 +6,10 @@ module Tasks
   class SprintsBase
     DEFAULT_NO_DEVOPS_CODE = 'Not assigned'
 
+    def customer_name
+      'Codelitt'
+    end
+
     def update!
       customer.sprints.where(source:).destroy_all
 
