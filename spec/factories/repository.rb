@@ -9,6 +9,7 @@ FactoryBot.define do
     deploy_type { 'tag' }
     supports_deploy { true }
     project { association :project }
+    active { true }
 
     after(:create) do |obj|
       create(:slack_repository_info, repository: obj)
