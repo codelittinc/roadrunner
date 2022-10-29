@@ -17,7 +17,7 @@
 #  source_control_type :string
 #
 class Repository < ApplicationRecord
-  belongs_to :project
+  belongs_to :project, optional: true
   has_one :slack_repository_info, dependent: :destroy
 
   has_many :pull_requests
