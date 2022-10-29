@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_26_154850) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_29_133901) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -206,6 +206,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_154850) do
     t.string "owner"
     t.string "friendly_name"
     t.string "source_control_type"
+    t.boolean "active"
     t.index ["friendly_name"], name: "index_repositories_on_friendly_name", unique: true
     t.index ["project_id"], name: "index_repositories_on_project_id"
   end

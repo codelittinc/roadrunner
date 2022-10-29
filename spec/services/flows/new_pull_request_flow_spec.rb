@@ -53,6 +53,16 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
           flow = described_class.new(github_valid_json)
           expect(flow.flow?).to be_falsey
         end
+
+        it 'there is a repository with the given name but the active status is false' do
+          repository
+          repository.update(active: false)
+          github_valid_json_confirmed = github_valid_json.deep_dup
+          github_valid_json_confirmed[:number] = 1
+          github_valid_json_confirmed[:action] = 'opened'
+          flow = described_class.new(github_valid_json_confirmed)
+          expect(flow.flow?).to be_falsey
+        end
       end
     end
 
