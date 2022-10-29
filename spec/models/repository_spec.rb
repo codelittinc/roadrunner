@@ -34,12 +34,6 @@ RSpec.describe Repository, type: :model do
     it { should validate_presence_of(:friendly_name) }
     it { should validate_presence_of(:source_control_type) }
     it { should validate_uniqueness_of(:friendly_name) }
-    it 'name and owner should be unique' do
-      FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner')
-      rep2 = FactoryBot.build(:repository, owner: 'codelittinc', name: 'roadrunner')
-
-      expect(rep2.valid?).to be_falsy
-    end
   end
 
   describe '#full_name' do
