@@ -4,7 +4,7 @@ require 'rails_helper'
 require 'external_api_helper'
 
 RSpec.describe Clients::ApplicationGithub::Repository, type: :service do
-  # run this after I fix it
+  # @TODO: fix Github RSA Key
   xdescribe '#list' do
     it 'returns a list of repositories for a given installation id' do
       VCR.use_cassette('application_github#repository#list') do
