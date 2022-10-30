@@ -6,7 +6,7 @@ module OrganizationsHelper
   end
 
   def slack_url
-    response = Request.get('https://api.notifications.codelitt.dev')
+    response = Request.get(ENV.fetch('NOTIFICATIONS_API_URL', nil))
     response['slack_url']
   end
 end
