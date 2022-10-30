@@ -23,7 +23,7 @@ module Clients
       # Generate the JWT required for the initial GitHub Integrations API handshake.
       # https://developer.github.com/early-access/integrations/authentication/#as-an-integration
       def jwt_token
-        private_pem = ENV.fetch('GITHUB_PRIVATE_KEY', nil) # File.read('./app.key')
+        private_pem = JSON.parse(ENV.fetch('GITHUB_PRIVATE_KEY', nil)) # File.read('./app.key')
         private_key = OpenSSL::PKey::RSA.new(private_pem)
         now = Time.now.to_i
         payload = {
