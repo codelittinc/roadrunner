@@ -15,7 +15,7 @@
 <% end %>
 
 <% @repositories.each do |repository|%>
-  <span><%= "#{repository.owner}  -  #{repository.name}" %></span>
+  <a href="<%= repository_path(repository)%>"> <%= "#{repository.owner}  -  #{repository.name}" %></a>
 <% end%>
 
 
