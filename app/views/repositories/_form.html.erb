@@ -20,21 +20,23 @@
     <%= form.text_field :owner, disabled: true%>
   </div>
 
-<div>
  <%= form.fields_for :slack_repository_info_attributes do |f|%>
    <%= f.label :deploy_channel, "deploy channel:" %>
-   <%= f.text_field :deploy_channel, value: repository.slack_repository_info&.deploy_channel %>
+   <%= f.select :deploy_channel, @channels, selected: repository.slack_repository_info&.deploy_channel %>
 
-   <%= f.label :deploy_channel, "dev channel:" %>
-   <%= f.text_field :dev_channel, value: repository.slack_repository_info&.dev_channel %>
+<br>
+   <%= f.label :dev_channel, "dev channel:" %>
+   <%= f.select :dev_channel, @channels, selected: repository.slack_repository_info&.dev_channel %>
 
+<br>
    <%= f.label :dev_group, "dev group:" %>
    <%= f.text_field :dev_group, value: repository.slack_repository_info&.dev_group %>
 
+<br>
+
    <%= f.label :feed_channel, "feed channel:" %>
-   <%= f.text_field :feed_channel, value: repository.slack_repository_info&.feed_channel %>
+   <%= f.select :feed_channel, @channels, selected: repository.slack_repository_info&.feed_channel %>
  <% end %>
-</div>
 
   <br>
 

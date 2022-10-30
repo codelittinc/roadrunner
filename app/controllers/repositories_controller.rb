@@ -19,7 +19,11 @@ class RepositoriesController < ApplicationController
   end
 
   # GET /repositories/1/edit
-  def edit; end
+  def edit
+    @channels = Clients::Notifications::Channel.new(Customer.find(1)).list.map do |c|
+      [c['name'], c['id']]
+    end
+  end
 
   # POST /repositories or /repositories.json
   def create
