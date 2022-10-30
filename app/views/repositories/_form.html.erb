@@ -13,37 +13,12 @@
 
 
   <%= form.label :name, "Repository name" %>
-  <%= form.text_field :name %>
-
-  <div>
-    <%= form.label :name, "Project" %>
-    <%= form.select :project_id, Project.all.pluck(:name, :id),  selected: repository.project&.id %>
-  </div>
+  <%= form.text_field :name, disabled: true%>
 
   <div>
     <%= form.label :owner, "Owner:" %>
-    <%= form.select :owner, [["Codelitt", "codelittinc"], ["Avant", "Avant"], ["Production", "prod"]], selected: 'codelittinc' %>
+    <%= form.text_field :owner, disabled: true%>
   </div>
-
-  <%= form.label :supports_deploy do %>
-    <%= form.check_box :supports_deploy %>
-    <span>Supports Deploy</span>
-  <% end %>
-
-<div>
-  <%= form.label :jira_project, "Jira project:" %>
-  <%= form.text_field :jira_project %>
-  </div>
-
-  <label>
-      <%= form.radio_button :source_control_type, :github %>
-      <span>Github</span>
-      </label>
-
-  <label>
-      <%= form.radio_button :source_control_type, :azure %>
-      <span>Azure</span>
-  </label>
 
 <div>
  <%= form.fields_for :slack_repository_info_attributes do |f|%>
@@ -60,18 +35,6 @@
    <%= f.text_field :feed_channel, value: repository.slack_repository_info&.feed_channel %>
  <% end %>
 </div>
-
-  <% if repository.id? %>
-    <div>
-      <%= link_to 'Add Application', 'applications/new', class: 'waves-effect waves-light btn btn-small blue' %>
-    </div>
-  <% end %>
-
-  <% if repository.applications.present? %>
-    <div>  
-      <%= render "applications/table", repository: @repository %>  
-    </div>
-  <% end %>
 
   <br>
 
