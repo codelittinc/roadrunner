@@ -13,7 +13,6 @@
 #  name                :string
 #  jira_project        :string
 #  owner               :string
-#  friendly_name       :string
 #  source_control_type :string
 #
 class Repository < ApplicationRecord
@@ -30,7 +29,6 @@ class Repository < ApplicationRecord
   BRANCH_DEPLOY_TYPE = 'branch'
 
   validates :deploy_type, inclusion: { in: [TAG_DEPLOY_TYPE, BRANCH_DEPLOY_TYPE, nil] }
-  validates :friendly_name, presence: true, uniqueness: true
   validates :source_control_type, presence: true, inclusion: { in: %w[github azure] }
 
   def full_name

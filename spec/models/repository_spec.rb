@@ -31,9 +31,7 @@ RSpec.describe Repository, type: :model do
     it {
       should validate_inclusion_of(:deploy_type).in_array([Repository::TAG_DEPLOY_TYPE, Repository::BRANCH_DEPLOY_TYPE])
     }
-    it { should validate_presence_of(:friendly_name) }
     it { should validate_presence_of(:source_control_type) }
-    it { should validate_uniqueness_of(:friendly_name) }
   end
 
   describe '#full_name' do

@@ -20,9 +20,6 @@
     <%= form.select :project_id, Project.all.pluck(:name, :id),  selected: repository.project&.id %>
   </div>
 
-  <%= form.label :friendly_name, "Friendly name:" %>
-  <%= form.text_field :friendly_name %>
-
   <div>
     <%= form.label :owner, "Owner:" %>
     <%= form.select :owner, [["Codelitt", "codelittinc"], ["Avant", "Avant"], ["Production", "prod"]], selected: 'codelittinc' %>
