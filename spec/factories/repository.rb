@@ -3,7 +3,6 @@
 FactoryBot.define do
   factory :repository do
     name { 'roadrunner-repository-test' }
-    friendly_name { FFaker::Name.name }
     owner { 'codelittinc' }
     source_control_type { 'github' }
     deploy_type { 'tag' }

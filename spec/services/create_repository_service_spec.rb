@@ -10,7 +10,6 @@ RSpec.describe CreateRepositoryService, type: :service do
       let(:valid_params) do
         {
           name: 'teste',
-          friendly_name: 'test repo',
           project_id: project.id,
           owner: 'codelittinc',
           deploy_type: 'tag',
@@ -67,7 +66,6 @@ RSpec.describe CreateRepositoryService, type: :service do
       it 'does not create a repository if there is an error with the source control' do
         params_with_wrong_name_on_source_control = {
           name: 'teste',
-          friendly_name: 'test repo',
           project_id: project.id,
           owner: 'codelittinc',
           deploy_type: 'tag',
@@ -89,7 +87,6 @@ RSpec.describe CreateRepositoryService, type: :service do
       it 'returns a repository with errors if there is an error with the source control' do
         params_with_wrong_name_on_source_control = {
           name: 'teste',
-          friendly_name: 'test repo',
           project_id: project.id,
           owner: 'codelittinc',
           deploy_type: 'tag',

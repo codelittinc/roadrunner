@@ -14,8 +14,6 @@ class InstallationRepositoriesCreator < ApplicationService
       next if rep.persisted?
 
       rep.source_control_type = 'github'
-      # @TODO: remove friendly name
-      rep.friendly_name = (0...10).map { ('a'..'z').to_a[rand(26)] }.join
       rep.save!
     end
   end
