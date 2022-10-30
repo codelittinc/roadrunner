@@ -3,6 +3,10 @@
 module Clients
   module Notifications
     class Channel < Client
+      def list
+        Request.get("#{@url}/api/channels", authorization)
+      end
+
       def send(message, channel, notification_id = nil, uniq = false)
         request('/channel_messages', {
                   message:,
