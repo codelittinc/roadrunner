@@ -32,7 +32,6 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 gem 'rails_admin', '>= 3.0.0.beta'
 gem 'sidekiq'
-gem 'sidekiq-cron'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
