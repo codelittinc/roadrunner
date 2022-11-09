@@ -57,7 +57,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
       context 'the PR was merged' do
         context 'there is more than one PR with the same github id but different branch' do
           it 'updates the correct pull request state to merged' do
-            VCR.use_cassette('flows#close-pull-request#create-commit-right-message', record: :new_episodes) do
+            VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
               repository2 = FactoryBot.create(:repository, name: 'roadrunner-node')
 
               slack_message = FactoryBot.create(:slack_message, ts: '123')
@@ -81,7 +81,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
         end
 
         it 'updates the pull request state to merged' do
-          VCR.use_cassette('flows#close-pull-request#create-commit-right-message', record: :new_episodes) do
+          VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
             slack_message = FactoryBot.create(:slack_message, ts: '123')
             pr = FactoryBot.create(:pull_request, source_control_id: 13, repository:,
                                                   slack_message:, head: 'fix/update-leases-brokers')
@@ -98,7 +98,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
         end
 
         it 'updates the pull request merged_at attr' do
-          VCR.use_cassette('flows#close-pull-request#create-commit-right-message', record: :new_episodes) do
+          VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
             slack_message = FactoryBot.create(:slack_message, ts: '123')
             pr = FactoryBot.create(:pull_request, source_control_id: 13, repository:,
                                                   slack_message:, head: 'fix/update-leases-brokers')
@@ -115,7 +115,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
         end
 
         it 'sends a merge reaction to the slack message' do
-          VCR.use_cassette('flows#close-pull-request#create-commit-right-message', record: :new_episodes) do
+          VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
             slack_message = FactoryBot.create(:slack_message, ts: '123')
             FactoryBot.create(:pull_request, source_control_id: 13, repository:,
                                              slack_message:, head: 'fix/update-leases-brokers')
@@ -184,7 +184,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
         end
 
         it 'sends a cancel reaction if the pr was cancelled' do
-          VCR.use_cassette('flows#close-pull-request#create-commit-right-message', record: :new_episodes) do
+          VCR.use_cassette('flows#close-pull-request#create-commit-right-message') do
             slack_message = FactoryBot.create(:slack_message, ts: '123')
             FactoryBot.create(:pull_request, source_control_id: 13, repository:,
                                              slack_message:)

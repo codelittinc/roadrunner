@@ -78,7 +78,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
     describe '#run' do
       it 'sends a message if there is a new review submission' do
-        VCR.use_cassette('flows#new-review-submission-request#new-review-send-message', record: :new_episodes) do
+        VCR.use_cassette('flows#new-review-submission-request#new-review-send-message') do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
           FactoryBot.create(:pull_request, source_control_id: 180, repository:,
                                            slack_message:, head: 'kaiomagalhaes-patch-121')
@@ -92,7 +92,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
       end
 
       it 'sends the correct direct message' do
-        VCR.use_cassette('flows#new-review-submission-request#new-review-send-direct-message', record: :new_episodes) do
+        VCR.use_cassette('flows#new-review-submission-request#new-review-send-direct-message') do
           user = FactoryBot.create(:user, slack: 'rheniery.mendes')
           slack_message = FactoryBot.create(:slack_message, ts: '123')
           FactoryBot.create(:pull_request, source_control_id: 180, slack_message:, user:,
@@ -112,7 +112,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
       end
 
       it 'does not send a message if the user does not have a slack username' do
-        VCR.use_cassette('flows#new-review-submission-request#new-review-send-direct-message', record: :new_episodes) do
+        VCR.use_cassette('flows#new-review-submission-request#new-review-send-direct-message') do
           user = FactoryBot.create(:user, slack: nil)
           slack_message = FactoryBot.create(:slack_message, ts: '123')
           FactoryBot.create(:pull_request, source_control_id: 180, slack_message:, user:,
@@ -130,8 +130,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
       end
 
       it 'sends the correct channel message when there are changes requested' do
-        VCR.use_cassette('flows#new-review-submission-request#new-review-send-channel-message',
-                         record: :new_episodes) do
+        VCR.use_cassette('flows#new-review-submission-request#new-review-send-channel-message') do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
           FactoryBot.create(:pull_request, source_control_id: 180, repository:,
                                            slack_message:, head: 'kaiomagalhaes-patch-121')
@@ -149,8 +148,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
       end
 
       it 'sends the correct channel message when there is a message on review without mentions' do
-        VCR.use_cassette('flows#new-review-submission-request#new-review-send-channel-message-with-message',
-                         record: :new_episodes) do
+        VCR.use_cassette('flows#new-review-submission-request#new-review-send-channel-message-with-message') do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
           FactoryBot.create(:pull_request, source_control_id: 180, repository:,
                                            slack_message:, head: 'kaiomagalhaes-patch-121')
@@ -234,7 +232,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
     end
     describe '#run' do
       it 'sends a message if there is a new review submission' do
-        VCR.use_cassette('flows#new-review-submission-request#azure#new-review-send-message', record: :new_episodes) do
+        VCR.use_cassette('flows#new-review-submission-request#azure#new-review-send-message') do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
           FactoryBot.create(:pull_request, source_control_id: 357, repository:,
                                            slack_message:, head: 'kaiomagalhaes-patch-121', source_control_type: 'azure')
@@ -251,7 +249,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
 
       # @TODO: fix these tests
       # it 'sends the correct channel message when there are changes requested' do
-      #  VCR.use_cassette('flows#new-review-submission-request#new-review-send-channel-message', record: :new_episodes) do
+      #  VCR.use_cassette('flows#new-review-submission-request#new-review-send-channel-message') do
       #    slack_message = FactoryBot.create(:slack_message, ts: '123')
       #    FactoryBot.create(:pull_request, source_control_id: 357, repository: repository, slack_message: slack_message, head: 'kaiomagalhaes-patch-121', source_control_type: 'azure')
       #    valid_json_channel_changes = valid_json.deep_dup
@@ -267,7 +265,7 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
       # end
 
       # it 'sends the correct channel message when there is a message on review without mentions' do
-      #  VCR.use_cassette('flows#new-review-submission-request#new-review-send-channel-message-with-message', record: :new_episodes) do
+      #  VCR.use_cassette('flows#new-review-submission-request#new-review-send-channel-message-with-message') do
       #    slack_message = FactoryBot.create(:slack_message, ts: '123')
       #    FactoryBot.create(:pull_request, source_control_id: 180, repository: repository, slack_message: slack_message, head: 'kaiomagalhaes-patch-121')
       #    valid_json_channel_message = valid_json.deep_dup

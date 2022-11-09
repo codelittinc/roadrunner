@@ -205,7 +205,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       end
 
       it 'create a check run data' do
-        VCR.use_cassette('flows#check-run#create-check-run-data', record: :new_episodes) do
+        VCR.use_cassette('flows#check-run#create-check-run-data') do
           repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
           slack_message = FactoryBot.create(:slack_message, ts: '123')
           user = FactoryBot.create(:user, slack: 'rheniery.mendes')
