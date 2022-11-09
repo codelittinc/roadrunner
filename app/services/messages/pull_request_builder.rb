@@ -48,8 +48,9 @@ module Messages
     end
 
     def self.notify_new_message(mention = '')
-      begin_message = mention == '' ? ':speech_balloon:' : "Hey #{mention}"
-      end_message = mention == '' ? '!' : ' for you!'
+      empty_mention = mention.empty?
+      begin_message = empty_mention ? ':speech_balloon:' : "Hey #{mention}"
+      end_message = empty_mention ? '!' : ' for you!'
       "#{begin_message} There is a new message#{end_message}"
     end
 
