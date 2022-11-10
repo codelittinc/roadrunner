@@ -58,6 +58,10 @@ gem 'sassc-rails'
 
 gem 'gelf'
 
+# Datadog APIs using Ruby client
+gem 'datadog_api_client'
+gem 'ddtrace', require: 'ddtrace/auto_instrument'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
