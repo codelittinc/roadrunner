@@ -3,13 +3,8 @@
 module Clients
   module Azure
     module Parsers
-      class SprintParser
+      class SprintParser < ClientParser
         attr_reader :id, :start_date, :end_date, :name, :time_frame
-
-        def initialize(json)
-          @json = json.with_indifferent_access
-          parse!
-        end
 
         def parse!
           @id = @json[:id]

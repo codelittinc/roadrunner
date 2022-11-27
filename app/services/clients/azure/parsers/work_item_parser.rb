@@ -3,13 +3,8 @@
 module Clients
   module Azure
     module Parsers
-      class WorkItemParser
+      class WorkItemParser < ClientParser
         attr_reader :story_type, :state, :title, :assigned_to, :story_points, :display_name, :tags
-
-        def initialize(json)
-          @json = json.with_indifferent_access
-          parse!
-        end
 
         def parse!
           fields = @json[:fields]

@@ -3,18 +3,13 @@
 class FlowBuilder
   def self.build(params)
     params_with_indifferent_access = JSON.parse(params.json).with_indifferent_access
-    object = nil
 
-    classnames.each do |classname|
+    flows = classnames.map do |classname|
       ruby_class = Object.const_get("Flows::#{classname}")
-      instance = ruby_class.new(params_with_indifferent_access)
-
-      if instance.flow?
-        object = instance
-        break
-      end
+      ruby_class.new(params_with_indifferent_access)
     end
-    object
+
+    flows.find(&:flow?)
   end
 
   def self.classnames
