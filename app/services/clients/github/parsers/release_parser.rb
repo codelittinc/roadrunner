@@ -3,13 +3,8 @@
 module Clients
   module Github
     module Parsers
-      class ReleaseParser
+      class ReleaseParser < ClientParser
         attr_reader :tag_name, :url
-
-        def initialize(json)
-          @json = json
-          parse!
-        end
 
         def parse!
           @tag_name = @json[:tag_name]

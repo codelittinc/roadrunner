@@ -3,13 +3,8 @@
 module Clients
   module Github
     module Parsers
-      class PullRequestParser
+      class PullRequestParser < ClientParser
         attr_reader :mergeable, :mergeable_state
-
-        def initialize(json)
-          @json = json
-          parse!
-        end
 
         def parse!
           @mergeable = @json[:mergeable]

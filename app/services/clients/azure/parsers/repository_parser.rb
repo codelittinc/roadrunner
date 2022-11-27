@@ -3,13 +3,8 @@
 module Clients
   module Azure
     module Parsers
-      class RepositoryParser
+      class RepositoryParser < ClientParser
         attr_reader :name, :owner
-
-        def initialize(json)
-          @json = json.with_indifferent_access
-          parse!
-        end
 
         def parse!
           @name = @json[:name]

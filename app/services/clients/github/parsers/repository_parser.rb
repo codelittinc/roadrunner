@@ -3,13 +3,8 @@
 module Clients
   module Github
     module Parsers
-      class RepositoryParser
+      class RepositoryParser < ClientParser
         attr_reader :name, :owner, :archived
-
-        def initialize(json)
-          @json = json
-          parse!
-        end
 
         def parse!
           @name = @json[:name]

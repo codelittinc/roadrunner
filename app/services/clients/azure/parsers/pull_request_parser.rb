@@ -3,12 +3,7 @@
 module Clients
   module Azure
     module Parsers
-      class PullRequestParser
-        def initialize(json)
-          @json = json.with_indifferent_access
-          parse!
-        end
-
+      class PullRequestParser < ClientParser
         def parse!; end
       end
     end
