@@ -43,7 +43,7 @@ module Flows
     end
 
     def parser
-      @parser ||= ParserFinder.new(@params).find
+      @parser ||= ParserBuilder.build(@params)
     end
 
     def source_control_client
