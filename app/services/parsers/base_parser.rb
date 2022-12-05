@@ -2,6 +2,8 @@
 
 module Parsers
   class BaseParser
+    attr_reader :data
+
     def initialize(json)
       @json = json
     end
