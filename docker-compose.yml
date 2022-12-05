@@ -35,12 +35,10 @@ services:
 
     depends_on:
       - db
-      - box
       - redis
 
     links:
       - db
-      - box
       - redis
 
   sidekiq:
@@ -59,15 +57,7 @@ services:
       - .env
 
     depends_on:
-      - box
       - redis
 
     links:
-      - box
       - redis
-
-  box:
-    container_name: roadrunner-bundle-box
-    image: busybox
-    volumes:
-      - /box
