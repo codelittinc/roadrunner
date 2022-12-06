@@ -10,6 +10,9 @@ WORKDIR /app
 
 ADD Gemfile /app/Gemfile
 ADD Gemfile.lock /app/Gemfile.lock
+
+ENV BUNDLE_PATH /box
+
 RUN bundle config set with ‘development’
 RUN bundle install
 
