@@ -6,7 +6,7 @@ module OrganizationsHelper
   end
 
   def slack_url
-    response = Request.get(ENV.fetch('NOTIFICATIONS_API_URL', nil))
+    response = SimpleRequest.get(ENV.fetch('NOTIFICATIONS_API_URL'))
     response['slack_url']
   end
 end

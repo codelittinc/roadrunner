@@ -4,7 +4,7 @@ module Clients
   module Notifications
     class Channel < Client
       def list
-        Request.get("#{@url}/api/channels", authorization)
+        SimpleRequest.get("#{@url}/api/channels", authorization:)
       end
 
       def send(message, channel, notification_id = nil, uniq = false)
@@ -18,12 +18,11 @@ module Clients
 
       def update(message, channel, notification_id)
         url = build_url("/channel_messages/#{notification_id}")
-        response = Request.patch(url, authorization, {
-                                   message:,
-                                   channel:,
-                                   notification_id:
-                                 })
-        JSON.parse(response.body)
+        SimpleRequest.patch(url, authorization:, body: {
+                              message:,
+                              channel:,
+                              notification_id:
+                            })
       end
     end
   end

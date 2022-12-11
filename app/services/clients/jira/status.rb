@@ -5,7 +5,7 @@ module Clients
     class Status < JiraBase
       def list_by_issue(issue_key, name = nil)
         statuses_url = build_api_url("/issue/#{issue_key}/transitions?expand=expand.fields")
-        body = Request.get(statuses_url, authorization)
+        body = SimpleRequest.get(statuses_url, authorization:)
         statuses = body['transitions']
 
         return statuses unless name
