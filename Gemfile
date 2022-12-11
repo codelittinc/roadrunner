@@ -34,6 +34,7 @@ gem 'rails_admin', '>= 3.0.0.beta'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 
+gem 'simple_request', git: 'https://github.com/kaiomagalhaes/simple_request.git'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

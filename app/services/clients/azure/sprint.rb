@@ -5,7 +5,7 @@ module Clients
     class Sprint < AzureBase
       def list(team, time_frame = nil)
         url = "https://dev.azure.com/AY-InnovationCenter/Avant/#{team}/_apis/work/teamsettings/iterations?api-version=6.0"
-        sprints = Request.get(url, authorization)
+        sprints = SimpleRequest.get(url, authorization:)
         sprints['value'].map do |obj|
           parsed_sprint = Clients::Azure::Parsers::SprintParser.new(obj)
 
@@ -15,11 +15,11 @@ module Clients
 
       def work_items(team, id)
         url = "https://dev.azure.com/AY-InnovationCenter/Avant/#{team}/_apis/work/teamsettings/iterations/#{id}/workitems?api-version=6.0-preview.1"
-        sprint = Request.get(url, authorization)
-        work_items =  sprint['workItemRelations']
+        sprint = SimpleRequest.get(url, authorization:)
+        work_items = sprint['workItemRelations']
         work_items.map do |wi|
           wi_url = wi['target']['url']
-          response = Request.get(wi_url, authorization)
+          response = SimpleRequest.get(wi_url, authorization:)
           Clients::Azure::Parsers::WorkItemParser.new(response)
         end
       end

@@ -7,7 +7,7 @@ module Clients
     class Release < AzureBase
       def list(repository)
         url = "#{azure_url}git/repositories/#{repository.name}/refs?api-version=6.1-preview.1&filterContains=tag"
-        response = Request.get(url, authorization)
+        response = SimpleRequest.get(url, authorization:)
         releases = response['value']
         parsed_releases = releases.map do |release|
           Clients::Azure::Parsers::ReleaseParser.new(release)

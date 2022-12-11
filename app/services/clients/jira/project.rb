@@ -5,7 +5,7 @@ module Clients
     class Project < JiraBase
       def list
         projects_url = build_api_url('/project/search')
-        body = Request.get(projects_url, authorization)
+        body = SimpleRequest.get(projects_url, authorization:)
         body['values']
       end
     end

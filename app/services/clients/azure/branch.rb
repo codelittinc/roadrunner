@@ -7,7 +7,7 @@ module Clients
         type = resource_type(branch)
         url = "#{azure_url}git/repositories/#{repository.name}/commits?searchCriteria.itemVersion.version=#{branch}&api-version=6.1-preview.1&searchCriteria.itemVersion.versionType=#{type}"
         url = "#{url}&&searchCriteria.fromDate=#{from_date}" unless from_date.nil?
-        response = Request.get(url, authorization)
+        response = SimpleRequest.get(url, authorization:)
         commits = response['value']
         commits.map do |commit|
           Clients::Azure::Parsers::CommitParser.new(commit)
@@ -24,7 +24,7 @@ module Clients
 
       def branch_exists?(repository, branch)
         url = "#{azure_url}git/repositories/#{repository.name}/refs?filter=heads/#{branch}&api-version=4.1"
-        response = Request.get(url, authorization)
+        response = SimpleRequest.get(url, authorization:)
         response['count'].positive?
       end
 
