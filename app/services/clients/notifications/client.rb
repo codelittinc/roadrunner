@@ -19,7 +19,8 @@ module Clients
 
       def request(path, body)
         url = build_url(path)
-        SimpleRequest.post(url, authorization:, body:)
+        response = Request.post(url, authorization, body)
+        JSON.parse(response.body) if response&.body
       end
     end
   end
