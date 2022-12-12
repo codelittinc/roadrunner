@@ -5,13 +5,13 @@ module Clients
     class PullRequest < AzureBase
       def get(repository, source_control_id)
         url = "#{azure_url}git/repositories/#{repository.name}/pullrequests/#{source_control_id}"
-        pull_request = SimpleRequest.get(url, authorization:)
+        pull_request = Request.get(url, authorization)
         Clients::Azure::Parsers::PullRequestParser.new(pull_request)
       end
 
       def list_commits(repository, source_control_id)
         url = "#{azure_url}git/repositories/#{repository.name}/pullrequests/#{source_control_id}?api-version=6.0&includeCommits=true"
-        response = SimpleRequest.get(url, authorization:)
+        response = Request.get(url, authorization)
         commits = response['commits']
         commits.map do |commit|
           Clients::Azure::Parsers::CommitParser.new(commit)

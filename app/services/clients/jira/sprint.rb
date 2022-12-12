@@ -5,7 +5,7 @@ module Clients
     class Sprint < JiraBase
       def list(board_id)
         sprints_url = build_agile_url("/board/#{board_id}/sprint")
-        body = SimpleRequest.get(sprints_url, authorization:)
+        body = Request.get(sprints_url, authorization)
         body['values'] || []
       end
     end
