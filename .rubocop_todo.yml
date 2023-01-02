@@ -24,7 +24,7 @@ Metrics/AbcSize:
 Metrics/CyclomaticComplexity:
   Max: 21
 
-# Offense count: 27
+# Offense count: 25
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, AllowedMethods, AllowedPatterns, IgnoredMethods.
 Metrics/MethodLength:
   Max: 30
@@ -87,7 +87,7 @@ Style/MissingRespondToMissing:
 # Offense count: 3
 Style/OpenStructUse:
   Exclude:
-    - 'app/services/parsers/azure_webhook_source_control_parser.rb'
+    - 'app/services/flows/repositories/pull_request/create/azure_parser.rb'
     - 'app/services/parsers/sentry_webhook_parser.rb'
     - 'spec/services/flows/hotfix_release_flow_spec.rb'
 

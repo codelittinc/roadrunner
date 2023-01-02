@@ -4,7 +4,7 @@ require 'rails_helper'
 require 'external_api_helper'
 require 'flows_helper'
 
-RSpec.describe Flows::NewPullRequestFlow, type: :service do
+RSpec.describe Flows::Repositories::PullRequest::Create::Flow, type: :service do
   let(:github_valid_json) { load_flow_fixture('github_new_pull_request.json') }
   let(:azure_valid_json) { load_flow_fixture('azure_new_pull_request.json') }
 
@@ -92,7 +92,7 @@ RSpec.describe Flows::NewPullRequestFlow, type: :service do
         it 'does not create more than one pull request' do
           FactoryBot.create(:pull_request, repository:, source_control_id: 160)
 
-          expect_any_instance_of(Flows::NewPullRequestFlow).to receive(:pull_request_already_exists?).and_return(true)
+          expect_any_instance_of(described_class).to receive(:pull_request_already_exists?).and_return(true)
           flow = described_class.new(github_valid_json)
 
           expect { flow.run }.to change(PullRequest, :count).by(0)

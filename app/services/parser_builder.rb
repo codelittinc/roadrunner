@@ -11,8 +11,6 @@ class ParserBuilder
     parsers = classnames.map do |classname|
       ruby_class = Object.const_get(classname)
       ruby_class.new(params)
-    rescue StandardError
-      nil
     end.compact
 
     parsers.find(&:can_parse?) || Parsers::DefaultParser.new(params)
