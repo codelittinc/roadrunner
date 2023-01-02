@@ -4,7 +4,7 @@ require 'rails_helper'
 require 'flows_helper'
 require 'external_api_helper'
 
-RSpec.describe Parsers::AzureWebhookSourceControlParser, type: :service do
+RSpec.describe Flows::Repositories::PullRequest::Create::AzureParser, type: :service do
   let(:new_pull_request) { load_flow_fixture('azure_new_pull_request.json') }
   let(:updated_pull_request) { load_flow_fixture('azure_updated_pull_request.json') }
   let(:close_pull_request) { load_flow_fixture('azure_close_pull_request.json') }

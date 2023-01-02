@@ -426,7 +426,7 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
           FactoryBot.create(:pull_request, source_control_id: 35, repository:, slack_message:,
                                            source_control_type: 'azure')
 
-          expect_any_instance_of(Parsers::AzureWebhookSourceControlParser).to receive(:description).and_return(pr_description)
+          expect_any_instance_of(Flows::Repositories::PullRequest::Create::AzureParser).to receive(:description).and_return(pr_description)
           expect_any_instance_of(Clients::Notifications::Channel).to receive(:update)
 
           expect_any_instance_of(Clients::Notifications::Direct).to receive(:send).with(
