@@ -7,9 +7,10 @@ module Flows
         delegate :user_name, :prompt, :text, to: :parser
 
         def execute
-          message = Clients::Gpt::Client.new.generate(prompt)
+          response = Clients::Gpt::Client.new.generate(prompt)
 
-          File.write('tmp/prompt.txt', message)
+          message = "Prompt: \n\n *#{prompt}* \n \n Response: \n\n #{response}"
+
           Clients::Notifications::Direct.new.send(message, user_name)
         end
 
