@@ -267,6 +267,8 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
+    ruby-openai (3.0.2)
+      httparty (>= 0.18.1, < 0.21.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     sassc (2.4.0)
@@ -355,6 +357,7 @@ DEPENDENCIES
   rails_admin (>= 3.0.0.beta)
   rspec-rails
   rubocop-rails
+  ruby-openai
   sassc-rails
   shoulda-matchers
   sidekiq

@@ -7,6 +7,7 @@ env:
   POSTGRES_HOST: localhost
   RAILS_ENV: test
   NOTIFICATIONS_API_URL: https://slack-api.codelitt.dev
+  GPT_KEY: ${{ secrets.GPT_KEY }}
 
 on:
   push:
