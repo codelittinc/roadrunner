@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 if defined?(Datadog)
+  return unless Rails.env.production?
+
   Datadog.configure do |config|
     # Global settings
     config.runtime_metrics.enabled = true
