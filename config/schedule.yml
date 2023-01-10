@@ -7,3 +7,8 @@ ping_servers:
   cron: "* * * * *"
   class: "PingServersWorker"
   queue: default
+
+remove_flows:
+  cron: "0 * * * *"
+  class: "RemoveFlowsWorker"
+  queue: default
