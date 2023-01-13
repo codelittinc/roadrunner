@@ -3,7 +3,7 @@
 require 'rails_helper'
 # require 'external_api_helper'
 
-RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
+RSpec.describe Flows::Notifications::Incident::GraylogsRegister::Flow, type: :service do
   let(:incident_big_message) do
     JSON.parse(File.read(File.join('spec', 'fixtures', 'services', 'flows',
                                    'graylogs_incident_big_message.json'))).with_indifferent_access
@@ -14,13 +14,13 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
                                    'graylogs_incident_small_message.json'))).with_indifferent_access
   end
 
-  describe '#flow?' do
+  describe '#can_execute?' do
     context 'when event_definition_title exists' do
       it 'returns true' do
         FactoryBot.create(:application, :with_server, external_identifier: 'roadrunner.codelitt.dev')
 
         flow = described_class.new(incident_big_message)
-        expect(flow.flow?).to be_truthy
+        expect(flow.can_execute?).to be_truthy
       end
     end
 
@@ -31,7 +31,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
         flow = described_class.new({
                                      event_definition_title: nil
                                    })
-        expect(flow.flow?).to be_falsey
+        expect(flow.can_execute?).to be_falsey
       end
     end
 
@@ -40,14 +40,14 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
         FactoryBot.create(:application, :with_server, external_identifier: 'roadrunner.codelitt.dev')
 
         flow = described_class.new(incident_big_message)
-        expect(flow.flow?).to be_truthy
+        expect(flow.can_execute?).to be_truthy
       end
     end
 
     context 'when the source does not exist' do
       it 'returns false' do
         flow = described_class.new(incident_big_message)
-        expect(flow.flow?).to be_falsey
+        expect(flow.can_execute?).to be_falsey
       end
     end
   end
@@ -61,7 +61,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationFlow, type: :service do
         expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
                                                                                                ts: 1
                                                                                              })
-        expect { flow.execute }.to change { ServerIncident.count }.by(1)
+        expect { flow.run }.to change { ServerIncident.count }.by(1)
       end
 
       it 'calls Channel#send with the right params only once' do
