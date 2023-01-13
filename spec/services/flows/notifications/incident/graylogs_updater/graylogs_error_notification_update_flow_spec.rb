@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
-  describe '#flow?' do
+RSpec.describe Flows::Notifications::Incident::GraylogsUpdater::Flow, type: :service do
+  describe '#can_execute?' do
     context 'with a valid action' do
       it 'returns true' do
         FactoryBot.create(:slack_message, ts: '123',
@@ -13,7 +13,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
                                      ts: '123'
                                    })
 
-        expect(flow.flow?).to be_truthy
+        expect(flow.can_execute?).to be_truthy
       end
     end
 
@@ -25,7 +25,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
                                      ts: '123'
                                    })
 
-        expect(flow.flow?).to be_falsey
+        expect(flow.can_execute?).to be_falsey
       end
     end
 
@@ -38,7 +38,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
                                      ts: '123'
                                    })
 
-        expect(flow.flow?).to be_truthy
+        expect(flow.can_execute?).to be_truthy
       end
     end
 
@@ -49,7 +49,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
                                      ts: '123'
                                    })
 
-        expect(flow.flow?).to be_falsey
+        expect(flow.can_execute?).to be_falsey
       end
     end
   end
@@ -77,7 +77,7 @@ RSpec.describe Flows::GraylogsIncidentNotificationUpdateFlow, type: :service do
         timestamp
       )
 
-      flow.execute
+      flow.run
     end
   end
 end
