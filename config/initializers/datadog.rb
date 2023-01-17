@@ -3,21 +3,28 @@
 if defined?(Datadog)
   return unless Rails.env.production?
 
-  Datadog.configure do |config|
+  service = ENV.fetch('DATADOG_SITE_NAME', nil)
+  Datadog.configure do |c|
     # Global settings
-    config.runtime_metrics.enabled = true
-    config.service = ENV.fetch('DATADOG_SITE_NAME', nil)
+    c.agent.host = '127.0.0.1'
+    c.agent.port = 8126
+    c.runtime_metrics.enabled = true
+    c.service = service
 
     # Tracing settings
-    config.tracing.analytics.enabled = true
-    config.tracing.partial_flush.enabled = true
-    config.tracing.instrument :rails, service_name: ENV.fetch('DATADOG_SITE_NAME', nil)
+    c.tracing.analytics.enabled = true
+    c.tracing.partial_flush.enabled = true
 
     # CI settings
-    config.ci.enabled = (ENV.fetch('DD_ENV', nil) == 'ci')
-    config.ci.instrument :rspec
+    c.ci.enabled = (ENV['DD_ENV'] == 'ci')
 
-    # Keys
-    config.api_key = ENV.fetch('DATADOG_API_KEY', nil)
+    # Instrumentation
+    c.tracing.instrument :rails
+    c.tracing.instrument :active_support, cache_service: "#{service}-cache"
+    c.tracing.instrument :action_pack, service_name: "#{service}-controllers"
+    c.tracing.instrument :active_record, service_name: "#{service}-db"
+    c.tracing.instrument :active_job, service_name: "#{service}-jobs"
+
+    c.ci.instrument :rspec
   end
 end
