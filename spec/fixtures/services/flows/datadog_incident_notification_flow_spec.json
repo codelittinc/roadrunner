@@ -1,0 +1,13 @@
+{
+  "origin":"datadog",
+  "hostname":"",
+  "last_updated":"1674243823000",
+  "event_type":"error_tracking_alert",
+  "title":"[P1] [Triggered on {@issue.id:5c9497be-8d19-11ed-ab65-da7ad0900002}] New Error: Connection reset by peer",
+  "date":"1674243823000",
+  "link":"https://app.datadoghq.com/event/event?id=6878339073988225863",
+  "tags":"issue.id:5c9497be-8d19-11ed-ab65-da7ad0900002,monitor",
+  "event_message":"Service: prod-roadrunner\n- Component: redis\n- Env: prod\n- Error Url:;[[key::project::roadrunner.codelitt.dev]]",
+  "incident_fields":null,
+  "id":"6878339073988225863"
+}

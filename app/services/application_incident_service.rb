@@ -12,6 +12,7 @@ class ApplicationIncidentService
   MESSAGE_MAX_SIZE = 149
   GRAYLOG_MESSAGE_TYPE = 'graylog'
   SENTRY_MESSAGE_TYPE = 'sentry'
+  DATADOG_MESSAGE_TYPE = 'datadog'
 
   def register_incident!(application, error_message, server_status_check = nil, message_type = GRAYLOG_MESSAGE_TYPE)
     @application = application
