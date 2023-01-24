@@ -17,32 +17,6 @@ module Flows
         def can_execute?
           text&.split&.first == 'ask'
         end
-
-        private
-
-        def update_release_deploy_status!
-          latest_release&.update(deploy_status: status)
-        end
-
-        def channel
-          @channel ||= repository.slack_repository_info.deploy_channel
-        end
-
-        def repository
-          @repository ||= application.repository
-        end
-
-        def customer
-          repository.project.customer
-        end
-
-        def latest_release
-          @latest_release ||= application.releases.last
-        end
-
-        def application
-          @application ||= Application.by_external_identifier(source)
-        end
       end
     end
   end
