@@ -7,7 +7,7 @@ module Flows
         attr_reader :prompt, :user_name, :text
 
         def can_parse?
-          @json[:text]&.split&.first == 'ask'
+          @json[:text]&.split&.first == 'ask' && @json[:team_id]
         end
 
         def parse!

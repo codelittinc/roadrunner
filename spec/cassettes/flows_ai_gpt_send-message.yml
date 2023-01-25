@@ -1,6 +1,62 @@
 ---
 http_interactions:
 - request:
+    method: get
+    uri: https://slack-api.codelitt.dev/api/provider?team_id=T029Q9LHJ
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 31 Jan 2023 18:31:30 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept
+      Etag:
+      - W/"e8e98768123683faf07ea4586bb803ae"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 3e18bb67-ae10-45bd-aecf-5a55dd37f9e7
+      X-Runtime:
+      - '0.003559'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"id":5}'
+  recorded_at: Tue, 31 Jan 2023 18:31:31 GMT
+- request:
     method: post
     uri: https://api.openai.com/v1/completions
     body:
@@ -81,7 +137,6 @@ http_interactions:
         a Ruby on Rails application can be a complicated process, but it doesn’t have
         to be. By following the steps outlined here, you’ll be able to successfully
         launch your application with confidence.","index":0,"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"completion_tokens":489,"total_tokens":501}}
-
         '
-  recorded_at: Thu, 05 Jan 2023 16:09:58 GMT
+  recorded_at: Tue, 31 Jan 2023 18:31:31 GMT
 recorded_with: VCR 6.1.0
