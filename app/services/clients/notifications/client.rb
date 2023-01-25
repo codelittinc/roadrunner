@@ -3,9 +3,9 @@
 module Clients
   module Notifications
     class Client
-      def initialize(customer = nil)
-        @customer = customer
-        @key = customer&.slack_api_key || ENV.fetch('NOTIFICATIONS_API_KEY', nil)
+      def initialize(owner = nil)
+        @owner = owner
+        @key = key
         @url = ENV.fetch('NOTIFICATIONS_API_URL', nil)
       end
 
@@ -21,6 +21,14 @@ module Clients
         url = build_url(path)
         response = Request.post(url, authorization, body)
         JSON.parse(response.body) if response&.body
+      end
+
+      private
+
+      def key
+        return @owner&.slack_api_key if @owner.is_a?(Customer)
+        return @owner&.notifications_key if @owner.is_a?(Organization)
+        return ENV.fetch('NOTIFICATIONS_API_KEY', nil) if @owner.nil?
       end
     end
   end
