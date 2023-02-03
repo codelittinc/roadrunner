@@ -16,7 +16,7 @@ module Versioning
   end
 
   def self.release_stable_env?(env)
-    PROD_ENVIRONMENT == env
+    env == PROD_ENVIRONMENT
   end
 
   def self.valid_env?(env)
