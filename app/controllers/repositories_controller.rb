@@ -30,7 +30,7 @@ class RepositoriesController < ApplicationController
     @repository = CreateRepositoryService.call(repository_params)
 
     respond_to do |format|
-      if @repository.errors.size.zero?
+      if @repository.errors.empty?
         format.html { redirect_to edit_repository_url(@repository.id), notice: 'Repository was successfully created.' }
         format.json { render :show, status: :created, location: @repository }
       else
