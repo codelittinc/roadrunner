@@ -2,6 +2,7 @@
 
 class RepositoriesController < ApplicationController
   before_action :set_repository, only: %i[show edit update destroy]
+  before_action :set_channels, only: %i[new edit]
 
   # GET /repositories or /repositories.json
   def index
@@ -19,11 +20,7 @@ class RepositoriesController < ApplicationController
   end
 
   # GET /repositories/1/edit
-  def edit
-    @channels = Clients::Notifications::Channel.new(Customer.find(1)).list.map do |c|
-      [c['name'], c['id']]
-    end
-  end
+  def edit; end
 
   # POST /repositories or /repositories.json
   def create
@@ -73,5 +70,11 @@ class RepositoriesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def repository_params
     params.require(:repository).permit!
+  end
+
+  def set_channels
+    @channels = Clients::Notifications::Channel.new(Customer.find(1)).list.map do |c|
+      [c['name'], c['id']]
+    end
   end
 end
