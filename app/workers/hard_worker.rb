@@ -5,13 +5,6 @@ class HardWorker
 
   def perform(flow_request_id)
     flow_request = FlowRequest.find_by(id: flow_request_id)
-    begin
-      FlowExecutor.new(flow_request).execute! if flow_request
-    rescue StandardError => e
-      message = [e.to_s, e.backtrace].flatten.join("\n")
-      Rails.logger.error "ERROR: #{message}"
-      flow_request.update(error_message: message)
-      throw e
-    end
+    FlowExecutor.call(flow_request)
   end
 end
