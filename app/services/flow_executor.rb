@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
-class FlowExecutor
+class FlowExecutor < ApplicationService
   def initialize(flow_request)
+    super()
     @params = JSON.parse(flow_request.json).with_indifferent_access
     @flow_request = flow_request
   end
 
-  def execute!
+  def call
     flow = FlowBuilder.build(@flow_request)
     if flow
       @flow_request.update(flow_name: flow.class.name)
@@ -15,6 +16,11 @@ class FlowExecutor
     else
       send_no_result_message!
     end
+  rescue StandardError => e
+    message = [e.to_s, e.backtrace].flatten.join("\n")
+    Rails.logger.error "ERROR: #{message}"
+    @flow_request.update(error_message: message)
+    throw e
   end
 
   private
