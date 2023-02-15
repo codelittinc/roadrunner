@@ -13,11 +13,11 @@
 
 
   <%= form.label :name, "Repository name" %>
-  <%= form.text_field :name, disabled: true%>
+  <%= form.text_field :name%>
 
   <div>
     <%= form.label :owner, "Owner:" %>
-    <%= form.text_field :owner, disabled: true%>
+    <%= form.text_field :owner %>
   </div>
 
  <%= form.fields_for :slack_repository_info_attributes do |f|%>
