@@ -3,6 +3,7 @@
 class RepositoriesController < ApplicationController
   before_action :set_repository, only: %i[show edit update destroy]
   before_action :set_channels, only: %i[new edit]
+  before_action :clean_params, only: %i[create update]
 
   # GET /repositories or /repositories.json
   def index
@@ -63,6 +64,10 @@ class RepositoriesController < ApplicationController
   end
 
   private
+
+  def clean_params
+    params['repository']['deploy_type'] = nil if params['repository']['deploy_type'] == 'none'
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_repository

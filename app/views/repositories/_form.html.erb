@@ -22,6 +22,11 @@
     <%= form.text_field :owner, value: 'codelittinc' %>
   </div>
 
+<br>
+   <%= form.label :deploy_type, "deploy type:" %>
+   <%= form.select :deploy_type, ['none', 'tag', 'branch'], selected: repository.deploy_type %>
+<br>
+
  <%= form.fields_for :slack_repository_info_attributes do |f|%>
    <%= f.label :deploy_channel, "deploy channel:" %>
    <%= f.select :deploy_channel, @channels, selected: repository.slack_repository_info&.deploy_channel %>

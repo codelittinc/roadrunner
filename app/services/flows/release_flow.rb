@@ -17,7 +17,7 @@ module Flows
       return false unless action == RELEASE_ACTION
       return false unless slack_config
       return false unless Versioning.valid_env? environment
-      return false if SlackRepositoryInfo.where(deploy_channel: channel_name).count != 1
+      return false if SlackRepositoryInfo.by_deploy_channel(channel_name, channel_id).count != 1
       return false if words.size != 2
 
       repository&.deploy_type == Repository::TAG_DEPLOY_TYPE
@@ -37,6 +37,10 @@ module Flows
       @channel_name ||= @params[:channel_name]
     end
 
+    def channel_id
+      @channel_id ||= @params[:channel_id]
+    end
+
     def user_name
       @user_name ||= @params[:user_name]
     end
@@ -50,7 +54,7 @@ module Flows
     end
 
     def slack_config
-      @slack_config ||= SlackRepositoryInfo.where(deploy_channel: channel_name).first
+      @slack_config ||= SlackRepositoryInfo.by_deploy_channel(channel_name, channel_id).first
     end
 
     def repository
