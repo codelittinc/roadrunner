@@ -5,7 +5,7 @@ require 'external_api_helper'
 
 RSpec.describe Flows::ReleaseBySlackChannelFlow, type: :service do
   around do |example|
-    ClimateControl.modify NOTIFICATIONS_API_URL: 'https://slack-api.codelitt.dev' do
+    ClimateControl.modify NOTIFICATIONS_API_URL: 'https://api.notifications.codelitt.dev' do
       example.run
     end
   end

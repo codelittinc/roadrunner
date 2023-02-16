@@ -1,336 +1,342 @@
 ---
 http_interactions:
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev/channel_messages
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","message":"Update release to *roadrunner-repository-test*
-        *QA* triggered by @","channel":"feed-test-automations","ts":null}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '678'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
-      Date:
-      - Sat, 22 May 2021 02:33:24 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"ok":true,"channel":"CRXH3U8PK","ts":"1621650804.002500","message":{"bot_id":"BSW6NEU5N","type":"message","text":"Update
-        release to *roadrunner-repository-test* *QA* triggered by @","user":"USYCS7QHL","ts":"1621650804.002500","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
-  recorded_at: Sat, 22 May 2021 02:33:24 GMT
-- request:
-    method: get
-    uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases?per_page=100
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/vnd.github.v3+json
-      User-Agent:
-      - Octokit Ruby Gem 4.20.0
-      Content-Type:
-      - application/json
-      Authorization:
-      - token <SENSITIVE_DATA>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - GitHub.com
-      Date:
-      - Sat, 22 May 2021 02:33:25 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '2'
-      Cache-Control:
-      - private, max-age=60, s-maxage=60
-      Vary:
-      - Accept, Authorization, Cookie, X-GitHub-OTP
-      - Accept-Encoding, Accept, X-Requested-With
-      Etag:
-      - '"3e95c5a841a30e6e30e264bea72098e02a2c0186e5611f7ac36bc3018bb512b3"'
-      X-Oauth-Scopes:
-      - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
-        admin:repo_hook, delete:packages, delete_repo, gist, notifications, repo,
-        user, workflow, write:discussion, write:packages
-      X-Accepted-Oauth-Scopes:
-      - repo
-      X-Github-Media-Type:
-      - github.v3; format=json
-      X-Ratelimit-Limit:
-      - '5000'
-      X-Ratelimit-Remaining:
-      - '4972'
-      X-Ratelimit-Reset:
-      - '1621650877'
-      X-Ratelimit-Used:
-      - '28'
-      X-Ratelimit-Resource:
-      - core
-      Access-Control-Expose-Headers:
-      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
-        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
-        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation,
-        Sunset
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubdomains; preload
-      X-Frame-Options:
-      - deny
-      X-Content-Type-Options:
-      - nosniff
-      X-Xss-Protection:
-      - '0'
-      Referrer-Policy:
-      - origin-when-cross-origin, strict-origin-when-cross-origin
-      Content-Security-Policy:
-      - default-src 'none'
-      X-Github-Request-Id:
-      - 6E9E:1762:DBD430:2A426B6:60A86D75
-    body:
-      encoding: UTF-8
-      string: "[]"
-  recorded_at: Sat, 22 May 2021 02:33:25 GMT
-- request:
-    method: get
-    uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits?sha=master
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/vnd.github.v3+json
-      User-Agent:
-      - Octokit Ruby Gem 4.20.0
-      Content-Type:
-      - application/json
-      Authorization:
-      - token <SENSITIVE_DATA>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - GitHub.com
-      Date:
-      - Sat, 22 May 2021 02:33:26 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Cache-Control:
-      - private, max-age=60, s-maxage=60
-      Vary:
-      - Accept, Authorization, Cookie, X-GitHub-OTP
-      - Accept-Encoding, Accept, X-Requested-With
-      Etag:
-      - W/"1d4a95c9ebe3b3c644f28d05ced95b9a53ffa211d497b0c73358b91b9daf64f7"
-      Last-Modified:
-      - Sat, 22 May 2021 02:27:21 GMT
-      X-Oauth-Scopes:
-      - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
-        admin:repo_hook, delete:packages, delete_repo, gist, notifications, repo,
-        user, workflow, write:discussion, write:packages
-      X-Accepted-Oauth-Scopes:
-      - ''
-      X-Github-Media-Type:
-      - github.v3; format=json
-      X-Ratelimit-Limit:
-      - '5000'
-      X-Ratelimit-Remaining:
-      - '4971'
-      X-Ratelimit-Reset:
-      - '1621650877'
-      X-Ratelimit-Used:
-      - '29'
-      X-Ratelimit-Resource:
-      - core
-      Access-Control-Expose-Headers:
-      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
-        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
-        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation,
-        Sunset
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubdomains; preload
-      X-Frame-Options:
-      - deny
-      X-Content-Type-Options:
-      - nosniff
-      X-Xss-Protection:
-      - '0'
-      Referrer-Policy:
-      - origin-when-cross-origin, strict-origin-when-cross-origin
-      Content-Security-Policy:
-      - default-src 'none'
-      X-Github-Request-Id:
-      - 6E9F:1761:12CBCD1:24C1B74:60A86D76
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        W3sic2hhIjoiMjgyNDYzZDJmZjNmY2IxMGExMDk1YjMzYmRmMWZmNWZkOTlkMWQ0MCIsIm5vZGVfaWQiOiJNRFk2UTI5dGJXbDBNelk1TmprM05UZ3dPakk0TWpRMk0yUXlabVl6Wm1OaU1UQmhNVEE1TldJek0ySmtaakZtWmpWbVpEazVaREZrTkRBPSIsImNvbW1pdCI6eyJhdXRob3IiOnsibmFtZSI6IkthaW8gTWFnYWxow6NlcyIsImVtYWlsIjoibWVAa2Fpb21hZ2FsaGFlcy5jb20iLCJkYXRlIjoiMjAyMS0wNS0yMlQwMjoyNzoyMVoifSwiY29tbWl0dGVyIjp7Im5hbWUiOiJHaXRIdWIiLCJlbWFpbCI6Im5vcmVwbHlAZ2l0aHViLmNvbSIsImRhdGUiOiIyMDIxLTA1LTIyVDAyOjI3OjIxWiJ9LCJtZXNzYWdlIjoiY29tbWl0IG51bWJlciB0d28iLCJ0cmVlIjp7InNoYSI6ImU3MTUzMmYzYWY3YzQ0NjZiYTcyNjc3YTFhM2UzYmZjMzAyMzA5ZjAiLCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2dpdC90cmVlcy9lNzE1MzJmM2FmN2M0NDY2YmE3MjY3N2ExYTNlM2JmYzMwMjMwOWYwIn0sInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvZ2l0L2NvbW1pdHMvMjgyNDYzZDJmZjNmY2IxMGExMDk1YjMzYmRmMWZmNWZkOTlkMWQ0MCIsImNvbW1lbnRfY291bnQiOjAsInZlcmlmaWNhdGlvbiI6eyJ2ZXJpZmllZCI6dHJ1ZSwicmVhc29uIjoidmFsaWQiLCJzaWduYXR1cmUiOiItLS0tLUJFR0lOIFBHUCBTSUdOQVRVUkUtLS0tLVxuXG53c0JjQkFBQkNBQVFCUUpncUd3SkNSQks3aGo0T3Yzckl3QUFVRDhJQUMzYmRSRzhuMkJ2K2dBNTQ1V05GamJTXG55OWdpdnkxUEIxdHoxOXFPYkZWZTJSd1pwcjExeVpGQzc1cW9nU2I2WnhKUU10b1ZrZ1JEbzdBTUoyVnNxWFk1XG5uazE0ZFhhOEdSbDN4YjEwcXRtOVp2UE4vWk13N0k5MjBKWE9CVEMzWUhhUWZsek0xZjFIekN0T0hDaHhlTHdiXG5OZ1FGUU00cXlTdEpFNHgycHI0UmM1NjZkRUJUbnpURVh4eVdxTzVybFl0Wng2eFh4OWQrRE1VY3FONHNabDcyXG5sV2VEYW9Fcy9Pc210eHlFd1RzTDdFTTd3U20wM1pCcVJNTHZWVUtGR1l6cTRRc1lUWkVPdkhxai9ZZ2EwTGcwXG5zN0ZjZERBTlNhQzlsRG16Z2tEKzFVM1B2dGNXajc4ZTRuSDYrZXhGOUppZzRRQTk4WkNWejM2dVdhaGtNb009XG49czZtSVxuLS0tLS1FTkQgUEdQIFNJR05BVFVSRS0tLS0tXG4iLCJwYXlsb2FkIjoidHJlZSBlNzE1MzJmM2FmN2M0NDY2YmE3MjY3N2ExYTNlM2JmYzMwMjMwOWYwXG5wYXJlbnQgOGIyNjFhNjAwY2JmNmEyNTk3MzBmNmNmNDcyYjczZDFkOGNkYmNjOVxuYXV0aG9yIEthaW8gTWFnYWxow6NlcyA8bWVAa2Fpb21hZ2FsaGFlcy5jb20+IDE2MjE2NTA0NDEgLTAzMDBcbmNvbW1pdHRlciBHaXRIdWIgPG5vcmVwbHlAZ2l0aHViLmNvbT4gMTYyMTY1MDQ0MSAtMDMwMFxuXG5jb21taXQgbnVtYmVyIHR3byJ9fSwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXRzLzI4MjQ2M2QyZmYzZmNiMTBhMTA5NWIzM2JkZjFmZjVmZDk5ZDFkNDAiLCJodG1sX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXQvMjgyNDYzZDJmZjNmY2IxMGExMDk1YjMzYmRmMWZmNWZkOTlkMWQ0MCIsImNvbW1lbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0cy8yODI0NjNkMmZmM2ZjYjEwYTEwOTViMzNiZGYxZmY1ZmQ5OWQxZDQwL2NvbW1lbnRzIiwiYXV0aG9yIjp7ImxvZ2luIjoia2Fpb21hZ2FsaGFlcyIsImlkIjoxNTI5MjQ2LCJub2RlX2lkIjoiTURRNlZYTmxjakUxTWpreU5EWT0iLCJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9hdmF0YXJzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91LzE1MjkyNDY/dj00IiwiZ3JhdmF0YXJfaWQiOiIiLCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMiLCJodG1sX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9rYWlvbWFnYWxoYWVzIiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9mb2xsb3dlcnMiLCJmb2xsb3dpbmdfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL2ZvbGxvd2luZ3svb3RoZXJfdXNlcn0iLCJnaXN0c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvc3RhcnJlZHsvb3duZXJ9ey9yZXBvfSIsInN1YnNjcmlwdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL3N1YnNjcmlwdGlvbnMiLCJvcmdhbml6YXRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL3JlcG9zIiwiZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9ldmVudHN7L3ByaXZhY3l9IiwicmVjZWl2ZWRfZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwiY29tbWl0dGVyIjp7ImxvZ2luIjoid2ViLWZsb3ciLCJpZCI6MTk4NjQ0NDcsIm5vZGVfaWQiOiJNRFE2VlhObGNqRTVPRFkwTkRRMyIsImF2YXRhcl91cmwiOiJodHRwczovL2F2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3UvMTk4NjQ0NDc/dj00IiwiZ3JhdmF0YXJfaWQiOiIiLCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93IiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5jb20vd2ViLWZsb3ciLCJmb2xsb3dlcnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9mb2xsb3dlcnMiLCJmb2xsb3dpbmdfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9mb2xsb3dpbmd7L290aGVyX3VzZXJ9IiwiZ2lzdHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9naXN0c3svZ2lzdF9pZH0iLCJzdGFycmVkX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvc3RhcnJlZHsvb3duZXJ9ey9yZXBvfSIsInN1YnNjcmlwdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9zdWJzY3JpcHRpb25zIiwib3JnYW5pemF0aW9uc191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L29yZ3MiLCJyZXBvc191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L3JlcG9zIiwiZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZXZlbnRzey9wcml2YWN5fSIsInJlY2VpdmVkX2V2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L3JlY2VpdmVkX2V2ZW50cyIsInR5cGUiOiJVc2VyIiwic2l0ZV9hZG1pbiI6ZmFsc2V9LCJwYXJlbnRzIjpbeyJzaGEiOiI4YjI2MWE2MDBjYmY2YTI1OTczMGY2Y2Y0NzJiNzNkMWQ4Y2RiY2M5IiwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXRzLzhiMjYxYTYwMGNiZjZhMjU5NzMwZjZjZjQ3MmI3M2QxZDhjZGJjYzkiLCJodG1sX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXQvOGIyNjFhNjAwY2JmNmEyNTk3MzBmNmNmNDcyYjczZDFkOGNkYmNjOSJ9XX0seyJzaGEiOiI4YjI2MWE2MDBjYmY2YTI1OTczMGY2Y2Y0NzJiNzNkMWQ4Y2RiY2M5Iiwibm9kZV9pZCI6Ik1EWTZRMjl0YldsME16WTVOamszTlRnd09qaGlNall4WVRZd01HTmlaalpoTWpVNU56TXdaalpqWmpRM01tSTNNMlF4WkRoalpHSmpZems9IiwiY29tbWl0Ijp7ImF1dGhvciI6eyJuYW1lIjoiS2FpbyBNYWdhbGjDo2VzIiwiZW1haWwiOiJtZUBrYWlvbWFnYWxoYWVzLmNvbSIsImRhdGUiOiIyMDIxLTA1LTIyVDAyOjI2OjMwWiJ9LCJjb21taXR0ZXIiOnsibmFtZSI6IkdpdEh1YiIsImVtYWlsIjoibm9yZXBseUBnaXRodWIuY29tIiwiZGF0ZSI6IjIwMjEtMDUtMjJUMDI6MjY6MzBaIn0sIm1lc3NhZ2UiOiJjb21taXQgbnVtYmVyIG9uZSIsInRyZWUiOnsic2hhIjoiZjk1YzJkZjU2ZWRiOTI2ZDE0NzFjYTc3NWQyN2U3NmM3ZjY3NTY4NCIsInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvZ2l0L3RyZWVzL2Y5NWMyZGY1NmVkYjkyNmQxNDcxY2E3NzVkMjdlNzZjN2Y2NzU2ODQifSwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9naXQvY29tbWl0cy84YjI2MWE2MDBjYmY2YTI1OTczMGY2Y2Y0NzJiNzNkMWQ4Y2RiY2M5IiwiY29tbWVudF9jb3VudCI6MCwidmVyaWZpY2F0aW9uIjp7InZlcmlmaWVkIjp0cnVlLCJyZWFzb24iOiJ2YWxpZCIsInNpZ25hdHVyZSI6Ii0tLS0tQkVHSU4gUEdQIFNJR05BVFVSRS0tLS0tXG5cbndzQmNCQUFCQ0FBUUJRSmdxR3ZXQ1JCSzdoajRPdjNySXdBQU9Ba0lBSjFIQjVJa1NEQm5wZm5wRjBja08xSGlcbjRtcnZyUnpGalU3S1ZJcmJwTnRBWTF0NW03M2VhK25UTXVIYzFGYXdteG41L2p1N2J2STVyMjI4cmFId0VrQ3pcbi8vMXJielJPNWZZZFhDcjVMaDh4WE85TG51aTJJMjVKcUw0cGZyVUpVd1VNcWFCVC9LQ2NKRGJ4OXY3ZVBsSlRcbjVNdlE5L0xpQ2xmTG5mUTEvNndzZ1NZdUV2WHlJbDlsUHc3bWk1VHUvZ1c1TnRCb2hkb1FWcjV1Y2paRVNMSzFcbnlPdU9nZVRHZUF1ZVplQXUwakpwK0gwRHBlTmNKYTRQeER4eEFkSk4rdE1YYU9CVmhQMzBQNE8xZzYxZnFiSk9cbmVlOFdtbHZ6d0dUclQ4OFBldjFzNmFtV3BSOXdUWjNXTHBzV0J2VHVEZnVCNDlsaU85V1k5T2UwZE11TmQzYz1cbj0vSk4wXG4tLS0tLUVORCBQR1AgU0lHTkFUVVJFLS0tLS1cbiIsInBheWxvYWQiOiJ0cmVlIGY5NWMyZGY1NmVkYjkyNmQxNDcxY2E3NzVkMjdlNzZjN2Y2NzU2ODRcbmF1dGhvciBLYWlvIE1hZ2FsaMOjZXMgPG1lQGthaW9tYWdhbGhhZXMuY29tPiAxNjIxNjUwMzkwIC0wMzAwXG5jb21taXR0ZXIgR2l0SHViIDxub3JlcGx5QGdpdGh1Yi5jb20+IDE2MjE2NTAzOTAgLTAzMDBcblxuY29tbWl0IG51bWJlciBvbmUifX0sInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0cy84YjI2MWE2MDBjYmY2YTI1OTczMGY2Y2Y0NzJiNzNkMWQ4Y2RiY2M5IiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5jb20vY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0LzhiMjYxYTYwMGNiZjZhMjU5NzMwZjZjZjQ3MmI3M2QxZDhjZGJjYzkiLCJjb21tZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2NvbW1pdHMvOGIyNjFhNjAwY2JmNmEyNTk3MzBmNmNmNDcyYjczZDFkOGNkYmNjOS9jb21tZW50cyIsImF1dGhvciI6eyJsb2dpbiI6ImthaW9tYWdhbGhhZXMiLCJpZCI6MTUyOTI0Niwibm9kZV9pZCI6Ik1EUTZWWE5sY2pFMU1qa3lORFk9IiwiYXZhdGFyX3VybCI6Imh0dHBzOi8vYXZhdGFycy5naXRodWJ1c2VyY29udGVudC5jb20vdS8xNTI5MjQ2P3Y9NCIsImdyYXZhdGFyX2lkIjoiIiwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzIiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5jb20va2Fpb21hZ2FsaGFlcyIsImZvbGxvd2Vyc191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvZm9sbG93ZXJzIiwiZm9sbG93aW5nX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9mb2xsb3dpbmd7L290aGVyX3VzZXJ9IiwiZ2lzdHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL2dpc3Rzey9naXN0X2lkfSIsInN0YXJyZWRfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL3N0YXJyZWR7L293bmVyfXsvcmVwb30iLCJzdWJzY3JpcHRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9zdWJzY3JpcHRpb25zIiwib3JnYW5pemF0aW9uc191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvb3JncyIsInJlcG9zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9yZXBvcyIsImV2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvZXZlbnRzey9wcml2YWN5fSIsInJlY2VpdmVkX2V2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvcmVjZWl2ZWRfZXZlbnRzIiwidHlwZSI6IlVzZXIiLCJzaXRlX2FkbWluIjpmYWxzZX0sImNvbW1pdHRlciI6eyJsb2dpbiI6IndlYi1mbG93IiwiaWQiOjE5ODY0NDQ3LCJub2RlX2lkIjoiTURRNlZYTmxjakU1T0RZME5EUTMiLCJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9hdmF0YXJzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91LzE5ODY0NDQ3P3Y9NCIsImdyYXZhdGFyX2lkIjoiIiwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdyIsImh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL3dlYi1mbG93IiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZm9sbG93ZXJzIiwiZm9sbG93aW5nX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZm9sbG93aW5ney9vdGhlcl91c2VyfSIsImdpc3RzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L3N0YXJyZWR7L293bmVyfXsvcmVwb30iLCJzdWJzY3JpcHRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvc3Vic2NyaXB0aW9ucyIsIm9yZ2FuaXphdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9yZXBvcyIsImV2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L2V2ZW50c3svcHJpdmFjeX0iLCJyZWNlaXZlZF9ldmVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwicGFyZW50cyI6W119XQ==
-  recorded_at: Sat, 22 May 2021 02:33:26 GMT
-- request:
-    method: post
-    uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases
-    body:
-      encoding: UTF-8
-      string: '{"target_commitish":"master","body":"Available in the release of *roadrunner-repository-test*:\n
-        - commit number one \n - commit number two","prerelease":true,"tag_name":"rc.1.v1.0.0"}'
-    headers:
-      Accept:
-      - application/vnd.github.v3+json
-      User-Agent:
-      - Octokit Ruby Gem 4.20.0
-      Content-Type:
-      - application/json
-      Authorization:
-      - token <SENSITIVE_DATA>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Server:
-      - GitHub.com
-      Date:
-      - Sat, 22 May 2021 02:33:27 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Content-Length:
-      - '1953'
-      Cache-Control:
-      - private, max-age=60, s-maxage=60
-      Vary:
-      - Accept, Authorization, Cookie, X-GitHub-OTP
-      - Accept-Encoding, Accept, X-Requested-With
-      Etag:
-      - '"9015dbb44ce5c0363a2181a91eab041ee92b82e067079f917cd79ffb5122ce73"'
-      X-Oauth-Scopes:
-      - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
-        admin:repo_hook, delete:packages, delete_repo, gist, notifications, repo,
-        user, workflow, write:discussion, write:packages
-      X-Accepted-Oauth-Scopes:
-      - repo
-      Location:
-      - https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/43401451
-      X-Github-Media-Type:
-      - github.v3; format=json
-      X-Ratelimit-Limit:
-      - '5000'
-      X-Ratelimit-Remaining:
-      - '4970'
-      X-Ratelimit-Reset:
-      - '1621650877'
-      X-Ratelimit-Used:
-      - '30'
-      X-Ratelimit-Resource:
-      - core
-      Access-Control-Expose-Headers:
-      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
-        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
-        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation,
-        Sunset
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubdomains; preload
-      X-Frame-Options:
-      - deny
-      X-Content-Type-Options:
-      - nosniff
-      X-Xss-Protection:
-      - '0'
-      Referrer-Policy:
-      - origin-when-cross-origin, strict-origin-when-cross-origin
-      Content-Security-Policy:
-      - default-src 'none'
-      X-Github-Request-Id:
-      - 6EA0:341E:1FA357:99AF76:60A86D76
-    body:
-      encoding: UTF-8
-      string: '{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/43401451","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/43401451/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/43401451/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v1.0.0","id":43401451,"author":{"login":"kaiomagalhaes","id":1529246,"node_id":"MDQ6VXNlcjE1MjkyNDY=","avatar_url":"https://avatars.githubusercontent.com/u/1529246?v=4","gravatar_id":"","url":"https://api.github.com/users/kaiomagalhaes","html_url":"https://github.com/kaiomagalhaes","followers_url":"https://api.github.com/users/kaiomagalhaes/followers","following_url":"https://api.github.com/users/kaiomagalhaes/following{/other_user}","gists_url":"https://api.github.com/users/kaiomagalhaes/gists{/gist_id}","starred_url":"https://api.github.com/users/kaiomagalhaes/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/kaiomagalhaes/subscriptions","organizations_url":"https://api.github.com/users/kaiomagalhaes/orgs","repos_url":"https://api.github.com/users/kaiomagalhaes/repos","events_url":"https://api.github.com/users/kaiomagalhaes/events{/privacy}","received_events_url":"https://api.github.com/users/kaiomagalhaes/received_events","type":"User","site_admin":false},"node_id":"MDc6UmVsZWFzZTQzNDAxNDUx","tag_name":"rc.1.v1.0.0","target_commitish":"master","name":null,"draft":false,"prerelease":true,"created_at":"2021-05-22T02:27:21Z","published_at":"2021-05-22T02:33:27Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v1.0.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v1.0.0","body":"Available
-        in the release of *roadrunner-repository-test*:\n - commit number one \n -
-        commit number two"}'
-  recorded_at: Sat, 22 May 2021 02:33:27 GMT
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev/channel_messages
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","message":"Available in the release of *roadrunner-repository-test*:\n
-        - commit number one \n - commit number two","channel":"feed-test-automations","ts":null}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '714'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
-      Date:
-      - Sat, 22 May 2021 02:33:27 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"ok":true,"channel":"CRXH3U8PK","ts":"1621650807.002600","message":{"bot_id":"BSW6NEU5N","type":"message","text":"Available
-        in the release of *roadrunner-repository-test*:\n - commit number one \n -
-        commit number two","user":"USYCS7QHL","ts":"1621650807.002600","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
-  recorded_at: Sat, 22 May 2021 02:33:27 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev/channel_messages
+      body:
+        encoding: UTF-8
+        string:
+          '{"bot":"roadrunner","message":"Update release to *roadrunner-repository-test*
+          *QA* triggered by @","channel":"feed-test-automations","ts":null}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "678"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
+        Date:
+          - Sat, 22 May 2021 02:33:24 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string:
+          '{"ok":true,"channel":"CRXH3U8PK","ts":"1621650804.002500","message":{"bot_id":"BSW6NEU5N","type":"message","text":"Update
+          release to *roadrunner-repository-test* *QA* triggered by @","user":"USYCS7QHL","ts":"1621650804.002500","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
+    recorded_at: Sat, 22 May 2021 02:33:24 GMT
+  - request:
+      method: get
+      uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases?per_page=100
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - application/vnd.github.v3+json
+        User-Agent:
+          - Octokit Ruby Gem 4.20.0
+        Content-Type:
+          - application/json
+        Authorization:
+          - token <SENSITIVE_DATA>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Server:
+          - GitHub.com
+        Date:
+          - Sat, 22 May 2021 02:33:25 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Content-Length:
+          - "2"
+        Cache-Control:
+          - private, max-age=60, s-maxage=60
+        Vary:
+          - Accept, Authorization, Cookie, X-GitHub-OTP
+          - Accept-Encoding, Accept, X-Requested-With
+        Etag:
+          - '"3e95c5a841a30e6e30e264bea72098e02a2c0186e5611f7ac36bc3018bb512b3"'
+        X-Oauth-Scopes:
+          - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
+            admin:repo_hook, delete:packages, delete_repo, gist, notifications, repo,
+            user, workflow, write:discussion, write:packages
+        X-Accepted-Oauth-Scopes:
+          - repo
+        X-Github-Media-Type:
+          - github.v3; format=json
+        X-Ratelimit-Limit:
+          - "5000"
+        X-Ratelimit-Remaining:
+          - "4972"
+        X-Ratelimit-Reset:
+          - "1621650877"
+        X-Ratelimit-Used:
+          - "28"
+        X-Ratelimit-Resource:
+          - core
+        Access-Control-Expose-Headers:
+          - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+            X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+            X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation,
+            Sunset
+        Access-Control-Allow-Origin:
+          - "*"
+        Strict-Transport-Security:
+          - max-age=31536000; includeSubdomains; preload
+        X-Frame-Options:
+          - deny
+        X-Content-Type-Options:
+          - nosniff
+        X-Xss-Protection:
+          - "0"
+        Referrer-Policy:
+          - origin-when-cross-origin, strict-origin-when-cross-origin
+        Content-Security-Policy:
+          - default-src 'none'
+        X-Github-Request-Id:
+          - 6E9E:1762:DBD430:2A426B6:60A86D75
+      body:
+        encoding: UTF-8
+        string: "[]"
+    recorded_at: Sat, 22 May 2021 02:33:25 GMT
+  - request:
+      method: get
+      uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits?sha=master
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - application/vnd.github.v3+json
+        User-Agent:
+          - Octokit Ruby Gem 4.20.0
+        Content-Type:
+          - application/json
+        Authorization:
+          - token <SENSITIVE_DATA>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Server:
+          - GitHub.com
+        Date:
+          - Sat, 22 May 2021 02:33:26 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Cache-Control:
+          - private, max-age=60, s-maxage=60
+        Vary:
+          - Accept, Authorization, Cookie, X-GitHub-OTP
+          - Accept-Encoding, Accept, X-Requested-With
+        Etag:
+          - W/"1d4a95c9ebe3b3c644f28d05ced95b9a53ffa211d497b0c73358b91b9daf64f7"
+        Last-Modified:
+          - Sat, 22 May 2021 02:27:21 GMT
+        X-Oauth-Scopes:
+          - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
+            admin:repo_hook, delete:packages, delete_repo, gist, notifications, repo,
+            user, workflow, write:discussion, write:packages
+        X-Accepted-Oauth-Scopes:
+          - ""
+        X-Github-Media-Type:
+          - github.v3; format=json
+        X-Ratelimit-Limit:
+          - "5000"
+        X-Ratelimit-Remaining:
+          - "4971"
+        X-Ratelimit-Reset:
+          - "1621650877"
+        X-Ratelimit-Used:
+          - "29"
+        X-Ratelimit-Resource:
+          - core
+        Access-Control-Expose-Headers:
+          - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+            X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+            X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation,
+            Sunset
+        Access-Control-Allow-Origin:
+          - "*"
+        Strict-Transport-Security:
+          - max-age=31536000; includeSubdomains; preload
+        X-Frame-Options:
+          - deny
+        X-Content-Type-Options:
+          - nosniff
+        X-Xss-Protection:
+          - "0"
+        Referrer-Policy:
+          - origin-when-cross-origin, strict-origin-when-cross-origin
+        Content-Security-Policy:
+          - default-src 'none'
+        X-Github-Request-Id:
+          - 6E9F:1761:12CBCD1:24C1B74:60A86D76
+      body:
+        encoding: ASCII-8BIT
+        string: !binary |-
+          W3sic2hhIjoiMjgyNDYzZDJmZjNmY2IxMGExMDk1YjMzYmRmMWZmNWZkOTlkMWQ0MCIsIm5vZGVfaWQiOiJNRFk2UTI5dGJXbDBNelk1TmprM05UZ3dPakk0TWpRMk0yUXlabVl6Wm1OaU1UQmhNVEE1TldJek0ySmtaakZtWmpWbVpEazVaREZrTkRBPSIsImNvbW1pdCI6eyJhdXRob3IiOnsibmFtZSI6IkthaW8gTWFnYWxow6NlcyIsImVtYWlsIjoibWVAa2Fpb21hZ2FsaGFlcy5jb20iLCJkYXRlIjoiMjAyMS0wNS0yMlQwMjoyNzoyMVoifSwiY29tbWl0dGVyIjp7Im5hbWUiOiJHaXRIdWIiLCJlbWFpbCI6Im5vcmVwbHlAZ2l0aHViLmNvbSIsImRhdGUiOiIyMDIxLTA1LTIyVDAyOjI3OjIxWiJ9LCJtZXNzYWdlIjoiY29tbWl0IG51bWJlciB0d28iLCJ0cmVlIjp7InNoYSI6ImU3MTUzMmYzYWY3YzQ0NjZiYTcyNjc3YTFhM2UzYmZjMzAyMzA5ZjAiLCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2dpdC90cmVlcy9lNzE1MzJmM2FmN2M0NDY2YmE3MjY3N2ExYTNlM2JmYzMwMjMwOWYwIn0sInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvZ2l0L2NvbW1pdHMvMjgyNDYzZDJmZjNmY2IxMGExMDk1YjMzYmRmMWZmNWZkOTlkMWQ0MCIsImNvbW1lbnRfY291bnQiOjAsInZlcmlmaWNhdGlvbiI6eyJ2ZXJpZmllZCI6dHJ1ZSwicmVhc29uIjoidmFsaWQiLCJzaWduYXR1cmUiOiItLS0tLUJFR0lOIFBHUCBTSUdOQVRVUkUtLS0tLVxuXG53c0JjQkFBQkNBQVFCUUpncUd3SkNSQks3aGo0T3Yzckl3QUFVRDhJQUMzYmRSRzhuMkJ2K2dBNTQ1V05GamJTXG55OWdpdnkxUEIxdHoxOXFPYkZWZTJSd1pwcjExeVpGQzc1cW9nU2I2WnhKUU10b1ZrZ1JEbzdBTUoyVnNxWFk1XG5uazE0ZFhhOEdSbDN4YjEwcXRtOVp2UE4vWk13N0k5MjBKWE9CVEMzWUhhUWZsek0xZjFIekN0T0hDaHhlTHdiXG5OZ1FGUU00cXlTdEpFNHgycHI0UmM1NjZkRUJUbnpURVh4eVdxTzVybFl0Wng2eFh4OWQrRE1VY3FONHNabDcyXG5sV2VEYW9Fcy9Pc210eHlFd1RzTDdFTTd3U20wM1pCcVJNTHZWVUtGR1l6cTRRc1lUWkVPdkhxai9ZZ2EwTGcwXG5zN0ZjZERBTlNhQzlsRG16Z2tEKzFVM1B2dGNXajc4ZTRuSDYrZXhGOUppZzRRQTk4WkNWejM2dVdhaGtNb009XG49czZtSVxuLS0tLS1FTkQgUEdQIFNJR05BVFVSRS0tLS0tXG4iLCJwYXlsb2FkIjoidHJlZSBlNzE1MzJmM2FmN2M0NDY2YmE3MjY3N2ExYTNlM2JmYzMwMjMwOWYwXG5wYXJlbnQgOGIyNjFhNjAwY2JmNmEyNTk3MzBmNmNmNDcyYjczZDFkOGNkYmNjOVxuYXV0aG9yIEthaW8gTWFnYWxow6NlcyA8bWVAa2Fpb21hZ2FsaGFlcy5jb20+IDE2MjE2NTA0NDEgLTAzMDBcbmNvbW1pdHRlciBHaXRIdWIgPG5vcmVwbHlAZ2l0aHViLmNvbT4gMTYyMTY1MDQ0MSAtMDMwMFxuXG5jb21taXQgbnVtYmVyIHR3byJ9fSwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXRzLzI4MjQ2M2QyZmYzZmNiMTBhMTA5NWIzM2JkZjFmZjVmZDk5ZDFkNDAiLCJodG1sX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXQvMjgyNDYzZDJmZjNmY2IxMGExMDk1YjMzYmRmMWZmNWZkOTlkMWQ0MCIsImNvbW1lbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0cy8yODI0NjNkMmZmM2ZjYjEwYTEwOTViMzNiZGYxZmY1ZmQ5OWQxZDQwL2NvbW1lbnRzIiwiYXV0aG9yIjp7ImxvZ2luIjoia2Fpb21hZ2FsaGFlcyIsImlkIjoxNTI5MjQ2LCJub2RlX2lkIjoiTURRNlZYTmxjakUxTWpreU5EWT0iLCJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9hdmF0YXJzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91LzE1MjkyNDY/dj00IiwiZ3JhdmF0YXJfaWQiOiIiLCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMiLCJodG1sX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9rYWlvbWFnYWxoYWVzIiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9mb2xsb3dlcnMiLCJmb2xsb3dpbmdfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL2ZvbGxvd2luZ3svb3RoZXJfdXNlcn0iLCJnaXN0c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvc3RhcnJlZHsvb3duZXJ9ey9yZXBvfSIsInN1YnNjcmlwdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL3N1YnNjcmlwdGlvbnMiLCJvcmdhbml6YXRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL3JlcG9zIiwiZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9ldmVudHN7L3ByaXZhY3l9IiwicmVjZWl2ZWRfZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwiY29tbWl0dGVyIjp7ImxvZ2luIjoid2ViLWZsb3ciLCJpZCI6MTk4NjQ0NDcsIm5vZGVfaWQiOiJNRFE2VlhObGNqRTVPRFkwTkRRMyIsImF2YXRhcl91cmwiOiJodHRwczovL2F2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3UvMTk4NjQ0NDc/dj00IiwiZ3JhdmF0YXJfaWQiOiIiLCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93IiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5jb20vd2ViLWZsb3ciLCJmb2xsb3dlcnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9mb2xsb3dlcnMiLCJmb2xsb3dpbmdfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9mb2xsb3dpbmd7L290aGVyX3VzZXJ9IiwiZ2lzdHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9naXN0c3svZ2lzdF9pZH0iLCJzdGFycmVkX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvc3RhcnJlZHsvb3duZXJ9ey9yZXBvfSIsInN1YnNjcmlwdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9zdWJzY3JpcHRpb25zIiwib3JnYW5pemF0aW9uc191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L29yZ3MiLCJyZXBvc191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L3JlcG9zIiwiZXZlbnRzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZXZlbnRzey9wcml2YWN5fSIsInJlY2VpdmVkX2V2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L3JlY2VpdmVkX2V2ZW50cyIsInR5cGUiOiJVc2VyIiwic2l0ZV9hZG1pbiI6ZmFsc2V9LCJwYXJlbnRzIjpbeyJzaGEiOiI4YjI2MWE2MDBjYmY2YTI1OTczMGY2Y2Y0NzJiNzNkMWQ4Y2RiY2M5IiwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXRzLzhiMjYxYTYwMGNiZjZhMjU5NzMwZjZjZjQ3MmI3M2QxZDhjZGJjYzkiLCJodG1sX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9jb21taXQvOGIyNjFhNjAwY2JmNmEyNTk3MzBmNmNmNDcyYjczZDFkOGNkYmNjOSJ9XX0seyJzaGEiOiI4YjI2MWE2MDBjYmY2YTI1OTczMGY2Y2Y0NzJiNzNkMWQ4Y2RiY2M5Iiwibm9kZV9pZCI6Ik1EWTZRMjl0YldsME16WTVOamszTlRnd09qaGlNall4WVRZd01HTmlaalpoTWpVNU56TXdaalpqWmpRM01tSTNNMlF4WkRoalpHSmpZems9IiwiY29tbWl0Ijp7ImF1dGhvciI6eyJuYW1lIjoiS2FpbyBNYWdhbGjDo2VzIiwiZW1haWwiOiJtZUBrYWlvbWFnYWxoYWVzLmNvbSIsImRhdGUiOiIyMDIxLTA1LTIyVDAyOjI2OjMwWiJ9LCJjb21taXR0ZXIiOnsibmFtZSI6IkdpdEh1YiIsImVtYWlsIjoibm9yZXBseUBnaXRodWIuY29tIiwiZGF0ZSI6IjIwMjEtMDUtMjJUMDI6MjY6MzBaIn0sIm1lc3NhZ2UiOiJjb21taXQgbnVtYmVyIG9uZSIsInRyZWUiOnsic2hhIjoiZjk1YzJkZjU2ZWRiOTI2ZDE0NzFjYTc3NWQyN2U3NmM3ZjY3NTY4NCIsInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvZ2l0L3RyZWVzL2Y5NWMyZGY1NmVkYjkyNmQxNDcxY2E3NzVkMjdlNzZjN2Y2NzU2ODQifSwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9jb2RlbGl0dGluYy9yb2FkcnVubmVyLXJlcG9zaXRvcnktdGVzdC9naXQvY29tbWl0cy84YjI2MWE2MDBjYmY2YTI1OTczMGY2Y2Y0NzJiNzNkMWQ4Y2RiY2M5IiwiY29tbWVudF9jb3VudCI6MCwidmVyaWZpY2F0aW9uIjp7InZlcmlmaWVkIjp0cnVlLCJyZWFzb24iOiJ2YWxpZCIsInNpZ25hdHVyZSI6Ii0tLS0tQkVHSU4gUEdQIFNJR05BVFVSRS0tLS0tXG5cbndzQmNCQUFCQ0FBUUJRSmdxR3ZXQ1JCSzdoajRPdjNySXdBQU9Ba0lBSjFIQjVJa1NEQm5wZm5wRjBja08xSGlcbjRtcnZyUnpGalU3S1ZJcmJwTnRBWTF0NW03M2VhK25UTXVIYzFGYXdteG41L2p1N2J2STVyMjI4cmFId0VrQ3pcbi8vMXJielJPNWZZZFhDcjVMaDh4WE85TG51aTJJMjVKcUw0cGZyVUpVd1VNcWFCVC9LQ2NKRGJ4OXY3ZVBsSlRcbjVNdlE5L0xpQ2xmTG5mUTEvNndzZ1NZdUV2WHlJbDlsUHc3bWk1VHUvZ1c1TnRCb2hkb1FWcjV1Y2paRVNMSzFcbnlPdU9nZVRHZUF1ZVplQXUwakpwK0gwRHBlTmNKYTRQeER4eEFkSk4rdE1YYU9CVmhQMzBQNE8xZzYxZnFiSk9cbmVlOFdtbHZ6d0dUclQ4OFBldjFzNmFtV3BSOXdUWjNXTHBzV0J2VHVEZnVCNDlsaU85V1k5T2UwZE11TmQzYz1cbj0vSk4wXG4tLS0tLUVORCBQR1AgU0lHTkFUVVJFLS0tLS1cbiIsInBheWxvYWQiOiJ0cmVlIGY5NWMyZGY1NmVkYjkyNmQxNDcxY2E3NzVkMjdlNzZjN2Y2NzU2ODRcbmF1dGhvciBLYWlvIE1hZ2FsaMOjZXMgPG1lQGthaW9tYWdhbGhhZXMuY29tPiAxNjIxNjUwMzkwIC0wMzAwXG5jb21taXR0ZXIgR2l0SHViIDxub3JlcGx5QGdpdGh1Yi5jb20+IDE2MjE2NTAzOTAgLTAzMDBcblxuY29tbWl0IG51bWJlciBvbmUifX0sInVybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3MvY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0cy84YjI2MWE2MDBjYmY2YTI1OTczMGY2Y2Y0NzJiNzNkMWQ4Y2RiY2M5IiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5jb20vY29kZWxpdHRpbmMvcm9hZHJ1bm5lci1yZXBvc2l0b3J5LXRlc3QvY29tbWl0LzhiMjYxYTYwMGNiZjZhMjU5NzMwZjZjZjQ3MmI3M2QxZDhjZGJjYzkiLCJjb21tZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL2NvZGVsaXR0aW5jL3JvYWRydW5uZXItcmVwb3NpdG9yeS10ZXN0L2NvbW1pdHMvOGIyNjFhNjAwY2JmNmEyNTk3MzBmNmNmNDcyYjczZDFkOGNkYmNjOS9jb21tZW50cyIsImF1dGhvciI6eyJsb2dpbiI6ImthaW9tYWdhbGhhZXMiLCJpZCI6MTUyOTI0Niwibm9kZV9pZCI6Ik1EUTZWWE5sY2pFMU1qa3lORFk9IiwiYXZhdGFyX3VybCI6Imh0dHBzOi8vYXZhdGFycy5naXRodWJ1c2VyY29udGVudC5jb20vdS8xNTI5MjQ2P3Y9NCIsImdyYXZhdGFyX2lkIjoiIiwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzIiwiaHRtbF91cmwiOiJodHRwczovL2dpdGh1Yi5jb20va2Fpb21hZ2FsaGFlcyIsImZvbGxvd2Vyc191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvZm9sbG93ZXJzIiwiZm9sbG93aW5nX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9mb2xsb3dpbmd7L290aGVyX3VzZXJ9IiwiZ2lzdHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL2dpc3Rzey9naXN0X2lkfSIsInN0YXJyZWRfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy9rYWlvbWFnYWxoYWVzL3N0YXJyZWR7L293bmVyfXsvcmVwb30iLCJzdWJzY3JpcHRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9zdWJzY3JpcHRpb25zIiwib3JnYW5pemF0aW9uc191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvb3JncyIsInJlcG9zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMva2Fpb21hZ2FsaGFlcy9yZXBvcyIsImV2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvZXZlbnRzey9wcml2YWN5fSIsInJlY2VpdmVkX2V2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL2thaW9tYWdhbGhhZXMvcmVjZWl2ZWRfZXZlbnRzIiwidHlwZSI6IlVzZXIiLCJzaXRlX2FkbWluIjpmYWxzZX0sImNvbW1pdHRlciI6eyJsb2dpbiI6IndlYi1mbG93IiwiaWQiOjE5ODY0NDQ3LCJub2RlX2lkIjoiTURRNlZYTmxjakU1T0RZME5EUTMiLCJhdmF0YXJfdXJsIjoiaHR0cHM6Ly9hdmF0YXJzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91LzE5ODY0NDQ3P3Y9NCIsImdyYXZhdGFyX2lkIjoiIiwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdyIsImh0bWxfdXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL3dlYi1mbG93IiwiZm9sbG93ZXJzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZm9sbG93ZXJzIiwiZm9sbG93aW5nX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZm9sbG93aW5ney9vdGhlcl91c2VyfSIsImdpc3RzX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvZ2lzdHN7L2dpc3RfaWR9Iiwic3RhcnJlZF91cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L3N0YXJyZWR7L293bmVyfXsvcmVwb30iLCJzdWJzY3JpcHRpb25zX3VybCI6Imh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vdXNlcnMvd2ViLWZsb3cvc3Vic2NyaXB0aW9ucyIsIm9yZ2FuaXphdGlvbnNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9vcmdzIiwicmVwb3NfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9yZXBvcyIsImV2ZW50c191cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3VzZXJzL3dlYi1mbG93L2V2ZW50c3svcHJpdmFjeX0iLCJyZWNlaXZlZF9ldmVudHNfdXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS91c2Vycy93ZWItZmxvdy9yZWNlaXZlZF9ldmVudHMiLCJ0eXBlIjoiVXNlciIsInNpdGVfYWRtaW4iOmZhbHNlfSwicGFyZW50cyI6W119XQ==
+    recorded_at: Sat, 22 May 2021 02:33:26 GMT
+  - request:
+      method: post
+      uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases
+      body:
+        encoding: UTF-8
+        string:
+          '{"target_commitish":"master","body":"Available in the release of *roadrunner-repository-test*:\n
+          - commit number one \n - commit number two","prerelease":true,"tag_name":"rc.1.v1.0.0"}'
+      headers:
+        Accept:
+          - application/vnd.github.v3+json
+        User-Agent:
+          - Octokit Ruby Gem 4.20.0
+        Content-Type:
+          - application/json
+        Authorization:
+          - token <SENSITIVE_DATA>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    response:
+      status:
+        code: 201
+        message: Created
+      headers:
+        Server:
+          - GitHub.com
+        Date:
+          - Sat, 22 May 2021 02:33:27 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Content-Length:
+          - "1953"
+        Cache-Control:
+          - private, max-age=60, s-maxage=60
+        Vary:
+          - Accept, Authorization, Cookie, X-GitHub-OTP
+          - Accept-Encoding, Accept, X-Requested-With
+        Etag:
+          - '"9015dbb44ce5c0363a2181a91eab041ee92b82e067079f917cd79ffb5122ce73"'
+        X-Oauth-Scopes:
+          - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
+            admin:repo_hook, delete:packages, delete_repo, gist, notifications, repo,
+            user, workflow, write:discussion, write:packages
+        X-Accepted-Oauth-Scopes:
+          - repo
+        Location:
+          - https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/43401451
+        X-Github-Media-Type:
+          - github.v3; format=json
+        X-Ratelimit-Limit:
+          - "5000"
+        X-Ratelimit-Remaining:
+          - "4970"
+        X-Ratelimit-Reset:
+          - "1621650877"
+        X-Ratelimit-Used:
+          - "30"
+        X-Ratelimit-Resource:
+          - core
+        Access-Control-Expose-Headers:
+          - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+            X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+            X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation,
+            Sunset
+        Access-Control-Allow-Origin:
+          - "*"
+        Strict-Transport-Security:
+          - max-age=31536000; includeSubdomains; preload
+        X-Frame-Options:
+          - deny
+        X-Content-Type-Options:
+          - nosniff
+        X-Xss-Protection:
+          - "0"
+        Referrer-Policy:
+          - origin-when-cross-origin, strict-origin-when-cross-origin
+        Content-Security-Policy:
+          - default-src 'none'
+        X-Github-Request-Id:
+          - 6EA0:341E:1FA357:99AF76:60A86D76
+      body:
+        encoding: UTF-8
+        string:
+          '{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/43401451","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/43401451/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/43401451/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v1.0.0","id":43401451,"author":{"login":"kaiomagalhaes","id":1529246,"node_id":"MDQ6VXNlcjE1MjkyNDY=","avatar_url":"https://avatars.githubusercontent.com/u/1529246?v=4","gravatar_id":"","url":"https://api.github.com/users/kaiomagalhaes","html_url":"https://github.com/kaiomagalhaes","followers_url":"https://api.github.com/users/kaiomagalhaes/followers","following_url":"https://api.github.com/users/kaiomagalhaes/following{/other_user}","gists_url":"https://api.github.com/users/kaiomagalhaes/gists{/gist_id}","starred_url":"https://api.github.com/users/kaiomagalhaes/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/kaiomagalhaes/subscriptions","organizations_url":"https://api.github.com/users/kaiomagalhaes/orgs","repos_url":"https://api.github.com/users/kaiomagalhaes/repos","events_url":"https://api.github.com/users/kaiomagalhaes/events{/privacy}","received_events_url":"https://api.github.com/users/kaiomagalhaes/received_events","type":"User","site_admin":false},"node_id":"MDc6UmVsZWFzZTQzNDAxNDUx","tag_name":"rc.1.v1.0.0","target_commitish":"master","name":null,"draft":false,"prerelease":true,"created_at":"2021-05-22T02:27:21Z","published_at":"2021-05-22T02:33:27Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v1.0.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v1.0.0","body":"Available
+          in the release of *roadrunner-repository-test*:\n - commit number one \n -
+          commit number two"}'
+    recorded_at: Sat, 22 May 2021 02:33:27 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev/channel_messages
+      body:
+        encoding: UTF-8
+        string:
+          '{"bot":"roadrunner","message":"Available in the release of *roadrunner-repository-test*:\n
+          - commit number one \n - commit number two","channel":"feed-test-automations","ts":null}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "714"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
+        Date:
+          - Sat, 22 May 2021 02:33:27 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string:
+          '{"ok":true,"channel":"CRXH3U8PK","ts":"1621650807.002600","message":{"bot_id":"BSW6NEU5N","type":"message","text":"Available
+          in the release of *roadrunner-repository-test*:\n - commit number one \n -
+          commit number two","user":"USYCS7QHL","ts":"1621650807.002600","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
+    recorded_at: Sat, 22 May 2021 02:33:27 GMT
 recorded_with: VCR 6.0.0

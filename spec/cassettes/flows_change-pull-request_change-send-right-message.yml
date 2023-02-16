@@ -1,43 +1,43 @@
 ---
 http_interactions:
-- request:
-    method: patch
-    uri: https://slack-api.codelitt.dev/channel_messages
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","message":":pencil2: There is a new change!","channel":"feed-test-automations","ts":"123"}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 400
-      message: 'Bad Request '
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '29'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
-      Date:
-      - Wed, 12 Aug 2020 19:08:08 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"error":"message_not_found"}'
-  recorded_at: Wed, 12 Aug 2020 19:08:07 GMT
+  - request:
+      method: patch
+      uri: https://api.notifications.codelitt.dev/channel_messages
+      body:
+        encoding: UTF-8
+        string: '{"bot":"roadrunner","message":":pencil2: There is a new change!","channel":"feed-test-automations","ts":"123"}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 400
+        message: "Bad Request "
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "29"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
+        Date:
+          - Wed, 12 Aug 2020 19:08:08 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string: '{"error":"message_not_found"}'
+    recorded_at: Wed, 12 Aug 2020 19:08:07 GMT
 recorded_with: VCR 6.0.0

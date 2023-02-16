@@ -1,252 +1,256 @@
 ---
 http_interactions:
-- request:
-    method: get
-    uri: https://api.github.com/repos/codelittinc/ay-properties-api/pulls/13/commits
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/vnd.github.v3+json
-      User-Agent:
-      - Octokit Ruby Gem 4.20.0
-      Content-Type:
-      - application/json
-      Authorization:
-      - token 2e593567d90bd505570de77f516f44ebe4aba218
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - GitHub.com
-      Date:
-      - Wed, 10 Mar 2021 15:21:46 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Cache-Control:
-      - private, max-age=60, s-maxage=60
-      Vary:
-      - Accept, Authorization, Cookie, X-GitHub-OTP
-      - Accept-Encoding, Accept, X-Requested-With
-      Etag:
-      - W/"b52527c77a16fd6a17333326837a6fbba0c9867c69042ae144137b1c7cef051c"
-      Last-Modified:
-      - Tue, 09 Mar 2021 22:46:51 GMT
-      X-Oauth-Scopes:
-      - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
-        admin:repo_hook, delete:packages, delete_repo, gist, notifications, repo,
-        user, workflow, write:discussion, write:packages
-      X-Accepted-Oauth-Scopes:
-      - ''
-      X-Github-Media-Type:
-      - github.v3; format=json
-      X-Ratelimit-Limit:
-      - '5000'
-      X-Ratelimit-Remaining:
-      - '4974'
-      X-Ratelimit-Reset:
-      - '1615392628'
-      X-Ratelimit-Used:
-      - '26'
-      Access-Control-Expose-Headers:
-      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
-        X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
-        X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubdomains; preload
-      X-Frame-Options:
-      - deny
-      X-Content-Type-Options:
-      - nosniff
-      X-Xss-Protection:
-      - 1; mode=block
-      Referrer-Policy:
-      - origin-when-cross-origin, strict-origin-when-cross-origin
-      Content-Security-Policy:
-      - default-src 'none'
-      X-Github-Request-Id:
-      - C820:5096:5076A6A:8498011:6048E40A
-    body:
-      encoding: ASCII-8BIT
-      string: '[{"sha":"2f9d95df369d1875ee83027461a919ee0009edeb","node_id":"MDY6Q29tbWl0MjIxOTUwODM2OjJmOWQ5NWRmMzY5ZDE4NzVlZTgzMDI3NDYxYTkxOWVlMDAwOWVkZWI=","commit":{"author":{"name":"Gabriel
-        Pan Gantes","email":"gabrielpanga@gmail.com","date":"2019-11-25T15:34:05Z"},"committer":{"name":"Gabriel
-        Pan Gantes","email":"gabrielpanga@gmail.com","date":"2019-11-25T15:34:05Z"},"message":"Add
-        PoC for File Upload","tree":{"sha":"8ac05db4a7e1f9ac0660edd462697ab3871748aa","url":"https://api.github.com/repos/codelittinc/ay-properties-api/git/trees/8ac05db4a7e1f9ac0660edd462697ab3871748aa"},"url":"https://api.github.com/repos/codelittinc/ay-properties-api/git/commits/2f9d95df369d1875ee83027461a919ee0009edeb","comment_count":0,"verification":{"verified":false,"reason":"unsigned","signature":null,"payload":null}},"url":"https://api.github.com/repos/codelittinc/ay-properties-api/commits/2f9d95df369d1875ee83027461a919ee0009edeb","html_url":"https://github.com/codelittinc/ay-properties-api/commit/2f9d95df369d1875ee83027461a919ee0009edeb","comments_url":"https://api.github.com/repos/codelittinc/ay-properties-api/commits/2f9d95df369d1875ee83027461a919ee0009edeb/comments","author":{"login":"Gabrielpanga","id":1649924,"node_id":"MDQ6VXNlcjE2NDk5MjQ=","avatar_url":"https://avatars.githubusercontent.com/u/1649924?v=4","gravatar_id":"","url":"https://api.github.com/users/Gabrielpanga","html_url":"https://github.com/Gabrielpanga","followers_url":"https://api.github.com/users/Gabrielpanga/followers","following_url":"https://api.github.com/users/Gabrielpanga/following{/other_user}","gists_url":"https://api.github.com/users/Gabrielpanga/gists{/gist_id}","starred_url":"https://api.github.com/users/Gabrielpanga/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Gabrielpanga/subscriptions","organizations_url":"https://api.github.com/users/Gabrielpanga/orgs","repos_url":"https://api.github.com/users/Gabrielpanga/repos","events_url":"https://api.github.com/users/Gabrielpanga/events{/privacy}","received_events_url":"https://api.github.com/users/Gabrielpanga/received_events","type":"User","site_admin":false},"committer":{"login":"Gabrielpanga","id":1649924,"node_id":"MDQ6VXNlcjE2NDk5MjQ=","avatar_url":"https://avatars.githubusercontent.com/u/1649924?v=4","gravatar_id":"","url":"https://api.github.com/users/Gabrielpanga","html_url":"https://github.com/Gabrielpanga","followers_url":"https://api.github.com/users/Gabrielpanga/followers","following_url":"https://api.github.com/users/Gabrielpanga/following{/other_user}","gists_url":"https://api.github.com/users/Gabrielpanga/gists{/gist_id}","starred_url":"https://api.github.com/users/Gabrielpanga/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Gabrielpanga/subscriptions","organizations_url":"https://api.github.com/users/Gabrielpanga/orgs","repos_url":"https://api.github.com/users/Gabrielpanga/repos","events_url":"https://api.github.com/users/Gabrielpanga/events{/privacy}","received_events_url":"https://api.github.com/users/Gabrielpanga/received_events","type":"User","site_admin":false},"parents":[{"sha":"db246376e22e2aa5b2311f9ccf54c6c73c13fda5","url":"https://api.github.com/repos/codelittinc/ay-properties-api/commits/db246376e22e2aa5b2311f9ccf54c6c73c13fda5","html_url":"https://github.com/codelittinc/ay-properties-api/commit/db246376e22e2aa5b2311f9ccf54c6c73c13fda5"}]}]'
-  recorded_at: Wed, 10 Mar 2021 15:21:46 GMT
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev/reactions
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","reaction":"airplane_departure","channel":"feed-test-automations","ts":"123"}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '29'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
-      Date:
-      - Wed, 10 Mar 2021 15:21:47 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"error":"message_not_found"}'
-  recorded_at: Wed, 10 Mar 2021 15:21:47 GMT
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev/direct-ephemeral-messages
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","blocks":[{"type":"section","text":{"type":"mrkdwn","text":":jira:
-        the card *AYAPI-254* was found on the PR *ay-properties-api*-*13*, do you
-        like to move it to *Ready for QA*?"}},{"type":"actions","block_id":"actionblock789","elements":[{"type":"button","text":{"type":"plain_text","text":"Yes,
-        please!"},"style":"primary","value":"yes","action_id":"jira-status-update-AYAPI-254"}]}],"username":"kaiomagalhaes","channel":null}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '44'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
-      Date:
-      - Wed, 10 Mar 2021 15:21:48 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"ok":true,"message_ts":"1615389708.000300"}'
-  recorded_at: Wed, 10 Mar 2021 15:21:48 GMT
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev/direct-ephemeral-messages
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","blocks":[{"type":"section","text":{"type":"mrkdwn","text":":jira:
-        the card *AYAPI-255* was found on the PR *ay-properties-api*-*13*, do you
-        like to move it to *Ready for QA*?"}},{"type":"actions","block_id":"actionblock789","elements":[{"type":"button","text":{"type":"plain_text","text":"Yes,
-        please!"},"style":"primary","value":"yes","action_id":"jira-status-update-AYAPI-255"}]}],"username":"kaiomagalhaes","channel":null}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '44'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
-      Date:
-      - Wed, 10 Mar 2021 15:21:49 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"ok":true,"message_ts":"1615389709.000400"}'
-  recorded_at: Wed, 10 Mar 2021 15:21:49 GMT
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev/direct_messages
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","message":":airplane_departure: Pull Request closed \u003chttps://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13\u003e","username":"kaiomagalhaes"}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '720'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
-      Date:
-      - Wed, 10 Mar 2021 15:21:50 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"ok":true,"channel":"DSKK0U6EP","ts":"1615389710.000500","message":{"bot_id":"BSW6NEU5N","type":"message","text":":airplane_departure:
-        Pull Request closed <https://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13>","user":"USYCS7QHL","ts":"1615389710.000500","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
-  recorded_at: Wed, 10 Mar 2021 15:21:50 GMT
+  - request:
+      method: get
+      uri: https://api.github.com/repos/codelittinc/ay-properties-api/pulls/13/commits
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - application/vnd.github.v3+json
+        User-Agent:
+          - Octokit Ruby Gem 4.20.0
+        Content-Type:
+          - application/json
+        Authorization:
+          - token 2e593567d90bd505570de77f516f44ebe4aba218
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Server:
+          - GitHub.com
+        Date:
+          - Wed, 10 Mar 2021 15:21:46 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Cache-Control:
+          - private, max-age=60, s-maxage=60
+        Vary:
+          - Accept, Authorization, Cookie, X-GitHub-OTP
+          - Accept-Encoding, Accept, X-Requested-With
+        Etag:
+          - W/"b52527c77a16fd6a17333326837a6fbba0c9867c69042ae144137b1c7cef051c"
+        Last-Modified:
+          - Tue, 09 Mar 2021 22:46:51 GMT
+        X-Oauth-Scopes:
+          - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
+            admin:repo_hook, delete:packages, delete_repo, gist, notifications, repo,
+            user, workflow, write:discussion, write:packages
+        X-Accepted-Oauth-Scopes:
+          - ""
+        X-Github-Media-Type:
+          - github.v3; format=json
+        X-Ratelimit-Limit:
+          - "5000"
+        X-Ratelimit-Remaining:
+          - "4974"
+        X-Ratelimit-Reset:
+          - "1615392628"
+        X-Ratelimit-Used:
+          - "26"
+        Access-Control-Expose-Headers:
+          - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+            X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+            X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+        Access-Control-Allow-Origin:
+          - "*"
+        Strict-Transport-Security:
+          - max-age=31536000; includeSubdomains; preload
+        X-Frame-Options:
+          - deny
+        X-Content-Type-Options:
+          - nosniff
+        X-Xss-Protection:
+          - 1; mode=block
+        Referrer-Policy:
+          - origin-when-cross-origin, strict-origin-when-cross-origin
+        Content-Security-Policy:
+          - default-src 'none'
+        X-Github-Request-Id:
+          - C820:5096:5076A6A:8498011:6048E40A
+      body:
+        encoding: ASCII-8BIT
+        string:
+          '[{"sha":"2f9d95df369d1875ee83027461a919ee0009edeb","node_id":"MDY6Q29tbWl0MjIxOTUwODM2OjJmOWQ5NWRmMzY5ZDE4NzVlZTgzMDI3NDYxYTkxOWVlMDAwOWVkZWI=","commit":{"author":{"name":"Gabriel
+          Pan Gantes","email":"gabrielpanga@gmail.com","date":"2019-11-25T15:34:05Z"},"committer":{"name":"Gabriel
+          Pan Gantes","email":"gabrielpanga@gmail.com","date":"2019-11-25T15:34:05Z"},"message":"Add
+          PoC for File Upload","tree":{"sha":"8ac05db4a7e1f9ac0660edd462697ab3871748aa","url":"https://api.github.com/repos/codelittinc/ay-properties-api/git/trees/8ac05db4a7e1f9ac0660edd462697ab3871748aa"},"url":"https://api.github.com/repos/codelittinc/ay-properties-api/git/commits/2f9d95df369d1875ee83027461a919ee0009edeb","comment_count":0,"verification":{"verified":false,"reason":"unsigned","signature":null,"payload":null}},"url":"https://api.github.com/repos/codelittinc/ay-properties-api/commits/2f9d95df369d1875ee83027461a919ee0009edeb","html_url":"https://github.com/codelittinc/ay-properties-api/commit/2f9d95df369d1875ee83027461a919ee0009edeb","comments_url":"https://api.github.com/repos/codelittinc/ay-properties-api/commits/2f9d95df369d1875ee83027461a919ee0009edeb/comments","author":{"login":"Gabrielpanga","id":1649924,"node_id":"MDQ6VXNlcjE2NDk5MjQ=","avatar_url":"https://avatars.githubusercontent.com/u/1649924?v=4","gravatar_id":"","url":"https://api.github.com/users/Gabrielpanga","html_url":"https://github.com/Gabrielpanga","followers_url":"https://api.github.com/users/Gabrielpanga/followers","following_url":"https://api.github.com/users/Gabrielpanga/following{/other_user}","gists_url":"https://api.github.com/users/Gabrielpanga/gists{/gist_id}","starred_url":"https://api.github.com/users/Gabrielpanga/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Gabrielpanga/subscriptions","organizations_url":"https://api.github.com/users/Gabrielpanga/orgs","repos_url":"https://api.github.com/users/Gabrielpanga/repos","events_url":"https://api.github.com/users/Gabrielpanga/events{/privacy}","received_events_url":"https://api.github.com/users/Gabrielpanga/received_events","type":"User","site_admin":false},"committer":{"login":"Gabrielpanga","id":1649924,"node_id":"MDQ6VXNlcjE2NDk5MjQ=","avatar_url":"https://avatars.githubusercontent.com/u/1649924?v=4","gravatar_id":"","url":"https://api.github.com/users/Gabrielpanga","html_url":"https://github.com/Gabrielpanga","followers_url":"https://api.github.com/users/Gabrielpanga/followers","following_url":"https://api.github.com/users/Gabrielpanga/following{/other_user}","gists_url":"https://api.github.com/users/Gabrielpanga/gists{/gist_id}","starred_url":"https://api.github.com/users/Gabrielpanga/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Gabrielpanga/subscriptions","organizations_url":"https://api.github.com/users/Gabrielpanga/orgs","repos_url":"https://api.github.com/users/Gabrielpanga/repos","events_url":"https://api.github.com/users/Gabrielpanga/events{/privacy}","received_events_url":"https://api.github.com/users/Gabrielpanga/received_events","type":"User","site_admin":false},"parents":[{"sha":"db246376e22e2aa5b2311f9ccf54c6c73c13fda5","url":"https://api.github.com/repos/codelittinc/ay-properties-api/commits/db246376e22e2aa5b2311f9ccf54c6c73c13fda5","html_url":"https://github.com/codelittinc/ay-properties-api/commit/db246376e22e2aa5b2311f9ccf54c6c73c13fda5"}]}]'
+    recorded_at: Wed, 10 Mar 2021 15:21:46 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev/reactions
+      body:
+        encoding: UTF-8
+        string: '{"bot":"roadrunner","reaction":"airplane_departure","channel":"feed-test-automations","ts":"123"}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 400
+        message: Bad Request
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "29"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
+        Date:
+          - Wed, 10 Mar 2021 15:21:47 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string: '{"error":"message_not_found"}'
+    recorded_at: Wed, 10 Mar 2021 15:21:47 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev/direct-ephemeral-messages
+      body:
+        encoding: UTF-8
+        string:
+          '{"bot":"roadrunner","blocks":[{"type":"section","text":{"type":"mrkdwn","text":":jira:
+          the card *AYAPI-254* was found on the PR *ay-properties-api*-*13*, do you
+          like to move it to *Ready for QA*?"}},{"type":"actions","block_id":"actionblock789","elements":[{"type":"button","text":{"type":"plain_text","text":"Yes,
+          please!"},"style":"primary","value":"yes","action_id":"jira-status-update-AYAPI-254"}]}],"username":"kaiomagalhaes","channel":null}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "44"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
+        Date:
+          - Wed, 10 Mar 2021 15:21:48 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string: '{"ok":true,"message_ts":"1615389708.000300"}'
+    recorded_at: Wed, 10 Mar 2021 15:21:48 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev/direct-ephemeral-messages
+      body:
+        encoding: UTF-8
+        string:
+          '{"bot":"roadrunner","blocks":[{"type":"section","text":{"type":"mrkdwn","text":":jira:
+          the card *AYAPI-255* was found on the PR *ay-properties-api*-*13*, do you
+          like to move it to *Ready for QA*?"}},{"type":"actions","block_id":"actionblock789","elements":[{"type":"button","text":{"type":"plain_text","text":"Yes,
+          please!"},"style":"primary","value":"yes","action_id":"jira-status-update-AYAPI-255"}]}],"username":"kaiomagalhaes","channel":null}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "44"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
+        Date:
+          - Wed, 10 Mar 2021 15:21:49 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string: '{"ok":true,"message_ts":"1615389709.000400"}'
+    recorded_at: Wed, 10 Mar 2021 15:21:49 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev/direct_messages
+      body:
+        encoding: UTF-8
+        string: '{"bot":"roadrunner","message":":airplane_departure: Pull Request closed \u003chttps://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13\u003e","username":"kaiomagalhaes"}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "720"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
+        Date:
+          - Wed, 10 Mar 2021 15:21:50 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string:
+          '{"ok":true,"channel":"DSKK0U6EP","ts":"1615389710.000500","message":{"bot_id":"BSW6NEU5N","type":"message","text":":airplane_departure:
+          Pull Request closed <https://github.com/codelittinc/ay-properties-api/pull/13|ay-properties-api#13>","user":"USYCS7QHL","ts":"1615389710.000500","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
+    recorded_at: Wed, 10 Mar 2021 15:21:50 GMT
 recorded_with: VCR 6.0.0

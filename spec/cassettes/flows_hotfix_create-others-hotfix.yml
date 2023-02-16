@@ -1,366 +1,373 @@
 ---
 http_interactions:
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev//channel_messages
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","message":"Hotfix release to *roadrunner-repository-test*
-        *QA* triggered by @","channel":"feed-test-automations","ts":null}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 200
-      message: 'OK '
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '678'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
-      Date:
-      - Tue, 13 Oct 2020 14:06:57 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"ok":true,"channel":"CRXH3U8PK","ts":"1602598017.000400","message":{"bot_id":"BSW6NEU5N","type":"message","text":"Hotfix
-        release to *roadrunner-repository-test* *QA* triggered by @","user":"USYCS7QHL","ts":"1602598017.000400","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
-  recorded_at: Tue, 13 Oct 2020 14:06:57 GMT
-- request:
-    method: get
-    uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases?per_page=100
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/vnd.github.v3+json
-      User-Agent:
-      - Octokit Ruby Gem 4.18.0
-      Content-Type:
-      - application/json
-      Authorization:
-      - token 2e593567d90bd505570de77f516f44ebe4aba218
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 13 Oct 2020 14:06:57 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - GitHub.com
-      Status:
-      - 200 OK
-      Cache-Control:
-      - private, max-age=60, s-maxage=60
-      Vary:
-      - Accept, Authorization, Cookie, X-GitHub-OTP
-      - Accept-Encoding
-      - Accept-Encoding, Accept, X-Requested-With
-      Etag:
-      - W/"3e6815c0f360f88db3c1d0298bb352165ac26f51744e9dba5cce42af683948fe"
-      X-Oauth-Scopes:
-      - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
-        admin:repo_hook, delete:packages, delete_repo, gist, notifications, read:packages,
-        repo, user, workflow, write:discussion, write:packages
-      X-Accepted-Oauth-Scopes:
-      - repo
-      X-Github-Media-Type:
-      - github.v3; format=json
-      X-Ratelimit-Limit:
-      - '5000'
-      X-Ratelimit-Remaining:
-      - '4965'
-      X-Ratelimit-Reset:
-      - '1602599651'
-      X-Ratelimit-Used:
-      - '35'
-      Access-Control-Expose-Headers:
-      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
-        X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
-        X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubdomains; preload
-      X-Frame-Options:
-      - deny
-      X-Content-Type-Options:
-      - nosniff
-      X-Xss-Protection:
-      - 1; mode=block
-      Referrer-Policy:
-      - origin-when-cross-origin, strict-origin-when-cross-origin
-      Content-Security-Policy:
-      - default-src 'none'
-      X-Github-Request-Id:
-      - B5B4:0B48:7193:9A21:5F85B481
-    body:
-      encoding: ASCII-8BIT
-      string: '[{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/32508880","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/32508880/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/32508880/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v1.1.1","id":32508880,"node_id":"MDc6UmVsZWFzZTMyNTA4ODgw","tag_name":"rc.1.v1.1.1","target_commitish":"hotfix/fix-to-test","name":"rc.1.v1.1.1","draft":false,"author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"prerelease":true,"created_at":"2020-08-31T13:09:19Z","published_at":"2020-10-13T14:06:45Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v1.1.1","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v1.1.1","body":"Description
-        of the release"},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30349494","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30349494/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/30349494/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v1.2.0","id":30349494,"node_id":"MDc6UmVsZWFzZTMwMzQ5NDk0","tag_name":"rc.1.v1.2.0","target_commitish":"patch-4","name":"rc.1.v1.2.0","draft":false,"author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"prerelease":true,"created_at":"2020-08-28T21:14:24Z","published_at":"2020-08-28T21:14:44Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v1.2.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v1.2.0","body":"Description
-        of the release"},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348787","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348787/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348787/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/v1.1.0","id":30348787,"node_id":"MDc6UmVsZWFzZTMwMzQ4Nzg3","tag_name":"v1.1.0","target_commitish":"master","name":"v1.1.0","draft":false,"author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"prerelease":false,"created_at":"2020-08-28T20:43:21Z","published_at":"2020-08-28T20:59:05Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/v1.1.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/v1.1.0","body":"Description
-        of the release"},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348369","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348369/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348369/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v1.1.0","id":30348369,"node_id":"MDc6UmVsZWFzZTMwMzQ4MzY5","tag_name":"rc.1.v1.1.0","target_commitish":"master","name":"rc.1.v1.1.0","draft":false,"author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"prerelease":true,"created_at":"2020-08-28T20:43:21Z","published_at":"2020-08-28T20:47:43Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v1.1.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v1.1.0","body":"Description
-        of the release"},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348195","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348195/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348195/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/v1.0.0","id":30348195,"node_id":"MDc6UmVsZWFzZTMwMzQ4MTk1","tag_name":"v1.0.0","target_commitish":"master","name":"v1.0.0","draft":false,"author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"prerelease":false,"created_at":"2020-08-28T18:35:51Z","published_at":"2020-08-28T20:42:45Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/v1.0.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/v1.0.0","body":"Description
-        of the release"},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30346647","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30346647/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/30346647/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v1.0.0","id":30346647,"node_id":"MDc6UmVsZWFzZTMwMzQ2NjQ3","tag_name":"rc.1.v1.0.0","target_commitish":"master","name":"rc.1.v1.0.0","draft":false,"author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"prerelease":true,"created_at":"2020-08-25T18:39:06Z","published_at":"2020-08-28T20:02:02Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v1.0.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v1.0.0","body":"Description
-        of the release"}]'
-  recorded_at: Tue, 13 Oct 2020 14:06:57 GMT
-- request:
-    method: get
-    uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/branches/hotfix/fix-to-test
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/vnd.github.v3+json
-      User-Agent:
-      - Octokit Ruby Gem 4.18.0
-      Content-Type:
-      - application/json
-      Authorization:
-      - token 2e593567d90bd505570de77f516f44ebe4aba218
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 13 Oct 2020 14:06:57 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - GitHub.com
-      Status:
-      - 200 OK
-      Cache-Control:
-      - private, max-age=60, s-maxage=60
-      Vary:
-      - Accept, Authorization, Cookie, X-GitHub-OTP
-      - Accept-Encoding
-      - Accept-Encoding, Accept, X-Requested-With
-      Etag:
-      - W/"aabfb6ec8d8b2045adc65c651e2a510305605cf2cf3caff50d0c99f2e382222e"
-      X-Oauth-Scopes:
-      - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
-        admin:repo_hook, delete:packages, delete_repo, gist, notifications, read:packages,
-        repo, user, workflow, write:discussion, write:packages
-      X-Accepted-Oauth-Scopes:
-      - ''
-      X-Github-Media-Type:
-      - github.v3; format=json
-      X-Ratelimit-Limit:
-      - '5000'
-      X-Ratelimit-Remaining:
-      - '4964'
-      X-Ratelimit-Reset:
-      - '1602599651'
-      X-Ratelimit-Used:
-      - '36'
-      Access-Control-Expose-Headers:
-      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
-        X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
-        X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubdomains; preload
-      X-Frame-Options:
-      - deny
-      X-Content-Type-Options:
-      - nosniff
-      X-Xss-Protection:
-      - 1; mode=block
-      Referrer-Policy:
-      - origin-when-cross-origin, strict-origin-when-cross-origin
-      Content-Security-Policy:
-      - default-src 'none'
-      X-Github-Request-Id:
-      - B5B6:0B49:13EE1:1AF71:5F85B481
-    body:
-      encoding: ASCII-8BIT
-      string: '{"name":"hotfix/fix-to-test","commit":{"sha":"68c44076db9827d83f110692690dbbeeb1ca3a7f","node_id":"MDY6Q29tbWl0MjgyMTk5MTQ1OjY4YzQ0MDc2ZGI5ODI3ZDgzZjExMDY5MjY5MGRiYmVlYjFjYTNhN2Y=","commit":{"author":{"name":"Rheniery
-        Mendes","email":"rhenierymendes@gmail.com","date":"2020-08-31T13:38:33Z"},"committer":{"name":"GitHub","email":"noreply@github.com","date":"2020-08-31T13:38:33Z"},"message":"Update
-        README.md","tree":{"sha":"5ca2494c517ccd0089a2f542c72f83f375b164da","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/trees/5ca2494c517ccd0089a2f542c72f83f375b164da"},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/commits/68c44076db9827d83f110692690dbbeeb1ca3a7f","comment_count":0,"verification":{"verified":true,"reason":"valid","signature":"-----BEGIN
-        PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJfTP1ZCRBK7hj4Ov3rIwAAdHIIAHDwfgMdo4lPDzfdRWOU7D6x\nrUTVne/Hwn2XDO0N2Ch1NbHQHWqnSITBJXOKeKFwO/k/53kIP/qixYsoI3BGvcHk\nhbPTWd4X1SGCmfF9u2o0wLunBpFBgNyRLlzKFZIB7J4y/mIhPU16CDLocvIYX1vN\n26tvvr2hQGC6rlAorNpQtC6QWf/Volf6Y0t9HB27Izn/YY+9vvy9dc76FJZUAV9I\nNtxo1792Fffn5r245c5vzKV16OsvvcegnXJbC1l10A/boSNQbLPu1pILW7ggDP+B\nXVsGR+QT3sdLxbIA0roKdWhcOwDXskzO+425aCIMxlMetDKa16TZ6ovfRrq/Fus=\n=p5B7\n-----END
-        PGP SIGNATURE-----\n","payload":"tree 5ca2494c517ccd0089a2f542c72f83f375b164da\nparent
-        897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed\nauthor Rheniery Mendes <rhenierymendes@gmail.com>
-        1598881113 -0300\ncommitter GitHub <noreply@github.com> 1598881113 -0300\n\nUpdate
-        README.md"}},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/68c44076db9827d83f110692690dbbeeb1ca3a7f","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/68c44076db9827d83f110692690dbbeeb1ca3a7f","comments_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/68c44076db9827d83f110692690dbbeeb1ca3a7f/comments","author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"committer":{"login":"web-flow","id":19864447,"node_id":"MDQ6VXNlcjE5ODY0NDQ3","avatar_url":"https://avatars3.githubusercontent.com/u/19864447?v=4","gravatar_id":"","url":"https://api.github.com/users/web-flow","html_url":"https://github.com/web-flow","followers_url":"https://api.github.com/users/web-flow/followers","following_url":"https://api.github.com/users/web-flow/following{/other_user}","gists_url":"https://api.github.com/users/web-flow/gists{/gist_id}","starred_url":"https://api.github.com/users/web-flow/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/web-flow/subscriptions","organizations_url":"https://api.github.com/users/web-flow/orgs","repos_url":"https://api.github.com/users/web-flow/repos","events_url":"https://api.github.com/users/web-flow/events{/privacy}","received_events_url":"https://api.github.com/users/web-flow/received_events","type":"User","site_admin":false},"parents":[{"sha":"897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed"}]},"_links":{"self":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/branches/hotfix/fix-to-test","html":"https://github.com/codelittinc/roadrunner-repository-test/tree/hotfix/fix-to-test"},"protected":false,"protection":{"enabled":false,"required_status_checks":{"enforcement_level":"off","contexts":[]}},"protection_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/branches/hotfix/fix-to-test/protection"}'
-  recorded_at: Tue, 13 Oct 2020 14:06:57 GMT
-- request:
-    method: get
-    uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/compare/rc.1.v1.1.1...hotfix/fix-to-test
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/vnd.github.v3+json
-      User-Agent:
-      - Octokit Ruby Gem 4.18.0
-      Content-Type:
-      - application/json
-      Authorization:
-      - token 2e593567d90bd505570de77f516f44ebe4aba218
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 13 Oct 2020 14:06:58 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Server:
-      - GitHub.com
-      Status:
-      - 200 OK
-      Cache-Control:
-      - private, max-age=60, s-maxage=60
-      Vary:
-      - Accept, Authorization, Cookie, X-GitHub-OTP
-      - Accept-Encoding
-      - Accept-Encoding, Accept, X-Requested-With
-      Etag:
-      - W/"e6ba90cdfce39e47ea58757cf68e015e2d2a87e4eb65c999c73808635b0384d9"
-      Last-Modified:
-      - Mon, 31 Aug 2020 13:38:33 GMT
-      X-Oauth-Scopes:
-      - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
-        admin:repo_hook, delete:packages, delete_repo, gist, notifications, read:packages,
-        repo, user, workflow, write:discussion, write:packages
-      X-Accepted-Oauth-Scopes:
-      - ''
-      X-Github-Media-Type:
-      - github.v3; format=json
-      X-Ratelimit-Limit:
-      - '5000'
-      X-Ratelimit-Remaining:
-      - '4963'
-      X-Ratelimit-Reset:
-      - '1602599651'
-      X-Ratelimit-Used:
-      - '37'
-      Access-Control-Expose-Headers:
-      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
-        X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
-        X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubdomains; preload
-      X-Frame-Options:
-      - deny
-      X-Content-Type-Options:
-      - nosniff
-      X-Xss-Protection:
-      - 1; mode=block
-      Referrer-Policy:
-      - origin-when-cross-origin, strict-origin-when-cross-origin
-      Content-Security-Policy:
-      - default-src 'none'
-      X-Github-Request-Id:
-      - B5B8:0AE3:14809:1BAA7:5F85B482
-    body:
-      encoding: ASCII-8BIT
-      string: '{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/compare/rc.1.v1.1.1...hotfix/fix-to-test","html_url":"https://github.com/codelittinc/roadrunner-repository-test/compare/rc.1.v1.1.1...hotfix/fix-to-test","permalink_url":"https://github.com/codelittinc/roadrunner-repository-test/compare/codelittinc:897bae4...codelittinc:68c4407","diff_url":"https://github.com/codelittinc/roadrunner-repository-test/compare/rc.1.v1.1.1...hotfix/fix-to-test.diff","patch_url":"https://github.com/codelittinc/roadrunner-repository-test/compare/rc.1.v1.1.1...hotfix/fix-to-test.patch","base_commit":{"sha":"897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","node_id":"MDY6Q29tbWl0MjgyMTk5MTQ1Ojg5N2JhZTQyZjhiY2Y5MGJkODY3NmIxZWQ5NGU4YmEyMDJhNmM5ZWQ=","commit":{"author":{"name":"Rheniery
-        Mendes","email":"rhenierymendes@gmail.com","date":"2020-08-31T13:09:19Z"},"committer":{"name":"GitHub","email":"noreply@github.com","date":"2020-08-31T13:09:19Z"},"message":"Update
-        README.md","tree":{"sha":"16b6368bc31d653facb337d5a43539f78a5cb628","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/trees/16b6368bc31d653facb337d5a43539f78a5cb628"},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","comment_count":0,"verification":{"verified":true,"reason":"valid","signature":"-----BEGIN
-        PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJfTPZ/CRBK7hj4Ov3rIwAAdHIIAJTnIwGw5dbbI9NeLFgxolq8\nRaITia4CY1hz+JQ921PMsoTgk+EgPOm54jFFsiiPfftvRRrBTyBI/OC/XanlGdrt\nxUytEJj8AFGtDgO+l/30LJl6ngWd8D02NEDEQwBkDod+XX/uBN48g5qfMw1iU1Bn\nc+bNlv8YkQkNVzSRccIKtG+ktb8+nr2DCbil8v4BilyYKCvybsGKPR+f25vUWzoX\nsD9YjHwNWXPjQobvuUc5ou1xiDuX62SRH+19jyjuTjazk4XDwp3rCFPx7jeOq2kI\nULOzTZlN7Evs1DjS+2May1Gnusqh73Xr5NJ1YTCKSNumBTc6XQvMzzbBwiQHJ9o=\n=p4gx\n-----END
-        PGP SIGNATURE-----\n","payload":"tree 16b6368bc31d653facb337d5a43539f78a5cb628\nparent
-        27513d2ba5bcb29cc55e4040096d610530d1fe79\nauthor Rheniery Mendes <rhenierymendes@gmail.com>
-        1598879359 -0300\ncommitter GitHub <noreply@github.com> 1598879359 -0300\n\nUpdate
-        README.md"}},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","comments_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed/comments","author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"committer":{"login":"web-flow","id":19864447,"node_id":"MDQ6VXNlcjE5ODY0NDQ3","avatar_url":"https://avatars3.githubusercontent.com/u/19864447?v=4","gravatar_id":"","url":"https://api.github.com/users/web-flow","html_url":"https://github.com/web-flow","followers_url":"https://api.github.com/users/web-flow/followers","following_url":"https://api.github.com/users/web-flow/following{/other_user}","gists_url":"https://api.github.com/users/web-flow/gists{/gist_id}","starred_url":"https://api.github.com/users/web-flow/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/web-flow/subscriptions","organizations_url":"https://api.github.com/users/web-flow/orgs","repos_url":"https://api.github.com/users/web-flow/repos","events_url":"https://api.github.com/users/web-flow/events{/privacy}","received_events_url":"https://api.github.com/users/web-flow/received_events","type":"User","site_admin":false},"parents":[{"sha":"27513d2ba5bcb29cc55e4040096d610530d1fe79","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/27513d2ba5bcb29cc55e4040096d610530d1fe79","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/27513d2ba5bcb29cc55e4040096d610530d1fe79"}]},"merge_base_commit":{"sha":"897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","node_id":"MDY6Q29tbWl0MjgyMTk5MTQ1Ojg5N2JhZTQyZjhiY2Y5MGJkODY3NmIxZWQ5NGU4YmEyMDJhNmM5ZWQ=","commit":{"author":{"name":"Rheniery
-        Mendes","email":"rhenierymendes@gmail.com","date":"2020-08-31T13:09:19Z"},"committer":{"name":"GitHub","email":"noreply@github.com","date":"2020-08-31T13:09:19Z"},"message":"Update
-        README.md","tree":{"sha":"16b6368bc31d653facb337d5a43539f78a5cb628","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/trees/16b6368bc31d653facb337d5a43539f78a5cb628"},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","comment_count":0,"verification":{"verified":true,"reason":"valid","signature":"-----BEGIN
-        PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJfTPZ/CRBK7hj4Ov3rIwAAdHIIAJTnIwGw5dbbI9NeLFgxolq8\nRaITia4CY1hz+JQ921PMsoTgk+EgPOm54jFFsiiPfftvRRrBTyBI/OC/XanlGdrt\nxUytEJj8AFGtDgO+l/30LJl6ngWd8D02NEDEQwBkDod+XX/uBN48g5qfMw1iU1Bn\nc+bNlv8YkQkNVzSRccIKtG+ktb8+nr2DCbil8v4BilyYKCvybsGKPR+f25vUWzoX\nsD9YjHwNWXPjQobvuUc5ou1xiDuX62SRH+19jyjuTjazk4XDwp3rCFPx7jeOq2kI\nULOzTZlN7Evs1DjS+2May1Gnusqh73Xr5NJ1YTCKSNumBTc6XQvMzzbBwiQHJ9o=\n=p4gx\n-----END
-        PGP SIGNATURE-----\n","payload":"tree 16b6368bc31d653facb337d5a43539f78a5cb628\nparent
-        27513d2ba5bcb29cc55e4040096d610530d1fe79\nauthor Rheniery Mendes <rhenierymendes@gmail.com>
-        1598879359 -0300\ncommitter GitHub <noreply@github.com> 1598879359 -0300\n\nUpdate
-        README.md"}},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","comments_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed/comments","author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"committer":{"login":"web-flow","id":19864447,"node_id":"MDQ6VXNlcjE5ODY0NDQ3","avatar_url":"https://avatars3.githubusercontent.com/u/19864447?v=4","gravatar_id":"","url":"https://api.github.com/users/web-flow","html_url":"https://github.com/web-flow","followers_url":"https://api.github.com/users/web-flow/followers","following_url":"https://api.github.com/users/web-flow/following{/other_user}","gists_url":"https://api.github.com/users/web-flow/gists{/gist_id}","starred_url":"https://api.github.com/users/web-flow/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/web-flow/subscriptions","organizations_url":"https://api.github.com/users/web-flow/orgs","repos_url":"https://api.github.com/users/web-flow/repos","events_url":"https://api.github.com/users/web-flow/events{/privacy}","received_events_url":"https://api.github.com/users/web-flow/received_events","type":"User","site_admin":false},"parents":[{"sha":"27513d2ba5bcb29cc55e4040096d610530d1fe79","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/27513d2ba5bcb29cc55e4040096d610530d1fe79","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/27513d2ba5bcb29cc55e4040096d610530d1fe79"}]},"status":"ahead","ahead_by":1,"behind_by":0,"total_commits":1,"commits":[{"sha":"68c44076db9827d83f110692690dbbeeb1ca3a7f","node_id":"MDY6Q29tbWl0MjgyMTk5MTQ1OjY4YzQ0MDc2ZGI5ODI3ZDgzZjExMDY5MjY5MGRiYmVlYjFjYTNhN2Y=","commit":{"author":{"name":"Rheniery
-        Mendes","email":"rhenierymendes@gmail.com","date":"2020-08-31T13:38:33Z"},"committer":{"name":"GitHub","email":"noreply@github.com","date":"2020-08-31T13:38:33Z"},"message":"Update
-        README.md","tree":{"sha":"5ca2494c517ccd0089a2f542c72f83f375b164da","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/trees/5ca2494c517ccd0089a2f542c72f83f375b164da"},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/commits/68c44076db9827d83f110692690dbbeeb1ca3a7f","comment_count":0,"verification":{"verified":true,"reason":"valid","signature":"-----BEGIN
-        PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJfTP1ZCRBK7hj4Ov3rIwAAdHIIAHDwfgMdo4lPDzfdRWOU7D6x\nrUTVne/Hwn2XDO0N2Ch1NbHQHWqnSITBJXOKeKFwO/k/53kIP/qixYsoI3BGvcHk\nhbPTWd4X1SGCmfF9u2o0wLunBpFBgNyRLlzKFZIB7J4y/mIhPU16CDLocvIYX1vN\n26tvvr2hQGC6rlAorNpQtC6QWf/Volf6Y0t9HB27Izn/YY+9vvy9dc76FJZUAV9I\nNtxo1792Fffn5r245c5vzKV16OsvvcegnXJbC1l10A/boSNQbLPu1pILW7ggDP+B\nXVsGR+QT3sdLxbIA0roKdWhcOwDXskzO+425aCIMxlMetDKa16TZ6ovfRrq/Fus=\n=p5B7\n-----END
-        PGP SIGNATURE-----\n","payload":"tree 5ca2494c517ccd0089a2f542c72f83f375b164da\nparent
-        897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed\nauthor Rheniery Mendes <rhenierymendes@gmail.com>
-        1598881113 -0300\ncommitter GitHub <noreply@github.com> 1598881113 -0300\n\nUpdate
-        README.md"}},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/68c44076db9827d83f110692690dbbeeb1ca3a7f","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/68c44076db9827d83f110692690dbbeeb1ca3a7f","comments_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/68c44076db9827d83f110692690dbbeeb1ca3a7f/comments","author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"committer":{"login":"web-flow","id":19864447,"node_id":"MDQ6VXNlcjE5ODY0NDQ3","avatar_url":"https://avatars3.githubusercontent.com/u/19864447?v=4","gravatar_id":"","url":"https://api.github.com/users/web-flow","html_url":"https://github.com/web-flow","followers_url":"https://api.github.com/users/web-flow/followers","following_url":"https://api.github.com/users/web-flow/following{/other_user}","gists_url":"https://api.github.com/users/web-flow/gists{/gist_id}","starred_url":"https://api.github.com/users/web-flow/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/web-flow/subscriptions","organizations_url":"https://api.github.com/users/web-flow/orgs","repos_url":"https://api.github.com/users/web-flow/repos","events_url":"https://api.github.com/users/web-flow/events{/privacy}","received_events_url":"https://api.github.com/users/web-flow/received_events","type":"User","site_admin":false},"parents":[{"sha":"897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed"}]}],"files":[{"sha":"48602963725ee4b54e6f669cbec1fc0d2725f24e","filename":"README.md","status":"modified","additions":1,"deletions":1,"changes":2,"blob_url":"https://github.com/codelittinc/roadrunner-repository-test/blob/68c44076db9827d83f110692690dbbeeb1ca3a7f/README.md","raw_url":"https://github.com/codelittinc/roadrunner-repository-test/raw/68c44076db9827d83f110692690dbbeeb1ca3a7f/README.md","contents_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/contents/README.md?ref=68c44076db9827d83f110692690dbbeeb1ca3a7f","patch":"@@
-        -2,4 +2,4 @@\n \n This is a test repository, its only purpose is for testing
-        ou Roadrunner API\n \n-Create branch hotfix/fix-to-test - commit 3\n+Create
-        branch hotfix/fix-to-test - commit 3 dfsfsd fs sdf sd "}]}'
-  recorded_at: Tue, 13 Oct 2020 14:06:58 GMT
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev//channel_messages
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","message":"Available in the release of *roadrunner-repository-test*:\n
-        - Update README.md","channel":"feed-test-automations","ts":null}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 200
-      message: 'OK '
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '690'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
-      Date:
-      - Tue, 13 Oct 2020 14:06:59 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"ok":true,"channel":"CRXH3U8PK","ts":"1602598019.000500","message":{"bot_id":"BSW6NEU5N","type":"message","text":"Available
-        in the release of *roadrunner-repository-test*:\n - Update README.md","user":"USYCS7QHL","ts":"1602598019.000500","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
-  recorded_at: Tue, 13 Oct 2020 14:06:59 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev//channel_messages
+      body:
+        encoding: UTF-8
+        string:
+          '{"bot":"roadrunner","message":"Hotfix release to *roadrunner-repository-test*
+          *QA* triggered by @","channel":"feed-test-automations","ts":null}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 200
+        message: "OK "
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "678"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
+        Date:
+          - Tue, 13 Oct 2020 14:06:57 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string:
+          '{"ok":true,"channel":"CRXH3U8PK","ts":"1602598017.000400","message":{"bot_id":"BSW6NEU5N","type":"message","text":"Hotfix
+          release to *roadrunner-repository-test* *QA* triggered by @","user":"USYCS7QHL","ts":"1602598017.000400","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
+    recorded_at: Tue, 13 Oct 2020 14:06:57 GMT
+  - request:
+      method: get
+      uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases?per_page=100
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - application/vnd.github.v3+json
+        User-Agent:
+          - Octokit Ruby Gem 4.18.0
+        Content-Type:
+          - application/json
+        Authorization:
+          - token 2e593567d90bd505570de77f516f44ebe4aba218
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 13 Oct 2020 14:06:57 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Server:
+          - GitHub.com
+        Status:
+          - 200 OK
+        Cache-Control:
+          - private, max-age=60, s-maxage=60
+        Vary:
+          - Accept, Authorization, Cookie, X-GitHub-OTP
+          - Accept-Encoding
+          - Accept-Encoding, Accept, X-Requested-With
+        Etag:
+          - W/"3e6815c0f360f88db3c1d0298bb352165ac26f51744e9dba5cce42af683948fe"
+        X-Oauth-Scopes:
+          - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
+            admin:repo_hook, delete:packages, delete_repo, gist, notifications, read:packages,
+            repo, user, workflow, write:discussion, write:packages
+        X-Accepted-Oauth-Scopes:
+          - repo
+        X-Github-Media-Type:
+          - github.v3; format=json
+        X-Ratelimit-Limit:
+          - "5000"
+        X-Ratelimit-Remaining:
+          - "4965"
+        X-Ratelimit-Reset:
+          - "1602599651"
+        X-Ratelimit-Used:
+          - "35"
+        Access-Control-Expose-Headers:
+          - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+            X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+            X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+        Access-Control-Allow-Origin:
+          - "*"
+        Strict-Transport-Security:
+          - max-age=31536000; includeSubdomains; preload
+        X-Frame-Options:
+          - deny
+        X-Content-Type-Options:
+          - nosniff
+        X-Xss-Protection:
+          - 1; mode=block
+        Referrer-Policy:
+          - origin-when-cross-origin, strict-origin-when-cross-origin
+        Content-Security-Policy:
+          - default-src 'none'
+        X-Github-Request-Id:
+          - B5B4:0B48:7193:9A21:5F85B481
+      body:
+        encoding: ASCII-8BIT
+        string:
+          '[{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/32508880","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/32508880/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/32508880/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v1.1.1","id":32508880,"node_id":"MDc6UmVsZWFzZTMyNTA4ODgw","tag_name":"rc.1.v1.1.1","target_commitish":"hotfix/fix-to-test","name":"rc.1.v1.1.1","draft":false,"author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"prerelease":true,"created_at":"2020-08-31T13:09:19Z","published_at":"2020-10-13T14:06:45Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v1.1.1","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v1.1.1","body":"Description
+          of the release"},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30349494","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30349494/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/30349494/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v1.2.0","id":30349494,"node_id":"MDc6UmVsZWFzZTMwMzQ5NDk0","tag_name":"rc.1.v1.2.0","target_commitish":"patch-4","name":"rc.1.v1.2.0","draft":false,"author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"prerelease":true,"created_at":"2020-08-28T21:14:24Z","published_at":"2020-08-28T21:14:44Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v1.2.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v1.2.0","body":"Description
+          of the release"},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348787","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348787/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348787/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/v1.1.0","id":30348787,"node_id":"MDc6UmVsZWFzZTMwMzQ4Nzg3","tag_name":"v1.1.0","target_commitish":"master","name":"v1.1.0","draft":false,"author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"prerelease":false,"created_at":"2020-08-28T20:43:21Z","published_at":"2020-08-28T20:59:05Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/v1.1.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/v1.1.0","body":"Description
+          of the release"},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348369","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348369/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348369/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v1.1.0","id":30348369,"node_id":"MDc6UmVsZWFzZTMwMzQ4MzY5","tag_name":"rc.1.v1.1.0","target_commitish":"master","name":"rc.1.v1.1.0","draft":false,"author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"prerelease":true,"created_at":"2020-08-28T20:43:21Z","published_at":"2020-08-28T20:47:43Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v1.1.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v1.1.0","body":"Description
+          of the release"},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348195","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348195/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/30348195/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/v1.0.0","id":30348195,"node_id":"MDc6UmVsZWFzZTMwMzQ4MTk1","tag_name":"v1.0.0","target_commitish":"master","name":"v1.0.0","draft":false,"author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"prerelease":false,"created_at":"2020-08-28T18:35:51Z","published_at":"2020-08-28T20:42:45Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/v1.0.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/v1.0.0","body":"Description
+          of the release"},{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30346647","assets_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/releases/30346647/assets","upload_url":"https://uploads.github.com/repos/codelittinc/roadrunner-repository-test/releases/30346647/assets{?name,label}","html_url":"https://github.com/codelittinc/roadrunner-repository-test/releases/tag/rc.1.v1.0.0","id":30346647,"node_id":"MDc6UmVsZWFzZTMwMzQ2NjQ3","tag_name":"rc.1.v1.0.0","target_commitish":"master","name":"rc.1.v1.0.0","draft":false,"author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"prerelease":true,"created_at":"2020-08-25T18:39:06Z","published_at":"2020-08-28T20:02:02Z","assets":[],"tarball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/tarball/rc.1.v1.0.0","zipball_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/zipball/rc.1.v1.0.0","body":"Description
+          of the release"}]'
+    recorded_at: Tue, 13 Oct 2020 14:06:57 GMT
+  - request:
+      method: get
+      uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/branches/hotfix/fix-to-test
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - application/vnd.github.v3+json
+        User-Agent:
+          - Octokit Ruby Gem 4.18.0
+        Content-Type:
+          - application/json
+        Authorization:
+          - token 2e593567d90bd505570de77f516f44ebe4aba218
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 13 Oct 2020 14:06:57 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Server:
+          - GitHub.com
+        Status:
+          - 200 OK
+        Cache-Control:
+          - private, max-age=60, s-maxage=60
+        Vary:
+          - Accept, Authorization, Cookie, X-GitHub-OTP
+          - Accept-Encoding
+          - Accept-Encoding, Accept, X-Requested-With
+        Etag:
+          - W/"aabfb6ec8d8b2045adc65c651e2a510305605cf2cf3caff50d0c99f2e382222e"
+        X-Oauth-Scopes:
+          - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
+            admin:repo_hook, delete:packages, delete_repo, gist, notifications, read:packages,
+            repo, user, workflow, write:discussion, write:packages
+        X-Accepted-Oauth-Scopes:
+          - ""
+        X-Github-Media-Type:
+          - github.v3; format=json
+        X-Ratelimit-Limit:
+          - "5000"
+        X-Ratelimit-Remaining:
+          - "4964"
+        X-Ratelimit-Reset:
+          - "1602599651"
+        X-Ratelimit-Used:
+          - "36"
+        Access-Control-Expose-Headers:
+          - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+            X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+            X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+        Access-Control-Allow-Origin:
+          - "*"
+        Strict-Transport-Security:
+          - max-age=31536000; includeSubdomains; preload
+        X-Frame-Options:
+          - deny
+        X-Content-Type-Options:
+          - nosniff
+        X-Xss-Protection:
+          - 1; mode=block
+        Referrer-Policy:
+          - origin-when-cross-origin, strict-origin-when-cross-origin
+        Content-Security-Policy:
+          - default-src 'none'
+        X-Github-Request-Id:
+          - B5B6:0B49:13EE1:1AF71:5F85B481
+      body:
+        encoding: ASCII-8BIT
+        string:
+          '{"name":"hotfix/fix-to-test","commit":{"sha":"68c44076db9827d83f110692690dbbeeb1ca3a7f","node_id":"MDY6Q29tbWl0MjgyMTk5MTQ1OjY4YzQ0MDc2ZGI5ODI3ZDgzZjExMDY5MjY5MGRiYmVlYjFjYTNhN2Y=","commit":{"author":{"name":"Rheniery
+          Mendes","email":"rhenierymendes@gmail.com","date":"2020-08-31T13:38:33Z"},"committer":{"name":"GitHub","email":"noreply@github.com","date":"2020-08-31T13:38:33Z"},"message":"Update
+          README.md","tree":{"sha":"5ca2494c517ccd0089a2f542c72f83f375b164da","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/trees/5ca2494c517ccd0089a2f542c72f83f375b164da"},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/commits/68c44076db9827d83f110692690dbbeeb1ca3a7f","comment_count":0,"verification":{"verified":true,"reason":"valid","signature":"-----BEGIN
+          PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJfTP1ZCRBK7hj4Ov3rIwAAdHIIAHDwfgMdo4lPDzfdRWOU7D6x\nrUTVne/Hwn2XDO0N2Ch1NbHQHWqnSITBJXOKeKFwO/k/53kIP/qixYsoI3BGvcHk\nhbPTWd4X1SGCmfF9u2o0wLunBpFBgNyRLlzKFZIB7J4y/mIhPU16CDLocvIYX1vN\n26tvvr2hQGC6rlAorNpQtC6QWf/Volf6Y0t9HB27Izn/YY+9vvy9dc76FJZUAV9I\nNtxo1792Fffn5r245c5vzKV16OsvvcegnXJbC1l10A/boSNQbLPu1pILW7ggDP+B\nXVsGR+QT3sdLxbIA0roKdWhcOwDXskzO+425aCIMxlMetDKa16TZ6ovfRrq/Fus=\n=p5B7\n-----END
+          PGP SIGNATURE-----\n","payload":"tree 5ca2494c517ccd0089a2f542c72f83f375b164da\nparent
+          897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed\nauthor Rheniery Mendes <rhenierymendes@gmail.com>
+          1598881113 -0300\ncommitter GitHub <noreply@github.com> 1598881113 -0300\n\nUpdate
+          README.md"}},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/68c44076db9827d83f110692690dbbeeb1ca3a7f","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/68c44076db9827d83f110692690dbbeeb1ca3a7f","comments_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/68c44076db9827d83f110692690dbbeeb1ca3a7f/comments","author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"committer":{"login":"web-flow","id":19864447,"node_id":"MDQ6VXNlcjE5ODY0NDQ3","avatar_url":"https://avatars3.githubusercontent.com/u/19864447?v=4","gravatar_id":"","url":"https://api.github.com/users/web-flow","html_url":"https://github.com/web-flow","followers_url":"https://api.github.com/users/web-flow/followers","following_url":"https://api.github.com/users/web-flow/following{/other_user}","gists_url":"https://api.github.com/users/web-flow/gists{/gist_id}","starred_url":"https://api.github.com/users/web-flow/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/web-flow/subscriptions","organizations_url":"https://api.github.com/users/web-flow/orgs","repos_url":"https://api.github.com/users/web-flow/repos","events_url":"https://api.github.com/users/web-flow/events{/privacy}","received_events_url":"https://api.github.com/users/web-flow/received_events","type":"User","site_admin":false},"parents":[{"sha":"897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed"}]},"_links":{"self":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/branches/hotfix/fix-to-test","html":"https://github.com/codelittinc/roadrunner-repository-test/tree/hotfix/fix-to-test"},"protected":false,"protection":{"enabled":false,"required_status_checks":{"enforcement_level":"off","contexts":[]}},"protection_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/branches/hotfix/fix-to-test/protection"}'
+    recorded_at: Tue, 13 Oct 2020 14:06:57 GMT
+  - request:
+      method: get
+      uri: https://api.github.com/repos/codelittinc/roadrunner-repository-test/compare/rc.1.v1.1.1...hotfix/fix-to-test
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - application/vnd.github.v3+json
+        User-Agent:
+          - Octokit Ruby Gem 4.18.0
+        Content-Type:
+          - application/json
+        Authorization:
+          - token 2e593567d90bd505570de77f516f44ebe4aba218
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 13 Oct 2020 14:06:58 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Server:
+          - GitHub.com
+        Status:
+          - 200 OK
+        Cache-Control:
+          - private, max-age=60, s-maxage=60
+        Vary:
+          - Accept, Authorization, Cookie, X-GitHub-OTP
+          - Accept-Encoding
+          - Accept-Encoding, Accept, X-Requested-With
+        Etag:
+          - W/"e6ba90cdfce39e47ea58757cf68e015e2d2a87e4eb65c999c73808635b0384d9"
+        Last-Modified:
+          - Mon, 31 Aug 2020 13:38:33 GMT
+        X-Oauth-Scopes:
+          - admin:enterprise, admin:gpg_key, admin:org, admin:org_hook, admin:public_key,
+            admin:repo_hook, delete:packages, delete_repo, gist, notifications, read:packages,
+            repo, user, workflow, write:discussion, write:packages
+        X-Accepted-Oauth-Scopes:
+          - ""
+        X-Github-Media-Type:
+          - github.v3; format=json
+        X-Ratelimit-Limit:
+          - "5000"
+        X-Ratelimit-Remaining:
+          - "4963"
+        X-Ratelimit-Reset:
+          - "1602599651"
+        X-Ratelimit-Used:
+          - "37"
+        Access-Control-Expose-Headers:
+          - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+            X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+            X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+        Access-Control-Allow-Origin:
+          - "*"
+        Strict-Transport-Security:
+          - max-age=31536000; includeSubdomains; preload
+        X-Frame-Options:
+          - deny
+        X-Content-Type-Options:
+          - nosniff
+        X-Xss-Protection:
+          - 1; mode=block
+        Referrer-Policy:
+          - origin-when-cross-origin, strict-origin-when-cross-origin
+        Content-Security-Policy:
+          - default-src 'none'
+        X-Github-Request-Id:
+          - B5B8:0AE3:14809:1BAA7:5F85B482
+      body:
+        encoding: ASCII-8BIT
+        string:
+          '{"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/compare/rc.1.v1.1.1...hotfix/fix-to-test","html_url":"https://github.com/codelittinc/roadrunner-repository-test/compare/rc.1.v1.1.1...hotfix/fix-to-test","permalink_url":"https://github.com/codelittinc/roadrunner-repository-test/compare/codelittinc:897bae4...codelittinc:68c4407","diff_url":"https://github.com/codelittinc/roadrunner-repository-test/compare/rc.1.v1.1.1...hotfix/fix-to-test.diff","patch_url":"https://github.com/codelittinc/roadrunner-repository-test/compare/rc.1.v1.1.1...hotfix/fix-to-test.patch","base_commit":{"sha":"897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","node_id":"MDY6Q29tbWl0MjgyMTk5MTQ1Ojg5N2JhZTQyZjhiY2Y5MGJkODY3NmIxZWQ5NGU4YmEyMDJhNmM5ZWQ=","commit":{"author":{"name":"Rheniery
+          Mendes","email":"rhenierymendes@gmail.com","date":"2020-08-31T13:09:19Z"},"committer":{"name":"GitHub","email":"noreply@github.com","date":"2020-08-31T13:09:19Z"},"message":"Update
+          README.md","tree":{"sha":"16b6368bc31d653facb337d5a43539f78a5cb628","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/trees/16b6368bc31d653facb337d5a43539f78a5cb628"},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","comment_count":0,"verification":{"verified":true,"reason":"valid","signature":"-----BEGIN
+          PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJfTPZ/CRBK7hj4Ov3rIwAAdHIIAJTnIwGw5dbbI9NeLFgxolq8\nRaITia4CY1hz+JQ921PMsoTgk+EgPOm54jFFsiiPfftvRRrBTyBI/OC/XanlGdrt\nxUytEJj8AFGtDgO+l/30LJl6ngWd8D02NEDEQwBkDod+XX/uBN48g5qfMw1iU1Bn\nc+bNlv8YkQkNVzSRccIKtG+ktb8+nr2DCbil8v4BilyYKCvybsGKPR+f25vUWzoX\nsD9YjHwNWXPjQobvuUc5ou1xiDuX62SRH+19jyjuTjazk4XDwp3rCFPx7jeOq2kI\nULOzTZlN7Evs1DjS+2May1Gnusqh73Xr5NJ1YTCKSNumBTc6XQvMzzbBwiQHJ9o=\n=p4gx\n-----END
+          PGP SIGNATURE-----\n","payload":"tree 16b6368bc31d653facb337d5a43539f78a5cb628\nparent
+          27513d2ba5bcb29cc55e4040096d610530d1fe79\nauthor Rheniery Mendes <rhenierymendes@gmail.com>
+          1598879359 -0300\ncommitter GitHub <noreply@github.com> 1598879359 -0300\n\nUpdate
+          README.md"}},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","comments_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed/comments","author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"committer":{"login":"web-flow","id":19864447,"node_id":"MDQ6VXNlcjE5ODY0NDQ3","avatar_url":"https://avatars3.githubusercontent.com/u/19864447?v=4","gravatar_id":"","url":"https://api.github.com/users/web-flow","html_url":"https://github.com/web-flow","followers_url":"https://api.github.com/users/web-flow/followers","following_url":"https://api.github.com/users/web-flow/following{/other_user}","gists_url":"https://api.github.com/users/web-flow/gists{/gist_id}","starred_url":"https://api.github.com/users/web-flow/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/web-flow/subscriptions","organizations_url":"https://api.github.com/users/web-flow/orgs","repos_url":"https://api.github.com/users/web-flow/repos","events_url":"https://api.github.com/users/web-flow/events{/privacy}","received_events_url":"https://api.github.com/users/web-flow/received_events","type":"User","site_admin":false},"parents":[{"sha":"27513d2ba5bcb29cc55e4040096d610530d1fe79","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/27513d2ba5bcb29cc55e4040096d610530d1fe79","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/27513d2ba5bcb29cc55e4040096d610530d1fe79"}]},"merge_base_commit":{"sha":"897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","node_id":"MDY6Q29tbWl0MjgyMTk5MTQ1Ojg5N2JhZTQyZjhiY2Y5MGJkODY3NmIxZWQ5NGU4YmEyMDJhNmM5ZWQ=","commit":{"author":{"name":"Rheniery
+          Mendes","email":"rhenierymendes@gmail.com","date":"2020-08-31T13:09:19Z"},"committer":{"name":"GitHub","email":"noreply@github.com","date":"2020-08-31T13:09:19Z"},"message":"Update
+          README.md","tree":{"sha":"16b6368bc31d653facb337d5a43539f78a5cb628","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/trees/16b6368bc31d653facb337d5a43539f78a5cb628"},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","comment_count":0,"verification":{"verified":true,"reason":"valid","signature":"-----BEGIN
+          PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJfTPZ/CRBK7hj4Ov3rIwAAdHIIAJTnIwGw5dbbI9NeLFgxolq8\nRaITia4CY1hz+JQ921PMsoTgk+EgPOm54jFFsiiPfftvRRrBTyBI/OC/XanlGdrt\nxUytEJj8AFGtDgO+l/30LJl6ngWd8D02NEDEQwBkDod+XX/uBN48g5qfMw1iU1Bn\nc+bNlv8YkQkNVzSRccIKtG+ktb8+nr2DCbil8v4BilyYKCvybsGKPR+f25vUWzoX\nsD9YjHwNWXPjQobvuUc5ou1xiDuX62SRH+19jyjuTjazk4XDwp3rCFPx7jeOq2kI\nULOzTZlN7Evs1DjS+2May1Gnusqh73Xr5NJ1YTCKSNumBTc6XQvMzzbBwiQHJ9o=\n=p4gx\n-----END
+          PGP SIGNATURE-----\n","payload":"tree 16b6368bc31d653facb337d5a43539f78a5cb628\nparent
+          27513d2ba5bcb29cc55e4040096d610530d1fe79\nauthor Rheniery Mendes <rhenierymendes@gmail.com>
+          1598879359 -0300\ncommitter GitHub <noreply@github.com> 1598879359 -0300\n\nUpdate
+          README.md"}},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","comments_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed/comments","author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"committer":{"login":"web-flow","id":19864447,"node_id":"MDQ6VXNlcjE5ODY0NDQ3","avatar_url":"https://avatars3.githubusercontent.com/u/19864447?v=4","gravatar_id":"","url":"https://api.github.com/users/web-flow","html_url":"https://github.com/web-flow","followers_url":"https://api.github.com/users/web-flow/followers","following_url":"https://api.github.com/users/web-flow/following{/other_user}","gists_url":"https://api.github.com/users/web-flow/gists{/gist_id}","starred_url":"https://api.github.com/users/web-flow/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/web-flow/subscriptions","organizations_url":"https://api.github.com/users/web-flow/orgs","repos_url":"https://api.github.com/users/web-flow/repos","events_url":"https://api.github.com/users/web-flow/events{/privacy}","received_events_url":"https://api.github.com/users/web-flow/received_events","type":"User","site_admin":false},"parents":[{"sha":"27513d2ba5bcb29cc55e4040096d610530d1fe79","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/27513d2ba5bcb29cc55e4040096d610530d1fe79","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/27513d2ba5bcb29cc55e4040096d610530d1fe79"}]},"status":"ahead","ahead_by":1,"behind_by":0,"total_commits":1,"commits":[{"sha":"68c44076db9827d83f110692690dbbeeb1ca3a7f","node_id":"MDY6Q29tbWl0MjgyMTk5MTQ1OjY4YzQ0MDc2ZGI5ODI3ZDgzZjExMDY5MjY5MGRiYmVlYjFjYTNhN2Y=","commit":{"author":{"name":"Rheniery
+          Mendes","email":"rhenierymendes@gmail.com","date":"2020-08-31T13:38:33Z"},"committer":{"name":"GitHub","email":"noreply@github.com","date":"2020-08-31T13:38:33Z"},"message":"Update
+          README.md","tree":{"sha":"5ca2494c517ccd0089a2f542c72f83f375b164da","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/trees/5ca2494c517ccd0089a2f542c72f83f375b164da"},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/git/commits/68c44076db9827d83f110692690dbbeeb1ca3a7f","comment_count":0,"verification":{"verified":true,"reason":"valid","signature":"-----BEGIN
+          PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJfTP1ZCRBK7hj4Ov3rIwAAdHIIAHDwfgMdo4lPDzfdRWOU7D6x\nrUTVne/Hwn2XDO0N2Ch1NbHQHWqnSITBJXOKeKFwO/k/53kIP/qixYsoI3BGvcHk\nhbPTWd4X1SGCmfF9u2o0wLunBpFBgNyRLlzKFZIB7J4y/mIhPU16CDLocvIYX1vN\n26tvvr2hQGC6rlAorNpQtC6QWf/Volf6Y0t9HB27Izn/YY+9vvy9dc76FJZUAV9I\nNtxo1792Fffn5r245c5vzKV16OsvvcegnXJbC1l10A/boSNQbLPu1pILW7ggDP+B\nXVsGR+QT3sdLxbIA0roKdWhcOwDXskzO+425aCIMxlMetDKa16TZ6ovfRrq/Fus=\n=p5B7\n-----END
+          PGP SIGNATURE-----\n","payload":"tree 5ca2494c517ccd0089a2f542c72f83f375b164da\nparent
+          897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed\nauthor Rheniery Mendes <rhenierymendes@gmail.com>
+          1598881113 -0300\ncommitter GitHub <noreply@github.com> 1598881113 -0300\n\nUpdate
+          README.md"}},"url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/68c44076db9827d83f110692690dbbeeb1ca3a7f","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/68c44076db9827d83f110692690dbbeeb1ca3a7f","comments_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/68c44076db9827d83f110692690dbbeeb1ca3a7f/comments","author":{"login":"Rheniery","id":12198683,"node_id":"MDQ6VXNlcjEyMTk4Njgz","avatar_url":"https://avatars1.githubusercontent.com/u/12198683?v=4","gravatar_id":"","url":"https://api.github.com/users/Rheniery","html_url":"https://github.com/Rheniery","followers_url":"https://api.github.com/users/Rheniery/followers","following_url":"https://api.github.com/users/Rheniery/following{/other_user}","gists_url":"https://api.github.com/users/Rheniery/gists{/gist_id}","starred_url":"https://api.github.com/users/Rheniery/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Rheniery/subscriptions","organizations_url":"https://api.github.com/users/Rheniery/orgs","repos_url":"https://api.github.com/users/Rheniery/repos","events_url":"https://api.github.com/users/Rheniery/events{/privacy}","received_events_url":"https://api.github.com/users/Rheniery/received_events","type":"User","site_admin":false},"committer":{"login":"web-flow","id":19864447,"node_id":"MDQ6VXNlcjE5ODY0NDQ3","avatar_url":"https://avatars3.githubusercontent.com/u/19864447?v=4","gravatar_id":"","url":"https://api.github.com/users/web-flow","html_url":"https://github.com/web-flow","followers_url":"https://api.github.com/users/web-flow/followers","following_url":"https://api.github.com/users/web-flow/following{/other_user}","gists_url":"https://api.github.com/users/web-flow/gists{/gist_id}","starred_url":"https://api.github.com/users/web-flow/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/web-flow/subscriptions","organizations_url":"https://api.github.com/users/web-flow/orgs","repos_url":"https://api.github.com/users/web-flow/repos","events_url":"https://api.github.com/users/web-flow/events{/privacy}","received_events_url":"https://api.github.com/users/web-flow/received_events","type":"User","site_admin":false},"parents":[{"sha":"897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/commits/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed","html_url":"https://github.com/codelittinc/roadrunner-repository-test/commit/897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed"}]}],"files":[{"sha":"48602963725ee4b54e6f669cbec1fc0d2725f24e","filename":"README.md","status":"modified","additions":1,"deletions":1,"changes":2,"blob_url":"https://github.com/codelittinc/roadrunner-repository-test/blob/68c44076db9827d83f110692690dbbeeb1ca3a7f/README.md","raw_url":"https://github.com/codelittinc/roadrunner-repository-test/raw/68c44076db9827d83f110692690dbbeeb1ca3a7f/README.md","contents_url":"https://api.github.com/repos/codelittinc/roadrunner-repository-test/contents/README.md?ref=68c44076db9827d83f110692690dbbeeb1ca3a7f","patch":"@@
+          -2,4 +2,4 @@\n \n This is a test repository, its only purpose is for testing
+          ou Roadrunner API\n \n-Create branch hotfix/fix-to-test - commit 3\n+Create
+          branch hotfix/fix-to-test - commit 3 dfsfsd fs sdf sd "}]}'
+    recorded_at: Tue, 13 Oct 2020 14:06:58 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev//channel_messages
+      body:
+        encoding: UTF-8
+        string:
+          '{"bot":"roadrunner","message":"Available in the release of *roadrunner-repository-test*:\n
+          - Update README.md","channel":"feed-test-automations","ts":null}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 200
+        message: "OK "
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "690"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
+        Date:
+          - Tue, 13 Oct 2020 14:06:59 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string:
+          '{"ok":true,"channel":"CRXH3U8PK","ts":"1602598019.000500","message":{"bot_id":"BSW6NEU5N","type":"message","text":"Available
+          in the release of *roadrunner-repository-test*:\n - Update README.md","user":"USYCS7QHL","ts":"1602598019.000500","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
+    recorded_at: Tue, 13 Oct 2020 14:06:59 GMT
 recorded_with: VCR 6.0.0
