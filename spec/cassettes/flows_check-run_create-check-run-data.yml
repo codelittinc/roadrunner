@@ -1,167 +1,171 @@
 ---
 http_interactions:
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev//direct_messages
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","message":":rotating_light: CI failed for pull
-        request: \u003chttps://github.com/codelittinc/gh-hooks-repo-test/pull/1|gh-hooks-repo-test#1\u003e","username":"rheniery.mendes"}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 200
-      message: 'OK '
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '738'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
-      Date:
-      - Mon, 21 Sep 2020 17:33:05 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"ok":true,"channel":"D018NT7Q2CS","ts":"1600709585.000100","message":{"bot_id":"BSW6NEU5N","type":"message","text":":rotating_light:
-        CI failed for pull request: <https://github.com/codelittinc/gh-hooks-repo-test/pull/1|gh-hooks-repo-test#1>","user":"USYCS7QHL","ts":"1600709585.000100","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
-  recorded_at: Mon, 21 Sep 2020 17:33:05 GMT
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev//reactions
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","reaction":"rotating_light","channel":"feed-test-automations","ts":"123"}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 400
-      message: 'Bad Request '
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '29'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
-      Date:
-      - Mon, 21 Sep 2020 17:33:06 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"error":"message_not_found"}'
-  recorded_at: Mon, 21 Sep 2020 17:33:06 GMT
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev/direct_messages
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","message":":rotating_light: CI failed for pull
-        request: \u003chttps://github.com/codelittinc/gh-hooks-repo-test/pull/1|gh-hooks-repo-test#1\u003e","username":"rheniery.mendes"}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '738'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
-      Date:
-      - Wed, 19 May 2021 13:11:17 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"ok":true,"channel":"D018NT7Q2CS","ts":"1621429877.000300","message":{"bot_id":"BSW6NEU5N","type":"message","text":":rotating_light:
-        CI failed for pull request: <https://github.com/codelittinc/gh-hooks-repo-test/pull/1|gh-hooks-repo-test#1>","user":"USYCS7QHL","ts":"1621429877.000300","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
-  recorded_at: Wed, 19 May 2021 13:11:17 GMT
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev/reactions
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","reaction":"rotating_light","channel":"feed-test-automations","ts":"123"}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '29'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
-      Date:
-      - Wed, 19 May 2021 13:11:18 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"error":"message_not_found"}'
-  recorded_at: Wed, 19 May 2021 13:11:18 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev//direct_messages
+      body:
+        encoding: UTF-8
+        string:
+          '{"bot":"roadrunner","message":":rotating_light: CI failed for pull
+          request: \u003chttps://github.com/codelittinc/gh-hooks-repo-test/pull/1|gh-hooks-repo-test#1\u003e","username":"rheniery.mendes"}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 200
+        message: "OK "
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "738"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
+        Date:
+          - Mon, 21 Sep 2020 17:33:05 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string:
+          '{"ok":true,"channel":"D018NT7Q2CS","ts":"1600709585.000100","message":{"bot_id":"BSW6NEU5N","type":"message","text":":rotating_light:
+          CI failed for pull request: <https://github.com/codelittinc/gh-hooks-repo-test/pull/1|gh-hooks-repo-test#1>","user":"USYCS7QHL","ts":"1600709585.000100","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
+    recorded_at: Mon, 21 Sep 2020 17:33:05 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev//reactions
+      body:
+        encoding: UTF-8
+        string: '{"bot":"roadrunner","reaction":"rotating_light","channel":"feed-test-automations","ts":"123"}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 400
+        message: "Bad Request "
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "29"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.4.2 (Ruby/2.6.6/2020-03-31)
+        Date:
+          - Mon, 21 Sep 2020 17:33:06 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string: '{"error":"message_not_found"}'
+    recorded_at: Mon, 21 Sep 2020 17:33:06 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev/direct_messages
+      body:
+        encoding: UTF-8
+        string:
+          '{"bot":"roadrunner","message":":rotating_light: CI failed for pull
+          request: \u003chttps://github.com/codelittinc/gh-hooks-repo-test/pull/1|gh-hooks-repo-test#1\u003e","username":"rheniery.mendes"}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "738"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
+        Date:
+          - Wed, 19 May 2021 13:11:17 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string:
+          '{"ok":true,"channel":"D018NT7Q2CS","ts":"1621429877.000300","message":{"bot_id":"BSW6NEU5N","type":"message","text":":rotating_light:
+          CI failed for pull request: <https://github.com/codelittinc/gh-hooks-repo-test/pull/1|gh-hooks-repo-test#1>","user":"USYCS7QHL","ts":"1621429877.000300","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
+    recorded_at: Wed, 19 May 2021 13:11:17 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev/reactions
+      body:
+        encoding: UTF-8
+        string: '{"bot":"roadrunner","reaction":"rotating_light","channel":"feed-test-automations","ts":"123"}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 400
+        message: Bad Request
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "29"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
+        Date:
+          - Wed, 19 May 2021 13:11:18 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string: '{"error":"message_not_found"}'
+    recorded_at: Wed, 19 May 2021 13:11:18 GMT
 recorded_with: VCR 6.0.0

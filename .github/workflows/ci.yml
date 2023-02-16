@@ -6,12 +6,12 @@ env:
   POSTGRES_DB: postgres
   POSTGRES_HOST: localhost
   RAILS_ENV: test
-  NOTIFICATIONS_API_URL: https://slack-api.codelitt.dev
+  NOTIFICATIONS_API_URL: https://api.notifications.codelitt.dev
   GPT_KEY: ${{ secrets.GPT_KEY }}
 
 on:
   push:
-    branches: [ '*/*' ]
+    branches: ["*/*"]
 
 jobs:
   test-and-lint:
@@ -35,7 +35,7 @@ jobs:
       - name: Install gems
         run: |
           bundle install
-    
+
       - name: Setup Database
         run: |
           bundle exec rake db:create
@@ -52,4 +52,4 @@ jobs:
         run: bundle exec rspec
 
       - name: Run db:seed
-        run: bundle exec rails db:seed # guarantees the seeds aren't breaking 
+        run: bundle exec rails db:seed # guarantees the seeds aren't breaking

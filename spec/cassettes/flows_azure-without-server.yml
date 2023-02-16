@@ -1,52 +1,54 @@
 ---
 http_interactions:
-- request:
-    method: post
-    uri: https://slack-api.codelitt.dev/channel_messages
-    body:
-      encoding: UTF-8
-      string: '{"bot":"roadrunner","message":":droplet: \u003chttps://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test\u003e
-        environment :droplet:\u003c|QA\u003e:droplet: \n \n *_\u003cunknown\u003e_*\n
-        *Type*: Caught Exception\n *User*: \n\u003eId - 37\n\u003eEmail - john.sikaitis@avisonyoung.com\n
-        *Browser*: \n\n *Link*: \u003chttps://sentry.io/organizations/avison-young/issues/2403853699/events/fc188ef59c9b46f8a6a970cfe49ac276/?project=5691309|See
-        issue in Sentry.io\u003e","channel":"feed-test-automations","ts":null}'
-    headers:
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Bearer <SENSITIVE_DATA>
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Connection:
-      - keep-alive
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '1080'
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
-      Date:
-      - Wed, 19 May 2021 13:11:24 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"ok":true,"channel":"CRXH3U8PK","ts":"1621429884.008700","message":{"bot_id":"BSW6NEU5N","type":"message","text":":droplet:
-        <https://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test>
-        environment :droplet:&lt;|QA&gt;:droplet: \n \n *_&lt;unknown&gt;_*\n *Type*:
-        Caught Exception\n *User*: \n&gt;Id - 37\n&gt;Email - <mailto:john.sikaitis@avisonyoung.com|john.sikaitis@avisonyoung.com>\n
-        *Browser*: \n\n *Link*: <https://sentry.io/organizations/avison-young/issues/2403853699/events/fc188ef59c9b46f8a6a970cfe49ac276/?project=5691309|See
-        issue in Sentry.io>","user":"USYCS7QHL","ts":"1621429884.008700","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
-  recorded_at: Wed, 19 May 2021 13:11:24 GMT
+  - request:
+      method: post
+      uri: https://api.notifications.codelitt.dev/channel_messages
+      body:
+        encoding: UTF-8
+        string:
+          '{"bot":"roadrunner","message":":droplet: \u003chttps://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test\u003e
+          environment :droplet:\u003c|QA\u003e:droplet: \n \n *_\u003cunknown\u003e_*\n
+          *Type*: Caught Exception\n *User*: \n\u003eId - 37\n\u003eEmail - john.sikaitis@avisonyoung.com\n
+          *Browser*: \n\n *Link*: \u003chttps://sentry.io/organizations/avison-young/issues/2403853699/events/fc188ef59c9b46f8a6a970cfe49ac276/?project=5691309|See
+          issue in Sentry.io\u003e","channel":"feed-test-automations","ts":null}'
+      headers:
+        Content-Type:
+          - application/json
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - application/json
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "1080"
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - WEBrick/1.6.0 (Ruby/2.7.2/2020-10-01)
+        Date:
+          - Wed, 19 May 2021 13:11:24 GMT
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string:
+          '{"ok":true,"channel":"CRXH3U8PK","ts":"1621429884.008700","message":{"bot_id":"BSW6NEU5N","type":"message","text":":droplet:
+          <https://github.com/codelittinc/roadrunner-repository-test|roadrunner-repository-test>
+          environment :droplet:&lt;|QA&gt;:droplet: \n \n *_&lt;unknown&gt;_*\n *Type*:
+          Caught Exception\n *User*: \n&gt;Id - 37\n&gt;Email - <mailto:john.sikaitis@avisonyoung.com|john.sikaitis@avisonyoung.com>\n
+          *Browser*: \n\n *Link*: <https://sentry.io/organizations/avison-young/issues/2403853699/events/fc188ef59c9b46f8a6a970cfe49ac276/?project=5691309|See
+          issue in Sentry.io>","user":"USYCS7QHL","ts":"1621429884.008700","team":"T029Q9LHJ","bot_profile":{"id":"BSW6NEU5N","deleted":false,"name":"RoadRunner","updated":1579627251,"app_id":"ASVNL9492","icons":{"image_36":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_36.jpg","image_48":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_48.jpg","image_72":"https://avatars.slack-edge.com/2020-01-20/901740758338_7de919de0c79c2b1b800_72.jpg"},"team_id":"T029Q9LHJ"}}}'
+    recorded_at: Wed, 19 May 2021 13:11:24 GMT
 recorded_with: VCR 6.0.0
