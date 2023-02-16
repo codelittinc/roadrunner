@@ -8,7 +8,8 @@ module Flows
           delegate :event_message, :application, to: :parser
 
           def execute
-            ApplicationIncidentService.new.register_incident!(application, event_message, nil, ApplicationIncidentService::DATADOG_MESSAGE_TYPE)
+            ApplicationIncidentService.new.register_incident!(application, event_message, nil,
+                                                              ApplicationIncidentService::DATADOG_MESSAGE_TYPE)
           end
 
           def can_execute?

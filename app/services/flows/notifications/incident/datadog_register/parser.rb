@@ -14,7 +14,10 @@ module Flows
           end
 
           def parse!
-            @event_message = @json[:event_message].gsub('%%%', '').split('[[key::datadog::custom::remove]]').first if @json[:event_message]
+            if @json[:event_message]
+              @event_message = @json[:event_message].gsub('%%%',
+                                                          '').split('[[key::datadog::custom::remove]]').first
+            end
             @event_type = @json[:event_type]
             @origin = @json[:origin]
           end
