@@ -31,6 +31,7 @@ class RepositoriesController < ApplicationController
         format.html { redirect_to edit_repository_url(@repository.id), notice: 'Repository was successfully created.' }
         format.json { render :show, status: :created, location: @repository }
       else
+        set_channels
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @repository.errors, status: :unprocessable_entity }
       end
