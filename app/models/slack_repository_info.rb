@@ -15,4 +15,8 @@
 #
 class SlackRepositoryInfo < ApplicationRecord
   belongs_to :repository
+
+  scope :by_deploy_channel, lambda { |channel_name, channel_id|
+    where(deploy_channel: channel_name).or(SlackRepositoryInfo.where(deploy_channel: channel_id))
+  }
 end
