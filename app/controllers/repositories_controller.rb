@@ -45,6 +45,7 @@ class RepositoriesController < ApplicationController
         format.html { redirect_to repository_url(@repository), notice: 'Repository was successfully updated.' }
         format.json { render :show, status: :ok, location: @repository }
       else
+        set_channels
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @repository.errors, status: :unprocessable_entity }
       end
