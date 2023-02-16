@@ -8,7 +8,7 @@ class FlowController < ApplicationController
     if Rails.env.production?
       HardWorker.perform_async(flow_request.id)
     else
-      FlowExecutor.new(flow_request).execute!
+      FlowExecutor.call(flow_request)
     end
 
     render json: { text: 'Roadrunner is processing your request.' }, status: :ok
