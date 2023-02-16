@@ -10,40 +10,62 @@
       </ul>
     </div>
   <% end %>
-
-
-   <%= form.hidden_field :source_control_type, value: 'github' %>
-
   <%= form.label :name, "Repository name" %>
-  <%= form.text_field :name%>
+  <%= form.text_field :name %>
+
+  <div>
+    <%= form.label :name, "Project" %>
+    <%= form.select :project_id, Project.all.pluck(:name, :id),  selected: repository.project&.id %>
+  </div>
 
   <div>
     <%= form.label :owner, "Owner:" %>
-    <%= form.text_field :owner, value: 'codelittinc' %>
+    <%= form.select :owner, [["Codelitt", "codelittinc"], ["Avant", "Avant"], ["Production", "prod"]], selected: 'codelittinc' %>
   </div>
 
-<br>
-   <%= form.label :deploy_type, "deploy type:" %>
-   <%= form.select :deploy_type, ['none', 'tag', 'branch'], selected: repository.deploy_type %>
-<br>
+  <%= form.label :supports_deploy do %>
+    <%= form.check_box :supports_deploy %>
+    <span>Supports Deploy</span>
+  <% end %>
 
+<div>
+  <%= form.label :jira_project, "Jira project:" %>
+  <%= form.text_field :jira_project %>
+  </div>
+
+  <label>
+      <%= form.radio_button :source_control_type, :github %>
+      <span>Github</span>
+      </label>
+
+  <label>
+      <%= form.radio_button :source_control_type, :azure %>
+      <span>Azure</span>
+  </label>
+
+<div>
  <%= form.fields_for :slack_repository_info_attributes do |f|%>
    <%= f.label :deploy_channel, "deploy channel:" %>
-   <%= f.select :deploy_channel, @channels, selected: repository.slack_repository_info&.deploy_channel %>
-
-<br>
-   <%= f.label :dev_channel, "dev channel:" %>
-   <%= f.select :dev_channel, @channels, selected: repository.slack_repository_info&.dev_channel %>
-
-<br>
+   <%= f.text_field :deploy_channel, value: repository.slack_repository_info&.deploy_channel %>
+   <%= f.label :deploy_channel, "dev channel:" %>
+   <%= f.text_field :dev_channel, value: repository.slack_repository_info&.dev_channel %>
    <%= f.label :dev_group, "dev group:" %>
    <%= f.text_field :dev_group, value: repository.slack_repository_info&.dev_group %>
-
-<br>
-
    <%= f.label :feed_channel, "feed channel:" %>
-   <%= f.select :feed_channel, @channels, selected: repository.slack_repository_info&.feed_channel %>
+   <%= f.text_field :feed_channel, value: repository.slack_repository_info&.feed_channel %>
  <% end %>
+</div>
+
+  <% if repository.id? %>
+    <div>
+      <%= link_to 'Add Application', 'applications/new', class: 'waves-effect waves-light btn btn-small blue' %>
+    </div>
+  <% end %>
+  <% if repository.applications.present? %>
+    <div>  
+      <%= render "applications/table", repository: @repository %>  
+    </div>
+  <% end %>
 
   <br>
 
