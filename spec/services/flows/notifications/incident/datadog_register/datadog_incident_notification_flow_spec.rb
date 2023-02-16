@@ -69,7 +69,8 @@ RSpec.describe Flows::Notifications::Incident::DatadogRegister::Flow, type: :ser
   describe '#run' do
     context 'with a valid json' do
       it 'creates a new ServerIncident record' do
-        FactoryBot.create(:application, :with_server, external_identifier: 'datadog::roadrunner.codelitt.dev', environment: 'qa')
+        FactoryBot.create(:application, :with_server, external_identifier: 'datadog::roadrunner.codelitt.dev',
+                                                      environment: 'qa')
 
         flow = described_class.new(datadog_incident_message)
         expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
@@ -96,7 +97,8 @@ RSpec.describe Flows::Notifications::Incident::DatadogRegister::Flow, type: :ser
 
     context 'when no slack message was send 10 minutes before' do
       it 'sends a slack message' do
-        FactoryBot.create(:application, :with_server, external_identifier: 'datadog::roadrunner.codelitt.dev', environment: 'qa')
+        FactoryBot.create(:application, :with_server, external_identifier: 'datadog::roadrunner.codelitt.dev',
+                                                      environment: 'qa')
 
         flow = described_class.new(datadog_incident_message)
 
