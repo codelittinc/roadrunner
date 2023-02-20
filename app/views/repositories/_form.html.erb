@@ -13,10 +13,12 @@
   <%= form.label :name, "Repository name" %>
   <%= form.text_field :name %>
 
+  <% if editing %>
   <div>
     <%= form.label :active, "Active:" %>
     <%= form.select :active, ["true", "false"], selected: repository.active %>
   </div>
+  <% end %>
 
   <div>
     <%= form.label :name, "Project" %>
