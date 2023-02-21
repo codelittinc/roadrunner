@@ -23,3 +23,11 @@
  form {
     max-width: 50vw;
  }
+
+.project-selector-container {
+   align-items: center;
+}
+
+.project-selector-container div {
+     width: 100%;
+}

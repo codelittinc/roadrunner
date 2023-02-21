@@ -49,7 +49,10 @@
 <h5> Project </h5>
   <div>
     <%= form.label :name, "Project" %>
-    <%= form.select :project_id, Project.all.order(:name).pluck(:name, :id), selected: repository.project&.id %>
+    <div class="project-selector-container" style="display: flex;">
+      <%= form.select :project_id, Project.all.order(:name).pluck(:name, :id), selected: repository.project&.id %>
+      <a href="<%= new_project_url %>" class="waves-effect waves-light btn btn-small green">+</a>
+    </div>
   </div>
 
 <div>
