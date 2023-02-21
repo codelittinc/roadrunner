@@ -27,6 +27,11 @@
        </div>
     </nav>
 
+    <% flash.each do |type, msg| %>
+      <div class="flash-message" style="display: none">
+        <%= msg %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
