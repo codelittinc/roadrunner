@@ -18,6 +18,11 @@
   </div>
 
   <div>
+    <%= form.label :active, "Active:" %>
+    <%= form.select :active, ["true", "false"], selected: project.active %>
+  </div>
+
+  <div>
      <%= form.submit class: "waves-effect waves-light btn btn-small green" %>
   </div>
 <% end %>

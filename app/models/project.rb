@@ -14,4 +14,6 @@
 class Project < ApplicationRecord
   belongs_to :customer
   has_many :repositories
+
+  scope :active, -> { where(active: true) }
 end
