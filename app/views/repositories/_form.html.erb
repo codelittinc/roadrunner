@@ -44,6 +44,8 @@
     <%= form.label :active, "Active:" %>
     <%= form.select :active, ["true", "false"], selected: repository.active %>
   </div>
+  <% else %>
+    <%= form.hidden_field :active, value: "true" %>
   <% end %>
 
 <h5> Project </h5>
