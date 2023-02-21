@@ -4,8 +4,13 @@ import "controllers"
 
 // Load selects
 document.addEventListener("turbo:load", function (e) {
-    if (document.querySelector('.select-wrapper') == null) {
-      const elems = document.querySelectorAll('select');
-      M.FormSelect.init(elems);
-    }
+  if (document.querySelector('.select-wrapper') == null) {
+    const elems = document.querySelectorAll('select');
+    M.FormSelect.init(elems);
+  }
+
+  document.querySelectorAll('.flash-message').forEach((elem) => {
+    M.toast({ html: elem.textContent.trim() })
+  })
 })
+
