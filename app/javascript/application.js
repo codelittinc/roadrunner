@@ -4,6 +4,8 @@ import "controllers"
 
 // Load selects
 document.addEventListener("turbo:load", function (e) {
-    const elems = document.querySelectorAll('select');
-    M.FormSelect.init(elems);
+    if (document.querySelector('.select-wrapper') == null) {
+      const elems = document.querySelectorAll('select');
+      M.FormSelect.init(elems);
+    }
 })
