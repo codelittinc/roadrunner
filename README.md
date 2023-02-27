@@ -19,7 +19,7 @@ rails s -b `hostname -i`
 
 8. Go to your browser and access `http://localhost:3000`
 
-## Configuring Tasks on Heroku
+## Configuring Tasks on *Heroku*
 
 1. Once inside your application on Heroku
 2. Click ***Resources***, then click in ***Find more add-ons***.
