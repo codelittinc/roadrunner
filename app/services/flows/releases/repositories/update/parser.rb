@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Flows
-  module Repositories
-    module Release
+  module Releases
+    module Repositories
       module Update
         class Parser < Parsers::BaseParser
           attr_reader :text, :words, :channel_name, :user_name, :action, :repository_name,

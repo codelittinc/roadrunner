@@ -4,7 +4,7 @@ require 'rails_helper'
 require 'external_api_helper'
 require 'json'
 
-RSpec.describe Flows::Repositories::Release::Update::Flow, type: :service do
+RSpec.describe Flows::Releases::Repositories::Update::Flow, type: :service do
   around do |example|
     ClimateControl.modify NOTIFICATIONS_API_URL: 'https://api.notifications.codelitt.dev' do
       example.run
