@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Flows
-  module Repositories
-    module Release
+  module Releases
+    module Repositories
       module Update
         class Flow < BaseFlow
           delegate :repository, :channel_name, :environment, :customer, :release_message, to: :parser
