@@ -47,7 +47,8 @@ RSpec.describe Flows::DirectMessageFlow, type: :service do
         flow = described_class.new(direct_message_from_user)
         expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
           'Yes, he is!',
-          'DSX1REERE'
+          'DSX1REERE',
+          nil
         )
 
         flow.run
@@ -55,11 +56,12 @@ RSpec.describe Flows::DirectMessageFlow, type: :service do
     end
 
     context 'when it is message in a channel that mentions roadrunner' do
-      it 'sends a message in the same channel' do
+      it 'sends a message in the same channel in a thread' do
         flow = described_class.new(message_with_rr_mention)
         expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
           'https://letmegpt.com?q=%20hello',
-          'C04SE02BGP2'
+          'C04SE02BGP2',
+          '1677672376.129789'
         )
 
         flow.run
