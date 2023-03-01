@@ -2,6 +2,11 @@
 
 class FlowController < ApplicationController
   def create
+    # When slack sends a "challenge" it expects a response with its
+    # value to validate the ownership of the subscriber.
+    # More info: https://api.slack.com/apis/connections/events-api#handshake
+    return render json: { challenge: params['challenge'] }, status: :ok if params['challenge']
+
     json = (params[:flow] || params).merge(request.GET).to_json
     flow_request = FlowRequest.create!(json:)
 
