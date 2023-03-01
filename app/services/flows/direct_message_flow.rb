@@ -3,9 +3,8 @@
 module Flows
   class DirectMessageFlow < BaseFlow
     def execute
-      # @TODO - use the message, build a response, and reply to the user
+      response = Clients::Gpt::Client.new.generate(gpt_prompt)
 
-      response = message.include?('is kaio a robot?') ? 'Yes, he is!' : URI.parse("https://letmegpt.com?q=#{message}").to_s
       Clients::Notifications::Channel.new.send(
         response,
         slack_channel,
@@ -22,6 +21,13 @@ module Flows
 
     private
 
+    def gpt_prompt
+      return message unless ExternalResourceMetadata.any?
+
+      content = ExternalResourceMetadata.last.value.to_s
+      "given the context \"#{content}\". #{message}"
+    end
+
     def message_timestamp
       return nil unless mention?
 
@@ -37,7 +43,7 @@ module Flows
     end
 
     def message
-      @message ||= @params[:event][:text]&.gsub(/<[^>]*>/, '')&.chomp
+      @message ||= @params[:event][:text]&.gsub(/<[^>]*>/, '')&.chomp&.strip
     end
 
     def slack_channel

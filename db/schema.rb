@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_21_171449) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_182742) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,12 +76,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_171449) do
     t.string "sentry_name"
   end
 
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
   create_table "external_identifiers", force: :cascade do |t|
     t.string "text"
     t.bigint "application_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["application_id"], name: "index_external_identifiers_on_application_id"
+  end
+
+  create_table "external_resource_metadata", force: :cascade do |t|
+    t.string "key"
+    t.text "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "flow_requests", force: :cascade do |t|
@@ -98,7 +108,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_171449) do
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
     t.string "scope"
-    t.datetime "created_at"
+    t.datetime "created_at", precision: nil
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
@@ -133,6 +143,35 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_171449) do
     t.index ["user_id"], name: "index_issues_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "text"
+    t.string "target_type"
+    t.string "action"
+    t.string "target"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "provider_credential_id"
+    t.string "target_identifier"
+    t.bigint "notification_request_id"
+    t.index ["notification_request_id"], name: "index_messages_on_notification_request_id"
+    t.index ["provider_credential_id"], name: "index_messages_on_provider_credential_id"
+  end
+
+  create_table "notification_requests", force: :cascade do |t|
+    t.boolean "fulfilled"
+    t.boolean "uniq"
+    t.string "target_name"
+    t.string "target_type"
+    t.string "content"
+    t.string "action"
+    t.string "target_identifier"
+    t.bigint "provider_credential_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "json"
+    t.index ["provider_credential_id"], name: "index_notification_requests_on_provider_credential_id"
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string "notifications_id"
     t.string "name"
@@ -150,6 +189,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_171449) do
     t.boolean "active", default: true
     t.index ["customer_id"], name: "index_projects_on_customer_id"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
+  end
+
+  create_table "provider_credentials", force: :cascade do |t|
+    t.string "access_key"
+    t.string "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "application_key"
+    t.string "team_name"
   end
 
   create_table "pull_request_changes", force: :cascade do |t|
@@ -316,6 +364,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_171449) do
   add_foreign_key "check_runs", "branches"
   add_foreign_key "issues", "sprints"
   add_foreign_key "issues", "users"
+  add_foreign_key "messages", "notification_requests"
+  add_foreign_key "messages", "provider_credentials"
+  add_foreign_key "notification_requests", "provider_credentials"
   add_foreign_key "projects", "customers"
   add_foreign_key "pull_request_changes", "pull_requests"
   add_foreign_key "pull_request_reviews", "pull_requests"
