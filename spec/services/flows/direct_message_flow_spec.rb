@@ -42,9 +42,16 @@ RSpec.describe Flows::DirectMessageFlow, type: :service do
   end
 
   describe '#run' do
+    let(:external_resource_metadata) { FactoryBot.create(:external_resource_metadata) }
+
     context 'when it is a direct message to roadrunner' do
       it 'sends a message in the chat with roadrunner' do
         flow = described_class.new(direct_message_from_user)
+
+        expect_any_instance_of(Clients::Gpt::Client).to receive(:generate).with(
+          "given the context \"#{external_resource_metadata.value}\". is kaio a robot?"
+        ).and_return('Yes, he is!')
+
         expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
           'Yes, he is!',
           'DSX1REERE',
@@ -58,8 +65,13 @@ RSpec.describe Flows::DirectMessageFlow, type: :service do
     context 'when it is message in a channel that mentions roadrunner' do
       it 'sends a message in the same channel in a thread' do
         flow = described_class.new(message_with_rr_mention)
+
+        expect_any_instance_of(Clients::Gpt::Client).to receive(:generate).with(
+          "given the context \"#{external_resource_metadata.value}\". hello"
+        ).and_return('hi')
+
         expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
-          'https://letmegpt.com?q=%20hello',
+          'hi',
           'C04SE02BGP2',
           '1677672376.129789'
         )
