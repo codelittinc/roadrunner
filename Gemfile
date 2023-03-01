@@ -29,6 +29,8 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 
 gem 'ruby-openai'
+
+gem 'notion-ruby-client'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 gem 'rails_admin', '>= 3.0.0.beta'

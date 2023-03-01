@@ -12,3 +12,8 @@ remove_flows:
   cron: "0 * * * *"
   class: "RemoveFlowsWorker"
   queue: default
+
+content_notion:
+  cron: "0 */720 * * *"
+  class: "ContentNotionWorker"
+  queue: default
