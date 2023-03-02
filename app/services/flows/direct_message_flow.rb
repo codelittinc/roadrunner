@@ -22,10 +22,12 @@ module Flows
     private
 
     def gpt_prompt
-      return message unless ExternalResourceMetadata.any?
+      # @TODO: fix a bug when reading the attribute "value" from "ExternalResourceMetadata"
+      # return message unless ExternalResourceMetadata.any?
+      # content = ExternalResourceMetadata.last
+      # "given the context #{content.value}. #{message}"
 
-      content = ExternalResourceMetadata.last.value.to_s
-      "given the context \"#{content}\". #{message}"
+      message
     end
 
     def message_timestamp
