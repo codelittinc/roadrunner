@@ -49,7 +49,7 @@ RSpec.describe Flows::DirectMessageFlow, type: :service do
         flow = described_class.new(direct_message_from_user)
 
         expect_any_instance_of(Clients::Gpt::Client).to receive(:generate).with(
-          "given the context \"#{external_resource_metadata.value}\". is kaio a robot?"
+          'is kaio a robot?'
         ).and_return('Yes, he is!')
 
         expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
@@ -67,7 +67,7 @@ RSpec.describe Flows::DirectMessageFlow, type: :service do
         flow = described_class.new(message_with_rr_mention)
 
         expect_any_instance_of(Clients::Gpt::Client).to receive(:generate).with(
-          "given the context \"#{external_resource_metadata.value}\". hello"
+          'hello'
         ).and_return('hi')
 
         expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
