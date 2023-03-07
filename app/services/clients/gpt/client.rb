@@ -3,6 +3,7 @@
 module Clients
   module Gpt
     class Client
+
       def initialize
         @client = OpenAI::Client.new(access_token: ENV.fetch('GPT_KEY', nil))
       end
@@ -17,10 +18,12 @@ module Clients
         )
 
         choices = response['choices']
-
         response = choices.pluck('text').join
-
         response.strip.gsub(/^"/, '').gsub(/"$/, '').gsub(/^'/, '').gsub(/'$/, '')
+      end
+
+      def process_question(question)
+        Clients::Gpt::NlpProcessor.new.process_question(question)
       end
     end
   end
