@@ -1,0 +1,1289 @@
+
+Codelitt E-mail Signature
+Simply follow these steps to create your own email signature.
+If you have any questions please feel free to reach out to Marketing. If the signature breaks, contact the CTO :)
+
+
+
+1.  Go to Codepen
+
+
+
+2.  Follow the instructions in the .gif below to update your Name, Title, & Phone Number
+
+Note: Feel free to use the company phone number (+1.917. 725.4119).
+
+
+
+
+
+
+3. Verify that the information in the Codepen output is correct at the bottom of the page.
+
+
+
+4.  Last, you’re going to select and copy the Codepen output. Click and drag from outside the box and all the way across. Copy the output.
+
+
+
+
+
+
+5.  Go to Gmail
+
+
+
+6.  Click in Settings (top right icon)
+
+
+7.  Click in See all settings
+
+
+
+
+
+
+8.  You’ll land in the General settings tab. Go down to the section for Signature.
+
+
+
+
+9.  Click +Create new and choose a name for your signature
+
+
+
+10.  Paste the signature you copied in step 4 into the box on the right. It should appear exactly as it did in Codepen
+
+
+
+
+11.  Change your default signature settings so that your new signature will automatically appear for ‘new’ and ‘reply/forward’ emails. Check the box shown in the picture, too.
+
+
+
+
+12.  Save changes at the bottom of the page.
+
+
+
+13.  You're all set!
+
+
+🎡
+People Ops - General
+
+
+Below is a guideline of Codelitt’s general policies and practices, subject to change as we continue to grow. We ask that all team members respect and follow these guidelines, and share any concerns or feedback they have!
+
+
+
+Mission Statement
+At Codelitt, we value all our employees and want them to be happy, excited and ready to take on projects together as a collaborative team. We prioritize meritocracy above all and focus on your skills, experience and ability to contribute to Codelitt and our clients. Your title and seniority should not limit your ability to contribute and grow with the company.
+
+Our team is 100% remote, which means we look for the best in each field to join our ranks from all around the world. We believe in rewarding hard work no matter the person’s background, and strive to give everyone a fair opportunity to meet their full potential.
+
+Additionally, we expect all employees to respect one another, and learn to celebrate and thrive on our cultural differences and strengths (customs, personalities, communication and work styles, etc.) instead of being blocked by them. All our team members should aspire to be forward-thinking, collaborative, patient, and above all, kind human beings.
+
+Represented Countries
+Codelitt is proud to have a passionate and talented group of team members currently represented by the following countries:
+
+US
+UK
+Brazil
+Argentina
+Mexico
+Canada
+Spain
+Turkey
+Serbia
+Equal Opportunity / Non-Discrimination Policy
+Codelitt is a collaborative team that does not support or tolerate discrimination and/or harassment of any kind, regardless of race, color, religion, sex, national origin, age, or disability.
+
+If you feel that you are experiencing any form of harassment, we encourage you to inform your manager immediately or People Ops immediately.
+
+Please feel free to report to your manager or People Ops any behavior you feel uncomfortable, and we will look into the matter discreetly and confidentially.
+
+
+
+Attendance Policy
+If you anticipate being absent from work for any reason, please notify your manager as soon as possible. If you continuously fail to account for your work hours or you are unavailable without excuse, you may be subject to disciplinary action (see “Codelitt’s Disciplinary Policy” below).
+If you will be gone longer than 1 hour, please inform your manager, update Rippling (our time-off platform) with the times you are unavailable, and inform team members in your respective Slack channels.
+
+
+Work Hours & Meetings
+We are a remote team that favors progress and results over set hours.  These freedoms do come with conditions, as stated below.
+
+Mandatory Meetings and Calls
+All internal calls must be attended by video conference (Zoom or Google Hangouts), unless there are any issues with an internet connection, streaming, or personal circumstances that make it difficult to be available through video.
+Note: This exception should only apply under specific circumstances, as stated above. Please check with People Ops (PeopleOps@Codelitt.com) and your manager to make sure this applies to your situation before turning off your video settings.
+You must make yourself available for the 9:30 a.m. EST standup meeting that is held every Friday.
+You must make yourself available for any normal workday calls which may regard your position in the team.
+You must make yourself available to meet with your manager for periodic one on one meetings. The frequency of these meetings will be decided by you and your manager.
+If you will be absent or away from your computer for longer than 1 hour, please let your manager or relevant team members know directly.
+Note: Frequent absences or long break periods for more than 1 hour without recording this time on Rippling (you must record under “Errands”) will be subject to manager review and discipline.
+
+
+
+Client Calls & Meetings
+Client Calls and Messages
+If you are a member of a team and working with a client that has traditional business hours (e.g. 8 a.m. - 5 p.m. EST/CST), you must make yourself available throughout the day for any questions or workday calls that arise with the team and/or client.
+Lunch Break, Deep Work & Crunch Time
+Lunch Break
+
+We encourage all Codelitt employees to take a break during the day and enjoy their lunch and work breaks. However, we do ask that you keep these breaks to a reasonable amount of time (maximum 1 hour) so the team is able to reach you via Slack throughout the day if needed.
+
+
+
+Deep Work
+
+We encourage you to spend any free time you have doing research, contributing to open source projects, optimizing tasks, code, whatever! This comes with the condition that your main responsibilities are managed and handled first and that you communicate what you will be doing to your direct manager.
+
+
+
+Crunch time
+
+Sometimes the teams are required to work late or during a weekend during crunch time for a project. In these cases, the company will pay for your meal providing it’s approved by the manager first. Meals include pizza, burgers, etc.
+Check with your manager before ordering any food.
+You will be required to fill in an expense report, detailed in Section 5
+Communication Policy
+Codelitt uses Zoom, Slack, Trello, GSuite, and Notion to communicate and share documents.
+
+Please review our Slack Etiquette guidelines! 👇
+We ask that you be available throughout your working day and respond to all e-mails / Slack messages during this time.
+If you are unavailable or away from e-mail and Slack for longer than 1 hour, please update your Slack status (i.e. “away, in a meeting, on a call,” etc.) for the team’s reference.
+In cases where urgent updates are required, we ask that all team members update their Slack profile with a recommended phone number (or for international calls, a Whatsapp phone number).
+ If you are uncomfortable providing this information directly, please let People Ops (PeopleOps@Codelitt.com) know and your number will only be provided to your manager or other team members at your consent.
+
+
+Slack Etiquette - Top 10 Guidelines
+Codelitt is a remote and fully distributed team, so we rely on Slack to communicate and provide project updates. With this in mind, please review the following tips and guidelines to make sure we are communicating as effectively as possible via Slack:
+
+Join our required/recommended Slack channels: Each team, project, and department have channels to keep task updates organized and easy to reference. Please review our People Ops policies (both for contractor and employee) and join the channels listed to get started.
+Organize conversations by channels: Please try to keep conversations and topics relevant to the channel. If conversations start in #general but transition to shows and games, please move all your follow up conversations to #shows_and_games.
+Limit private conversations! : While direct messages are great for more private details, we encourage all team members to discuss project and team information in our respective channels. This prevents redundant messages and any details that slip through the cracks because it keeps it visible to everyone (and helps us find the information that much faster).
+Turn on your notifications: Make sure your notifications are turned on or check your direct messages/mentions throughout the day so you’re able to catch any important updates, messages, or questions!
+This may be department-specific, so please check with your manager or team first.
+To minimize distractions, you can also adjust your settings so that the sound is off, and that you’re receiving only notifications for direct messages or mentions.
+Set your Slack Status:
+Make sure you’re available and update your status! As we’re a remote team, it’s important that we keep team members posted when we’re available and able to respond.
+Away / Do Not Disturb: If you will be away for more than 1 hour OR you will be in meetings, working on a tight deadline and unable to reply, please set yourself to “Away” or “Do Not Disturb” for the number of hours you’ll be gone (i.e. 2 hours, 4 hours, etc.) to keep team members updated.
+Start a thread: If you would like to start a longer conversation, don’t overwhelm the channel with multiple messages. Instead, please create a post and start a thread where team members can respond.
+Tagging 101: Here are some key ones to remember, especially if you need to look back at messages or files later on!
+Individual: You can easily tag any member of the team (i.e. @cody, @vincent, etc.) to get their direct attention
+Team: Tag or mention a specific team or using the channel’s name
+Note: Please tag or mention teams or people mindfully. For example, if a team member asks you a question, please tag that individual and only mention team members relevant to the situation OR if they need to complete a task.
+Acknowledge messages, posts, and requests
+Please make sure to acknowledge when you receive messages, posts, or requests from other team members!
+It’s good practice to tell team members when you’ve read their message and when you’ll be addressing it, even if you don’t know the answer. Communication and updates are key, especially with a remote team like Codelitt.
+If you don’t have time to respond, please acknowledge the message with either ✅ or thumbs up reaction.
+Don’t “Slack Bomb”
+While no one likes to see giant messages in Slack, it is also important not to “Slack Bomb”. Slack Bombing happens when you send a bunch of short messages in a row that doesn’t convey any information or action item.
+Try to send only one message that covers the ask! Don’t send messages like the following (as they are likely going to get a notification for each message:
+Hey! (1 sec ago)
+
+You there? (1 sec ago)
+
+Busy? (1 sec ago)
+
+Instead, try the following:
+
+Hey, I’m looking for this file, and was wondering if you knew where it was? Let’s chat when you’re free.
+
+
+
+11. Praise Publicly, Criticize Privately
+
+Make sure to publicly share praise in the #praise channel when praise is due! It helps build team morale and also brightens their day :).
+If you have constructive criticism or feedback for a specific team member, make sure to keep that private and set up 1-1 messages or calls.
+
+
+12. When to Communicate In-Person or Over a Video Call
+
+Slack isn’t ideal for every conversation, but please avoid having any conversation outside of Slack unless absolutely necessary so all team members are aware of project updates.
+Please keep in mind:
+If a response requires 1 sentence = Slack/EmailIf a response requires 3+ sentences, and it’s still difficult to communicate = Video Call/Meeting
+
+Note: If a call does happen, please make sure to summarize the notes from the call and post to the appropriate channel so that everyone is kept in the loop.
+
+Need more tips on how to make Slack even more productive for you? Check out Slack’s new section for Slack Tips!
+
+
+
+Team Specific Channels / Accounts
+Members are free to join any public channel they want, however team members belonging to a specific team and project must join that team/project’s slack channel and project conversations must be kept public in these channels. Examples below, must-join are in bold:
+
+Design #dept-dux: all Design/UX team + others
+Marketing and Design use Trello to manage their projects. If you need access to this account, please contact your manager.
+Engineering #dept-eng: all engineering team + others
+Project Management #dept-pm: all PM team members + others
+Sales + Marketing: #dept-sales // #dept-marketing: all Sales + Marketing team members + others
+Announcements #announcements: all Codelitt team members
+People Ops - employees #wg-peopleops: all Codelitt employees
+Fun Channels Slack Channels
+Social / Community Group Channels
+
+These channels are where Codelitt team members connect over shared interests, hobbies (like cooking, pets, music, even a channel just for random observations!)
+
+Here are some channels to check out and join:
+
+#fun-music
+#fun-aww
+#fun-random
+#fun-codelittchef
+#fun-virtualcoffee (team members are paired together every other week!)
+
+
+#fun-science
+#fun-thoughtfulness
+#fun-thanks
+#fun-travel
+#fun-books
+Photo Policy
+As a virtual team, you are welcome to express yourself through your profile picture on our internal communication channel (e.g. Slack).
+
+For any external or client-facing channels (e.g. Meet / Hangouts, Google Mail, Microsoft Teams, etc.), please keep your photos professional and within the following guidelines:
+
+Front-facing
+Clean/simple background
+No other items or people in the photo
+Semi-professional (e.g. business casual, or casual within reason)
+Examples: Photos that are suitable on LinkedIn, your resume/CV, passport, or other forms of identification are good rules of thumb to follow.
+
+Please ask your manager if you have any additional questions about this policy.
+
+Personal Expenses (Reimbursements)
+Whenever you make a purchase related to Codelitt (i.e. equipment, books, courses, etc.), please refer to the following policy and  record each item to the best of your availability.
+
+Please also make sure to include any receipts or documents related to the expense for our review.
+
+💰Reimbursement Policy
+Work Product + Portfolios
+Please note that all work completed for Codelitt and our clients is considered company property. Please make sure to ask your manager in writing via an official document or e-mail before you add any projects, mockups, etc. to your portfolio.
+
+You must receive written consent from Codelitt before sharing any work in your 1) personal or professional portfolios, 2) personal or professional websites or 3) other outside ventures.
+
+Payroll Policies
+Codelitt employees should expect to receive their paycheck by the 2nd of every month. If you have any questions related to your payroll options as well as your paycheck, please let the People Ops team know.
+
+
+
+Payroll options:
+
+Rippling
+Codelitt’s main payroll platform for US and international employees is Rippling. Here, you can access and manage your paycheck history, tax documents, review your insurance benefits, and more.
+We don’t need any extra information from you as you’ll enter all your information on their platform.
+If you don’t receive an email notification requesting information, please contact People Ops.
+Notes:
+If you're not from the US, the team has used the following platforms as intermediary banks to get the best rates:
+Wise (formerly known as TransferWise): https://wise.com/us/
+Payoneer: https://www.payoneer.co
+Remessa (Brazil): https://www.remessaonline.com.br/
+If you're using an international bank, it may take 2-7 business days for your payment to process. This varies by bank and country and is unfortunately out of our control. If you have any questions, please feel free to let us know!
+
+
+Medical, Dental, Vision + HSA (US W2 Only)
+Codelitt offers US employees 100% coverage medical, dental and vision plans and the option of a Health Savings Account. For more information on these benefits, please login to Rippling.
+
+401K, 3% company contribution (US W2 Only)
+Every US W2 employee will be eligible to join our 401k plan upon completion of their first 90 days.
+
+Paid and Unpaid Leave
+
+
+Request time off here:
+
+
+Time Off Types
+Codelitt employees get a total of 30 days PTO, flexible * sick days, and **Codelitt's holiday break (Office Closure) at the end of December.
+
+*Note 1: please see notes on paid vs. unpaid sick days below
+
+**Note 2: depends on the year - These exact dates vary based on which days Christmas & New Year fall, Codelitt will put exact dates on All Company calendars at the beginning of each year!
+
+
+
+Please review the time off types in more detail below:
+
+Paid Time Off
+At Codelitt, you are given 30 days PTO to use for vacation, national holidays, personal/family emergencies - whatever you like!
+As of Friday, April 3rd, 2020, you may roll over 5 working days of your paid vacation allowance to the following year.
+Please note that the rest of your vacation allowance will reset annually based on your work anniversary (the date that you started working at Codelitt).
+If you are unsure about your work anniversary date or when your third year of employment is in effect, please check your account on Rippling or contact your manager for additional information.
+Please give 4 weeks' notice so we can account for the time you will be out of the office and adjust where work is allocated. We ask that all team members coordinate backups while they are out on PTO.
+We do not guarantee any vacation time with less than 4 weeks' advance notice.
+Note that managers ultimately have the discretion to approve or deny any requests for time off and requests for specific days or periods of time are not guaranteed. Please make sure to request your time off using Rippling.
+
+Unpaid Time Off
+If you need to take unpaid time off for any reason, please let your manager and People Ops know! You can request Unpaid PTO in Rippling under "Unpaid Time Off."
+
+Company Holiday Break
+Codelitt is off as an entire company at the end of December and returning after the New Year, every year. No need to enter this time into Rippling. Please enjoy this time with your friends and family! These exact Office closure dates will be on the All Company Calendar.
+
+Sick / Disability Leave (Paid & Unpaid)
+Codelitt is committed to making sure that everyone on the team is happy, healthy, and able to jump right into work. Similar to Codelitt’s paternity leave policy, Codelitt offers paid and unpaid sick/disability leave for employees that need to take time off for any injuries or health-related conditions.
+
+
+
+Sick Leave (Paid) + Medical Appointments
+
+Codelitt offers flexible + paid sick leave - if you are not feeling well, please take the day off to recover and enter the time off under "Sick Day" in Rippling!
+
+Please note the following conditions:
+
+If you're requesting time off for a medical appointment (for yourself - not family or pets), please request it under "Sick Leave."
+After 2 business days on sick leave, we do ask for a doctor's note for our records. Please update our manager and send the note over to People Ops!
+After 1 consecutive week (or 5 consecutive business days), this time off is no longer paid. Please request the time-off under extended sick leave/disability leave (more details below).
+
+
+Extended Sick / Disability Leave (Unpaid)
+
+Extended sick / disability leave is unpaid, offered on a case by case basis, and applies for the following:
+
+You are ill or injured for more than 1 consecutive business week, or 5 more than consecutive business days.
+Please discuss with your manager and People Ops how many days off you will need, along with detailed notes or updates from your doctor.
+
+
+Please speak with your manager or a member of Codelitt’s management team if you have specific questions or concerns regarding disability leave.
+
+Medical Appointments
+If you have a medical appointment, please add them under "Medical Appointment" in Rippling with a note in the description confirming your appointment.
+
+Note: This does NOT apply to medical appointments for other family members or furry friends (these are considered "Errands" - see below).
+
+Errands
+If you need to run errands throughout the day, please enter these hours under "Errands." We consider errands to be longer than 1 hour away from work.
+
+If you need to take 4+ hours away for errands, please note that this is considered PTO.
+
+
+
+Jury Duty
+In rare cases where jury duty is required, please inform your manager and People Ops as soon as you are assigned.
+
+Please provide 1) proof of jury duty summons, and 2) dates required for jury duty.
+
+
+
+Maternity and Paternity Leave
+At Codelitt, we are committed to a healthy work-life balance and giving our employees the opportunity to prioritize time with their families.
+
+With team members located around the world, we have a general policy in place for family leave that covers all employees (regardless of country of residence):
+
+Maternity Leave: Codelitt employees can take up to 12 weeks of paid maternity leave.
+Paternity Leave: Codelitt employees can take up to 2 weeks of paid paternity leave.
+Maternity / Paternity Leave can be requested for circumstances regarding family matters, including childbirth and adoption.
+
+If you have any questions regarding our maternity/paternity leave policy and how it compares to the benefits available in your country of residence, please let your manager and the People Ops team know.
+
+Additional Notes:
+
+General
+
+We ask that you provide a minimum of 12 weeks notice when requesting maternity leave longer than 2 weeks, and a minimum of 4 weeks notice when requesting paternity leave, so we can plan ahead and adjust the team’s workload accordingly.
+For leave that is less than 1 week, we ask that you provide notice of at least 4 weeks.
+Maternity Leave
+
+Expecting mothers are required to let their line manager know that they’re pregnant on week 20 of their pregnancy. The company does not require them to announce their pregnancy publicly if they don’t wish to do so.
+By week 25 of their pregnancy, we ask expecting mothers to confirm a date in which their maternity leave starts AND the date you expect to return.
+The suggested time frame for when maternity leave starts is between 36-38 weeks of pregnancy, although we understand that this period of time varies by employee.
+By having confirmed start/end dates for maternity leave, we want to make sure expecting mothers and the company are prepared and ready to allocate resources for different projects as needed.
+Approximately 1 month before maternity leave ends, we ask the employee to contact the company and confirm if they are returning to work on their original return date or if they need to coordinate a new date so the team can plan accordingly.
+Paternity Leave
+
+Ideally, fathers should be removed from main tasks or projects and be assigned to off-sprint tasks approximately 2 weeks before the start of their paternity leave.
+Equipment and Computer Stipends
+
+
+Home Office Stipend
+
+Applies to NEW hires only!
+Set up your ideal workspace with your $300 home office stipend! Whether you need a new desk, chair, lamp - you can use this stipend to make your office comfortable.
+
+
+Notes:
+
+You are eligible to use your home office stipend within your 3-month introductory period.
+This is a one-time stipend you can use throughout your time with Codelitt and it does NOT renew.
+If you leave Codelitt before your 1 year work anniversary, you must agree to deduct the value of your $300 stipend from your final paycheck.
+
+
+
+
+Equipment & Computer Stipends
+
+We are happy to cover the costs of equipment (i.e. tools or accessories, such as monitors, keyboards, screens, headphones, etc) or a computer if you need it to complete your work.
+If you need to purchase a new/refurbished computer, please reach out to your manager so we can help configure and purchase one that works best for you.
+
+
+Notes
+
+To be eligible for either our computer stipend or equipment stipend, you must have completed your 3-month introductory period, and reviewed/signed our Expanded Equipment Policy below. Please review the Appendix below for more info.
+Please note that you must speak with your manager before purchasing the equipment to make sure it qualifies for an equipment stipend.
+Any equipment that is purchased will be considered company property and you will be required to return the equipment or purchase it at its current value if you leave the team (i.e. termination or resignation). Always confirm with your manager if it fits your and your team’s needs.
+
+
+
+
+Education (Learning & Development)
+In an effort to help you meet your professional goals, the company can pay for your education through approved educational programs on a case by case basis.
+
+
+
+Typically, online courses through Coursera, Udemy, or other resources that relate to your field of work are encouraged.
+
+
+
+As with most educational programs and educational resources, this would be study completed in your own time. It's exciting to be able to offer you the opportunity to grow, but also remember that  projects are your priority. If you have finished all you can for the current time, then by all means use your extra time to study or work through exercises, however education is normally an extracurricular activity.
+
+
+
+To enroll or enquire about an educational program, please speak with your manager about the opportunities and programs available. Again, please note that educational courses are approved by your manager on a case by case basis.
+
+
+
+Internal Educational Opportunities
+
+Codelitt also encourages team members to learn through our ongoing meetings and resources that are available internally. We host monthly events that rotate between each dept. (12-1pm EST):
+
+
+
+Design Show and Tell
+Designers and User Testing share articles, resources, designs, and more!
+Note: Project Managers are required to attend this meeting
+Tech Talk
+Engineering team shares articles, resources, and other helpful topics!
+People Ops Workshops (POW)
+People Ops team shares tips, workshops and other fun events to keep the team informed and engaged!
+Recommended Books / Resources
+Dept. Talks & Fun Events - Recordings
+Name	Created	Last Edited Time	Type
+🎙️Dept. Talks / Show & Tell!	@August 28, 2020 4:05 PM	@February 28, 2023 5:46 PM
+🥊POWs (People Ops Workshops)	@August 28, 2020 4:05 PM	@May 27, 2022 12:19 PM
+📹Codelitt Cons	@September 21, 2020 11:52 AM	@November 23, 2022 3:17 PM
+✈️Travel Chronicles	@January 15, 2021 3:42 PM	@May 27, 2022 12:19 PM
+Vision presentations	@February 28, 2023 5:54 PM	@February 28, 2023 5:57 PM
+Salary, Performance Review, & Raises
+Salary
+When determining each team member’s salary, Codelitt aims to provide support for a great quality of life and considers various individual factors, including: current skillset, years of experience, cost of living in your country of residence (at the time the offer was made), etc.
+If you have any questions regarding your salary or compensation, please feel free to speak with your manager.
+Performance Reviews + Raises
+1 review per quarter. Set goals with manager (personal and department).
+1-1s check ins with direct manager every 2 weeks.
+Performance reviews and raises are merit based and focus on a variety of factors, including your growing skill set, contributions to your project and/or department, and overall progression with the company. We use Lattice and our competency frameworks to help you track your growth at Codelitt.
+Please note that if an employee chooses to move to a different market or location (i.e. not their original country, region, or city of residence), we will not increase your salary by default. This will be up to the manager’s discretion as they review your performance for the quarter.
+Performance raises are awarded on a quarterly basis. Please note that raises are not guaranteed  and do not accumulate in later reviews (i.e. you do not get double the raise in Q3 if you did not a receive a raise in Q1 and Q2).
+If you have any questions or concerns regarding your performance objectives and contributions to your department, please speak with your direct manager or request to speak with members of the management team.
+Codelitt Disciplinary Policy
+In the event that a member of the Codelitt team has displayed unacceptable behavior, a warning or concern report may be issued. Such behavior includes:
+
+Any harassment of another employee.
+Attendance issues.
+Lack of communication.
+Failure to follow processes.
+Dishonesty.
+Carelessness with clients.
+Failure to meet goals and deadlines that are not blocked by circumstances beyond your control (e.g. scope creep, client delay, team delay, etc.)
+Failure to perform the responsibilities that your position requires.
+Any other behavior that affects the productivity or success of the company.
+
+
+Incidents and warnings may vary in degree of significance, resulting in:
+
+Verbal warning for minor incidents.
+Written warning for significant incidents.
+Concern report for serious incidents.
+Termination for incidents that have caused irreparable damage.
+
+
+If unacceptable behavior is repeated, the following applies:
+
+2 written warnings in a 12 month period = 1 concern report.
+2 concern reports in a 12 month period = Termination.
+A written warning can be skipped and action can be taken straight to a concern report.
+
+
+Warnings and concern reports should not usually come as a surprise to the person in question. However, those submitting the report will make sure that:
+
+The issue has been investigated and discussed with the other managers.
+They can provide evidence of the unacceptable behavior and the policy, procedure or code of conduct it violates.
+The matter is kept private.
+The issue is addressed with the person in question directly.
+The person in question is allowed to respond and give his/her view on the matter.
+Guidance is offered to help avoid similar issues in the future.
+
+
+The main purpose of this policy is to provide constructive feedback and make the person in question aware of his/her errors. It is the responsibility of the company to:
+
+Explain to the team member those areas in which he/she is expected to improve.
+To make suggestions about how to improve.
+Allow time for the employee to make improvements.
+
+
+
+
+Concern Reports for Managers, Leadership or C-Suite
+In the event that you have a concern about your manager, leadership or C-Suite, People Ops will take your concerns seriously and thoroughly investigate your claim. Please do not hesitate to approach People Ops with your concern!
+
+
+
+We ask that you DO NOT share concerns or allegations regarding your manager, leadership or C-Suite anonymously (i.e. our pulse survey) as it does not allow us to pinpoint who wrote the comment (and we won't be able to help as effectively as we'd like).
+
+
+
+If you'd like to learn more about our policy and process for investigating your concerns, please check out this link:
+
+
+
+🛑Concern Report Process (filed against Managers / C-Suite)
+Drug Policy
+If the Company has a reasonable belief that an employee has brought an illicit substance onto company property and that substance is interfering in their day-to-day job responsibilities, the Company shall subject that employee to a drug screening as available and under the requirements of Florida law.
+
+Codelitt does not tolerate any form of drug or substance use that negatively impacts your tasks and day-to-day responsibilities. If we have any reason to believe that the use of drugs or illegal substances is affecting your work, Codelitt reserves the right to investigate and take further action in compliance with state, federal, and country law.
+
+Termination
+Codelitt reserves the right to terminate employment for any reason, however, most terminations are due to issues stated above and unlikely to be a surprise. If you're concerned that you're not meeting the requirements of employment here, please speak with a manager.
+
+
+
+Involuntary termination for cause may occur under the following circumstances:
+
+Performance deficiencies reflecting gross neglect of your duties, or repeated violations of Company rules, provided that you shall have been given written notice of your performance deficiencies and shall have failed to correct such deficiencies within 30 days of receipt of the written notice.
+Fraud, misappropriation, embezzlement or acts of similar dishonesty.
+Conviction of a felony involving moral turpitude.
+Intentional and willful misconduct that may subject the Company to criminal or civil liability.
+Breach of any common law or contractual duty of loyalty to the Company, including the diversion or usurpation of corporate opportunities properly belonging to the Company.
+Breach of any of the material terms of any agreement between you and Company.
+
+
+APPENDIX: ADDITIONAL POLICIES
+
+Equipment Policy - Expanded
+Please note that equipment purchased by the company is considered company property. Under the following circumstances, the employee agrees to abide by the guidelines listed below.
+
+
+
+Stolen or Damaged Equipment
+If equipment is stolen or incurs accidental damage (i.e. damage was not intentionally done to the equipment), the employee agrees to pay a $250 USD deductible for a PC or $299 USD deductible for a MacBook. These fees are in place to cover the company’s cost to replace the equipment, and to prevent potentially fraudulent claims.
+
+Returning Equipment
+If employment ends, the employee will agree to return their equipment within one business week of resignation and termination, or keep their equipment by completing one of the options listed below:
+
+Send equipment to one of the Codelitt's main recovery points (Miami, Brasil or UK) via FedEx or DHL. Please coordinate with your manager to arrange shipping and reimbursement for shipping costs (including country-specific taxes and importing fees).
+If Codelitt and the employee split financing for the purchase of their equipment, Codelitt will reimburse the percentage of their payment at the current market price.
+For example - if the price of the equipment was $2000 USD and Codelitt paid $1500 USD (75% of the total) while the employee paid $500 USD (25% of the total), the company will reimburse the employee 25% of the equipment’s current market value after they receive the equipment.
+Keep the equipment and pay Codelitt the full market value price (pending a full evaluation and estimate of the equipment in question).
+For equipment exceeding $1500 USD, employees have the following option:
+Employees can choose to keep the equipment and pay for Codelitt's portion of the remaining percentage of the equipment's current market value.
+For example - if the price of the equipment is now estimated at $1500 and Codelitt paid for ½ of the cost, the employee agrees to reimburse Codelitt $750 to keep their equipment.
+Equipment purchases, returns, and evaluations are determined on a case by case basis. Please contact your manager if you have any additional questions or concerns.
+
+
+Please note that Codelitt will also retain final severance payment until the employee sends the equipment back (either with a confirmed tracking number or receipt).
+
+
+
+If the employee fails to complete one of the options above, the employee agrees to forfeit the total market value of the product from their last paycheck to cover Codelitt’s expenses.
+
+Extended Vacation Policy (i.e. 1+ week)
+This policy is applicable if you're looking to take more than 1+ weeks off for vacation.
+
+The employee needs to provide at least 4 weeks of notice for vacation leave. If the employee knows at the beginning of the year roughly when they would like to take their vacation leave, they should communicate it to their manager as soon as possible and request their time off via Rippling, Codelitt’s time-off platform.
+Managers are encouraged to touch base with their team members and People Ops to keep track of pending vacation time.
+3 weeks before their leave kicks in, the employee should:
+Have a clear understanding of who will be covering their tasks. This means that they will need to work with their manager to organize this beforehand.
+If the employee is a client-facing employee, they should schedule a short meeting (or email conversation) between themselves, their project manager, the client and the person/s who will be taking over their tasks to let the client know who will be the point of contact during their time off.
+Provide small, introductory tasks to the project to the person/s who will be taking over their tasks. This 3 week introductory period helps the employee going on holiday feel like their work will be properly handled, and for the remaining employee/s taking over their tasks it’s enough time to raise questions, understand the project, meet with the client and create a relationship with the new team they will be working with.
+The week before the employee goes on holiday they should try to wrap up as many tasks as possible. They should understand that while they are away, the employee/s covering their tasks will also still be responsible for their own so they might not be able to cover very big tasks. This should have been planned, organized and agreed upon with the project manager and client beforehand. This is important because our contracts are ongoing, as is our sprint planning. With enough time, preparation, and notice we can plan for the weeks during the employee’s absence and prioritize tasks that aren’t as major or ones that will block a project (for both current projects as well as extra work).
+Due to the fact that employees will be taking over extra tasks during their team member’s absence, it’s important that the company rotates this by promoting a healthy lifestyle in terms of taking time off.
+Please note that time off does not carry over and will not be paid out if the employee leaves the company. Employees must take their time off or forfeit it before the end of the valid period (i.e. before the anniversary of their hire date)
+
+
+Disclaimer: In the event that an employee requests time off outside of these guidelines (i.e. less than 4 weeks notice), the managers have the discretion to approve or deny the request on a case by case basis. The employee agrees to contact their manager as soon as possible if their request meets this exception.
+
+Interoffice Dating Policy
+Company employees may date and develop friendships and relationships with other employees, both inside and outside of the workplace—as long as the relationships don't have a negative impact on their work or the work of others.
+
+
+
+Any relationship that interferes with our culture, collaborative teamwork or productivity of employees will be addressed by manager and People Ops, and subject to our disciplinary policy.
+
+
+
+All Employees
+To prevent potential issues or conflicts on our team, we do not support, encourage or allow employees to 1) date their project lead or mentor, or 2) date their direct managers (and vice versa). This includes an employee who reports to their manager’s counterpart in another department.
+
+
+
+Additionally, any relationship with another employee or manager that may lead to favoritism, misuse of authority or impacts your terms and conditions of employment (i.e. raises, promotions, and career advancement) are prohibited.
+
+
+
+Relationships prohibited by this policy include, but are not limited to dating, romantic involvement, sexual relations and close friendships that can lead to bias and conflicts of interest in a reporting relationship.
+
+
+
+Colleagues (i.e. Employee to Employee)
+
+
+Before dating a colleague
+
+Before you decide to date a colleague (i.e. an employee in another department that is not a manager), please consider any potential complications.
+
+For example, if you’re working with a colleague on an important project, a relationship between the two of you (or a possible breakup) could affect your work and your interactions with the rest of the team. Please make sure you’ve thought about all parameters and risks before making a decision.
+
+
+
+When dating a colleague
+
+Please let your manager and People Ops know once you start dating a colleague so they are aware. Any information shared with management and People Ops will be confidential and will not be discussed with anyone else on the team.
+
+Please keep your personal issues and discussions out of the workplace.
+Do not allow your relationship to hinder productivity and collaborations with other team members.
+Be productive and focused as always. If you find that your work is affected by dating a colleague, please speak with your manager or People Ops.
+
+
+After you stop dating a colleague
+
+If your relationship ends, please remain respectful and professional in front of our team. We also ask that you refrain from engaging in interactions or behavior that disrupt the workplace, or badmouth/sabotage their work in any way.
+
+If your former partner behaves this way (or if you are an employee that would like to report inappropriate behavior), please report them to People Ops and we will investigate as soon as possible.
+
+
+
+Managers
+A manager who dates or becomes romantically involved with an employee creates a serious problem for the company. Dating or extramarital affairs with other employees, even when they are not in a reporting relationship, creates serious risk and consequences for the company.
+
+Notably, a dating relationship can affect the careers of both employees with regard to advancement opportunities, choices of jobs, and assignments. Clearly, these relationships can also result in charges of sexual harassment, years or decades after the fact.
+
+If a manager decides to pursue a close relationship with an employee (who is not their direct report), you must inform your direct manager and People Operations immediately. The company will then decide what, if any, actions are necessary to take in regard to assignments and jobs.
+
+
+
+Relationships with Clients
+Generally, employees are prohibited from pursuing romantic relationships with our clients due to risk of bias, favoritism, professional/personal work conflicts and other serious consequences to Codelitt’s working relationship with our clients.
+
+If you or another employee initiates a relationship with a client’s employee, please inform your manager and People Operations immediately.
+
+
+
+Company Guarantee
+The company policies stated in this document are subject to change. Codelitt Inc. guarantees its revision year to stay up to date with local and international laws and keep making Codelitt a great place of work. 😄
+
+🎪
+People Ops - Hourly / Part-Time / Vendors
+Below is a guideline of Codelitt’s general policies and practices for contractors, subject to change as we continue to grow. We ask that all team members respect and follow these guidelines, and share any concerns or feedback they have!
+
+
+
+Mission Statement
+At Codelitt, we value all our employees and want them to be happy, excited and ready to take on projects together as a collaborative team. We prioritize meritocracy above all and focus on your skills, experience and ability to contribute to Codelitt and our clients. Your title and seniority should not limit your ability to contribute and grow with the company.
+
+Our team is 100% remote, which means we look for the best in each field to join our ranks from all around the world. We believe in rewarding hard work no matter the person’s background, and strive to give everyone a fair opportunity to meet their full potential.
+
+Additionally, we expect all employees to respect one another, and learn to celebrate and thrive on our cultural differences and strengths (customs, personalities, communication and work styles, etc.) instead of being blocked by them. All our team members should aspire to be forward-thinking, collaborative, patient, and above all, kind human beings.
+
+Represented Countries
+Codelitt is proud to have a passionate and talented group of team members currently represented by the following countries:
+
+US
+UK
+Brazil
+Argentina
+Mexico
+Italy
+Spain
+Croatia
+Canada
+Nigeria
+Turkey
+Equal Opportunity / Non-Discrimination Policy
+Codelitt is a collaborative team that does not support or tolerate discrimination and/or harassment of any kind, regardless of race, color, religion, sex, national origin, age, or disability.
+
+If you feel that you are experiencing any form of harassment, we encourage you to inform your manager immediately or People Ops immediately.
+
+Please feel free to report to your manager or People Ops any behavior you feel uncomfortable, and we will look into the matter discreetly and confidentially.
+
+
+
+Attendance Policy
+If you anticipate being absent from work for any reason, please notify your manager as soon as possible. If you continuously fail to account for your work hours or you are unavailable without excuse, you may be subject to disciplinary action (see “Codelitt’s Disciplinary Policy” below).
+If you will be gone longer than 1 hour, please inform your manager, update Rippling (our time-off platform) with the times you are unavailable, and inform team members in your respective Slack channels.
+
+
+Work Hours & Meetings
+
+
+We are a remote team that favors progress and results over set hours.  These freedoms do come with conditions, as stated below.
+
+
+
+Mandatory Meetings and Calls
+All internal calls must be attended by video conference (Zoom or Google Hangouts), unless there are any issues with internet connection, streaming, or personal circumstances that make it difficult to be available through video.
+Note: This exception should only apply under specific circumstances, as stated above. Please check with People Ops and your manager to make sure this applies to your situation before turning off your video settings.
+You must make yourself available for the 10 a.m. EST standup meeting that is held every Friday.
+You must make yourself available for any normal workday calls which may regard your position in the team.
+You must make yourself available to meet with your manager for periodic one on one meetings. The frequency of these meetings will be decided by you and your manager.
+If you will be absent or away from your computer for longer than 1 hour, please let your manager or relevant team members know directly.
+Note: Frequent absences or long break periods for more than 1 hour without recording this time on Rippling (you must record under “Errands” or “Appointments”) will be subject to manager review and discipline.
+
+
+Client Calls & Meetings
+Client Calls and Messages
+If you are a member of a team and working with a client that has traditional business hours (e.g. 8 a.m. - 5 p.m. EST/CST), you must make yourself available throughout the day for any questions or workday calls that arise with the team and/or client.
+Lunch Break, Deep Work & Crunch Time
+Lunch Break
+
+We encourage all Codelitt employees to take a break during the day and enjoy their lunch and work breaks. However, we do ask that you keep these breaks to a reasonable amount of time (maximum 1 hour) so the team is able to reach you via Slack throughout the day if needed.
+
+
+
+Deep Work
+
+We encourage you to spend any free time you have doing research, contributing to open source projects, optimizing tasks, code, whatever! This comes with the condition that your main responsibilities are managed and handled first, and that you communicate what you will be doing to your direct manager.
+
+
+
+Crunch time
+
+Sometimes the teams are required to work late or during a weekend during crunch time for a project. In these cases, the company will pay for your meal providing it’s approved by the manager first. Meals include pizza, burgers, etc.
+Check with your manager before ordering any food.
+You will be required to fill in an expense report, detailed in Section 5
+Communication Policy
+Codelitt uses Zoom, Slack, Trello, GSuite, and Notion to communicate and share documents.
+
+Please review our Slack Etiquette guidelines! 👇
+We ask that you be available throughout your working day and respond to all e-mails / Slack messages during this time.
+If you are unavailable or away from e-mail and Slack for longer than 1 hour, please update your Slack status (i.e. “away, in a meeting, on a call,” etc.) for the team’s reference.
+In cases where urgent updates are required, we ask that all team members update their Slack profile with a recommended phone number (or for international calls, a Whatsapp phone number).
+ If you are uncomfortable providing this information directly, please let People Ops know and your number will only be provided to your manager or other team members at your consent.
+
+
+Slack Etiquette - Top 10 Guidelines
+Codelitt is a remote and fully distributed team, so we rely on Slack to communicate and provide project updates. With this in mind, please review the following tips and guidelines to make sure we are communicating as effectively as possible via Slack:
+
+Join our required / recommended Slack channels: Each team, project, and department have channels to keep task updates organized and easy to reference. Please review our People Ops policies (both for contractor and employee) and join the channels listed to get started.
+Organize conversations by channels: Please try to keep conversations and topics relevant to the channel. If conversations start in #general but transition to shows and games, please move all your follow up conversations to #shows_and_games.
+Limit private conversations! : While direct messages are great for more private details, we encourage all team members to discuss project and team information in our respective channels. This prevents redundant messages and any details that slip through the cracks because it keeps it visible to everyone (and helps us find the information that much faster).
+Turn on your notifications: Make sure your notifications are turned on or check your direct messages/mentions throughout the day so you’re able to catch any important updates, messages or questions!
+This may be department-specific, so please check with your manager or team first.
+To minimize distractions, you can also adjust your settings so that the sound is off, and that you’re receiving only notifications for direct messages or mentions.
+Set your Slack Status:
+Make sure you’re available and update your status! As we’re a remote team, it’s important that we keep team members posted when we’re available and able to respond.
+Away / Do Not Disturb: If you will be away for more than 1 hour OR you will be in meetings, working on a tight deadline and unable to reply, please set yourself to “Away” or “Do Not Disturb” for the number of hours you’ll be gone (i.e. 2 hours, 4 hours, etc.) to keep team members updated.
+Start a thread: If you would like to start a longer conversation, don’t overwhelm the channel with multiple messages. Instead, please create a post and start a thread where team members can respond.
+Tagging 101: Here are some key ones to remember, especially if you need to look back at messages or files later on!
+Individual: You can easily tag any member of the team (i.e. @cody, @vincent, etc.) to get their direct attention
+Team: Tag or mention a specific team or using the channel’s name
+Note: Please tag or mention teams or people mindfully. For example, if a team member asks you a question, please tag that individual and only mention team members relevant to the situation OR if they need to complete a task.
+Acknowledge messages, posts, and requests
+Please make sure to acknowledge when you receive messages, posts or requests from other team members!
+It’s good practice to tell team members when you’ve read their message and when you’ll be addressing it, even if you don’t know the answer. Communication and updates are key, especially with a remote team like Codelitt.
+If you don’t have time to respond, please acknowledge the message with either ✅ or thumbs up reaction.
+Don’t “Slack Bomb”
+While no one likes to see giant messages in Slack, it is also important not to “Slack Bomb”. Slack Bombing happens when you send a bunch of short messages in a row that doesn’t convey any information or action item.
+Try to send only one message that covers the ask! Don’t send messages like the following (as they are likely going to get a notification for each message:
+Hey! (1 sec ago)
+
+You there? (1 sec ago)
+
+Busy? (1 sec ago)
+
+Instead, try the following:
+
+Hey, I’m looking for this file, and was wondering if you knew where it was? Let’s chat when you’re free.
+
+
+
+11. Praise Publicly, Criticize Privately
+
+Make sure to publicly share praise in the #praise channel when praise is due! It helps build team morale and also brightens their day :).
+If you have constructive criticism or feedback for a specific team member, make sure to keep that private and set up 1-1 messages or calls.
+
+
+12. When to Communicate In-Person or Over a Video Call
+
+Slack isn’t ideal for every conversation, but please avoid having any conversation outside of Slack unless absolutely necessary so all team members are aware of project updates.
+Please keep in mind:
+If a response requires 1 sentence = Slack/EmailIf a response requires 3+ sentences, and it’s still difficult to communicate = Video Call/Meeting
+
+Note: If a call does happen, please make sure to summarize the notes from the call and post to the appropriate channel so that everyone is kept in the loop.
+
+Need more tips on how to make Slack even more productive for you? Check out Slack’s new section for Slack Tips!
+
+
+
+Team Specific Channels / Accounts
+Members are free to join any public channel they want, however team members belonging to a specific team and project must join that team/project’s slack channel and project conversations must be kept public in these channels. Examples below, must-join are in bold:
+
+Design #dept-dux: all Design/UX team + others
+Marketing and Design use Trello to manage their projects. If you need access to this account, please contact your manager.
+Engineering #dept-eng: all engineering team + others
+Project Management #dept-pm: all PM team members + others
+Sales + Marketing: #dept-sales // #dept-marketing: all Sales + Marketing team members + others
+Announcements #announcements: all Codelitt team members
+People Ops - contractors #wg-peopleops-contract: all Codelitt contractors
+Fun Slack Channels
+Social / Community Group Channels
+
+These channels are where Codelitt team members connect over shared interests, hobbies (like cooking, pets, music, even a channel just for random observations!)
+
+Here are some channels to check out and join:
+
+#fun-music
+#fun-aww
+#fun-random
+#fun-codelittchef
+#fun-virtualcoffee (team members are paired together every other week!)
+#fun-science
+#fun-thoughtfulness
+#fun-thanks
+#fun-travel
+Photo Policy
+As a virtual team, you are welcome to express yourself through your profile picture on our internal communication channel (e.g. Slack).
+
+For any external or client-facing channels (e.g. Meet / Hangouts, Google Mail, Microsoft Teams, etc.), please keep your photos professional and within the following guidelines:
+
+Front-facing
+Clean/simple background
+No other items or people in the photo
+Semi-professional (e.g. business casual, or casual within reason)
+Examples: Photos that are suitable on LinkedIn, your resume/CV, passport, or other forms of identification are good rules of thumb to follow.
+
+Please ask your manager if you have any additional questions about this policy.
+
+Time Tracking (Hourly)
+If you are an hourly contractor, please record your hours in Team Maker, Codelitt's internal tracking tool. You will receive access to Team Maker within your first week. Please make sure to track hours under the appropriate project so you can be paid accordingly.
+
+Personal Expense Policy (Reimbursements)
+Whenever you make a purchase related to Codelitt (i.e. equipment, books, courses, etc.), please refer to the following policy and  record each item to the best of your availability.
+
+Please also make sure to include any receipts or documents related to the expense for our review.
+
+💰Copy of Personal Expense Policy
+Work Product + Portfolios
+Please note that all work completed for Codelitt and our clients is considered company property. Please make sure to ask your manager in writing via an official document or e-mail before you add any projects, mockups, etc. to your portfolio.
+
+You must receive written consent from Codelitt before sharing any work in your 1) personal or professional portfolios, 2) personal or professional websites or 3) other outside ventures.
+
+Payroll Policies
+You should expect to receive your paycheck by the 2nd of every month for the previous month worked. If you have any questions related to your payroll options as well as your paycheck, please let the People Ops team know.
+
+
+
+Payroll options:
+
+Rippling
+Codelitt’s main payroll platform for US and international employees is Rippling. Here, you can access and manage your paycheck history, tax documents, review your insurance benefits, and more.
+We don’t need any extra information from you as you’ll enter all your information on their platform.
+If you don’t receive an email notification requesting information, please contact People Ops.
+
+
+Bitwage (non US based employees only). Codelitt employees can choose to be paid in Bitcoin via Bitwage. Unfortunately, this is not an option for US-based employees.
+
+
+If you choose BTC, please reach out to People Ops and complete the following instructions:
+
+
+
+Bitcoin disclaimer: Cryptocurrencies are inherently unstable and volatile. While they can decrease fees and offer favorable exchange rates, you could experience a payroll where transactions are taking long to confirm on the blockchain or an exchange goes down. This could mean from the time the company purchases the coins to send to you, the value could vary greatly before you have a chance to sell them for your local currency. Security is also highly important when dealing with cryptocurrencies. Please understand these risks both mentioned and unmentioned.
+Company Holidays
+Codelitt closes the office and we're off as an entire company for 8 days between the end of December - January 1st, every year (due to holidays and weekends, these exact dates can change annually - Please see Company Calendar you exact dates). No need to enter this time into Rippling! Please enjoy this time with your friends and family!
+
+Holidays + Unpaid Leave
+Codelitt encourages you to take time off if you need it! However, please note that 1099 contractors do not get paid for any time off they take.
+
+
+
+Please make sure to request any time off at least 4 weeks in advance so we can plan ahead.
+
+
+
+Request time off here:
+
+
+
+
+Time Off Types
+
+
+Please review the time off types in more detail below:
+
+Unpaid Time Off
+If you need to take unpaid time off for any reason, please let your manager and People Ops know! You can request Unpaid PTO in Rippling under "Unpaid Time Off."
+
+Company Holiday Break
+Codelitt is off as an entire company from December 21st - January 1st, every year. No need to enter this time into Rippling. Please enjoy this time with your friends and family!
+
+Medical Appointments
+If you have a medical appointment, please add them under "Sick Leave" in Rippling with a note in the description confirming your appointment.
+
+Note: This does NOT apply to medical appointments for other family members or furry friends (these are considered "Errands" - see below).
+
+Errands
+If you need to run errands throughout the day, please enter these hours under "Errands." We consider errands to be longer than 1 hour away from work.
+
+If you need to take 4+ hours away for errands, please note that this is considered PTO.
+
+
+
+
+
+Education (Learning & Development)
+
+
+Internal Educational Opportunities
+
+Codelitt also encourages team members to learn through our ongoing meetings and resources that are available internally. We host monthly events that rotate between each dept. (12-1pm EST):
+
+
+
+Design Show and Tell
+Designers and User Testing share articles, resources, designs, and more!
+Note: Project Managers are required to attend this meeting
+Tech Talk
+Engineering team shares articles, resources, and other helpful topics!
+People Ops Workshops (POW)
+People Ops team shares tips, workshops and other fun events to keep the team informed and engaged!
+Recommended Books / Resources
+Dept. Talks & Fun Events - Recordings
+Name	Created	Last Edited Time	Type
+🎙️Dept. Talks / Show & Tell!	@August 28, 2020 4:05 PM	@February 28, 2023 5:46 PM
+🥊POWs (People Ops Workshops)	@August 28, 2020 4:05 PM	@May 27, 2022 12:19 PM
+📹Codelitt Cons	@September 21, 2020 11:52 AM	@November 23, 2022 3:17 PM
+✈️Travel Chronicles	@January 15, 2021 3:42 PM	@May 27, 2022 12:19 PM
+Vision presentations	@February 28, 2023 5:54 PM	@February 28, 2023 5:57 PM
+Performance Reviews
+1 review per quarter. Set goals with manager (personal and department).
+1-1s check ins with direct manager every 2 weeks.
+Performance reviews focus on a variety of factors, including your growing skill set, contributions to your project and/or department, and overall progression with the company.
+If you have any questions or concerns regarding your performance objectives and contributions to your department, please speak with your direct manager or request to speak with members of the management team.
+Codelitt Disciplinary Policy
+In the event that a member of the Codelitt team has displayed unacceptable behavior, a warning or concern report may be issued. Such behavior includes:
+
+Any harassment of another employee.
+Attendance issues.
+Lack of communication.
+Failure to follow processes.
+Dishonesty.
+Carelessness with clients.
+Failure to meet goals and deadlines that are not blocked by circumstances beyond your control (e.g. scope creep, client delay, team delay, etc.)
+Failure to perform the responsibilities that your position requires.
+Any other behavior that affects the productivity or success of the company.
+
+
+Incidents and warnings may vary in degree of significance, resulting in:
+
+Verbal warning for minor incidents.
+Written warning for significant incidents.
+Concern report for serious incidents.
+Termination for incidents that have caused irreparable damage.
+
+
+If unacceptable behavior is repeated, the following applies:
+
+2 written warnings in a 12 month period = 1 concern report.
+2 concern reports in a 12 month period = Termination.
+A written warning can be skipped and action can be taken straight to a concern report.
+
+
+Warnings and concern reports should not usually come as a surprise to the person in question. However, those submitting the report will make sure that:
+
+The issue has been investigated and discussed with the other managers.
+They can provide evidence of the unacceptable behavior and the policy, procedure or code of conduct it violates.
+The matter is kept private.
+The issue is addressed with the person in question directly.
+The person in question is allowed to respond and give his/her view on the matter.
+Guidance is offered to help avoid similar issues in the future.
+
+
+The main purpose of this policy is to provide constructive feedback and make the person in question aware of his/her errors. It is the responsibility of the company to:
+
+Explain to the team member those areas in which he/she is expected to improve.
+To make suggestions about how to improve.
+Allow time for the employee to make improvements.
+
+
+Concern Reports for Managers, Leadership or C-Suite
+In the event that you have a concern about your manager, leadership or C-Suite, People Ops will take your concerns seriously and thoroughly investigate your claim. Please do not hesitate to approach People Ops with your concern!
+
+
+
+We ask that you DO NOT share concerns or allegations regarding your manager, leadership or C-Suite anonymously (i.e. our pulse survey) as it does not allow us to pinpoint who wrote the comment (and we won't be able to help as effectively as we'd like).
+
+
+
+If you'd like to learn more about our policy and process for investigating your concerns, please check out this link:
+
+
+
+🛑Concern Report Process (filed against Managers / C-Suite)
+Drug Policy
+If the Company has a reasonable belief that an employee has brought an illicit substance onto company property and that substance is interfering in their day-to-day job responsibilities, the Company shall subject that employee to a drug screening as available and under the requirements of Florida law.
+
+Codelitt does not tolerate any form of drug or substance use that negatively impacts your tasks and day-to-day responsibilities. If we have any reason to believe that the use of drugs or illegal substances is affecting your work, Codelitt reserves the right to investigate and take further action in compliance with state, federal, and country law.
+
+Termination
+Codelitt reserves the right to terminate employment for any reason, however, most terminations are due to issues stated above and unlikely to be a surprise. If you're concerned that you're not meeting the requirements of employment here, please speak with a manager.
+
+
+
+APPENDIX: ADDITIONAL POLICIES
+
+Interoffice Dating Policy
+Company employees may date and develop friendships and relationships with other employees, both inside and outside of the workplace—as long as the relationships don't have a negative impact on their work or the work of others.
+
+
+
+Any relationship that interferes with our culture, collaborative teamwork or productivity of employees will be addressed by manager and People Ops, and subject to our disciplinary policy.
+
+
+
+All Employees
+To prevent potential issues or conflicts on our team, we do not support, encourage or allow employees to 1) date their project lead or mentor, or 2) date their direct managers (and vice versa). This includes an employee who reports to their manager’s counterpart in another department.
+
+
+
+Additionally, any relationship with another employee or manager that may lead to favoritism, misuse of authority or impacts your terms and conditions of employment (i.e. raises, promotions, and career advancement) are prohibited.
+
+
+
+Relationships prohibited by this policy include, but are not limited to dating, romantic involvement, sexual relations and close friendships that can lead to bias and conflicts of interest in a reporting relationship.
+
+
+
+Colleagues (i.e. Employee to Employee)
+
+
+Before dating a colleague
+
+Before you decide to date a colleague (i.e. an employee in another department that is not a manager), please consider any potential complications.
+
+For example, if you’re working with a colleague on an important project, a relationship between the two of you (or a possible breakup) could affect your work and your interactions with the rest of the team. Please make sure you’ve thought about all parameters and risks before making a decision.
+
+
+
+When dating a colleague
+
+Please let your manager and People Ops know once you start dating a colleague so they are aware. Any information shared with management and People Ops will be confidential and will not be discussed with anyone else on the team.
+
+Please keep your personal issues and discussions out of the workplace.
+Do not allow your relationship to hinder productivity and collaborations with other team members.
+Be productive and focused as always. If you find that your work is affected by dating a colleague, please speak with your manager or People Ops.
+
+
+After you stop dating a colleague
+
+If your relationship ends, please remain respectful and professional in front of our team. We also ask that you refrain from engaging in interactions or behavior that disrupt the workplace, or badmouth/sabotage their work in any way.
+
+If your former partner behaves this way (or if you are an employee that would like to report inappropriate behavior), please report them to People Ops and we will investigate as soon as possible.
+
+
+
+Managers
+A manager who dates or becomes romantically involved with an employee creates a serious problem for the company. Dating or extramarital affairs with other employees, even when they are not in a reporting relationship, creates serious risk and consequences for the company.
+
+Notably, a dating relationship can affect the careers of both employees with regard to advancement opportunities, choices of jobs, and assignments. Clearly, these relationships can also result in charges of sexual harassment, years or decades after the fact.
+
+If a manager decides to pursue a close relationship with an employee (who is not their direct report), you must inform your direct manager and People Operations immediately. The company will then decide what, if any, actions are necessary to take in regard to assignments and jobs.
+
+
+
+Relationships with Clients
+Generally, employees are prohibited from pursuing romantic relationships with our clients due to risk of bias, favoritism, professional/personal work conflicts and other serious consequences to Codelitt’s working relationship with our clients.
+
+If you or another employee initiates a relationship with a client’s employee, please inform your manager and People Operations immediately.
+
+Company Guarantee
+The company policies stated in this document are subject to change. Codelitt Inc guarantees to review all policies annually and to stay up to date with local and international laws to keep making Codelitt a great place of work.
+
+# Reimbursement Policy
+
+### All team members **need to complete an expense report if t**hey have incurred any personal expenses related to the company.
+
+Any time you make a purchase related to Codelitt, including equipment, accessories, books, English classes and etc., you must fill out a [**Reimbursement Form**](https://forms.gle/LFtT1fRYr1xsU9EaA) and record each item to the best of your ability.  **Receipts are mandatory for all expenses**.
+
+If you are reimbursing equipment or accessories, please include the following in the description section:
+
+- Brand
+- Model
+- Specs
+
+⚠️ **Always confirm with your Manager that the expense is approved before you make the purchase.**
+
+🛑 **All reports must be submitted by the 22nd of each month or they will be processed the following month's payroll.**
+
+### 👇 **Below are the Equipment and Education Policies for your reference.**
+
+<aside>
+💡 🪴 **New Hire Office Stipend**
+
+</aside>
+
+- **All new hires** have a **$300 office stipend** that they can use any time during the 90 day onboarding period to buy any necessary items to setup your home office.
+- Please reach out to People Ops if you have any questions.
+
+<aside>
+💡 💻  **Equipment Policy**
+
+</aside>
+
+- Each employee is allotted an **equipment stipend on a case-by-case basis** (which can include hardware, accessories, and furniture - such as desks, keyboards, screens, etc.)
+- **This amount is flexible and depends on needs.** Please speak to your manager if you require something to perform your work, **or if your needs require more than the stipend mentioned here.**
+- To be eligible, **you must have completed your 3-month introductory period, and Review/Sign our Expanded Equipment Policy below.** Please review the Appendix below for more info.
+- Please note that **you must speak with your manager before purchasing the equipment** to make sure it qualifies for an equipment stipend.
+- Any equipment that is purchased will be considered **company property and you will be required to return the equipment if you leave the team (i.e. termination or resignation).** Always confirm with your manager if it fits you and your team’s needs.
+
+<aside>
+💡 📖  **Education Policy**
+
+</aside>
+
+- In an effort to help you meet your professional goals each quarter, the company has agreed to pay for your education through approved educational programs and efforts.
+- **Typically, online courses through Coursera, Udemy, or other resources that relate to your field of work are encouraged.**
+- As with most educational programs and educational resources, **this would be study completed in your own time.** It's exciting to be able to offer you the opportunity to grow, but also remember that Codelitt projects are your priority. If you have finished all you can for the current time, then by all means use your extra time to study or work through exercises, however, education is normally an extracurricular activity.
+🛩
+Corporate Travel Policy
+Policy Purpose:
+Our company’s travel policy outlines our provisions for company-related travel, including which expenses are applicable and instructions on how to track your travel expenses correctly.
+
+This policy applies to all employees that will be traveling for business. In this policy, “travel” is defined as 1) a business trip to a different city than the one you’re in and 2) any car, train or bus trip that lasts longer than an hour. This policy does not include traveling to and from the office on a daily basis for work.
+
+
+
+Policy Elements:
+As our employee, you may need to travel for business purposes. Currently, this may include the following types of travel:
+
+
+
+Meeting with clients or partners
+Attending events (i.e. conferences) where you’ll represent Codelitt
+Visiting our Miami headquarters for business purposes
+
+
+For this kind of travel, we’ll reimburse employees for 1) transportation, 2) accommodation and 3) meal expenses. Any business travel needs to be approved by your manager prior to any booking.
+
+
+
+Meals Expenses:
+Individual Meals: During a business trip, you’re entitled to reimbursement for breakfast (if not included with your accommodation), lunch and dinner at a maximum of $30 per meal. This can include one alcoholic beverage.
+Traveling with non-employee: We’ll reimburse only your own portion of the bill if you’re traveling with a non-employee, so please make sure to separate your bill or ask for separate receipts.
+Client meetings & meals: When it comes to meetings with clients (like lunch, dinner or coffee), we’ll reimburse the whole bill including tips. We understand that multiple client meetings/meals may occur during your trip, but we ask you to be mindful of the below on each occasion.
+The most senior employee participating in the meeting should pay the bill.
+We count on you to place reasonable orders. If you exceed $150 per person for one meal you must get approval from our CEO to expense the cost.
+
+
+We ask you to use your best judgment when traveling for company purposes. Don’t go overboard with spending on transportation, accommodation, and meals . Always ask for receipts and keep them organized.
+
+
+
+Upon returning from your trip, you need to submit all expenses as stated in our Expense Report Policy under the Business Trip Expenses section.
+
+💸
+Travel Expense Process
+Employees would need to complete a travel expense report if the employee traveled for business purposes
+
+
+Any  you travel for business purposes, you must fill out a business trip expense report template and record each item to the best of your ability.
+
+
+
+Travel Expense Report Process:
+You need to make sure to include: 1) the business purpose of the trip, 2) dates traveled, and 3) the client’s information and details (if applicable).
+You need to make sure to include all receipts or documents related to the expense for our review.
+Business trip expense reports need to be submitted to Cody, cc Mary no more than a week after traveling.
+When submitting your report and receipts, please make sure they are in PDF format and email them in a .Zip file.
+💬
+Language Courses
+ English Classes
+We offer English classes with an instructor for those that wish to improve their English.
+
+Contact the instructor via WhatsApp and let them know you work at Codelitt and are reaching out to setup your English classes.
+
+Sharon  +55 41 9188-8188
+
+
+
+👉
+You can also use one of the recommended courses listed below.
+Notes:
+
+Please make sure the course is less than $100 a month
+If the course is in English, please make sure the course is taught by a native English speaker
+Check with your manager and People Ops first before purchasing a course!
+Please Submit your reimbursement HERE!
+
+
+Current List of Courses
+Recommended Courses	Column
+Italki	https://www.italki.com/
+AVI (Spanish to English)	https://avi.cuaed.unam.mx/repositorio/moodle/pluginfile.php/3103/mod_resource/content/18/contenido/index.html
+Free English Courses	https://www.fluentin3months.com/free-online-english-language-lessons/
+Perfectly Spoken (free courses)	https://perfectlyspoken.com/
+Rosetta Stone ($11.99 per month or $299 lifetime)	https://www.rosettastone.com/
+
+🧗🏻
+Leadership
+Are you interested in improving your leadership skills? Below you'll find recommended books, resources and courses to help you coach / lead  your team!
+
+Books
+Never Split the Difference, Chris Voss and Tahl Rahz
+Extreme Ownership, Jocko Willink
+Deep Work, Cal Newport (great summary here!)
+How to Win Friends and Influence People, Dale Carnegie (here's a quick summary!)
+Drive, Daniel Pink
+Break the Rules, Marcus Buckingham
+Radical Candor, Kim Scott
+How Not to Be Wrong: The Power of Mathematical Thinking, Jordan Ellenberg
+
+
+EOS Books
+Traction, Gino Wickman
+Rocket Fuel, Gino Wickman (note: for company's visionary + integrator)
+PDF Copy 👇
+
+https://s3-us-west-2.amazonaws.com/secure.notion-static.com/450e4152-7427-4416-9ae3-1fefdecc5680/Rocket_Fuel.pdf
+How to be a Great Boss!, Gino Wickman
+Get a Grip, Gino Wickman
+What the Heck is EOS? Gino Wickman
+
+
+Courses
+Best Self Management Certification (free)!
+
+Best-Self Academy: Uplevel Your People Management Skills
+Leadership development and management skills training from the Best-Self Academy perfectly complements 15Five's People Management Software to help HR teams, executives, and managers like you improve performance, productivity, and employee retention.
+https://academy.15five.com/courses/take/best-self-management-certification/lessons/9785043-1-on-1s
+
+
+Articles:
+
+Lattice - Resources for Humans
+The Ultimate Guide to Feedback 👇
+https://uploads-ssl.webflow.com/5b5a66e9f3166b36708705fa/5bb4e396a4b9230290858290_the-ultimate-guide-to-feedback.pdf
+How to give or receive feedback - either as a manager or employee!
+The Right Way to Hold People Accountable
+The Right Way to Hold People Accountable
+John* was doing his best to be calm, but his frustration was palpable. Jeanine was explaining that there was little chance her group was going to make the numbers for this quarter. "Honestly?" she said. "The numbers weren't realistic to begin with. It was really unlikely that we were going to make them."
+https://hbr.org/2016/01/the-right-way-to-hold-people-accountable
+
+
+
+Transportation / Flight Expenses:
+Traveling by air: When traveling for company purposes, you’re entitled to company-paid plane tickets in economy class. Your travel must be booked at least two weeks in advance, unless it’s an unforeseen trip.
+Traveling by car: If you plan to travel by car, we’ll reimburse all gas and toll fees. We’ll also pay a maximum of $100 for expenses during your trip for food, non-alcoholic drinks or other necessities. Make sure to keep all your receipts to keep the reimbursement process as seamless as possible.
+When you have arrived at your destination, you may take taxis or rideshare options (i.e. Lyft or Uber) to move around the area for business purposes. Always ask for receipts and we’ll reimburse fares for the following:
+Roundtrip transportation from the airport to the hotel
+To and from every place you go for company purposes (i.e. conference halls, lunches/dinners with clients or client offices)
+If you prefer to use public transport, you may buy a ticket for the duration of your trip (either one-way or multiple-day passes, if applicable)
+You can also rent a car if you plan to do many trips within the city (for example, if you’re planning to see a large number of customers). In these cases, please discuss with your manager and receive approval before moving forward with your purchase..
+Keep in mind that we won’t reimburse transportation expenses for personal purposes, such as visiting your friends/family or trips to museums and other places.
+Accommodation Expenses:
+When traveling for company purposes, you’re entitled to stay at a 3-star hotel or Airbnb available in the area. Extended stays for personal reasons, or additional room-related charges, will not be reimbursed. yourself. We won’t reimburse any extra room-related charges incurred.
+If you want to stay at a more expensive lodging for a particular reason (i.e. to be closer to friends or family nearby) you’ll have to pay the difference yourself.
+Traveling with a non-employee: Our policy allows you to share a company-booked room with a partner, friend or family member who wants to travel with you, as long as this doesn’t incur extra charges for our company.
+Please note that we will not reimburse any expenses incurred by your co-traveler throughout the entirety of the trip.
+
+
+
+
+

@@ -3,8 +3,7 @@
 module Flows
   class DirectMessageFlow < BaseFlow
     def execute
-      response = Clients::Gpt::Client.new.generate(gpt_prompt)
-
+      response = Clients::Gpt::Client.new.process_question(gpt_prompt)
       Clients::Notifications::Channel.new.send(
         response,
         slack_channel,
