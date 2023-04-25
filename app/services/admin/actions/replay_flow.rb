@@ -28,7 +28,7 @@ module Admin
           if Rails.env.production?
             HardWorker.perform_async(@object.id)
           else
-            FlowExecutor.new(@object).execute!
+            FlowExecutor.call(@object)
           end
           redirect_to back_or_index
         end
