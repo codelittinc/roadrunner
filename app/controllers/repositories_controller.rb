@@ -67,6 +67,7 @@ class RepositoriesController < ApplicationController
 
   def clean_params
     params['repository']['deploy_type'] = nil if params['repository']['deploy_type'] == 'none'
+    params['repository']['deploy_type'] = Repository::TAG_DEPLOY_TYPE if params['repository']['deploy_type'].nil? && @repository.deploy_type.nil?
   end
 
   # Use callbacks to share common setup or constraints between actions.
