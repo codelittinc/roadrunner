@@ -58,11 +58,11 @@ http_interactions:
     recorded_at: Tue, 31 Jan 2023 18:31:31 GMT
   - request:
       method: post
-      uri: https://api.openai.com/v1/completions
+      uri: https://api.openai.com/v1/chat/completions
       body:
         encoding: UTF-8
         string:
-          '{"model":"text-davinci-003","prompt":"write a blogpost about how to
+          '{"model":"gpt-4","prompt":"write a blogpost about how to
           release ruby on rails applications","max_tokens":1000}'
       headers:
         Content-Type:
@@ -107,7 +107,7 @@ http_interactions:
       body:
         encoding: UTF-8
         string:
-          '{"id":"cmpl-6VN6FyuG1yjacCBXsgbiQelJVZy3w","object":"text_completion","created":1672934983,"model":"text-davinci-003","choices":[{"text":"\n\nReleasing
+          '{"id":"cmpl-6VN6FyuG1yjacCBXsgbiQelJVZy3w","object":"text_completion","created":1672934983,"model":"text-davinci-003","choices":[{"message": { "content": "\n\nReleasing
           a Ruby on Rails application is an important step for any Rails developer.
           Whether you’re releasing a client-facing application or releasing something
           public, there are a few things you should know before you get started. In
@@ -138,7 +138,7 @@ http_interactions:
           idea of how your application is being used by your customers.\n\nReleasing
           a Ruby on Rails application can be a complicated process, but it doesn’t have
           to be. By following the steps outlined here, you’ll be able to successfully
-          launch your application with confidence.","index":0,"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"completion_tokens":489,"total_tokens":501}}
+          launch your application with confidence." },"index":0,"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"completion_tokens":489,"total_tokens":501}}
           '
     recorded_at: Tue, 31 Jan 2023 18:31:31 GMT
 recorded_with: VCR 6.1.0

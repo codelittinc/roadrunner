@@ -28,7 +28,7 @@ gem 'turbo-rails'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
 
-gem 'ruby-openai'
+gem 'ruby-openai', '~> 4.0'
 
 gem 'notion-ruby-client'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
