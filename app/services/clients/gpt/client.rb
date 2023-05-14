@@ -8,19 +8,20 @@ module Clients
       end
 
       def generate(prompt, max_tokens = 1000)
-        response = @client.completions(
+        response = @client.chat(
           parameters: {
-            model: 'text-davinci-003',
-            prompt:,
+            model: 'gpt-4',
+            messages: [
+              { role: 'system', content: 'You are a helpful and creative assistant.' },
+              { role: 'user', content: prompt }
+            ],
             max_tokens:
           }
         )
 
-        choices = response['choices']
-
-        response = choices.pluck('text').join
-
-        response.strip.gsub(/^"/, '').gsub(/"$/, '').gsub(/^'/, '').gsub(/'$/, '')
+        choices = response['choices'].first
+        message = choices['message']['content']
+        message.strip.gsub(/^"/, '').gsub(/"$/, '').gsub(/^'/, '').gsub(/'$/, '')
       end
     end
   end
