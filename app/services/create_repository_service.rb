@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-class CreateRepositoryService
+class CreateRepositoryService < ApplicationService
   def initialize(params)
     @params = params
-  end
-
-  def self.call(*args)
-    new(*args).call
   end
 
   def call
