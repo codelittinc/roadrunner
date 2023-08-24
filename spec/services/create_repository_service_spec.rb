@@ -18,7 +18,8 @@ RSpec.describe CreateRepositoryService, type: :service do
           slack_repository_info_attributes: {
             deploy_channel: 'test'
           },
-          source_control_type: 'github'
+          source_control_type: 'github',
+          base_branch: 'master'
         }
       end
 
