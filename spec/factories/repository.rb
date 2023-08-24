@@ -9,6 +9,7 @@ FactoryBot.define do
     supports_deploy { true }
     project { association :project }
     active { true }
+    base_branch { 'master' }
 
     after(:create) do |obj|
       create(:slack_repository_info, repository: obj)

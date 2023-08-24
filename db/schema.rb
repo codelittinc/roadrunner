@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_182742) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_24_013249) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "applications", force: :cascade do |t|
@@ -255,6 +256,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_182742) do
     t.string "owner"
     t.string "source_control_type"
     t.boolean "active"
+    t.string "base_branch"
     t.index ["project_id"], name: "index_repositories_on_project_id"
   end
 
