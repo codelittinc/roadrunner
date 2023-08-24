@@ -37,7 +37,7 @@ module Flows
         return @source_control_release_commits if @source_control_release_commits
 
         @source_control_release_commits ||= if version_resolver.latest_tag_name.nil?
-                                              source_control_client.list_branch_commits('master').reverse
+                                              source_control_client.list_branch_commits(base_branch).reverse
                                             else
                                               source_control_client.compare_commits(
                                                 version_resolver.latest_stable_release, version_resolver.latest_tag_name

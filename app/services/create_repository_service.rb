@@ -2,6 +2,7 @@
 
 class CreateRepositoryService < ApplicationService
   def initialize(params)
+    super()
     @params = params
   end
 

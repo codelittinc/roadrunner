@@ -37,10 +37,10 @@ module Flows
       def source_control_release_commits
         return @source_control_release_commits if @source_control_release_commits
 
-        first_stable_release = version_resolver.latest_normal_stable_release.nil? || version_resolver.latest_normal_stable_release == 'master'
+        first_stable_release = version_resolver.latest_normal_stable_release.nil? || version_resolver.latest_normal_stable_release == base_branch
 
         @source_control_release_commits ||= if first_stable_release
-                                              source_control_client.list_branch_commits('master').reverse
+                                              source_control_client.list_branch_commits(base_branch).reverse
                                             else
                                               source_control_client.compare_commits(
                                                 version_resolver.latest_normal_stable_release, version_resolver.latest_tag_name

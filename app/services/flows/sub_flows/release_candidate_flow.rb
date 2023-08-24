@@ -15,7 +15,7 @@ module Flows
 
         source_control_client.create_release(
           version,
-          'master',
+          base_branch,
           github_message,
           true
         )
@@ -35,10 +35,10 @@ module Flows
         return @source_control_release_commits if @source_control_release_commits
 
         @source_control_release_commits = if @releases.empty?
-                                            source_control_client.list_branch_commits('master').reverse
+                                            source_control_client.list_branch_commits(base_branch).reverse
                                           else
                                             source_control_client.compare_commits(version_resolver.latest_tag_name,
-                                                                                  'master')
+                                                                                  base_branch)
                                           end
       end
 
