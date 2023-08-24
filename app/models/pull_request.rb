@@ -45,17 +45,6 @@ class PullRequest < ApplicationRecord
   validates :title, presence: true
   validates :state, presence: true
 
-  DEPLOY_DEV_BRANCH_LEGACY = 'dev'
-  DEPLOY_DEV_BRANCH = 'develop'
-  DEPLOY_QA_BRANCH = 'qa'
-  DEPLOY_PROD_BRANCH = 'master'
-
-  def self.deployment_branches?(base, head)
-    [DEPLOY_QA_BRANCH,
-     DEPLOY_PROD_BRANCH].include?(base) && [DEPLOY_DEV_BRANCH, DEPLOY_QA_BRANCH,
-                                            DEPLOY_DEV_BRANCH_LEGACY].include?(head)
-  end
-
   delegate :link, to: :source
   delegate :source_control_id, to: :source
 

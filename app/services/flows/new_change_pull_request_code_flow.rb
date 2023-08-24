@@ -17,7 +17,7 @@ module Flows
     def can_execute?
       return false unless pull_request
 
-      reserved_branch = %w[master development develop qa].include? parser.head
+      reserved_branch = [pull_request.repository.base_branch, 'development', 'qa'].include? parser.head
 
       parser.new_change_pull_request_code_flow? && !reserved_branch && pull_request&.open?
     end

@@ -13,6 +13,10 @@ module Flows
         @environment = environment
       end
 
+      def base_branch
+        @base_branch ||= @repository.base_branch
+      end
+
       def source_control_client
         Clients::SourceControlClient.new(@repository)
       end

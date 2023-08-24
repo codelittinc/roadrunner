@@ -32,6 +32,14 @@ class Repository < ApplicationRecord
   validates :source_control_type, presence: true, inclusion: { in: %w[github azure] }
   validates :base_branch, presence: true
 
+  DEPLOY_DEV_BRANCH = 'develop'
+  DEPLOY_QA_BRANCH = 'qa'
+
+  def deployment_branches?(base, head)
+    [DEPLOY_QA_BRANCH,
+     base_branch].include?(base) && [DEPLOY_DEV_BRANCH, DEPLOY_QA_BRANCH].include?(head)
+  end
+
   def full_name
     "#{owner}/#{name}"
   end
