@@ -8,6 +8,11 @@ class RepositoriesController < ApplicationController
   # GET /repositories or /repositories.json
   def index
     @repositories = Repository.all.order(:owner, :name)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :index, formats: :json } # index.json.erb
+    end
   end
 
   # GET /repositories/1 or /repositories/1.json
