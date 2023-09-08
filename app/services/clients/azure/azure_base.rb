@@ -3,12 +3,13 @@
 module Clients
   module Azure
     class AzureBase
+      # @TODO: allow this to be configurable
       def azure_url
-        'https://dev.azure.com/AY-InnovationCenter/Avant/_apis/'
+        'https://dev.azure.com/codelitt-kaio/roadrunner/_apis/'
       end
 
       def azure_api_url
-        'https://vsrm.dev.azure.com/AY-InnovationCenter/Avant/_apis/'
+        'https://vsrm.dev.azure.com/codelitt-kaio/roadrunner/_apis/'
       end
 
       def authorization

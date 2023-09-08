@@ -7,7 +7,7 @@ module Clients
       def list(_repository); end
 
       # @TODO: implement this method
-      def create(repository, name = 'web'); end
+      def create(_repository, _name = 'web'); end
     end
   end
 end
