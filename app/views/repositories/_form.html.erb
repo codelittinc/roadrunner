@@ -12,7 +12,8 @@
     </div>
   <% end %>
 
-  <%= form.hidden_field :owner, value: "codelittinc" %>
+  <%= form.label :owner, "Owner" %>
+  <%= form.text_field :owner, value: "codelittinc" %>
 
   <%= form.label :name, "Repository name" %>
   <%= form.text_field :name %>
