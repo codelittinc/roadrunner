@@ -13,13 +13,13 @@
   <% end %>
 
   <%= form.label :owner, "Owner" %>
-  <%= form.text_field :owner, value: "codelittinc" %>
+  <%= form.text_field :owner, value: @repository.owner || "codelittinc" %>
 
   <%= form.label :name, "Repository name" %>
   <%= form.text_field :name %>
 
   <%= form.label :base_branch, "Base branch" %>
-  <%= form.text_field :base_branch, value: "master" %>
+  <%= form.text_field :base_branch, value: @repository.base_branch || "master" %>
 
   <label> Source Control Type </label>
 
