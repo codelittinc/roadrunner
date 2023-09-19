@@ -18,6 +18,6 @@ class AzurePullRequest < ApplicationRecord
   def link
     repository = pull_request.repository
     # @TODO: find a way to name the company name here to avoid hard coding: AY-InnovationCenter
-    "https://dev.azure.com/AY-InnovationCenter/#{repository&.owner}/_git/#{repository&.name}/pullrequest/#{source_control_id}"
+    "https://dev.azure.com/ministrybrands/#{repository&.owner}/_git/#{repository&.name}/pullrequest/#{source_control_id}"
   end
 end
