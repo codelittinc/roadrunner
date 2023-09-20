@@ -43,6 +43,12 @@ class Repository < ApplicationRecord
      base_branch].include?(base) && [DEPLOY_DEV_BRANCH, DEPLOY_QA_BRANCH].include?(head)
   end
 
+  def valid_base_branch_for_pull_request?(branch)
+    return true unless filter_pull_requests_by_base_branch
+
+    branch == base_branch
+  end
+
   def full_name
     "#{owner}/#{name}"
   end
