@@ -10,6 +10,7 @@
 #  updated_at  :datetime         not null
 #  slug        :string
 #  customer_id :bigint
+#  active      :boolean          default(TRUE)
 #
 require 'rails_helper'
 

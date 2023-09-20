@@ -4,11 +4,11 @@
 #
 # Table name: external_resource_metadata
 #
-#  id             :bigint           not null, primary key
-#  key            :string
-#  value          :string
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id         :bigint           not null, primary key
+#  key        :string
+#  value      :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 class ExternalResourceMetadata < ApplicationRecord
   validates :key, presence: true
