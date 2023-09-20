@@ -68,4 +68,27 @@ RSpec.describe Repository, type: :model do
       expect(repository.application_by_environment('qa')).to be_nil
     end
   end
+
+  describe '#valid_base_branch_for_pull_request?' do
+    context 'when filter_pull_requests_by_base_branch is false' do
+      it 'returns true no matter the branch' do
+        repository = FactoryBot.create(:repository, filter_pull_requests_by_base_branch: false)
+        branch_name = FFaker::Lorem.word
+        expect(repository.valid_base_branch_for_pull_request?(branch_name)).to be_truthy
+      end
+    end
+    context 'when filter_pull_requests_by_base_branch is true' do
+      it 'returns true if the branch name is equal the base branch ' do
+        branch_name = 'cool-branch-name'
+        repository = FactoryBot.create(:repository, filter_pull_requests_by_base_branch: true, base_branch: branch_name)
+        expect(repository.valid_base_branch_for_pull_request?(branch_name)).to be_truthy
+      end
+
+      it 'returns false if the branch name is different than the base branch ' do
+        repository = FactoryBot.create(:repository, filter_pull_requests_by_base_branch: true, base_branch: 'main')
+        branch_name = 'master'
+        expect(repository.valid_base_branch_for_pull_request?(branch_name)).to be_falsy
+      end
+    end
+  end
 end

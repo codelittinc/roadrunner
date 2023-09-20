@@ -8,6 +8,7 @@ env:
   RAILS_ENV: test
   NOTIFICATIONS_API_URL: https://api.notifications.codelitt.dev
   GPT_KEY: ${{ secrets.GPT_KEY }}
+  AZURE_OWNER: AY-InnovationCenter
 
 on:
   push:

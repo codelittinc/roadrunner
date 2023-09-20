@@ -28,7 +28,7 @@ module Flows
             return unless pull_request.nil?
             return unless parser.new_pull_request_flow?
 
-            !parser.draft && !repository.deployment_branches?(parser.base, parser.head)
+            !parser.draft && !repository.deployment_branches?(parser.base, parser.head) && repository.valid_base_branch_for_pull_request?(parser.base)
           end
 
           private

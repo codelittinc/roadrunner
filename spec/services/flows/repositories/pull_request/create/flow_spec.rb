@@ -178,6 +178,15 @@ RSpec.describe Flows::Repositories::PullRequest::Create::Flow, type: :service do
           flow = described_class.new(azure_valid_json_updated)
           expect(flow.flow?).to be_truthy
         end
+
+        it 'when the repository base_branch matches the pr base branch' do
+          repository.update(base_branch: 'main', filter_pull_requests_by_base_branch: true)
+          azure_valid_json_updated = azure_valid_json.deep_dup
+          azure_valid_json_updated[:resource][:pullRequestId] = 1
+          azure_valid_json_updated[:eventType] = 'git.pullrequest.created'
+          flow = described_class.new(azure_valid_json_updated)
+          expect(flow.flow?).to be_truthy
+        end
       end
 
       context 'return false when' do
