@@ -11,6 +11,11 @@ FactoryBot.define do
     active { true }
     base_branch { 'master' }
 
+    trait :avant do
+      owner { 'Avant' }
+      name { 'ay-users-api-test' }
+    end
+
     after(:create) do |obj|
       create(:slack_repository_info, repository: obj)
     end

@@ -4,10 +4,13 @@ require 'rails_helper'
 require 'external_api_helper'
 
 RSpec.describe Clients::Azure::Release, type: :service do
+  let(:repository) do
+    FactoryBot.create(:repository, :avant)
+  end
+
   describe '#list' do
     it 'returns a list of releases' do
       VCR.use_cassette('azure#release#list') do
-        repository = FactoryBot.create(:repository, name: 'ay-users-api-test')
         releases = described_class.new.list(repository)
         expect(releases.size).to eql(14)
       end
@@ -15,7 +18,6 @@ RSpec.describe Clients::Azure::Release, type: :service do
 
     it 'returns the correct information' do
       VCR.use_cassette('azure#release#list') do
-        repository = FactoryBot.create(:repository, name: 'ay-users-api-test')
         releases = described_class.new.list(repository)
         expect(releases.first.tag_name).to eq('v1.2.0')
       end
@@ -23,7 +25,6 @@ RSpec.describe Clients::Azure::Release, type: :service do
 
     it 'returns the releases in the correct order' do
       VCR.use_cassette('azure#release#list-order') do
-        repository = FactoryBot.create(:repository, name: 'ay-users-api-test')
         releases = described_class.new.list(repository)
         expect(releases.first.tag_name).to eq('v1.2.0')
       end
@@ -33,7 +34,6 @@ RSpec.describe Clients::Azure::Release, type: :service do
   describe '#create' do
     it 'creates a release parser, with correct created_by' do
       VCR.use_cassette('azure#release#create') do
-        repository = FactoryBot.create(:repository, name: 'ay-users-api-test')
         tag_name = 'v1.3.0'
         release = described_class.new.create(repository, tag_name, 'master', '', true)
 
@@ -43,7 +43,6 @@ RSpec.describe Clients::Azure::Release, type: :service do
 
     it 'creates a release parser, with correct tag_name' do
       VCR.use_cassette('azure#release#create') do
-        repository = FactoryBot.create(:repository, name: 'ay-users-api-test')
         tag_name = 'rc.2.v1.0.0'
         release = described_class.new.create(repository, tag_name, 'master', '', true)
 
@@ -53,7 +52,6 @@ RSpec.describe Clients::Azure::Release, type: :service do
 
     it 'returns a release parser' do
       VCR.use_cassette('azure#release#create') do
-        repository = FactoryBot.create(:repository, name: 'ay-users-api-test')
         tag_name = 'rc.2.v1.0.0'
         release = described_class.new.create(repository, tag_name, 'master', '', true)
 
