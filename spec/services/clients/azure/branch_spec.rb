@@ -5,7 +5,7 @@ require 'external_api_helper'
 
 RSpec.describe Clients::Azure::Branch, type: :service do
   let(:repository) do
-    FactoryBot.create(:repository, name: 'ay-users-api-test')
+    FactoryBot.create(:repository, name: 'ay-users-api-test', owner: 'Avant')
   end
 
   describe '#commits' do
@@ -29,7 +29,7 @@ RSpec.describe Clients::Azure::Branch, type: :service do
   describe '#compare' do
     context 'when the branches have less than 100 commits' do
       it 'returns the correct commits between two branches' do
-        repository = FactoryBot.create(:repository, name: 'roadrunner-repository-test')
+        repository = FactoryBot.create(:repository, name: 'roadrunner-repository-test', owner: 'Avant')
         VCR.use_cassette('azure#branch#compare') do
           commits = described_class.new.compare(repository, 'feat/test-compare-branches', 'master')
           expected_commits_sha = %w[
@@ -42,7 +42,7 @@ RSpec.describe Clients::Azure::Branch, type: :service do
       end
 
       it 'returns the correct commits between two tags' do
-        repository = FactoryBot.create(:repository, name: 'roadrunner-repository-test')
+        repository = FactoryBot.create(:repository, name: 'roadrunner-repository-test', owner: 'Avant')
         VCR.use_cassette('azure#branch#compare') do
           commits = described_class.new.compare(repository, 'v1.0.0', 'rc.1.v1.1.0')
           expected_commits_sha = %w[

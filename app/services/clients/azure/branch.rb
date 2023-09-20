@@ -5,7 +5,7 @@ module Clients
     class Branch < AzureBase
       def commits(repository, branch, from_date = nil)
         type = resource_type(branch)
-        url = "#{azure_url}git/repositories/#{repository.name}/commits?searchCriteria.itemVersion.version=#{branch}&api-version=6.1-preview.1&searchCriteria.itemVersion.versionType=#{type}"
+        url = "#{azure_url(repository)}git/repositories/#{repository.name}/commits?searchCriteria.itemVersion.version=#{branch}&api-version=6.1-preview.1&searchCriteria.itemVersion.versionType=#{type}"
         url = "#{url}&&searchCriteria.fromDate=#{from_date}" unless from_date.nil?
         response = Request.get(url, authorization)
         commits = response['value']
@@ -23,7 +23,7 @@ module Clients
       end
 
       def branch_exists?(repository, branch)
-        url = "#{azure_url}git/repositories/#{repository.name}/refs?filter=heads/#{branch}&api-version=4.1"
+        url = "#{azure_url(repository)}git/repositories/#{repository.name}/refs?filter=heads/#{branch}&api-version=4.1"
         response = Request.get(url, authorization)
         response['count'].positive?
       end

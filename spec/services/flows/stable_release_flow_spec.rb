@@ -172,7 +172,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
 
   context 'when the repository type is Azure' do
     let(:azure_repository_with_applications) do
-      repository = FactoryBot.create(:repository, owner: 'codelittinc', name: 'roadrunner-repository-test',
+      repository = FactoryBot.create(:repository, owner: 'Avant', name: 'roadrunner-repository-test',
                                                   source_control_type: 'azure')
       repository.applications << FactoryBot.create(:application, repository:, environment: 'prod')
       repository
