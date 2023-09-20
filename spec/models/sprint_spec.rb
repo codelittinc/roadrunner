@@ -13,6 +13,7 @@
 #  updated_at  :datetime         not null
 #  team        :string
 #  customer_id :bigint
+#  source      :string
 #
 require 'rails_helper'
 
