@@ -32,8 +32,10 @@ gem 'ruby-openai', '~> 4.0'
 
 gem 'notion-ruby-client'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
+gem 'friendly_id', '~> 5.4.0'
 gem 'jbuilder'
 gem 'rails_admin', '>= 3.0.0.beta'
+gem 'ransack'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 

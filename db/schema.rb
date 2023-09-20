@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_20_152711) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_20_203932) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -258,7 +258,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_20_152711) do
     t.boolean "active"
     t.string "base_branch"
     t.boolean "filter_pull_requests_by_base_branch"
+    t.string "slug"
     t.index ["project_id"], name: "index_repositories_on_project_id"
+    t.index ["slug"], name: "index_repositories_on_slug", unique: true
   end
 
   create_table "server_incident_instances", force: :cascade do |t|

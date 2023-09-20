@@ -19,6 +19,9 @@
 #  filter_pull_requests_by_base_branch :boolean
 #
 class Repository < ApplicationRecord
+  extend FriendlyId
+  friendly_id :full_name, use: :slugged
+
   belongs_to :project, optional: true
   has_one :slack_repository_info, dependent: :destroy
 
@@ -63,5 +66,9 @@ class Repository < ApplicationRecord
 
   def application_by_environment(environment)
     applications.find_by(environment:)
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[name owner]
   end
 end

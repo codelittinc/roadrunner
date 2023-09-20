@@ -7,7 +7,12 @@ class RepositoriesController < ApplicationController
 
   # GET /repositories or /repositories.json
   def index
-    @repositories = Repository.all.order(:owner, :name)
+    query = params[:query]
+    @repositories = Repository.ransack(owner_cont: query, name_cont: query, m: 'or').result
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :index, formats: :json } # index.json.erb
+    end
   end
 
   # GET /repositories/1 or /repositories/1.json
