@@ -15,9 +15,11 @@ class RepositoriesController < ApplicationController
     end
   end
 
-  # GET /repositories/1 or /repositories/1.json
+  # GET /repositories/1.json
   def show
-    redirect_to edit_repository_url(@repository)
+    respond_to do |format|
+      format.json { render :show, formats: :json }
+    end
   end
 
   # GET /repositories/new
@@ -48,7 +50,6 @@ class RepositoriesController < ApplicationController
   def update
     respond_to do |format|
       if @repository.update(repository_params)
-        format.html { redirect_to repository_url(@repository), notice: 'Repository was successfully updated.' }
         format.json { render :show, status: :ok, location: @repository }
       else
         set_channels
