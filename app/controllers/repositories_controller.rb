@@ -18,6 +18,7 @@ class RepositoriesController < ApplicationController
   # GET /repositories/1.json
   def show
     respond_to do |format|
+      format.html { redirect_to edit_repository_url(@repository.id) }
       format.json { render :show, formats: :json }
     end
   end
@@ -78,7 +79,7 @@ class RepositoriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_repository
-    @repository = Repository.find(params[:id])
+    @repository = Repository.friendly.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
