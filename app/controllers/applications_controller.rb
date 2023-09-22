@@ -1,61 +1,57 @@
 # frozen_string_literal: true
 
 class ApplicationsController < ApplicationController
-  before_action :set_application, only: %i[show update edit destroy]
-  before_action :set_repository, only: %i[update edit destroy new create]
+  before_action :set_repository
+  before_action :set_application, only: %i[show update destroy]
 
+  # GET /repositories/:repository_id/applications
   def index
-    @applications = Application.all
+    @applications = @repository.applications.includes(:server)
+    render json: @applications.as_json(include: :server)
   end
 
-  def show; end
-
-  # GET /repositories/new
-  def new
-    @application = Application.new
+  # GET /repositories/:repository_id/applications/:id
+  def show
+    render json: @application.as_json(include: :server)
   end
 
-  def edit; end
-
+  # POST /repositories/:repository_id/applications
   def create
-    @application = Application.new(environment: params[:environment], repository: @repository)
-    @server = Server.new(environment: params[:environment], supports_health_check: params[:supports_health_check],
-                         link: params[:link], active: params[:active], application: @application)
+    @application = @repository.applications.build(application_params)
 
-    Application.transaction do
-      @application.save!
-      @server.save!
+    if @application.save
+      render json: @application.as_json(include: :server), status: :created, location: repository_application_url(@repository, @application)
+    else
+      render json: @application.errors, status: :unprocessable_entity
     end
-
-    redirect_to edit_repository_url(@repository.id)
   end
 
+  # PATCH/PUT /repositories/:repository_id/applications/:id
   def update
-    Application.transaction do
-      @application.update(environment: params[:environment])
-      @application.server.update(environment: params[:environment], supports_health_check: params[:supports_health_check],
-                                 link: params[:link], active: params[:active])
+    if @application.update(application_params)
+      render json: @application.as_json(include: :server)
+    else
+      render json: @application.errors, status: :unprocessable_entity
     end
-
-    redirect_to edit_repository_url(@repository.id)
   end
 
+  # DELETE /repositories/:repository_id/applications/:id
   def destroy
-    @application.server.destroy!
-    redirect_to edit_repository_url(@repository.id)
+    @application.destroy
+    head :no_content
   end
 
   private
 
-  def application_params
-    params.permit(:environment, :link, :supports_health_check, :active)
+  def set_repository
+    @repository = Repository.find(params[:repository_id])
   end
 
   def set_application
-    @application = Application.find(params[:id])
+    @application = @repository.applications.includes(:server).find(params[:id])
   end
 
-  def set_repository
-    @repository = Repository.find(params[:repository_id])
+  def application_params
+    params.require(:application).permit(:environment, :repository_id, server_attributes: %i[id link supports_health_check active environment])
   end
 end

@@ -8,5 +8,5 @@ json.slack_repository_info do
 end
 
 json.applications repository.applications do |application|
-  json.extract! application, :id, :environment, :created_at, :updated_at, :repository_id
+  json.extract! application, :id, :environment, :created_at, :updated_at, :repository_id, :server
 end
