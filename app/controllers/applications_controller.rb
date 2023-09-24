@@ -6,13 +6,13 @@ class ApplicationsController < ApplicationController
 
   # GET /repositories/:repository_id/applications
   def index
-    @applications = @repository.applications.includes(:server)
-    render json: @applications.as_json(include: :server)
+    @applications = @repository.applications.includes(:server, :external_identifiers)
+    render json: @applications.as_json(include: %i[server external_identifiers])
   end
 
   # GET /repositories/:repository_id/applications/:id
   def show
-    render json: @application.as_json(include: :server)
+    render json: @application.as_json(include: %i[server external_identifiers])
   end
 
   # POST /repositories/:repository_id/applications
@@ -48,10 +48,10 @@ class ApplicationsController < ApplicationController
   end
 
   def set_application
-    @application = @repository.applications.includes(:server).find(params[:id])
+    @application = @repository.applications.includes(:server, :external_identifiers).find(params[:id])
   end
 
   def application_params
-    params.require(:application).permit(:environment, :repository_id, server_attributes: %i[id link supports_health_check active environment])
+    params.require(:application).permit(:environment, :repository_id, server_attributes: %i[id link supports_health_check active environment], external_identifiers_attributes: %i[id text])
   end
 end

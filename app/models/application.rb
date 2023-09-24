@@ -19,6 +19,7 @@ class Application < ApplicationRecord
   has_many :external_identifiers, dependent: :destroy
 
   accepts_nested_attributes_for :server, allow_destroy: true
+  accepts_nested_attributes_for :external_identifiers, allow_destroy: true
 
   DEV = 'dev'
   QA = 'qa'
