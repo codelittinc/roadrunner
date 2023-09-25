@@ -28,6 +28,7 @@ class ApplicationsController < ApplicationController
 
   # PATCH/PUT /repositories/:repository_id/applications/:id
   def update
+    @application.external_identifiers.destroy_all
     if @application.update(application_params)
       render json: @application.as_json(include: :server)
     else
