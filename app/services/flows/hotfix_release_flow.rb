@@ -73,7 +73,7 @@ module Flows
     end
 
     def repository
-      @repository ||= Repository.where(name: repository_name).first
+      @repository ||= Repository.by_name(repository_name).first
     end
 
     def customer

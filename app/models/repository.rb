@@ -41,6 +41,10 @@ class Repository < ApplicationRecord
   DEPLOY_DEV_BRANCH = 'develop'
   DEPLOY_QA_BRANCH = 'qa'
 
+  scope :by_name, lambda { |name|
+    where('lower(name) = ?', name.downcase)
+  }
+
   def deployment_branches?(base, head)
     [DEPLOY_QA_BRANCH,
      base_branch].include?(base) && [DEPLOY_DEV_BRANCH, DEPLOY_QA_BRANCH].include?(head)
