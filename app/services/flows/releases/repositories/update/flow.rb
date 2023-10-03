@@ -21,14 +21,16 @@ module Flows
 
           def can_execute?
             channel_name = @params[:channel_name]
+            channel_id = @params[:channel_id]
+            slack_configs = SlackRepositoryInfo.by_deploy_channel(channel_name, channel_id)
 
             return false if @params[:text].nil? || @params[:text].blank?
             return false unless @params[:text].split.first == 'update'
 
-            slack_config = SlackRepositoryInfo.where(deploy_channel: channel_name).first
+            slack_config = slack_configs.first
             return false unless slack_config
             return false unless Versioning.valid_env? @params[:text].split.last
-            return false if SlackRepositoryInfo.where(deploy_channel: channel_name).count == 1
+            return false if slack_configs.count == 1
             return false if @params[:text].split.size != 3
 
             repository = Repository.where(name: @params[:text].split.second).first
