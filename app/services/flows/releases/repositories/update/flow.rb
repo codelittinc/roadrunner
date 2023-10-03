@@ -33,7 +33,7 @@ module Flows
             return false if slack_configs.count == 1
             return false if @params[:text].split.size != 3
 
-            repository = Repository.where(name: @params[:text].split.second).first
+            repository = Repository.by_name(@params[:text].split.second).first
             repository&.deploy_type == Repository::TAG_DEPLOY_TYPE
           end
         end
