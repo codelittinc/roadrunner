@@ -3,7 +3,7 @@
 module Flows
   class BaseSourceControlFlow < BaseFlow
     def repository
-      @repository ||= Repository.where('lower(name) = ? and owner = ? and active = true', parser.repository_name.downcase, parser.owner).first
+      @repository ||= Repository.by_name(parser.repository_name).where(owner: parser.owner, active: true).first
     end
 
     def customer

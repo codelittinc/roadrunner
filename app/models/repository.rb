@@ -37,9 +37,15 @@ class Repository < ApplicationRecord
   validates :deploy_type, inclusion: { in: [TAG_DEPLOY_TYPE, BRANCH_DEPLOY_TYPE, nil] }
   validates :source_control_type, presence: true, inclusion: { in: %w[github azure] }
   validates :base_branch, presence: true
+  validate :unique_full_name
+
 
   DEPLOY_DEV_BRANCH = 'develop'
   DEPLOY_QA_BRANCH = 'qa'
+
+  scope :by_name, lambda { |name|
+    where('lower(name) = ?', name.downcase)
+  }
 
   def deployment_branches?(base, head)
     [DEPLOY_QA_BRANCH,
@@ -70,5 +76,10 @@ class Repository < ApplicationRecord
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[name owner]
+  end
+
+  def unique_full_name
+    existing = Repository.find_by("owner || '/' || name = ?", full_name)
+    errors.add(:base, "Repository name with owner must be unique") if existing && existing.id != id
   end
 end

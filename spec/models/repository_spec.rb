@@ -35,6 +35,14 @@ RSpec.describe Repository, type: :model do
     }
     it { should validate_presence_of(:source_control_type) }
     it { should validate_presence_of(:base_branch) }
+
+    it 'validates uniqueness of full_name' do
+      FactoryBot.create(:repository, owner: 'owner', name: 'name')
+      repository = FactoryBot.build(:repository, owner: 'owner', name: 'name')
+      expect(repository).not_to be_valid
+      expect(repository.errors.messages[:base]).to include('Repository name with owner must be unique')
+    end
+
   end
 
   describe '#full_name' do
