@@ -21,7 +21,7 @@ module Flows
             return false if slack_configs.count == 1
             return false if @json[:text].split.size != 3
 
-            @repository = Repository.where('lower(name) = ?', @json[:text].split.second).first
+            @repository = Repository.by_name(@json[:text].split.second).first
             @repository&.deploy_type == Repository::TAG_DEPLOY_TYPE
           end
 
@@ -36,7 +36,7 @@ module Flows
             @repository_name = @words.second
             @environment = @words.last
             @customer = @repository.project.customer
-            @repository = Repository.where(name: @repository_name).first
+            @repository = Repository.by_name(@repository_name).first
             @release_message = Messages::ReleaseBuilder.notify_release_action(RELEASE_ACTION, @environment, @user_name, @repository_name)
           end
         end
