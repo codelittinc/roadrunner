@@ -3,6 +3,8 @@
 module Flows
   class BaseSourceControlFlow < BaseFlow
     def repository
+      return nil if parser.repository_name.blank?
+
       @repository ||= Repository.by_name(parser.repository_name).where(owner: parser.owner, active: true).first
     end
 
