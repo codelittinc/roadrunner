@@ -4,18 +4,15 @@ class ApplicationsController < ApplicationController
   before_action :set_repository
   before_action :set_application, only: %i[show update destroy]
 
-  # GET /repositories/:repository_id/applications
   def index
     @applications = @repository.applications.includes(:server, :external_identifiers)
     render json: @applications.as_json(include: %i[server external_identifiers])
   end
 
-  # GET /repositories/:repository_id/applications/:id
   def show
     render json: @application.as_json(include: %i[server external_identifiers])
   end
 
-  # POST /repositories/:repository_id/applications
   def create
     @application = @repository.applications.build(application_params)
 
@@ -26,17 +23,21 @@ class ApplicationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /repositories/:repository_id/applications/:id
   def update
-    @application.external_identifiers.destroy_all
-    if @application.update(application_params)
-      render json: @application.as_json(include: :server)
-    else
+    ApplicationRecord.transaction do
+      @application.external_identifiers.destroy_all
+      @application.server.destroy if @application.server && !application_params[:server_attributes]
+
+      raise ActiveRecord::Rollback unless @application.update(application_params)
+    end
+
+    if @application.errors.any?
       render json: @application.errors, status: :unprocessable_entity
+    else
+      render json: @application.as_json(include: :server)
     end
   end
 
-  # DELETE /repositories/:repository_id/applications/:id
   def destroy
     @application.destroy
     head :no_content
