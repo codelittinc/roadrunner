@@ -17,6 +17,8 @@
 #  active                              :boolean
 #  base_branch                         :string
 #  filter_pull_requests_by_base_branch :boolean
+#  slug                                :string
+#  external_project_id                 :integer
 #
 require 'rails_helper'
 
