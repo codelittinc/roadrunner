@@ -26,7 +26,7 @@ module Clients
       private
 
       def key
-        return @owner&.slack_api_key if @owner.is_a?(Customer)
+        return @owner&.slack_api_key if @owner.is_a?(Customer) || @owner.is_a?(CustomerMimic)
         return @owner&.notifications_key if @owner.is_a?(Organization)
         return ENV.fetch('NOTIFICATIONS_API_KEY', nil) if @owner.nil?
       end

@@ -9,6 +9,8 @@ env:
   NOTIFICATIONS_API_URL: https://api.notifications.codelitt.dev
   GPT_KEY: ${{ secrets.GPT_KEY }}
   AZURE_OWNER: AY-InnovationCenter
+  BACKSTAGE_API_KEY: ${{ secrets.BACKSTAGE_API_KEY }}
+  BACKSTAGE_API_URL: https://api.backstage.codelitt.dev
 
 on:
   push:
