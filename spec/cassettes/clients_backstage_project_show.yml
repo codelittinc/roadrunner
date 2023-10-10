@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.backstage.codelitt.dev/projects/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer <SENSITIVE_DATA>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 10 Oct 2023 16:41:51 GMT
+      Report-To:
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1696956111&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=Tera4%2F%2FztBoXuR8WqAjncEaF8CfhfLukyHL4O7UXvaY%3D"}]}'
+      Reporting-Endpoints:
+      - heroku-nel=https://nel.heroku.com/reports?ts=1696956111&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=Tera4%2F%2FztBoXuR8WqAjncEaF8CfhfLukyHL4O7UXvaY%3D
+      Nel:
+      - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"01b25b30597fc7752473d1f38ab60a2d"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - cc2a9fee-600c-43e0-8846-5f50c5a8965a
+      X-Runtime:
+      - '0.048876'
+      Vary:
+      - Origin
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"customer":{"id":2,"name":"Ministry Brands","created_at":"2023-10-04T20:38:41.786Z","updated_at":"2023-10-04T20:38:41.786Z","source_control_token":"123000","notifications_token":"123455"},"id":1,"name":"Backstage","created_at":"2023-10-09T16:09:22.691Z","updated_at":"2023-10-09T16:09:22.691Z"}'
+  recorded_at: Tue, 10 Oct 2023 16:41:51 GMT
+recorded_with: VCR 6.1.0

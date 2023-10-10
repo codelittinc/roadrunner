@@ -13,4 +13,5 @@ VCR.configure do |config|
   config.filter_sensitive_data('<SENSITIVE_DATA>') { ENV.fetch('GITHUB_APP_ID', nil) }
   config.filter_sensitive_data('<SENSITIVE_DATA>') { ENV.fetch('GITHUB_CLIENT_SECRET', nil) }
   config.filter_sensitive_data('<SENSITIVE_DATA>') { ENV.fetch('GPT_KEY', nil) }
+  config.filter_sensitive_data('<SENSITIVE_DATA>') { ENV.fetch('BACKSTAGE_API_KEY', nil) }
 end
