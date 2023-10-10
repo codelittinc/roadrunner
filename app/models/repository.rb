@@ -77,4 +77,14 @@ class Repository < ApplicationRecord
   def self.ransackable_attributes(_auth_object = nil)
     %w[name owner]
   end
+
+  def mesh_project
+    return project if project
+
+    external_project
+  end
+
+  def external_project
+    @external_project ||= Clients::Backstage::Project.new.show(external_project_id)
+  end
 end

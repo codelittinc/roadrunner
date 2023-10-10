@@ -38,7 +38,7 @@ module Flows
           end
 
           def user
-            @user ||= parser.user_by_source_control(customer)
+            @user ||= parser.user_by_source_control
           end
 
           def create_pull_request!

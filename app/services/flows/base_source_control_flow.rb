@@ -9,7 +9,9 @@ module Flows
     end
 
     def customer
-      @customer ||= repository.project.customer # @TODO: change this here. In this moment it should get the customer from Backstage
+      return @customer if @customer
+
+      @customer = repository.mesh_project&.customer
     end
 
     def pull_request

@@ -46,8 +46,8 @@ module Flows
           end
 
           # @TODO: add tests
-          def user_by_source_control(customer)
-            User.find_or_initialize_by(azure: username, customer:)
+          def user_by_source_control
+            User.find_or_initialize_by(azure: username)
           end
 
           def build_source(pull_request)
