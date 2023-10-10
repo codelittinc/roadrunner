@@ -33,7 +33,9 @@ module Flows
     end
 
     def customer
-      repositories.first.project.customer
+      return @customer if @customer
+
+      @customer = Repository.default_project.customer
     end
   end
 end

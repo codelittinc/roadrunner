@@ -9,7 +9,7 @@ module Flows
         @channel_name = channel_name
         @releases = releases
         @repository = repository
-        @customer = repository.project.customer
+        @customer = repository.mesh_project.customer
         @environment = environment
       end
 

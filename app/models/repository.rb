@@ -84,6 +84,10 @@ class Repository < ApplicationRecord
     external_project
   end
 
+  def self.default_project
+    Clients::Backstage::Project.new.show(ENV.fetch('ROADRUNNER_PROJET_ID_ON_BACKSTAGE', nil))
+  end
+
   def external_project
     @external_project ||= Clients::Backstage::Project.new.show(external_project_id)
   end

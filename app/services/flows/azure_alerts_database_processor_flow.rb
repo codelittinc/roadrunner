@@ -27,7 +27,7 @@ module Flows
     end
 
     def customer
-      server.application.repository.project.customer
+      server.application.repository.mesh_project.customer
     end
 
     def message

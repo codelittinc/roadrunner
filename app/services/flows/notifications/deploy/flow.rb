@@ -37,7 +37,7 @@ module Flows
         end
 
         def customer
-          repository.project.customer
+          repository.mesh_project.customer
         end
 
         def latest_release

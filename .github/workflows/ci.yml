@@ -11,6 +11,7 @@ env:
   AZURE_OWNER: AY-InnovationCenter
   BACKSTAGE_API_KEY: ${{ secrets.BACKSTAGE_API_KEY }}
   BACKSTAGE_API_URL: https://api.backstage.codelitt.dev
+  ROADRUNNER_PROJET_ID_ON_BACKSTAGE: 1
 
 on:
   push:
