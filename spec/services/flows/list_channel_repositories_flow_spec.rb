@@ -48,38 +48,42 @@ RSpec.describe Flows::ListChannelRepositoriesFlow, type: :service do
   describe '#execute' do
     context 'sends a slack message to the user when' do
       it 'there is one repository' do
-        FactoryBot.create(:repository)
+        VCR.use_cassette('clients#backstage#project#show') do
+          FactoryBot.create(:repository)
 
-        flow = described_class.new({
-                                     text: 'list repositories',
-                                     channel_name: 'feed-test-automations',
-                                     user_name: 'kaio.magalhaes'
-                                   })
+          flow = described_class.new({
+                                       text: 'list repositories',
+                                       channel_name: 'feed-test-automations',
+                                       user_name: 'kaio.magalhaes'
+                                     })
 
-        expect_any_instance_of(Clients::Notifications::Direct).to receive(:send).with(
-          "You can deploy the following repositories on the channel: *feed-test-automations*\n - roadrunner-repository-test",
-          'kaio.magalhaes'
-        )
+          expect_any_instance_of(Clients::Notifications::Direct).to receive(:send).with(
+            "You can deploy the following repositories on the channel: *feed-test-automations*\n - roadrunner-repository-test",
+            'kaio.magalhaes'
+          )
 
-        flow.execute
+          flow.execute
+        end
       end
 
       it 'there are multiple repositories ' do
-        FactoryBot.create(:repository)
-        FactoryBot.create(:repository, name: 'roadrunner-rails')
+        VCR.use_cassette('clients#backstage#project#show') do
+          FactoryBot.create(:repository)
+          FactoryBot.create(:repository, name: 'roadrunner-rails')
 
-        flow = described_class.new({
-                                     text: 'list repositories',
-                                     channel_name: 'feed-test-automations',
-                                     user_name: 'kaio.magalhaes'
-                                   })
+          flow = described_class.new({
+                                       text: 'list repositories',
+                                       channel_name: 'feed-test-automations',
+                                       user_name: 'kaio.magalhaes'
+                                     })
 
-        expect_any_instance_of(Clients::Notifications::Direct).to receive(:send).with(
-          "You can deploy the following repositories on the channel: *feed-test-automations*\n - roadrunner-repository-test\n - roadrunner-rails",
-          'kaio.magalhaes'
-        )
+          expect_any_instance_of(Clients::Notifications::Direct).to receive(:send).with(
+            "You can deploy the following repositories on the channel: *feed-test-automations*\n - roadrunner-repository-test\n - roadrunner-rails",
+            'kaio.magalhaes'
+          )
 
-        flow.execute
+          flow.execute
+        end
       end
     end
   end
