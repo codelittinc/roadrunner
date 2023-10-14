@@ -8,6 +8,13 @@ RSpec.describe Flows::Repositories::PullRequest::Create::Flow, type: :service do
   let(:github_valid_json) { load_flow_fixture('github_new_pull_request.json') }
   let(:azure_valid_json) { load_flow_fixture('azure_new_pull_request.json') }
 
+  before do
+    client = double('client')
+    allow(Clients::Backstage::User).to receive(:new).and_return(client)
+    allow(client).to receive(:list).with('kaio.magalhaes@avisonyoung.onmicrosoft.com').and_return([BackstageUser.new({ 'id' => 123, 'email' => 'kaio@kaio.com' })])
+    allow(client).to receive(:list).with('kaiomagalhaes').and_return([BackstageUser.new({ 'id' => 123 })])
+  end
+
   context 'Github JSON' do
     let(:repository) do
       FactoryBot.create(:repository, name: 'roadrunner-rails', owner: 'codelittinc')
