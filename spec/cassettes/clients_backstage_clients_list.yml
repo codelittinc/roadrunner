@@ -1,0 +1,67 @@
+---
+http_interactions:
+  - request:
+      method: get
+      uri: https://api.backstage.codelitt.dev/users?query=azure-devops-kaio,rony-azure-devops
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+        User-Agent:
+          - Ruby
+        Authorization:
+          - Bearer <SENSITIVE_DATA>
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Server:
+          - Cowboy
+        Date:
+          - Sat, 14 Oct 2023 12:55:00 GMT
+        Report-To:
+          - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1697288101&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=Z6Q8QC3w92WCHV5M25uChUJmWllLMOM0QaN%2Bq4%2FKtZE%3D"}]}'
+        Reporting-Endpoints:
+          - heroku-nel=https://nel.heroku.com/reports?ts=1697288101&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=Z6Q8QC3w92WCHV5M25uChUJmWllLMOM0QaN%2Bq4%2FKtZE%3D
+        Nel:
+          - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
+        Connection:
+          - keep-alive
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - "0"
+        X-Content-Type-Options:
+          - nosniff
+        X-Download-Options:
+          - noopen
+        X-Permitted-Cross-Domain-Policies:
+          - none
+        Referrer-Policy:
+          - strict-origin-when-cross-origin
+        Content-Type:
+          - application/json; charset=utf-8
+        Etag:
+          - W/"ff6257f37641465bbf8eb83adf588ff1"
+        Cache-Control:
+          - max-age=0, private, must-revalidate
+        X-Request-Id:
+          - d6771241-d7a8-4576-a4e4-51b46e154e53
+        X-Runtime:
+          - "0.032959"
+        Vary:
+          - Origin
+        Transfer-Encoding:
+          - chunked
+        Via:
+          - 1.1 vegur
+      body:
+        encoding: UTF-8
+        string: '[{"id":6,"active":true,"contract_type":"Salary","first_name":"Kaio","last_name":"Magalhães","email":"kaio@codelitt.com","google_id":"123445","slug":"c2622a96-7a26-49d9-9a74-b5d06f2e0f11","image_url":null,"seniority":"Senior","profession_id":1,"country":"Brazil","profession":{"id":1,"name":"Engineer"},"permissions":[],"user_service_identifiers":[{"id":1,"identifier":"kaiomagalhaes","service_name":"slack","customer":{"id":1,"name":"Codelitt","source_control_token":"456","notifications_token":"123"}},{"id":2,"identifier":"kaiomagalhaes","service_name":"github","customer":{"id":1,"name":"Codelitt","source_control_token":"456","notifications_token":"123"}},{"id":5,"identifier":"azure-devops-kaio","service_name":"azure-devops-dev","customer":{"id":1,"name":"Codelitt","source_control_token":"456","notifications_token":"123"}}]},{"id":3,"active":true,"contract_type":null,"first_name":"Rheniery","last_name":"Rheniery","email":"rheniery.mendes@codelitt.com","google_id":"123456","slug":"rheniery-rheniery","image_url":null,"seniority":null,"profession_id":1,"country":null,"profession":{"id":1,"name":"Engineer"},"permissions":[],"user_service_identifiers":[{"id":6,"identifier":"rony-azure-devops","service_name":"azure-devops-dev","customer":{"id":1,"name":"Codelitt","source_control_token":"456","notifications_token":"123"}}]}]'
+    recorded_at: Sat, 14 Oct 2023 12:55:01 GMT
+recorded_with: VCR 6.1.0
