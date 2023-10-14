@@ -41,6 +41,10 @@ module Flows
             @user ||= parser.user_by_source_control
           end
 
+          def backstage_user_id
+            Clients::Backstage::User.new.list(parser.username)&.first&.id
+          end
+
           def create_pull_request!
             pr = ::PullRequest.new(
               head: parser.head,
@@ -48,7 +52,8 @@ module Flows
               title: parser.title,
               description: parser.description,
               repository:,
-              user:
+              user:,
+              backstage_user_id:
             )
 
             pr.source = parser.build_source(pr)
