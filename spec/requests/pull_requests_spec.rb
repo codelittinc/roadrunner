@@ -38,8 +38,9 @@ RSpec.describe '/pull_requests', type: :request do
           state: 'merged',
           start_date: Date.yesterday,
           end_date: Date.tomorrow
+
         }
-        expect(response.parsed_body.size).to eql(2)
+        expect(response.parsed_body.size).to eql(3)
       end
     end
   end
