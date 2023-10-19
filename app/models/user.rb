@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   has_many :pull_requests
   has_many :issues
-  belongs_to :customer
+  belongs_to :customer, optional: true
 
   def self.find_existing_user(user)
     find_duplicates(user).first
@@ -34,13 +34,11 @@ class User < ApplicationRecord
       user_clean_name = user.name&.split(/[\s, .]/)&.map(&:capitalize)&.join(' ')
       curr_user_clean_name = curr_user.name&.split(/[\s, .]/)&.map(&:capitalize)&.join(' ')
 
-      result = (
-        (user.github.present? && user.github == curr_user.github) ||
-        (user.azure.present? && user.azure == curr_user.azure) ||
-        (user.azure_devops_issues.present? && user.azure_devops_issues == curr_user.azure_devops_issues) ||
-        (user.jira.present? && user.jira == curr_user.jira) ||
-        (user.name.present? && curr_user.name.present? && (!(user_clean_name =~ /#{curr_user_clean_name}/).nil? || !(curr_user_clean_name =~ /#{user_clean_name}/).nil?))
-      )
+      result = ((user.github.present? && user.github == curr_user.github) ||
+                (user.azure.present? && user.azure == curr_user.azure) ||
+                (user.azure_devops_issues.present? && user.azure_devops_issues == curr_user.azure_devops_issues) ||
+                (user.jira.present? && user.jira == curr_user.jira) ||
+                (user.name.present? && curr_user.name.present? && (!(user_clean_name =~ /#{curr_user_clean_name}/).nil? || !(curr_user_clean_name =~ /#{user_clean_name}/).nil?)))
 
       result
     end
