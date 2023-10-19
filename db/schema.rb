@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_14_132000) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_18_214503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -214,6 +214,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_132000) do
     t.bigint "pull_request_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "backstage_user_id"
     t.index ["pull_request_id"], name: "index_pull_request_reviews_on_pull_request_id"
   end
 

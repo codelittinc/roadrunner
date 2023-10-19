@@ -5,6 +5,13 @@ require 'external_api_helper'
 require 'flows_helper'
 
 RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
+  before do
+    client = double('client')
+    allow(Clients::Backstage::User).to receive(:new).and_return(client)
+    allow(client).to receive(:list).with('kaio@codelitt.com').and_return([BackstageUser.new({ 'id' => 123, 'email' => 'kaio@kaio.com' })])
+    allow(client).to receive(:list).with('kaiomagalhaes').and_return([BackstageUser.new({ 'id' => 123 })])
+  end
+
   context 'Github JSON' do
     let(:valid_json) { load_flow_fixture('new_review_submission_request.json') }
     let(:repository) { FactoryBot.create(:repository, name: 'gh-hooks-repo-test') }
@@ -77,6 +84,22 @@ RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
     end
 
     describe '#run' do
+      it 'creates a pull request review' do
+        VCR.use_cassette('flows#new-review-submission-request#new-review-send-message') do
+          slack_message = FactoryBot.create(:slack_message, ts: '123')
+          FactoryBot.create(:pull_request, source_control_id: 180, repository:,
+                                           slack_message:, head: 'kaiomagalhaes-patch-121')
+
+          flow = described_class.new(valid_json)
+
+          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send)
+
+          expect do
+            flow.run
+          end.to change(PullRequestReview, :count).by(1)
+        end
+      end
+
       it 'sends a message if there is a new review submission' do
         VCR.use_cassette('flows#new-review-submission-request#new-review-send-message') do
           slack_message = FactoryBot.create(:slack_message, ts: '123')

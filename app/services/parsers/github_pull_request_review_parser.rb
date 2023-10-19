@@ -7,7 +7,8 @@ module Parsers
                 :repository_name,
                 :owner,
                 :source_control_id,
-                :mention_regex
+                :mention_regex,
+                :user_identifier
 
     def can_parse?
       (@json[:comment] || @json.dig(:review, :body)) &&
@@ -26,6 +27,7 @@ module Parsers
 
       @review_comment = @json.dig(:comment, :body) || @json.dig(:review, :body)
       @review_state = @json.dig(:review, :state)
+      @user_identifier = @json.dig(:review, :user, :login)
     end
   end
 end
