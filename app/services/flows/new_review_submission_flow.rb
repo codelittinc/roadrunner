@@ -6,8 +6,8 @@ module Flows
       if pull_request_review
         pull_request_review.update(state: parser.review_state)
       else
-        PullRequestReview.create(pull_request:, username: parser.review_username,
-                                 state: parser.review_state)
+        PullRequestReview.create!(pull_request:, username: parser.user_identifier,
+                                  state: parser.review_state, backstage_user_id: user.id)
       end
 
       send_message
@@ -23,8 +23,12 @@ module Flows
 
     private
 
+    def user
+      Clients::Backstage::User.new.list(parser.user_identifier).first
+    end
+
     def pull_request_review
-      @pull_request_review ||= PullRequestReview.find_by(pull_request:, username: parser.review_username)
+      @pull_request_review ||= PullRequestReview.find_by(pull_request:, backstage_user_id: user.id)
     end
 
     def slack_message

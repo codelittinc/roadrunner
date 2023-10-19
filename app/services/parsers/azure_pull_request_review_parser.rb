@@ -3,11 +3,12 @@
 module Parsers
   class AzurePullRequestReviewParser < BaseParser
     attr_reader :review_comment,
-                :review_author,
                 :repository_name,
                 :owner,
                 :source_control_id,
-                :mention_regex
+                :mention_regex,
+                :user_identifier,
+                :review_state
 
     def can_parse?
       @json[:eventType] == 'ms.vss-code.git-pullrequest-comment-event'
@@ -24,7 +25,8 @@ module Parsers
       @mention_regex = /<([\da-zA-Z-]+)>/
 
       @review_comment = @json.dig(:resource, :comment, :content)
-      @review_author = @review&.dig(:author, :uniqueName)
+      @user_identifier = @json.dig(:resource, :comment, :author, :uniqueName)
+      @review_state = 'commented'
     end
   end
 end

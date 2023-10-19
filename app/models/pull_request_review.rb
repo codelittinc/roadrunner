@@ -16,6 +16,7 @@ class PullRequestReview < ApplicationRecord
 
   validates :username, presence: true
   validates :state, presence: true
+  validates :backstage_user_id, presence: true
 
   REVIEW_STATE_CHANGES_REQUESTED = 'changes_requested'
 end
