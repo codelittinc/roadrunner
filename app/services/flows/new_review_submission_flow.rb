@@ -3,12 +3,8 @@
 module Flows
   class NewReviewSubmissionFlow < BaseSourceControlFlow
     def execute
-      if pull_request_review
-        pull_request_review.update(state: parser.review_state)
-      else
-        PullRequestReview.create!(pull_request:, username: parser.user_identifier,
-                                  state: parser.review_state, backstage_user_id: user&.id)
-      end
+      PullRequestReview.create!(pull_request:, username: parser.user_identifier,
+                                state: parser.review_state, backstage_user_id: user&.id)
 
       send_message
     end
