@@ -15,12 +15,14 @@ class AzurePullRequest < ApplicationRecord
   validates :source_control_id, presence: true
   validates :pull_request, presence: true
 
-  AZURE_OWNER = ENV.fetch('AZURE_OWNER')
-
   def link
     repository = pull_request.repository
+    metadata = repository.external_project.customer.metadata
+    azure_project_name = metadata['azure_project_name']
+    azure_owner = metadata['azure_owner']
+
     # @TODO: find a way to name the company name here to avoid hard coding: AY-InnovationCenter
     # it sounds like our concept of owner in github is different from it in Azure. In azure it should be called project name
-    "https://dev.azure.com/#{AZURE_OWNER}/#{repository&.owner}/_git/#{repository&.name}/pullrequest/#{source_control_id}"
+    "https://dev.azure.com/#{azure_owner}/#{azure_project_name}/_git/#{repository&.name}/pullrequest/#{source_control_id}"
   end
 end

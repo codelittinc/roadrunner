@@ -6,6 +6,8 @@ require 'flows_helper'
 
 # We need to use the Flows::ReleaseFlow since it prepares the execution of the StableReleaseFlow
 RSpec.describe Flows::ReleaseFlow, type: :service do
+  include_context 'mock backstage azure'
+
   around do |example|
     ClimateControl.modify NOTIFICATIONS_API_URL: 'https://api.notifications.codelitt.dev' do
       example.run

@@ -224,6 +224,8 @@ RSpec.describe Flows::ClosePullRequestFlow, type: :service do
   end
 
   context 'Azure JSON' do
+    include_context 'mock backstage azure'
+
     let(:valid_json) { load_flow_fixture('azure_close_pull_request.json') }
 
     let(:abandoned_json) { load_flow_fixture('azure_abandoned_pull_request.json') }

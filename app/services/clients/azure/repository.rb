@@ -5,7 +5,7 @@ module Clients
     class Repository < AzureBase
       def get_repository(repository)
         url = "#{azure_url(repository)}git/repositories/#{repository.name}?includeParent=false&api-version=4.1"
-        repository = Request.get(url, authorization)
+        repository = Request.get(url, authorization(repository))
         Clients::Azure::Parsers::RepositoryParser.new(repository)
       end
     end

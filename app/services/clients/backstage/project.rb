@@ -11,12 +11,13 @@ class CustomerMimic
 end
 
 class ProjectMimic
-  attr_reader :id, :name, :customer
+  attr_reader :id, :name, :customer, :metadata
 
   def initialize(project_params, customer)
     @id = project_params['id']
     @name = project_params['name']
     @customer = customer
+    @metadata = project_params['metadata']
   end
 end
 
@@ -25,6 +26,7 @@ module Clients
     class Project < Client
       def show(id)
         reponse = Request.get("#{@url}/projects/#{id}", authorization)
+
         customer = CustomerMimic.new(reponse['customer'])
         ProjectMimic.new(reponse, customer)
       end

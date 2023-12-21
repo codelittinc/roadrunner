@@ -7,7 +7,7 @@ module Clients
     class Release < AzureBase
       def list(repository)
         url = "#{azure_url(repository)}git/repositories/#{repository.name}/refs?api-version=6.1-preview.1&filterContains=tag"
-        response = Request.get(url, authorization)
+        response = Request.get(url, authorization(repository))
         releases = response['value']
         parsed_releases = releases.map do |release|
           Clients::Azure::Parsers::ReleaseParser.new(release)
@@ -24,7 +24,7 @@ module Clients
 
         request = Net::HTTP::Post.new(uri.path, { 'Content-Type' => 'application/json' })
         request.body = build_body_release(repository, tag_name, target).to_json
-        request['Authorization'] = authorization
+        request['Authorization'] = authorization(repository)
         request['Accept'] = 'application/json; api-version=6.1-preview.1'
 
         release = JSON.parse(http.request(request).body)

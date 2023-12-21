@@ -4,8 +4,18 @@ require 'rails_helper'
 require 'external_api_helper'
 
 RSpec.describe Clients::Azure::Branch, type: :service do
+  include_context 'mock backstage azure'
+
   let(:repository) do
     FactoryBot.create(:repository, name: 'ay-users-api-test', owner: 'Avant')
+  end
+
+  before do
+    mock_external_project = OpenStruct.new(
+      customer: OpenStruct.new({ metadata: { 'azure_project_name' => 'Avant', 'azure_owner' => 'AY-InnovationCenter' } })
+    )
+
+    allow_any_instance_of(Repository).to receive(:external_project).and_return(mock_external_project)
   end
 
   describe '#commits' do

@@ -4,6 +4,7 @@ require 'rails_helper'
 require 'external_api_helper'
 
 RSpec.describe Clients::Azure::Repository, type: :service do
+  include_context 'mock backstage azure'
   let(:repository) do
     FactoryBot.create(:repository, :avant)
   end
