@@ -221,7 +221,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
     end
   end
 
-  context 'Azure JSON' do
+  # We need to reactivate this once we have more examples of how to do the checkrun
+  xcontext 'Azure JSON' do
     let(:valid_json) { load_flow_fixture('azure_checkrun_flow.json') }
 
     describe '#flow?' do

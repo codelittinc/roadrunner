@@ -171,6 +171,7 @@ RSpec.describe Flows::Repositories::PullRequest::Create::Flow, type: :service do
   end
 
   context 'Azure JSON' do
+    include_context 'mock backstage azure'
     let(:repository) do
       FactoryBot.create(:repository, name: 'ay-users-api-test', owner: 'Avant')
     end

@@ -4,6 +4,8 @@ require 'rails_helper'
 require 'external_api_helper'
 
 RSpec.describe Clients::Azure::PullRequest, type: :service do
+  include_context 'mock backstage azure'
+
   describe '#list_commits' do
     let(:repository) do
       FactoryBot.create(:repository, owner: 'Avant', name: 'ay-users-api-test')

@@ -140,6 +140,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
       end
 
       context 'When the repository belongs to Azure' do
+        include_context 'mock backstage azure'
         let(:azure_repository_with_applications) do
           repository = FactoryBot.create(:repository, owner: 'Avant', name: 'roadrunner-repository-test',
                                                       source_control_type: 'azure')
