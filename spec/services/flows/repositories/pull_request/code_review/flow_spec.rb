@@ -255,16 +255,16 @@ RSpec.describe Flows::Repositories::PullRequest::CodeReview::Flow, type: :servic
         VCR.use_cassette('flows#new-review-submission-request#azure#new-review-send-message') do
           slack_message = FactoryBot.create(:slack_message, ts: '123')
           pr = FactoryBot.create(:pull_request, source_control_id: 357, repository:,
-                                           slack_message:, head: 'kaiomagalhaes-patch-121', source_control_type: 'azure')
+                                                slack_message:, head: 'kaiomagalhaes-patch-121', source_control_type: 'azure')
 
           flow = described_class.new(valid_json)
 
-            PullRequestReview.create!(
-              pull_request: pr,
-              username: 'kaio@codelitt.com',
-              state: 'commented',
-              backstage_user_id: 123
-            )
+          PullRequestReview.create!(
+            pull_request: pr,
+            username: 'kaio@codelitt.com',
+            state: 'commented',
+            backstage_user_id: 123
+          )
 
           expect_any_instance_of(Clients::Notifications::Channel).not_to receive(:send).with(
             ':speech_balloon: There is a new message!', 'feed-test-automations', '123'
