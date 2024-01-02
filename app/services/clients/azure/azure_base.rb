@@ -4,7 +4,7 @@ module Clients
   module Azure
     class AzureBase
       def azure_url(repository)
-        metadata = repository.external_project.customer.metadata
+        metadata = repository.external_project.metadata
         azure_project_name = metadata['azure_project_name']
         azure_owner = metadata['azure_owner']
 
