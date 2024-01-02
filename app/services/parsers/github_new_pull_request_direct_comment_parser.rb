@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Parsers
-  class GithubPullRequestReviewParser < BaseParser
+  class GithubNewPullRequestDirectCommentParser < BaseParser
     attr_reader :review_comment,
                 :review_state,
                 :repository_name,
@@ -13,10 +13,6 @@ module Parsers
     def can_parse?
       (@json[:comment] || @json.dig(:review, :body)) &&
         (@json[:action] == 'created' || new_review_submission_flow?)
-    end
-
-    def new_review_submission_flow?
-      @json[:action] == 'submitted' || @json[:action] == 'created'
     end
 
     def parse!
