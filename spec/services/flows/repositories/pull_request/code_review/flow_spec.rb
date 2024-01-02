@@ -4,7 +4,7 @@ require 'rails_helper'
 require 'external_api_helper'
 require 'flows_helper'
 
-RSpec.describe Flows::NewReviewSubmissionFlow, type: :service do
+RSpec.describe Flows::Repositories::PullRequest::CodeReview::Flow, type: :service do
   before do
     client = double('client')
     allow(Clients::Backstage::User).to receive(:new).and_return(client)
