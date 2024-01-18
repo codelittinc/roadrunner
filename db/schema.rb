@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_18_214503) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_18_172505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -46,6 +46,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_214503) do
     t.datetime "updated_at", null: false
     t.bigint "branch_id"
     t.index ["branch_id"], name: "index_check_runs_on_branch_id"
+  end
+
+  create_table "code_comments", force: :cascade do |t|
+    t.integer "author_id"
+    t.bigint "pull_request_id", null: false
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pull_request_id"], name: "index_code_comments_on_pull_request_id"
   end
 
   create_table "commit_releases", force: :cascade do |t|
@@ -371,6 +380,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_214503) do
   add_foreign_key "branches", "pull_requests"
   add_foreign_key "branches", "repositories"
   add_foreign_key "check_runs", "branches"
+  add_foreign_key "code_comments", "pull_requests"
   add_foreign_key "issues", "sprints"
   add_foreign_key "issues", "users"
   add_foreign_key "messages", "notification_requests"

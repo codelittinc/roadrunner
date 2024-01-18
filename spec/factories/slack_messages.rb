@@ -5,11 +5,15 @@
 # Table name: slack_messages
 #
 #  id              :bigint           not null, primary key
+#  text            :string
 #  ts              :string
-#  pull_request_id :bigint
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  text            :string
+#  pull_request_id :bigint
+#
+# Indexes
+#
+#  index_slack_messages_on_pull_request_id  (pull_request_id)
 #
 FactoryBot.define do
   factory :slack_message do

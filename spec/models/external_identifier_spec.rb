@@ -6,9 +6,13 @@
 #
 #  id             :bigint           not null, primary key
 #  text           :string
-#  application_id :bigint
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  application_id :bigint
+#
+# Indexes
+#
+#  index_external_identifiers_on_application_id  (application_id)
 #
 require 'rails_helper'
 

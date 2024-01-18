@@ -4,12 +4,21 @@
 #
 # Table name: pull_request_reviews
 #
-#  id              :bigint           not null, primary key
-#  state           :string
-#  username        :string
-#  pull_request_id :bigint           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                :bigint           not null, primary key
+#  state             :string
+#  username          :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  backstage_user_id :integer
+#  pull_request_id   :bigint           not null
+#
+# Indexes
+#
+#  index_pull_request_reviews_on_pull_request_id  (pull_request_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (pull_request_id => pull_requests.id)
 #
 FactoryBot.define do
   factory :pull_request_review do

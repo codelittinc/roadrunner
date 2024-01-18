@@ -6,12 +6,17 @@
 #
 #  id                     :bigint           not null, primary key
 #  message                :string
-#  server_status_check_id :bigint
+#  state                  :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  state                  :string
-#  slack_message_id       :bigint
 #  application_id         :integer
+#  server_status_check_id :bigint
+#  slack_message_id       :bigint
+#
+# Indexes
+#
+#  index_server_incidents_on_server_status_check_id  (server_status_check_id)
+#  index_server_incidents_on_slack_message_id        (slack_message_id)
 #
 require 'rails_helper'
 

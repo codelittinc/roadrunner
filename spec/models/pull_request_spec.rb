@@ -4,20 +4,32 @@
 #
 # Table name: pull_requests
 #
-#  id            :bigint           not null, primary key
-#  head          :string
-#  base          :string
-#  title         :string
-#  description   :string
-#  state         :string
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  repository_id :bigint
-#  user_id       :bigint
-#  ci_state      :string
-#  source_type   :string
-#  source_id     :bigint
-#  merged_at     :datetime
+#  id                :bigint           not null, primary key
+#  base              :string
+#  ci_state          :string
+#  description       :string
+#  head              :string
+#  merged_at         :datetime
+#  source_type       :string
+#  state             :string
+#  title             :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  backstage_user_id :integer
+#  repository_id     :bigint
+#  source_id         :bigint
+#  user_id           :bigint
+#
+# Indexes
+#
+#  index_pull_requests_on_repository_id  (repository_id)
+#  index_pull_requests_on_source         (source_type,source_id)
+#  index_pull_requests_on_user_id        (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (repository_id => repositories.id)
+#  fk_rails_...  (user_id => users.id)
 #
 require 'rails_helper'
 

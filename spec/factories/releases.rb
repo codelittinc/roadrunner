@@ -5,11 +5,19 @@
 # Table name: releases
 #
 #  id             :bigint           not null, primary key
+#  deploy_status  :string
 #  version        :string
-#  application_id :bigint
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  deploy_status  :string
+#  application_id :bigint
+#
+# Indexes
+#
+#  index_releases_on_application_id  (application_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (application_id => applications.id)
 #
 FactoryBot.define do
   factory :release do
