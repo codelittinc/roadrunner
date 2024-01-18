@@ -5,11 +5,19 @@
 # Table name: check_runs
 #
 #  id         :bigint           not null, primary key
-#  state      :string
 #  commit_sha :string
+#  state      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  branch_id  :bigint
+#
+# Indexes
+#
+#  index_check_runs_on_branch_id  (branch_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (branch_id => branches.id)
 #
 require 'rails_helper'
 

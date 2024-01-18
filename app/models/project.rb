@@ -5,12 +5,21 @@
 # Table name: projects
 #
 #  id          :bigint           not null, primary key
+#  active      :boolean          default(TRUE)
 #  name        :string
+#  slug        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  slug        :string
 #  customer_id :bigint
-#  active      :boolean          default(TRUE)
+#
+# Indexes
+#
+#  index_projects_on_customer_id  (customer_id)
+#  index_projects_on_slug         (slug) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (customer_id => customers.id)
 #
 class Project < ApplicationRecord
   belongs_to :customer

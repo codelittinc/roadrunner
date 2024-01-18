@@ -6,9 +6,17 @@
 #
 #  id            :bigint           not null, primary key
 #  environment   :string
-#  repository_id :bigint           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  repository_id :bigint           not null
+#
+# Indexes
+#
+#  index_applications_on_repository_id  (repository_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (repository_id => repositories.id)
 #
 class Application < ApplicationRecord
   belongs_to :repository

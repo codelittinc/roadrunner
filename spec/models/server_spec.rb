@@ -5,13 +5,21 @@
 # Table name: servers
 #
 #  id                    :bigint           not null, primary key
+#  active                :boolean          default(TRUE)
+#  environment           :string
 #  link                  :string
 #  supports_health_check :boolean
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
-#  active                :boolean          default(TRUE)
-#  environment           :string
 #  application_id        :bigint
+#
+# Indexes
+#
+#  index_servers_on_application_id  (application_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (application_id => applications.id)
 #
 require 'rails_helper'
 

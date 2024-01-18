@@ -5,16 +5,24 @@
 # Table name: users
 #
 #  id                  :bigint           not null, primary key
+#  active              :boolean          default(TRUE)
+#  azure               :string
+#  azure_devops_issues :string
 #  github              :string
 #  jira                :string
+#  name                :string
 #  slack               :string
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  azure               :string
-#  azure_devops_issues :string
 #  customer_id         :bigint
-#  name                :string
-#  active              :boolean          default(TRUE)
+#
+# Indexes
+#
+#  index_users_on_customer_id  (customer_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (customer_id => customers.id)
 #
 class User < ApplicationRecord
   include PgSearch::Model

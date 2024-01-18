@@ -5,20 +5,26 @@
 # Table name: repositories
 #
 #  id                                  :bigint           not null, primary key
-#  created_at                          :datetime         not null
-#  updated_at                          :datetime         not null
-#  project_id                          :bigint
-#  deploy_type                         :string
-#  supports_deploy                     :boolean
-#  name                                :string
-#  jira_project                        :string
-#  owner                               :string
-#  source_control_type                 :string
 #  active                              :boolean
 #  base_branch                         :string
+#  deploy_type                         :string
 #  filter_pull_requests_by_base_branch :boolean
+#  jira_project                        :string
+#  name                                :string
+#  owner                               :string
 #  slug                                :string
+#  source_control_type                 :string
+#  supports_deploy                     :boolean
+#  created_at                          :datetime         not null
+#  updated_at                          :datetime         not null
+#  backstage_user_id                   :integer
 #  external_project_id                 :integer
+#  project_id                          :bigint
+#
+# Indexes
+#
+#  index_repositories_on_project_id  (project_id)
+#  index_repositories_on_slug        (slug) UNIQUE
 #
 require 'rails_helper'
 
