@@ -8,6 +8,13 @@ module Clients
         Clients::Github::Parsers::PullRequestParser.new(pull_request)
       end
 
+      def comments(repository, source_control_id)
+        comments = @client.pull_request_comments(repository.full_name, source_control_id)
+        comments.map do |comment|
+          Clients::Github::Parsers::CodeCommentParser.new(comment)
+        end
+      end
+
       def list_commits(repository, source_control_id)
         commits = @client.pull_request_commits(repository.full_name, source_control_id)
         commits.map do |commit|
