@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: code_comments
@@ -21,6 +23,6 @@ FactoryBot.define do
   factory :code_comment do
     author_id { 1 }
     pull_request { nil }
-    comment { "MyString" }
+    comment { 'MyString' }
   end
 end
