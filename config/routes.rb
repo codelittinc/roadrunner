@@ -6,7 +6,7 @@ require 'sidekiq/cron/web'
 Rails.application.routes.draw do
   resources :channels, only: [:index]
   resources :projects
-  resources :pull_requests, only: [:index]
+  resources :pull_requests, only: %i[index show]
   resources :organizations
   resources :repositories do
     resources :applications
