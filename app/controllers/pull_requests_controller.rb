@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PullRequestsController < ApplicationController
+  before_action :set_pull_request, only: %i[show]
+
   def index
     start_date = params[:start_date]
     end_date = params[:end_date]
@@ -17,5 +19,11 @@ class PullRequestsController < ApplicationController
     return unless backstage_user_id
 
     @pull_requests = @pull_requests.where(backstage_user_id:)
+  end
+
+  def show; end
+
+  def set_pull_request
+    @pull_request = PullRequest.find(params[:id])
   end
 end
