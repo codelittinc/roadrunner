@@ -12,12 +12,12 @@ module Clients
       def comments(repository, source_control_id)
         url = "#{azure_url(repository)}git/repositories/#{repository.name}/pullrequests/#{source_control_id}/threads?api-version=7.1-preview.1"
         comments_threads = Request.get(url, authorization(repository))
-        comments = comments_threads["value"].map do |comment_thread|
-          comment_thread["comments"]
-        end.flatten
+        comments = comments_threads['value'].pluck('comments').flatten
+
+        pull_request = AzurePullRequest.find_by(source_control_id:).pull_request
 
         comments.map do |comment|
-          parser = Clients::Azure::Parsers::CodeCommentParser.new(comment)
+          parser = Clients::Azure::Parsers::CodeCommentParser.new(comment, pull_request)
           parser.comment.nil? ? nil : parser
         end.compact!
       end

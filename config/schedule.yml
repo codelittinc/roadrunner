@@ -17,3 +17,8 @@ content_notion:
   cron: "0 0 12 1 1"
   class: "ContentNotionWorker"
   queue: default
+
+pull_request_comments:
+  cron: "0 * * * *"
+  class: "UpdatePullRequestsCommentsWorker"
+  queue: default

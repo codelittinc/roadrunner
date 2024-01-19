@@ -25,10 +25,12 @@ module Clients
   module Backstage
     class Project < Client
       def show(id)
-        reponse = Request.get("#{@url}/projects/#{id}", authorization)
+        return nil unless id
 
-        customer = CustomerMimic.new(reponse['customer'])
-        ProjectMimic.new(reponse, customer)
+        response = Request.get("#{@url}/projects/#{id}", authorization)
+
+        customer = CustomerMimic.new(response['customer'])
+        ProjectMimic.new(response, customer)
       end
     end
   end

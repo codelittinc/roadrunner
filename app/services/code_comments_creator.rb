@@ -9,7 +9,7 @@ class CodeCommentsCreator
   def create
     comments = @source_control_pull_request_client&.new&.comments(@pull_request.repository, @pull_request.source_control_id)
     comments&.each do |comment|
-      CodeComment.create!(
+      CodeComment.find_or_create_by!(
         pull_request: @pull_request,
         comment: comment.comment,
         author_id: comment.author
