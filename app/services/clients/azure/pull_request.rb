@@ -9,6 +9,19 @@ module Clients
         Clients::Azure::Parsers::PullRequestParser.new(pull_request)
       end
 
+      def comments(repository, source_control_id)
+        url = "#{azure_url(repository)}git/repositories/#{repository.name}/pullrequests/#{source_control_id}/threads?api-version=7.1-preview.1"
+        comments_threads = Request.get(url, authorization(repository))
+        comments = comments_threads["value"].map do |comment_thread|
+          comment_thread["comments"]
+        end.flatten
+
+        comments.map do |comment|
+          parser = Clients::Azure::Parsers::CodeCommentParser.new(comment)
+          parser.comment.nil? ? nil : parser
+        end.compact!
+      end
+
       def list_commits(repository, source_control_id)
         url = "#{azure_url(repository)}git/repositories/#{repository.name}/pullrequests/#{source_control_id}?api-version=6.0&includeCommits=true"
         response = Request.get(url, authorization(repository))
