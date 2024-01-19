@@ -41,6 +41,7 @@ class PullRequest < ApplicationRecord
   has_many :pull_request_changes, dependent: :destroy
   has_one :branch, dependent: :nullify
   has_many :check_runs, through: :branch
+  has_many :code_comments, dependent: :destroy
 
   validate :uniqueness_between_repository_and_source_control_id
 

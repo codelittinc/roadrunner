@@ -6,10 +6,21 @@ module Clients
       class CodeCommentParser < ClientParser
         attr_reader :pull_request_source_control_id, :comment, :author
 
+        def initialize(json, pull_request)
+          @pull_request = pull_request
+          super(json)
+        end
+
         def parse!
           @pull_request_source_control_id = @json[:pull_request_url].split('/').last
-          @comment = @json[:body]
           @author = Clients::Backstage::User.new.list(@json[:user][:login])&.first&.id
+          @comment = @json[:body] if valid_author?
+        end
+
+        private
+
+        def valid_author?
+          @pull_request.backstage_user_id != author
         end
       end
     end
