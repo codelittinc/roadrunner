@@ -9,3 +9,7 @@ json.project_id pull_request.repository.external_project_id
 json.reviews pull_request.pull_request_reviews do |review|
   json.extract! review, :username, :backstage_user_id
 end
+
+json.code_comments pull_request.code_comments.size
+
+json.link pull_request.link

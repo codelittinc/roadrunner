@@ -14,7 +14,7 @@ RSpec.describe '/pull_requests', type: :request do
         FactoryBot.create(:pull_request, backstage_user_id: 1, state: 'merged', repository: repository2, source_control_id: 1)
 
         get "#{pull_requests_url}.json", params: {
-          backstage_user_id: 1,
+          user_id: 1,
           state: 'merged',
           project_id: 2,
           start_date: Date.yesterday,
