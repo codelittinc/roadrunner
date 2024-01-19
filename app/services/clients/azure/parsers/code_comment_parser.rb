@@ -4,7 +4,7 @@ module Clients
   module Azure
     module Parsers
       class CodeCommentParser < ClientParser
-        attr_reader :pull_request_source_control_id, :comment, :author
+        attr_reader :pull_request_source_control_id, :comment, :author, :published_at
 
         def initialize(json, pull_request)
           @pull_request = pull_request
@@ -19,6 +19,7 @@ module Clients
           author_email = @json['author']['uniqueName']
           @author = Clients::Backstage::User.new.list(author_email)&.first&.id
           @comment = @json['content'] if valid_author?
+          @published_at = @json['publishedDate']
         end
 
         private

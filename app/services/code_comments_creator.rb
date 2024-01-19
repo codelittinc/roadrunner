@@ -12,7 +12,8 @@ class CodeCommentsCreator
       CodeComment.find_or_create_by!(
         pull_request: @pull_request,
         comment: comment.comment,
-        author_id: comment.author
+        author_id: comment.author,
+        published_at: DateTime.parse(comment.published_at).to_date
       )
     end
   end

@@ -6,6 +6,7 @@
 #
 #  id              :bigint           not null, primary key
 #  comment         :string
+#  published_at    :date
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  author_id       :integer
@@ -24,4 +25,5 @@ class CodeComment < ApplicationRecord
 
   validates :comment, presence: true
   validates :author_id, presence: true
+  validates :published_at, presence: true
 end

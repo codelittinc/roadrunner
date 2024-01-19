@@ -11,5 +11,5 @@ json.reviews pull_request.pull_request_reviews do |review|
 end
 
 json.code_comments pull_request.code_comments do |comment|
-  json.extract! comment, :comment, :author_id
+  json.extract! comment, :comment, :author_id, :published_at
 end
