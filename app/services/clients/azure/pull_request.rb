@@ -18,8 +18,8 @@ module Clients
 
         comments.map do |comment|
           parser = Clients::Azure::Parsers::CodeCommentParser.new(comment, pull_request)
-          parser.comment.nil? ? nil : parser
-        end.compact!
+          parser.comment.present? ? parser : nil
+        end.compact
       end
 
       def list_commits(repository, source_control_id)

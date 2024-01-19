@@ -13,8 +13,8 @@ module Clients
         pull_request = GithubPullRequest.find_by(source_control_id:).pull_request
         comments.map do |comment|
           parser = Clients::Github::Parsers::CodeCommentParser.new(comment, pull_request)
-          parser.comment.nil? ? nil : parser
-        end.compact!
+          parser.comment.present? ? parser : nil
+        end.compact
       end
 
       def list_commits(repository, source_control_id)

@@ -15,7 +15,7 @@ module Clients
           @pull_request_source_control_id = @json[:pull_request_url].split('/').last
           @author = Clients::Backstage::User.new.list(@json[:user][:login])&.first&.id
           @comment = @json[:body] if valid_author?
-          @published_at = @json[:created_at]
+          @published_at = @json[:created_at].to_s
         end
 
         private
