@@ -113,8 +113,10 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
         VCR.use_cassette('flows#hotfix#first') do
           repository = repository_with_applications
           repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+          pull_request = FactoryBot.create(:pull_request, repository:)
 
-          FactoryBot.create(:commit, :with_pull_request, {
+          FactoryBot.create(:commit, {
+                              pull_request:,
                               sha: '897bae42f8bcf90bd8676b1ed94e8ba202a6c9ed',
                               message: 'Update README.md',
                               created_at: DateTime.parse('2020-08-31 13:09:19 UTC')
@@ -139,8 +141,10 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
         VCR.use_cassette('flows#hotfix#create-others-hotfix') do
           repository = repository_with_applications
           repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+          pull_request = FactoryBot.create(:pull_request, repository:)
 
-          FactoryBot.create(:commit, :with_pull_request, {
+          FactoryBot.create(:commit, {
+                              pull_request:,
                               sha: '68c44076db9827d83f110692690dbbeeb1ca3a7f',
                               message: 'Update README.md',
                               created_at: DateTime.parse('2020-08-31 13:38:33 UTC')
@@ -225,8 +229,10 @@ RSpec.describe Flows::HotfixReleaseFlow, type: :service do
           VCR.use_cassette('flows#hotfix#create-stable-release') do
             repository = repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
+            pull_request = FactoryBot.create(:pull_request, repository:)
 
-            FactoryBot.create(:commit, :with_pull_request, {
+            FactoryBot.create(:commit, {
+                                pull_request:,
                                 sha: '029fe9f4df0abcd43f366cfa291bebe2a9a7806d',
                                 message: 'Update README.md',
                                 created_at: DateTime.parse('2020-08-31 13:09:19 UTC')

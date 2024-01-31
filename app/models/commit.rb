@@ -24,4 +24,8 @@ class Commit < ApplicationRecord
 
   validates :sha, presence: true
   validates :author_name, presence: true
+
+  scope :by_repository, lambda { |repository|
+    joins(:pull_request).where(pull_requests: { repository: })
+  }
 end
