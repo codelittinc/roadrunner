@@ -22,7 +22,7 @@ module Flows
       end
 
       def release_commits
-        CommitsMatcher.new(source_control_release_commits).commits
+        CommitsMatcher.new(source_control_release_commits, @repository).commits
       end
 
       def notify_no_changes_between_releases!
