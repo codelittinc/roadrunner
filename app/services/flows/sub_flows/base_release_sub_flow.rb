@@ -21,21 +21,8 @@ module Flows
         Clients::SourceControlClient.new(@repository)
       end
 
-      # @TODO: Update to use the CommitsMatcher
       def release_commits
-        return @commits if @commits
-
-        @commits = []
-        source_control_release_commits.each do |commit|
-          message = commit.message
-
-          c = Commit
-              .where.not(id: @commits.map(&:id))
-              .where(message:).first
-          @commits << c if c
-        end
-
-        @commits
+        CommitsMatcher.new(source_control_release_commits).commits
       end
 
       def notify_no_changes_between_releases!

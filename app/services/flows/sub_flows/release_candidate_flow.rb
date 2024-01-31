@@ -27,10 +27,6 @@ module Flows
 
       private
 
-      def release_commits
-        CommitsMatcher.new(source_control_release_commits).commits
-      end
-
       def source_control_release_commits
         return @source_control_release_commits if @source_control_release_commits
 
