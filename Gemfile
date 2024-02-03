@@ -30,6 +30,8 @@ gem 'stimulus-rails'
 
 gem 'ruby-openai', '~> 4.0'
 
+gem 'ruby_notifications_client', git: 'https://github.com/codelittinc/ruby_notifications_client.git'
+
 gem 'notion-ruby-client'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'friendly_id', '~> 5.4.0'
