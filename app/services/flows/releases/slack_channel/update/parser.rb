@@ -26,7 +26,7 @@ module Flows
             @channel_id = @json[:channel_id]
             @environment = @json[:text].split.last
             @slack_configs = SlackRepositoryInfo.by_deploy_channel(@channel_name, @channel_id)
-            @channels_repositories = Repository.where(slack_repository_info: @slack_configs)
+            @channels_repositories = Repository.where(slack_repository_info: @slack_configs, active: true, supports_deploy: true)
             @customer = @channels_repositories.first.mesh_project.customer
             @release_message = Messages::ReleaseBuilder.notify_release_action(UPDATE_ACTION, @environment, @json[:user_name], @channels_repositories.map(&:name).join(', '))
           end
