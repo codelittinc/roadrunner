@@ -42,7 +42,7 @@ RSpec.describe PullRequest, type: :model do
   end
 
   describe 'associations' do
-    it { should belong_to(:user) }
+    it { should belong_to(:user).optional }
     it { should belong_to(:repository) }
     it { should belong_to(:source) }
     it { should have_many(:commits).dependent(:destroy) }
