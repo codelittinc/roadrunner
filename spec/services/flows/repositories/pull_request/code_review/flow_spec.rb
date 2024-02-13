@@ -116,9 +116,8 @@ RSpec.describe Flows::Repositories::PullRequest::CodeReview::Flow, type: :servic
 
       it 'does not send a message if the user does not have a slack username' do
         VCR.use_cassette('flows#new-review-submission-request#new-review-send-direct-message') do
-          user = FactoryBot.create(:user, slack: nil)
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          FactoryBot.create(:pull_request, source_control_id: 180, slack_message:, user:,
+          FactoryBot.create(:pull_request, source_control_id: 180, slack_message:,
                                            repository:, head: 'kaiomagalhaes-patch-121')
           valid_json_direct_message = valid_json.deep_dup
           valid_json_direct_message[:review][:state] = 'test'

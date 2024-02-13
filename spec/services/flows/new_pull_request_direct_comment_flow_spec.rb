@@ -11,9 +11,19 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
 
     allow(client).to receive(:list).with(%w[e44d997c-d727-6bec-a3db-8bc537d4b723]).and_return([])
     allow(client).to receive(:list).with(%w[kaiomagalhaes
-                                            victor0402]).and_return([BackstageUser.new({ 'id' => 123, 'email' => 'kaio@codelitt.com',
-                                                                                         'user_service_identifiers' => [{ 'service_name' => 'slack', 'identifier' => 'kaiomagalhaes' }] })])
+                                            victor0402]).and_return([
+                                                                      BackstageUser.new({ 'id' => 123, 'email' => 'kaio@codelitt.com',
+                                                                                          'user_service_identifiers' => [{ 'service_name' => 'slack', 'identifier' => 'kaiomagalhaes' }] }),
+                                                                      BackstageUser.new({ 'id' => 123, 'email' => 'victor@codelitt.com',
+                                                                                          'user_service_identifiers' => [{ 'service_name' => 'slack', 'identifier' => 'victorcarvalho' }] })
+                                                                    ])
+    allow(client).to receive(:list).with(%w[kaiomagalhaes
+                                            batman]).and_return([
+                                                                  BackstageUser.new({ 'id' => 123, 'email' => 'kaio@codelitt.com',
+                                                                                      'user_service_identifiers' => [{ 'service_name' => 'slack', 'identifier' => 'kaiomagalhaes' }] })
+                                                                ])
   end
+
   context 'Github JSON' do
     let(:valid_json) { load_flow_fixture('github_new_pull_request_direct_comment.json') }
 
@@ -64,9 +74,8 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
     describe '#run' do
       context 'when one user only exists on Backstage and the other on the database' do
         it 'sends two slack messages' do
-          user = FactoryBot.create(:user, github: 'victor0402', slack: 'victor0402')
           repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
-          FactoryBot.create(:pull_request, repository:, source_control_id: 151, user:)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 151)
 
           flow = described_class.new(valid_json)
 
@@ -80,10 +89,8 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
 
       context 'when one user exists on both Backstage and on the database and the other only on the database' do
         it 'sends two slack messages' do
-          FactoryBot.create(:user, github: 'victor0402', slack: 'kaiomagalhaes')
-          user = FactoryBot.create(:user, github: 'victor0402', slack: 'victor0402')
           repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
-          FactoryBot.create(:pull_request, repository:, source_control_id: 151, user:)
+          FactoryBot.create(:pull_request, repository:, source_control_id: 151, backstage_user_id: 123)
 
           flow = described_class.new(valid_json)
 
@@ -97,8 +104,6 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
 
       context 'when all the two users mentioned exist in the database' do
         it 'sends two slack messages' do
-          FactoryBot.create(:user, github: 'kaiomagalhaes')
-          FactoryBot.create(:user, github: 'victor0402')
           repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
           FactoryBot.create(:pull_request, repository:, source_control_id: 151)
 
@@ -157,26 +162,6 @@ RSpec.describe Flows::NewPullRequestDirectCommentFlow, type: :service do
         it 'pull request does not exist' do
           flow = described_class.new(valid_json)
           expect(flow.flow?).to be_falsey
-        end
-      end
-    end
-
-    describe '#run' do
-      context 'when only one out of the two users mentioned exist in the database' do
-        it 'sends one slack message' do
-          FactoryBot.create(:user, azure_devops_issues: 'E44D997C-D727-6BEC-A3DB-8BC537D4B723', slack: 'batman')
-          repository = FactoryBot.create(:repository, name: 'ay-pia-web', owner: 'Avant')
-          FactoryBot.create(:pull_request, repository:, source_control_id: 608)
-
-          flow = described_class.new(valid_json)
-
-          expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
-            'Hey @batman, there is a new message for you!',
-            'feed-test-automations',
-            '123'
-          )
-
-          flow.run
         end
       end
     end

@@ -6,7 +6,6 @@ FactoryBot.define do
     base { 'master' }
     title { 'my nice PR' }
     description { 'my nice PR' }
-    user { association :user }
     repository
     slack_message
 

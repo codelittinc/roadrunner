@@ -47,7 +47,7 @@ module Flows
 
           # @TODO: add tests
           def user_by_source_control
-            User.find_or_initialize_by(azure: username)
+            Clients::Backstage::User.new.list(username)&.first
           end
 
           def build_source(pull_request)

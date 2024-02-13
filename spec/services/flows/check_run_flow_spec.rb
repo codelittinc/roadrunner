@@ -120,9 +120,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       it 'sends a message if the check run is correct' do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        user = FactoryBot.create(:user, slack: 'rheniery.mendes')
         pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository:,
-                                                        slack_message:, user:, state: 'open', head: 'Rheniery-patch-9')
+                                                        slack_message:, state: 'open', head: 'Rheniery-patch-9')
         FactoryBot.create(:commit, sha: '1', pull_request:)
 
         flow = described_class.new(valid_json)
@@ -137,9 +136,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       it 'sends failure message and reaction if check run state eqls failure' do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        user = FactoryBot.create(:user, slack: 'rheniery.mendes')
         pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository:,
-                                                        slack_message:, user:, state: 'open', head: 'Rheniery-patch-9')
+                                                        slack_message:, state: 'open', head: 'Rheniery-patch-9')
         FactoryBot.create(:commit, sha: '1', pull_request:)
         branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository:,
                                             pull_request:)
@@ -159,9 +157,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       xit 'does not send a failure dm if check run state eqls failure but the user does not have a slack username' do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        user = FactoryBot.create(:user, slack: nil)
         pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository:,
-                                                        slack_message:, user:, state: 'open', head: 'Rheniery-patch-9')
+                                                        slack_message:,  state: 'open', head: 'Rheniery-patch-9')
         FactoryBot.create(:commit, sha: '1', pull_request:)
         branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository:,
                                             pull_request:)
@@ -179,9 +176,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       it 'sends success reaction if check run state eqls success' do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        user = FactoryBot.create(:user, slack: 'rheniery.mendes')
         pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository:,
-                                                        slack_message:, user:, state: 'open', head: 'Rheniery-patch-9')
+                                                        slack_message:,  state: 'open', head: 'Rheniery-patch-9')
         FactoryBot.create(:commit, sha: '1', pull_request:)
         branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository:,
                                             pull_request:)
@@ -202,9 +198,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
       it 'sends pending reaction if check run state is different from success or failure' do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
-        user = FactoryBot.create(:user, slack: 'rheniery.mendes')
         pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository:,
-                                                        slack_message:, user:, state: 'open', head: 'Rheniery-patch-9')
+                                                        slack_message:,  state: 'open', head: 'Rheniery-patch-9')
         FactoryBot.create(:commit, sha: '1', pull_request:)
         branch = FactoryBot.create(:branch, name: 'Rheniery-patch-9', repository:,
                                             pull_request:)
@@ -226,9 +221,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         VCR.use_cassette('flows#check-run#create-check-run-data') do
           repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          user = FactoryBot.create(:user, slack: 'rheniery.mendes')
           pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository:,
-                                                          slack_message:, user:, state: 'open', head: 'Rheniery-patch-9')
+                                                          slack_message:, state: 'open', head: 'Rheniery-patch-9')
           FactoryBot.create(:commit, sha: '1', pull_request:)
 
           flow = described_class.new(valid_json)
@@ -351,9 +345,8 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         VCR.use_cassette('flows#check-run#azure-create-check-run-data') do
           repository = FactoryBot.create(:repository, name: 'ay-pia-web', owner: 'Avant')
           slack_message = FactoryBot.create(:slack_message, ts: '123')
-          user = FactoryBot.create(:user, slack: 'rheniery.mendes')
           pull_request = FactoryBot.create(:pull_request, source_control_id: 1, repository:,
-                                                          slack_message:, user:, state: 'open', head: 'update/new-charts-styles')
+                                                          slack_message:, state: 'open', head: 'update/new-charts-styles')
           FactoryBot.create(:commit, sha: '1', pull_request:)
 
           flow = described_class.new(valid_json)

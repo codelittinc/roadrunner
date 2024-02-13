@@ -6,11 +6,7 @@ module Flows
       slack_message_ts = pull_request.slack_message.ts
       slack_channel = pull_request.repository.slack_repository_info.dev_channel
 
-      users = mentions.map { |mention| User.search_by_term(mention).first }.compact
-
-      backstage_users_without_dups = backstage_users.reject { |backstage_user| users.map(&:slack).include?(backstage_user.slack) }
-
-      [backstage_users_without_dups, users].flatten.each do |user|
+      backstage_users.flatten.each do |user|
         message = Messages::GenericBuilder.new_direct_message(user)
         Clients::Notifications::Channel.new(customer).send(message, slack_channel, slack_message_ts)
       end
