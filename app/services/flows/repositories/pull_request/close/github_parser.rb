@@ -15,7 +15,7 @@ module Flows
           end
 
           def can_parse?
-            @json && !!pull_request  && @json[:action] == 'closed'
+            @json && !!pull_request && @json[:action] == 'closed'
           end
 
           def new_pull_request_flow?
@@ -39,7 +39,6 @@ module Flows
             @username = @json.dig(:sender, :login).downcase
             @action = @json[:action]
           end
-
 
           def build_source(pull_request)
             GithubPullRequest.new(source_control_id:, pull_request:)

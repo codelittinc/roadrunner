@@ -23,7 +23,7 @@ module Flows
     end
 
     def pull_request_user
-      @pull_request_user ||= pull_request.user
+      Clients::Backstage::User.new.list(parser.username)&.first
     end
 
     def slack_username

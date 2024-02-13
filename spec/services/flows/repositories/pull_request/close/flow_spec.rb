@@ -11,6 +11,25 @@ RSpec.describe Flows::Repositories::PullRequest::Close::Flow, type: :service do
     end
   end
 
+  before do
+    client = double('client')
+    allow(Clients::Backstage::User).to receive(:new).and_return(client)
+    backstage_user = BackstageUser.new(
+      {
+        'id' => 123,
+        'email' => 'kaio@kaio.com',
+        'user_service_identifiers' => [
+          {
+            'identifier' => 'kaiomagalhaes',
+            'service_name' => 'slack'
+          }
+        ]
+      }
+    )
+
+    allow(client).to receive(:list).with('kaio.magalhaes@avisonyoung.onmicrosoft.com').and_return([backstage_user])
+    allow(client).to receive(:list).with('kaiomagalhaes').and_return([backstage_user])
+  end
   context 'Github JSON' do
     let(:valid_json) { load_flow_fixture('github_close_pull_request.json') }
     let(:cancelled_json) { load_flow_fixture('github_cancel_pull_request.json') }

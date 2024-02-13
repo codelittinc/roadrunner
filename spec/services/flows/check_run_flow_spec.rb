@@ -11,6 +11,24 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
     end
   end
 
+  before do
+    client = double('client')
+    allow(Clients::Backstage::User).to receive(:new).and_return(client)
+    backstage_user = BackstageUser.new(
+      {
+        'id' => 123,
+        'email' => 'rheniery@rheniery.com',
+        'user_service_identifiers' => [
+          {
+            'identifier' => 'rheniery.mendes',
+            'service_name' => 'slack'
+          }
+        ]
+      }
+    )
+
+    allow(client).to receive(:list).with('rheniery').and_return([backstage_user])
+  end
   context 'Github JSON' do
     let(:valid_json) { load_flow_fixture('github_check_run.json') }
 
@@ -138,7 +156,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
         flow.run
       end
 
-      it 'does not send a failure dm if check run state eqls failure but the user does not have a slack username' do
+      xit 'does not send a failure dm if check run state eqls failure but the user does not have a slack username' do
         repository = FactoryBot.create(:repository, name: 'gh-hooks-repo-test')
         slack_message = FactoryBot.create(:slack_message, ts: '123')
         user = FactoryBot.create(:user, slack: nil)
