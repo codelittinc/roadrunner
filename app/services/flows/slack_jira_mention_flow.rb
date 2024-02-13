@@ -6,8 +6,8 @@ module Flows
 
     def execute
       mentions = comment.scan(REGEX).flatten
-      mentions.each do |mention|
-        user = User.find_by(jira: mention)
+      backstage_users = Clients::Backstage::User.new.list(mentions)
+      backstage_users.each do |user|
         message = "Hey there is a new mention for you on Jira https://codelitt.atlassian.net/browse/#{issue_key}"
 
         Clients::Notifications::Direct.new.send(

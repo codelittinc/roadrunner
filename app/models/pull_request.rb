@@ -32,7 +32,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class PullRequest < ApplicationRecord
-  belongs_to :user, optional: true
   belongs_to :repository
 
   has_many :commits, dependent: :destroy

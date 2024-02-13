@@ -8,8 +8,6 @@ module Flows
           def execute
             return unless pull_request_already_exists?
 
-            user.save unless user.persisted?
-
             @current_pull_request = create_pull_request!
 
             return unless @current_pull_request.persisted?
@@ -52,7 +50,6 @@ module Flows
               title: parser.title,
               description: parser.description,
               repository:,
-              user:,
               backstage_user_id:
             )
 
