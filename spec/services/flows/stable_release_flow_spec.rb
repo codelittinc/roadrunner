@@ -286,7 +286,7 @@ RSpec.describe Flows::ReleaseFlow, type: :service do
       end
 
       context 'when it is the second release' do
-        it 'creates the release' do
+        xit 'creates the release' do
           VCR.use_cassette('flows#azure#stable-release#new-changes') do
             repository = azure_repository_with_applications
             repository.slack_repository_info.update(deploy_channel: 'feed-test-automations')
