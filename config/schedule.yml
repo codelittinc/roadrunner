@@ -1,8 +1,3 @@
-jira:
-  cron: "0 22 * * *"
-  class: "JiraDataLoaderWorker"
-  queue: default
-
 ping_servers:
   cron: "* * * * *"
   class: "PingServersWorker"
@@ -11,11 +6,6 @@ ping_servers:
 remove_flows:
   cron: "0 * * * *"
   class: "RemoveFlowsWorker"
-  queue: default
-
-content_notion:
-  cron: "0 0 12 1 1"
-  class: "ContentNotionWorker"
   queue: default
 
 pull_request_comments:
