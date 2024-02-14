@@ -17,7 +17,8 @@ class ApplicationsController < ApplicationController
     @application = @repository.applications.build(application_params)
 
     if @application.save
-      render json: @application.as_json(include: :server), status: :created, location: repository_application_url(@repository, @application)
+      render json: @application.as_json(include: :server), status: :created,
+             location: repository_application_url(@repository, @application)
     else
       render json: @application.errors, status: :unprocessable_entity
     end
@@ -54,6 +55,7 @@ class ApplicationsController < ApplicationController
   end
 
   def application_params
-    params.require(:application).permit(:environment, :repository_id, server_attributes: %i[id link supports_health_check active environment], external_identifiers_attributes: %i[id text])
+    params.require(:application).permit(:environment, :repository_id,
+                                        server_attributes: %i[id link supports_health_check active environment], external_identifiers_attributes: %i[id text])
   end
 end

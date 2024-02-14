@@ -13,7 +13,9 @@ class PullRequestsController < ApplicationController
       pull_requests = pull_requests.where(state:) if state
 
       project_id = params[:project_id]
-      pull_requests = pull_requests.joins(:repository).where(repository: { external_project_id: project_id }) if project_id
+      if project_id
+        pull_requests = pull_requests.joins(:repository).where(repository: { external_project_id: project_id })
+      end
 
       backstage_user_id = params[:user_id]
       pull_requests = pull_requests.where(backstage_user_id:) if backstage_user_id

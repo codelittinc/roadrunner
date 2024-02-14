@@ -14,7 +14,7 @@ class Request
   end
 
   def self.post(url, authorization, body)
-    use_ssl = url.match?(/^https/)
+    url.match?(/^https/)
     uri = URI.parse(clean_url(url))
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = use_ssl?(url)
@@ -24,7 +24,7 @@ class Request
     request['Authorization'] = authorization
     request['Accept'] = 'application/json'
 
-    response = http.request(request)
+    http.request(request)
   end
 
   def self.patch(url, authorization, body)
@@ -37,7 +37,7 @@ class Request
     request['Authorization'] = authorization
     request['Accept'] = 'application/json'
 
-    response = http.request(request)
+    http.request(request)
   end
 
   def self.use_ssl?(url)
