@@ -61,7 +61,7 @@ gem 'pg_search'
 gem 'state_machines'
 gem 'state_machines-activerecord'
 
-gem 'octokit'
+gem 'octokit', '6.0.1'
 # Use Sass to process CSS
 gem 'sassc-rails'
 
