@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :projects
   resources :pull_requests, only: %i[index show]
   resources :code_comments, only: %i[index]
-  resources :organizations
   resources :repositories do
     resources :applications
   end
