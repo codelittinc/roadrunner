@@ -3,7 +3,7 @@
 module Flows
   class JiraUpdateIssueFlow < BaseFlow
     def execute
-      update_status = Clients::Jira::Issue.new.update_status(issue_key, status_name)
+      Clients::Jira::Issue.new.update_status(issue_key, status_name)
 
       message = "#{issue_key} was moved to *#{status_name.upcase}*"
 

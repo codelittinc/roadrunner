@@ -11,7 +11,9 @@ RSpec.describe Flows::Repositories::PullRequest::Create::Flow, type: :service do
   before do
     client = double('client')
     allow(Clients::Backstage::User).to receive(:new).and_return(client)
-    allow(client).to receive(:list).with('kaio.magalhaes@avisonyoung.onmicrosoft.com').and_return([BackstageUser.new({ 'id' => 123, 'email' => 'kaio@kaio.com' })])
+    allow(client).to receive(:list).with('kaio.magalhaes@avisonyoung.onmicrosoft.com').and_return([BackstageUser.new({
+                                                                                                                       'id' => 123, 'email' => 'kaio@kaio.com'
+                                                                                                                     })])
     allow(client).to receive(:list).with('kaiomagalhaes').and_return([BackstageUser.new({ 'id' => 123 })])
   end
 

@@ -37,7 +37,8 @@ module Flows
             @environment = @words.last
             @customer = @repository.mesh_project.customer
             @repository = Repository.by_name(@repository_name).first
-            @release_message = Messages::ReleaseBuilder.notify_release_action(RELEASE_ACTION, @environment, @user_name, @repository_name)
+            @release_message = Messages::ReleaseBuilder.notify_release_action(RELEASE_ACTION, @environment, @user_name,
+                                                                              @repository_name)
           end
         end
       end
