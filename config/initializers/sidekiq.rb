@@ -13,11 +13,13 @@ Sidekiq.configure_server do |config|
   end
 
   config.error_handlers << proc do |ex, ctx_hash, _cfg|
-    job = ctx_hash[:job]['class']
-    args = ctx_hash[:job]['args']
+    if Rails.env.production?
+      job = ctx_hash[:job]['class']
+      args = ctx_hash[:job]['args']
 
-    message = "There was an error with the job: #{job} with arguments: #{args.join(',')}.\nThe error message is: #{ex}"
-    RubyNotificationsClient::Channel.new.send(message, ENV.fetch('ERROR_NOTIFICATION_CHANNEL', nil))
+      message = "There was an error with the job: #{job} with arguments: #{args.join(',')}.\nThe error message is: #{ex}"
+      RubyNotificationsClient::Channel.new.send(message, ENV.fetch('ERROR_NOTIFICATION_CHANNEL', nil))
+    end
   end
 end
 
