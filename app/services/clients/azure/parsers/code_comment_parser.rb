@@ -4,7 +4,7 @@ module Clients
   module Azure
     module Parsers
       class CodeCommentParser < ClientParser
-        attr_reader :pull_request_source_control_id, :comment, :author, :published_at
+        attr_reader :pull_request_source_control_id, :comment, :author, :published_at, :author_name
 
         def initialize(json, pull_request)
           @pull_request = pull_request
