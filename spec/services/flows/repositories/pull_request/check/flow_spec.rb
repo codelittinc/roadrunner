@@ -4,7 +4,7 @@ require 'rails_helper'
 require 'external_api_helper'
 require 'flows_helper'
 
-RSpec.describe Flows::CheckRunFlow, type: :service do
+RSpec.describe Flows::Repositories::PullRequest::Check::Flow, type: :service do
   around do |example|
     ClimateControl.modify NOTIFICATIONS_API_URL: 'https://api.notifications.codelitt.dev' do
       example.run
@@ -29,6 +29,7 @@ RSpec.describe Flows::CheckRunFlow, type: :service do
 
     allow(client).to receive(:list).with('rheniery').and_return([backstage_user])
   end
+
   context 'Github JSON' do
     let(:valid_json) { load_flow_fixture('github_check_run.json') }
 
