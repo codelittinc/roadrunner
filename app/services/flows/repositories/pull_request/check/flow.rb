@@ -14,7 +14,6 @@ module Flows
               CheckRun.create(commit_sha:, state:, branch:)
             rescue StandardError => e
               throw e
-              return
             end
 
             return unless pull_request

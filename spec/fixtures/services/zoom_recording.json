@@ -1,0 +1,41 @@
+{
+  "payload": {
+    "account_id": "H1uykuBMTxmWRclAI16dTw",
+    "object": {
+      "uuid": "9ORc0XcdSdGBsQdLgtblMw==",
+      "id": 5258943038,
+      "account_id": "H1uykuBMTxmWRclAI16dTw",
+      "host_id": "v97C8N4cS9ySeSJuf1wM3w",
+      "topic": "Codelitt Inc.'s Personal Meeting Room",
+      "type": 4,
+      "start_time": "2024-05-30T19:00:36Z",
+      "timezone": "America/New_York",
+      "host_email": "executive-admin@codelitt.com",
+      "duration": 0,
+      "total_size": 274699,
+      "recording_count": 1,
+      "share_url": "https://us02web.zoom.us/rec/share/te6e45Jro9rFTG3Ul9EpfJ1lpGb2ucmiGxFiQtZ9Igp1XZgt--6Fpct6qBpjWNOg.tUQUQeT8CObTB4Eh",
+      "recording_files": [
+        {
+          "id": "9dd4d8ac-bb03-4909-93aa-a52bb04ecbe3",
+          "meeting_id": "9ORc0XcdSdGBsQdLgtblMw==",
+          "recording_start": "2024-05-30T19:00:42Z",
+          "recording_end": "2024-05-30T19:00:57Z",
+          "file_type": "MP4",
+          "file_extension": "MP4",
+          "file_size": 274699,
+          "play_url": "https://us02web.zoom.us/rec/play/EIpRhKI1tN1H7hb9ITtTrp3c9rLyooKwZzSU0HC7HDHUOQx0Rrn8lDhSdzr5wgLFHgUI0B4x_oAQ-dDb.OG2SNaOJR3MnRgUX",
+          "download_url": "https://us02web.zoom.us/rec/webhook_download/EIpRhKI1tN1H7hb9ITtTrp3c9rLyooKwZzSU0HC7HDHUOQx0Rrn8lDhSdzr5wgLFHgUI0B4x_oAQ-dDb.OG2SNaOJR3MnRgUX/8TWGYR-IJM7SCy199C5ek9Pz6Zw8J7o6zGSHQr-e7ArMcY4-9pArUGKoL04YHiK9UQ.AkZru0NmTIsESGBW",
+          "status": "completed",
+          "recording_type": "active_speaker"
+        }
+      ],
+      "password": "m9*wx7M3",
+      "recording_play_passcode": "G1CGo_K80w4WgqiB_DbeWQr-VCpqEWXm",
+      "on_prem": false
+    }
+  },
+  "event_ts": 1717096600130,
+  "event": "recording.completed",
+  "download_token": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJodHRwczovL2V2ZW50Lnpvb20udXMiLCJhY2NvdW50SWQiOiJIMXV5a3VCTVR4bVdSY2xBSTE2ZFR3IiwiYXVkIjoiaHR0cHM6Ly9vYXV0aC56b29tLnVzIiwibWlkIjoiOU9SYzBYY2RTZEdCc1FkTGd0YmxNdz09IiwiZXhwIjoxNzE3MTgzMDE0LCJ1c2VySWQiOiJ2OTdDOE40Y1M5eVNlU0p1ZjF3TTN3In0.dEX133NYnUw6H4TB1YNpZdd-wmditV9fTJDFIM2KWiqftI7BveVrKN6mopyYGi_WYaLOhCgQZjmObLNmEv-gcQ"
+}
