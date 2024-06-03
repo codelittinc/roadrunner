@@ -12,7 +12,8 @@ module Flows
         return unless response.code.to_i == 200
 
         file_content = response.body
-        client.send_to_zapier(file_content, "#{parser.name}.mp4")
+        formatted_name = "#{Time.zone.now.strftime('%m/%d/%Y')} - #{parser.name}.mp4"
+        client.send_to_zapier(file_content, formatted_name)
       end
 
       def can_execute?
