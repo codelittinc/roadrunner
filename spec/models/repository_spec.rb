@@ -12,6 +12,7 @@
 #  jira_project                        :string
 #  name                                :string
 #  owner                               :string
+#  pull_request_path_filter            :string
 #  slug                                :string
 #  source_control_type                 :string
 #  supports_deploy                     :boolean
