@@ -26,6 +26,10 @@ module Flows
             (event_type == 'git.pullrequest.merged' || event_type == 'git.pullrequest.updated') && (@status == 'completed' || @status == 'abandoned')
           end
 
+          def changes_in_path(repository)
+            Clients::Azure::PullRequest.new.changes(repository, source_control_id)
+          end
+
           def parse!
             parse_check_run! if check_run
 

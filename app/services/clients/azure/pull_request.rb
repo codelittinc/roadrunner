@@ -22,6 +22,14 @@ module Clients
         end.compact
       end
 
+      def changes(repository, source_control_id)
+        url = "#{azure_url(repository)}git/repositories/#{repository.name}/pullrequests/#{source_control_id}/iterations/1/changes?api-version=6.0"
+        changes = Request.get(url, authorization(repository))
+        changes['changeEntries'].map do |change|
+          Clients::Azure::Parsers::ChangeParser.new(change)
+        end
+      end
+
       def list_commits(repository, source_control_id)
         url = "#{azure_url(repository)}git/repositories/#{repository.name}/pullrequests/#{source_control_id}?api-version=6.0&includeCommits=true"
         response = Request.get(url, authorization(repository))

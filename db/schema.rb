@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_13_153210) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_13_194317) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -273,6 +273,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_13_153210) do
     t.string "slug"
     t.integer "external_project_id"
     t.integer "backstage_user_id"
+    t.string "pull_request_path_filter"
     t.index ["project_id"], name: "index_repositories_on_project_id"
     t.index ["slug"], name: "index_repositories_on_slug", unique: true
   end

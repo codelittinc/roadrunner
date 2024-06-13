@@ -7,6 +7,7 @@ module Flows
         class Flow < BaseSourceControlFlow
           def execute
             return unless pull_request_already_exists?
+            return unless meaninful_changes?
 
             @current_pull_request = create_pull_request!
 
@@ -31,6 +32,13 @@ module Flows
           end
 
           private
+
+          def meaninful_changes?
+            return true if repository.pull_request_path_filter.blank?
+
+            changes = parser.changes_in_path(repository)
+            changes.any? { |change| change.path.include?(repository.pull_request_path_filter) }
+          end
 
           def pull_request_already_exists?
             pull_request.nil?
