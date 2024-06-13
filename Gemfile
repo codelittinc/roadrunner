@@ -94,9 +94,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
-group :production do
-  # Datadog APIs using Ruby client
-  gem 'datadog_api_client'
-  gem 'ddtrace', require: 'ddtrace/auto_instrument'
-end
