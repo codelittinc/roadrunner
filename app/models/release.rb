@@ -26,6 +26,6 @@ class Release < ApplicationRecord
 
   validates :version, presence: true
   validates :deploy_status, inclusion: {
-    in: ['success', 'failure', nil]
+    in: ['success', 'failure', 'started', nil]
   }
 end

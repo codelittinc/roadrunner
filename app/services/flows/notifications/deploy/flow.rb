@@ -8,12 +8,10 @@ module Flows
 
         def execute
           update_release_deploy_status!
+          message = custom_message? ? parser.message : default_message
 
-          Clients::Notifications::Channel.new(customer).send(
-            "The deploy of *#{repository.name}* to *#{[environment,
-                                                       deploy_type].compact.join(' - ')}* was finished with the status: #{status.capitalize}!",
-            channel
-          )
+          Clients::Notifications::Channel.new(customer).send(message,
+                                                             channel)
         end
 
         def can_execute?
@@ -23,6 +21,15 @@ module Flows
         end
 
         private
+
+        def custom_message?
+          !!parser.message
+        end
+
+        def default_message
+          "The deploy of *#{repository.name}* to *#{[environment,
+                                                     deploy_type].compact.join(' - ')}* was finished with the status: #{status.capitalize}!"
+        end
 
         def update_release_deploy_status!
           latest_release&.update(deploy_status: status)

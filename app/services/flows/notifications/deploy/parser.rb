@@ -7,7 +7,8 @@ module Flows
         attr_reader :environment,
                     :source,
                     :status,
-                    :deploy_type
+                    :deploy_type,
+                    :message
 
         def can_parse?
           @json[:deploy_type] == 'deploy-notification'
@@ -18,6 +19,7 @@ module Flows
           @source = @json[:host]
           @status = @json[:status] || 'success'
           @deploy_type = @json[:type]&.upcase
+          @message = @json[:message]
         end
       end
     end
