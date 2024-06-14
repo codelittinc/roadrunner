@@ -53,16 +53,16 @@ RSpec.describe Flows::Notifications::Deploy::Flow, type: :service do
         repository = FactoryBot.create(:repository, name: 'pia-web-mobile')
         FactoryBot.create(:application, :with_server, repository:, external_identifier: 'pia.web.com')
 
-        message = 'This is my custom message'
+        custom_message = 'This is my custom message'
         flow = described_class.new({
                                      deploy_type: 'deploy-notification',
                                      host: 'pia.web.com',
                                      env: 'prod',
-                                     message:
+                                     custom_message:
                                    })
 
         expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).with(
-          message,
+          custom_message,
           'feed-test-automations'
         )
         flow.run

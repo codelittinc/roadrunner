@@ -8,7 +8,7 @@ module Flows
                     :source,
                     :status,
                     :deploy_type,
-                    :message
+                    :custom_message
 
         def can_parse?
           @json[:deploy_type] == 'deploy-notification'
@@ -19,7 +19,7 @@ module Flows
           @source = @json[:host]
           @status = @json[:status] || 'success'
           @deploy_type = @json[:type]&.upcase
-          @message = @json[:message]
+          @custom_message = @json[:custom_message]
         end
       end
     end
