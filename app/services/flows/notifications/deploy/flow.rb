@@ -8,7 +8,7 @@ module Flows
 
         def execute
           update_release_deploy_status!
-          message = custom_message? ? parser.message : default_message
+          message = custom_message? ? parser.custom_message : default_message
 
           Clients::Notifications::Channel.new(customer).send(message,
                                                              channel)
@@ -23,7 +23,7 @@ module Flows
         private
 
         def custom_message?
-          !!parser.message
+          !!parser.custom_message
         end
 
         def default_message
