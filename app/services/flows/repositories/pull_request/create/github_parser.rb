@@ -19,7 +19,11 @@ module Flows
           end
 
           def new_pull_request_flow?
-            action == 'opened' || action == 'ready_for_review'
+            action == 'opened'
+          end
+
+          def update_pull_request_flow?
+            action == 'ready_for_review' || action == 'converted_to_draft'
           end
 
           def parse!

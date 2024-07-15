@@ -33,20 +33,11 @@ RSpec.describe Flows::Repositories::PullRequest::Create::Flow, type: :service do
           expect(flow.flow?).to be_truthy
         end
 
-        it 'when it has the ready_for_review action and does not exist the pull request in database' do
-          repository
-          github_valid_json_confirmed = github_valid_json.deep_dup
-          github_valid_json_confirmed[:number] = 1
-          github_valid_json_confirmed[:action] = 'ready_for_review'
-          flow = described_class.new(github_valid_json_confirmed)
-          expect(flow.flow?).to be_truthy
-        end
-
         it 'when it is a draft' do
           repository
           github_valid_json_confirmed = github_valid_json.deep_dup
           github_valid_json_confirmed[:number] = 1
-          github_valid_json_confirmed[:action] = 'ready_for_review'
+          github_valid_json_confirmed[:action] = 'opened'
           github_valid_json_confirmed[:pull_request][:draft] = true
           flow = described_class.new(github_valid_json_confirmed)
           expect(flow.flow?).to be_truthy
