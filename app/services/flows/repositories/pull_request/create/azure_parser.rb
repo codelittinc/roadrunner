@@ -18,8 +18,12 @@ module Flows
             Clients::Azure::PullRequest
           end
 
+          def update_pull_request_flow?
+            event_type == 'git.pullrequest.updated'
+          end
+
           def new_pull_request_flow?
-            event_type == 'git.pullrequest.created' || event_type == 'git.pullrequest.updated'
+            event_type == 'git.pullrequest.created'
           end
 
           def close_pull_request_flow?
