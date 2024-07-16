@@ -12,8 +12,3 @@ pull_request_comments:
   cron: "0 * * * *"
   class: "UpdatePullRequestsCommentsWorker"
   queue: default
-
-ping_afinium_servers:
-  cron: "*/5 * * * *"
-  class: "PingAfiniumServersWorker"
-  queue: default
