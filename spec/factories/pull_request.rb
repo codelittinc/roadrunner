@@ -8,6 +8,7 @@ FactoryBot.define do
     description { 'my nice PR' }
     repository
     slack_message
+    backstage_user_id { 123 }
 
     transient do
       source_control_id { 1 }

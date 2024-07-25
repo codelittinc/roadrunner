@@ -29,6 +29,7 @@ RSpec.describe Flows::Repositories::PullRequest::Close::Flow, type: :service do
 
     allow(client).to receive(:list).with('kaio.magalhaes@avisonyoung.onmicrosoft.com').and_return([backstage_user])
     allow(client).to receive(:list).with('kaiomagalhaes').and_return([backstage_user])
+    allow(client).to receive(:list).with(123).and_return([backstage_user])
   end
   context 'Github JSON' do
     let(:valid_json) { load_flow_fixture('github_close_pull_request.json') }
