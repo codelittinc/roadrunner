@@ -47,6 +47,10 @@ module Flows
             Clients::Notifications::Direct.new(customer).send(message, slack_username, true)
           end
 
+          def pull_request_user
+            Clients::Backstage::User.new.list(pull_request.backstage_user_id)&.first
+          end
+
           def close_pull_request_message
             Messages::PullRequestBuilder.close_pull_request_message(pull_request)
           end
