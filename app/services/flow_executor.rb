@@ -10,7 +10,7 @@ class FlowExecutor < ApplicationService
   def call
     flow = FlowBuilder.build(@flow_request)
     if flow
-      @flow_request.update(flow_name: flow.class.name)
+      @flow_request.update(flow_name: flow.class.name, parser_name: flow.parser.class.name)
       flow.run
       @flow_request.update(executed: true)
     else

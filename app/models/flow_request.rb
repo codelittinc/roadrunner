@@ -9,6 +9,7 @@
 #  executed      :boolean
 #  flow_name     :string
 #  json          :string
+#  parser_name   :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
