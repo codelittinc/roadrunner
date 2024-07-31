@@ -6,6 +6,17 @@ RSpec.describe FlowExecutor, type: :service do
   describe '#execute' do
     context 'when the is a result' do
       it 'executes the flow' do
+        flow_request = FlowRequest.create!(json: {
+          text: 'help',
+          user_name: 'rheniery.mendes'
+        }.to_json)
+
+        expect_any_instance_of(Flows::HelpSummaryFlow).to receive(:execute)
+
+        described_class.call(flow_request)
+      end
+
+      it 'updates the flow request with the flow and parser name' do
         flow_request_text = 'help'
         flow_request = FlowRequest.create!(json: {
           text: flow_request_text,
@@ -15,6 +26,11 @@ RSpec.describe FlowExecutor, type: :service do
         expect_any_instance_of(Flows::HelpSummaryFlow).to receive(:execute)
 
         described_class.call(flow_request)
+
+        flow_request.reload
+
+        expect(flow_request.flow_name).to eq('Flows::HelpSummaryFlow')
+        expect(flow_request.parser_name).to eq('Parsers::HelpSummaryParser')
       end
     end
 
@@ -26,7 +42,8 @@ RSpec.describe FlowExecutor, type: :service do
           user_name: 'rheniery.mendes'
         }.to_json)
 
-        allow_any_instance_of(Clients::Notifications::Direct).to receive(:send).and_raise(StandardError)
+        allow_any_instance_of(Clients::Notifications::Direct).to receive(:send).and_raise(StandardError.new)
+
         expect { described_class.call(flow_request) }.to raise_error(StandardError)
         expect(flow_request.reload.error_message).to match(/StandardError.*/)
       end

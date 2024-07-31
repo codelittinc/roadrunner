@@ -6,25 +6,11 @@ module Flows
       docs_link = 'https://bit.ly/33oZSkt'
       message = "Please check our documentation here #{docs_link}"
 
-      Clients::Notifications::Direct.new.send(message, user_name)
+      Clients::Notifications::Direct.new.send(message, parser.user_name)
     end
 
-    def flow?
-      text == 'help'
-    end
-
-    private
-
-    def user_name
-      @user_name ||= @params[:user_name]
-    end
-
-    def channel_name
-      @channel_name ||= @params[:channel_name]
-    end
-
-    def text
-      @text ||= @params[:text]
+    def can_execute?
+      parser.text == 'help'
     end
   end
 end
