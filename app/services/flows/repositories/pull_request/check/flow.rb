@@ -30,7 +30,7 @@ module Flows
 
             pull_request&.update(ci_state: state)
 
-            Clients::Notifications::Reactji.new(customer).send(reaction, channel, message.ts)
+            Clients::Notifications::Reactji.new(customer).send(reaction, channel, message.ts) if message&.ts
           end
 
           def can_execute?
