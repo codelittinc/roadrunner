@@ -7,7 +7,7 @@ module Flows
 
       change_pull_request_message = Messages::PullRequestBuilder.change_pull_request_message
 
-      message_ts = pull_request.slack_message.ts
+      message_ts = pull_request.slack_message&.ts
 
       return unless message_ts
 
