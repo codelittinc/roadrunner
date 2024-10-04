@@ -47,7 +47,7 @@ RSpec.describe Flows::Repositories::PullRequest::Update::Flow, type: :service do
       context 'when the existing pull request is a draft' do
         it 'updates the pull request draft field and sends a notification if it is ready for review' do
           repository
-          pull_request.update(draft: true)
+          pull_request.update(draft: true, slack_message: nil)
           expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
                                                                                                  'notification_id' => '123'
                                                                                                })
@@ -110,7 +110,7 @@ RSpec.describe Flows::Repositories::PullRequest::Update::Flow, type: :service do
       context 'when the existing pull request is a draft' do
         it 'updates the pull request draft field and sends a notification if it is ready for review' do
           repository
-          pull_request.update(draft: true)
+          pull_request.update(draft: true, slack_message: nil)
           expect_any_instance_of(Clients::Notifications::Channel).to receive(:send).and_return({
                                                                                                  'notification_id' => '123'
                                                                                                })
