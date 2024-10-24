@@ -3,7 +3,7 @@
 Sidekiq.configure_server do |config|
   config.redis = {
     url: ENV.fetch('REDIS_URL', nil),
-    size: 10
+    ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE }
   }
 
   config.on(:startup) do
@@ -26,6 +26,6 @@ end
 Sidekiq.configure_client do |config|
   config.redis = {
     url: ENV.fetch('REDIS_URL', nil),
-    size: 1
+    ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE }
   }
 end
