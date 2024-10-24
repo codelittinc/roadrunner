@@ -1,5 +1,5 @@
 rm latest.dump
-docker-compose up -d
+docker compose up -d
 docker stop roadrunner-api
 docker stop roadrunner-sidekiq
 heroku pg:backups:capture --app prod-roadrunner-api
