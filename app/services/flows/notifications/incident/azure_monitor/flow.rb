@@ -17,7 +17,7 @@ module Flows
           end
 
           def can_execute?
-            parser.can_parse?
+            @params[:schemaId] == 'azureMonitorCommonAlertSchema'
           end
         end
       end
