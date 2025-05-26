@@ -295,6 +295,8 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.1)
+    rss (0.3.1)
+      rexml
     rubocop (1.65.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -415,6 +417,7 @@ DEPENDENCIES
   ransack
   redis (~> 4.0)
   rspec-rails
+  rss
   rubocop-rails
   ruby-openai (~> 4.0)
   ruby_notifications_client!
