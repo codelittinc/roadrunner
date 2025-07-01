@@ -9,7 +9,7 @@ module Clients
       end
 
       def authorization
-        "Bearer #{@key}"
+        @key
       end
 
       def build_url(path)

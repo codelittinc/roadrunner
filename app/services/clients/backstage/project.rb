@@ -27,10 +27,18 @@ module Clients
       def show(id)
         return nil unless id
 
-        response = Request.get("#{@url}/projects/#{id}", authorization)
+        response = get_project(id)
 
         customer = CustomerMimic.new(response['customer'])
         ProjectMimic.new(response, customer)
+      end
+
+      def get_project(id)
+        uri = URI.parse(build_url("/projects/#{id}"))
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true
+        req = Net::HTTP::Get.new(uri.request_uri, { 'Project-Auth-Key' => authorization })
+        JSON.parse(http.request(req).body)
       end
     end
   end
